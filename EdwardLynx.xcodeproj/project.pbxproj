@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A9308BD31DED74B6007B4F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD21DED74B6007B4F9F /* main.m */; };
+		A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD51DED74B6007B4F9F /* AppDelegate.m */; };
+		A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BDA1DED74B6007B4F9F /* Main.storyboard */; };
+		A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */; };
+		A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE01DED74B6007B4F9F /* Assets.xcassets */; };
+		A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */; };
+		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
+		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9308BEB1DED74B6007B4F9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9308BC61DED74B5007B4F9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9308BCD1DED74B5007B4F9F;
+			remoteInfo = EdwardLynx;
+		};
+		A9308BF61DED74B6007B4F9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9308BC61DED74B5007B4F9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9308BCD1DED74B5007B4F9F;
+			remoteInfo = EdwardLynx;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
+		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9308BD51DED74B6007B4F9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9308BDB1DED74B6007B4F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9308BDE1DED74B6007B4F9F /* EdwardLynx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EdwardLynx.xcdatamodel; sourceTree = "<group>"; };
+		A9308BE01DED74B6007B4F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9308BE31DED74B6007B4F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9308BE51DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxTests.m; sourceTree = "<group>"; };
+		A9308BF01DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
+		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9308BCB1DED74B5007B4F9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BE71DED74B6007B4F9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BF21DED74B6007B4F9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1148D5BCEBE82BF1693B2C79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */,
+				2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1345C9CF6FA4D66B724F3ED2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9308BC51DED74B5007B4F9F = {
+			isa = PBXGroup;
+			children = (
+				A9308BD01DED74B6007B4F9F /* EdwardLynx */,
+				A9308BED1DED74B6007B4F9F /* EdwardLynxTests */,
+				A9308BF81DED74B6007B4F9F /* EdwardLynxUITests */,
+				A9308BCF1DED74B6007B4F9F /* Products */,
+				1148D5BCEBE82BF1693B2C79 /* Pods */,
+				1345C9CF6FA4D66B724F3ED2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9308BCF1DED74B6007B4F9F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */,
+				A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */,
+				A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9308BD01DED74B6007B4F9F /* EdwardLynx */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BD41DED74B6007B4F9F /* AppDelegate.h */,
+				A9308BD51DED74B6007B4F9F /* AppDelegate.m */,
+				A9308BE01DED74B6007B4F9F /* Assets.xcassets */,
+				A9308C071DED74E0007B4F9F /* Controllers */,
+				A9308C081DED7554007B4F9F /* Layouts */,
+				A9308C091DED7571007B4F9F /* Schema */,
+				A9308BD11DED74B6007B4F9F /* Supporting Files */,
+			);
+			path = EdwardLynx;
+			sourceTree = "<group>";
+		};
+		A9308BD11DED74B6007B4F9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BE51DED74B6007B4F9F /* Info.plist */,
+				A9308BD21DED74B6007B4F9F /* main.m */,
+				A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9308BED1DED74B6007B4F9F /* EdwardLynxTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */,
+				A9308BF01DED74B6007B4F9F /* Info.plist */,
+			);
+			path = EdwardLynxTests;
+			sourceTree = "<group>";
+		};
+		A9308BF81DED74B6007B4F9F /* EdwardLynxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */,
+				A9308BFB1DED74B6007B4F9F /* Info.plist */,
+			);
+			path = EdwardLynxUITests;
+			sourceTree = "<group>";
+		};
+		A9308C071DED74E0007B4F9F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A9308C081DED7554007B4F9F /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
+				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		A9308C091DED7571007B4F9F /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */,
+			);
+			name = Schema;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9308BCD1DED74B5007B4F9F /* EdwardLynx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynx" */;
+			buildPhases = (
+				59BB75771B83A01AB03C7CA2 /* [CP] Check Pods Manifest.lock */,
+				A9308BCA1DED74B5007B4F9F /* Sources */,
+				A9308BCB1DED74B5007B4F9F /* Frameworks */,
+				A9308BCC1DED74B5007B4F9F /* Resources */,
+				38697E15D1992B26C294B016 /* [CP] Embed Pods Frameworks */,
+				6A8DD73BD404DC873EDC16B2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EdwardLynx;
+			productName = EdwardLynx;
+			productReference = A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9308BE91DED74B6007B4F9F /* EdwardLynxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9308C011DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxTests" */;
+			buildPhases = (
+				A9308BE61DED74B6007B4F9F /* Sources */,
+				A9308BE71DED74B6007B4F9F /* Frameworks */,
+				A9308BE81DED74B6007B4F9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9308BEC1DED74B6007B4F9F /* PBXTargetDependency */,
+			);
+			name = EdwardLynxTests;
+			productName = EdwardLynxTests;
+			productReference = A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9308BF41DED74B6007B4F9F /* EdwardLynxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9308C041DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxUITests" */;
+			buildPhases = (
+				A9308BF11DED74B6007B4F9F /* Sources */,
+				A9308BF21DED74B6007B4F9F /* Frameworks */,
+				A9308BF31DED74B6007B4F9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9308BF71DED74B6007B4F9F /* PBXTargetDependency */,
+			);
+			name = EdwardLynxUITests;
+			productName = EdwardLynxUITests;
+			productReference = A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9308BC61DED74B5007B4F9F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Ingenuity Global Consulting";
+				TargetAttributes = {
+					A9308BCD1DED74B5007B4F9F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4XE8MVRXHY;
+						ProvisioningStyle = Automatic;
+					};
+					A9308BE91DED74B6007B4F9F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4XE8MVRXHY;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9308BCD1DED74B5007B4F9F;
+					};
+					A9308BF41DED74B6007B4F9F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4XE8MVRXHY;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9308BCD1DED74B5007B4F9F;
+					};
+				};
+			};
+			buildConfigurationList = A9308BC91DED74B5007B4F9F /* Build configuration list for PBXProject "EdwardLynx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9308BC51DED74B5007B4F9F;
+			productRefGroup = A9308BCF1DED74B6007B4F9F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9308BCD1DED74B5007B4F9F /* EdwardLynx */,
+				A9308BE91DED74B6007B4F9F /* EdwardLynxTests */,
+				A9308BF41DED74B6007B4F9F /* EdwardLynxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9308BCC1DED74B5007B4F9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
+				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
+				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BE81DED74B6007B4F9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BF31DED74B6007B4F9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38697E15D1992B26C294B016 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59BB75771B83A01AB03C7CA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A8DD73BD404DC873EDC16B2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9308BCA1DED74B5007B4F9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
+				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
+				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BE61DED74B6007B4F9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9308BF11DED74B6007B4F9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9308BEC1DED74B6007B4F9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9308BCD1DED74B5007B4F9F /* EdwardLynx */;
+			targetProxy = A9308BEB1DED74B6007B4F9F /* PBXContainerItemProxy */;
+		};
+		A9308BF71DED74B6007B4F9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9308BCD1DED74B5007B4F9F /* EdwardLynx */;
+			targetProxy = A9308BF61DED74B6007B4F9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9308BDA1DED74B6007B4F9F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9308BDB1DED74B6007B4F9F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9308BE31DED74B6007B4F9F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9308BFC1DED74B6007B4F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EdwardLynx/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9308BFD1DED74B6007B4F9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EdwardLynx/PrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9308BFF1DED74B6007B4F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A9308C001DED74B6007B4F9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A9308C021DED74B6007B4F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdwardLynx.app/EdwardLynx";
+			};
+			name = Debug;
+		};
+		A9308C031DED74B6007B4F9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdwardLynx.app/EdwardLynx";
+			};
+			name = Release;
+		};
+		A9308C051DED74B6007B4F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EdwardLynx;
+			};
+			name = Debug;
+		};
+		A9308C061DED74B6007B4F9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				INFOPLIST_FILE = EdwardLynxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EdwardLynx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9308BC91DED74B5007B4F9F /* Build configuration list for PBXProject "EdwardLynx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9308BFC1DED74B6007B4F9F /* Debug */,
+				A9308BFD1DED74B6007B4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9308BFF1DED74B6007B4F9F /* Debug */,
+				A9308C001DED74B6007B4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9308C011DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9308C021DED74B6007B4F9F /* Debug */,
+				A9308C031DED74B6007B4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9308C041DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9308C051DED74B6007B4F9F /* Debug */,
+				A9308C061DED74B6007B4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A9308BDE1DED74B6007B4F9F /* EdwardLynx.xcdatamodel */,
+			);
+			currentVersion = A9308BDE1DED74B6007B4F9F /* EdwardLynx.xcdatamodel */;
+			path = EdwardLynx.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A9308BC61DED74B5007B4F9F /* Project object */;
+}
