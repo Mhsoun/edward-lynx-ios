@@ -16,6 +16,7 @@
 		A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */; };
 		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
+		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
+		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,7 @@
 				A9308C081DED7554007B4F9F /* Layouts */,
 				A9308C091DED7571007B4F9F /* Schema */,
 				A9308BD11DED74B6007B4F9F /* Supporting Files */,
+				A968F1881DF7E53F0091997D /* Utils */,
 			);
 			path = EdwardLynx;
 			sourceTree = "<group>";
@@ -186,6 +190,15 @@
 				A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */,
 			);
 			name = Schema;
+			sourceTree = "<group>";
+		};
+		A968F1881DF7E53F0091997D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A94D102D1DF7E63000982E43 /* ELConstants.h */,
+				A94D102E1DF7E66700982E43 /* ELConstants.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +267,7 @@
 		A9308BC61DED74B5007B4F9F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EL;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Ingenuity Global Consulting";
 				TargetAttributes = {
@@ -391,6 +405,7 @@
 			files = (
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
+				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
