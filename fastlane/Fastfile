@@ -1,0 +1,178 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.111.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    ENV["APPLE_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:apple_id)
+    ENV["SLACK_URL"] = "<your Slack Hook URL here>"
+    ENV["DEV_TEAM_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    ENV["GIT_CERTS_URL"] = "<your repository URL for certificates>"
+    ENV["XCODE_PROJECT"] = "<your .xcodeproj here e.g. `Test.xcodeproj`>"    
+    ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    ENV["HOCKEYAPP_API_TOKEN"] = "<your HockeyApp API token here>"
+
+    ensure_git_status_clean
+  end
+
+  # Lanes
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Create needed certificates and upload to Bitbucket"
+  lane :certs do
+    match(
+      app_identifier: ENV["APP_IDENTIFIER"],
+      team_id: ENV["DEV_TEAM_ID"],
+      type: "<either `development`, `adhoc`, or `appstore`>",
+      git_url: ENV["GIT_CERTS_URL"]
+    )
+  end
+
+  desc "Submit a new Beta Build to HockeyApp"
+  lane :hockeyapp do |options|
+    build_for_hockeyapp(options[:scheme])
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+  # Private Lanes
+
+  desc "Format Slack message for notification"
+  private_lane :post_to_slack do |options|
+    scheme = options[:scheme]
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+    destination = options[:destination]
+    version_string = version_string(version, build)
+
+    slack(
+      message: "<!here|here>: New :ios: *#{version_string}* for `#{scheme}` has been submitted to *#{destination}* :rocket:",
+    )
+  end
+
+  # Methods
+
+  desc "Method to create/upload app entry to Apple Developer Portal"
+  def build_for_devportal()
+    produce(
+      username: ENV["APPLE_ID"],
+      team_id: ENV["DEV_TEAM_ID"],
+      app_identifier: ENV["APP_IDENTIFIER"],
+      app_name: "<your app name here>",
+      language: "English",
+      app_version: get_version_number(xcodeproj: ENV["XCODE_PROJECT"]),
+      sku: "SampleSKU"
+    )
+  end
+  
+  desc "Method to upload to HockeyApp"
+  def build_for_hockeyapp(scheme)
+    increment_build_number
+    gym(
+      scheme: scheme,
+      export_method: "development",
+      include_bitcode: false,
+      include_symbols: true
+    )
+    hockey(
+      api_token: ENV["HOCKEYAPP_API_TOKEN"],
+      notify: "<Notify testers? "1" for yes>",
+      status: "<Download status: "1" = No user can download; "2" = Available for download>",
+      notes: File.exist?("../Notes.md") ? File.read("../Notes.md") : change_log_since_last_tag
+    )
+
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+
+    # Notify thru Slack
+    # post_to_slack(scheme: scheme, destination: "HockeyApp")
+
+    # Clean directory
+    clean_build_artifacts
+
+    # Push version changes to repository
+    push_version_bump_to_repo(version_string(version, build))
+  end
+
+  desc "Method to generate Changelogs based on Git commits"
+  def change_log_since_last_tag
+    # http://git-scm.com/docs/pretty-formats
+    # <commit title>
+    return changelog_from_git_commits(
+      pretty: "%s",
+      include_merges: false
+    )
+  end
+
+  desc "Push changes to project's version to remote repository"
+  def push_version_bump_to_repo(version_string)
+    # https://developer.apple.com/library/content/qa/qa1827/_index.html
+    commit_version_bump(
+      message: "Version bump to #{version_string}"
+    )
+    # Pushes "master" branch to remote
+    # Options: https://docs.fastlane.tools/actions/#push_to_git_remote
+    push_to_git_remote
+  end
+
+  desc "Method to update version number upon call"
+  def update_version_number(bump_type)
+    increment_version_number(
+      bump_type: "<either `patch`, `minor`, or `major`>"
+    )
+  end
+
+  desc "Method to return project's version and build number as a formatted string"
+  def version_string(version_number, build_number)
+    "#{version_number} (#{build_number})"
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # Mac OS X Notification
+    notification(
+      subtitle: "Fastlane", 
+      message: "Finished '#{lane}' successfully"
+    )
+  end
+
+  error do |lane, exception|
+    # Mac OS X Notification
+    notification(
+      subtitle: "Fastlane", 
+      message: "Encountered errors executing '#{lane}': #{exception.message}"
+    )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
