@@ -39,7 +39,7 @@
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
-		A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9308BD51DED74B6007B4F9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		A9308BCF1DED74B6007B4F9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */,
+				A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */,
 				A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */,
 				A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */,
 			);
@@ -201,6 +201,7 @@
 				A9308BCC1DED74B5007B4F9F /* Resources */,
 				38697E15D1992B26C294B016 /* [CP] Embed Pods Frameworks */,
 				6A8DD73BD404DC873EDC16B2 /* [CP] Copy Pods Resources */,
+				A968F1871DF7A4FF0091997D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -208,7 +209,7 @@
 			);
 			name = EdwardLynx;
 			productName = EdwardLynx;
-			productReference = A9308BCE1DED74B6007B4F9F /* EdwardLynx.app */;
+			productReference = A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A9308BE91DED74B6007B4F9F /* EdwardLynxTests */ = {
@@ -367,6 +368,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A968F1871DF7A4FF0091997D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7c67a5365060930052205dfdf95102678ef19047 5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -535,7 +549,7 @@
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Edward Lynx";
 			};
 			name = Debug;
 		};
@@ -548,7 +562,7 @@
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Edward Lynx";
 			};
 			name = Release;
 		};
