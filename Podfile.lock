@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
   - MTDates (1.0.3)
@@ -22,20 +24,22 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
+  - Crashlytics
   - DZNEmptyDataSet (~> 1.8)
-  - Fabric (~> 1.6)
+  - Fabric
   - MTDates (~> 1.0)
   - SASlideMenu (~> 2.0)
   - XLForm (~> 3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
   XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
 
-PODFILE CHECKSUM: aca5fcff345d1f7f5bd1d90ad721507b4b419e24
+PODFILE CHECKSUM: 3f2c4d89d111257b834abe5ba922f22e1175c0d5
 
 COCOAPODS: 1.0.1
