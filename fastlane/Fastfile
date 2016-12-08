@@ -21,9 +21,9 @@ platform :ios do
     ENV["SLACK_URL"] = "<your Slack Hook URL here>"
     ENV["DEV_TEAM_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
     ENV["GIT_CERTS_URL"] = "<your repository URL for certificates>"
-    ENV["XCODE_PROJECT"] = "<your .xcodeproj here e.g. `Test.xcodeproj`>"    
+    ENV["XCODE_PROJECT"] = "EdwardLynx.xcworkspace"    
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
-    ENV["HOCKEYAPP_API_TOKEN"] = "<your HockeyApp API token here>"
+    ENV["HOCKEYAPP_API_TOKEN"] = "364498ffcf3c4552b382d28dcc2eafc8"
 
     ensure_git_status_clean
   end
