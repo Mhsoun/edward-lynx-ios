@@ -9,7 +9,11 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
-extern NSString * const kIAPITokenPlistKey;
-extern NSString * const kIHockeyAppPlistKey;
+extern NSString * const kELAPITokenPlistKey;
+extern NSString * const kELHockeyAppPlistKey;
+
+extern NSString * const kELFabricUsername;
+extern NSString * const kELFabricEmail;
+extern NSString * const kELFabricIdentifier;
 
 #endif /* ELConstants_h */

@@ -17,6 +17,8 @@
 		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
+		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
+		A9B36AAC1DFE5E4F00599909 /* ELViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
 		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
+		A9B36AA71DFE54A300599909 /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
+		A9B36AA81DFE54A300599909 /* ELUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUtils.m; sourceTree = "<group>"; };
+		A9B36AAA1DFE5E4F00599909 /* ELViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELViewController.h; sourceTree = "<group>"; };
+		A9B36AAB1DFE5E4F00599909 /* ELViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,8 @@
 		A9308C071DED74E0007B4F9F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9B36AAA1DFE5E4F00599909 /* ELViewController.h */,
+				A9B36AAB1DFE5E4F00599909 /* ELViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +205,8 @@
 			children = (
 				A94D102D1DF7E63000982E43 /* ELConstants.h */,
 				A94D102E1DF7E66700982E43 /* ELConstants.m */,
+				A9B36AA71DFE54A300599909 /* ELUtils.h */,
+				A9B36AA81DFE54A300599909 /* ELUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -403,8 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
+				A9B36AAC1DFE5E4F00599909 /* ELViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 			);

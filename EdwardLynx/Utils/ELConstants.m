@@ -8,5 +8,9 @@
 
 #import "ELConstants.h"
 
-NSString * const kIAPITokenPlistKey = @"APIKey";
-NSString * const kIHockeyAppPlistKey = @"HockeyApp";
+NSString * const kELAPITokenPlistKey = @"APIKey";
+NSString * const kELHockeyAppPlistKey = @"HockeyApp";
+
+NSString * const kELFabricUsername = @"FabricUsername";
+NSString * const kELFabricEmail = @"FabricUsername";
+NSString * const kELFabricIdentifier = @"FabricUsername";
