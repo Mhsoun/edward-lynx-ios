@@ -23,6 +23,10 @@
     [[Crashlytics sharedInstance] setUserIdentifier:infoDict[kELFabricIdentifier]];
 }
 
++ (id)getUserDefaultValueForKey:(NSString *)key {
+    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+}
+
 #pragma mark - Third-party Packages Setup
 
 + (void)setupFabric {

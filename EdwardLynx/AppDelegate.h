@@ -16,7 +16,7 @@
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 - (void)saveContext;
-
+- (UIViewController *)visibleViewController:(UIViewController *)rootViewController;
 
 @end
 

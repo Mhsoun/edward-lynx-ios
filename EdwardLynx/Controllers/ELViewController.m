@@ -7,6 +7,7 @@
 //
 
 #import "ELViewController.h"
+#import "ELAPIClient.h"
 
 @interface ELViewController ()
 
