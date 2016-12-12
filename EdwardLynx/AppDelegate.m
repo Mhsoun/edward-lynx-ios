@@ -19,8 +19,8 @@
     // Override point for customization after application launch.
     
     // Setup Fabric
-    [Fabric with:@[[Crashlytics class]]];
-    
+    [ELUtils setupFabric];
+        
     return YES;
 }
 
