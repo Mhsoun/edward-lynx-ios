@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ELViewController : UIViewController
 
 @end

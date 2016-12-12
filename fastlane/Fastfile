@@ -24,6 +24,8 @@ platform :ios do
     ENV["XCODE_PROJECT"] = "EdwardLynx.xcworkspace"    
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     ENV["HOCKEYAPP_API_TOKEN"] = "364498ffcf3c4552b382d28dcc2eafc8"
+    ENV["CRASHLYTICS_API_TOKEN"] = "7c67a5365060930052205dfdf95102678ef19047"
+    ENV["CRASHLYTICS_BUILD_SECRET"] = "5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672"
 
     ensure_git_status_clean
   end
@@ -40,9 +42,14 @@ platform :ios do
     match(
       app_identifier: ENV["APP_IDENTIFIER"],
       team_id: ENV["DEV_TEAM_ID"],
-      type: "<either `development`, `adhoc`, or `appstore`>",
+      type: "development",
       git_url: ENV["GIT_CERTS_URL"]
     )
+  end
+
+  desc "Submit a new Beta Build to CrashLytics"
+  lane :crashlytics do |options|
+    build_for_crashlytics()
   end
 
   desc "Submit a new Beta Build to HockeyApp"
@@ -76,6 +83,40 @@ platform :ios do
 
   # Methods
 
+  desc "Method to upload to Crashlytics"
+  def build_for_crashlytics()
+    # Fabric generated this lane for deployment to Crashlytics Beta
+    # set 'export_method' to 'ad-hoc' if your Crashlytics Beta distribution uses ad-hoc provisioning
+    gym(
+      scheme: "EdwardLynx", 
+      export_method: "development"
+    )
+
+    emails = ["mobile@ingenuity.ph"] # You can list more emails here
+    groups = nil # You can define groups on the web and reference them here
+
+    crashlytics(
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+      build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
+      emails: emails,
+      groups: groups,
+      notes: "Distributed with fastlane", # Check out the changelog_from_git_commits action
+      notifications: true
+    ) # Should this distribution notify your testers via email?
+
+    # Clean directory
+    clean_build_artifacts
+
+    # for all available options run `fastlane action crashlytics`
+
+    # You can notify your team in chat that a beta build has been uploaded
+    # slack(
+    #   slack_url: "https://hooks.slack.com/services/YOUR/TEAM/INFO"
+    #   channel: "beta-releases",
+    #   message: "Successfully uploaded a beta release - see it at https://fabric.io/_/beta"
+    # )
+  end
+
   desc "Method to create/upload app entry to Apple Developer Portal"
   def build_for_devportal()
     produce(
@@ -100,8 +141,8 @@ platform :ios do
     )
     hockey(
       api_token: ENV["HOCKEYAPP_API_TOKEN"],
-      notify: "<Notify testers? "1" for yes>",
-      status: "<Download status: "1" = No user can download; "2" = Available for download>",
+      notify: "1",
+      status: "2",
       notes: File.exist?("../Notes.md") ? File.read("../Notes.md") : change_log_since_last_tag
     )
 

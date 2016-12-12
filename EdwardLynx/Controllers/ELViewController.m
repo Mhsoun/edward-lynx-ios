@@ -17,11 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"ViewController");
-    
-    // NOTE Force crash
-    [ELUtils fabricForceCrash];
 }
 
 - (void)didReceiveMemoryWarning {
