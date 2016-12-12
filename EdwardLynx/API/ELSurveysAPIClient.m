@@ -43,7 +43,7 @@
 
 - (void)userSurveyForId:(int64_t)surveyId
              completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:[NSString stringWithFormat:kELAPISurveyDetailsEndpoint, @(surveyId)]
+    NSMutableURLRequest *request = [super requestFor:[NSString stringWithFormat:kELAPISurveyEndpoint, @(surveyId)]
                                               method:kELAPIGetHTTPMethod];
     
     [super performAuthenticatedTask:YES

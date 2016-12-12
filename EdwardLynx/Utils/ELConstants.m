@@ -24,10 +24,11 @@ NSString * const kELFabricUsername = @"FabricUsername";
 
 NSString * const kELAPIRootEndpoint = @"[API_URL]/api/v1";
 NSString * const kELAPIQuestionCategoriesEndpoint = @"/question_categories";
+NSString * const kELAPIQuestionCategoryEndpoint = @"/question_categories/%@";
 NSString * const kELAPIQuestionsEndpoint = @"/questions";
-NSString * const kELAPIQuestionDetailsEndpoint = @"/questions/%@";
+NSString * const kELAPIQuestionEndpoint = @"/questions/%@";
 NSString * const kELAPISurveysEndpoint = @"/surveys";
-NSString * const kELAPISurveyDetailsEndpoint = @"/surveys/%@";
+NSString * const kELAPISurveyEndpoint = @"/surveys/%@";
 NSString * const kELAPIUserEndpoint = @"/user";
 NSString * const kELAPILoginEndpoint = @"/user/login";
 
