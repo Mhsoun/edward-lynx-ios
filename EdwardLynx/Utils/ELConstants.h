@@ -26,6 +26,7 @@ extern NSString * const kELFabricUsername;
 extern NSString * const kELAPIRootEndpoint;
 extern NSString * const kELAPIQuestionCategoriesEndpoint;
 extern NSString * const kELAPIQuestionsEndpoint;
+extern NSString * const kELAPIQuestionDetailsEndpoint;
 extern NSString * const kELAPISurveysEndpoint;
 extern NSString * const kELAPISurveyDetailsEndpoint;
 extern NSString * const kELAPIUserEndpoint;
