@@ -9,11 +9,46 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
+#pragma mark - .plist Keys
+
 extern NSString * const kELAPITokenPlistKey;
 extern NSString * const kELHockeyAppPlistKey;
 
-extern NSString * const kELFabricUsername;
+#pragma mark - Constants
+
+extern NSString * const kELErrorDomain;
 extern NSString * const kELFabricEmail;
 extern NSString * const kELFabricIdentifier;
+extern NSString * const kELFabricUsername;
+
+#pragma mark - Endpoints
+
+extern NSString * const kELAPIRootEndpoint;
+extern NSString * const kELAPIQuestionCategoriesEndpoint;
+extern NSString * const kELAPIQuestionsEndpoint;
+extern NSString * const kELAPISurveysEndpoint;
+extern NSString * const kELAPIUserEndpoint;
+extern NSString * const kELAPILoginEndpoint;
+
+#pragma mark - HTTP Methods
+
+extern NSString * const kELAPIDeleteHTTPMethod;
+extern NSString * const kELAPIGetHTTPMethod;
+extern NSString * const kELAPIPatchHTTPMethod;
+extern NSString * const kELAPIPostHTTPMethod;
+extern NSString * const kELAPIPutHTTPMethod;
+
+#pragma mark - NSUserDefaults Keys
+
+extern NSString * const kELAuthHeaderUserDefaultsKey;
+
+#pragma mark - Status Codes
+
+extern NSInteger const kELAPIOKStatusCode;
+extern NSInteger const kELAPICreatedStatusCode;
+extern NSInteger const kELAPINoContentStatusCode;
+extern NSInteger const kELAPIBadRequestStatusCode;
+extern NSInteger const kELAPIUnauthorizedStatusCode;
+extern NSInteger const kELAPINotFoundStatusCode;
 
 #endif /* ELConstants_h */

@@ -13,6 +13,7 @@
 
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
++ (id)getUserDefaultValueForKey:(NSString *)key;
 
 + (void)setupFabric;
 

@@ -19,6 +19,7 @@
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
 		A9B36AAC1DFE5E4F00599909 /* ELViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELViewController.m */; };
+		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		A9B36AA81DFE54A300599909 /* ELUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUtils.m; sourceTree = "<group>"; };
 		A9B36AAA1DFE5E4F00599909 /* ELViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELViewController.h; sourceTree = "<group>"; };
 		A9B36AAB1DFE5E4F00599909 /* ELViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELViewController.m; sourceTree = "<group>"; };
+		A9B36AAE1DFE749000599909 /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
+		A9B36AAF1DFE749000599909 /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 				A9308BD41DED74B6007B4F9F /* AppDelegate.h */,
 				A9308BD51DED74B6007B4F9F /* AppDelegate.m */,
 				A9308BE01DED74B6007B4F9F /* Assets.xcassets */,
+				A9B36AAD1DFE746700599909 /* API */,
 				A9308C071DED74E0007B4F9F /* Controllers */,
 				A9308C081DED7554007B4F9F /* Layouts */,
 				A9308C091DED7571007B4F9F /* Schema */,
@@ -209,6 +213,15 @@
 				A9B36AA81DFE54A300599909 /* ELUtils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A9B36AAD1DFE746700599909 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A9B36AAE1DFE749000599909 /* ELAPIClient.h */,
+				A9B36AAF1DFE749000599909 /* ELAPIClient.m */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +428,7 @@
 			files = (
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
+				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
