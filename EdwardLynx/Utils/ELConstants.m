@@ -26,6 +26,7 @@ NSString * const kELAPIRootEndpoint = @"[API_URL]/api/v1";
 NSString * const kELAPIQuestionCategoriesEndpoint = @"/question_categories";
 NSString * const kELAPIQuestionsEndpoint = @"/questions";
 NSString * const kELAPISurveysEndpoint = @"surveys";
+NSString * const kELAPISurveyDetailsEndpoint = @"surveys/%@";
 NSString * const kELAPIUserEndpoint = @"/user";
 NSString * const kELAPILoginEndpoint = @"/user/login";
 
