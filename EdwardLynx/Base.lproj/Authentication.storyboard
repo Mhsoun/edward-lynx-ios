@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oaj-fc-P69">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="oaj-fc-P69">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oaj-fc-P69" secondAttribute="height" multiplier="1:1" id="DU0-nl-HNG"/>
@@ -40,12 +40,12 @@
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy" customClass="RNThemeTextField">
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="blackColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-qv-0tg">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-qv-0tg">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cYW-qv-0tg" secondAttribute="height" multiplier="1:1" id="xdU-PK-0R0"/>
                                         </constraints>
@@ -55,12 +55,12 @@
                                 <constraints>
                                     <constraint firstItem="vhw-1P-ZZy" firstAttribute="leading" secondItem="yJB-1E-GBO" secondAttribute="leading" constant="10" id="Eix-ii-51Y"/>
                                     <constraint firstAttribute="height" constant="35" id="MWL-Ai-2v5"/>
-                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="top" id="NW9-CI-Dnu"/>
+                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="top" constant="5" id="NW9-CI-Dnu"/>
                                     <constraint firstItem="vhw-1P-ZZy" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="top" constant="5" id="Tz3-3P-Ycc"/>
-                                    <constraint firstAttribute="bottom" secondItem="cYW-qv-0tg" secondAttribute="bottom" id="h4N-r1-SIE"/>
+                                    <constraint firstAttribute="bottom" secondItem="cYW-qv-0tg" secondAttribute="bottom" constant="5" id="h4N-r1-SIE"/>
                                     <constraint firstAttribute="bottom" secondItem="vhw-1P-ZZy" secondAttribute="bottom" constant="5" id="i0p-a1-cyt"/>
-                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" id="pgE-WM-K8I"/>
-                                    <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" id="sv8-g7-qlJ"/>
+                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="10" id="pgE-WM-K8I"/>
+                                    <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" constant="10" id="sv8-g7-qlJ"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-UQ-IPT" userLabel="Password View">
@@ -68,12 +68,12 @@
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-H6-4Zt" customClass="RNThemeTextField">
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="blackColor"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KJh-Oa-Pda">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock" translatesAutoresizingMaskIntoConstraints="NO" id="KJh-Oa-Pda">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KJh-Oa-Pda" secondAttribute="height" multiplier="1:1" id="uFi-Da-IFC"/>
                                         </constraints>
@@ -83,11 +83,11 @@
                                 <constraints>
                                     <constraint firstItem="1hR-H6-4Zt" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="top" constant="5" id="8HQ-ZR-KlO"/>
                                     <constraint firstItem="1hR-H6-4Zt" firstAttribute="leading" secondItem="5Kh-UQ-IPT" secondAttribute="leading" constant="10" id="IRX-IK-SSh"/>
-                                    <constraint firstAttribute="bottom" secondItem="KJh-Oa-Pda" secondAttribute="bottom" id="W9V-Su-juf"/>
+                                    <constraint firstAttribute="bottom" secondItem="KJh-Oa-Pda" secondAttribute="bottom" constant="5" id="W9V-Su-juf"/>
                                     <constraint firstAttribute="bottom" secondItem="1hR-H6-4Zt" secondAttribute="bottom" constant="5" id="h1x-M5-7JD"/>
-                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="top" id="ktf-vQ-oqq"/>
-                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" id="teF-w5-r5O"/>
-                                    <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" id="ygT-B4-7wh"/>
+                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="top" constant="5" id="ktf-vQ-oqq"/>
+                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="10" id="teF-w5-r5O"/>
+                                    <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" constant="10" id="ygT-B4-7wh"/>
                                 </constraints>
                             </view>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI" customClass="RNThemeButton">
@@ -120,7 +120,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yJB-1E-GBO" secondAttribute="trailing" constant="25" id="OHz-dS-Kvr"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="leading" secondItem="WfS-sv-2yd" secondAttribute="leadingMargin" constant="25" id="Rt5-Nr-cMp"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="top" secondItem="oaj-fc-P69" secondAttribute="bottom" constant="30" id="Usf-Ge-uNs"/>
-                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-30" id="fFr-3E-By7"/>
+                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-20" id="fFr-3E-By7"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="height" secondItem="5Kh-UQ-IPT" secondAttribute="height" id="hvY-Pt-sFv"/>
                             <constraint firstItem="95j-rQ-DgJ" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="rG3-PN-dFY"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="15" id="rHP-mH-euC"/>
@@ -144,4 +144,9 @@
             <point key="canvasLocation" x="90" y="140"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lock" width="74" height="88"/>
+        <image name="Logo" width="95" height="118"/>
+        <image name="Person" width="68" height="63"/>
+    </resources>
 </document>

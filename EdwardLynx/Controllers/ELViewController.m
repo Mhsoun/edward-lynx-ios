@@ -51,6 +51,7 @@ static CGFloat const kICornerRadius = 2.0f;
                        (id)[[RNThemeManager sharedManager] colorForKey:@"violetColor"].CGColor,
                        nil];
     
+    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:@"lightVioletColor"]];
     [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
