@@ -34,12 +34,24 @@ static CGFloat const kICornerRadius = 2.0f;
 #pragma mark - Protocol Methods
 
 - (void)layoutPage {
+    CAGradientLayer *gradient;
+    
     // Fields
     self.usernameView.layer.cornerRadius = kICornerRadius;
     self.passwordView.layer.cornerRadius = kICornerRadius;
     
     // Button
     self.loginButton.layer.cornerRadius = kICornerRadius;
+    
+    // View
+    gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)[[RNThemeManager sharedManager] colorForKey:@"darkVioletColor"].CGColor,
+                       (id)[[RNThemeManager sharedManager] colorForKey:@"violetColor"].CGColor,
+                       nil];
+    
+    [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 @end

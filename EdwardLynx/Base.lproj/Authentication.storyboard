@@ -24,11 +24,12 @@
                         <viewControllerLayoutGuide type="top" id="LXe-Pw-z5D"/>
                         <viewControllerLayoutGuide type="bottom" id="lhi-zv-YOp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WfS-sv-2yd" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="WfS-sv-2yd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oaj-fc-P69">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oaj-fc-P69" secondAttribute="height" multiplier="1:1" id="DU0-nl-HNG"/>
                                     <constraint firstAttribute="width" constant="120" id="gkX-yg-VnB"/>
@@ -119,16 +120,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yJB-1E-GBO" secondAttribute="trailing" constant="25" id="OHz-dS-Kvr"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="leading" secondItem="WfS-sv-2yd" secondAttribute="leadingMargin" constant="25" id="Rt5-Nr-cMp"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="top" secondItem="oaj-fc-P69" secondAttribute="bottom" constant="30" id="Usf-Ge-uNs"/>
-                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-20" id="fFr-3E-By7"/>
+                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-30" id="fFr-3E-By7"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="height" secondItem="5Kh-UQ-IPT" secondAttribute="height" id="hvY-Pt-sFv"/>
                             <constraint firstItem="95j-rQ-DgJ" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="rG3-PN-dFY"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="15" id="rHP-mH-euC"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="trailing" secondItem="yJB-1E-GBO" secondAttribute="trailing" id="ubb-XP-6XO"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="trailing" secondItem="5Kh-UQ-IPT" secondAttribute="trailing" id="zdJ-qO-08c"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="T2j-yn-dSI" id="CEO-s9-CLT"/>

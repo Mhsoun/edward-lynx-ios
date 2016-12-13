@@ -20,6 +20,9 @@
     
     // Setup Fabric
     [ELUtils setupFabric];
+    
+    // Setup IQKeyboardManager
+    [ELUtils setupIQKeyboardManager];
         
     return YES;
 }

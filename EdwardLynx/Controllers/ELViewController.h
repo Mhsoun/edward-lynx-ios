@@ -6,6 +6,8 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <RNThemeManager/RNThemeManager.h>
+
 #import "ELBaseViewController.h"
 
 @interface ELViewController : ELBaseViewController
