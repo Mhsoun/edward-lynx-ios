@@ -1,25 +1,22 @@
 //
-//  ELViewController.m
+//  ELForgotPasswordViewController.m
 //  EdwardLynx
 //
-//  Created by Jason Jon E. Carreos on 12/12/2016.
+//  Created by Jason Jon E. Carreos on 13/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELViewController.h"
-#import "ELAPIClient.h"
+#import "ELForgotPasswordViewController.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kICornerRadius = 2.0f;
 
-@interface ELViewController ()
+@interface ELForgotPasswordViewController ()
 
 @end
 
-@implementation ELViewController
-
-#pragma mark - Lifecycle
+@implementation ELForgotPasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,10 +35,9 @@ static CGFloat const kICornerRadius = 2.0f;
     
     // Fields
     self.usernameView.layer.cornerRadius = kICornerRadius;
-    self.passwordView.layer.cornerRadius = kICornerRadius;
     
     // Button
-    self.loginButton.layer.cornerRadius = kICornerRadius;
+    self.recoverButton.layer.cornerRadius = kICornerRadius;
     
     // View
     gradient = [CAGradientLayer layer];
@@ -53,6 +49,12 @@ static CGFloat const kICornerRadius = 2.0f;
     
     [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:@"lightVioletColor"]];
     [self.view.layer insertSublayer:gradient atIndex:0];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onBackButtonClick:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
