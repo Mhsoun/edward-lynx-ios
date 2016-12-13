@@ -17,6 +17,7 @@
 		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
+		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
@@ -64,6 +65,7 @@
 		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
 		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
+		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A9A4DF831DFEA12200CC4FAA /* ELUsersAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUsersAPIClient.h; sourceTree = "<group>"; };
 		A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUsersAPIClient.m; sourceTree = "<group>"; };
 		A9A4DF861DFEAC5000CC4FAA /* ELSurveysAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveysAPIClient.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		A9308C081DED7554007B4F9F /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				A96F27581DFF8B2B00609E27 /* Authentication.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
 			);
@@ -353,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
 				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
@@ -500,6 +504,14 @@
 				A9308BE31DED74B6007B4F9F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A96F27581DFF8B2B00609E27 /* Authentication.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96F27591DFF8B2B00609E27 /* Base */,
+			);
+			name = Authentication.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
