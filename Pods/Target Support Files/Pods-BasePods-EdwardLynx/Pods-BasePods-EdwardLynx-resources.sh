@@ -81,10 +81,12 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
+  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "XLForm/XLForm/XLForm.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
+  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "XLForm/XLForm/XLForm.bundle"
 fi
 

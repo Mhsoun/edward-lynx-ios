@@ -6,8 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Fabric/Fabric.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+
 
 @interface ELUtils : NSObject
 
@@ -16,5 +18,6 @@
 + (id)getUserDefaultValueForKey:(NSString *)key;
 
 + (void)setupFabric;
++ (void)setupIQKeyboardManager;
 
 @end

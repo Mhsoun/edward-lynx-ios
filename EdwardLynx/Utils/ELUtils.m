@@ -33,4 +33,14 @@
     [Fabric with:@[[Crashlytics class]]];
 }
 
++ (void)setupIQKeyboardManager {
+    IQKeyboardManager *keyboardManager;
+    
+    keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.enableAutoToolbar = YES;
+    keyboardManager.keyboardDistanceFromTextField = 10;
+    keyboardManager.shouldResignOnTouchOutside = YES;
+}
+
 @end
