@@ -17,5 +17,6 @@
 
 #import "ELConstants.h"
 #import "ELUtils.h"
+#import "ELProtocols.h"
 
 #endif /* PrefixHeader_pch */

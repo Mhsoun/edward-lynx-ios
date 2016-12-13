@@ -9,11 +9,17 @@
 #import "ELViewController.h"
 #import "ELAPIClient.h"
 
+#pragma mark - Private Constants
+
+static CGFloat const kICornerRadius = 2.0f;
+
 @interface ELViewController ()
 
 @end
 
 @implementation ELViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,14 +31,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Protocol Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)layoutPage {
+    // Fields
+    self.usernameView.layer.cornerRadius = kICornerRadius;
+    self.passwordView.layer.cornerRadius = kICornerRadius;
+    
+    // Button
+    self.loginButton.layer.cornerRadius = kICornerRadius;
 }
-*/
 
 @end
