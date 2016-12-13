@@ -7,6 +7,14 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EaJ-qA-Xcf">
@@ -28,10 +36,13 @@
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-1E-GBO" userLabel="Username View">
                                 <subviews>
-                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy">
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy" customClass="RNThemeTextField">
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-qv-0tg">
                                         <constraints>
@@ -53,10 +64,13 @@
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-UQ-IPT" userLabel="Password View">
                                 <subviews>
-                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-H6-4Zt">
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-H6-4Zt" customClass="RNThemeTextField">
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KJh-Oa-Pda">
                                         <constraints>
@@ -76,13 +90,23 @@
                                 </constraints>
                             </view>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI" customClass="RNThemeButton">
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <state key="normal" title="LOGIN"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="fontKey" value="defaultFont"/>
                                 </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95j-rQ-DgJ">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="16x-Ep-ZdM"/>
+                                    <constraint firstAttribute="width" constant="150" id="Ute-Od-So2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <constraints>
@@ -90,12 +114,14 @@
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="leading" secondItem="5Kh-UQ-IPT" secondAttribute="leading" id="C6H-RW-Gab"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="bottom" constant="15" id="E6x-R7-MuN"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="leading" secondItem="yJB-1E-GBO" secondAttribute="leading" id="L4F-Qa-2qC"/>
+                            <constraint firstItem="lhi-zv-YOp" firstAttribute="top" secondItem="95j-rQ-DgJ" secondAttribute="bottom" constant="20" id="MAT-ij-NNV"/>
                             <constraint firstItem="oaj-fc-P69" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="MKK-GE-Vhh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJB-1E-GBO" secondAttribute="trailing" constant="25" id="OHz-dS-Kvr"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="leading" secondItem="WfS-sv-2yd" secondAttribute="leadingMargin" constant="25" id="Rt5-Nr-cMp"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="top" secondItem="oaj-fc-P69" secondAttribute="bottom" constant="30" id="Usf-Ge-uNs"/>
-                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" id="fFr-3E-By7"/>
+                            <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-20" id="fFr-3E-By7"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="height" secondItem="5Kh-UQ-IPT" secondAttribute="height" id="hvY-Pt-sFv"/>
+                            <constraint firstItem="95j-rQ-DgJ" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="rG3-PN-dFY"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="15" id="rHP-mH-euC"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="trailing" secondItem="yJB-1E-GBO" secondAttribute="trailing" id="ubb-XP-6XO"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="trailing" secondItem="5Kh-UQ-IPT" secondAttribute="trailing" id="zdJ-qO-08c"/>

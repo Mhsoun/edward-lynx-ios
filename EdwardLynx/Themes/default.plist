@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>defaultFont</key>
-	<string>Papyrus</string>
-	<key>headerFont</key>
-	<string>HelveticaNeue-Bold</string>
+	<key>blackColor</key>
+	<string>3c3c3c</string>
 	<key>whiteColor</key>
 	<string>fff</string>
+	<key>greenColor</key>
+	<string>67e34f</string>
 	<key>lightGrayColor</key>
 	<string>f3f3f3</string>
 	<key>grayColor</key>
 	<string>e3e3e3</string>
 	<key>darkGrayColor</key>
 	<string>b0b0b0</string>
-	<key>blackColor</key>
-	<string>3c3c3c</string>
-	<key>greenColor</key>
-	<string>67e34f</string>
 	<key>lightVioletColor</key>
 	<string>9a6bc9</string>
 	<key>violetColor</key>
