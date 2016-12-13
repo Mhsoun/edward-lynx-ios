@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Italic.ttf">
             <string>Lato-Italic</string>
         </array>
@@ -16,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="EaJ-qA-Xcf">
             <objects>
-                <viewController id="tQv-J5-SIN" customClass="ELViewController" sceneMemberID="viewController">
+                <viewController id="tQv-J5-SIN" customClass="ELLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LXe-Pw-z5D"/>
                         <viewControllerLayoutGuide type="bottom" id="lhi-zv-YOp"/>
@@ -108,6 +111,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="uVc-s8-DZM" kind="presentation" identifier="ForgotPassword" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Ct7-1G-Oyx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -131,17 +137,127 @@
                     <connections>
                         <outlet property="loginButton" destination="T2j-yn-dSI" id="CEO-s9-CLT"/>
                         <outlet property="logoImageView" destination="oaj-fc-P69" id="SCt-Yj-mVQ"/>
-                        <outlet property="passwordIcon" destination="KJh-Oa-Pda" id="nR0-fa-GUf"/>
                         <outlet property="passwordTextField" destination="1hR-H6-4Zt" id="eJQ-Ly-IGH"/>
                         <outlet property="passwordView" destination="5Kh-UQ-IPT" id="9Bk-lZ-taG"/>
-                        <outlet property="usernameIcon" destination="cYW-qv-0tg" id="BGC-CE-8Kh"/>
                         <outlet property="usernameTextField" destination="vhw-1P-ZZy" id="Cah-Dx-GF7"/>
                         <outlet property="usernameView" destination="yJB-1E-GBO" id="ORd-fS-1yn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwG-ct-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="140"/>
+            <point key="canvasLocation" x="-12" y="98"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="tol-AC-3z7">
+            <objects>
+                <viewController id="uVc-s8-DZM" customClass="ELForgotPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sqi-e9-uYB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FqL-dk-CiH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h31-nN-T9z" customClass="RNThemeView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="djq-Le-6iy">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Piy-da-jwc"/>
+                                    <constraint firstAttribute="width" secondItem="djq-Le-6iy" secondAttribute="height" multiplier="1:1" id="l9p-oK-gp4"/>
+                                </constraints>
+                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x73-SC-pOc" userLabel="Username View">
+                                <subviews>
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zg-eg-vpS" customClass="RNThemeTextField">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="blackColor"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="dud-7A-Ds6">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dud-7A-Ds6" secondAttribute="height" multiplier="1:1" id="0DU-yN-VF7"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="0MF-mv-LOX"/>
+                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="leading" secondItem="0zg-eg-vpS" secondAttribute="trailing" constant="10" id="0Mt-n2-Hrd"/>
+                                    <constraint firstAttribute="bottom" secondItem="0zg-eg-vpS" secondAttribute="bottom" constant="5" id="MnT-OP-Rev"/>
+                                    <constraint firstAttribute="trailing" secondItem="dud-7A-Ds6" secondAttribute="trailing" constant="10" id="UAX-r4-l4H"/>
+                                    <constraint firstItem="0zg-eg-vpS" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="f00-Jk-e1L"/>
+                                    <constraint firstItem="0zg-eg-vpS" firstAttribute="leading" secondItem="x73-SC-pOc" secondAttribute="leading" constant="10" id="hhH-5j-Ykz"/>
+                                    <constraint firstAttribute="bottom" secondItem="dud-7A-Ds6" secondAttribute="bottom" constant="5" id="iac-uk-jZI"/>
+                                    <constraint firstAttribute="height" constant="35" id="qoQ-9x-Kgz"/>
+                                </constraints>
+                            </view>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-Cu-J3h" customClass="RNThemeButton">
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <state key="normal" title="RECOVER"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoZ-DP-lmZ" userLabel="Back Button">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qz3-iz-bja"/>
+                                    <constraint firstAttribute="width" constant="150" id="VRt-6k-TEx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <state key="normal" title="Login Now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBackButtonClick:" destination="uVc-s8-DZM" eventType="touchUpInside" id="uW7-9f-SJY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECOVER PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="MC0-VV-Yc3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightVioletColor"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x73-SC-pOc" firstAttribute="leading" secondItem="h31-nN-T9z" secondAttribute="leadingMargin" constant="25" id="7IM-Qb-iLV"/>
+                            <constraint firstItem="FqL-dk-CiH" firstAttribute="top" secondItem="UoZ-DP-lmZ" secondAttribute="bottom" constant="20" id="7qo-Hm-8kf"/>
+                            <constraint firstItem="iY9-zi-6oy" firstAttribute="top" secondItem="djq-Le-6iy" secondAttribute="bottom" constant="30" id="A5c-gV-rLG"/>
+                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="height" secondItem="x73-SC-pOc" secondAttribute="height" id="E1k-uW-fG7"/>
+                            <constraint firstItem="djq-Le-6iy" firstAttribute="centerX" secondItem="h31-nN-T9z" secondAttribute="centerX" id="ESf-tG-UI6"/>
+                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="trailing" secondItem="x73-SC-pOc" secondAttribute="trailing" id="FGI-y1-wVy"/>
+                            <constraint firstItem="iY9-zi-6oy" firstAttribute="leading" secondItem="h31-nN-T9z" secondAttribute="leadingMargin" constant="25" id="Op6-MF-mYJ"/>
+                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="leading" secondItem="x73-SC-pOc" secondAttribute="leading" id="PNF-8x-vUH"/>
+                            <constraint firstItem="iY9-zi-6oy" firstAttribute="centerY" secondItem="h31-nN-T9z" secondAttribute="centerY" constant="-25" id="RIf-NW-Lja"/>
+                            <constraint firstItem="UoZ-DP-lmZ" firstAttribute="centerX" secondItem="h31-nN-T9z" secondAttribute="centerX" id="SNH-mz-CbS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iY9-zi-6oy" secondAttribute="trailing" constant="25" id="ZbA-2H-VWD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x73-SC-pOc" secondAttribute="trailing" constant="25" id="e0w-Nm-vye"/>
+                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="bottom" constant="15" id="noz-FY-uqd"/>
+                            <constraint firstItem="x73-SC-pOc" firstAttribute="top" secondItem="iY9-zi-6oy" secondAttribute="bottom" constant="15" id="yEP-bo-f3v"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="recoverButton" destination="Rls-Cu-J3h" id="EcU-6g-zF0"/>
+                        <outlet property="usernameTextField" destination="0zg-eg-vpS" id="wY5-LO-9V0"/>
+                        <outlet property="usernameView" destination="x73-SC-pOc" id="nAx-V9-Ne8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HKO-s9-LeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="98"/>
         </scene>
     </scenes>
     <resources>
