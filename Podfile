@@ -4,7 +4,9 @@ abstract_target 'BasePods' do
     pod 'DZNEmptyDataSet', '~> 1.8'
     pod 'Fabric'
     pod 'HockeySDK'
+    pod 'IQKeyboardManager'
     pod 'MTDates', '~> 1.0'
+    pod 'RNThemeManager', '~> 0.1'
     pod 'SASlideMenu', '~> 2.0'
     pod 'XLForm', '~> 3.0'
 
