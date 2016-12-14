@@ -11,8 +11,11 @@
 
 @interface ELForgotPasswordViewController : ELBaseViewController
 
-@property (weak, nonatomic) IBOutlet UIView *usernameView;
+@property (weak, nonatomic) IBOutlet UIView *usernameEmailView;
 @property (weak, nonatomic) IBOutlet UITextField *usernameEmailTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *usernameEmailIcon;
+@property (weak, nonatomic) IBOutlet UILabel *usernameEmailErrorLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *recoverButton;
 - (IBAction)onRecoverButtonClick:(id)sender;
 - (IBAction)onBackButtonClick:(id)sender;

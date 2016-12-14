@@ -39,7 +39,7 @@ static CGFloat const kICornerRadius = 2.0f;
     CAGradientLayer *gradient;
     
     // Fields
-    self.usernameView.layer.cornerRadius = kICornerRadius;
+    self.usernameEmailView.layer.cornerRadius = kICornerRadius;
     
     // Button
     self.recoverButton.layer.cornerRadius = kICornerRadius;
@@ -59,13 +59,19 @@ static CGFloat const kICornerRadius = 2.0f;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onRecoverButtonClick:(id)sender {
-    BOOL isValid = [self.viewManager validateRecoverFormValues:@{@"email": self.usernameEmailTextField.text}];
+    BOOL isValid;
+    ELTextFieldGroup *textFieldGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameEmailTextField
+                                                                          icon:self.usernameEmailIcon
+                                                                    errorLabel:self.usernameEmailErrorLabel];
+    
+    isValid = [self.viewManager validateRecoverFormValues:@{@"email": textFieldGroup}];
     
     if (!isValid) {
         return;
     }
     
-    [self.viewManager processPasswordRecovery];
+    // TODO
+//    [self.viewManager processPasswordRecovery];
 }
 
 - (IBAction)onBackButtonClick:(id)sender {

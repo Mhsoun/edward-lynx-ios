@@ -8,12 +8,57 @@
 
 #import "ELUtils.h"
 
+@interface ELTextFieldGroup ()
+
+@property (nonatomic, strong) __kindof UITextField *textField;
+@property (nonatomic, strong) UIImageView *icon;
+@property (nonatomic, strong) UILabel *errorLabel;
+
+@end
+
+@implementation ELTextFieldGroup
+
+- (instancetype)initWithField:(__kindof UITextField *)textField
+                         icon:(UIImageView *)icon
+                   errorLabel:(UILabel *)errorLabel {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _textField = textField;
+    _icon = icon;
+    _errorLabel = errorLabel;
+    
+    return self;
+}
+
+- (NSString *)textValue {
+    return self.textField.text;
+}
+
+- (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors {
+    BOOL isValid = errors.count == 0;
+    
+    // Label
+    self.errorLabel.text = !isValid ? [errors[0] localizedDescription] : @"";
+    self.errorLabel.hidden = isValid;
+    
+    // Icon
+    [self.icon setImage:[self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    [self.icon setTintColor:isValid ? [[RNThemeManager sharedManager] colorForKey:kELDarkGrayColor] :
+                                      [UIColor redColor]];
+}
+
+@end
+
 @implementation ELUtils
 
 + (void)fabricForceCrash {
-    [ELUtils fabricLogUserInformation:@{kELFabricUsername: @"jason",
-                                        kELFabricEmail: @"jason@ingenuity.ph",
-                                        kELFabricIdentifier: @"jason123"}];
+    [ELUtils fabricLogUserInformation:@{kELFabricUsername: @"someuser",
+                                        kELFabricEmail: @"someuser@gmail.com",
+                                        kELFabricIdentifier: @"someuser123"}];
     [[Crashlytics sharedInstance] crash];
 }
 

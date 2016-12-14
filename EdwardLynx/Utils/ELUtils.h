@@ -10,6 +10,16 @@
 #import <Fabric/Fabric.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
+@interface ELTextFieldGroup : NSObject
+
+- (instancetype)initWithField:(__kindof UITextField *)textField
+                         icon:(UIImageView *)icon
+                   errorLabel:(UILabel *)errorLabel;
+
+- (NSString *)textValue;
+- (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors;
+
+@end
 
 @interface ELUtils : NSObject
 

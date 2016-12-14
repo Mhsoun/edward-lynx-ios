@@ -37,8 +37,8 @@
 #pragma mark - Public Methods
 
 - (void)processAuthentication {
-    [self.client authenticateWithUsername:self.formDict[@"username"]
-                                 password:self.formDict[@"password"]
+    [self.client authenticateWithUsername:[self.formDict[@"username"] textValue]
+                                 password:[self.formDict[@"password"] textValue]
                                completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         if (error) {
             return;
@@ -54,29 +54,30 @@
 
 - (BOOL)validateLoginFormValues:(NSDictionary *)formDict {
     NSArray *usernameErrors, *passwordErrors;
+    ELTextFieldGroup *textFieldGroup;
     
     self.formDict = formDict;
     
     if (formDict[@"username"]) {
-        usernameErrors = [REValidation validateObject:formDict[@"username"]
+        textFieldGroup = formDict[@"username"];
+        usernameErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Username"
                                            validators:@[@"presence", @"length(4, 20)"]];
         
-        for (NSError *error in usernameErrors) {
-            // TODO Display error messages to app
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
+        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
+        
+        // TODO Display error messages to app
     }
     
     if (formDict[@"password"]) {
-        passwordErrors = [REValidation validateObject:formDict[@"password"]
+        textFieldGroup = formDict[@"password"];
+        passwordErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Password"
                                            validators:@[@"presence", @"length(4, 20)"]];
         
-        for (NSError *error in passwordErrors) {
-            // TODO Display error messages to app
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
+        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
+        
+        // TODO Display error messages to app
     }
     
     return usernameErrors.count == 0 && passwordErrors.count == 0;
@@ -84,18 +85,19 @@
 
 - (BOOL)validateRecoverFormValues:(NSDictionary *)formDict {
     NSArray *emailErrors;
+    ELTextFieldGroup *textFieldGroup;
     
     self.formDict = formDict;
     
     if (formDict[@"email"]) {
-        emailErrors = [REValidation validateObject:formDict[@"email"]
+        textFieldGroup = formDict[@"email"];
+        emailErrors = [REValidation validateObject:[textFieldGroup textValue]
                                               name:@"Email"
                                         validators:@[@"presence", @"email"]];
         
-        for (NSError *error in emailErrors) {
-            // TODO Display error messages to app
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
+        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
+        
+        // TODO Display error messages to app
     }
     
     return emailErrors.count == 0;
