@@ -45,6 +45,18 @@ extern NSString * const kELAPIPutHTTPMethod;
 
 extern NSString * const kELAuthHeaderUserDefaultsKey;
 
+#pragma mark - RNThemeManager .plist Keys
+
+extern NSString * const kELBlackColor;
+extern NSString * const kELWhiteColor;
+extern NSString * const kELGreenColor;
+extern NSString * const kELLightGrayColor;
+extern NSString * const kELGrayColor;
+extern NSString * const kELDarkGrayColor;
+extern NSString * const kELLightVioletColor;
+extern NSString * const kELVioletColor;
+extern NSString * const kELDarkVioletColor;
+
 #pragma mark - Status Codes
 
 extern NSInteger const kELAPIOKStatusCode;

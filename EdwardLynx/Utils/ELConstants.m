@@ -44,6 +44,18 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 NSString * const kELAuthHeaderUserDefaultsKey = @"AuthHeaderUserDefaults";
 
+#pragma mark - RNThemeManager .plist Keys
+
+NSString * const kELBlackColor = @"blackColor";
+NSString * const kELWhiteColor = @"whiteColor";
+NSString * const kELGreenColor = @"greenColor";
+NSString * const kELLightGrayColor = @"lightGrayColor";
+NSString * const kELGrayColor = @"grayColor";
+NSString * const kELDarkGrayColor = @"darkGrayColor";
+NSString * const kELLightVioletColor = @"lightVioletColor";
+NSString * const kELVioletColor = @"violetColor";
+NSString * const kELDarkVioletColor = @"darkVioletColor";
+
 #pragma mark - Status Codes
 
 NSInteger const kELAPIOKStatusCode = 200;

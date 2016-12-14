@@ -6,13 +6,15 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
 @interface ELForgotPasswordViewController : ELBaseViewController
 
 @property (weak, nonatomic) IBOutlet UIView *usernameView;
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *usernameEmailTextField;
 @property (weak, nonatomic) IBOutlet UIButton *recoverButton;
+- (IBAction)onRecoverButtonClick:(id)sender;
 - (IBAction)onBackButtonClick:(id)sender;
 
 @end

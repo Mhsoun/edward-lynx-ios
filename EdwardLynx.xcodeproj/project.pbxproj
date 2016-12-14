@@ -27,6 +27,7 @@
 		A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A96F276B1DFFA28E00609E27 /* Lato-Regular.ttf */; };
 		A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */; };
 		A96F27751DFFDFA000609E27 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A96F27741DFFDFA000609E27 /* Lato-Bold.ttf */; };
+		A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */; };
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
@@ -87,6 +88,8 @@
 		A96F27711DFFDB0E00609E27 /* ELForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELForgotPasswordViewController.h; sourceTree = "<group>"; };
 		A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELForgotPasswordViewController.m; sourceTree = "<group>"; };
 		A96F27741DFFDFA000609E27 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		A96F27771DFFF9E900609E27 /* ELAccountsViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAccountsViewManager.h; sourceTree = "<group>"; };
+		A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsViewManager.m; sourceTree = "<group>"; };
 		A9A4DF831DFEA12200CC4FAA /* ELUsersAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUsersAPIClient.h; sourceTree = "<group>"; };
 		A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUsersAPIClient.m; sourceTree = "<group>"; };
 		A9A4DF861DFEAC5000CC4FAA /* ELSurveysAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveysAPIClient.h; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 				A9308BD11DED74B6007B4F9F /* Supporting Files */,
 				A96F275B1DFF981000609E27 /* Themes */,
 				A968F1881DF7E53F0091997D /* Utils */,
+				A96F27761DFFF9D800609E27 /* ViewManagers */,
 			);
 			path = EdwardLynx;
 			sourceTree = "<group>";
@@ -282,6 +286,15 @@
 				A96F276B1DFFA28E00609E27 /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A96F27761DFFF9D800609E27 /* ViewManagers */ = {
+			isa = PBXGroup;
+			children = (
+				A96F27771DFFF9E900609E27 /* ELAccountsViewManager.h */,
+				A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */,
+			);
+			path = ViewManagers;
 			sourceTree = "<group>";
 		};
 		A9B36AAD1DFE746700599909 /* API */ = {
@@ -491,7 +504,7 @@
 		};
 		A968F1871DF7A4FF0091997D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -517,6 +530,7 @@
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
+				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
@@ -682,6 +696,7 @@
 			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -695,6 +710,7 @@
 			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

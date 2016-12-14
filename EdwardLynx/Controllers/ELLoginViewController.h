@@ -6,6 +6,8 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELAPIClient.h"
+#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
 @interface ELLoginViewController : ELBaseViewController
@@ -16,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+- (IBAction)onLoginButtonClick:(id)sender;
 
 @end

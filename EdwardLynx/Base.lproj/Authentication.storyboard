@@ -100,6 +100,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onLoginButtonClick:" destination="tQv-J5-SIN" eventType="touchUpInside" id="KQ2-cz-8Ft"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95j-rQ-DgJ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -201,6 +204,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onRecoverButtonClick:" destination="uVc-s8-DZM" eventType="touchUpInside" id="SqL-XN-hGD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoZ-DP-lmZ" userLabel="Back Button">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -251,7 +257,7 @@
                     </view>
                     <connections>
                         <outlet property="recoverButton" destination="Rls-Cu-J3h" id="EcU-6g-zF0"/>
-                        <outlet property="usernameTextField" destination="0zg-eg-vpS" id="wY5-LO-9V0"/>
+                        <outlet property="usernameEmailTextField" destination="0zg-eg-vpS" id="7o6-gI-WW4"/>
                         <outlet property="usernameView" destination="x73-SC-pOc" id="nAx-V9-Ne8"/>
                     </connections>
                 </viewController>
