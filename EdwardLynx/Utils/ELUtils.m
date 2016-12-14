@@ -78,6 +78,12 @@
     [Fabric with:@[[Crashlytics class]]];
 }
 
++ (void)setupGlobalUIChanges {
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18.0],
+                                                           NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:@"darkVioletColor"]];
+}
+
 + (void)setupIQKeyboardManager {
     IQKeyboardManager *keyboardManager;
     

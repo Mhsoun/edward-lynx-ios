@@ -28,6 +28,7 @@
 + (id)getUserDefaultValueForKey:(NSString *)key;
 
 + (void)setupFabric;
++ (void)setupGlobalUIChanges;
 + (void)setupIQKeyboardManager;
 
 @end
