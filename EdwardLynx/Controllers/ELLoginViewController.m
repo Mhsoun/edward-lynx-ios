@@ -7,13 +7,14 @@
 //
 
 #import "ELLoginViewController.h"
-#import "ELAPIClient.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kICornerRadius = 2.0f;
 
 @interface ELLoginViewController ()
+
+@property (nonatomic, strong) ELAccountsViewManager *viewManager;
 
 @end
 
@@ -24,6 +25,9 @@ static CGFloat const kICornerRadius = 2.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.viewManager = [[ELAccountsViewManager alloc] initWithView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,12 +51,34 @@ static CGFloat const kICornerRadius = 2.0f;
     gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:
-                       (id)[[RNThemeManager sharedManager] colorForKey:@"darkVioletColor"].CGColor,
-                       (id)[[RNThemeManager sharedManager] colorForKey:@"violetColor"].CGColor,
+                       (id)[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor].CGColor,
+                       (id)[[RNThemeManager sharedManager] colorForKey:kELVioletColor].CGColor,
                        nil];
     
-    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:@"lightVioletColor"]];
+    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:kELLightVioletColor]];
     [self.view.layer insertSublayer:gradient atIndex:0];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onLoginButtonClick:(id)sender {
+    BOOL isValid;
+    ELTextFieldGroup *usernameGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameTextField
+                                                                         icon:self.usernameIcon
+                                                                   errorLabel:self.usernameErrorLabel];
+    ELTextFieldGroup *passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
+                                                                         icon:self.passwordIcon
+                                                                   errorLabel:self.passwordErrorLabel];
+    
+    isValid = [self.viewManager validateLoginFormValues:@{@"username": usernameGroup,
+                                                          @"password": passwordGroup}];
+    
+    if (!isValid) {
+        return;
+    }
+    
+    // TODO
+//    [self.viewManager processAuthentication];
 }
 
 @end

@@ -66,6 +66,15 @@
                                     <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" constant="10" id="sv8-g7-qlJ"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n9-mH-Dxz">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="06u-bC-uK2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-UQ-IPT" userLabel="Password View">
                                 <subviews>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-H6-4Zt" customClass="RNThemeTextField">
@@ -93,6 +102,15 @@
                                     <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" constant="10" id="ygT-B4-7wh"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-AU-OMo">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="YGY-KV-r6S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI" customClass="RNThemeButton">
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <state key="normal" title="LOGIN"/>
@@ -100,6 +118,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onLoginButtonClick:" destination="tQv-J5-SIN" eventType="touchUpInside" id="KQ2-cz-8Ft"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95j-rQ-DgJ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -117,28 +138,38 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="uBG-AU-OMo" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="5" id="6at-cv-cDP"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="height" secondItem="yJB-1E-GBO" secondAttribute="height" id="8ZN-lm-BQd"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="leading" secondItem="5Kh-UQ-IPT" secondAttribute="leading" id="C6H-RW-Gab"/>
-                            <constraint firstItem="5Kh-UQ-IPT" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="bottom" constant="15" id="E6x-R7-MuN"/>
+                            <constraint firstItem="5Kh-UQ-IPT" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="bottom" constant="25" id="E6x-R7-MuN"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="leading" secondItem="yJB-1E-GBO" secondAttribute="leading" id="L4F-Qa-2qC"/>
                             <constraint firstItem="lhi-zv-YOp" firstAttribute="top" secondItem="95j-rQ-DgJ" secondAttribute="bottom" constant="20" id="MAT-ij-NNV"/>
+                            <constraint firstItem="0n9-mH-Dxz" firstAttribute="leading" secondItem="yJB-1E-GBO" secondAttribute="leading" id="MBn-3H-Fav"/>
                             <constraint firstItem="oaj-fc-P69" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="MKK-GE-Vhh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJB-1E-GBO" secondAttribute="trailing" constant="25" id="OHz-dS-Kvr"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="leading" secondItem="WfS-sv-2yd" secondAttribute="leadingMargin" constant="25" id="Rt5-Nr-cMp"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="top" secondItem="oaj-fc-P69" secondAttribute="bottom" constant="30" id="Usf-Ge-uNs"/>
+                            <constraint firstItem="uBG-AU-OMo" firstAttribute="trailing" secondItem="5Kh-UQ-IPT" secondAttribute="trailing" id="Vfc-IU-P01"/>
+                            <constraint firstItem="0n9-mH-Dxz" firstAttribute="trailing" secondItem="yJB-1E-GBO" secondAttribute="trailing" id="WaR-et-53P"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-20" id="fFr-3E-By7"/>
+                            <constraint firstItem="0n9-mH-Dxz" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="bottom" constant="5" id="hWb-Zm-ct2"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="height" secondItem="5Kh-UQ-IPT" secondAttribute="height" id="hvY-Pt-sFv"/>
                             <constraint firstItem="95j-rQ-DgJ" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="rG3-PN-dFY"/>
-                            <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="15" id="rHP-mH-euC"/>
+                            <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="25" id="rHP-mH-euC"/>
                             <constraint firstItem="5Kh-UQ-IPT" firstAttribute="trailing" secondItem="yJB-1E-GBO" secondAttribute="trailing" id="ubb-XP-6XO"/>
+                            <constraint firstItem="uBG-AU-OMo" firstAttribute="leading" secondItem="5Kh-UQ-IPT" secondAttribute="leading" id="xwE-wS-agM"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="trailing" secondItem="5Kh-UQ-IPT" secondAttribute="trailing" id="zdJ-qO-08c"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="T2j-yn-dSI" id="CEO-s9-CLT"/>
                         <outlet property="logoImageView" destination="oaj-fc-P69" id="SCt-Yj-mVQ"/>
+                        <outlet property="passwordErrorLabel" destination="uBG-AU-OMo" id="ZJD-eP-nxo"/>
+                        <outlet property="passwordIcon" destination="KJh-Oa-Pda" id="aWB-12-CAB"/>
                         <outlet property="passwordTextField" destination="1hR-H6-4Zt" id="eJQ-Ly-IGH"/>
                         <outlet property="passwordView" destination="5Kh-UQ-IPT" id="9Bk-lZ-taG"/>
+                        <outlet property="usernameErrorLabel" destination="0n9-mH-Dxz" id="BPH-FI-FJW"/>
+                        <outlet property="usernameIcon" destination="cYW-qv-0tg" id="PlT-TV-CEd"/>
                         <outlet property="usernameTextField" destination="vhw-1P-ZZy" id="Cah-Dx-GF7"/>
                         <outlet property="usernameView" destination="yJB-1E-GBO" id="ORd-fS-1yn"/>
                     </connections>
@@ -166,6 +197,17 @@
                                     <constraint firstAttribute="width" secondItem="djq-Le-6iy" secondAttribute="height" multiplier="1:1" id="l9p-oK-gp4"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECOVER PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="MC0-VV-Yc3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightVioletColor"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x73-SC-pOc" userLabel="Username View">
                                 <subviews>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zg-eg-vpS" customClass="RNThemeTextField">
@@ -194,6 +236,15 @@
                                     <constraint firstAttribute="height" constant="35" id="qoQ-9x-Kgz"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfX-mI-BPb">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ais-jv-Kgn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-Cu-J3h" customClass="RNThemeButton">
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <state key="normal" title="RECOVER"/>
@@ -201,6 +252,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onRecoverButtonClick:" destination="uVc-s8-DZM" eventType="touchUpInside" id="SqL-XN-hGD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoZ-DP-lmZ" userLabel="Back Button">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -216,17 +270,6 @@
                                     <action selector="onBackButtonClick:" destination="uVc-s8-DZM" eventType="touchUpInside" id="uW7-9f-SJY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECOVER PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="MC0-VV-Yc3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightVioletColor"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -236,14 +279,17 @@
                             <constraint firstItem="Rls-Cu-J3h" firstAttribute="height" secondItem="x73-SC-pOc" secondAttribute="height" id="E1k-uW-fG7"/>
                             <constraint firstItem="djq-Le-6iy" firstAttribute="centerX" secondItem="h31-nN-T9z" secondAttribute="centerX" id="ESf-tG-UI6"/>
                             <constraint firstItem="Rls-Cu-J3h" firstAttribute="trailing" secondItem="x73-SC-pOc" secondAttribute="trailing" id="FGI-y1-wVy"/>
+                            <constraint firstItem="jfX-mI-BPb" firstAttribute="leading" secondItem="x73-SC-pOc" secondAttribute="leading" id="MAA-QA-tT7"/>
                             <constraint firstItem="iY9-zi-6oy" firstAttribute="leading" secondItem="h31-nN-T9z" secondAttribute="leadingMargin" constant="25" id="Op6-MF-mYJ"/>
                             <constraint firstItem="Rls-Cu-J3h" firstAttribute="leading" secondItem="x73-SC-pOc" secondAttribute="leading" id="PNF-8x-vUH"/>
                             <constraint firstItem="iY9-zi-6oy" firstAttribute="centerY" secondItem="h31-nN-T9z" secondAttribute="centerY" constant="-25" id="RIf-NW-Lja"/>
                             <constraint firstItem="UoZ-DP-lmZ" firstAttribute="centerX" secondItem="h31-nN-T9z" secondAttribute="centerX" id="SNH-mz-CbS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iY9-zi-6oy" secondAttribute="trailing" constant="25" id="ZbA-2H-VWD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x73-SC-pOc" secondAttribute="trailing" constant="25" id="e0w-Nm-vye"/>
-                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="bottom" constant="15" id="noz-FY-uqd"/>
+                            <constraint firstItem="Rls-Cu-J3h" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="bottom" constant="25" id="noz-FY-uqd"/>
+                            <constraint firstItem="jfX-mI-BPb" firstAttribute="trailing" secondItem="x73-SC-pOc" secondAttribute="trailing" id="vXA-qB-7Bj"/>
                             <constraint firstItem="x73-SC-pOc" firstAttribute="top" secondItem="iY9-zi-6oy" secondAttribute="bottom" constant="15" id="yEP-bo-f3v"/>
+                            <constraint firstItem="jfX-mI-BPb" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="bottom" constant="5" id="yaI-sI-V4I"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
@@ -251,8 +297,10 @@
                     </view>
                     <connections>
                         <outlet property="recoverButton" destination="Rls-Cu-J3h" id="EcU-6g-zF0"/>
-                        <outlet property="usernameTextField" destination="0zg-eg-vpS" id="wY5-LO-9V0"/>
-                        <outlet property="usernameView" destination="x73-SC-pOc" id="nAx-V9-Ne8"/>
+                        <outlet property="usernameEmailErrorLabel" destination="jfX-mI-BPb" id="pgN-b0-bkn"/>
+                        <outlet property="usernameEmailIcon" destination="dud-7A-Ds6" id="WXc-Op-p4J"/>
+                        <outlet property="usernameEmailTextField" destination="0zg-eg-vpS" id="7o6-gI-WW4"/>
+                        <outlet property="usernameEmailView" destination="x73-SC-pOc" id="Cr4-Nt-kvg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKO-s9-LeO" userLabel="First Responder" sceneMemberID="firstResponder"/>

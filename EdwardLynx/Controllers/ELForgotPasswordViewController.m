@@ -14,6 +14,8 @@ static CGFloat const kICornerRadius = 2.0f;
 
 @interface ELForgotPasswordViewController ()
 
+@property (nonatomic, strong) ELAccountsViewManager *viewManager;
+
 @end
 
 @implementation ELForgotPasswordViewController
@@ -21,6 +23,9 @@ static CGFloat const kICornerRadius = 2.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.viewManager = [[ELAccountsViewManager alloc] initWithView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +39,7 @@ static CGFloat const kICornerRadius = 2.0f;
     CAGradientLayer *gradient;
     
     // Fields
-    self.usernameView.layer.cornerRadius = kICornerRadius;
+    self.usernameEmailView.layer.cornerRadius = kICornerRadius;
     
     // Button
     self.recoverButton.layer.cornerRadius = kICornerRadius;
@@ -43,15 +48,31 @@ static CGFloat const kICornerRadius = 2.0f;
     gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:
-                       (id)[[RNThemeManager sharedManager] colorForKey:@"darkVioletColor"].CGColor,
-                       (id)[[RNThemeManager sharedManager] colorForKey:@"violetColor"].CGColor,
+                       (id)[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor].CGColor,
+                       (id)[[RNThemeManager sharedManager] colorForKey:kELVioletColor].CGColor,
                        nil];
     
-    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:@"lightVioletColor"]];
+    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:kELLightVioletColor]];
     [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onRecoverButtonClick:(id)sender {
+    BOOL isValid;
+    ELTextFieldGroup *textFieldGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameEmailTextField
+                                                                          icon:self.usernameEmailIcon
+                                                                    errorLabel:self.usernameEmailErrorLabel];
+    
+    isValid = [self.viewManager validateRecoverFormValues:@{@"email": textFieldGroup}];
+    
+    if (!isValid) {
+        return;
+    }
+    
+    // TODO
+//    [self.viewManager processPasswordRecovery];
+}
 
 - (IBAction)onBackButtonClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
