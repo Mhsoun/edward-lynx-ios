@@ -1,18 +1,18 @@
 //
-//  ELShortcutsView.m
+//  ELActionView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 16/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELShortcutsView.h"
+#import "ELActionView.h"
 
-@implementation ELShortcutsView
+@implementation ELActionView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ShortcutsView"
+    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ActionView"
                                                       owner:self
                                                     options:nil];
     
@@ -30,8 +30,8 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
+    self.valueLabel.text = contentDict[@"value"];
     self.titleLabel.text = contentDict[@"title"];
-    self.icon.image = contentDict[@"icon"];
 }
 
 @end

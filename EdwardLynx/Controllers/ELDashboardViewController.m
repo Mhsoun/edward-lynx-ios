@@ -31,8 +31,9 @@ static CGFloat const kICornerRadius = 2.0f;
 #pragma mark - Protocol Methods
 
 - (void)layoutPage {
+    ELActionView *actionView;
     ELStatusView *statusView;
-    ELShortcutsView *shortcutsView;
+    ELShortcutView *shortcutView;
     
     // Status section
     statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Development Plan",
@@ -51,29 +52,58 @@ static CGFloat const kICornerRadius = 2.0f;
     [self.feedbackStatusView.layer setCornerRadius:kICornerRadius];
     
     // Shortcuts section
-    shortcutsView = [[ELShortcutsView alloc] initWithDetails:@{@"title": @"Create Instant Feedback"}];
-    shortcutsView.frame = self.createFeedbackView.frame;
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback"}];
+    shortcutView.frame = self.createFeedbackView.frame;
     
-    [self.createFeedbackView addSubview:shortcutsView];
+    [self.createFeedbackView addSubview:shortcutView];
     [self.createFeedbackView.layer setCornerRadius:kICornerRadius];
     
-    shortcutsView = [[ELShortcutsView alloc] initWithDetails:@{@"title": @"Create Development Plan"}];
-    shortcutsView.frame = self.createDevPlanView.frame;
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Development Plan"}];
+    shortcutView.frame = self.createDevPlanView.frame;
     
-    [self.createDevPlanView addSubview:shortcutsView];
+    [self.createDevPlanView addSubview:shortcutView];
     [self.createDevPlanView.layer setCornerRadius:kICornerRadius];
     
-    shortcutsView = [[ELShortcutsView alloc] initWithDetails:@{@"title": @"View Reports"}];
-    shortcutsView.frame = self.reportsView.frame;
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports"}];
+    shortcutView.frame = self.reportsView.frame;
     
-    [self.reportsView addSubview:shortcutsView];
+    [self.reportsView addSubview:shortcutView];
     [self.reportsView.layer setCornerRadius:kICornerRadius];
     
-    shortcutsView = [[ELShortcutsView alloc] initWithDetails:@{@"title": @"View Surveys"}];
-    shortcutsView.frame = self.surveysView.frame;
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys"}];
+    shortcutView.frame = self.surveysView.frame;
     
-    [self.surveysView addSubview:shortcutsView];
+    [self.surveysView addSubview:shortcutView];
     [self.surveysView.layer setCornerRadius:kICornerRadius];
+    
+    // Action Required section
+    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
+                                                         @"title": @"360 Feedback Requests"}];
+    actionView.frame = self.feedbackActionView.frame;
+    
+    [self.feedbackActionView addSubview:actionView];
+    [self.feedbackActionView.layer setCornerRadius:kICornerRadius];
+    
+    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
+                                                         @"title": @"360 Feedback Requests"}];
+    actionView.frame = self.feedbackActionView.frame;
+    
+    [self.feedbackActionView addSubview:actionView];
+    [self.feedbackActionView.layer setCornerRadius:kICornerRadius];
+    
+    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"2",
+                                                         @"title": @"Reports"}];
+    actionView.frame = self.reportsActionView.frame;
+    
+    [self.reportsActionView addSubview:actionView];
+    [self.reportsActionView.layer setCornerRadius:kICornerRadius];
+    
+    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"0",
+                                                         @"title": @"Instant Feedback"}];
+    actionView.frame = self.instantFeedbackActionView.frame;
+    
+    [self.instantFeedbackActionView addSubview:actionView];
+    [self.instantFeedbackActionView.layer setCornerRadius:kICornerRadius];
 }
 
 @end

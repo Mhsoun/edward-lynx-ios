@@ -6,8 +6,9 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELActionView.h"
 #import "ELBaseViewController.h"
-#import "ELShortcutsView.h"
+#import "ELShortcutView.h"
 #import "ELStatusView.h"
 
 @interface ELDashboardViewController : ELBaseViewController
@@ -16,9 +17,13 @@
 @property (weak, nonatomic) IBOutlet ELStatusView *feedbackStatusView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet ELShortcutsView *createFeedbackView;
-@property (weak, nonatomic) IBOutlet ELShortcutsView *createDevPlanView;
-@property (weak, nonatomic) IBOutlet ELShortcutsView *reportsView;
-@property (weak, nonatomic) IBOutlet ELShortcutsView *surveysView;
+@property (weak, nonatomic) IBOutlet ELShortcutView *createFeedbackView;
+@property (weak, nonatomic) IBOutlet ELShortcutView *createDevPlanView;
+@property (weak, nonatomic) IBOutlet ELShortcutView *reportsView;
+@property (weak, nonatomic) IBOutlet ELShortcutView *surveysView;
+
+@property (weak, nonatomic) IBOutlet ELActionView *feedbackActionView;
+@property (weak, nonatomic) IBOutlet ELActionView *reportsActionView;
+@property (weak, nonatomic) IBOutlet ELActionView *instantFeedbackActionView;
 
 @end

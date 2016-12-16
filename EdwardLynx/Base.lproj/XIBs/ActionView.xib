@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ELActionView">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-xe-AJ3">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Label">
+                            <attributes>
+                                <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wjj-ab-rVT">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Label">
+                            <attributes>
+                                <font key="NSFont" size="12" name="HelveticaNeue"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wjj-ab-rVT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="1iS-em-adu"/>
+                <constraint firstItem="JQr-xe-AJ3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8U7-XH-trW"/>
+                <constraint firstAttribute="bottom" secondItem="wjj-ab-rVT" secondAttribute="bottom" constant="10" id="G5r-4o-y5G"/>
+                <constraint firstItem="wjj-ab-rVT" firstAttribute="leading" secondItem="JQr-xe-AJ3" secondAttribute="trailing" constant="5" id="N4Y-FC-WWF"/>
+                <constraint firstItem="wjj-ab-rVT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SvW-3h-gUP"/>
+                <constraint firstItem="JQr-xe-AJ3" firstAttribute="width" secondItem="wjj-ab-rVT" secondAttribute="width" multiplier="0.45" id="UXf-3Z-9ho"/>
+                <constraint firstItem="JQr-xe-AJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="fnc-fr-hE7"/>
+                <constraint firstAttribute="trailing" secondItem="wjj-ab-rVT" secondAttribute="trailing" constant="10" id="pRo-CR-Bbx"/>
+                <constraint firstAttribute="bottom" secondItem="JQr-xe-AJ3" secondAttribute="bottom" constant="10" id="qj8-Qx-umh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="wjj-ab-rVT" id="1lX-5V-1ud"/>
+                <outlet property="valueLabel" destination="JQr-xe-AJ3" id="p17-V1-cFz"/>
+            </connections>
+        </view>
+    </objects>
+</document>

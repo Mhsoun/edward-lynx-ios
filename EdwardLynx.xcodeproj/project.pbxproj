@@ -12,8 +12,10 @@
 		A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B157F1E03A45900CAEC43 /* StatusView.xib */; };
 		A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15831E03A5BA00CAEC43 /* ELStatusView.m */; };
 		A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */; };
-		A91B158E1E03B68100CAEC43 /* ELShortcutsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B158D1E03B68100CAEC43 /* ELShortcutsView.m */; };
-		A91B15901E03B7BD00CAEC43 /* ShortcutsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B158F1E03B7BD00CAEC43 /* ShortcutsView.xib */; };
+		A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B158D1E03B68100CAEC43 /* ELShortcutView.m */; };
+		A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */; };
+		A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B15911E03C90500CAEC43 /* ActionView.xib */; };
+		A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15941E03C96100CAEC43 /* ELActionView.m */; };
 		A9308BD31DED74B6007B4F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD21DED74B6007B4F9F /* main.m */; };
 		A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD51DED74B6007B4F9F /* AppDelegate.m */; };
 		A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BDA1DED74B6007B4F9F /* Main.storyboard */; };
@@ -71,9 +73,12 @@
 		A91B15831E03A5BA00CAEC43 /* ELStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELStatusView.m; sourceTree = "<group>"; };
 		A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardViewController.h; sourceTree = "<group>"; };
 		A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardViewController.m; sourceTree = "<group>"; };
-		A91B158C1E03B68100CAEC43 /* ELShortcutsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShortcutsView.h; sourceTree = "<group>"; };
-		A91B158D1E03B68100CAEC43 /* ELShortcutsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShortcutsView.m; sourceTree = "<group>"; };
-		A91B158F1E03B7BD00CAEC43 /* ShortcutsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutsView.xib; sourceTree = "<group>"; };
+		A91B158C1E03B68100CAEC43 /* ELShortcutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShortcutView.h; sourceTree = "<group>"; };
+		A91B158D1E03B68100CAEC43 /* ELShortcutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShortcutView.m; sourceTree = "<group>"; };
+		A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutView.xib; sourceTree = "<group>"; };
+		A91B15911E03C90500CAEC43 /* ActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionView.xib; path = EdwardLynx/Base.lproj/XIBs/ActionView.xib; sourceTree = SOURCE_ROOT; };
+		A91B15931E03C96100CAEC43 /* ELActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELActionView.h; sourceTree = "<group>"; };
+		A91B15941E03C96100CAEC43 /* ELActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELActionView.m; sourceTree = "<group>"; };
 		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,8 +175,9 @@
 		A91B157E1E03A44500CAEC43 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				A91B15911E03C90500CAEC43 /* ActionView.xib */,
 				A91B157F1E03A45900CAEC43 /* StatusView.xib */,
-				A91B158F1E03B7BD00CAEC43 /* ShortcutsView.xib */,
+				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
 			);
 			name = XIBs;
 			path = Base.lproj/XIBs;
@@ -180,8 +186,10 @@
 		A91B15811E03A5A400CAEC43 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				A91B158C1E03B68100CAEC43 /* ELShortcutsView.h */,
-				A91B158D1E03B68100CAEC43 /* ELShortcutsView.m */,
+				A91B15931E03C96100CAEC43 /* ELActionView.h */,
+				A91B15941E03C96100CAEC43 /* ELActionView.m */,
+				A91B158C1E03B68100CAEC43 /* ELShortcutView.h */,
+				A91B158D1E03B68100CAEC43 /* ELShortcutView.m */,
 				A91B15821E03A5BA00CAEC43 /* ELStatusView.h */,
 				A91B15831E03A5BA00CAEC43 /* ELStatusView.m */,
 			);
@@ -483,9 +491,10 @@
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
+				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
-				A91B15901E03B7BD00CAEC43 /* ShortcutsView.xib in Resources */,
+				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
 				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
@@ -580,6 +589,7 @@
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
+				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
@@ -589,7 +599,7 @@
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
-				A91B158E1E03B68100CAEC43 /* ELShortcutsView.m in Sources */,
+				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 			);
