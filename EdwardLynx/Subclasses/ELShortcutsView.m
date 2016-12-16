@@ -1,18 +1,18 @@
 //
-//  ELStatusView.m
+//  ELShortcutsView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 16/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELStatusView.h"
+#import "ELShortcutsView.h"
 
-@implementation ELStatusView
+@implementation ELShortcutsView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"StatusView"
+    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ShortcutsView"
                                                       owner:self
                                                     options:nil];
     
@@ -31,7 +31,6 @@
 
 - (void)setupContent:(NSDictionary *)contentDict {
     self.titleLabel.text = contentDict[@"title"];
-    self.detailsLabel.text = contentDict[@"details"];
     self.icon.image = contentDict[@"icon"];
 }
 

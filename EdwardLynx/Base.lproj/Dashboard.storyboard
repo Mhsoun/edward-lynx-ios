@@ -28,7 +28,7 @@
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-a3-NpI" userLabel="Content View">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-eo-zaZ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-eo-zaZ" userLabel="Status Section View">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-fc-4XB" customClass="RNThemeLabel">
                                                         <constraints>
@@ -41,10 +41,10 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="darkGrayColor"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-Cw-G4X" customClass="ELStatusView">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-Cw-G4X" customClass="ELStatusView">
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-Sa-zsg" customClass="ELStatusView">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-Sa-zsg" customClass="ELStatusView">
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -52,24 +52,77 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="LGw-Sa-zsg" secondAttribute="trailing" id="3F3-ly-mQr"/>
                                                     <constraint firstAttribute="height" constant="150" id="4K8-Hf-0fd"/>
-                                                    <constraint firstItem="MAc-Cw-G4X" firstAttribute="top" secondItem="Vbr-fc-4XB" secondAttribute="bottom" constant="5" id="89H-e3-C45"/>
+                                                    <constraint firstItem="MAc-Cw-G4X" firstAttribute="top" secondItem="Vbr-fc-4XB" secondAttribute="bottom" id="89H-e3-C45"/>
                                                     <constraint firstItem="LGw-Sa-zsg" firstAttribute="leading" secondItem="y0N-eo-zaZ" secondAttribute="leading" id="Eih-6V-dgu"/>
                                                     <constraint firstItem="MAc-Cw-G4X" firstAttribute="leading" secondItem="y0N-eo-zaZ" secondAttribute="leading" id="NgH-FB-bjg"/>
                                                     <constraint firstAttribute="trailing" secondItem="Vbr-fc-4XB" secondAttribute="trailing" id="VJr-Cf-UHl"/>
                                                     <constraint firstItem="MAc-Cw-G4X" firstAttribute="height" secondItem="LGw-Sa-zsg" secondAttribute="height" id="XJP-yx-Zd2"/>
-                                                    <constraint firstItem="LGw-Sa-zsg" firstAttribute="top" secondItem="MAc-Cw-G4X" secondAttribute="bottom" constant="5" id="f6A-aE-nAl"/>
+                                                    <constraint firstItem="LGw-Sa-zsg" firstAttribute="top" secondItem="MAc-Cw-G4X" secondAttribute="bottom" constant="10" id="f6A-aE-nAl"/>
                                                     <constraint firstItem="Vbr-fc-4XB" firstAttribute="leading" secondItem="y0N-eo-zaZ" secondAttribute="leading" id="gp6-DM-3EC"/>
                                                     <constraint firstAttribute="bottom" secondItem="LGw-Sa-zsg" secondAttribute="bottom" id="iAc-cG-Tav"/>
                                                     <constraint firstAttribute="trailing" secondItem="MAc-Cw-G4X" secondAttribute="trailing" id="nIe-PP-Z7y"/>
                                                     <constraint firstItem="Vbr-fc-4XB" firstAttribute="top" secondItem="y0N-eo-zaZ" secondAttribute="top" id="yHC-Qk-tAJ"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS1-Wn-Tz6" userLabel="Shortcuts Section View">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHORTCUTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYT-Ne-9zL" customClass="RNThemeLabel">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="l9z-t4-m4L"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="darkGrayColor"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Rf-hE-lA6" customClass="ELShortcutsView">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpC-Lj-K8E" customClass="ELShortcutsView">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-Ae-bKj" customClass="ELShortcutsView">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kwu-hI-SfP" customClass="ELShortcutsView">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Kwu-hI-SfP" firstAttribute="height" secondItem="6Um-Ae-bKj" secondAttribute="height" id="2mJ-gv-tVJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Kwu-hI-SfP" secondAttribute="trailing" id="8RZ-yH-guC"/>
+                                                    <constraint firstItem="QpC-Lj-K8E" firstAttribute="leading" secondItem="9Rf-hE-lA6" secondAttribute="trailing" constant="10" id="9a3-xT-kwl"/>
+                                                    <constraint firstItem="Kwu-hI-SfP" firstAttribute="leading" secondItem="6Um-Ae-bKj" secondAttribute="trailing" constant="10" id="M56-bA-4eD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6Um-Ae-bKj" secondAttribute="bottom" id="Nfi-V7-Yr1"/>
+                                                    <constraint firstItem="QpC-Lj-K8E" firstAttribute="top" secondItem="9Rf-hE-lA6" secondAttribute="top" id="Qxr-eo-j5j"/>
+                                                    <constraint firstItem="KYT-Ne-9zL" firstAttribute="top" secondItem="oS1-Wn-Tz6" secondAttribute="top" id="XpF-Oe-wEr"/>
+                                                    <constraint firstItem="KYT-Ne-9zL" firstAttribute="leading" secondItem="oS1-Wn-Tz6" secondAttribute="leading" id="Yyo-0T-bnV"/>
+                                                    <constraint firstItem="9Rf-hE-lA6" firstAttribute="leading" secondItem="oS1-Wn-Tz6" secondAttribute="leading" id="b62-Gr-eb5"/>
+                                                    <constraint firstItem="6Um-Ae-bKj" firstAttribute="leading" secondItem="oS1-Wn-Tz6" secondAttribute="leading" id="bVT-1g-7dc"/>
+                                                    <constraint firstItem="9Rf-hE-lA6" firstAttribute="width" secondItem="QpC-Lj-K8E" secondAttribute="width" id="bdF-Tl-gBo"/>
+                                                    <constraint firstItem="6Um-Ae-bKj" firstAttribute="width" secondItem="9Rf-hE-lA6" secondAttribute="width" id="iin-dh-9f1"/>
+                                                    <constraint firstItem="Kwu-hI-SfP" firstAttribute="bottom" secondItem="6Um-Ae-bKj" secondAttribute="bottom" id="jiL-RC-dgf"/>
+                                                    <constraint firstItem="9Rf-hE-lA6" firstAttribute="height" secondItem="6Um-Ae-bKj" secondAttribute="height" id="jwS-VS-kRA"/>
+                                                    <constraint firstItem="QpC-Lj-K8E" firstAttribute="height" secondItem="9Rf-hE-lA6" secondAttribute="height" id="lbN-rK-wvC"/>
+                                                    <constraint firstItem="9Rf-hE-lA6" firstAttribute="top" secondItem="KYT-Ne-9zL" secondAttribute="bottom" id="mNW-bO-RRE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QpC-Lj-K8E" secondAttribute="trailing" id="mcQ-RG-2sl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KYT-Ne-9zL" secondAttribute="trailing" id="rsP-W1-9pp"/>
+                                                    <constraint firstAttribute="height" constant="150" id="tCW-HG-xZd"/>
+                                                    <constraint firstItem="6Um-Ae-bKj" firstAttribute="top" secondItem="9Rf-hE-lA6" secondAttribute="bottom" constant="10" id="zXW-vN-jKe"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="y0N-eo-zaZ" secondAttribute="trailing" id="47G-Xo-WnY"/>
+                                            <constraint firstItem="oS1-Wn-Tz6" firstAttribute="top" secondItem="y0N-eo-zaZ" secondAttribute="bottom" constant="10" id="77U-FK-lcI"/>
+                                            <constraint firstAttribute="trailing" secondItem="oS1-Wn-Tz6" secondAttribute="trailing" id="DMP-9K-saF"/>
                                             <constraint firstItem="y0N-eo-zaZ" firstAttribute="top" secondItem="nG8-a3-NpI" secondAttribute="top" id="KGy-05-f7A"/>
                                             <constraint firstItem="y0N-eo-zaZ" firstAttribute="leading" secondItem="nG8-a3-NpI" secondAttribute="leading" id="p3O-9b-LJB"/>
+                                            <constraint firstItem="oS1-Wn-Tz6" firstAttribute="leading" secondItem="nG8-a3-NpI" secondAttribute="leading" id="rZj-da-PlA"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -96,9 +149,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="Ta0-tH-txy"/>
                     <connections>
+                        <outlet property="createDevPlanView" destination="QpC-Lj-K8E" id="fBe-U0-hXM"/>
+                        <outlet property="createFeedbackView" destination="9Rf-hE-lA6" id="RmA-dw-qi3"/>
                         <outlet property="devPlanStatusView" destination="MAc-Cw-G4X" id="AA5-GO-yF9"/>
                         <outlet property="feedbackStatusView" destination="LGw-Sa-zsg" id="UK3-4B-U28"/>
+                        <outlet property="reportsView" destination="6Um-Ae-bKj" id="C27-qL-BxE"/>
                         <outlet property="scrollView" destination="VEi-ti-0lx" id="O6t-H9-6fN"/>
+                        <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPm-HC-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,7 +167,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
