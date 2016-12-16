@@ -23,6 +23,9 @@
     
     // Setup IQKeyboardManager
     [ELUtils setupIQKeyboardManager];
+    
+    // TEMP
+    [ELUtils setupGlobalUIChanges];
         
     return YES;
 }
