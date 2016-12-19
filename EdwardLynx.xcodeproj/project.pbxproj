@@ -10,6 +10,9 @@
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
 		A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */; };
 		A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */; };
+		A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9F1E07AD9500ED9934 /* ELDataProvider.m */; };
+		A9121AA31E07AF6A00ED9934 /* ELTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121AA21E07AF6A00ED9934 /* ELTableDataSource.m */; };
+		A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */; };
 		A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91B157B1E03983900CAEC43 /* Dashboard.storyboard */; };
 		A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B157F1E03A45900CAEC43 /* StatusView.xib */; };
 		A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15831E03A5BA00CAEC43 /* ELStatusView.m */; };
@@ -72,6 +75,12 @@
 		A9121A991E07A7DE00ED9934 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LeftMenu.storyboard; sourceTree = "<group>"; };
 		A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLeftMenuViewController.h; sourceTree = "<group>"; };
 		A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLeftMenuViewController.m; sourceTree = "<group>"; };
+		A9121A9E1E07AD9500ED9934 /* ELDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataProvider.h; sourceTree = "<group>"; };
+		A9121A9F1E07AD9500ED9934 /* ELDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataProvider.m; sourceTree = "<group>"; };
+		A9121AA11E07AF6A00ED9934 /* ELTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTableDataSource.h; sourceTree = "<group>"; };
+		A9121AA21E07AF6A00ED9934 /* ELTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTableDataSource.m; sourceTree = "<group>"; };
+		A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMenuTableViewCell.h; sourceTree = "<group>"; };
+		A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELMenuTableViewCell.m; sourceTree = "<group>"; };
 		A91B157C1E03983900CAEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		A91B157F1E03A45900CAEC43 /* StatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
 		A91B15821E03A5BA00CAEC43 /* ELStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELStatusView.h; sourceTree = "<group>"; };
@@ -177,6 +186,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A9121AA41E07B80B00ED9934 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A91B15931E03C96100CAEC43 /* ELActionView.h */,
+				A91B15941E03C96100CAEC43 /* ELActionView.m */,
+				A91B158C1E03B68100CAEC43 /* ELShortcutView.h */,
+				A91B158D1E03B68100CAEC43 /* ELShortcutView.m */,
+				A91B15821E03A5BA00CAEC43 /* ELStatusView.h */,
+				A91B15831E03A5BA00CAEC43 /* ELStatusView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9121AA51E07B86700ED9934 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
+				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		A91B157E1E03A44500CAEC43 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,12 +222,8 @@
 		A91B15811E03A5A400CAEC43 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				A91B15931E03C96100CAEC43 /* ELActionView.h */,
-				A91B15941E03C96100CAEC43 /* ELActionView.m */,
-				A91B158C1E03B68100CAEC43 /* ELShortcutView.h */,
-				A91B158D1E03B68100CAEC43 /* ELShortcutView.m */,
-				A91B15821E03A5BA00CAEC43 /* ELStatusView.h */,
-				A91B15831E03A5BA00CAEC43 /* ELStatusView.m */,
+				A9121AA51E07B86700ED9934 /* Cells */,
+				A9121AA41E07B80B00ED9934 /* Views */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -317,7 +344,11 @@
 			children = (
 				A94D102D1DF7E63000982E43 /* ELConstants.h */,
 				A94D102E1DF7E66700982E43 /* ELConstants.m */,
+				A9121A9E1E07AD9500ED9934 /* ELDataProvider.h */,
+				A9121A9F1E07AD9500ED9934 /* ELDataProvider.m */,
 				A96F27611DFF9D5E00609E27 /* ELProtocols.h */,
+				A9121AA11E07AF6A00ED9934 /* ELTableDataSource.h */,
+				A9121AA21E07AF6A00ED9934 /* ELTableDataSource.m */,
 				A9B36AA71DFE54A300599909 /* ELUtils.h */,
 				A9B36AA81DFE54A300599909 /* ELUtils.m */,
 			);
@@ -602,6 +633,7 @@
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
+				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
@@ -609,9 +641,11 @@
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
+				A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
+				A9121AA31E07AF6A00ED9934 /* ELTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
