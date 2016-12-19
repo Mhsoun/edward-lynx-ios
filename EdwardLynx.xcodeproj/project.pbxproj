@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91B157B1E03983900CAEC43 /* Dashboard.storyboard */; };
+		A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B157F1E03A45900CAEC43 /* StatusView.xib */; };
+		A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15831E03A5BA00CAEC43 /* ELStatusView.m */; };
+		A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */; };
+		A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B158D1E03B68100CAEC43 /* ELShortcutView.m */; };
+		A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */; };
+		A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B15911E03C90500CAEC43 /* ActionView.xib */; };
+		A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15941E03C96100CAEC43 /* ELActionView.m */; };
 		A9308BD31DED74B6007B4F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD21DED74B6007B4F9F /* main.m */; };
 		A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD51DED74B6007B4F9F /* AppDelegate.m */; };
 		A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BDA1DED74B6007B4F9F /* Main.storyboard */; };
@@ -59,6 +67,18 @@
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		A91B157C1E03983900CAEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
+		A91B157F1E03A45900CAEC43 /* StatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
+		A91B15821E03A5BA00CAEC43 /* ELStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELStatusView.h; sourceTree = "<group>"; };
+		A91B15831E03A5BA00CAEC43 /* ELStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELStatusView.m; sourceTree = "<group>"; };
+		A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardViewController.h; sourceTree = "<group>"; };
+		A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardViewController.m; sourceTree = "<group>"; };
+		A91B158C1E03B68100CAEC43 /* ELShortcutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShortcutView.h; sourceTree = "<group>"; };
+		A91B158D1E03B68100CAEC43 /* ELShortcutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShortcutView.m; sourceTree = "<group>"; };
+		A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutView.xib; sourceTree = "<group>"; };
+		A91B15911E03C90500CAEC43 /* ActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionView.xib; path = EdwardLynx/Base.lproj/XIBs/ActionView.xib; sourceTree = SOURCE_ROOT; };
+		A91B15931E03C96100CAEC43 /* ELActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELActionView.h; sourceTree = "<group>"; };
+		A91B15941E03C96100CAEC43 /* ELActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELActionView.m; sourceTree = "<group>"; };
 		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +172,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A91B157E1E03A44500CAEC43 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A91B157F1E03A45900CAEC43 /* StatusView.xib */,
+				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
+			);
+			name = XIBs;
+			path = Base.lproj/XIBs;
+			sourceTree = "<group>";
+		};
+		A91B15811E03A5A400CAEC43 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				A91B15931E03C96100CAEC43 /* ELActionView.h */,
+				A91B15941E03C96100CAEC43 /* ELActionView.m */,
+				A91B158C1E03B68100CAEC43 /* ELShortcutView.h */,
+				A91B158D1E03B68100CAEC43 /* ELShortcutView.m */,
+				A91B15821E03A5BA00CAEC43 /* ELStatusView.h */,
+				A91B15831E03A5BA00CAEC43 /* ELStatusView.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		A9308BC51DED74B5007B4F9F = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +229,7 @@
 				A9308C081DED7554007B4F9F /* Layouts */,
 				A96F27651DFFA24600609E27 /* Resources */,
 				A9308C091DED7571007B4F9F /* Schema */,
+				A91B15811E03A5A400CAEC43 /* Subclasses */,
 				A9308BD11DED74B6007B4F9F /* Supporting Files */,
 				A96F275B1DFF981000609E27 /* Themes */,
 				A968F1881DF7E53F0091997D /* Utils */,
@@ -228,6 +273,8 @@
 				A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */,
 				A9685D111E0153420079FA84 /* ELChangePassViewController.h */,
 				A9685D121E0153420079FA84 /* ELChangePassViewController.m */,
+				A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */,
+				A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */,
 				A96F27711DFFDB0E00609E27 /* ELForgotPasswordViewController.h */,
 				A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */,
 				A9B36AAA1DFE5E4F00599909 /* ELLoginViewController.h */,
@@ -240,9 +287,11 @@
 			isa = PBXGroup;
 			children = (
 				A96F27581DFF8B2B00609E27 /* Authentication.storyboard */,
+				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
+				A91B157E1E03A44500CAEC43 /* XIBs */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -438,11 +487,15 @@
 				A96F276C1DFFA28E00609E27 /* Lato-Heavy.ttf in Resources */,
 				A96F276D1DFFA28E00609E27 /* Lato-Italic.ttf in Resources */,
 				A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */,
+				A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */,
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
+				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
+				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
+				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
 				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
 				A96F276E1DFFA28E00609E27 /* Lato-Light.ttf in Resources */,
@@ -531,10 +584,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
+				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
@@ -544,6 +599,8 @@
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
+				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
+				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +637,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A91B157B1E03983900CAEC43 /* Dashboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A91B157C1E03983900CAEC43 /* Base */,
+			);
+			name = Dashboard.storyboard;
+			sourceTree = "<group>";
+		};
 		A9308BDA1DED74B6007B4F9F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
