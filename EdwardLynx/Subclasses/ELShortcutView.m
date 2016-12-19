@@ -24,14 +24,30 @@
         }
     }
     
+    [self registerTapGesture];
     [self setupContent:detailsDict];
     
     return self;
 }
 
+#pragma mark - Private Methods
+
+- (void)registerTapGesture {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(onViewTap:)];
+    
+    [self addGestureRecognizer:tap];
+}
+
 - (void)setupContent:(NSDictionary *)contentDict {
     self.titleLabel.text = contentDict[@"title"];
     self.icon.image = contentDict[@"icon"];
+}
+
+#pragma mark - Selectors
+
+- (void)onViewTap:(UIGestureRecognizer *)recognizer {
+    // TODO Action
 }
 
 @end

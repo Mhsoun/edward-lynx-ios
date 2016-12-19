@@ -13,9 +13,9 @@
 
 @interface ELDashboardViewController : ELBaseViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet ELStatusView *devPlanStatusView;
 @property (weak, nonatomic) IBOutlet ELStatusView *feedbackStatusView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet ELShortcutView *createFeedbackView;
 @property (weak, nonatomic) IBOutlet ELShortcutView *createDevPlanView;
