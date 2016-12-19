@@ -8,10 +8,15 @@
 
 #import "ELConstants.h"
 
-#pragma mark - .plist Keys
+#pragma mark - .plist Keys (Root)
+
+NSString * const kELAPIClientPlistKey = @"APIClient";
+NSString * const kELFabricPlistKey = @"Fabric";
+NSString * const kELHockeyAppPlistKey = @"HockeyApp";
+
+#pragma mark - .plist Keys (Dictionary Keys)
 
 NSString * const kELAPITokenPlistKey = @"APIKey";
-NSString * const kELHockeyAppPlistKey = @"HockeyApp";
 
 #pragma mark - Constants
 
@@ -22,15 +27,16 @@ NSString * const kELFabricUsername = @"FabricUsername";
 
 #pragma mark - Endpoints
 
-NSString * const kELAPIRootEndpoint = @"[API_URL]/api/v1";
-NSString * const kELAPIQuestionCategoriesEndpoint = @"/question_categories";
-NSString * const kELAPIQuestionCategoryEndpoint = @"/question_categories/%@";
-NSString * const kELAPIQuestionsEndpoint = @"/questions";
-NSString * const kELAPIQuestionEndpoint = @"/questions/%@";
-NSString * const kELAPISurveysEndpoint = @"/surveys";
-NSString * const kELAPISurveyEndpoint = @"/surveys/%@";
-NSString * const kELAPIUserEndpoint = @"/user";
-NSString * const kELAPILoginEndpoint = @"/user/login";
+NSString * const kELAPIVersionNamespace = @"api/v1";
+NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
+NSString * const kELAPIQuestionCategoriesEndpoint = @"question_categories";
+NSString * const kELAPIQuestionCategoryEndpoint = @"question_categories/%@";
+NSString * const kELAPIQuestionsEndpoint = @"questions";
+NSString * const kELAPIQuestionEndpoint = @"questions/%@";
+NSString * const kELAPISurveysEndpoint = @"surveys";
+NSString * const kELAPISurveyEndpoint = @"surveys/%@";
+NSString * const kELAPIUserEndpoint = @"user";
+NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 #pragma mark - HTTP Methods
 
@@ -43,6 +49,7 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 #pragma mark - NSUserDefaults Keys
 
 NSString * const kELAuthHeaderUserDefaultsKey = @"AuthHeaderUserDefaults";
+NSString * const kELRefreshTokenUserDefaultsKey = @"RefreshTokenUserDefaults";
 
 #pragma mark - RNThemeManager .plist Keys
 

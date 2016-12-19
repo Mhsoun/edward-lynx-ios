@@ -9,6 +9,8 @@
 #ifndef ELProtocols_h
 #define ELProtocols_h
 
+#pragma mark - Generic Delegates
+
 @protocol ELBaseViewControllerDelegate <NSObject>
 
 @optional
@@ -25,6 +27,13 @@
 @protocol ELRowHandlerDelegate <NSObject>
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@protocol ELAPIResponseDelegate <NSObject>
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict;
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict;
 
 @end
 

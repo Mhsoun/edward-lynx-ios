@@ -25,7 +25,7 @@ static CGFloat const kICornerRadius = 2.0f;
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELAccountsViewManager alloc] initWithView:self.view];
+    self.viewManager = [[ELAccountsViewManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

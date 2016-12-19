@@ -40,9 +40,10 @@
 
 - (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors {
     BOOL isValid = errors.count == 0;
+    id error = isValid ? nil : errors[0];
     
     // Label
-    self.errorLabel.text = !isValid ? [errors[0] localizedDescription] : @"";
+    self.errorLabel.text = !isValid ? ([error isKindOfClass:[NSError class]] ? [errors[0] localizedDescription] : error) : @"";
     self.errorLabel.hidden = isValid;
     
     // Icon
@@ -56,6 +57,7 @@
 @implementation ELUtils
 
 + (void)fabricForceCrash {
+    // TODO Fill in with actual user information
     [ELUtils fabricLogUserInformation:@{kELFabricUsername: @"someuser",
                                         kELFabricEmail: @"someuser@gmail.com",
                                         kELFabricIdentifier: @"someuser123"}];
@@ -70,6 +72,10 @@
 
 + (id)getUserDefaultValueForKey:(NSString *)key {
     return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+}
+
++ (void)setUserDefaultValue:(id)value forKey:(NSString *)key {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
 }
 
 #pragma mark - Third-party Packages Setup

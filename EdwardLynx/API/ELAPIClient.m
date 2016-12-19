@@ -22,7 +22,6 @@
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSURLSessionDataTask *dataTask;
-    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -32,13 +31,17 @@
         NSString *errorMessage;
         UIAlertController *alertController;
         __kindof UIViewController *visibleViewController;
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSDictionary *responseDict = (NSDictionary *)responseObject;
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        if (!error && responseDict[@"error"]) {
+        if (responseDict[@"error"]) {
             error = [NSError errorWithDomain:kELErrorDomain
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];
+            
+            completion(response, responseDict, error);
+            
+            return;
         }
         
         if (!error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
@@ -48,7 +51,7 @@
             }
         } else if (error) {
             delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            errorMessage = [NSString stringWithFormat:@"%@ Please try again later", error.localizedDescription];
+            errorMessage = [NSString stringWithFormat:@"%@. Please try again later", error.localizedDescription];
             visibleViewController = [delegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:@"Error"
                                                                   message:errorMessage
@@ -98,6 +101,7 @@
                          bodyParams:(NSDictionary *)bodyParams
                         queryParams:(NSDictionary *)queryParams {
     NSMutableURLRequest *request;
+    NSString *authHeader = [ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey];
     
     endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
     
@@ -118,7 +122,10 @@
     [request setHTTPShouldHandleCookies:NO];
     [request setTimeoutInterval:30.0];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:[[ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey] stringValue] forHTTPHeaderField:@"Authorization"];
+                            
+    if (authHeader) {
+        [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    }
     
     return request;
 }
