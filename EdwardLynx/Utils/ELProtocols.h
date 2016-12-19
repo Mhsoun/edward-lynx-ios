@@ -16,4 +16,16 @@
 
 @end
 
+@protocol ELConfigurableCellDelegate <NSObject>
+
+- (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@protocol ELRowHandlerDelegate <NSObject>
+
+- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 #endif /* ELProtocols_h */
