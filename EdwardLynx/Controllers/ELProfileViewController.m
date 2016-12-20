@@ -8,11 +8,17 @@
 
 #import "ELProfileViewController.h"
 
+#pragma mark - Class Extension
+
 @interface ELProfileViewController ()
+
+@property (nonatomic, strong) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
 
 @end
 
 @implementation ELProfileViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +28,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.nameLabel.text = responseDict[@"name"];
             self.emailLabel.text = responseDict[@"email"];
+            
+            self.userInfoDict = responseDict;
         });
     }];
 }
@@ -29,6 +37,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditProfile"]) {
+        ELEditProfileViewController *controller = [segue destinationViewController];
+        
+        controller.userInfoDict = self.userInfoDict;
+    }
 }
 
 @end

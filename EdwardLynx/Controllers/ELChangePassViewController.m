@@ -12,6 +12,8 @@
 
 static CGFloat const kICornerRadius = 4.0f;
 
+#pragma mark - Class Extension
+
 @interface ELChangePassViewController ()
 
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
@@ -23,6 +25,8 @@ static CGFloat const kICornerRadius = 4.0f;
 @end
 
 @implementation ELChangePassViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

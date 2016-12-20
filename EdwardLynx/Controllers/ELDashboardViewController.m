@@ -18,6 +18,8 @@ static CGFloat const kICornerRadius = 2.0f;
 
 @implementation ELDashboardViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

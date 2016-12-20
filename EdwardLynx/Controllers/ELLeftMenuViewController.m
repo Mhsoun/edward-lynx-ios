@@ -24,6 +24,8 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
 
 @implementation ELLeftMenuViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

@@ -7,6 +7,7 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELEditProfileViewController.h"
 #import "ELUsersAPIClient.h"
 
 @interface ELProfileViewController : ELBaseViewController

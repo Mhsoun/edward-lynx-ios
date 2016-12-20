@@ -12,6 +12,8 @@
 
 static CGFloat const kICornerRadius = 2.0f;
 
+#pragma mark - Class Extension
+
 @interface ELLoginViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
@@ -36,6 +38,10 @@ static CGFloat const kICornerRadius = 2.0f;
     self.passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
                                                             icon:self.passwordIcon
                                                       errorLabel:self.passwordErrorLabel];
+    
+    // TEMP
+    self.usernameTextField.text = @"admin@edwardlynx.com";
+    self.passwordTextField.text = @"password123";
 }
 
 - (void)didReceiveMemoryWarning {

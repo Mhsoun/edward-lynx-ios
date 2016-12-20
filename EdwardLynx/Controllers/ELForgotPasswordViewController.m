@@ -12,6 +12,8 @@
 
 static CGFloat const kICornerRadius = 2.0f;
 
+#pragma mark - Class Extension
+
 @interface ELForgotPasswordViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
@@ -19,6 +21,8 @@ static CGFloat const kICornerRadius = 2.0f;
 @end
 
 @implementation ELForgotPasswordViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
