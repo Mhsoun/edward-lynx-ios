@@ -6,9 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELEditProfileViewController : ELBaseViewController
+@interface ELEditProfileViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
 

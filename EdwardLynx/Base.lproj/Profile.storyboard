@@ -20,31 +20,62 @@
                         <viewControllerLayoutGuide type="top" id="t7k-RW-LGe"/>
                         <viewControllerLayoutGuide type="bottom" id="6E7-Ge-Nom"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DVm-eg-BZu">
+                    <view key="view" contentMode="scaleToFill" id="DVm-eg-BZu" customClass="RNThemeView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qM-fM-xli">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rz4-9E-hgr">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qM-fM-xli">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nbj-rA-n1m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-oI-eFB">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-WR-2Hw">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-oI-eFB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bLq-LM-Ugs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjI-65-gUJ">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZW-3x-hZK">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP5-rf-2rT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lUX-j5-5vz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjI-65-gUJ" customClass="RNThemeButton">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="203-Iw-hCH"/>
                                 </constraints>
-                                <state key="normal" title="Change Password"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <state key="normal" title="CHANGE PASSWORD"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="LVn-f4-acM" kind="show" identifier="ChangePassword" id="OgG-wF-NIL"/>
                                 </connections>
@@ -52,16 +83,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NjI-65-gUJ" firstAttribute="top" secondItem="QyC-oI-eFB" secondAttribute="bottom" constant="10" id="M7y-fz-ipo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rz4-9E-hgr" secondAttribute="trailing" constant="10" id="9Vl-c7-1iU"/>
+                            <constraint firstItem="EZW-3x-hZK" firstAttribute="top" secondItem="QyC-oI-eFB" secondAttribute="bottom" constant="10" id="Fv7-nf-QVw"/>
+                            <constraint firstItem="0qM-fM-xli" firstAttribute="leading" secondItem="rz4-9E-hgr" secondAttribute="leading" id="Jme-dy-CRD"/>
+                            <constraint firstItem="rz4-9E-hgr" firstAttribute="top" secondItem="t7k-RW-LGe" secondAttribute="bottom" constant="30" id="Nd2-eQ-Xzj"/>
                             <constraint firstItem="QyC-oI-eFB" firstAttribute="trailing" secondItem="0qM-fM-xli" secondAttribute="trailing" id="OE8-wp-Ys8"/>
-                            <constraint firstItem="0qM-fM-xli" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" constant="10" id="QHh-C9-NGc"/>
+                            <constraint firstItem="0qM-fM-xli" firstAttribute="top" secondItem="rz4-9E-hgr" secondAttribute="bottom" id="PEM-pv-Pd7"/>
                             <constraint firstItem="QyC-oI-eFB" firstAttribute="leading" secondItem="0qM-fM-xli" secondAttribute="leading" id="QTd-yp-UoR"/>
+                            <constraint firstItem="eP5-rf-2rT" firstAttribute="trailing" secondItem="QyC-oI-eFB" secondAttribute="trailing" id="Qnu-mP-QrL"/>
+                            <constraint firstItem="EZW-3x-hZK" firstAttribute="leading" secondItem="QyC-oI-eFB" secondAttribute="leading" id="Rhm-7S-EYs"/>
+                            <constraint firstItem="eP5-rf-2rT" firstAttribute="leading" secondItem="QyC-oI-eFB" secondAttribute="leading" id="S3T-qa-RQc"/>
+                            <constraint firstItem="uXW-WR-2Hw" firstAttribute="leading" secondItem="0qM-fM-xli" secondAttribute="leading" id="TWr-BR-YtH"/>
                             <constraint firstItem="NjI-65-gUJ" firstAttribute="leading" secondItem="QyC-oI-eFB" secondAttribute="leading" id="VCR-c5-R5G"/>
-                            <constraint firstItem="QyC-oI-eFB" firstAttribute="top" secondItem="0qM-fM-xli" secondAttribute="bottom" constant="10" id="VeC-3u-A9b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0qM-fM-xli" secondAttribute="trailing" constant="10" id="kCO-wd-Emw"/>
+                            <constraint firstItem="NjI-65-gUJ" firstAttribute="top" secondItem="eP5-rf-2rT" secondAttribute="bottom" constant="10" id="X7I-V3-uf6"/>
+                            <constraint firstItem="0qM-fM-xli" firstAttribute="trailing" secondItem="rz4-9E-hgr" secondAttribute="trailing" id="aIg-eb-3hz"/>
+                            <constraint firstItem="rz4-9E-hgr" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" constant="10" id="muB-vz-JrO"/>
+                            <constraint firstItem="uXW-WR-2Hw" firstAttribute="top" secondItem="0qM-fM-xli" secondAttribute="bottom" constant="10" id="oB3-Tv-gAU"/>
+                            <constraint firstItem="eP5-rf-2rT" firstAttribute="top" secondItem="EZW-3x-hZK" secondAttribute="bottom" id="oYt-Sl-Al2"/>
                             <constraint firstItem="NjI-65-gUJ" firstAttribute="trailing" secondItem="QyC-oI-eFB" secondAttribute="trailing" id="oeX-D1-UWF"/>
-                            <constraint firstItem="0qM-fM-xli" firstAttribute="top" secondItem="t7k-RW-LGe" secondAttribute="bottom" constant="50" id="ok4-5o-jxr"/>
+                            <constraint firstItem="EZW-3x-hZK" firstAttribute="trailing" secondItem="QyC-oI-eFB" secondAttribute="trailing" id="suA-kI-cfi"/>
+                            <constraint firstItem="QyC-oI-eFB" firstAttribute="top" secondItem="uXW-WR-2Hw" secondAttribute="bottom" id="tDu-dh-sIV"/>
+                            <constraint firstItem="uXW-WR-2Hw" firstAttribute="trailing" secondItem="0qM-fM-xli" secondAttribute="trailing" id="vkq-cO-BqE"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightGrayColor"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="KUQ-vm-yU0">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="XL0-pP-iO7">
@@ -72,6 +118,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailLabel" destination="QyC-oI-eFB" id="3WC-Nd-VDw"/>
+                        <outlet property="infoLabel" destination="eP5-rf-2rT" id="isw-rc-JLi"/>
                         <outlet property="nameLabel" destination="0qM-fM-xli" id="40I-MC-L7I"/>
                     </connections>
                 </viewController>
@@ -416,9 +463,9 @@
                         <constraints>
                             <constraint firstItem="en7-1a-SWb" firstAttribute="top" secondItem="CXu-Ts-Kdg" secondAttribute="bottom" id="Em3-7A-bHU"/>
                             <constraint firstItem="en7-1a-SWb" firstAttribute="trailing" secondItem="CXu-Ts-Kdg" secondAttribute="trailing" id="VGh-fa-dxh"/>
-                            <constraint firstItem="CXu-Ts-Kdg" firstAttribute="leading" secondItem="TGF-gs-Wli" secondAttribute="leading" constant="10" id="gE2-iw-bmy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CXu-Ts-Kdg" secondAttribute="trailing" constant="10" id="gVc-Lk-bxG"/>
+                            <constraint firstItem="CXu-Ts-Kdg" firstAttribute="leading" secondItem="TGF-gs-Wli" secondAttribute="leadingMargin" constant="10" id="jsF-bJ-vkH"/>
                             <constraint firstItem="en7-1a-SWb" firstAttribute="height" secondItem="CXu-Ts-Kdg" secondAttribute="height" id="kt7-gX-sP5"/>
-                            <constraint firstAttribute="trailing" secondItem="CXu-Ts-Kdg" secondAttribute="trailing" constant="10" id="oOg-ig-Efr"/>
                             <constraint firstItem="CXu-Ts-Kdg" firstAttribute="top" secondItem="TO5-6h-tG5" secondAttribute="bottom" constant="30" id="tGK-5e-dAp"/>
                             <constraint firstItem="en7-1a-SWb" firstAttribute="leading" secondItem="CXu-Ts-Kdg" secondAttribute="leading" id="vZ1-5K-YD4"/>
                         </constraints>

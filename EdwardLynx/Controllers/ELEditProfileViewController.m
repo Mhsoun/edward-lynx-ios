@@ -16,6 +16,11 @@ static CGFloat const kICornerRadius = 4.0f;
 
 @interface ELEditProfileViewController ()
 
+@property (nonatomic, strong) NSDictionary *formGroupsDict;
+@property (nonatomic, strong) ELAccountsViewManager *viewManager;
+@property (nonatomic, strong) ELTextFieldGroup *nameGroup,
+                                               *infoGroup;
+
 @end
 
 @implementation ELEditProfileViewController
@@ -25,6 +30,17 @@ static CGFloat const kICornerRadius = 4.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.viewManager = [[ELAccountsViewManager alloc] init];
+    self.viewManager.delegate = self;
+    self.nameGroup = [[ELTextFieldGroup alloc] initWithField:self.nameTextField
+                                                        icon:nil
+                                                  errorLabel:self.nameErrorLabel];
+    self.infoGroup = [[ELTextFieldGroup alloc] initWithField:self.infoTextField
+                                                        icon:nil
+                                                  errorLabel:self.infoErrorLabel];
+    self.formGroupsDict = @{@"name": self.nameGroup, @"info": self.infoGroup};
     
     [self populatePage];
 }
@@ -41,6 +57,24 @@ static CGFloat const kICornerRadius = 4.0f;
     self.infoTextField.text = self.userInfoDict[@"info"];
 }
 
+#pragma mark - Protocol Methods (ELAccountsViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    if (!errorDict[@"message"]) {
+        return;
+    }
+    
+    for (NSString *key in [errorDict[@"message"] allKeys]) {
+        NSArray *errors = errorDict[@"message"][key];
+        
+        [self.formGroupsDict[key] toggleValidationIndicatorsBasedOnErrors:errors];
+    }
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
@@ -52,7 +86,13 @@ static CGFloat const kICornerRadius = 4.0f;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneClick:(id)sender {
-    // TODO Action
+    BOOL isValid = [self.viewManager validateProfileUpdateFormValues:self.formGroupsDict];
+    
+    if (!isValid) {
+        return;
+    }
+    
+    [self.viewManager processProfileUpdate];
 }
 
 @end

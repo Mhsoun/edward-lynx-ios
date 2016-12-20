@@ -32,6 +32,7 @@ static CGFloat const kICornerRadius = 4.0f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initialization
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
     self.currentPasswordGroup = [[ELTextFieldGroup alloc] initWithField:self.currentPasswordTextField

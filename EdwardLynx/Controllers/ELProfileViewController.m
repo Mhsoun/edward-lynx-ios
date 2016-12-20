@@ -23,20 +23,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.nameLabel.text = responseDict[@"name"];
-            self.emailLabel.text = responseDict[@"email"];
-            
-            self.userInfoDict = responseDict;
-        });
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // TEMP
+    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.nameLabel.text = responseDict[@"name"];
+            self.emailLabel.text = responseDict[@"email"];
+            self.infoLabel.text = responseDict[@"info"];
+            
+            self.userInfoDict = responseDict;
+        });
+    }];
 }
 
 #pragma mark - Navigation
