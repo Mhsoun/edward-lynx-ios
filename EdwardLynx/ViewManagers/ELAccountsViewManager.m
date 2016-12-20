@@ -55,6 +55,22 @@
     }];
 }
 
+- (void)processChangePassword {
+    [self.client updateUserInfoWithParams:@{@"password": [self.formDict[@"password"] textValue],
+                                            @"currentPassword": [self.formDict[@"currentPassword"] textValue]}
+                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [self.delegate onAPIResponseSuccess:responseDict];
+        });
+    }];
+}
+
 - (void)processPasswordRecovery {
     // TODO Process recovery
 }
@@ -72,8 +88,6 @@
                                            validators:@[@"presence", @"length(4, 20)"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
-        
-        // TODO Display error messages to app
     }
     
     if (formDict[@"password"]) {
@@ -83,8 +97,6 @@
                                            validators:@[@"presence", @"length(4, 20)"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
-        
-        // TODO Display error messages to app
     }
     
     return usernameErrors.count == 0 && passwordErrors.count == 0;
@@ -103,11 +115,34 @@
                                         validators:@[@"presence", @"email"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
-        
-        // TODO Display error messages to app
     }
     
     return emailErrors.count == 0;
+}
+
+- (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict {
+    NSArray *errors;
+    ELTextFieldGroup *textFieldGroup;
+    BOOL isValid = YES, isEqual = NO;
+    
+    self.formDict = formDict;
+    isEqual = ([[formDict[@"password"] textValue] isEqualToString:[formDict[@"confirmPassword"] textValue]]);
+    
+    for (NSString *key in [formDict allKeys]) {
+        textFieldGroup = formDict[key];
+        errors = [REValidation validateObject:[textFieldGroup textValue]
+                                                 name:@"Field"
+                                           validators:@[@"presence", @"length(4, 20)"]];
+        isValid = isValid && errors.count == 0;
+        
+        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
+    }
+    
+    if (!isEqual) {
+        [formDict[@"password"] toggleValidationIndicatorsBasedOnErrors:@[@"New Password fields must be the same."]];
+    }
+    
+    return isValid && isEqual;
 }
 
 #pragma mark - Private Methods

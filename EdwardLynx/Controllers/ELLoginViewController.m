@@ -36,9 +36,6 @@ static CGFloat const kICornerRadius = 2.0f;
     self.passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
                                                             icon:self.passwordIcon
                                                       errorLabel:self.passwordErrorLabel];
-    
-    self.usernameTextField.text = @"admin@edwardlynx.com";
-    self.passwordTextField.text = @"password123";
 }
 
 - (void)didReceiveMemoryWarning {

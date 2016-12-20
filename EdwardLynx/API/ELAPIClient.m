@@ -105,7 +105,7 @@
     
     endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
     
-    if ([method isEqualToString:kELAPIPostHTTPMethod]) {
+    if (![method isEqualToString:kELAPIGetHTTPMethod]) {
         request = [[AFJSONRequestSerializer serializer] requestWithMethod:method
                                                                 URLString:endpoint
                                                                parameters:bodyParams ? bodyParams : queryParams
@@ -113,7 +113,7 @@
     } else {
         request = [[AFHTTPRequestSerializer serializer] requestWithMethod:method
                                                                 URLString:endpoint
-                                                               parameters:bodyParams ? bodyParams : queryParams
+                                                               parameters:queryParams ? queryParams : bodyParams
                                                                     error:nil];
     }
     

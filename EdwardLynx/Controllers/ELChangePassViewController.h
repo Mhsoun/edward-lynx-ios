@@ -6,9 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELChangePassViewController : ELBaseViewController
+@interface ELChangePassViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *currentPasswordView;
 @property (weak, nonatomic) IBOutlet UITextField *currentPasswordTextField;
