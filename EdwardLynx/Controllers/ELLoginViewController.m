@@ -72,6 +72,10 @@ static CGFloat const kICornerRadius = 2.0f;
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     self.loginButton.enabled = YES;
     
+    if (!errorDict[@"message"]) {
+        return;
+    }
+    
     [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[@"message"]]];
 }
 

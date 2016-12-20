@@ -28,16 +28,24 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Settings", @"Logout"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kCellIdentifier];
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100)];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
     
     // UI additions
     [self layoutPage];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)didReceiveMemoryWarning {

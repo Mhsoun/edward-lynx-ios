@@ -37,8 +37,9 @@
 
 - (void)updateUserInfoWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:kELAPIUserEndpoint
-                                              method:kELAPIPutHTTPMethod
+    NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [super requestFor:endpoint
+                                              method:kELAPIPatchHTTPMethod
                                           bodyParams:params];
     
     [super performAuthenticatedTask:YES
@@ -47,10 +48,10 @@
 }
 
 - (void)userInfoWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:kELAPIUserEndpoint
-                                              method:kELAPIGetHTTPMethod
-                                          bodyParams:nil];
-    
+    NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [super requestFor:endpoint
+                                              method:kELAPIGetHTTPMethod];
+        
     [super performAuthenticatedTask:YES
                         withRequest:request
                          completion:completion];
