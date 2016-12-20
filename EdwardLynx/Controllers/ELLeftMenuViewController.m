@@ -28,7 +28,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Settings", @"Logout"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kCellIdentifier];

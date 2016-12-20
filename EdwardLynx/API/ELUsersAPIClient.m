@@ -47,10 +47,10 @@
 }
 
 - (void)userInfoWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:kELAPIUserEndpoint
-                                              method:kELAPIGetHTTPMethod
-                                          bodyParams:nil];
-    
+    NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [super requestFor:endpoint
+                                              method:kELAPIGetHTTPMethod];
+        
     [super performAuthenticatedTask:YES
                         withRequest:request
                          completion:completion];

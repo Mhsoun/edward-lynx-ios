@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeO-wN-6bl">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="iPi-dl-r70">
+            <objects>
+                <viewController id="ggl-kA-jIJ" customClass="ELProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t7k-RW-LGe"/>
+                        <viewControllerLayoutGuide type="bottom" id="6E7-Ge-Nom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DVm-eg-BZu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qM-fM-xli">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nbj-rA-n1m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-oI-eFB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bLq-LM-Ugs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QyC-oI-eFB" firstAttribute="trailing" secondItem="0qM-fM-xli" secondAttribute="trailing" id="OE8-wp-Ys8"/>
+                            <constraint firstItem="0qM-fM-xli" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" constant="10" id="QHh-C9-NGc"/>
+                            <constraint firstItem="QyC-oI-eFB" firstAttribute="leading" secondItem="0qM-fM-xli" secondAttribute="leading" id="QTd-yp-UoR"/>
+                            <constraint firstItem="QyC-oI-eFB" firstAttribute="top" secondItem="0qM-fM-xli" secondAttribute="bottom" constant="10" id="VeC-3u-A9b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0qM-fM-xli" secondAttribute="trailing" constant="10" id="kCO-wd-Emw"/>
+                            <constraint firstItem="0qM-fM-xli" firstAttribute="top" secondItem="t7k-RW-LGe" secondAttribute="bottom" constant="50" id="ok4-5o-jxr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="KUQ-vm-yU0"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="QyC-oI-eFB" id="3WC-Nd-VDw"/>
+                        <outlet property="nameLabel" destination="0qM-fM-xli" id="40I-MC-L7I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNu-Jt-kF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="152"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oZD-2N-EjU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeO-wN-6bl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hpx-WY-ILA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ggl-kA-jIJ" kind="relationship" relationship="rootViewController" id="Wcu-NE-bTL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNY-9B-lvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92" y="152.47376311844079"/>
+        </scene>
+    </scenes>
+</document>

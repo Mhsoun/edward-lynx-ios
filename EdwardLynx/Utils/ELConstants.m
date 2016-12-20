@@ -27,15 +27,15 @@ NSString * const kELFabricUsername = @"FabricUsername";
 
 #pragma mark - Endpoints
 
-NSString * const kELAPIVersionNamespace = @"api/v1";
 NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
-NSString * const kELAPIQuestionCategoriesEndpoint = @"question_categories";
-NSString * const kELAPIQuestionCategoryEndpoint = @"question_categories/%@";
-NSString * const kELAPIQuestionsEndpoint = @"questions";
-NSString * const kELAPIQuestionEndpoint = @"questions/%@";
-NSString * const kELAPISurveysEndpoint = @"surveys";
-NSString * const kELAPISurveyEndpoint = @"surveys/%@";
-NSString * const kELAPIUserEndpoint = @"user";
+NSString * const kELAPIVersionNamespace = @"api/v1";
+NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/question_categories";
+NSString * const kELAPIQuestionCategoryEndpoint = @"%@/question_categories/%@";
+NSString * const kELAPIQuestionsEndpoint = @"%@/questions";
+NSString * const kELAPIQuestionEndpoint = @"%@/questions/%@";
+NSString * const kELAPISurveysEndpoint = @"%@/surveys";
+NSString * const kELAPISurveyEndpoint = @"%@/surveys/%@";
+NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 #pragma mark - HTTP Methods

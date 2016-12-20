@@ -73,20 +73,20 @@
                     </tableView>
                     <connections>
                         <segue destination="9kA-0g-ytD" kind="custom" identifier="Dashboard" customClass="SASlideMenuContentSegue" id="LdH-li-jKi"/>
-                        <segue destination="SJ3-c6-UFM" kind="custom" identifier="Settings" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
+                        <segue destination="SJ3-c6-UFM" kind="custom" identifier="Profile" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgs-oc-ffC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1124" y="169"/>
         </scene>
-        <!--Settings-->
+        <!--Profile-->
         <scene sceneID="GcX-qX-r1n">
             <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="SJ3-c6-UFM" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" id="SJ3-c6-UFM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3w-FR-4C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="202"/>
+            <point key="canvasLocation" x="1792" y="201"/>
         </scene>
     </scenes>
 </document>
