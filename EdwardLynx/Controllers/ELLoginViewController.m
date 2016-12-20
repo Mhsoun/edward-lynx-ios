@@ -15,6 +15,7 @@ static CGFloat const kICornerRadius = 2.0f;
 @interface ELLoginViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
+@property (nonatomic, strong) ELTextFieldGroup *usernameGroup, *passwordGroup;
 
 @end
 
@@ -27,7 +28,14 @@ static CGFloat const kICornerRadius = 2.0f;
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELAccountsViewManager alloc] initWithView:self.view];
+    self.viewManager = [[ELAccountsViewManager alloc] init];
+    self.viewManager.delegate = self;
+    self.usernameGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameTextField
+                                                            icon:self.usernameIcon
+                                                      errorLabel:self.usernameErrorLabel];
+    self.passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
+                                                            icon:self.passwordIcon
+                                                      errorLabel:self.passwordErrorLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +43,7 @@ static CGFloat const kICornerRadius = 2.0f;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protocol Methods
+#pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
     CAGradientLayer *gradient;
@@ -59,26 +67,37 @@ static CGFloat const kICornerRadius = 2.0f;
     [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
+#pragma mark - Protocol Methods (ELAccountsViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    self.loginButton.enabled = YES;
+    
+    [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[@"message"]]];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.loginButton.enabled = YES;
+    
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
+                       animated:YES
+                     completion:nil];
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onLoginButtonClick:(id)sender {
-    BOOL isValid;
-    ELTextFieldGroup *usernameGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameTextField
-                                                                         icon:self.usernameIcon
-                                                                   errorLabel:self.usernameErrorLabel];
-    ELTextFieldGroup *passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
-                                                                         icon:self.passwordIcon
-                                                                   errorLabel:self.passwordErrorLabel];
+    BOOL isValid = [self.viewManager validateLoginFormValues:@{@"username": self.usernameGroup,
+                                                               @"password": self.passwordGroup}];
     
-    isValid = [self.viewManager validateLoginFormValues:@{@"username": usernameGroup,
-                                                          @"password": passwordGroup}];
+    self.loginButton.enabled = NO;
     
     if (!isValid) {
+        self.loginButton.enabled = YES;
+        
         return;
     }
     
-    // TODO
-//    [self.viewManager processAuthentication];
+    [self.viewManager processAuthentication];
 }
 
 @end

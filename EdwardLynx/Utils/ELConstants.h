@@ -9,10 +9,15 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
-#pragma mark - .plist Keys
+#pragma mark - .plist Keys (Root)
+
+extern NSString * const kELAPIClientPlistKey;
+extern NSString * const kELFabricPlistKey;
+extern NSString * const kELHockeyAppPlistKey;
+
+#pragma mark - .plist Keys (Dictionary Keys)
 
 extern NSString * const kELAPITokenPlistKey;
-extern NSString * const kELHockeyAppPlistKey;
 
 #pragma mark - Constants
 
@@ -23,6 +28,7 @@ extern NSString * const kELFabricUsername;
 
 #pragma mark - Endpoints
 
+extern NSString * const kELAPIVersionNamespace;
 extern NSString * const kELAPIRootEndpoint;
 extern NSString * const kELAPIQuestionCategoriesEndpoint;
 extern NSString * const kELAPIQuestionCategoryEndpoint;
@@ -44,6 +50,7 @@ extern NSString * const kELAPIPutHTTPMethod;
 #pragma mark - NSUserDefaults Keys
 
 extern NSString * const kELAuthHeaderUserDefaultsKey;
+extern NSString * const kELRefreshTokenUserDefaultsKey;
 
 #pragma mark - RNThemeManager .plist Keys
 

@@ -13,10 +13,22 @@
 - (void)authenticateWithUsername:(NSString *)username
                         password:(NSString *)password
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:kELAPILoginEndpoint
-                                              method:kELAPIPostHTTPMethod
-                                          bodyParams:@{@"username": username,
-                                                       @"password": password}];
+    NSMutableURLRequest *request;
+    NSMutableDictionary *mBodyParamsDict;
+    NSString *clientId = [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"ID"];
+    NSString *clientSecret = [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"Secret"];
+    
+    mBodyParamsDict = [NSMutableDictionary dictionaryWithDictionary:@{@"username": username,
+                                                                      @"password": password}];
+    
+    [mBodyParamsDict setObject:@"*" forKey:@"scope"];
+    [mBodyParamsDict setObject:@"password" forKey:@"grant_type"];
+    [mBodyParamsDict setObject:clientId forKey:@"client_id"];
+    [mBodyParamsDict setObject:clientSecret forKey:@"client_secret"];
+    
+    request = [super requestFor:kELAPILoginEndpoint
+                         method:kELAPIPostHTTPMethod
+                     bodyParams:mBodyParamsDict];
     
     [super performAuthenticatedTask:NO
                         withRequest:request

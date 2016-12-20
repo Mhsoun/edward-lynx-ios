@@ -10,7 +10,6 @@
 
 @interface ELAccountsViewManager ()
 
-@property (nonatomic, strong) UIView *view;
 @property (nonatomic, strong) NSDictionary *formDict;
 @property (nonatomic, strong) ELUsersAPIClient *client;
 
@@ -18,14 +17,13 @@
 
 @implementation ELAccountsViewManager
 
-- (instancetype)initWithView:(UIView *)view {
+- (instancetype)init {
     self = [super init];
     
     if (!self) {
         return nil;
     }
     
-    _view = view;
     _formDict = @{};
     _client = [[ELUsersAPIClient alloc] init];
     
@@ -40,11 +38,20 @@
     [self.client authenticateWithUsername:[self.formDict[@"username"] textValue]
                                  password:[self.formDict[@"password"] textValue]
                                completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        if (error) {
-            return;
-        }
-        
-        NSLog(@"%@: %@", [self.client class], responseDict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            // Set Refresh Token and Authentication header
+            [ELUtils setUserDefaultValue:responseDict[@"refresh_token"] forKey:kELRefreshTokenUserDefaultsKey];
+            [ELUtils setUserDefaultValue:[NSString stringWithFormat:@"Bearer %@", responseDict[@"access_token"]]
+                                  forKey:kELAuthHeaderUserDefaultsKey];
+            
+            [self.delegate onAPIResponseSuccess:responseDict];
+        });
     }];
 }
 

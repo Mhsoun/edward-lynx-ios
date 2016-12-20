@@ -10,7 +10,7 @@
 #import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELLoginViewController : ELBaseViewController
+@interface ELLoginViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 

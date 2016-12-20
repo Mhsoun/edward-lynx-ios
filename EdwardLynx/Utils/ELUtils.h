@@ -26,6 +26,7 @@
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
 + (id)getUserDefaultValueForKey:(NSString *)key;
++ (void)setUserDefaultValue:(id)value forKey:(NSString *)key;
 
 + (void)setupFabric;
 + (void)setupGlobalUIChanges;

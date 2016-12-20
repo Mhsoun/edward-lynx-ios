@@ -12,7 +12,7 @@
 
 @interface ELAccountsViewManager : NSObject
 
-- (instancetype)initWithView:(UIView *)view;
+@property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
 - (void)processAuthentication;
 - (void)processPasswordRecovery;
