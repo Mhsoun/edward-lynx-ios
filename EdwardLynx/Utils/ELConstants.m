@@ -59,6 +59,9 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 NSString * const kELAuthHeaderUserDefaultsKey = @"AuthHeaderUserDefaults";
 NSString * const kELRefreshTokenUserDefaultsKey = @"RefreshTokenUserDefaults";
 
+NSString * const kELUsernameUserDefaultsKey = @"UsernameUserDefaults";
+NSString * const kELPasswordUserDefaultsKey = @"PasswordUserDefaults";
+
 #pragma mark - RNThemeManager .plist Keys
 
 NSString * const kELBlackColor = @"blackColor";

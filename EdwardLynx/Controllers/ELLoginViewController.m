@@ -47,6 +47,13 @@ static CGFloat const kELCornerRadius = 2.0f;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.usernameTextField.text = [ELUtils getUserDefaultValueForKey:kELUsernameUserDefaultsKey];
+    self.passwordTextField.text = [ELUtils getUserDefaultValueForKey:kELPasswordUserDefaultsKey];
+    
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -71,6 +78,10 @@ static CGFloat const kELCornerRadius = 2.0f;
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.loginButton.enabled = YES;
+    
+    // Store values
+    [ELUtils setUserDefaultValue:self.usernameTextField.text forKey:kELUsernameUserDefaultsKey];
+    [ELUtils setUserDefaultValue:self.passwordTextField.text forKey:kELPasswordUserDefaultsKey];
     
     [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
                        animated:YES
