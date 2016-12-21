@@ -12,6 +12,8 @@
 
 static CGFloat const kICornerRadius = 2.0f;
 
+#pragma mark - Class Extension
+
 @interface ELLoginViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;

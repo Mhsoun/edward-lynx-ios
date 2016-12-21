@@ -8,27 +8,51 @@
 
 #import "ELProfileViewController.h"
 
+#pragma mark - Class Extension
+
 @interface ELProfileViewController ()
+
+@property (nonatomic, strong) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
 
 @end
 
 @implementation ELProfileViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.nameLabel.text = responseDict[@"name"];
-            self.emailLabel.text = responseDict[@"email"];
-        });
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // TEMP
+    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.nameLabel.text = responseDict[@"name"];
+            self.emailLabel.text = responseDict[@"email"];
+            self.infoLabel.text = responseDict[@"info"];
+            
+            self.userInfoDict = responseDict;
+        });
+    }];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditProfile"]) {
+        ELEditProfileViewController *controller = [segue destinationViewController];
+        
+        controller.userInfoDict = self.userInfoDict;
+    }
 }
 
 @end

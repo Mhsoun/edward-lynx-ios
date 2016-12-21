@@ -7,11 +7,13 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELEditProfileViewController.h"
 #import "ELUsersAPIClient.h"
 
 @interface ELProfileViewController : ELBaseViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 @end

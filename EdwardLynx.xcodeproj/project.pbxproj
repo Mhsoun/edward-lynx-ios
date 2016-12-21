@@ -23,6 +23,7 @@
 		A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15941E03C96100CAEC43 /* ELActionView.m */; };
 		A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9214DC61E08D80B0021EA5E /* Profile.storyboard */; };
 		A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */; };
+		A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */; };
 		A9308BD31DED74B6007B4F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD21DED74B6007B4F9F /* main.m */; };
 		A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD51DED74B6007B4F9F /* AppDelegate.m */; };
 		A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BDA1DED74B6007B4F9F /* Main.storyboard */; };
@@ -98,6 +99,8 @@
 		A9214DC71E08D80B0021EA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELProfileViewController.h; sourceTree = "<group>"; };
 		A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELProfileViewController.m; sourceTree = "<group>"; };
+		A9214DCC1E092AAE0021EA5E /* ELEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELEditProfileViewController.h; sourceTree = "<group>"; };
+		A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELEditProfileViewController.m; sourceTree = "<group>"; };
 		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				A9685D121E0153420079FA84 /* ELChangePassViewController.m */,
 				A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */,
 				A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */,
+				A9214DCC1E092AAE0021EA5E /* ELEditProfileViewController.h */,
+				A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */,
 				A96F27711DFFDB0E00609E27 /* ELForgotPasswordViewController.h */,
 				A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */,
 				A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */,
@@ -648,6 +653,7 @@
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
+				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,

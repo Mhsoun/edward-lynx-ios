@@ -14,11 +14,13 @@
 
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
+- (void)processProfileUpdate;
 - (void)processAuthentication;
 - (void)processChangePassword;
 - (void)processPasswordRecovery;
 - (BOOL)validateLoginFormValues:(NSDictionary *)formDict;
 - (BOOL)validateRecoverFormValues:(NSDictionary *)formDict;
+- (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict;
 - (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict;
 
 @end

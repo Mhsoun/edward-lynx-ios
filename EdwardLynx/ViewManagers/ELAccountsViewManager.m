@@ -34,6 +34,22 @@
 
 #pragma mark - Public Methods
 
+- (void)processProfileUpdate {
+    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
+                                            @"info": [self.formDict[@"info"] textValue]}
+                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [self.delegate onAPIResponseSuccess:responseDict];
+        });
+    }];
+}
+
 - (void)processAuthentication {
     [self.client authenticateWithUsername:[self.formDict[@"username"] textValue]
                                  password:[self.formDict[@"password"] textValue]
@@ -76,13 +92,15 @@
 }
 
 - (BOOL)validateLoginFormValues:(NSDictionary *)formDict {
+    NSString *key;
     NSArray *usernameErrors, *passwordErrors;
     ELTextFieldGroup *textFieldGroup;
     
     self.formDict = formDict;
+    key = @"username";
     
-    if (formDict[@"username"]) {
-        textFieldGroup = formDict[@"username"];
+    if (formDict[key]) {
+        textFieldGroup = formDict[key];
         usernameErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Username"
                                            validators:@[@"presence", @"length(4, 20)"]];
@@ -90,8 +108,10 @@
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
     }
     
-    if (formDict[@"password"]) {
-        textFieldGroup = formDict[@"password"];
+    key = @"password";
+    
+    if (formDict[key]) {
+        textFieldGroup = formDict[key];
         passwordErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Password"
                                            validators:@[@"presence", @"length(4, 20)"]];
@@ -105,11 +125,12 @@
 - (BOOL)validateRecoverFormValues:(NSDictionary *)formDict {
     NSArray *emailErrors;
     ELTextFieldGroup *textFieldGroup;
+    NSString *key = @"email";
     
     self.formDict = formDict;
     
-    if (formDict[@"email"]) {
-        textFieldGroup = formDict[@"email"];
+    if (formDict[key]) {
+        textFieldGroup = formDict[key];
         emailErrors = [REValidation validateObject:[textFieldGroup textValue]
                                               name:@"Email"
                                         validators:@[@"presence", @"email"]];
@@ -118,6 +139,25 @@
     }
     
     return emailErrors.count == 0;
+}
+
+- (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict {
+    NSArray *nameErrors;
+    ELTextFieldGroup *textFieldGroup;
+    NSString *key = @"name";
+    
+    self.formDict = formDict;
+    
+    if (formDict[key]) {
+        textFieldGroup = formDict[key];
+        nameErrors = [REValidation validateObject:[textFieldGroup textValue]
+                                             name:@"Name"
+                                        validators:@[@"presence"]];
+        
+        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+    }
+    
+    return nameErrors.count == 0;
 }
 
 - (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict {
