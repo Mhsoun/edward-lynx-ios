@@ -10,19 +10,16 @@
 
 @implementation ELUsersAPIClient
 
-- (void)authenticateWithUsername:(NSString *)username
-                        password:(NSString *)password
-                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+- (void)authenticateWithBodyParams:(NSDictionary *)bodyParams
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSMutableURLRequest *request;
     NSMutableDictionary *mBodyParamsDict;
     NSString *clientId = [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"ID"];
     NSString *clientSecret = [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"Secret"];
     
-    mBodyParamsDict = [NSMutableDictionary dictionaryWithDictionary:@{@"username": username,
-                                                                      @"password": password}];
+    mBodyParamsDict = [NSMutableDictionary dictionaryWithDictionary:bodyParams];
     
     [mBodyParamsDict setObject:@"*" forKey:@"scope"];
-    [mBodyParamsDict setObject:@"password" forKey:@"grant_type"];
     [mBodyParamsDict setObject:clientId forKey:@"client_id"];
     [mBodyParamsDict setObject:clientSecret forKey:@"client_secret"];
     
@@ -33,6 +30,24 @@
     [super performAuthenticatedTask:NO
                         withRequest:request
                          completion:completion];
+}
+
+- (void)loginWithUsername:(NSString *)username
+                 password:(NSString *)password
+               completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+    NSMutableDictionary *mBodyParams = [NSMutableDictionary dictionaryWithDictionary:@{@"grant_type": @"password",
+                                                                                       @"username": username,
+                                                                                       @"password": password}];
+    
+    [self authenticateWithBodyParams:[mBodyParams copy] completion:completion];
+}
+
+- (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *refreshToken = [ELUtils getUserDefaultValueForKey:kELRefreshTokenUserDefaultsKey];
+    NSMutableDictionary *mBodyParams = [NSMutableDictionary dictionaryWithDictionary:@{@"grant_type": @"refresh_token",
+                                                                                       @"refresh_token": refreshToken}];
+    
+    [self authenticateWithBodyParams:[mBodyParams copy] completion:completion];
 }
 
 - (void)updateUserInfoWithParams:(NSDictionary *)params
