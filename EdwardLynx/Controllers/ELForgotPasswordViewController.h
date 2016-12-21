@@ -9,7 +9,7 @@
 #import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELForgotPasswordViewController : ELBaseViewController
+@interface ELForgotPasswordViewController : ELBaseViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *usernameEmailView;
 @property (weak, nonatomic) IBOutlet UITextField *usernameEmailTextField;

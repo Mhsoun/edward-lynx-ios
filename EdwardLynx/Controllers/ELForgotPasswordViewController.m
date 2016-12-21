@@ -30,6 +30,7 @@ static CGFloat const kELCornerRadius = 2.0f;
     
     // Initialization
     self.viewManager = [[ELAccountsViewManager alloc] init];
+    self.usernameEmailTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +38,15 @@ static CGFloat const kELCornerRadius = 2.0f;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protocol Methods
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    return YES;
+}
+
+#pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
     CAGradientLayer *gradient;

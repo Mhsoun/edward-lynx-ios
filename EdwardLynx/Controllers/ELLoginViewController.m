@@ -32,6 +32,8 @@ static CGFloat const kELCornerRadius = 2.0f;
     // Initialization
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
+    self.usernameTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     self.usernameGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameTextField
                                                             icon:self.usernameIcon
                                                       errorLabel:self.usernameErrorLabel];
@@ -43,6 +45,36 @@ static CGFloat const kELCornerRadius = 2.0f;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    return YES;
+}
+
+#pragma mark - Protocol Methods (ELAccountsViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    NSString *errorKey = @"message";
+    
+    self.loginButton.enabled = YES;
+    
+    if (!errorDict[errorKey]) {
+        return;
+    }
+    
+    [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[errorKey]]];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.loginButton.enabled = YES;
+    
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
+                       animated:YES
+                     completion:nil];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -67,28 +99,6 @@ static CGFloat const kELCornerRadius = 2.0f;
     
     [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:kELLightVioletColor]];
     [self.view.layer insertSublayer:gradient atIndex:0];
-}
-
-#pragma mark - Protocol Methods (ELAccountsViewManager)
-
-- (void)onAPIResponseError:(NSDictionary *)errorDict {
-    NSString *errorKey = @"message";
-    
-    self.loginButton.enabled = YES;
-    
-    if (!errorDict[errorKey]) {
-        return;
-    }
-    
-    [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[errorKey]]];
-}
-
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    self.loginButton.enabled = YES;
-    
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
-                       animated:YES
-                     completion:nil];
 }
 
 #pragma mark - Interface Builder Actions

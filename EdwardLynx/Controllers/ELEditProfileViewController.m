@@ -34,6 +34,8 @@ static CGFloat const kELCornerRadius = 4.0f;
     // Initialization
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
+    self.nameTextField.delegate = self;
+    self.infoTextField.delegate = self;
     self.nameGroup = [[ELTextFieldGroup alloc] initWithField:self.nameTextField
                                                         icon:nil
                                                   errorLabel:self.nameErrorLabel];
@@ -55,6 +57,14 @@ static CGFloat const kELCornerRadius = 4.0f;
 - (void)populatePage {
     self.nameTextField.text = self.userInfoDict[@"name"];
     self.infoTextField.text = self.userInfoDict[@"info"];
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    return YES;
 }
 
 #pragma mark - Protocol Methods (ELAccountsViewManager)

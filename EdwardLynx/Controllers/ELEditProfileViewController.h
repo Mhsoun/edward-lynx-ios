@@ -9,7 +9,7 @@
 #import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELEditProfileViewController : ELBaseViewController<ELAPIResponseDelegate>
+@interface ELEditProfileViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
 
