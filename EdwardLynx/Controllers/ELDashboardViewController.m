@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kICornerRadius = 2.0f;
+static CGFloat const kELCornerRadius = 2.0f;
 
 @interface ELDashboardViewController ()
 
@@ -43,7 +43,7 @@ static CGFloat const kICornerRadius = 2.0f;
     statusView.frame = self.devPlanStatusView.frame;
     
     [self.devPlanStatusView addSubview:statusView];
-    [self.devPlanStatusView.layer setCornerRadius:kICornerRadius];
+    [self.devPlanStatusView.layer setCornerRadius:kELCornerRadius];
     
     statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Feedback request status",
                                                          @"details": @"3 out of 4 submitted results"}];
@@ -51,32 +51,32 @@ static CGFloat const kICornerRadius = 2.0f;
     statusView.layer.cornerRadius = 4.0f;
     
     [self.feedbackStatusView addSubview:statusView];
-    [self.feedbackStatusView.layer setCornerRadius:kICornerRadius];
+    [self.feedbackStatusView.layer setCornerRadius:kELCornerRadius];
     
     // Shortcuts section
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback"}];
     shortcutView.frame = self.createFeedbackView.frame;
     
     [self.createFeedbackView addSubview:shortcutView];
-    [self.createFeedbackView.layer setCornerRadius:kICornerRadius];
+    [self.createFeedbackView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Development Plan"}];
     shortcutView.frame = self.createDevPlanView.frame;
     
     [self.createDevPlanView addSubview:shortcutView];
-    [self.createDevPlanView.layer setCornerRadius:kICornerRadius];
+    [self.createDevPlanView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports"}];
     shortcutView.frame = self.reportsView.frame;
     
     [self.reportsView addSubview:shortcutView];
-    [self.reportsView.layer setCornerRadius:kICornerRadius];
+    [self.reportsView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys"}];
     shortcutView.frame = self.surveysView.frame;
     
     [self.surveysView addSubview:shortcutView];
-    [self.surveysView.layer setCornerRadius:kICornerRadius];
+    [self.surveysView.layer setCornerRadius:kELCornerRadius];
     
     // Action Required section
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
@@ -84,28 +84,28 @@ static CGFloat const kICornerRadius = 2.0f;
     actionView.frame = self.feedbackActionView.frame;
     
     [self.feedbackActionView addSubview:actionView];
-    [self.feedbackActionView.layer setCornerRadius:kICornerRadius];
+    [self.feedbackActionView.layer setCornerRadius:kELCornerRadius];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
                                                          @"title": @"360 Feedback Requests"}];
     actionView.frame = self.feedbackActionView.frame;
     
     [self.feedbackActionView addSubview:actionView];
-    [self.feedbackActionView.layer setCornerRadius:kICornerRadius];
+    [self.feedbackActionView.layer setCornerRadius:kELCornerRadius];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"2",
                                                          @"title": @"Reports"}];
     actionView.frame = self.reportsActionView.frame;
     
     [self.reportsActionView addSubview:actionView];
-    [self.reportsActionView.layer setCornerRadius:kICornerRadius];
+    [self.reportsActionView.layer setCornerRadius:kELCornerRadius];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"0",
                                                          @"title": @"Instant Feedback"}];
     actionView.frame = self.instantFeedbackActionView.frame;
     
     [self.instantFeedbackActionView addSubview:actionView];
-    [self.instantFeedbackActionView.layer setCornerRadius:kICornerRadius];
+    [self.instantFeedbackActionView.layer setCornerRadius:kELCornerRadius];
 }
 
 @end

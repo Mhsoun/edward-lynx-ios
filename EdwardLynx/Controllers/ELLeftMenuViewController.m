@@ -10,7 +10,8 @@
 
 #pragma mark - Private Constants
 
-static NSString * const kCellIdentifier = @"MenuItemCell";
+static int const kELDefaultRowIndex = 1;
+static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 #pragma mark - Class Extension
 
@@ -31,11 +32,11 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.prevIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
-                                                    cellIdentifier:kCellIdentifier];
+                                                    cellIdentifier:kELCellIdentifier];
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
@@ -47,7 +48,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+    [self.tableView selectRowAtIndexPath:self.prevIndexPath
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
 }
@@ -119,7 +120,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
 }
 
 - (NSIndexPath *)selectedIndexPath {
-    return [NSIndexPath indexPathForRow:0 inSection:0];
+    return self.prevIndexPath;
 }
 
 @end

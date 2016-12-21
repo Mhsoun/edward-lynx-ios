@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kICornerRadius = 2.0f;
+static CGFloat const kELCornerRadius = 2.0f;
 
 #pragma mark - Class Extension
 
@@ -43,10 +43,10 @@ static CGFloat const kICornerRadius = 2.0f;
     CAGradientLayer *gradient;
     
     // Fields
-    self.usernameEmailView.layer.cornerRadius = kICornerRadius;
+    self.usernameEmailView.layer.cornerRadius = kELCornerRadius;
     
     // Button
-    self.recoverButton.layer.cornerRadius = kICornerRadius;
+    self.recoverButton.layer.cornerRadius = kELCornerRadius;
     
     // View
     gradient = [CAGradientLayer layer];
