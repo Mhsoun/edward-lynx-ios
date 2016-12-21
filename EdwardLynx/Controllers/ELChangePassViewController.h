@@ -9,7 +9,7 @@
 #import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
-@interface ELChangePassViewController : ELBaseViewController<ELAPIResponseDelegate>
+@interface ELChangePassViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *currentPasswordView;
 @property (weak, nonatomic) IBOutlet UITextField *currentPasswordTextField;

@@ -35,6 +35,9 @@ static CGFloat const kELCornerRadius = 4.0f;
     // Initialization
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
+    self.currentPasswordTextField.delegate = self;
+    self.passwordTextField.delegate = self;
+    self.confirmPasswordTextField.delegate = self;
     self.currentPasswordGroup = [[ELTextFieldGroup alloc] initWithField:self.currentPasswordTextField
                                                                    icon:nil
                                                              errorLabel:self.currentPasswordErrorLabel];
@@ -52,6 +55,14 @@ static CGFloat const kELCornerRadius = 4.0f;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    return YES;
 }
 
 #pragma mark - Protocol Methods (ELAccountsViewManager)
