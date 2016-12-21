@@ -98,7 +98,7 @@
     
     keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.enable = YES;
-    keyboardManager.enableAutoToolbar = YES;
+    keyboardManager.enableAutoToolbar = NO;
     keyboardManager.keyboardDistanceFromTextField = 10;
     keyboardManager.shouldResignOnTouchOutside = YES;
 }
