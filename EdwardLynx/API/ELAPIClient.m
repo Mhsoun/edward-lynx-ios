@@ -51,7 +51,7 @@
             }
         } else if (error) {
             delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            errorMessage = [NSString stringWithFormat:@"%@. Please try again later", error.localizedDescription];
+            errorMessage = [NSString stringWithFormat:kELDefaultAlertMessage, error.localizedDescription];
             visibleViewController = [delegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:@"Error"
                                                                   message:errorMessage

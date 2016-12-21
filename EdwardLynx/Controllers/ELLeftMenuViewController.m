@@ -10,7 +10,8 @@
 
 #pragma mark - Private Constants
 
-static NSString * const kCellIdentifier = @"MenuItemCell";
+static int const kELDefaultRowIndex = 1;
+static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 #pragma mark - Class Extension
 
@@ -31,10 +32,11 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
-                                                    cellIdentifier:kCellIdentifier];
+                                                    cellIdentifier:kELCellIdentifier];
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
@@ -46,7 +48,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+    [self.tableView selectRowAtIndexPath:self.prevIndexPath
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
 }
@@ -70,15 +72,24 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Logout"
-                                                                            message:@"Logging out will require the app for your credentials next time."
+                                                                            message:kELLogoutAlertMessage
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:@"Logout"
                                                        style:UIAlertActionStyleDefault
-                                                     handler:nil]];
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+            // Remove auth header
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthHeaderUserDefaultsKey];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }]];
         [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleCancel
-                                                     handler:nil]];
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+            [self.tableView selectRowAtIndexPath:self.prevIndexPath
+                                        animated:NO
+                                  scrollPosition:UITableViewScrollPositionNone];
+        }]];
         
         [self presentViewController:controller
                            animated:YES
@@ -109,7 +120,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
 }
 
 - (NSIndexPath *)selectedIndexPath {
-    return [NSIndexPath indexPathForRow:0 inSection:0];
+    return self.prevIndexPath;
 }
 
 @end

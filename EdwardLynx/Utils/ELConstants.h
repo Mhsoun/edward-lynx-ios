@@ -19,12 +19,20 @@ extern NSString * const kELHockeyAppPlistKey;
 
 extern NSString * const kELAPITokenPlistKey;
 
+#pragma mark - Alert Messages
+
+extern NSString * const kELDefaultAlertMessage;
+extern NSString * const kELLogoutAlertMessage;
+
 #pragma mark - Constants
 
 extern NSString * const kELErrorDomain;
 extern NSString * const kELFabricEmail;
 extern NSString * const kELFabricIdentifier;
 extern NSString * const kELFabricUsername;
+extern NSString * const kELLanguageCodeEnglish;
+extern NSString * const kELLanguageCodeFinnish;
+extern NSString * const kELLanguageCodeSwedish;
 
 #pragma mark - Endpoints
 

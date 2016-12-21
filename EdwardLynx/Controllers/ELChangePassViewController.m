@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kICornerRadius = 4.0f;
+static CGFloat const kELCornerRadius = 4.0f;
 
 #pragma mark - Class Extension
 
@@ -76,9 +76,9 @@ static CGFloat const kICornerRadius = 4.0f;
 
 - (void)layoutPage {
     // Fields
-    self.currentPasswordView.layer.cornerRadius = kICornerRadius;
-    self.passwordView.layer.cornerRadius = kICornerRadius;
-    self.confirmPasswordView.layer.cornerRadius = kICornerRadius;
+    self.currentPasswordView.layer.cornerRadius = kELCornerRadius;
+    self.passwordView.layer.cornerRadius = kELCornerRadius;
+    self.confirmPasswordView.layer.cornerRadius = kELCornerRadius;
 }
 
 #pragma mark - Interface Builder Actions
