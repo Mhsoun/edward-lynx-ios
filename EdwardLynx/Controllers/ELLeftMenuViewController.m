@@ -31,6 +31,7 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.prevIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
@@ -70,15 +71,24 @@ static NSString * const kCellIdentifier = @"MenuItemCell";
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Logout"
-                                                                            message:@"Logging out will require the app for your credentials next time."
+                                                                            message:kELLogoutAlertMessage
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:@"Logout"
                                                        style:UIAlertActionStyleDefault
-                                                     handler:nil]];
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+            // Remove auth header
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthHeaderUserDefaultsKey];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }]];
         [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleCancel
-                                                     handler:nil]];
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+            [self.tableView selectRowAtIndexPath:self.prevIndexPath
+                                        animated:NO
+                                  scrollPosition:UITableViewScrollPositionNone];
+        }]];
         
         [self presentViewController:controller
                            animated:YES
