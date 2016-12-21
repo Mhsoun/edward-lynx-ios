@@ -60,6 +60,9 @@ extern NSString * const kELAPIPutHTTPMethod;
 extern NSString * const kELAuthHeaderUserDefaultsKey;
 extern NSString * const kELRefreshTokenUserDefaultsKey;
 
+extern NSString * const kELUsernameUserDefaultsKey;
+extern NSString * const kELPasswordUserDefaultsKey;
+
 #pragma mark - RNThemeManager .plist Keys
 
 extern NSString * const kELBlackColor;
