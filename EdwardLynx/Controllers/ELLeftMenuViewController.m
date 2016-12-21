@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static int const kELDefaultRowIndex = 1;
+static int const kELDefaultRowIndex = 0;
 static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 #pragma mark - Class Extension
@@ -81,7 +81,9 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
             // Remove auth header
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthHeaderUserDefaultsKey];
             
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateInitialViewController]
+                               animated:YES
+                             completion:nil];
         }]];
         [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleCancel
