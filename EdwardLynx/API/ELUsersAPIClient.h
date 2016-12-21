@@ -10,9 +10,10 @@
 
 @interface ELUsersAPIClient : ELAPIClient
 
-- (void)authenticateWithUsername:(NSString *)username
-                        password:(NSString *)password
-                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)loginWithUsername:(NSString *)username
+                 password:(NSString *)password
+               completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)updateUserInfoWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)userInfoWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;

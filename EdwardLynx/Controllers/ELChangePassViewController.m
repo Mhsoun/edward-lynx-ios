@@ -57,12 +57,14 @@ static CGFloat const kELCornerRadius = 4.0f;
 #pragma mark - Protocol Methods (ELAccountsViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    if (!errorDict[@"message"]) {
+    NSString *errorKey = @"validation_errors";
+    
+    if (!errorDict[errorKey]) {
         return;
     }
     
-    for (NSString *key in [errorDict[@"message"] allKeys]) {
-        NSArray *errors = errorDict[@"message"][key];
+    for (NSString *key in [errorDict[errorKey] allKeys]) {
+        NSArray *errors = errorDict[errorKey][key];
         
         [self.formGroupsDict[key] toggleValidationIndicatorsBasedOnErrors:errors];
     }
@@ -85,6 +87,8 @@ static CGFloat const kELCornerRadius = 4.0f;
 
 - (IBAction)onDoneClick:(id)sender {
     BOOL isValid = [self.viewManager validateChangePasswordFormValues:self.formGroupsDict];
+    
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
         return;

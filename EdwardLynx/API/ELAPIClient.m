@@ -34,21 +34,24 @@
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
+        if (error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
+            // Check if task requires user to be authenticated to invoke refreshing of credentials
+            if (isAuthenticated) {
+                [ELUtils processReauthenticationWithCompletion:^{
+                    [request setValue:[ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey] forHTTPHeaderField:@"Authorization"];
+                    
+                    // Re-execute task
+                    [self performAuthenticatedTask:isAuthenticated
+                                       withRequest:request
+                                        completion:completion];
+                }];
+            }
+        }
+        
         if (responseDict[@"error"]) {
             error = [NSError errorWithDomain:kELErrorDomain
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];
-            
-            completion(response, responseDict, error);
-            
-            return;
-        }
-        
-        if (!error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
-            // Check if task requires user to be authenticated to invoke refreshing of credentials
-            if (isAuthenticated) {
-                // TODO Process re-authentication
-            }
         } else if (error) {
             delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             errorMessage = [NSString stringWithFormat:kELDefaultAlertMessage, error.localizedDescription];

@@ -56,6 +56,32 @@
 
 @implementation ELUtils
 
++ (id)getUserDefaultValueForKey:(NSString *)key {
+    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+}
+
++ (void)processReauthenticationWithCompletion:(void (^)())completion {
+    [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self storeAuthenticationDetails:responseDict];
+            
+            completion();
+        });
+    }];
+}
+
++ (void)setUserDefaultValue:(id)value forKey:(NSString *)key {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+}
+
++ (void)storeAuthenticationDetails:(NSDictionary *)authDict {
+    [ELUtils setUserDefaultValue:authDict[@"refresh_token"] forKey:kELRefreshTokenUserDefaultsKey];
+    [ELUtils setUserDefaultValue:[NSString stringWithFormat:@"Bearer %@", authDict[@"access_token"]]
+                          forKey:kELAuthHeaderUserDefaultsKey];
+}
+
+#pragma mark - Third-party Packages Methods
+
 + (void)fabricForceCrash {
     // TODO Fill in with actual user information
     [ELUtils fabricLogUserInformation:@{kELFabricUsername: @"someuser",
@@ -68,14 +94,6 @@
     [[Crashlytics sharedInstance] setUserName:infoDict[kELFabricUsername]];
     [[Crashlytics sharedInstance] setUserEmail:infoDict[kELFabricEmail]];
     [[Crashlytics sharedInstance] setUserIdentifier:infoDict[kELFabricIdentifier]];
-}
-
-+ (id)getUserDefaultValueForKey:(NSString *)key {
-    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
-}
-
-+ (void)setUserDefaultValue:(id)value forKey:(NSString *)key {
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
 }
 
 #pragma mark - Third-party Packages Setup

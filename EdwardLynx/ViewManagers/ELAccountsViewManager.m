@@ -51,9 +51,9 @@
 }
 
 - (void)processAuthentication {
-    [self.client authenticateWithUsername:[self.formDict[@"username"] textValue]
-                                 password:[self.formDict[@"password"] textValue]
-                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [self.client loginWithUsername:[self.formDict[@"username"] textValue]
+                          password:[self.formDict[@"password"] textValue]
+                        completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [self.delegate onAPIResponseError:error.userInfo];
@@ -62,10 +62,7 @@
             }
             
             // Set Refresh Token and Authentication header
-            [ELUtils setUserDefaultValue:responseDict[@"refresh_token"] forKey:kELRefreshTokenUserDefaultsKey];
-            [ELUtils setUserDefaultValue:[NSString stringWithFormat:@"Bearer %@", responseDict[@"access_token"]]
-                                  forKey:kELAuthHeaderUserDefaultsKey];
-            
+            [ELUtils storeAuthenticationDetails:responseDict];
             [self.delegate onAPIResponseSuccess:responseDict];
         });
     }];

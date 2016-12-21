@@ -10,6 +10,8 @@
 #import <Fabric/Fabric.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
+#import "ELUsersAPIClient.h"
+
 @interface ELTextFieldGroup : NSObject
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
@@ -23,10 +25,13 @@
 
 @interface ELUtils : NSObject
 
++ (id)getUserDefaultValueForKey:(NSString *)key;
++ (void)processReauthenticationWithCompletion:(void (^)())completion;
++ (void)setUserDefaultValue:(id)value forKey:(NSString *)key;
++ (void)storeAuthenticationDetails:(NSDictionary *)authDict;
+
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
-+ (id)getUserDefaultValueForKey:(NSString *)key;
-+ (void)setUserDefaultValue:(id)value forKey:(NSString *)key;
 
 + (void)setupFabric;
 + (void)setupGlobalUIChanges;

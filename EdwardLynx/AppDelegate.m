@@ -29,7 +29,8 @@
     
     // Check if user is already authenticated to the app
     if ([ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey]) {
-        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController];
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                          instantiateInitialViewController];
     }
         
     return YES;

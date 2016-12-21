@@ -72,13 +72,15 @@ static CGFloat const kELCornerRadius = 2.0f;
 #pragma mark - Protocol Methods (ELAccountsViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
+    NSString *errorKey = @"message";
+    
     self.loginButton.enabled = YES;
     
-    if (!errorDict[@"message"]) {
+    if (!errorDict[errorKey]) {
         return;
     }
     
-    [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[@"message"]]];
+    [self.usernameGroup toggleValidationIndicatorsBasedOnErrors:@[errorDict[errorKey]]];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -96,6 +98,8 @@ static CGFloat const kELCornerRadius = 2.0f;
                                                                @"password": self.passwordGroup}];
     
     self.loginButton.enabled = NO;
+    
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
         self.loginButton.enabled = YES;
