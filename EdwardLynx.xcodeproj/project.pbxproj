@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A58491E0A8633003F9F8B /* ELUser.m */; };
 		A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */; };
 		A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */; };
 		A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9F1E07AD9500ED9934 /* ELDataProvider.m */; };
@@ -75,6 +76,8 @@
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		A90A58481E0A8633003F9F8B /* ELUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUser.h; sourceTree = "<group>"; };
+		A90A58491E0A8633003F9F8B /* ELUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUser.m; sourceTree = "<group>"; };
 		A9121A991E07A7DE00ED9934 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LeftMenu.storyboard; sourceTree = "<group>"; };
 		A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLeftMenuViewController.h; sourceTree = "<group>"; };
 		A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLeftMenuViewController.m; sourceTree = "<group>"; };
@@ -194,6 +197,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A90A58471E0A860B003F9F8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A90A58481E0A8633003F9F8B /* ELUser.h */,
+				A90A58491E0A8633003F9F8B /* ELUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A9121AA41E07B80B00ED9934 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +279,7 @@
 				A9B36AAD1DFE746700599909 /* API */,
 				A9308C071DED74E0007B4F9F /* Controllers */,
 				A9308C081DED7554007B4F9F /* Layouts */,
+				A90A58471E0A860B003F9F8B /* Models */,
 				A96F27651DFFA24600609E27 /* Resources */,
 				A9308C091DED7571007B4F9F /* Schema */,
 				A91B15811E03A5A400CAEC43 /* Subclasses */,
@@ -652,6 +665,7 @@
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */,
+				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
