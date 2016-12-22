@@ -38,7 +38,9 @@
             // Check if task requires user to be authenticated to invoke refreshing of credentials
             if (isAuthenticated) {
                 [ELUtils processReauthenticationWithCompletion:^{
-                    [request setValue:[ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey] forHTTPHeaderField:@"Authorization"];
+                    ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
+                    
+                    [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
                     
                     // Re-execute task
                     [self performAuthenticatedTask:isAuthenticated
@@ -104,7 +106,7 @@
                          bodyParams:(NSDictionary *)bodyParams
                         queryParams:(NSDictionary *)queryParams {
     NSMutableURLRequest *request;
-    NSString *authHeader = [ELUtils getUserDefaultValueForKey:kELAuthHeaderUserDefaultsKey];
+    ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     
     endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
     
@@ -126,8 +128,8 @@
     [request setTimeoutInterval:30.0];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
                             
-    if (authHeader) {
-        [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    if (oauthInstance) {
+        [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
     }
     
     return request;

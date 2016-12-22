@@ -61,8 +61,6 @@
                 return;
             }
             
-            // Set Refresh Token and Authentication header
-            [ELUtils storeAuthenticationDetails:responseDict];
             [self.delegate onAPIResponseSuccess:responseDict];
         });
     }];
@@ -100,7 +98,7 @@
         textFieldGroup = formDict[key];
         usernameErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Username"
-                                           validators:@[@"presence", @"length(4, 20)"]];
+                                           validators:@[@"presence", @"length(6, 20)"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
     }
@@ -111,7 +109,7 @@
         textFieldGroup = formDict[key];
         passwordErrors = [REValidation validateObject:[textFieldGroup textValue]
                                                  name:@"Password"
-                                           validators:@[@"presence", @"length(4, 20)"]];
+                                           validators:@[@"presence", @"length(6, 20)"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
     }
@@ -141,15 +139,14 @@
 - (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict {
     NSArray *nameErrors;
     ELTextFieldGroup *textFieldGroup;
-    NSString *key = @"name";
     
     self.formDict = formDict;
     
-    if (formDict[key]) {
+    for (NSString *key in [formDict allKeys]) {
         textFieldGroup = formDict[key];
         nameErrors = [REValidation validateObject:[textFieldGroup textValue]
-                                             name:@"Name"
-                                        validators:@[@"presence"]];
+                                             name:@"Field"
+                                       validators:@[@"presence", @"length(0, 255)"]];
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
@@ -168,8 +165,8 @@
     for (NSString *key in [formDict allKeys]) {
         textFieldGroup = formDict[key];
         errors = [REValidation validateObject:[textFieldGroup textValue]
-                                                 name:@"Field"
-                                           validators:@[@"presence", @"length(4, 20)"]];
+                                         name:@"Field"
+                                   validators:@[@"presence", @"length(6, 20)"]];
         isValid = isValid && errors.count == 0;
         
         [textFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];

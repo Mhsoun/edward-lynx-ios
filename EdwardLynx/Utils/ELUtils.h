@@ -25,10 +25,14 @@
 
 @interface ELUtils : NSObject
 
-+ (id)getUserDefaultValueForKey:(NSString *)key;
++ (id)getUserDefaultsCustomObjectForKey:(NSString *)key;
++ (id)getUserDefaultsObjectForKey:(NSString *)key;
++ (id)getUserDefaultsValueForKey:(NSString *)key;
++ (void)setUserDefaultsCustomObject:(__kindof NSObject *)object key:(NSString *)key;
++ (void)setUserDefaultsObject:(__kindof NSObject *)object key:(NSString *)key;
++ (void)setUserDefaultsValue:(id)value forKey:(NSString *)key;
+
 + (void)processReauthenticationWithCompletion:(void (^)())completion;
-+ (void)setUserDefaultValue:(id)value forKey:(NSString *)key;
-+ (void)storeAuthenticationDetails:(NSDictionary *)authDict;
 
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;

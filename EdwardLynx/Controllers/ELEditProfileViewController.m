@@ -55,8 +55,10 @@ static CGFloat const kELCornerRadius = 4.0f;
 #pragma mark - Private Methods
 
 - (void)populatePage {
-    self.nameTextField.text = self.userInfoDict[@"name"];
-    self.infoTextField.text = self.userInfoDict[@"info"];
+    ELUser *user = [ELAppSingleton sharedInstance].user;
+    
+    self.nameTextField.text = user.name;
+    self.infoTextField.text = user.info;
 }
 
 #pragma mark - Protocol Methods (UITextField)
@@ -84,6 +86,9 @@ static CGFloat const kELCornerRadius = 4.0f;
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
+                                                                          error:nil]];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

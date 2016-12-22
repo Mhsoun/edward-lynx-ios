@@ -17,6 +17,7 @@
 
 #import <RNThemeManager/RNThemeManager.h>
 
+#import "ELAppSingleton.h"
 #import "ELConstants.h"
 #import "ELUtils.h"
 #import "ELProtocols.h"

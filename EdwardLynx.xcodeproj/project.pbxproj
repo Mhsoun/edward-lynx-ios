@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A58491E0A8633003F9F8B /* ELUser.m */; };
 		A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */; };
 		A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */; };
 		A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9F1E07AD9500ED9934 /* ELDataProvider.m */; };
@@ -32,6 +33,8 @@
 		A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */; };
 		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
+		A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A6F1E0B745C0019231E /* ELAppSingleton.m */; };
+		A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A721E0B79E00019231E /* ELOAuthInstance.m */; };
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 		A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9685D0E1E014E1D0079FA84 /* Settings.storyboard */; };
 		A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9685D121E0153420079FA84 /* ELChangePassViewController.m */; };
@@ -75,6 +78,8 @@
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		A90A58481E0A8633003F9F8B /* ELUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUser.h; sourceTree = "<group>"; };
+		A90A58491E0A8633003F9F8B /* ELUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUser.m; sourceTree = "<group>"; };
 		A9121A991E07A7DE00ED9934 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LeftMenu.storyboard; sourceTree = "<group>"; };
 		A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLeftMenuViewController.h; sourceTree = "<group>"; };
 		A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLeftMenuViewController.m; sourceTree = "<group>"; };
@@ -117,6 +122,10 @@
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A9335A6E1E0B745C0019231E /* ELAppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppSingleton.h; sourceTree = "<group>"; };
+		A9335A6F1E0B745C0019231E /* ELAppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppSingleton.m; sourceTree = "<group>"; };
+		A9335A711E0B79E00019231E /* ELOAuthInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELOAuthInstance.h; sourceTree = "<group>"; };
+		A9335A721E0B79E00019231E /* ELOAuthInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELOAuthInstance.m; sourceTree = "<group>"; };
 		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
 		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
 		A9685D0F1E014E1D0079FA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -194,6 +203,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A90A58471E0A860B003F9F8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
+				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
+				A90A58481E0A8633003F9F8B /* ELUser.h */,
+				A90A58491E0A8633003F9F8B /* ELUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A9121AA41E07B80B00ED9934 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +287,7 @@
 				A9B36AAD1DFE746700599909 /* API */,
 				A9308C071DED74E0007B4F9F /* Controllers */,
 				A9308C081DED7554007B4F9F /* Layouts */,
+				A90A58471E0A860B003F9F8B /* Models */,
 				A96F27651DFFA24600609E27 /* Resources */,
 				A9308C091DED7571007B4F9F /* Schema */,
 				A91B15811E03A5A400CAEC43 /* Subclasses */,
@@ -355,6 +376,8 @@
 		A968F1881DF7E53F0091997D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A9335A6E1E0B745C0019231E /* ELAppSingleton.h */,
+				A9335A6F1E0B745C0019231E /* ELAppSingleton.m */,
 				A94D102D1DF7E63000982E43 /* ELConstants.h */,
 				A94D102E1DF7E66700982E43 /* ELConstants.m */,
 				A9121A9E1E07AD9500ED9934 /* ELDataProvider.h */,
@@ -643,7 +666,9 @@
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
+				A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
+				A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */,
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
@@ -652,6 +677,7 @@
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */,
+				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,

@@ -56,28 +56,47 @@
 
 @implementation ELUtils
 
-+ (id)getUserDefaultValueForKey:(NSString *)key {
++ (id)getUserDefaultsCustomObjectForKey:(NSString *)key {
+    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    __kindof NSObject *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    
+    return object;
+}
+
++ (id)getUserDefaultsObjectForKey:(NSString *)key {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
++ (id)getUserDefaultsValueForKey:(NSString *)key {
     return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+}
+
++ (void)setUserDefaultsCustomObject:(__kindof NSObject *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:encodedObject forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)setUserDefaultsObject:(__kindof NSObject *)object key:(NSString *)key {
+    [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)setUserDefaultsValue:(id)value forKey:(NSString *)key {
+    [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)processReauthenticationWithCompletion:(void (^)())completion {
     [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self storeAuthenticationDetails:responseDict];
+            [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
+                                             key:kELAuthInstanceUserDefaultsKey];
             
             completion();
         });
     }];
-}
-
-+ (void)setUserDefaultValue:(id)value forKey:(NSString *)key {
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
-}
-
-+ (void)storeAuthenticationDetails:(NSDictionary *)authDict {
-    [ELUtils setUserDefaultValue:authDict[@"refresh_token"] forKey:kELRefreshTokenUserDefaultsKey];
-    [ELUtils setUserDefaultValue:[NSString stringWithFormat:@"Bearer %@", authDict[@"access_token"]]
-                          forKey:kELAuthHeaderUserDefaultsKey];
 }
 
 #pragma mark - Third-party Packages Methods

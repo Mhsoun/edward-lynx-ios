@@ -12,8 +12,6 @@
 
 @interface ELProfileViewController ()
 
-@property (nonatomic, strong) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
-
 @end
 
 @implementation ELProfileViewController
@@ -33,26 +31,18 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // TEMP
-    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.nameLabel.text = responseDict[@"name"];
-            self.emailLabel.text = responseDict[@"email"];
-            self.infoLabel.text = responseDict[@"info"];
-            
-            self.userInfoDict = responseDict;
-        });
-    }];
+    // Populate with user information
+    [self populatePage];
 }
 
-#pragma mark - Navigation
+#pragma mark - Private Methods
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"EditProfile"]) {
-        ELEditProfileViewController *controller = [segue destinationViewController];
-        
-        controller.userInfoDict = self.userInfoDict;
-    }
+- (void)populatePage {
+    ELUser *user = [ELAppSingleton sharedInstance].user;
+    
+    self.nameLabel.text = user.name;
+    self.emailLabel.text = user.email;
+    self.infoLabel.text = user.info;
 }
 
 @end
