@@ -43,9 +43,9 @@
 }
 
 - (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *refreshToken = [ELUtils getUserDefaultValueForKey:kELRefreshTokenUserDefaultsKey];
+    ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     NSMutableDictionary *mBodyParams = [NSMutableDictionary dictionaryWithDictionary:@{@"grant_type": @"refresh_token",
-                                                                                       @"refresh_token": refreshToken}];
+                                                                                       @"refresh_token": oauthInstance.refreshToken}];
     
     [self authenticateWithBodyParams:[mBodyParams copy] completion:completion];
 }

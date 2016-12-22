@@ -56,11 +56,8 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 #pragma mark - NSUserDefaults Keys
 
-NSString * const kELAuthHeaderUserDefaultsKey = @"AuthHeaderUserDefaults";
-NSString * const kELRefreshTokenUserDefaultsKey = @"RefreshTokenUserDefaults";
-
-NSString * const kELUsernameUserDefaultsKey = @"UsernameUserDefaults";
-NSString * const kELPasswordUserDefaultsKey = @"PasswordUserDefaults";
+NSString * const kELAuthInstanceUserDefaultsKey = @"AuthInstanceUserDefaults";
+NSString * const kELAuthCredentialsUserDefaultsKey = @"AuthCredentialsUserDefaultsKey";
 
 #pragma mark - RNThemeManager .plist Keys
 

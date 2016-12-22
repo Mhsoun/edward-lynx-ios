@@ -34,6 +34,7 @@
 		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A6F1E0B745C0019231E /* ELAppSingleton.m */; };
+		A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A721E0B79E00019231E /* ELOAuthInstance.m */; };
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 		A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9685D0E1E014E1D0079FA84 /* Settings.storyboard */; };
 		A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9685D121E0153420079FA84 /* ELChangePassViewController.m */; };
@@ -123,6 +124,8 @@
 		A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A9335A6E1E0B745C0019231E /* ELAppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAppSingleton.h; sourceTree = "<group>"; };
 		A9335A6F1E0B745C0019231E /* ELAppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAppSingleton.m; sourceTree = "<group>"; };
+		A9335A711E0B79E00019231E /* ELOAuthInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELOAuthInstance.h; sourceTree = "<group>"; };
+		A9335A721E0B79E00019231E /* ELOAuthInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELOAuthInstance.m; sourceTree = "<group>"; };
 		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
 		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
 		A9685D0F1E014E1D0079FA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 		A90A58471E0A860B003F9F8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
+				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
 				A90A58481E0A8633003F9F8B /* ELUser.h */,
 				A90A58491E0A8633003F9F8B /* ELUser.m */,
 			);
@@ -661,6 +666,7 @@
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
+				A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
 				A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */,
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,

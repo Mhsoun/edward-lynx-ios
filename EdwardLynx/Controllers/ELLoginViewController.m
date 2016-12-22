@@ -48,8 +48,10 @@ static CGFloat const kELCornerRadius = 2.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.usernameTextField.text = [ELUtils getUserDefaultValueForKey:kELUsernameUserDefaultsKey];
-    self.passwordTextField.text = [ELUtils getUserDefaultValueForKey:kELPasswordUserDefaultsKey];
+    NSDictionary *credentials = [ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey];
+    
+    self.usernameTextField.text = credentials[@"username"];
+    self.passwordTextField.text = credentials[@"password"];
     
     [super viewWillAppear:animated];
 }
@@ -80,8 +82,13 @@ static CGFloat const kELCornerRadius = 2.0f;
     self.loginButton.enabled = YES;
     
     // Store values
-    [ELUtils setUserDefaultValue:self.usernameTextField.text forKey:kELUsernameUserDefaultsKey];
-    [ELUtils setUserDefaultValue:self.passwordTextField.text forKey:kELPasswordUserDefaultsKey];
+    [ELUtils setUserDefaultsObject:@{@"username": self.usernameTextField.text,
+                                     @"password": self.passwordTextField.text}
+                               key:kELAuthCredentialsUserDefaultsKey];
+    
+    // Store authentication details in a custom object
+    [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
+                                     key:kELAuthInstanceUserDefaultsKey];
     
     [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
                        animated:YES
