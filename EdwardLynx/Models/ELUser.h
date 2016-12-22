@@ -10,10 +10,14 @@
 
 @interface ELUser : JSONModel
 
+@property (nonatomic) int64_t id;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *info;
 @property (nonatomic) NSString *lang;
+@property (nonatomic) NSString *type;
 @property (nonatomic) NSDate *registeredOn;
+
+- (NSArray *)permissionsByRole;
 
 @end
