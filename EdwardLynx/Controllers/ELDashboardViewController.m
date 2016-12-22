@@ -23,6 +23,14 @@ static CGFloat const kELCornerRadius = 2.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // TEMP
+    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
+                                                                                  error:nil]];
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

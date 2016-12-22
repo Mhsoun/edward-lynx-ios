@@ -11,8 +11,6 @@
 
 @interface ELEditProfileViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
-@property (strong, nonatomic) NSDictionary *userInfoDict;  // NOTE Should be a custom model class
-
 @property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;

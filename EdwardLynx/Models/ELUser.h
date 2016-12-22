@@ -13,7 +13,7 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *info;
-@property (nonatomic) NSString *language;
+@property (nonatomic) NSString *lang;
 @property (nonatomic) NSDate *registeredOn;
 
 @end
