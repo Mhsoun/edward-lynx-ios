@@ -40,9 +40,12 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
+    // Labels
     self.titleLabel.text = contentDict[@"title"];
-    self.detailsLabel.text = contentDict[@"details"];
-    self.icon.image = contentDict[@"icon"];
+    self.detailsLabel.text = [contentDict[@"details"] uppercaseString];
+    
+    // Progress
+    self.progressView.layer.cornerRadius = 2.5f;
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
@@ -51,7 +54,7 @@
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
     if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
-        [self setHidden:YES];
+        [self setAlpha:0.5];
     }
 }
 

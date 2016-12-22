@@ -6,11 +6,14 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-@interface ELShortcutView : UIView
+#import <RNThemeView.h>
+
+@interface ELShortcutView : RNThemeView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end

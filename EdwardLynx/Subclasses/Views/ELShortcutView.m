@@ -40,8 +40,9 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
-    self.titleLabel.text = contentDict[@"title"];
     self.icon.image = contentDict[@"icon"];
+    self.titleLabel.text = contentDict[@"title"];
+    self.descriptionLabel.text = contentDict[@"description"];
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
@@ -50,7 +51,7 @@
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
     if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
-        [self setHidden:YES];
+        [self setAlpha:0.5];
     }
 }
 
