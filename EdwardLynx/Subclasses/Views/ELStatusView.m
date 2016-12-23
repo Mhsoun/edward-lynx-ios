@@ -43,6 +43,16 @@
     self.titleLabel.text = contentDict[@"title"];
     self.detailsLabel.text = contentDict[@"details"];
     self.icon.image = contentDict[@"icon"];
+    
+    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
+}
+
+- (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
+    ELUser *user = [ELAppSingleton sharedInstance].user;
+    
+    if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
+        [self setHidden:YES];
+    }
 }
 
 #pragma mark - Selectors

@@ -10,40 +10,44 @@
 
 @implementation ELUser
 
-- (NSArray *)permissionsByRole {
+- (NSSet *)permissionsByRole {
+    NSArray *permissionsList;
+    
     if ([self.type isEqualToString:kELUserRoleSuperAdmin] || [self.type isEqualToString:kELUserRoleAdmin]) {
-        return @[@(kELRolePermissionParticipateInSurvey),
-                 @(kELRolePermissionSelectFeedbackProviders),
-                 @(kELRolePermissionSubmitSurvey),
-                 @(kELRolePermissionManage),
-                 @(kELRolePermissionViewAnonymousIndividualReports),
-                 @(kELRolePermissionViewAnonymousTeamReports),
-                 @(kELRolePermissionCreateDevelopmentPlan),
-                 @(kELRolePermissionCreateGoals),
-                 @(kELRolePermissionInstantFeedback)];
+        permissionsList = @[@(kELRolePermissionParticipateInSurvey),
+                            @(kELRolePermissionSelectFeedbackProviders),
+                            @(kELRolePermissionSubmitSurvey),
+                            @(kELRolePermissionManage),
+                            @(kELRolePermissionViewAnonymousIndividualReports),
+                            @(kELRolePermissionViewAnonymousTeamReports),
+                            @(kELRolePermissionCreateDevelopmentPlan),
+                            @(kELRolePermissionCreateGoals),
+                            @(kELRolePermissionInstantFeedback)];
     } else if ([self.type isEqualToString:kELUserRoleSupervisor]) {
-        return @[@(kELRolePermissionViewAnonymousIndividualReports),  // NOTE Only user's direct reports
-                 @(kELRolePermissionViewAnonymousTeamReports),  // NOTE Only user's team
-                 @(kELRolePermissionInstantFeedback)];
+        permissionsList = @[@(kELRolePermissionViewAnonymousIndividualReports),  // NOTE Only user's direct reports
+                            @(kELRolePermissionViewAnonymousTeamReports),  // NOTE Only user's team
+                            @(kELRolePermissionInstantFeedback)];
     } else if ([self.type isEqualToString:kELUserRoleParticipant]) {
-        return @[@(kELRolePermissionParticipateInSurvey),
-                 @(kELRolePermissionSelectFeedbackProviders),
-                 @(kELRolePermissionSubmitSurvey),
-                 @(kELRolePermissionViewAnonymousIndividualReports),  // NOTE Only user's own
-                 @(kELRolePermissionCreateDevelopmentPlan),
-                 @(kELRolePermissionCreateGoals),
-                 @(kELRolePermissionInstantFeedback)];
+        permissionsList = @[@(kELRolePermissionParticipateInSurvey),
+                            @(kELRolePermissionSelectFeedbackProviders),
+                            @(kELRolePermissionSubmitSurvey),
+                            @(kELRolePermissionViewAnonymousIndividualReports),  // NOTE Only user's own
+                            @(kELRolePermissionCreateDevelopmentPlan),
+                            @(kELRolePermissionCreateGoals),
+                            @(kELRolePermissionInstantFeedback)];
     } else if ([self.type isEqualToString:kELUserRoleFeedbackProvider]) {
-        return @[@(kELRolePermissionParticipateInSurvey),
-                 @(kELRolePermissionSubmitSurvey),
-                 @(kELRolePermissionInstantFeedback)];
+        permissionsList = @[@(kELRolePermissionParticipateInSurvey),
+                            @(kELRolePermissionSubmitSurvey),
+                            @(kELRolePermissionInstantFeedback)];
     } else if ([self.type isEqualToString:kELUserRoleAnalyst]) {
-        return @[@(kELRolePermissionViewAnonymousIndividualReports),
-                 @(kELRolePermissionViewAnonymousTeamReports),
-                 @(kELRolePermissionInstantFeedback)];
+        permissionsList = @[@(kELRolePermissionViewAnonymousIndividualReports),
+                            @(kELRolePermissionViewAnonymousTeamReports),
+                            @(kELRolePermissionInstantFeedback)];
     } else {
         return nil;
     }
+    
+    return [NSSet setWithArray:permissionsList];
 }
 
 @end

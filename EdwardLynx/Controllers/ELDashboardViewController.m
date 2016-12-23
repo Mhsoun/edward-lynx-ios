@@ -47,14 +47,18 @@ static CGFloat const kELCornerRadius = 2.0f;
     
     // Status section
     statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Development Plan",
-                                                         @"details": @"3 out of 4 goals completed"}];
+                                                         @"details": @"3 out of 4 goals completed",
+                                                         @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
     statusView.frame = self.devPlanStatusView.frame;
     
     [self.devPlanStatusView addSubview:statusView];
     [self.devPlanStatusView.layer setCornerRadius:kELCornerRadius];
     
     statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Feedback request status",
-                                                         @"details": @"3 out of 4 submitted results"}];
+                                                         @"details": @"3 out of 4 submitted results",
+                                                         @"permissions": @[@(kELRolePermissionParticipateInSurvey),
+                                                                           @(kELRolePermissionSubmitSurvey),
+                                                                           @(kELRolePermissionInstantFeedback)]}];
     statusView.frame = self.feedbackStatusView.frame;
     statusView.layer.cornerRadius = 4.0f;
     
@@ -62,25 +66,30 @@ static CGFloat const kELCornerRadius = 2.0f;
     [self.feedbackStatusView.layer setCornerRadius:kELCornerRadius];
     
     // Shortcuts section
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback"}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback",
+                                                             @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
     shortcutView.frame = self.createFeedbackView.frame;
     
     [self.createFeedbackView addSubview:shortcutView];
     [self.createFeedbackView.layer setCornerRadius:kELCornerRadius];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Development Plan"}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Development Plan",
+                                                             @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
     shortcutView.frame = self.createDevPlanView.frame;
     
     [self.createDevPlanView addSubview:shortcutView];
     [self.createDevPlanView.layer setCornerRadius:kELCornerRadius];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports"}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports",
+                                                             @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
+                                                                               @(kELRolePermissionViewAnonymousTeamReports)]}];
     shortcutView.frame = self.reportsView.frame;
     
     [self.reportsView addSubview:shortcutView];
     [self.reportsView.layer setCornerRadius:kELCornerRadius];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys"}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys",
+                                                             @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
     shortcutView.frame = self.surveysView.frame;
     
     [self.surveysView addSubview:shortcutView];
@@ -88,28 +97,26 @@ static CGFloat const kELCornerRadius = 2.0f;
     
     // Action Required section
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
-                                                         @"title": @"360 Feedback Requests"}];
-    actionView.frame = self.feedbackActionView.frame;
-    
-    [self.feedbackActionView addSubview:actionView];
-    [self.feedbackActionView.layer setCornerRadius:kELCornerRadius];
-    
-    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"99",
-                                                         @"title": @"360 Feedback Requests"}];
+                                                         @"title": @"360 Feedback Requests",
+                                                         @"permissions": @[@(kELRolePermissionParticipateInSurvey),
+                                                                           @(kELRolePermissionSubmitSurvey)]}];
     actionView.frame = self.feedbackActionView.frame;
     
     [self.feedbackActionView addSubview:actionView];
     [self.feedbackActionView.layer setCornerRadius:kELCornerRadius];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"2",
-                                                         @"title": @"Reports"}];
+                                                         @"title": @"Reports",
+                                                         @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
+                                                                           @(kELRolePermissionViewAnonymousTeamReports)]}];
     actionView.frame = self.reportsActionView.frame;
     
     [self.reportsActionView addSubview:actionView];
     [self.reportsActionView.layer setCornerRadius:kELCornerRadius];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"0",
-                                                         @"title": @"Instant Feedback"}];
+                                                         @"title": @"Instant Feedback",
+                                                         @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
     actionView.frame = self.instantFeedbackActionView.frame;
     
     [self.instantFeedbackActionView addSubview:actionView];

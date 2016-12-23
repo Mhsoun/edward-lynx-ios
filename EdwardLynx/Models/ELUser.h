@@ -18,6 +18,6 @@
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSDate *registeredOn;
 
-- (NSArray *)permissionsByRole;
+- (NSSet *)permissionsByRole;
 
 @end
