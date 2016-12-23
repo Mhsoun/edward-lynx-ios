@@ -8,8 +8,11 @@
 
 #import <Crashlytics/Crashlytics.h>
 #import <Fabric/Fabric.h>
+#import <Firebase/Firebase.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
+#import "AppDelegate.h"
 #import "ELUsersAPIClient.h"
 
 @interface ELTextFieldGroup : NSObject

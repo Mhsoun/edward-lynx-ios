@@ -39,6 +39,12 @@
 			</dict>
 		</array>
 	</dict>
+	<key>FIRMessagingAutoRegisterEnabledflag</key>
+	<false/>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 	<key>HockeyApp</key>
 	<dict>
 		<key>APIKey</key>

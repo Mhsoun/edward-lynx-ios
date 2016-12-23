@@ -55,6 +55,7 @@
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
 		A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */; };
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
+		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLoginViewController.m; sourceTree = "<group>"; };
 		A9B36AAE1DFE749000599909 /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A9B36AAF1DFE749000599909 /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
+		A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,9 +305,11 @@
 		A9308BD11DED74B6007B4F9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A9308BE51DED74B6007B4F9F /* Info.plist */,
+				A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */,
 				A9308BD21DED74B6007B4F9F /* main.m */,
 				A9308C0A1DED758C007B4F9F /* PrefixHeader.pch */,
+				A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */,
+				A9308BE51DED74B6007B4F9F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -518,6 +523,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 4XE8MVRXHY;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A9308BE91DED74B6007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
@@ -569,6 +579,7 @@
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
+				A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
 				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
@@ -881,6 +892,7 @@
 			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
@@ -895,6 +907,7 @@
 			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;

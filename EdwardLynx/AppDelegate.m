@@ -10,16 +10,20 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) NSString *firebaseToken;
+
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     // Setup Fabric
     [ELUtils setupFabric];
+    
+    // Setup Firebase
+    [self setupFirebase];
     
     // Setup IQKeyboardManager
     [ELUtils setupIQKeyboardManager];
@@ -36,28 +40,23 @@
     return YES;
 }
 
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -65,6 +64,39 @@
     [self saveContext];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
+        return;
+    }
+    
+    // TODO Process notification
+    
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
+        return;
+    }
+    
+    // TODO Process notification
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    const char *data = [deviceToken bytes];
+    NSMutableString *token = [NSMutableString string];
+    
+    for (NSUInteger i = 0; i < [deviceToken length]; i++) {
+        [token appendFormat:@"%02.2hhX", data[i]];
+    }
+    
+    // Store Device token to singleton
+    [ELAppSingleton sharedInstance].deviceToken = [token copy];
+    
+    // Register Device token to Firebase
+    [[FIRInstanceID instanceID] setAPNSToken:deviceToken
+                                        type:FIRInstanceIDAPNSTokenTypeUnknown];
+}
 
 #pragma mark - Core Data stack
 
@@ -114,6 +146,8 @@
 #pragma mark - Public Methods
 
 - (UIViewController *)visibleViewController:(UIViewController *)rootViewController {
+    UIViewController *presentedViewController;
+    
     if (rootViewController.presentedViewController == nil) {
         return rootViewController;
     }
@@ -132,9 +166,70 @@
         return [self visibleViewController:selectedViewController];
     }
     
-    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    presentedViewController = (UIViewController *)rootViewController.presentedViewController;
     
     return [self visibleViewController:presentedViewController];
+}
+
+#pragma mark - Private Methods
+
+- (void)connectToFCM {
+    [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"AppDelegate: Unable to connect to FCM. %@", error);
+        } else {
+            NSLog(@"AppDelegate: Connected to FCM.");
+        }
+    }];
+}
+
+- (void)registerForRemoteNotifications {
+    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        UNAuthorizationOptions authorizationOptions = (UNAuthorizationOptionSound |
+                                                       UNAuthorizationOptionAlert |
+                                                       UNAuthorizationOptionBadge);
+        
+        center.delegate = self;
+        
+        [center requestAuthorizationWithOptions:authorizationOptions
+                              completionHandler:^(BOOL granted, NSError * _Nullable error){
+                                  if (!error) {
+                                      [[UIApplication sharedApplication] registerForRemoteNotifications];
+                                  }
+                              }];
+    } else {  // For iOS 9 and earlier
+        UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound |
+                                                       UIUserNotificationTypeAlert |
+                                                       UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:allNotificationTypes
+                                                                                 categories:nil];
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+}
+
+- (void)setupFirebase {
+    [FIRApp configure];
+    
+    if ([FIRInstanceID instanceID].token) {
+        self.firebaseToken = [FIRInstanceID instanceID].token;
+    }
+    
+    // Observer for Token refresh
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tokenRefreshNotification:)
+                                                 name:kFIRInstanceIDTokenRefreshNotification
+                                               object:nil];
+}
+
+- (void)tokenRefreshNotification:(NSNotification *)notification {
+    if ([FIRInstanceID instanceID].token && !self.firebaseToken) {
+        self.firebaseToken = [FIRInstanceID instanceID].token;
+    }
+    
+    [self connectToFCM];
 }
 
 @end
