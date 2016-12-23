@@ -3,6 +3,8 @@ abstract_target 'BasePods' do
     pod 'Crashlytics'
     pod 'DZNEmptyDataSet', '~> 1.8'
     pod 'Fabric'
+    pod 'Firebase'
+    pod 'FirebaseMessaging'
     pod 'HockeySDK'
     pod 'IQKeyboardManager'
     pod 'JSONModel'
