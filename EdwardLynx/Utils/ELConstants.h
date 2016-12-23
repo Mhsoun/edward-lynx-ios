@@ -9,6 +9,20 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
+#pragma mark - Enums
+
+typedef NS_ENUM(NSInteger, kELRolePermission) {
+    kELRolePermissionParticipateInSurvey,
+    kELRolePermissionSelectFeedbackProviders,
+    kELRolePermissionSubmitSurvey,
+    kELRolePermissionManage,
+    kELRolePermissionViewAnonymousIndividualReports,
+    kELRolePermissionViewAnonymousTeamReports,
+    kELRolePermissionCreateDevelopmentPlan,
+    kELRolePermissionCreateGoals,
+    kELRolePermissionInstantFeedback
+};
+
 #pragma mark - .plist Keys (Root)
 
 extern NSString * const kELAPIClientPlistKey;
@@ -33,6 +47,12 @@ extern NSString * const kELFabricUsername;
 extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
+extern NSString * const kELUserRoleAdmin;
+extern NSString * const kELUserRoleAnalyst;
+extern NSString * const kELUserRoleFeedbackProvider;
+extern NSString * const kELUserRoleParticipant;
+extern NSString * const kELUserRoleSuperAdmin;
+extern NSString * const kELUserRoleSupervisor;
 
 #pragma mark - Endpoints
 

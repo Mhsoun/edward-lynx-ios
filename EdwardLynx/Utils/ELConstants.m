@@ -32,6 +32,12 @@ NSString * const kELFabricUsername = @"FabricUsername";
 NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
+NSString * const kELUserRoleAdmin = @"admin";
+NSString * const kELUserRoleAnalyst = @"analyst";
+NSString * const kELUserRoleFeedbackProvider = @"feedback-provider";
+NSString * const kELUserRoleParticipant = @"participant";
+NSString * const kELUserRoleSuperAdmin = @"superadmin";
+NSString * const kELUserRoleSupervisor = @"supervisor";
 
 #pragma mark - Endpoints
 
