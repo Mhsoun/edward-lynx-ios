@@ -40,6 +40,8 @@
 		A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9685D121E0153420079FA84 /* ELChangePassViewController.m */; };
 		A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96AE03A1E0F773600AD56BE /* Surveys.storyboard */; };
 		A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */; };
+		A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96AE0401E0F844300AD56BE /* SurveyCell.xib */; };
+		A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -137,6 +139,9 @@
 		A96AE03B1E0F773600AD56BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Surveys.storyboard; sourceTree = "<group>"; };
 		A96AE03D1E0F777A00AD56BE /* ELSurveysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveysViewController.h; sourceTree = "<group>"; };
 		A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveysViewController.m; sourceTree = "<group>"; };
+		A96AE0401E0F844300AD56BE /* SurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyCell.xib; sourceTree = "<group>"; };
+		A96AE0421E0F84A400AD56BE /* ELSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyTableViewCell.h; sourceTree = "<group>"; };
+		A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTableViewCell.m; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -240,6 +245,8 @@
 			children = (
 				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
 				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
+				A96AE0421E0F84A400AD56BE /* ELSurveyTableViewCell.h */,
+				A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
 				A91B157F1E03A45900CAEC43 /* StatusView.xib */,
 				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
+				A96AE0401E0F844300AD56BE /* SurveyCell.xib */,
 			);
 			name = XIBs;
 			path = Base.lproj/XIBs;
@@ -584,6 +592,7 @@
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
+				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
@@ -681,6 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */,
 				A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,

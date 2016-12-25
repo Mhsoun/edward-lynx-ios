@@ -8,7 +8,17 @@
 
 #import "ELSurveysViewController.h"
 
+#pragma mark - Private Constants
+
+static NSString * const kELCellIdentifier = @"SurveyCell";
+
+#pragma mark - Class Extension
+
 @interface ELSurveysViewController ()
+
+@property (nonatomic, strong) NSIndexPath *prevIndexPath;
+@property (nonatomic, strong) ELTableDataSource *dataSource;
+@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
 
 @end
 
@@ -17,6 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Surveys", @"Logout"]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {

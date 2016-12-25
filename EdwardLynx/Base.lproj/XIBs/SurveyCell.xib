@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyCell" id="DyU-IJ-je5" customClass="ELSurveyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DyU-IJ-je5" id="1a2-5o-QSs">
+                <frame key="frameInset" width="375" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-tH-CVd" customClass="RNThemeView">
+                        <subviews>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-zP-pqA">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="26z-4p-s7b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-ru-OgZ">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="K3W-gq-2ze"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVa-h5-dbd">
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.7843137255" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="NVT-iR-JDT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oex-s9-PlX">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oex-s9-PlX" secondAttribute="height" multiplier="1:1" id="C9z-Do-2yL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bev-ru-OgZ" firstAttribute="leading" secondItem="9Ue-zP-pqA" secondAttribute="leading" id="3QR-q3-btN"/>
+                            <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="Bev-ru-OgZ" secondAttribute="bottom" constant="5" id="9Er-bM-LAk"/>
+                            <constraint firstItem="GVa-h5-dbd" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="BFk-k8-USL"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" constant="40" id="D0r-Gr-kyY"/>
+                            <constraint firstItem="Bev-ru-OgZ" firstAttribute="top" secondItem="9Ue-zP-pqA" secondAttribute="bottom" id="Qy5-7t-juE"/>
+                            <constraint firstItem="oex-s9-PlX" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="dmx-7h-eHB"/>
+                            <constraint firstAttribute="trailing" secondItem="oex-s9-PlX" secondAttribute="trailing" constant="10" id="iOm-5j-CG6"/>
+                            <constraint firstItem="oex-s9-PlX" firstAttribute="centerY" secondItem="c7D-tH-CVd" secondAttribute="centerY" id="jCP-Vj-UzB"/>
+                            <constraint firstItem="GVa-h5-dbd" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="k2c-WN-Ttg"/>
+                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="leading" secondItem="c7D-tH-CVd" secondAttribute="leading" constant="10" id="lqg-V1-mDV"/>
+                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="top" secondItem="c7D-tH-CVd" secondAttribute="top" constant="15" id="njO-YY-bna"/>
+                            <constraint firstItem="Bev-ru-OgZ" firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="p8c-8h-zdQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="c7D-tH-CVd" firstAttribute="height" secondItem="1a2-5o-QSs" secondAttribute="height" id="3w8-Hd-aqV"/>
+                    <constraint firstItem="c7D-tH-CVd" firstAttribute="centerY" secondItem="1a2-5o-QSs" secondAttribute="centerY" id="SGS-o6-jVE"/>
+                    <constraint firstItem="c7D-tH-CVd" firstAttribute="width" secondItem="1a2-5o-QSs" secondAttribute="width" id="kzQ-oT-6Fx"/>
+                    <constraint firstItem="c7D-tH-CVd" firstAttribute="centerX" secondItem="1a2-5o-QSs" secondAttribute="centerX" id="opJ-8c-4s8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="statusIcon" destination="oex-s9-PlX" id="fvH-c0-55Z"/>
+                <outlet property="statusLabel" destination="GVa-h5-dbd" id="qb4-ra-qn3"/>
+                <outlet property="surveyLabel" destination="9Ue-zP-pqA" id="gF1-NK-Ze0"/>
+                <outlet property="timestampLabel" destination="Bev-ru-OgZ" id="n3G-sf-UiE"/>
+            </connections>
+            <point key="canvasLocation" x="70" y="-12"/>
+        </tableViewCell>
+    </objects>
+</document>

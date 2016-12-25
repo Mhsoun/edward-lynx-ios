@@ -7,9 +7,12 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELDataProvider.h"
+#import "ELTableDataSource.h"
 
 @interface ELSurveysViewController : ELBaseViewController
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
