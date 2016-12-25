@@ -38,6 +38,8 @@
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 		A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9685D0E1E014E1D0079FA84 /* Settings.storyboard */; };
 		A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9685D121E0153420079FA84 /* ELChangePassViewController.m */; };
+		A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96AE03A1E0F773600AD56BE /* Surveys.storyboard */; };
+		A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -132,6 +134,9 @@
 		A9685D0F1E014E1D0079FA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		A9685D111E0153420079FA84 /* ELChangePassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELChangePassViewController.h; sourceTree = "<group>"; };
 		A9685D121E0153420079FA84 /* ELChangePassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELChangePassViewController.m; sourceTree = "<group>"; };
+		A96AE03B1E0F773600AD56BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Surveys.storyboard; sourceTree = "<group>"; };
+		A96AE03D1E0F777A00AD56BE /* ELSurveysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveysViewController.h; sourceTree = "<group>"; };
+		A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveysViewController.m; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -351,6 +356,8 @@
 				A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */,
 				A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */,
 				A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */,
+				A96AE03D1E0F777A00AD56BE /* ELSurveysViewController.h */,
+				A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -365,6 +372,7 @@
 				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
 				A9214DC61E08D80B0021EA5E /* Profile.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
+				A96AE03A1E0F773600AD56BE /* Surveys.storyboard */,
 				A91B157E1E03A44500CAEC43 /* XIBs */,
 			);
 			name = Layouts;
@@ -582,6 +590,7 @@
 				A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
 				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
+				A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
 				A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
@@ -681,6 +690,7 @@
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
 				A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */,
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
+				A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
 				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
@@ -780,6 +790,14 @@
 				A9685D0F1E014E1D0079FA84 /* Base */,
 			);
 			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		A96AE03A1E0F773600AD56BE /* Surveys.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96AE03B1E0F773600AD56BE /* Base */,
+			);
+			name = Surveys.storyboard;
 			sourceTree = "<group>";
 		};
 		A96F27581DFF8B2B00609E27 /* Authentication.storyboard */ = {
