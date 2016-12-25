@@ -55,11 +55,14 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    self.searchBar.tintColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
+    
     // Text Field
     UITextField *searchTextField = [self.searchBar valueForKey:@"_searchField"];
     UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:searchTextField.font.pointSize];
     
     [searchTextField setFont:font];
+    [searchTextField setTextColor:[UIColor whiteColor]];
     [searchTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [searchTextField setMinimumFontSize:12];
     
@@ -68,8 +71,22 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     
     [barButtonAppearanceInSearchBar setTitle:@"Cancel"];
     [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
-                                                             NSForegroundColorAttributeName: [UIColor blackColor]}
+                                                             NSForegroundColorAttributeName: [UIColor whiteColor]}
                                                   forState:UIControlStateNormal];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onTabButtonClick:(id)sender {
+    // TODO Move to view manager
+    
+    NSArray *buttons = @[self.allTabButton,
+                         self.unfinishedTabButton,
+                         self.completedTabButton];
+    
+    for (UIButton *button in buttons) {
+        [button setEnabled:![sender isEqual:button]];
+    }
 }
 
 @end

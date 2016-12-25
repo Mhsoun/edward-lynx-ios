@@ -15,5 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *allTabButton;
+@property (weak, nonatomic) IBOutlet UIButton *unfinishedTabButton;
+@property (weak, nonatomic) IBOutlet UIButton *completedTabButton;
+- (IBAction)onTabButtonClick:(id)sender;
 
 @end
