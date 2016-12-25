@@ -24,11 +24,18 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    //
+    ELSurvey *survey = (ELSurvey *)object;
+    
+    // Content
+    self.surveyLabel.text = survey.title;
+    self.timestampLabel.text = survey.timestamp;
+    self.statusLabel.text = [survey.status uppercaseString];
+    
+    self.statusLabel.layer.cornerRadius = 2.0f;
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    // No action since it is handled in the view controller's delegate implementation
+    //
 }
 
 @end

@@ -42,6 +42,7 @@
 		A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */; };
 		A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96AE0401E0F844300AD56BE /* SurveyCell.xib */; };
 		A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */; };
+		A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0461E0FA05D00AD56BE /* ELSurvey.m */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -142,6 +143,8 @@
 		A96AE0401E0F844300AD56BE /* SurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyCell.xib; sourceTree = "<group>"; };
 		A96AE0421E0F84A400AD56BE /* ELSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyTableViewCell.h; sourceTree = "<group>"; };
 		A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTableViewCell.m; sourceTree = "<group>"; };
+		A96AE0451E0FA05D00AD56BE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
+		A96AE0461E0FA05D00AD56BE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 			children = (
 				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
 				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
+				A96AE0451E0FA05D00AD56BE /* ELSurvey.h */,
+				A96AE0461E0FA05D00AD56BE /* ELSurvey.m */,
 				A90A58481E0A8633003F9F8B /* ELUser.h */,
 				A90A58491E0A8633003F9F8B /* ELUser.m */,
 			);
@@ -702,6 +707,7 @@
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
+				A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */,
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
 				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,

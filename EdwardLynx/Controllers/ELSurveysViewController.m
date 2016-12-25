@@ -18,7 +18,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
+@property (nonatomic, strong) ELDataProvider<ELSurvey *> *provider;
 
 @end
 
@@ -29,7 +29,15 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Surveys", @"Logout"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[[[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
+                                                                                                       @"timestamp": @"1 day ago",
+                                                                                                       @"status": @"unfinished"} error:nil],
+                                                                [[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
+                                                                                                       @"timestamp": @"1 day ago",
+                                                                                                       @"status": @"unfinished"} error:nil],
+                                                                [[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
+                                                                                                       @"timestamp": @"1 day ago",
+                                                                                                       @"status": @"unfinished"} error:nil]]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
