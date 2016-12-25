@@ -42,6 +42,10 @@
 - (void)setupContent:(NSDictionary *)contentDict {
     self.valueLabel.text = contentDict[@"value"];
     self.titleLabel.text = contentDict[@"title"];
+    self.countLabel.text = contentDict[@"count"];
+    
+    self.bgView.layer.cornerRadius = 5.0f;
+    self.countLabel.layer.cornerRadius = 12.5f;
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
@@ -50,7 +54,7 @@
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
     if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
-        [self setHidden:YES];
+        [self setAlpha:0.5];
     }
 }
 
