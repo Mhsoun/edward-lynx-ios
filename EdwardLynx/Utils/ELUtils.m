@@ -54,6 +54,12 @@
 
 @end
 
+@interface ELUtils ()
+
+@property (nonatomic, strong) NSString *firebaseToken;
+
+@end
+
 @implementation ELUtils
 
 + (id)getUserDefaultsCustomObjectForKey:(NSString *)key {

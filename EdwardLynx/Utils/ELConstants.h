@@ -9,6 +9,8 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
+#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 #pragma mark - Enums
 
 typedef NS_ENUM(NSInteger, kELRolePermission) {
