@@ -59,12 +59,13 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     
     // Text Field
     UITextField *searchTextField = [self.searchBar valueForKey:@"_searchField"];
-    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:searchTextField.font.pointSize];
+    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:16];
     
     [searchTextField setFont:font];
     [searchTextField setTextColor:[UIColor whiteColor]];
     [searchTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [searchTextField setMinimumFontSize:12];
+    [searchTextField setBounds:CGRectMake(0, 0, CGRectGetWidth(searchTextField.frame), 40)];
     
     // Cancel Button
     id barButtonAppearanceInSearchBar = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]];
