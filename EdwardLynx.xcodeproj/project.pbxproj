@@ -64,7 +64,9 @@
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
 		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 		A9CCA7011E19F6D100ACA299 /* ELQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7001E19F6D100ACA299 /* ELQuestionTableViewCell.m */; };
-		A9CCA7041E1A00EA00ACA299 /* ELQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7031E1A00EA00ACA299 /* ELQuestionTypeView.m */; };
+		A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */; };
+		A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */; };
+		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,8 +185,11 @@
 		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 		A9CCA6FF1E19F6D100ACA299 /* ELQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTableViewCell.h; sourceTree = "<group>"; };
 		A9CCA7001E19F6D100ACA299 /* ELQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTableViewCell.m; sourceTree = "<group>"; };
-		A9CCA7021E1A00EA00ACA299 /* ELQuestionTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeView.h; sourceTree = "<group>"; };
-		A9CCA7031E1A00EA00ACA299 /* ELQuestionTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeView.m; sourceTree = "<group>"; };
+		A9CCA7091E1A111C00ACA299 /* ELQuestionTypeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeTextView.h; sourceTree = "<group>"; };
+		A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeTextView.m; sourceTree = "<group>"; };
+		A9CCA70C1E1A11D300ACA299 /* ELBaseQuestionTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBaseQuestionTypeView.h; sourceTree = "<group>"; };
+		A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBaseQuestionTypeView.m; sourceTree = "<group>"; };
+		A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */,
 				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
 				A91B157F1E03A45900CAEC43 /* StatusView.xib */,
 			);
@@ -514,8 +520,10 @@
 		A9CCA7081E1A0FFE00ACA299 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
-				A9CCA7021E1A00EA00ACA299 /* ELQuestionTypeView.h */,
-				A9CCA7031E1A00EA00ACA299 /* ELQuestionTypeView.m */,
+				A9CCA70C1E1A11D300ACA299 /* ELBaseQuestionTypeView.h */,
+				A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */,
+				A9CCA7091E1A111C00ACA299 /* ELQuestionTypeTextView.h */,
+				A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -640,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A96F27751DFFDFA000609E27 /* Lato-Bold.ttf in Resources */,
+				A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */,
 				A96F276C1DFFA28E00609E27 /* Lato-Heavy.ttf in Resources */,
 				A96F276D1DFFA28E00609E27 /* Lato-Italic.ttf in Resources */,
 				A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */,
@@ -763,6 +772,7 @@
 				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
+				A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
@@ -775,9 +785,9 @@
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
 				A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
-				A9CCA7041E1A00EA00ACA299 /* ELQuestionTypeView.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
+				A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */,
 				A9121AA31E07AF6A00ED9934 /* ELTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

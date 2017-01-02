@@ -24,7 +24,23 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    //
+    // Content
+    ELQuestionTypeTextView *view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
+    view.frame = self.questionContainerView.frame;
+    
+    [self.questionContainerView addSubview:view];
+}
+
+#pragma mark - Private Methods
+
+- (__kindof ELBaseQuestionTypeView *)questionView {
+    for (__kindof UIView *view in self.questionContainerView.subviews) {
+        if ([view isKindOfClass:[ELBaseQuestionTypeView class]]) {
+            return view;
+        }
+    }
+    
+    return nil;
 }
 
 @end

@@ -6,9 +6,12 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELBaseQuestionTypeView.h"
+#import "ELQuestionTypeTextView.h"
+
 @interface ELQuestionTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-@property (weak, nonatomic) IBOutlet UIView *questionTypeView;
+@property (weak, nonatomic) IBOutlet UIView *questionContainerView;
 
 @end

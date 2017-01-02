@@ -11,6 +11,13 @@
 
 #pragma mark - Generic Delegates
 
+@protocol ELAPIResponseDelegate <NSObject>
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict;
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict;
+
+@end
+
 @protocol ELBaseViewControllerDelegate <NSObject>
 
 @optional
@@ -24,16 +31,16 @@
 
 @end
 
-@protocol ELRowHandlerDelegate <NSObject>
+@protocol ELQuestionTypeDelegate <NSObject>
 
-- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath;
+- (instancetype)initWithNibName:(NSString *)nib valueKey:(NSString *)key;
+- (NSDictionary *)formValues;
 
 @end
 
-@protocol ELAPIResponseDelegate <NSObject>
+@protocol ELRowHandlerDelegate <NSObject>
 
-- (void)onAPIResponseError:(NSDictionary *)errorDict;
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict;
+- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

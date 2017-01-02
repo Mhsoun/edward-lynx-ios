@@ -11,10 +11,17 @@
 @implementation ELActionView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
+    NSArray *elements;
+    
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ActionView"
-                                                      owner:self
-                                                    options:nil];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    elements = [[NSBundle mainBundle] loadNibNamed:@"ActionView"
+                                             owner:self
+                                           options:nil];
     
     for (id anObject in elements) {
         if ([anObject isKindOfClass:[self class]]) {

@@ -26,12 +26,17 @@ NSString * const kELLogoutAlertMessage = @"Logging out will require the app for 
 #pragma mark - Constants
 
 NSString * const kELErrorDomain = @"com.ingenuitymobile.EdwardLynx.error";
+
 NSString * const kELFabricEmail = @"FabricEmail";
 NSString * const kELFabricIdentifier = @"FabricIdentifier";
 NSString * const kELFabricUsername = @"FabricUsername";
+
 NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
+
+NSString * const kELQuestionTypeText = @"QuestionTypeText";
+
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";
 NSString * const kELUserRoleFeedbackProvider = @"feedback-provider";
