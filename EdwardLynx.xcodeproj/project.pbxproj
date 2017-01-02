@@ -370,26 +370,10 @@
 		A9308C071DED74E0007B4F9F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A96F27621DFF9FCB00609E27 /* ELBaseViewController.h */,
-				A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */,
-				A9685D111E0153420079FA84 /* ELChangePassViewController.h */,
-				A9685D121E0153420079FA84 /* ELChangePassViewController.m */,
-				A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */,
-				A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */,
-				A9214DCC1E092AAE0021EA5E /* ELEditProfileViewController.h */,
-				A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */,
-				A96F27711DFFDB0E00609E27 /* ELForgotPasswordViewController.h */,
-				A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */,
-				A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */,
-				A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */,
-				A9B36AAA1DFE5E4F00599909 /* ELLoginViewController.h */,
-				A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */,
-				A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */,
-				A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */,
-				A9195FAB1E19EEE800F84272 /* ELSurveyDetailsViewController.h */,
-				A9195FAC1E19EEE800F84272 /* ELSurveyDetailsViewController.m */,
-				A96AE03D1E0F777A00AD56BE /* ELSurveysViewController.h */,
-				A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */,
+				A94229471E1A5F5F004F9566 /* Authentication */,
+				A94229491E1A5FB1004F9566 /* Main */,
+				A94229481E1A5F8C004F9566 /* Profile */,
+				A942294A1E1A5FCA004F9566 /* Survey */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -416,6 +400,54 @@
 				A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */,
 			);
 			name = Schema;
+			sourceTree = "<group>";
+		};
+		A94229471E1A5F5F004F9566 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A96F27711DFFDB0E00609E27 /* ELForgotPasswordViewController.h */,
+				A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */,
+				A9B36AAA1DFE5E4F00599909 /* ELLoginViewController.h */,
+				A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A94229481E1A5F8C004F9566 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A9685D111E0153420079FA84 /* ELChangePassViewController.h */,
+				A9685D121E0153420079FA84 /* ELChangePassViewController.m */,
+				A9214DCC1E092AAE0021EA5E /* ELEditProfileViewController.h */,
+				A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */,
+				A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */,
+				A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A94229491E1A5FB1004F9566 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A96F27621DFF9FCB00609E27 /* ELBaseViewController.h */,
+				A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */,
+				A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */,
+				A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */,
+				A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */,
+				A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A942294A1E1A5FCA004F9566 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				A9195FAB1E19EEE800F84272 /* ELSurveyDetailsViewController.h */,
+				A9195FAC1E19EEE800F84272 /* ELSurveyDetailsViewController.m */,
+				A96AE03D1E0F777A00AD56BE /* ELSurveysViewController.h */,
+				A96AE03E1E0F777A00AD56BE /* ELSurveysViewController.m */,
+			);
+			path = Survey;
 			sourceTree = "<group>";
 		};
 		A968F1881DF7E53F0091997D /* Utils */ = {
