@@ -42,6 +42,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
@@ -74,6 +75,12 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
                                                              NSForegroundColorAttributeName: [UIColor whiteColor]}
                                                   forState:UIControlStateNormal];
+}
+
+#pragma mark - Protocol Methods (UITableView)
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"SurveyDetails" sender:self];
 }
 
 #pragma mark - Interface Builder Actions
