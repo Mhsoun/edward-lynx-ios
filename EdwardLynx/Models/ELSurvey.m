@@ -10,4 +10,9 @@
 
 @implementation ELSurvey
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"shortDescription": @"description"}];
+}
+
 @end

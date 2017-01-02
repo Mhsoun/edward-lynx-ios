@@ -30,6 +30,7 @@
     // Content
     self.questionLabel.text = question.detail;
     
+    // UI
     if ([question.type isEqualToString:kELQuestionTypeText]) {
         view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
     } else {

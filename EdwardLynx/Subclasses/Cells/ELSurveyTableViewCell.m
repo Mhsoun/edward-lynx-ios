@@ -27,10 +27,11 @@
     ELSurvey *survey = (ELSurvey *)object;
     
     // Content
-    self.surveyLabel.text = survey.title;
-    self.timestampLabel.text = survey.timestamp;
-    self.statusLabel.text = [survey.status uppercaseString];
+    self.surveyLabel.text = survey.name;
+    self.timestampLabel.text = @"3 days ago";  // TEMP
+    self.statusLabel.text = @"UNFINISHED";  // TEMP
     
+    // UI
     self.statusLabel.layer.cornerRadius = 2.0f;
 }
 
