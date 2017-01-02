@@ -43,7 +43,7 @@
 }
 
 - (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
+    ELOAuthInstance *oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     NSMutableDictionary *mBodyParams = [NSMutableDictionary dictionaryWithDictionary:@{@"grant_type": @"refresh_token",
                                                                                        @"refresh_token": oauthInstance.refreshToken}];
     

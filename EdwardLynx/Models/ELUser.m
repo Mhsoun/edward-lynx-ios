@@ -10,6 +10,10 @@
 
 @implementation ELUser
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
 - (NSSet *)permissionsByRole {
     NSArray *permissionsList;
     

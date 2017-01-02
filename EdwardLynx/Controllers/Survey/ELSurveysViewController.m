@@ -30,9 +30,13 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    NSDictionary *testData = @{@"title": @"Test Survey",
-                               @"timestamp": @"1 day ago",
-                               @"status": @"unfinished",
+    NSDictionary *testData = @{@"id": @1,
+                               @"type": @0,
+                               @"name": @"Test Survey",
+                               @"lang": @"en",
+                               @"description": @"The person that is being evaluated is: #to_evaluate_name.",
+                               @"startDate": @"2017-01-01T20:40:04+0100",
+                               @"endDate": @"2017-01-01T20:40:04+0100",
                                @"questions": @[@{@"detail": @"Describe yourself",
                                                  @"type": kELQuestionTypeText},
                                                @{@"detail": @"Describe your profession",

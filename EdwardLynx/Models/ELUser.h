@@ -10,7 +10,7 @@
 
 @interface ELUser : JSONModel
 
-@property (nonatomic) int64_t id;
+@property (nonatomic) int64_t objectId;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *info;

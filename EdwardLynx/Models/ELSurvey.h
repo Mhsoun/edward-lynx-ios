@@ -14,9 +14,14 @@
 
 @interface ELSurvey : JSONModel
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *timestamp;
-@property (nonatomic) NSString *status;
+@property (nonatomic) int64_t objectId;
+@property (nonatomic) int64_t type;
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *lang;
+@property (nonatomic) NSString<Optional> *status;
+@property (nonatomic) NSString *shortDescription;
+@property (nonatomic) NSDate *startDate;
+@property (nonatomic) NSDate *endDate;
 @property (nonatomic) NSArray<ELQuestion> *questions;
 
 @end

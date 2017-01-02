@@ -29,6 +29,7 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    // Content
     self.textLabel.text = [(NSString *)object uppercaseString];
 }
 
