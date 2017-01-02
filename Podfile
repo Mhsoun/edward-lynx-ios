@@ -5,6 +5,7 @@ abstract_target 'BasePods' do
     pod 'Fabric'
     pod 'Firebase'
     pod 'FirebaseMessaging'
+    pod 'HCSStarRatingView', '~> 1.4'
     pod 'HockeySDK'
     pod 'IQKeyboardManager'
     pod 'JSONModel'

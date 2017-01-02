@@ -1,20 +1,27 @@
 //
-//  ELStatusView.m
+//  ELActionView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 16/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELStatusView.h"
+#import "ELActionView.h"
 
-@implementation ELStatusView
+@implementation ELActionView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
+    NSArray *elements;
+    
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"StatusView"
-                                                      owner:self
-                                                    options:nil];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    elements = [[NSBundle mainBundle] loadNibNamed:@"ActionView"
+                                             owner:self
+                                           options:nil];
     
     for (id anObject in elements) {
         if ([anObject isKindOfClass:[self class]]) {
@@ -40,12 +47,12 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
-    // Labels
+    self.valueLabel.text = contentDict[@"value"];
     self.titleLabel.text = contentDict[@"title"];
-    self.detailsLabel.text = [contentDict[@"details"] uppercaseString];
+    self.countLabel.text = contentDict[@"count"];
     
-    // Progress
-    self.progressView.layer.cornerRadius = 2.5f;
+    self.bgView.layer.cornerRadius = 5.0f;
+    self.countLabel.layer.cornerRadius = 12.5f;
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
@@ -61,7 +68,7 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    // TODO Action
+    NSLog(@"%@", [self class]);
 }
 
 @end

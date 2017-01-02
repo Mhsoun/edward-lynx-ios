@@ -9,9 +9,10 @@
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
 #import "ELSurvey.h"
+#import "ELSurveyDetailsViewController.h"
 #import "ELTableDataSource.h"
 
-@interface ELSurveysViewController : ELBaseViewController
+@interface ELSurveysViewController : ELBaseViewController<UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

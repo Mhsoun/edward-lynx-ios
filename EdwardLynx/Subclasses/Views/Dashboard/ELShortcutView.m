@@ -1,20 +1,27 @@
 //
-//  ELActionView.m
+//  ELShortcutView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 16/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELActionView.h"
+#import "ELShortcutView.h"
 
-@implementation ELActionView
+@implementation ELShortcutView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
+    NSArray *elements;
+    
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ActionView"
-                                                      owner:self
-                                                    options:nil];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    elements = [[NSBundle mainBundle] loadNibNamed:@"ShortcutView"
+                                             owner:self
+                                           options:nil];
     
     for (id anObject in elements) {
         if ([anObject isKindOfClass:[self class]]) {
@@ -40,12 +47,9 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
-    self.valueLabel.text = contentDict[@"value"];
+    self.icon.image = contentDict[@"icon"];
     self.titleLabel.text = contentDict[@"title"];
-    self.countLabel.text = contentDict[@"count"];
-    
-    self.bgView.layer.cornerRadius = 5.0f;
-    self.countLabel.layer.cornerRadius = 12.5f;
+    self.descriptionLabel.text = contentDict[@"description"];
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
@@ -61,7 +65,7 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    NSLog(@"%@", [self class]);
+    // TODO Action
 }
 
 @end

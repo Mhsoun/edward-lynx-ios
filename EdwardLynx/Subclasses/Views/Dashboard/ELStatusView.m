@@ -1,20 +1,27 @@
 //
-//  ELShortcutView.m
+//  ELStatusView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 16/12/2016.
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELShortcutView.h"
+#import "ELStatusView.h"
 
-@implementation ELShortcutView
+@implementation ELStatusView
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
+    NSArray *elements;
+    
     self = [super init];
-    NSArray* elements = [[NSBundle mainBundle] loadNibNamed:@"ShortcutView"
-                                                      owner:self
-                                                    options:nil];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    elements = [[NSBundle mainBundle] loadNibNamed:@"StatusView"
+                                             owner:self
+                                           options:nil];
     
     for (id anObject in elements) {
         if ([anObject isKindOfClass:[self class]]) {
@@ -40,9 +47,12 @@
 }
 
 - (void)setupContent:(NSDictionary *)contentDict {
-    self.icon.image = contentDict[@"icon"];
+    // Labels
     self.titleLabel.text = contentDict[@"title"];
-    self.descriptionLabel.text = contentDict[@"description"];
+    self.detailsLabel.text = [contentDict[@"details"] uppercaseString];
+    
+    // Progress
+    self.progressView.layer.cornerRadius = 2.5f;
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }

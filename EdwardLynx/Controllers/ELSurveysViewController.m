@@ -16,6 +16,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 
 @interface ELSurveysViewController ()
 
+@property (nonatomic, strong) ELSurvey *selectedSurvey;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELSurvey *> *provider;
@@ -29,19 +30,23 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[[[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
-                                                                                                       @"timestamp": @"1 day ago",
-                                                                                                       @"status": @"unfinished"} error:nil],
-                                                                [[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
-                                                                                                       @"timestamp": @"1 day ago",
-                                                                                                       @"status": @"unfinished"} error:nil],
-                                                                [[ELSurvey alloc] initWithDictionary:@{@"title": @"Test Survey",
-                                                                                                       @"timestamp": @"1 day ago",
-                                                                                                       @"status": @"unfinished"} error:nil]]];
+    NSDictionary *testData = @{@"title": @"Test Survey",
+                               @"timestamp": @"1 day ago",
+                               @"status": @"unfinished",
+                               @"questions": @[@{@"detail": @"Describe yourself",
+                                                 @"type": kELQuestionTypeText},
+                                               @{@"detail": @"Describe your profession",
+                                                 @"type": kELQuestionTypeText}]};
+    
+    self.selectedSurvey = nil;
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[[[ELSurvey alloc] initWithDictionary:testData error:nil],
+                                                                [[ELSurvey alloc] initWithDictionary:testData error:nil],
+                                                                [[ELSurvey alloc] initWithDictionary:testData error:nil]]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
@@ -50,6 +55,16 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SurveyDetails"]) {
+        ELSurveyDetailsViewController *controller = [segue destinationViewController];
+        
+        controller.survey = self.selectedSurvey;
+    }
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -74,6 +89,14 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
                                                              NSForegroundColorAttributeName: [UIColor whiteColor]}
                                                   forState:UIControlStateNormal];
+}
+
+#pragma mark - Protocol Methods (UITableView)
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedSurvey = [self.provider objectAtIndexPath:indexPath];
+    
+    [self performSegueWithIdentifier:@"SurveyDetails" sender:self];
 }
 
 #pragma mark - Interface Builder Actions

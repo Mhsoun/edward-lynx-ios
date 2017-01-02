@@ -43,12 +43,17 @@ extern NSString * const kELLogoutAlertMessage;
 #pragma mark - Constants
 
 extern NSString * const kELErrorDomain;
+
 extern NSString * const kELFabricEmail;
 extern NSString * const kELFabricIdentifier;
 extern NSString * const kELFabricUsername;
+
 extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
+
+extern NSString * const kELQuestionTypeText;
+
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;
 extern NSString * const kELUserRoleFeedbackProvider;
