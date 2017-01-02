@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mVU-3I-vkF">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--SURVEYS-->
+        <scene sceneID="7UV-oZ-2b5">
+            <objects>
+                <viewController id="VWd-5R-vaB" customClass="ELSurveysViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XZc-ax-756"/>
+                        <viewControllerLayoutGuide type="bottom" id="7rK-a5-TH7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2ER-dR-ZIR" customClass="RNThemeView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IbC-0c-RET"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </searchBar>
+                            <button contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CX-4e-5n2" customClass="RNThemeButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tzI-OJ-pMv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <state key="normal" title="ALL"/>
+                                <state key="disabled">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="VWd-5R-vaB" eventType="touchUpInside" id="4Ui-fh-0Ce"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1v-6c-QHX" customClass="RNThemeButton">
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <state key="normal" title="UNFINISHED"/>
+                                <state key="disabled">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="VWd-5R-vaB" eventType="touchUpInside" id="COn-4Q-O8U"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7D-29-cJf" customClass="RNThemeButton">
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <state key="normal" title="COMPLETED"/>
+                                <state key="disabled">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="VWd-5R-vaB" eventType="touchUpInside" id="fRa-sZ-pYw"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-8W-HJV">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m1v-6c-QHX" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="7jd-cR-gCF"/>
+                            <constraint firstItem="Ot1-8W-HJV" firstAttribute="leading" secondItem="2ER-dR-ZIR" secondAttribute="leading" id="Hfc-0L-dUb"/>
+                            <constraint firstItem="wt7-lQ-5zz" firstAttribute="top" secondItem="XZc-ax-756" secondAttribute="bottom" id="IVH-hE-rGq"/>
+                            <constraint firstItem="m1v-6c-QHX" firstAttribute="height" secondItem="6CX-4e-5n2" secondAttribute="height" id="K2t-FY-r2e"/>
+                            <constraint firstItem="m1v-6c-QHX" firstAttribute="width" secondItem="6CX-4e-5n2" secondAttribute="width" id="QfM-uU-oym"/>
+                            <constraint firstItem="j7D-29-cJf" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="ZkR-Ou-LZ0"/>
+                            <constraint firstAttribute="trailing" secondItem="j7D-29-cJf" secondAttribute="trailing" id="di3-ll-LZa"/>
+                            <constraint firstAttribute="trailing" secondItem="Ot1-8W-HJV" secondAttribute="trailing" id="eoS-HM-3G2"/>
+                            <constraint firstItem="j7D-29-cJf" firstAttribute="height" secondItem="m1v-6c-QHX" secondAttribute="height" id="gta-af-ye5"/>
+                            <constraint firstItem="m1v-6c-QHX" firstAttribute="leading" secondItem="6CX-4e-5n2" secondAttribute="trailing" id="i9p-8u-238"/>
+                            <constraint firstItem="Ot1-8W-HJV" firstAttribute="top" secondItem="j7D-29-cJf" secondAttribute="bottom" id="n4G-OQ-xMm"/>
+                            <constraint firstItem="j7D-29-cJf" firstAttribute="width" secondItem="m1v-6c-QHX" secondAttribute="width" id="nB5-nm-GoC"/>
+                            <constraint firstItem="6CX-4e-5n2" firstAttribute="leading" secondItem="2ER-dR-ZIR" secondAttribute="leading" id="oHD-5Z-UvA"/>
+                            <constraint firstItem="wt7-lQ-5zz" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="viI-5I-gux"/>
+                            <constraint firstItem="j7D-29-cJf" firstAttribute="leading" secondItem="m1v-6c-QHX" secondAttribute="trailing" id="xJa-ns-zJd"/>
+                            <constraint firstItem="6CX-4e-5n2" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="xVC-eQ-cJA"/>
+                            <constraint firstItem="wt7-lQ-5zz" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="xkz-Yf-fu5"/>
+                            <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="Ot1-8W-HJV" secondAttribute="bottom" id="xlM-ZB-0gV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
+                    <connections>
+                        <outlet property="allTabButton" destination="6CX-4e-5n2" id="NgU-mY-ee0"/>
+                        <outlet property="completedTabButton" destination="j7D-29-cJf" id="zfw-pa-1i9"/>
+                        <outlet property="searchBar" destination="wt7-lQ-5zz" id="aoU-HF-0q4"/>
+                        <outlet property="tableView" destination="Ot1-8W-HJV" id="nfh-D5-6zp"/>
+                        <outlet property="unfinishedTabButton" destination="m1v-6c-QHX" id="wRY-mm-EzH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUC-V9-KHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152.8" y="154.27286356821591"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vaA-7M-SIf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mVU-3I-vkF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zvl-AN-D9U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VWd-5R-vaB" kind="relationship" relationship="rootViewController" id="w5j-uq-ilp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y92-F1-mFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.59999999999999" y="154.27286356821591"/>
+        </scene>
+    </scenes>
+</document>

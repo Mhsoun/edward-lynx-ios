@@ -22,7 +22,9 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithTableView:(UITableView *)tableView dataProvider:(ELDataProvider *)dataProvider cellIdentifier:(NSString *)cellIdentifier {
+- (instancetype)initWithTableView:(UITableView *)tableView
+                     dataProvider:(ELDataProvider *)dataProvider
+                   cellIdentifier:(NSString *)cellIdentifier {
     self = [super init];
     
     if (!self) {
@@ -79,23 +81,24 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = self.emptyText;
-    
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18],
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18],
                                  NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELVioletColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSDictionary *attributes;
+    NSMutableParagraphStyle *paragraph;
     NSString *text = self.emptyDescription;
     
-    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14],
-                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
-                                 NSParagraphStyleAttributeName: paragraph};
+    attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
+                   NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELLightVioletColor],
+                   NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
