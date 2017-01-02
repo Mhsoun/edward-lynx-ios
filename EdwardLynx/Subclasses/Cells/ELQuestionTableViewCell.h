@@ -7,6 +7,7 @@
 //
 
 #import "ELBaseQuestionTypeView.h"
+#import "ELQuestion.h"
 #import "ELQuestionTypeTextView.h"
 
 @interface ELQuestionTableViewCell : UITableViewCell<ELConfigurableCellDelegate>

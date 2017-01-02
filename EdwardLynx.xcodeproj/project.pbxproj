@@ -67,6 +67,7 @@
 		A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */; };
 		A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */; };
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
+		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,8 @@
 		A9CCA70C1E1A11D300ACA299 /* ELBaseQuestionTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBaseQuestionTypeView.h; sourceTree = "<group>"; };
 		A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBaseQuestionTypeView.m; sourceTree = "<group>"; };
 		A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
+		A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
+		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 			children = (
 				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
 				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
+				A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */,
+				A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */,
 				A96AE0451E0FA05D00AD56BE /* ELSurvey.h */,
 				A96AE0461E0FA05D00AD56BE /* ELSurvey.m */,
 				A90A58481E0A8633003F9F8B /* ELUser.h */,
@@ -783,6 +788,7 @@
 				A9CCA7011E19F6D100ACA299 /* ELQuestionTableViewCell.m in Sources */,
 				A9195FAD1E19EEE800F84272 /* ELSurveyDetailsViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
+				A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */,
 				A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,

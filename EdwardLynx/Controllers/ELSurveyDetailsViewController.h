@@ -8,9 +8,13 @@
 
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
+#import "ELQuestion.h"
+#import "ELSurvey.h"
 #import "ELTableDataSource.h"
 
 @interface ELSurveyDetailsViewController : ELBaseViewController
+
+@property (strong, nonatomic) ELSurvey *survey;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

@@ -18,18 +18,20 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
+@property (nonatomic, strong) ELDataProvider<ELQuestion *> *provider;
 
 @end
 
 @implementation ELSurveyDetailsViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Test", @"Test 2"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:self.survey.questions];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
@@ -43,15 +45,5 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

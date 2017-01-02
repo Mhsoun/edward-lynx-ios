@@ -21,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                                                         style:UIBarButtonItemStylePlain
+                                                                                                        target:nil
+                                                                                                        action:nil];
 }
 
 - (void)didReceiveMemoryWarning {

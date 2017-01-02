@@ -155,7 +155,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yqP-VO-O4q" secondAttribute="trailing" constant="10" id="2tF-LS-KEU"/>
+                                    <constraint firstAttribute="trailing" secondItem="yqP-VO-O4q" secondAttribute="trailing" constant="15" id="2tF-LS-KEU"/>
                                     <constraint firstAttribute="bottom" secondItem="yqP-VO-O4q" secondAttribute="bottom" constant="5" id="6dc-iV-V5r"/>
                                     <constraint firstAttribute="height" constant="35" id="LmR-1I-HzN"/>
                                     <constraint firstAttribute="bottom" secondItem="MKb-Q7-qrw" secondAttribute="bottom" constant="5" id="QQR-HG-r1v"/>
@@ -163,10 +163,10 @@
                                     <constraint firstItem="yqP-VO-O4q" firstAttribute="leading" secondItem="MKb-Q7-qrw" secondAttribute="trailing" constant="10" id="bDA-xu-Wk8"/>
                                     <constraint firstItem="MKb-Q7-qrw" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="top" constant="5" id="dwc-1N-isY"/>
                                     <constraint firstItem="yqP-VO-O4q" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="top" constant="5" id="fPA-Gc-ugt"/>
-                                    <constraint firstItem="MKb-Q7-qrw" firstAttribute="leading" secondItem="8Q4-f4-vAK" secondAttribute="leading" constant="10" id="rMy-B9-jZI"/>
+                                    <constraint firstItem="MKb-Q7-qrw" firstAttribute="leading" secondItem="8Q4-f4-vAK" secondAttribute="leading" constant="15" id="rMy-B9-jZI"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ai-2E6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ai-2E6">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -199,7 +199,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mVU-3I-vkF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zvl-AN-D9U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zvl-AN-D9U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

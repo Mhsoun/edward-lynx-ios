@@ -43,16 +43,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XdP-m2-EN4" secondAttribute="trailing" constant="10" id="3uk-F5-Vra"/>
-                            <constraint firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" constant="10" id="81Y-Wl-IJN"/>
+                            <constraint firstAttribute="trailing" secondItem="XdP-m2-EN4" secondAttribute="trailing" constant="15" id="3uk-F5-Vra"/>
                             <constraint firstItem="XdP-m2-EN4" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="trailing" constant="10" id="8wg-q8-muF"/>
-                            <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="10" id="GRZ-db-5Ef"/>
-                            <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="10" id="IGz-zZ-KzW"/>
+                            <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
+                            <constraint firstItem="9Vc-ws-lKI" firstAttribute="trailing" secondItem="XdP-m2-EN4" secondAttribute="trailing" id="LDW-Yx-Ko3"/>
+                            <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="leading" id="OOP-Pt-eVO"/>
                             <constraint firstAttribute="bottom" secondItem="9Vc-ws-lKI" secondAttribute="bottom" constant="10" id="Ymu-J0-qNp"/>
-                            <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="10" id="bqp-7X-igO"/>
+                            <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="15" id="bqp-7X-igO"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
                             <constraint firstItem="XdP-m2-EN4" firstAttribute="height" secondItem="wI5-O5-eCS" secondAttribute="height" id="mjr-SA-WJO"/>
-                            <constraint firstItem="XdP-m2-EN4" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="10" id="orl-mh-pg8"/>
+                            <constraint firstItem="XdP-m2-EN4" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="top" id="zpi-e0-Zd3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>

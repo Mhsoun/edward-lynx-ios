@@ -9,6 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
 #import "ELSurvey.h"
+#import "ELSurveyDetailsViewController.h"
 #import "ELTableDataSource.h"
 
 @interface ELSurveysViewController : ELBaseViewController<UITableViewDelegate>
