@@ -25,6 +25,8 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FIRMessagingAutoRegisterEnabledflag</key>
+	<false/>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -39,8 +41,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>FIRMessagingAutoRegisterEnabledflag</key>
-	<false/>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
@@ -65,6 +65,10 @@
 		<string>Lato-Light.ttf</string>
 		<string>Lato-Medium.ttf</string>
 		<string>Lato-Regular.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
