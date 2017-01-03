@@ -70,6 +70,11 @@
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */; };
 		A9E53D5C1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */; };
+		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
+		A9E53D631E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */; };
+		A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */; };
+		A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */; };
+		A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +203,14 @@
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackViewController.m; sourceTree = "<group>"; };
+		A9E53D5E1E1B8BB200E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DevelopmentPlan.storyboard; sourceTree = "<group>"; };
+		A9E53D611E1B920F00E9BB3C /* ELDevelopmentPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlansViewController.h; sourceTree = "<group>"; };
+		A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlansViewController.m; sourceTree = "<group>"; };
+		A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DevelopmentPlanCell.xib; sourceTree = "<group>"; };
+		A9E53D661E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanTableViewCell.h; sourceTree = "<group>"; };
+		A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTableViewCell.m; sourceTree = "<group>"; };
+		A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
+		A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +259,8 @@
 		A90A58471E0A860B003F9F8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */,
+				A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */,
 				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
 				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
 				A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */,
@@ -270,6 +285,8 @@
 		A9121AA51E07B86700ED9934 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A9E53D661E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.h */,
+				A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */,
 				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
 				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
 				A9CCA6FF1E19F6D100ACA299 /* ELQuestionTableViewCell.h */,
@@ -376,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				A94229471E1A5F5F004F9566 /* Authentication */,
+				A9E53D601E1B91FE00E9BB3C /* DevelopmentPlan */,
 				A9E53D591E1B6C3400E9BB3C /* Feedback */,
 				A94229491E1A5FB1004F9566 /* Main */,
 				A94229481E1A5F8C004F9566 /* Profile */,
@@ -389,6 +407,7 @@
 			children = (
 				A96F27581DFF8B2B00609E27 /* Authentication.storyboard */,
 				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
+				A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */,
 				A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */,
@@ -531,6 +550,7 @@
 		A9CCA7051E1A0E6C00ACA299 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */,
 				A9195FAE1E19F28600F84272 /* QuestionCell.xib */,
 				A96AE0401E0F844300AD56BE /* SurveyCell.xib */,
 			);
@@ -579,6 +599,15 @@
 				A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		A9E53D601E1B91FE00E9BB3C /* DevelopmentPlan */ = {
+			isa = PBXGroup;
+			children = (
+				A9E53D611E1B920F00E9BB3C /* ELDevelopmentPlansViewController.h */,
+				A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */,
+			);
+			path = DevelopmentPlan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -719,7 +748,9 @@
 				A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
 				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
+				A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */,
 				A9195FAF1E19F28600F84272 /* QuestionCell.xib in Resources */,
+				A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */,
 				A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
 				A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */,
@@ -817,6 +848,7 @@
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
+				A9E53D631E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
 				A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,
@@ -837,11 +869,13 @@
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
+				A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */,
 				A9CCA7011E19F6D100ACA299 /* ELQuestionTableViewCell.m in Sources */,
 				A9195FAD1E19EEE800F84272 /* ELSurveyDetailsViewController.m in Sources */,
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
 				A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */,
 				A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */,
+				A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
@@ -953,6 +987,14 @@
 				A9E53D571E1B6BCC00E9BB3C /* Base */,
 			);
 			name = Feedback.storyboard;
+			sourceTree = "<group>";
+		};
+		A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E53D5E1E1B8BB200E9BB3C /* Base */,
+			);
+			name = DevelopmentPlan.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

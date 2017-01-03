@@ -17,7 +17,6 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 @interface ELSurveysViewController ()
 
 @property (nonatomic, strong) ELSurvey *selectedSurvey;
-@property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELSurvey *> *provider;
 
@@ -74,25 +73,8 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    self.searchBar.tintColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
-    
-    // Text Field
-    UITextField *searchTextField = [self.searchBar valueForKey:@"_searchField"];
-    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:16];
-    
-    [searchTextField setFont:font];
-    [searchTextField setTextColor:[UIColor whiteColor]];
-    [searchTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [searchTextField setMinimumFontSize:12];
-    [searchTextField setBounds:CGRectMake(0, 0, CGRectGetWidth(searchTextField.frame), 40)];
-    
-    // Cancel Button
-    id barButtonAppearanceInSearchBar = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]];
-    
-    [barButtonAppearanceInSearchBar setTitle:@"Cancel"];
-    [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
-                                                             NSForegroundColorAttributeName: [UIColor whiteColor]}
-                                                  forState:UIControlStateNormal];
+    // Search Bar
+    [ELUtils styleSearchBar:self.searchBar];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -106,8 +88,6 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onTabButtonClick:(id)sender {
-    // TODO Move to view manager
-    
     NSArray *buttons = @[self.allTabButton,
                          self.unfinishedTabButton,
                          self.completedTabButton];

@@ -44,4 +44,6 @@
 + (void)setupGlobalUIChanges;
 + (void)setupIQKeyboardManager;
 
++ (void)styleSearchBar:(UISearchBar *)searchBar;
+
 @end
