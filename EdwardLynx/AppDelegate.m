@@ -22,8 +22,9 @@
     // Setup Fabric
     [ELUtils setupFabric];
     
-    // Setup Firebase
+    // Setup Firebase and Push Notifications
     [self setupFirebase];
+    [self registerForRemoteNotifications];
     
     // Setup IQKeyboardManager
     [ELUtils setupIQKeyboardManager];
@@ -194,10 +195,10 @@
         
         [center requestAuthorizationWithOptions:authorizationOptions
                               completionHandler:^(BOOL granted, NSError * _Nullable error){
-                                  if (!error) {
-                                      [[UIApplication sharedApplication] registerForRemoteNotifications];
-                                  }
-                              }];
+            if (!error) {
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            }
+        }];
     } else {  // For iOS 9 and earlier
         UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound |
                                                        UIUserNotificationTypeAlert |
