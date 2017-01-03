@@ -99,11 +99,7 @@ static CGFloat const kELCornerRadius = 2.0f;
 
 - (void)layoutPage {
     CAGradientLayer *gradient;
-    
-    // Fields
-    self.usernameView.layer.cornerRadius = kELCornerRadius;
-    self.passwordView.layer.cornerRadius = kELCornerRadius;
-    
+        
     // Button
     self.loginButton.layer.cornerRadius = kELCornerRadius;
     
