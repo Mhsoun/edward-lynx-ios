@@ -51,9 +51,6 @@ static CGFloat const kELCornerRadius = 2.0f;
 - (void)layoutPage {
     CAGradientLayer *gradient;
     
-    // Fields
-    self.usernameEmailView.layer.cornerRadius = kELCornerRadius;
-    
     // Button
     self.recoverButton.layer.cornerRadius = kELCornerRadius;
     

@@ -68,6 +68,8 @@
 		A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */; };
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
+		A9E53D581E1B6BCC00E9BB3C /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */; };
+		A9E53D5C1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +195,9 @@
 		A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
 		A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
 		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
+		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
+		A9E53D5A1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbackViewController.h; sourceTree = "<group>"; };
+		A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				A94229471E1A5F5F004F9566 /* Authentication */,
+				A9E53D591E1B6C3400E9BB3C /* Feedback */,
 				A94229491E1A5FB1004F9566 /* Main */,
 				A94229481E1A5F8C004F9566 /* Profile */,
 				A942294A1E1A5FCA004F9566 /* Survey */,
@@ -383,6 +389,7 @@
 			children = (
 				A96F27581DFF8B2B00609E27 /* Authentication.storyboard */,
 				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
+				A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */,
 				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
@@ -565,6 +572,15 @@
 			path = Questions;
 			sourceTree = "<group>";
 		};
+		A9E53D591E1B6C3400E9BB3C /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				A9E53D5A1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.h */,
+				A9E53D5B1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -710,6 +726,7 @@
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
 				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
 				A96F276E1DFFA28E00609E27 /* Lato-Light.ttf in Resources */,
+				A9E53D581E1B6BCC00E9BB3C /* Feedback.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +846,7 @@
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 				A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */,
+				A9E53D5C1E1B6C4D00E9BB3C /* ELInstantFeedbackViewController.m in Sources */,
 				A9121AA31E07AF6A00ED9934 /* ELTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,6 +945,14 @@
 				A96F27591DFF8B2B00609E27 /* Base */,
 			);
 			name = Authentication.storyboard;
+			sourceTree = "<group>";
+		};
+		A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E53D571E1B6BCC00E9BB3C /* Base */,
+			);
+			name = Feedback.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

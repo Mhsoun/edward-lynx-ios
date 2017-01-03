@@ -13,8 +13,7 @@
 #pragma mark - Lifecycle
 
 - (instancetype)initWithFormKey:(NSString *)key {
-    return [super initWithNibName:[NSString stringWithFormat:@"%@View", kELQuestionTypeText]
-                         valueKey:key];
+    return [super initWithNibName:@"QuestionTypeTextView" valueKey:key];
 }
 
 - (void)awakeFromNib {

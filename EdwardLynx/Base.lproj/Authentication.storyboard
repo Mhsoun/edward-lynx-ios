@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQv-J5-SIN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQv-J5-SIN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -65,6 +65,9 @@
                                     <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="10" id="pgE-WM-K8I"/>
                                     <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" constant="10" id="sv8-g7-qlJ"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="2"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n9-mH-Dxz">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -101,6 +104,9 @@
                                     <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="10" id="teF-w5-r5O"/>
                                     <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" constant="10" id="ygT-B4-7wh"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="2"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-AU-OMo">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -172,11 +178,9 @@
                         <outlet property="passwordErrorLabel" destination="uBG-AU-OMo" id="ZJD-eP-nxo"/>
                         <outlet property="passwordIcon" destination="KJh-Oa-Pda" id="aWB-12-CAB"/>
                         <outlet property="passwordTextField" destination="1hR-H6-4Zt" id="eJQ-Ly-IGH"/>
-                        <outlet property="passwordView" destination="5Kh-UQ-IPT" id="9Bk-lZ-taG"/>
                         <outlet property="usernameErrorLabel" destination="0n9-mH-Dxz" id="BPH-FI-FJW"/>
                         <outlet property="usernameIcon" destination="cYW-qv-0tg" id="PlT-TV-CEd"/>
                         <outlet property="usernameTextField" destination="vhw-1P-ZZy" id="Cah-Dx-GF7"/>
-                        <outlet property="usernameView" destination="yJB-1E-GBO" id="ORd-fS-1yn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwG-ct-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +244,9 @@
                                     <constraint firstAttribute="bottom" secondItem="dud-7A-Ds6" secondAttribute="bottom" constant="5" id="iac-uk-jZI"/>
                                     <constraint firstAttribute="height" constant="35" id="qoQ-9x-Kgz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="2"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfX-mI-BPb">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -309,7 +316,6 @@
                         <outlet property="usernameEmailErrorLabel" destination="jfX-mI-BPb" id="pgN-b0-bkn"/>
                         <outlet property="usernameEmailIcon" destination="dud-7A-Ds6" id="WXc-Op-p4J"/>
                         <outlet property="usernameEmailTextField" destination="0zg-eg-vpS" id="7o6-gI-WW4"/>
-                        <outlet property="usernameEmailView" destination="x73-SC-pOc" id="Cr4-Nt-kvg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKO-s9-LeO" userLabel="First Responder" sceneMemberID="firstResponder"/>

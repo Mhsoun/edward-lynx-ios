@@ -35,7 +35,15 @@ NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
 
-NSString * const kELQuestionTypeText = @"QuestionTypeText";
+NSString * const kELQuestionTypeOneToFiveScale = @"Numeric 1-5 Scale";
+NSString * const kELQuestionTypeOneToTenScale = @"Numeric 1-10 Scale";
+NSString * const kELQuestionTypeAgreeementScale = @"Agreement Scale";
+NSString * const kELQuestionTypeYesNoScale = @"Yes/No Scale";
+NSString * const kELQuestionTypeStrongAgreeementScale = @"Strong Agreement Scale";
+NSString * const kELQuestionTypeText = @"Text";
+NSString * const kELQuestionTypeInvertedAgreementScale = @"Inverted Agreement Scale";
+NSString * const kELQuestionTypeOneToTenWithExplanation = @"1-10 with explanation";
+NSString * const kELQuestionTypeCustomScale = @"Custom Scale";
 
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";
