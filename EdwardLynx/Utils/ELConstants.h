@@ -9,6 +9,8 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
+#define IDIOM UI_USER_INTERFACE_IDIOM()
+#define IPAD UIUserInterfaceIdiomPad
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma mark - Enums
@@ -52,7 +54,15 @@ extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
 
+extern NSString * const kELQuestionTypeOneToFiveScale;
+extern NSString * const kELQuestionTypeOneToTenScale;
+extern NSString * const kELQuestionTypeAgreeementScale;
+extern NSString * const kELQuestionTypeYesNoScale;
+extern NSString * const kELQuestionTypeStrongAgreeementScale;
 extern NSString * const kELQuestionTypeText;
+extern NSString * const kELQuestionTypeInvertedAgreementScale;
+extern NSString * const kELQuestionTypeOneToTenWithExplanation;
+extern NSString * const kELQuestionTypeCustomScale;
 
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;

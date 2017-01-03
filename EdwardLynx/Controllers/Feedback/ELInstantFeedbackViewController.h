@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UISwitch *isAnonymousSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+- (IBAction)onQuestionTypeButtonClick:(id)sender;
+- (IBAction)onInviteButtonClick:(id)sender;
 
 @end
