@@ -29,30 +29,30 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    NSDictionary *testData = @{@"id": @1,
-                               @"type": @0,
-                               @"name": @"Test Survey",
-                               @"lang": @"en",
-                               @"description": @"The person that is being evaluated is: #to_evaluate_name.",
-                               @"startDate": @"2017-01-01T20:40:04+0100",
-                               @"endDate": @"2017-01-01T20:40:04+0100",
-                               @"questions": @[@{@"detail": @"Describe yourself",
-                                                 @"type": kELQuestionTypeText},
-                                               @{@"detail": @"Describe your profession",
-                                                 @"type": kELQuestionTypeText}]};
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
     
     self.selectedSurvey = nil;
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[[[ELSurvey alloc] initWithDictionary:testData error:nil],
-                                                                [[ELSurvey alloc] initWithDictionary:testData error:nil],
-                                                                [[ELSurvey alloc] initWithDictionary:testData error:nil]]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    // Retrieve surveys
+    [[[ELSurveysAPIClient alloc] init] currentUserSurveysWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (NSDictionary *surveyDict in responseDict[@"surveys"]) {
+                [mData addObject:[[ELSurvey alloc] initWithDictionary:surveyDict error:nil]];
+            }
+            
+            self.provider = [[ELDataProvider alloc] initWithDataArray:[mData copy]];
+            self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                              dataProvider:self.provider
+                                                            cellIdentifier:kELCellIdentifier];
+            self.tableView.tableFooterView = [[UIView alloc] init];
+            self.tableView.delegate = self;
+            
+            [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+                 forCellReuseIdentifier:kELCellIdentifier];
+            
+            [self.tableView reloadData];
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

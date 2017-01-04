@@ -22,6 +22,6 @@
 @property (nonatomic) NSString *shortDescription;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-@property (nonatomic) NSArray<ELQuestion> *questions;
+@property (nonatomic) NSArray<Ignore> *questions;
 
 @end

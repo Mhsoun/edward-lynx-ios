@@ -22,7 +22,8 @@
 }
 
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [super requestFor:kELAPISurveysEndpoint
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [super requestFor:endpoint
                                               method:kELAPIGetHTTPMethod];
     
     [super performAuthenticatedTask:YES
