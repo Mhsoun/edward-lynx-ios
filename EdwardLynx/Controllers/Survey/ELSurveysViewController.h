@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *allTabButton;
 @property (weak, nonatomic) IBOutlet UIButton *unfinishedTabButton;
 @property (weak, nonatomic) IBOutlet UIButton *completedTabButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 - (IBAction)onTabButtonClick:(id)sender;
 
 @end

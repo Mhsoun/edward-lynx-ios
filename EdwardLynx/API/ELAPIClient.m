@@ -51,7 +51,7 @@
             
             return;
         }
-        
+                              
         if (responseDict[@"error"]) {
             error = [NSError errorWithDomain:kELErrorDomain
                                         code:httpResponse.statusCode
@@ -63,7 +63,7 @@
             alertController = [UIAlertController alertControllerWithTitle:@"Error"
                                                                   message:errorMessage
                                                            preferredStyle:UIAlertControllerStyleAlert];
-            
+          
             [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
                                                                 style:UIAlertActionStyleDefault
                                                               handler:nil]];

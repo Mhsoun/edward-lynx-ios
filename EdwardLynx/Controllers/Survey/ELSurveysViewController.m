@@ -34,7 +34,6 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
-    self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
@@ -66,6 +65,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    [self.indicatorView stopAnimating];
     [self.dataSource dataSetEmptyText:@"Failed to retrieve surveys"
                           description:@"Please try again later."];
 }
@@ -73,7 +73,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     
-    for (NSDictionary *surveyDict in responseDict[@"surveys"]) {
+    for (NSDictionary *surveyDict in responseDict[@"items"]) {
         [mData addObject:[[ELSurvey alloc] initWithDictionary:surveyDict error:nil]];
     }
     
@@ -82,6 +82,8 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    [self.indicatorView stopAnimating];
+    [self.tableView setDelegate:self];
     [self.tableView reloadData];
 }
 

@@ -28,14 +28,14 @@
     ELQuestion *question = (ELQuestion *)object;
     
     // Content
-    self.questionLabel.text = question.detail;
+    self.questionLabel.text = question.text;
     
     // UI
-    if ([question.type isEqualToString:kELQuestionTypeText]) {
-        view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
-    } else {
-        view = nil;
-    }
+//    if (question.answer.type == 0) {
+//        view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
+//    } else {
+//        view = nil;
+//    }
     
     if (!view) {
         return;

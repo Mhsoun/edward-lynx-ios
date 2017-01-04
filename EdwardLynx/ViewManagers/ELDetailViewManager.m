@@ -1,22 +1,22 @@
 //
-//  ELListViewManager.m
+//  ELDetailViewManager.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 04/01/2017.
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELListViewManager.h"
+#import "ELDetailViewManager.h"
 
 #pragma mark - Class Extension
 
-@interface ELListViewManager ()
+@interface ELDetailViewManager ()
 
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
 
-@implementation ELListViewManager
+@implementation ELDetailViewManager
 
 #pragma mark - Lifecycle
 
@@ -44,8 +44,8 @@
     return self;
 }
 
-- (void)processRetrievalOfSurveys {
-    [[[ELSurveysAPIClient alloc] init] currentUserSurveysWithCompletion:self.requestCompletionBlock];
+- (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
+    [[[ELSurveysAPIClient alloc] init] userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
 }
 
 @end

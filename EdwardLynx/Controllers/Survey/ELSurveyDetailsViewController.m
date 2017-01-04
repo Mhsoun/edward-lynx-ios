@@ -18,6 +18,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
+@property (nonatomic, strong) ELDetailViewManager *viewManager;
 @property (nonatomic, strong) ELDataProvider<ELQuestion *> *provider;
 
 @end
@@ -31,19 +32,51 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.provider = [[ELDataProvider alloc] initWithDataArray:self.survey.questions];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
+    self.viewManager = [[ELDetailViewManager alloc] init];
+    self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
+    
+    // Retrieve surveys questions
+    [self.viewManager processRetrievalOfSurveyQuestionsAtId:self.survey.objectId];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Protocol Methods (ELAPIResponseDelegate)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.indicatorView stopAnimating];
+    [self.dataSource dataSetEmptyText:@"Failed to retrieve questions"
+                          description:@"Please try again later."];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
+        
+    for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
+        [mData addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
+    }
+    
+    ELQuestionCategory *category = mData[0];  // TEMP
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:category.questions];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.indicatorView stopAnimating];
+    [self.tableView reloadData];
 }
 
 @end

@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSDictionary *formDict;
 @property (nonatomic, strong) ELUsersAPIClient *client;
-@property (nonatomic, strong) void (^apiResponseCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
+@property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
 
@@ -30,7 +30,7 @@
     
     __weak typeof(self) weakSelf = self;
     
-    self.apiResponseCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [weakSelf.delegate onAPIResponseError:error.userInfo];
@@ -52,19 +52,19 @@
 - (void)processProfileUpdate {
     [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
                                             @"info": [self.formDict[@"info"] textValue]}
-                               completion:self.apiResponseCompletionBlock];
+                               completion:self.requestCompletionBlock];
 }
 
 - (void)processAuthentication {
     [self.client loginWithUsername:[self.formDict[@"username"] textValue]
                           password:[self.formDict[@"password"] textValue]
-                        completion:self.apiResponseCompletionBlock];
+                        completion:self.requestCompletionBlock];
 }
 
 - (void)processChangePassword {
     [self.client updateUserInfoWithParams:@{@"password": [self.formDict[@"password"] textValue],
                                             @"currentPassword": [self.formDict[@"currentPassword"] textValue]}
-                               completion:self.apiResponseCompletionBlock];
+                               completion:self.requestCompletionBlock];
 }
 
 - (void)processPasswordRecovery {

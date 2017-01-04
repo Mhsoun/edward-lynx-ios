@@ -10,17 +10,6 @@
 
 @implementation ELSurveysAPIClient
 
-- (void)createUserSurveyWithParams:(NSDictionary *)params
-                        completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [self requestFor:kELAPISurveysEndpoint
-                                             method:kELAPIPostHTTPMethod
-                                         bodyParams:params];
-    
-    [self performAuthenticatedTask:YES
-                       withRequest:request
-                        completion:completion];
-}
-
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
@@ -32,7 +21,8 @@
 
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSMutableURLRequest *request = [self requestFor:kELAPISurveysEndpoint
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPatchHTTPMethod
                                          bodyParams:params];
     
@@ -43,7 +33,19 @@
 
 - (void)userSurveyForId:(int64_t)surveyId
              completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [self requestFor:[NSString stringWithFormat:kELAPISurveyEndpoint, @(surveyId)]
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+- (void)userSurveyQuestionsForId:(int64_t)surveyId
+                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyQuestionsEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
