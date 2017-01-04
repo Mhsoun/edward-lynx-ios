@@ -18,6 +18,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 
 @property (nonatomic, strong) ELSurvey *selectedSurvey;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
+@property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELDataProvider<ELSurvey *> *provider;
 
 @end
@@ -29,30 +30,17 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    NSMutableArray *mData = [[NSMutableArray alloc] init];
-    
     self.selectedSurvey = nil;
+    self.viewManager = [[ELListViewManager alloc] init];
+    self.viewManager.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.delegate = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
     
     // Retrieve surveys
-    [[[ELSurveysAPIClient alloc] init] currentUserSurveysWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            for (NSDictionary *surveyDict in responseDict[@"surveys"]) {
-                [mData addObject:[[ELSurvey alloc] initWithDictionary:surveyDict error:nil]];
-            }
-            
-            self.provider = [[ELDataProvider alloc] initWithDataArray:[mData copy]];
-            self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                              dataProvider:self.provider
-                                                            cellIdentifier:kELCellIdentifier];
-            self.tableView.tableFooterView = [[UIView alloc] init];
-            self.tableView.delegate = self;
-            
-            [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-                 forCellReuseIdentifier:kELCellIdentifier];
-            
-            [self.tableView reloadData];
-        });
-    }];
+    [self.viewManager processRetrievalOfSurveys];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +56,33 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
         
         controller.survey = self.selectedSurvey;
     }
+}
+
+#pragma mark - Protocol Methods (ELAPIResponseDelegate)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.dataSource dataSetEmptyText:@"Failed to retrieve surveys"
+                          description:@"Please try again later."];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *surveyDict in responseDict[@"surveys"]) {
+        [mData addObject:[[ELSurvey alloc] initWithDictionary:surveyDict error:nil]];
+    }
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mData copy]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)

@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSDictionary *formDict;
 @property (nonatomic, strong) ELUsersAPIClient *client;
+@property (nonatomic, strong) void (^apiResponseCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
 
@@ -27,6 +28,20 @@
     _formDict = @{};
     _client = [[ELUsersAPIClient alloc] init];
     
+    __weak typeof(self) weakSelf = self;
+    
+    self.apiResponseCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.delegate onAPIResponseSuccess:responseDict];
+        });
+    };
+    
     [self setupValidators];
     
     return self;
@@ -37,49 +52,19 @@
 - (void)processProfileUpdate {
     [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
                                             @"info": [self.formDict[@"info"] textValue]}
-                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [self.delegate onAPIResponseError:error.userInfo];
-                
-                return;
-            }
-            
-            [self.delegate onAPIResponseSuccess:responseDict];
-        });
-    }];
+                               completion:self.apiResponseCompletionBlock];
 }
 
 - (void)processAuthentication {
     [self.client loginWithUsername:[self.formDict[@"username"] textValue]
                           password:[self.formDict[@"password"] textValue]
-                        completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [self.delegate onAPIResponseError:error.userInfo];
-                
-                return;
-            }
-            
-            [self.delegate onAPIResponseSuccess:responseDict];
-        });
-    }];
+                        completion:self.apiResponseCompletionBlock];
 }
 
 - (void)processChangePassword {
     [self.client updateUserInfoWithParams:@{@"password": [self.formDict[@"password"] textValue],
                                             @"currentPassword": [self.formDict[@"currentPassword"] textValue]}
-                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [self.delegate onAPIResponseError:error.userInfo];
-                
-                return;
-            }
-            
-            [self.delegate onAPIResponseSuccess:responseDict];
-        });
-    }];
+                               completion:self.apiResponseCompletionBlock];
 }
 
 - (void)processPasswordRecovery {

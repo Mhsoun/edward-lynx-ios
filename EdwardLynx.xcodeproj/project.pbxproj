@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90160071E1C99C6005A8E61 /* ELListViewManager.m */; };
 		A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A58491E0A8633003F9F8B /* ELUser.m */; };
 		A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */; };
 		A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */; };
@@ -98,6 +99,8 @@
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		A90160061E1C99C6005A8E61 /* ELListViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELListViewManager.h; sourceTree = "<group>"; };
+		A90160071E1C99C6005A8E61 /* ELListViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListViewManager.m; sourceTree = "<group>"; };
 		A90A58481E0A8633003F9F8B /* ELUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUser.h; sourceTree = "<group>"; };
 		A90A58491E0A8633003F9F8B /* ELUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUser.m; sourceTree = "<group>"; };
 		A9121A991E07A7DE00ED9934 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LeftMenu.storyboard; sourceTree = "<group>"; };
@@ -528,6 +531,8 @@
 			children = (
 				A96F27771DFFF9E900609E27 /* ELAccountsViewManager.h */,
 				A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */,
+				A90160061E1C99C6005A8E61 /* ELListViewManager.h */,
+				A90160071E1C99C6005A8E61 /* ELListViewManager.m */,
 			);
 			path = ViewManagers;
 			sourceTree = "<group>";
@@ -864,6 +869,7 @@
 				A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */,
+				A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,

@@ -10,7 +10,8 @@
 
 #import "ELDataProvider.h"
 
-@interface ELTableDataSource : NSObject<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface ELTableDataSource : NSObject<UITableViewDataSource, UITableViewDelegate,
+                                        DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 - (instancetype)initWithTableView:(UITableView *)tableView
                      dataProvider:(ELDataProvider *)dataProvider
