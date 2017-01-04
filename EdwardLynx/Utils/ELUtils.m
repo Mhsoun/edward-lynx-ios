@@ -97,8 +97,14 @@
 + (void)processReauthenticationWithCompletion:(void (^)())completion {
     [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                return;
+            }
+            
             [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
                                              key:kELAuthInstanceUserDefaultsKey];
+            
+            NSLog(@"%@: Credentials reauthenticated", [self class]);
             
             completion();
         });

@@ -12,6 +12,8 @@
 
 static CGFloat const kELCornerRadius = 5.0f;
 
+#pragma mark - Class Extension
+
 @interface ELDashboardViewController ()
 
 @end

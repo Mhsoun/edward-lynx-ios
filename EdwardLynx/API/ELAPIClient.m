@@ -38,7 +38,7 @@
             // Check if task requires user to be authenticated to invoke refreshing of credentials
             if (isAuthenticated) {
                 [ELUtils processReauthenticationWithCompletion:^{
-                    ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
+                    ELOAuthInstance *oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
                     
                     [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
                     
@@ -48,6 +48,8 @@
                                         completion:completion];
                 }];
             }
+            
+            return;
         }
         
         if (responseDict[@"error"]) {
