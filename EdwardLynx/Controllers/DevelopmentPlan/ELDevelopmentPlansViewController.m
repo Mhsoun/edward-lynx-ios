@@ -52,19 +52,17 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     // Search Bar
     [ELUtils styleSearchBar:self.searchBar];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // TODO Implementation
 }
 
 #pragma mark - Protocol Methods (UITableView)

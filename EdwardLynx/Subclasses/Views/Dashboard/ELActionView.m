@@ -8,7 +8,17 @@
 
 #import "ELActionView.h"
 
+#pragma mark - Class Extension
+
+@interface ELActionView ()
+
+@property (nonatomic, strong) NSString *segueIdentifier;
+
+@end
+
 @implementation ELActionView
+
+#pragma mark - Lifecycle
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
     NSArray *elements;
@@ -68,7 +78,10 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    // TODO Action
+    NSLog(@"%@", [self class]);
+    
+    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
 }
+
 
 @end

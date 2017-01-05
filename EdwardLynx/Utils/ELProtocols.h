@@ -31,6 +31,12 @@
 
 @end
 
+@protocol ELDashboardViewDelegate <NSObject>
+
+- (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier;
+
+@end
+
 @protocol ELQuestionTypeDelegate <NSObject>
 
 - (instancetype)initWithNibName:(NSString *)nib valueKey:(NSString *)key;
