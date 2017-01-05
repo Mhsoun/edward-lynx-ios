@@ -60,7 +60,7 @@
 - (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
-    if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
+    if (![permissions intersectsSet:[user permissionsByRole]]) {
         [self setAlpha:0.5];
     }
 }
