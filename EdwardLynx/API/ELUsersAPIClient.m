@@ -23,13 +23,13 @@
     [mBodyParamsDict setObject:clientId forKey:@"client_id"];
     [mBodyParamsDict setObject:clientSecret forKey:@"client_secret"];
     
-    request = [super requestFor:kELAPILoginEndpoint
-                         method:kELAPIPostHTTPMethod
-                     bodyParams:mBodyParamsDict];
+    request = [self requestFor:kELAPILoginEndpoint
+                        method:kELAPIPostHTTPMethod
+                    bodyParams:mBodyParamsDict];
     
-    [super performAuthenticatedTask:NO
-                        withRequest:request
-                         completion:completion];
+    [self performAuthenticatedTask:NO
+                       withRequest:request
+                        completion:completion];
 }
 
 - (void)loginWithUsername:(NSString *)username
@@ -53,23 +53,22 @@
 - (void)updateUserInfoWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
-    NSMutableURLRequest *request = [super requestFor:endpoint
-                                              method:kELAPIPatchHTTPMethod
-                                          bodyParams:params];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPatchHTTPMethod
+                                         bodyParams:params];
     
-    [super performAuthenticatedTask:YES
-                        withRequest:request
-                         completion:completion];
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
 }
 
 - (void)userInfoWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
-    NSMutableURLRequest *request = [super requestFor:endpoint
-                                              method:kELAPIGetHTTPMethod];
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
         
-    [super performAuthenticatedTask:YES
-                        withRequest:request
-                         completion:completion];
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
 }
 
 @end

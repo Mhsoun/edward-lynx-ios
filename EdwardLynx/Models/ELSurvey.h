@@ -8,10 +8,6 @@
 
 #import <JSONModel/JSONModel.h>
 
-#import "ELQuestion.h"
-
-@protocol ELQuestion;
-
 @interface ELSurvey : JSONModel
 
 @property (nonatomic) int64_t objectId;
@@ -22,6 +18,5 @@
 @property (nonatomic) NSString *shortDescription;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-@property (nonatomic) NSArray<ELQuestion> *questions;
 
 @end

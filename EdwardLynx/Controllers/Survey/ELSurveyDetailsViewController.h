@@ -8,14 +8,16 @@
 
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
-#import "ELQuestion.h"
+#import "ELDetailViewManager.h"
+#import "ELQuestionCategory.h"
 #import "ELSurvey.h"
 #import "ELTableDataSource.h"
 
-@interface ELSurveyDetailsViewController : ELBaseViewController
+@interface ELSurveyDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end

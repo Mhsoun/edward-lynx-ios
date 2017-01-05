@@ -86,12 +86,15 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zzh-2q-5Hs"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="m1v-6c-QHX" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="7jd-cR-gCF"/>
                             <constraint firstItem="Ot1-8W-HJV" firstAttribute="leading" secondItem="2ER-dR-ZIR" secondAttribute="leading" id="Hfc-0L-dUb"/>
                             <constraint firstItem="m1v-6c-QHX" firstAttribute="height" secondItem="6CX-4e-5n2" secondAttribute="height" id="K2t-FY-r2e"/>
+                            <constraint firstItem="zzh-2q-5Hs" firstAttribute="centerX" secondItem="Ot1-8W-HJV" secondAttribute="centerX" id="Lbe-7u-KjM"/>
+                            <constraint firstItem="zzh-2q-5Hs" firstAttribute="centerY" secondItem="Ot1-8W-HJV" secondAttribute="centerY" id="MFu-Yk-cqN"/>
                             <constraint firstItem="m1v-6c-QHX" firstAttribute="width" secondItem="6CX-4e-5n2" secondAttribute="width" id="QfM-uU-oym"/>
                             <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="Ot1-8W-HJV" secondAttribute="bottom" id="U0d-vi-r1D"/>
                             <constraint firstItem="j7D-29-cJf" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="ZkR-Ou-LZ0"/>
@@ -116,6 +119,7 @@
                     <connections>
                         <outlet property="allTabButton" destination="6CX-4e-5n2" id="NgU-mY-ee0"/>
                         <outlet property="completedTabButton" destination="j7D-29-cJf" id="zfw-pa-1i9"/>
+                        <outlet property="indicatorView" destination="zzh-2q-5Hs" id="JcJ-1Q-b3J"/>
                         <outlet property="searchBar" destination="wt7-lQ-5zz" id="aoU-HF-0q4"/>
                         <outlet property="tableView" destination="Ot1-8W-HJV" id="nfh-D5-6zp"/>
                         <outlet property="unfinishedTabButton" destination="m1v-6c-QHX" id="wRY-mm-EzH"/>
@@ -171,13 +175,16 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="RK2-oj-eZo"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="145-aY-t2C"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="7v2-no-ISb"/>
                             <constraint firstItem="avk-8k-Fbh" firstAttribute="top" secondItem="pcV-ai-2E6" secondAttribute="bottom" id="8dC-bg-DMt"/>
+                            <constraint firstItem="RK2-oj-eZo" firstAttribute="centerY" secondItem="pcV-ai-2E6" secondAttribute="centerY" id="Fq8-4S-sdq"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="top" secondItem="7yV-gT-lKP" secondAttribute="bottom" id="QUT-Ud-aS6"/>
+                            <constraint firstItem="RK2-oj-eZo" firstAttribute="centerX" secondItem="pcV-ai-2E6" secondAttribute="centerX" id="R43-9V-TWS"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="ewA-0f-ZjP"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="bottom" id="n4D-g8-FmA"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="qg5-5G-A4v"/>
@@ -187,6 +194,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="RK2-oj-eZo" id="y5w-Nn-ePV"/>
                         <outlet property="tableView" destination="pcV-ai-2E6" id="rOz-Cr-lOW"/>
                     </connections>
                 </viewController>
