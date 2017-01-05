@@ -5,7 +5,6 @@ abstract_target 'BasePods' do
     pod 'Fabric'
     pod 'Firebase'
     pod 'FirebaseMessaging'
-    pod 'HCSStarRatingView', '~> 1.4'
     pod 'HockeySDK'
     pod 'IQKeyboardManager'
     pod 'JSONModel'
@@ -13,7 +12,6 @@ abstract_target 'BasePods' do
     pod 'REValidation', '~> 0.1'
     pod 'RNThemeManager', '~> 0.1'
     pod 'SASlideMenu', '~> 2.0'
-    pod 'XLForm', '~> 3.0'
 
     target 'EdwardLynx' do
     end
