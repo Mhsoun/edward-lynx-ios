@@ -9,6 +9,7 @@
 #import "ELUtils.h"
 
 #import "ELBaseQuestionTypeView.h"
+#import "ELQuestionTypeNumberScaleView.h"
 #import "ELQuestionTypeTextView.h"
 
 @interface ELTextFieldGroup ()
@@ -192,10 +193,10 @@
     
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
+            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
             break;
         case kELAnswerTypeOneToTenScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
+            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
             break;
         case kELAnswerTypeAgreeementScale:
             view = nil;  // TEMP Should be view corresponding to answer type
