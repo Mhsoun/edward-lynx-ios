@@ -8,6 +8,9 @@
 
 #import "ELUtils.h"
 
+#import "ELBaseQuestionTypeView.h"
+#import "ELQuestionTypeTextView.h"
+
 @interface ELTextFieldGroup ()
 
 @property (nonatomic, strong) __kindof UITextField *textField;
@@ -62,6 +65,8 @@
 
 @implementation ELUtils
 
+#pragma mark - User Defaults Helper Methods
+
 + (id)getUserDefaultsCustomObjectForKey:(NSString *)key {
     NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     __kindof NSObject *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
@@ -94,6 +99,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark - API Helper Methods
+
 + (void)processReauthenticationWithCompletion:(void (^)())completion {
     [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -111,7 +118,7 @@
     }];
 }
 
-#pragma mark - Third-party Packages Methods
+#pragma mark - Third-party Packages Helper Methods
 
 + (void)fabricForceCrash {
     // TODO Fill in with actual user information
@@ -127,11 +134,23 @@
     [[Crashlytics sharedInstance] setUserIdentifier:infoDict[kELFabricIdentifier]];
 }
 
-#pragma mark - Third-party Packages Setup
+#pragma mark - Third-party Packages Setup Helper Methods
 
 + (void)setupFabric {
     [Fabric with:@[[Crashlytics class]]];
 }
+
++ (void)setupIQKeyboardManager {
+    IQKeyboardManager *keyboardManager;
+    
+    keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.enableAutoToolbar = NO;
+    keyboardManager.keyboardDistanceFromTextField = 10;
+    keyboardManager.shouldResignOnTouchOutside = YES;
+}
+
+#pragma mark - App-related Helper Methods
 
 + (void)setupGlobalUIChanges {
     // UINavigationBar
@@ -144,16 +163,6 @@
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                       forBarPosition:UIBarPositionAny
                                           barMetrics:UIBarMetricsDefault];
-}
-
-+ (void)setupIQKeyboardManager {
-    IQKeyboardManager *keyboardManager;
-    
-    keyboardManager = [IQKeyboardManager sharedManager];
-    keyboardManager.enable = YES;
-    keyboardManager.enableAutoToolbar = NO;
-    keyboardManager.keyboardDistanceFromTextField = 10;
-    keyboardManager.shouldResignOnTouchOutside = YES;
 }
 
 + (void)styleSearchBar:(UISearchBar *)searchBar {
@@ -176,6 +185,45 @@
     [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
                                                              NSForegroundColorAttributeName: [UIColor whiteColor]}
                                                   forState:UIControlStateNormal];
+}
+
++ (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
+    __kindof ELBaseQuestionTypeView *view;
+    
+    switch (type) {
+        case kELAnswerTypeOneToFiveScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeOneToTenScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeAgreeementScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeYesNoScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeStrongAgreeementScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeText:
+            view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
+            break;
+        case kELAnswerTypeInvertedAgreementScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeOneToTenWithExplanation:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        case kELAnswerTypeCustomScale:
+            view = nil;  // TEMP Should be view corresponding to answer type
+            break;
+        default:
+            view = nil;
+            break;
+    }
+    
+    return view;
 }
 
 @end
