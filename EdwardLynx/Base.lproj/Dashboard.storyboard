@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-ti-0lx">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-ti-0lx">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-a3-NpI" userLabel="Content View">
                                         <subviews>
@@ -117,6 +117,7 @@
                                             <constraint firstAttribute="trailing" secondItem="oS1-Wn-Tz6" secondAttribute="trailing" id="DMP-9K-saF"/>
                                             <constraint firstItem="S6U-HV-xgk" firstAttribute="top" secondItem="oS1-Wn-Tz6" secondAttribute="bottom" constant="35" id="FRz-E8-YK2"/>
                                             <constraint firstItem="S6U-HV-xgk" firstAttribute="leading" secondItem="nG8-a3-NpI" secondAttribute="leading" id="XSZ-fF-6MU"/>
+                                            <constraint firstAttribute="bottom" secondItem="y0N-eo-zaZ" secondAttribute="bottom" constant="20" id="e4J-Mq-haD"/>
                                             <constraint firstAttribute="trailing" secondItem="S6U-HV-xgk" secondAttribute="trailing" id="fwC-pE-6SE"/>
                                             <constraint firstItem="y0N-eo-zaZ" firstAttribute="top" secondItem="S6U-HV-xgk" secondAttribute="bottom" constant="10" id="h6l-It-yBn"/>
                                             <constraint firstItem="y0N-eo-zaZ" firstAttribute="leading" secondItem="nG8-a3-NpI" secondAttribute="leading" id="p3O-9b-LJB"/>
@@ -179,7 +180,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

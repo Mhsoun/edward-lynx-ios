@@ -9,7 +9,8 @@
 #import "ELUtils.h"
 
 #import "ELBaseQuestionTypeView.h"
-#import "ELQuestionTypeNumberScaleView.h"
+#import "ELQuestionTypeAgreementView.h"
+#import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
 
 @interface ELTextFieldGroup ()
@@ -189,42 +190,28 @@
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
-    __kindof ELBaseQuestionTypeView *view;
-    
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
-            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
-            break;
+            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeOneToTenScale:
-            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
-            break;
+            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeAgreeementScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
-            break;
+            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeYesNoScale:
-            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
-            break;
+            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeStrongAgreeementScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
-            break;
+            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeText:
-            view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
-            break;
+            return [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeInvertedAgreementScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
-            break;
+            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeOneToTenWithExplanation:
-            view = nil;  // TEMP Should be view corresponding to answer type
-            break;
+            return nil;  // TEMP Should be view corresponding to answer type
         case kELAnswerTypeCustomScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
-            break;
+            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         default:
-            view = nil;
-            break;
+            return nil;
     }
-    
-    return view;
 }
 
 @end

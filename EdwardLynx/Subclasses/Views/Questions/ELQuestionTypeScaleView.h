@@ -1,5 +1,5 @@
 //
-//  ELQuestionTypeNumberScaleView.h
+//  ELQuestionTypeScaleView.h
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 05/01/2017.
@@ -8,7 +8,7 @@
 
 #import "ELBaseQuestionTypeView.h"
 
-@interface ELQuestionTypeNumberScaleView : ELBaseQuestionTypeView<ELQuestionTypeDelegate>
+@interface ELQuestionTypeScaleView : ELBaseQuestionTypeView<ELQuestionTypeDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scaleChoices;
 

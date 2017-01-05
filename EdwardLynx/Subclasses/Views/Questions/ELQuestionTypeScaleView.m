@@ -1,21 +1,21 @@
 //
-//  ELQuestionTypeNumberScaleView.m
+//  ELQuestionTypeScaleView.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 05/01/2017.
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELQuestionTypeNumberScaleView.h"
+#import "ELQuestionTypeScaleView.h"
 
-@implementation ELQuestionTypeNumberScaleView
+@implementation ELQuestionTypeScaleView
 
 @synthesize question = _question;
 
 #pragma mark - Lifecycle
 
 - (instancetype)initWithFormKey:(NSString *)key {
-    return [super initWithNibName:@"QuestionTypeNumberScaleView" valueKey:key];
+    return [super initWithNibName:@"QuestionTypeScaleView" valueKey:key];
 }
 
 - (void)awakeFromNib {

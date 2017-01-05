@@ -29,6 +29,9 @@
                 </imageView>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xG3-FT-Cz7">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="wT7-DA-a0b"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -42,9 +45,10 @@
             </subviews>
             <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="AoG-AB-tYm" secondAttribute="bottom" constant="10" id="7ht-3g-vxD"/>
                 <constraint firstAttribute="trailing" secondItem="xG3-FT-Cz7" secondAttribute="trailing" constant="15" id="Fox-Mg-m1B"/>
-                <constraint firstItem="xG3-FT-Cz7" firstAttribute="top" secondItem="D1T-ix-hKB" secondAttribute="top" id="HhU-b2-CCj"/>
                 <constraint firstItem="AoG-AB-tYm" firstAttribute="top" secondItem="xG3-FT-Cz7" secondAttribute="bottom" constant="5" id="MSM-jo-smT"/>
+                <constraint firstItem="xG3-FT-Cz7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="RHT-HE-dil"/>
                 <constraint firstItem="D1T-ix-hKB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="aTh-V4-77t"/>
                 <constraint firstItem="D1T-ix-hKB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ek4-y0-uAI"/>
                 <constraint firstItem="D1T-ix-hKB" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="g7l-cb-Qj5"/>
