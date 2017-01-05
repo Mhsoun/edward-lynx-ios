@@ -8,7 +8,17 @@
 
 #import "ELStatusView.h"
 
+#pragma mark - Class Extension
+
+@interface ELStatusView ()
+
+@property (nonatomic, strong) NSString *segueIdentifier;
+
+@end
+
 @implementation ELStatusView
+
+#pragma mark - Lifecycle
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
     NSArray *elements;
@@ -60,7 +70,7 @@
 - (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
-    if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
+    if (![permissions intersectsSet:[user permissionsByRole]]) {
         [self setAlpha:0.5];
     }
 }
@@ -68,7 +78,9 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    // TODO Action
+    NSLog(@"%@", [self class]);
+    
+    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
 }
 
 @end

@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "ELUsersAPIClient.h"
 
+@class ELBaseQuestionTypeView;
+
 @interface ELTextFieldGroup : NSObject
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
@@ -41,9 +43,10 @@
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
 
 + (void)setupFabric;
-+ (void)setupGlobalUIChanges;
 + (void)setupIQKeyboardManager;
 
++ (void)setupGlobalUIChanges;
 + (void)styleSearchBar:(UISearchBar *)searchBar;
++ (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;
 
 @end

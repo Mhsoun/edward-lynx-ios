@@ -27,18 +27,14 @@
                                                                                                          style:UIBarButtonItemStylePlain
                                                                                                         target:nil
                                                                                                         action:nil];
+    
+    // Subclass-specific UI-related additions
+    [self layoutPage];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    // Subclass-specific UI-related additions
-    [self layoutPage];
 }
 
 #pragma mark - Protocol Methods

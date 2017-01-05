@@ -24,19 +24,13 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    ELQuestionTypeTextView *view;
     ELQuestion *question = (ELQuestion *)object;
+    __kindof ELBaseQuestionTypeView *view = [ELUtils viewByAnswerType:question.answer.type];
     
     // Content
     self.questionLabel.text = question.text;
     
     // UI
-//    if (question.answer.type == 0) {
-//        view = [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
-//    } else {
-//        view = nil;
-//    }
-    
     if (!view) {
         return;
     }

@@ -11,7 +11,7 @@
 #import "ELShortcutView.h"
 #import "ELStatusView.h"
 
-@interface ELDashboardViewController : ELBaseViewController
+@interface ELDashboardViewController : ELBaseViewController<ELDashboardViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet ELStatusView *devPlanStatusView;

@@ -8,10 +8,12 @@
 
 @interface ELStatusView : UIView
 
-- (instancetype)initWithDetails:(NSDictionary *)detailsDict;
+@property (strong, nonatomic) id<ELDashboardViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
+- (instancetype)initWithDetails:(NSDictionary *)detailsDict;
 
 @end

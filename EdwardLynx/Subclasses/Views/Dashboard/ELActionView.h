@@ -8,11 +8,13 @@
 
 @interface ELActionView : UIView
 
-- (instancetype)initWithDetails:(NSDictionary *)detailsDict;
+@property (strong, nonatomic) id<ELDashboardViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+
+- (instancetype)initWithDetails:(NSDictionary *)detailsDict;
 
 @end

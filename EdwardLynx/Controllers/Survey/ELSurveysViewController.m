@@ -47,6 +47,13 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Search Bar
+    [ELUtils styleSearchBar:self.searchBar];
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -85,13 +92,6 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     [self.indicatorView stopAnimating];
     [self.tableView setDelegate:self];
     [self.tableView reloadData];
-}
-
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
-    // Search Bar
-    [ELUtils styleSearchBar:self.searchBar];
 }
 
 #pragma mark - Protocol Methods (UITableView)

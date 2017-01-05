@@ -55,31 +55,31 @@ static NSString * const kELNoQuestionType = @"No type selected";
                                                      message:nil
                                               preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeOneToFiveScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToFiveScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeOneToTenScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToTenScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeAgreeementScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelAgreeementScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeYesNoScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelYesNoScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeStrongAgreeementScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelStrongAgreeementScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeText
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelText
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeInvertedAgreementScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelInvertedAgreementScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeOneToTenWithExplanation
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToTenWithExplanation
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELQuestionTypeCustomScale
+    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelCustomScale
                                                    style:UIAlertActionStyleDefault
                                                  handler:alertActionBlock]];
     [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"

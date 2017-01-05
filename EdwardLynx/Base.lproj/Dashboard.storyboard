@@ -159,11 +159,20 @@
                         <outlet property="reportsView" destination="6Um-Ae-bKj" id="C27-qL-BxE"/>
                         <outlet property="scrollView" destination="VEi-ti-0lx" id="O6t-H9-6fN"/>
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
+                        <segue destination="RpM-p2-AU4" kind="show" identifier="InstantFeedback" id="5Fl-OE-4wS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPm-HC-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="122.78860569715144"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="U8v-0W-Eop">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feedback" id="RpM-p2-AU4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sl-Fc-esW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1415" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FIh-XW-KD8">

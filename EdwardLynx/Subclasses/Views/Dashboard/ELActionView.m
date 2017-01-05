@@ -8,7 +8,17 @@
 
 #import "ELActionView.h"
 
+#pragma mark - Class Extension
+
+@interface ELActionView ()
+
+@property (nonatomic, strong) NSString *segueIdentifier;
+
+@end
+
 @implementation ELActionView
+
+#pragma mark - Lifecycle
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict {
     NSArray *elements;
@@ -60,7 +70,7 @@
 - (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
-    if (![permissions isSubsetOfSet:[user permissionsByRole]]) {
+    if (![permissions intersectsSet:[user permissionsByRole]]) {
         [self setAlpha:0.5];
     }
 }
@@ -69,6 +79,9 @@
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
     NSLog(@"%@", [self class]);
+    
+    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
 }
+
 
 @end

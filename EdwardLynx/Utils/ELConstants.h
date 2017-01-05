@@ -15,6 +15,18 @@
 
 #pragma mark - Enums
 
+typedef NS_ENUM(NSInteger, kELAnswerType) {
+    kELAnswerTypeOneToFiveScale = 0,
+    kELAnswerTypeOneToTenScale = 1,
+    kELAnswerTypeAgreeementScale = 2,
+    kELAnswerTypeYesNoScale = 3,
+    kELAnswerTypeStrongAgreeementScale = 4,
+    kELAnswerTypeText = 5,
+    kELAnswerTypeInvertedAgreementScale = 6,
+    kELAnswerTypeOneToTenWithExplanation = 7,
+    kELAnswerTypeCustomScale = 8
+};
+
 typedef NS_ENUM(NSInteger, kELRolePermission) {
     kELRolePermissionParticipateInSurvey,
     kELRolePermissionSelectFeedbackProviders,
@@ -44,6 +56,16 @@ extern NSString * const kELLogoutAlertMessage;
 
 #pragma mark - Constants
 
+extern NSString * const kELAnswerTypeLabelOneToFiveScale;
+extern NSString * const kELAnswerTypeLabelOneToTenScale;
+extern NSString * const kELAnswerTypeLabelAgreeementScale;
+extern NSString * const kELAnswerTypeLabelYesNoScale;
+extern NSString * const kELAnswerTypeLabelStrongAgreeementScale;
+extern NSString * const kELAnswerTypeLabelText;
+extern NSString * const kELAnswerTypeLabelInvertedAgreementScale;
+extern NSString * const kELAnswerTypeLabelOneToTenWithExplanation;
+extern NSString * const kELAnswerTypeLabelCustomScale;
+
 extern NSString * const kELErrorDomain;
 
 extern NSString * const kELFabricEmail;
@@ -53,16 +75,6 @@ extern NSString * const kELFabricUsername;
 extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
-
-extern NSString * const kELQuestionTypeOneToFiveScale;
-extern NSString * const kELQuestionTypeOneToTenScale;
-extern NSString * const kELQuestionTypeAgreeementScale;
-extern NSString * const kELQuestionTypeYesNoScale;
-extern NSString * const kELQuestionTypeStrongAgreeementScale;
-extern NSString * const kELQuestionTypeText;
-extern NSString * const kELQuestionTypeInvertedAgreementScale;
-extern NSString * const kELQuestionTypeOneToTenWithExplanation;
-extern NSString * const kELQuestionTypeCustomScale;
 
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;
