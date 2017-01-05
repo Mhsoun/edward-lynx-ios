@@ -29,10 +29,11 @@
 - (void)setupNumberScale {
     [self.scaleChoices removeAllSegments];
     
+    
     for (int i = 0; i < [_question.answer.options count]; i++) {
         ELAnswerOption *option = _question.answer.options[i];
         
-        [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", @(option.value)]
+        [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
                                          atIndex:i
                                         animated:NO];
     }

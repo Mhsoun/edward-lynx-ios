@@ -202,7 +202,7 @@
             view = nil;  // TEMP Should be view corresponding to answer type
             break;
         case kELAnswerTypeYesNoScale:
-            view = nil;  // TEMP Should be view corresponding to answer type
+            view = [[ELQuestionTypeNumberScaleView alloc] initWithFormKey:@"sample"];
             break;
         case kELAnswerTypeStrongAgreeementScale:
             view = nil;  // TEMP Should be view corresponding to answer type
