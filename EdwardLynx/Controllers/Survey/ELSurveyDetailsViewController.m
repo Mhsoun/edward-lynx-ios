@@ -48,6 +48,14 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Protocol Methods (UITableView)
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
+    
+    return question.answer.type == kELAnswerTypeOneToTenWithExplanation || question.answer.type == kELAnswerTypeText ? 150 : 100;
+}
+
 #pragma mark - Protocol Methods (ELAPIResponseDelegate)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
@@ -76,6 +84,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
+    [self.tableView setDelegate:self];
     [self.tableView reloadData];
 }
 

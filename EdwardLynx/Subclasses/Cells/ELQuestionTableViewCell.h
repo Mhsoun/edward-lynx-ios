@@ -13,5 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *questionContainerHeightConstraint;
 
 @end

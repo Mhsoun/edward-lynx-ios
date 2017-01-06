@@ -37,7 +37,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-ws-lKI">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fQr-Di-phy"/>
+                                    <constraint firstAttribute="height" constant="45" id="fQr-Di-phy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -69,6 +69,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="questionContainerHeightConstraint" destination="fQr-Di-phy" id="oxg-bD-QZm"/>
                 <outlet property="questionContainerView" destination="9Vc-ws-lKI" id="K7V-ax-3Bw"/>
                 <outlet property="questionLabel" destination="wI5-O5-eCS" id="KB2-Bi-zWb"/>
             </connections>

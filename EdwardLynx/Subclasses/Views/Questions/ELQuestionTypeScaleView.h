@@ -11,6 +11,7 @@
 @interface ELQuestionTypeScaleView : ELBaseQuestionTypeView<ELQuestionTypeDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scaleChoices;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 - (instancetype)initWithFormKey:(NSString *)key;
 

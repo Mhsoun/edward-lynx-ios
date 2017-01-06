@@ -26,6 +26,7 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
+    BOOL toExpand = question.answer.type == kELAnswerTypeOneToTenWithExplanation || question.answer.type == kELAnswerTypeText;
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
     questionView.question = question;
@@ -38,6 +39,7 @@
         return;
     }
     
+    self.questionContainerHeightConstraint.constant = toExpand ? 95 : 45;
     questionView.frame = self.questionContainerView.frame;
     
     [self.questionContainerView addSubview:questionView];

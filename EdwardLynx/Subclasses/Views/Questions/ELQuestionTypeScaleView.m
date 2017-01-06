@@ -27,18 +27,21 @@
 #pragma mark - Private Methods
 
 - (void)setupNumberScale {
+    // Segmented Control
     [self.scaleChoices removeAllSegments];
-    
     
     for (int i = 0; i < [_question.answer.options count]; i++) {
         ELAnswerOption *option = _question.answer.options[i];
         
         [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
-                                         atIndex:i
-                                        animated:NO];
+                                          atIndex:i
+                                         animated:NO];
     }
     
     [self.scaleChoices setSelectedSegmentIndex:0];
+    
+    // Text View
+    self.textView.hidden = _question.answer.type != kELAnswerTypeOneToTenWithExplanation;
 }
 
 #pragma mark - Public Methods
