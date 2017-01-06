@@ -11,5 +11,6 @@
 @interface ELFeedbackViewManager : NSObject
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
+- (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict;
 
 @end

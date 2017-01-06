@@ -11,6 +11,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELNoQuestionType = @"No type selected";
+static NSString * const kELNoParticipantRole = @"No role selected";
 
 @implementation ELFeedbackViewManager
 
@@ -39,7 +40,7 @@ static NSString * const kELNoQuestionType = @"No type selected";
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        typeErrors = [[formDict[@"type"] textValue] isEqualToString:kELNoQuestionType] ? @[@"A question type should be selected"] : nil;
+        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[@"A question type should be selected"] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
     }
@@ -56,6 +57,49 @@ static NSString * const kELNoQuestionType = @"No type selected";
     }
     
     return questionErrors.count == 0 && typeErrors.count == 0;
+}
+
+- (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict {
+    NSString *key;
+    NSArray *nameErrors,
+            *emailErrors,
+            *roleErrors;
+    ELFormItemGroup *formFieldGroup;
+    
+    key = @"name";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        nameErrors = [REValidation validateObject:[formDict[key] textValue]
+                                             name:@"Name"
+                                       validators:@[@"presence"]];
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+    }
+    
+    key = @"email";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        emailErrors = [REValidation validateObject:[formDict[key] textValue]
+                                              name:@"Email"
+                                        validators:@[@"presence", @"email"]];
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
+    }
+    
+    key = @"role";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        roleErrors = [[formDict[key] textValue] isEqualToString:kELNoParticipantRole] ? @[@"A role should be selected"] : nil;
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:roleErrors];
+    }
+    
+    return nameErrors.count == 0 &&
+           emailErrors.count == 0 &&
+           roleErrors.count == 0;
 }
 
 #pragma mark - Private Methods
