@@ -18,9 +18,9 @@ static CGFloat const kELCornerRadius = 4.0f;
 
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELTextFieldGroup *currentPasswordGroup,
-                                               *passwordGroup,
-                                               *confirmPasswordGroup;
+@property (nonatomic, strong) ELFormItemGroup *currentPasswordGroup,
+                                              *passwordGroup,
+                                              *confirmPasswordGroup;
 
 @end
 
@@ -38,15 +38,15 @@ static CGFloat const kELCornerRadius = 4.0f;
     self.currentPasswordTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
-    self.currentPasswordGroup = [[ELTextFieldGroup alloc] initWithField:self.currentPasswordTextField
-                                                                   icon:nil
-                                                             errorLabel:self.currentPasswordErrorLabel];
-    self.passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
-                                                            icon:nil
-                                                      errorLabel:self.passwordErrorLabel];
-    self.confirmPasswordGroup = [[ELTextFieldGroup alloc] initWithField:self.confirmPasswordTextField
-                                                                   icon:nil
-                                                             errorLabel:self.confirmPasswordErrorLabel];
+    self.currentPasswordGroup = [[ELFormItemGroup alloc] initWithField:self.currentPasswordTextField
+                                                                  icon:nil
+                                                            errorLabel:self.currentPasswordErrorLabel];
+    self.passwordGroup = [[ELFormItemGroup alloc] initWithField:self.passwordTextField
+                                                           icon:nil
+                                                     errorLabel:self.passwordErrorLabel];
+    self.confirmPasswordGroup = [[ELFormItemGroup alloc] initWithField:self.confirmPasswordTextField
+                                                                  icon:nil
+                                                            errorLabel:self.confirmPasswordErrorLabel];
     self.formGroupsDict = @{@"currentPassword": self.currentPasswordGroup,
                             @"password": self.passwordGroup,
                             @"confirmPassword": self.confirmPasswordGroup};

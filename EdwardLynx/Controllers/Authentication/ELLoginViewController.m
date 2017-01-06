@@ -17,7 +17,7 @@ static CGFloat const kELCornerRadius = 2.0f;
 @interface ELLoginViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELTextFieldGroup *usernameGroup, *passwordGroup;
+@property (nonatomic, strong) ELFormItemGroup *usernameGroup, *passwordGroup;
 
 @end
 
@@ -34,12 +34,12 @@ static CGFloat const kELCornerRadius = 2.0f;
     self.viewManager.delegate = self;
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
-    self.usernameGroup = [[ELTextFieldGroup alloc] initWithField:self.usernameTextField
-                                                            icon:self.usernameIcon
-                                                      errorLabel:self.usernameErrorLabel];
-    self.passwordGroup = [[ELTextFieldGroup alloc] initWithField:self.passwordTextField
-                                                            icon:self.passwordIcon
-                                                      errorLabel:self.passwordErrorLabel];
+    self.usernameGroup = [[ELFormItemGroup alloc] initWithField:self.usernameTextField
+                                                           icon:self.usernameIcon
+                                                     errorLabel:self.usernameErrorLabel];
+    self.passwordGroup = [[ELFormItemGroup alloc] initWithField:self.passwordTextField
+                                                           icon:self.passwordIcon
+                                                     errorLabel:self.passwordErrorLabel];
 }
 
 - (void)didReceiveMemoryWarning {

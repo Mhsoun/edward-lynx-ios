@@ -17,7 +17,7 @@
 
 @class ELBaseQuestionTypeView;
 
-@interface ELTextFieldGroup : NSObject
+@interface ELFormItemGroup : NSObject
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
                          icon:(UIImageView *)icon

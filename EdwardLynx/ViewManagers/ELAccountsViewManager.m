@@ -78,29 +78,29 @@
 - (BOOL)validateLoginFormValues:(NSDictionary *)formDict {
     NSString *key;
     NSArray *usernameErrors, *passwordErrors;
-    ELTextFieldGroup *textFieldGroup;
+    ELFormItemGroup *formFieldGroup;
     
     self.formDict = formDict;
     key = @"username";
     
     if (formDict[key]) {
-        textFieldGroup = formDict[key];
-        usernameErrors = [REValidation validateObject:[textFieldGroup textValue]
+        formFieldGroup = formDict[key];
+        usernameErrors = [REValidation validateObject:[formFieldGroup textValue]
                                                  name:@"Username"
                                            validators:@[@"presence", @"length(6, 20)"]];
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
     }
     
     key = @"password";
     
     if (formDict[key]) {
-        textFieldGroup = formDict[key];
-        passwordErrors = [REValidation validateObject:[textFieldGroup textValue]
+        formFieldGroup = formDict[key];
+        passwordErrors = [REValidation validateObject:[formFieldGroup textValue]
                                                  name:@"Password"
                                            validators:@[@"presence", @"length(6, 20)"]];
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
     }
     
     return usernameErrors.count == 0 && passwordErrors.count == 0;
@@ -108,18 +108,18 @@
 
 - (BOOL)validateRecoverFormValues:(NSDictionary *)formDict {
     NSArray *emailErrors;
-    ELTextFieldGroup *textFieldGroup;
+    ELFormItemGroup *formFieldGroup;
     NSString *key = @"email";
     
     self.formDict = formDict;
     
     if (formDict[key]) {
-        textFieldGroup = formDict[key];
-        emailErrors = [REValidation validateObject:[textFieldGroup textValue]
+        formFieldGroup = formDict[key];
+        emailErrors = [REValidation validateObject:[formFieldGroup textValue]
                                               name:@"Email"
                                         validators:@[@"presence", @"email"]];
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
     }
     
     return emailErrors.count == 0;
@@ -127,17 +127,17 @@
 
 - (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict {
     NSArray *nameErrors;
-    ELTextFieldGroup *textFieldGroup;
+    ELFormItemGroup *formFieldGroup;
     
     self.formDict = formDict;
     
     for (NSString *key in [formDict allKeys]) {
-        textFieldGroup = formDict[key];
-        nameErrors = [REValidation validateObject:[textFieldGroup textValue]
+        formFieldGroup = formDict[key];
+        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
                                              name:@"Field"
                                        validators:@[@"presence", @"length(0, 255)"]];
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
     
     return nameErrors.count == 0;
@@ -145,20 +145,20 @@
 
 - (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict {
     NSArray *errors;
-    ELTextFieldGroup *textFieldGroup;
+    ELFormItemGroup *formFieldGroup;
     BOOL isValid = YES, isEqual = NO;
     
     self.formDict = formDict;
     isEqual = ([[formDict[@"password"] textValue] isEqualToString:[formDict[@"confirmPassword"] textValue]]);
     
     for (NSString *key in [formDict allKeys]) {
-        textFieldGroup = formDict[key];
-        errors = [REValidation validateObject:[textFieldGroup textValue]
+        formFieldGroup = formDict[key];
+        errors = [REValidation validateObject:[formFieldGroup textValue]
                                          name:@"Field"
                                    validators:@[@"presence", @"length(6, 20)"]];
         isValid = isValid && errors.count == 0;
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
     }
     
     if (!isEqual) {

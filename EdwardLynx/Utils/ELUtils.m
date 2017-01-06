@@ -13,7 +13,7 @@
 #import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
 
-@interface ELTextFieldGroup ()
+@interface ELFormItemGroup ()
 
 @property (nonatomic, strong) __kindof UITextField *textField;
 @property (nonatomic, strong) NSString *text;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation ELTextFieldGroup
+@implementation ELFormItemGroup
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
                          icon:(UIImageView *)icon

@@ -33,26 +33,26 @@ static NSString * const kELNoQuestionType = @"No type selected";
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {
     NSString *key;
     NSArray *typeErrors, *questionErrors;
-    ELTextFieldGroup *textFieldGroup;
+    ELFormItemGroup *formFieldGroup;
     
     key = @"type";
     
     if (formDict[key]) {
-        textFieldGroup = formDict[key];
+        formFieldGroup = formDict[key];
         typeErrors = [[formDict[@"type"] textValue] isEqualToString:kELNoQuestionType] ? @[@"A question type should be selected"] : nil;
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
     }
     
     key = @"question";
     
     if (formDict[key]) {
-        textFieldGroup = formDict[key];
+        formFieldGroup = formDict[key];
         questionErrors = [REValidation validateObject:[formDict[key] textValue]
                                                  name:@"Question"
                                            validators:@[@"presence"]];
         
-        [textFieldGroup toggleValidationIndicatorsBasedOnErrors:questionErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:questionErrors];
     }
     
     return questionErrors.count == 0 && typeErrors.count == 0;

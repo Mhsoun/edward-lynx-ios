@@ -18,8 +18,7 @@ static CGFloat const kELCornerRadius = 4.0f;
 
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELTextFieldGroup *nameGroup,
-                                               *infoGroup;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup, *infoGroup;
 
 @end
 
@@ -36,12 +35,12 @@ static CGFloat const kELCornerRadius = 4.0f;
     self.viewManager.delegate = self;
     self.nameTextField.delegate = self;
     self.infoTextField.delegate = self;
-    self.nameGroup = [[ELTextFieldGroup alloc] initWithField:self.nameTextField
-                                                        icon:nil
-                                                  errorLabel:self.nameErrorLabel];
-    self.infoGroup = [[ELTextFieldGroup alloc] initWithField:self.infoTextField
-                                                        icon:nil
-                                                  errorLabel:self.infoErrorLabel];
+    self.nameGroup = [[ELFormItemGroup alloc] initWithField:self.nameTextField
+                                                       icon:nil
+                                                 errorLabel:self.nameErrorLabel];
+    self.infoGroup = [[ELFormItemGroup alloc] initWithField:self.infoTextField
+                                                       icon:nil
+                                                 errorLabel:self.infoErrorLabel];
     self.formGroupsDict = @{@"name": self.nameGroup, @"info": self.infoGroup};
     
     [self populatePage];

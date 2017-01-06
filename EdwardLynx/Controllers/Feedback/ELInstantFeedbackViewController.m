@@ -106,14 +106,14 @@ static NSString * const kELNoQuestionType = @"No type selected";
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid;
-    ELTextFieldGroup *typeGroup, *questionGroup;
+    ELFormItemGroup *typeGroup, *questionGroup;
     
-    typeGroup = [[ELTextFieldGroup alloc] initWithText:self.questionTypeLabel.text
-                                                  icon:nil
-                                            errorLabel:self.questionTypeErrorLabel];
-    questionGroup = [[ELTextFieldGroup alloc] initWithText:self.questionTextView.text
-                                                      icon:nil
-                                                errorLabel:self.questionErrorLabel];
+    typeGroup = [[ELFormItemGroup alloc] initWithText:self.questionTypeLabel.text
+                                                 icon:nil
+                                           errorLabel:self.questionTypeErrorLabel];
+    questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
+                                                     icon:nil
+                                               errorLabel:self.questionErrorLabel];
     self.instantFeedbackDict = @{@"type": typeGroup, @"question": questionGroup};
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.instantFeedbackDict];
     
