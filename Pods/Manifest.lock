@@ -56,7 +56,7 @@ PODS:
   - REValidation (0.1.4)
   - RNThemeManager (0.1.0)
   - SASlideMenu (2.0.3)
-  - TNRadioButtonGroup (0.4)
+  - UITextView+Placeholder (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - REValidation (~> 0.1)
   - RNThemeManager (~> 0.1)
   - SASlideMenu (~> 2.0)
-  - TNRadioButtonGroup (~> 0.4)
+  - UITextView+Placeholder (~> 1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -94,8 +94,8 @@ SPEC CHECKSUMS:
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
   RNThemeManager: 7734a5619abe15e21556c9c3ff2df8f3ab20a538
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
-  TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: c2e4e33a7fed250cd5f8b4aaf7d68765a0fb215c
+PODFILE CHECKSUM: 6a8b4a8a7e16db9c997a73352b94cc0cd7f7d58d
 
 COCOAPODS: 1.0.1
