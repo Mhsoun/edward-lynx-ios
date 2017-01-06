@@ -10,7 +10,6 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCornerRadius = 4.0f;
 static NSString * const kELNoQuestionType = @"No type selected";
 
 #pragma mark - Class Extension
@@ -34,13 +33,6 @@ static NSString * const kELNoQuestionType = @"No type selected";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
-    self.questionTypeButton.layer.cornerRadius = kELCornerRadius;
-    self.inviteButton.layer.cornerRadius = kELCornerRadius;
 }
 
 #pragma mark - Interface Builder Actions
