@@ -41,6 +41,7 @@ static NSInteger const kIAPICCallsNumber = 1;
             return;
         }
         
+        [weakSelf.indicatorView stopAnimating];
         [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                                          instantiateInitialViewController]
                                animated:YES

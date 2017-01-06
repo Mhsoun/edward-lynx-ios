@@ -16,6 +16,7 @@
 @interface ELTextFieldGroup ()
 
 @property (nonatomic, strong) __kindof UITextField *textField;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UILabel *errorLabel;
 
@@ -39,8 +40,24 @@
     return self;
 }
 
+- (instancetype)initWithText:(NSString *)text
+                        icon:(UIImageView *)icon
+                  errorLabel:(UILabel *)errorLabel {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _text = text;
+    _icon = icon;
+    _errorLabel = errorLabel;
+    
+    return self;
+}
+
 - (NSString *)textValue {
-    return self.textField.text;
+    return !self.textField ? self.text : self.textField.text;
 }
 
 - (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors {

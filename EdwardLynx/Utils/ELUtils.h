@@ -23,6 +23,10 @@
                          icon:(UIImageView *)icon
                    errorLabel:(UILabel *)errorLabel;
 
+- (instancetype)initWithText:(NSString *)text
+                        icon:(UIImageView *)icon
+                  errorLabel:(UILabel *)errorLabel;
+
 - (NSString *)textValue;
 - (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors;
 

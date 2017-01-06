@@ -16,6 +16,9 @@ static NSString * const kELNoQuestionType = @"No type selected";
 
 @interface ELInstantFeedbackViewController ()
 
+@property (nonatomic, strong) NSDictionary *instantFeedbackDict;
+@property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+
 @end
 
 @implementation ELInstantFeedbackViewController
@@ -27,12 +30,22 @@ static NSString * const kELNoQuestionType = @"No type selected";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.questionTypeLabel.text = kELNoQuestionType;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"InviteFeedbackParticipants"]) {
+        ELInviteUsersViewController *controller = [segue destinationViewController];
+        controller.instantFeedbackDict = self.instantFeedbackDict;
+    }
 }
 
 #pragma mark - Interface Builder Actions
@@ -92,7 +105,25 @@ static NSString * const kELNoQuestionType = @"No type selected";
 }
 
 - (IBAction)onInviteButtonClick:(id)sender {
-    // TODO Send to API for processing
+    BOOL isValid;
+    ELTextFieldGroup *typeGroup, *questionGroup;
+    
+    typeGroup = [[ELTextFieldGroup alloc] initWithText:self.questionTypeLabel.text
+                                                  icon:nil
+                                            errorLabel:self.questionTypeErrorLabel];
+    questionGroup = [[ELTextFieldGroup alloc] initWithText:self.questionTextView.text
+                                                      icon:nil
+                                                errorLabel:self.questionErrorLabel];
+    self.instantFeedbackDict = @{@"type": typeGroup, @"question": questionGroup};
+    isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.instantFeedbackDict];
+    
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if (!isValid) {
+        return;
+    }
+    
+    [self performSegueWithIdentifier:@"InviteFeedbackParticipants" sender:self];
 }
 
 @end

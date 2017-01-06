@@ -10,4 +10,6 @@
 
 @interface ELInviteUsersViewController : ELBaseViewController
 
+@property (strong, nonatomic) NSDictionary *instantFeedbackDict;
+
 @end

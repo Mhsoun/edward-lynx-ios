@@ -8,6 +8,8 @@
 
 #import "ELAccountsViewManager.h"
 
+#pragma mark - Class Extension
+
 @interface ELAccountsViewManager ()
 
 @property (nonatomic, strong) NSDictionary *formDict;
@@ -17,6 +19,8 @@
 @end
 
 @implementation ELAccountsViewManager
+
+#pragma mark - Lifecycle
 
 - (instancetype)init {
     self = [super init];
