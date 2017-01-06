@@ -103,11 +103,11 @@
 
 #pragma mark - API Helper Methods
 
-+ (void)processReauthenticationWithCompletion:(void (^)())completion {
++ (void)processReauthenticationWithCompletion:(void (^)(NSError *error))completion {
     [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                return;
+                completion(error);
             }
             
             [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
@@ -115,7 +115,7 @@
             
             NSLog(@"%@: Credentials reauthenticated", [self class]);
             
-            completion();
+            completion(nil);
         });
     }];
 }

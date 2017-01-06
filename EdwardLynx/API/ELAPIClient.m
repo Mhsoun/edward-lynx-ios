@@ -37,8 +37,16 @@
         if (error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
             // Check if task requires user to be authenticated to invoke refreshing of credentials
             if (isAuthenticated) {
-                [ELUtils processReauthenticationWithCompletion:^{
-                    ELOAuthInstance *oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
+                [ELUtils processReauthenticationWithCompletion:^(NSError *error) {
+                    ELOAuthInstance *oauthInstance;
+                    
+                    if (error) {
+                        completion(response, responseDict, error);
+                        
+                        return;
+                    }
+                    
+                    oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
                     
                     [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
                     

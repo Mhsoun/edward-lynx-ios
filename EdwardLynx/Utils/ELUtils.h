@@ -37,7 +37,7 @@
 + (void)setUserDefaultsObject:(__kindof NSObject *)object key:(NSString *)key;
 + (void)setUserDefaultsValue:(id)value forKey:(NSString *)key;
 
-+ (void)processReauthenticationWithCompletion:(void (^)())completion;
++ (void)processReauthenticationWithCompletion:(void (^)(NSError *error))completion;
 
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
