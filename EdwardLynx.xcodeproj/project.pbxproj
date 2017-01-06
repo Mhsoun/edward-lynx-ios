@@ -31,7 +31,6 @@
 		A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */; };
 		A9308BD31DED74B6007B4F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD21DED74B6007B4F9F /* main.m */; };
 		A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BD51DED74B6007B4F9F /* AppDelegate.m */; };
-		A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BDA1DED74B6007B4F9F /* Main.storyboard */; };
 		A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */; };
 		A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE01DED74B6007B4F9F /* Assets.xcassets */; };
 		A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */; };
@@ -58,6 +57,10 @@
 		A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27721DFFDB0E00609E27 /* ELForgotPasswordViewController.m */; };
 		A96F27751DFFDFA000609E27 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A96F27741DFFDFA000609E27 /* Lato-Bold.ttf */; };
 		A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */; };
+		A97086761E1E36F300CDC2DF /* QuestionTypeScaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */; };
+		A97086791E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97086781E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m */; };
+		A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */; };
+		A970867E1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */; };
 		A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */; };
 		A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */; };
 		A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */; };
@@ -142,7 +145,6 @@
 		A9308BD21DED74B6007B4F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9308BD41DED74B6007B4F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9308BD51DED74B6007B4F9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A9308BDB1DED74B6007B4F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9308BDE1DED74B6007B4F9F /* EdwardLynx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EdwardLynx.xcdatamodel; sourceTree = "<group>"; };
 		A9308BE01DED74B6007B4F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9308BE31DED74B6007B4F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -186,6 +188,12 @@
 		A96F27741DFFDFA000609E27 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		A96F27771DFFF9E900609E27 /* ELAccountsViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAccountsViewManager.h; sourceTree = "<group>"; };
 		A96F27781DFFF9E900609E27 /* ELAccountsViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsViewManager.m; sourceTree = "<group>"; };
+		A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeScaleView.xib; sourceTree = "<group>"; };
+		A97086771E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeScaleView.h; sourceTree = "<group>"; };
+		A97086781E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeScaleView.m; sourceTree = "<group>"; };
+		A970867A1E1E504800CDC2DF /* ELQuestionTypeAgreementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeAgreementView.h; sourceTree = "<group>"; };
+		A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeAgreementView.m; sourceTree = "<group>"; };
+		A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeAgreementView.xib; sourceTree = "<group>"; };
 		A97F9FF81E1CF14A008F9EF4 /* ELQuestionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionCategory.h; sourceTree = "<group>"; };
 		A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
 		A97F9FFB1E1CF4F6008F9EF4 /* ELAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswer.h; sourceTree = "<group>"; };
@@ -432,7 +440,6 @@
 				A9E53D561E1B6BCC00E9BB3C /* Feedback.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */,
-				A9308BDA1DED74B6007B4F9F /* Main.storyboard */,
 				A9214DC61E08D80B0021EA5E /* Profile.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
 				A96AE03A1E0F773600AD56BE /* Surveys.storyboard */,
@@ -586,6 +593,8 @@
 			isa = PBXGroup;
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */,
+				A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */,
 				A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */,
 				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
 				A91B157F1E03A45900CAEC43 /* StatusView.xib */,
@@ -611,6 +620,10 @@
 			children = (
 				A9CCA70C1E1A11D300ACA299 /* ELBaseQuestionTypeView.h */,
 				A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */,
+				A970867A1E1E504800CDC2DF /* ELQuestionTypeAgreementView.h */,
+				A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */,
+				A97086771E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.h */,
+				A97086781E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m */,
 				A9CCA7091E1A111C00ACA299 /* ELQuestionTypeTextView.h */,
 				A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */,
 			);
@@ -762,6 +775,7 @@
 				A96F276C1DFFA28E00609E27 /* Lato-Heavy.ttf in Resources */,
 				A96F276D1DFFA28E00609E27 /* Lato-Italic.ttf in Resources */,
 				A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */,
+				A97086761E1E36F300CDC2DF /* QuestionTypeScaleView.xib in Resources */,
 				A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */,
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
@@ -775,12 +789,12 @@
 				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
 				A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */,
 				A9195FAF1E19F28600F84272 /* QuestionCell.xib in Resources */,
+				A970867E1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib in Resources */,
 				A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */,
 				A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
 				A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
-				A9308BDC1DED74B6007B4F9F /* Main.storyboard in Resources */,
 				A96F276E1DFFA28E00609E27 /* Lato-Light.ttf in Resources */,
 				A9E53D581E1B6BCC00E9BB3C /* Feedback.storyboard in Resources */,
 			);
@@ -904,7 +918,9 @@
 				A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */,
 				A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */,
 				A9121AA81E07B88100ED9934 /* ELMenuTableViewCell.m in Sources */,
+				A97086791E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m in Sources */,
 				A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */,
+				A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
@@ -969,14 +985,6 @@
 				A9214DC71E08D80B0021EA5E /* Base */,
 			);
 			name = Profile.storyboard;
-			sourceTree = "<group>";
-		};
-		A9308BDA1DED74B6007B4F9F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9308BDB1DED74B6007B4F9F /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */ = {

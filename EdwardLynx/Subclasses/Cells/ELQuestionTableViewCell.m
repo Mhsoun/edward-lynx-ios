@@ -24,20 +24,25 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
-    __kindof ELBaseQuestionTypeView *view = [ELUtils viewByAnswerType:question.answer.type];
+    BOOL toExpand = question.answer.type == kELAnswerTypeOneToTenWithExplanation || question.answer.type == kELAnswerTypeText;
+    
+    questionView = [ELUtils viewByAnswerType:question.answer.type];
+    questionView.question = question;
     
     // Content
     self.questionLabel.text = question.text;
     
     // UI
-    if (!view) {
+    if (!questionView) {
         return;
     }
     
-    view.frame = self.questionContainerView.frame;
+    self.questionContainerHeightConstraint.constant = toExpand ? 95 : 45;
+    questionView.frame = self.questionContainerView.frame;
     
-    [self.questionContainerView addSubview:view];
+    [self.questionContainerView addSubview:questionView];
 }
 
 #pragma mark - Private Methods

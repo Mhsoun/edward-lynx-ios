@@ -47,7 +47,6 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
-  - HCSStarRatingView (1.4.5)
   - HockeySDK (4.1.2):
     - HockeySDK/DefaultLib (= 4.1.2)
   - HockeySDK/DefaultLib (4.1.2)
@@ -57,7 +56,7 @@ PODS:
   - REValidation (0.1.4)
   - RNThemeManager (0.1.0)
   - SASlideMenu (2.0.3)
-  - XLForm (3.3.0)
+  - TNRadioButtonGroup (0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -66,7 +65,6 @@ DEPENDENCIES:
   - Fabric
   - Firebase
   - FirebaseMessaging
-  - HCSStarRatingView (~> 1.4)
   - HockeySDK
   - IQKeyboardManager
   - JSONModel
@@ -74,7 +72,7 @@ DEPENDENCIES:
   - REValidation (~> 0.1)
   - RNThemeManager (~> 0.1)
   - SASlideMenu (~> 2.0)
-  - XLForm (~> 3.0)
+  - TNRadioButtonGroup (~> 0.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -89,7 +87,6 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  HCSStarRatingView: bff3f89314d3b5013ce826ea11897d3129ff6b8c
   HockeySDK: c7523379550a4305cefc1cdfa7b5f9a5a3538180
   IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
@@ -97,8 +94,8 @@ SPEC CHECKSUMS:
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
   RNThemeManager: 7734a5619abe15e21556c9c3ff2df8f3ab20a538
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
-  XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
+  TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
 
-PODFILE CHECKSUM: 704a386e24d1f975d859b22deb7e00c8483442f3
+PODFILE CHECKSUM: c2e4e33a7fed250cd5f8b4aaf7d68765a0fb215c
 
 COCOAPODS: 1.0.1
