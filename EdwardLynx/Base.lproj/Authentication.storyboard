@@ -195,7 +195,7 @@
                         <viewControllerLayoutGuide type="top" id="Sqi-e9-uYB"/>
                         <viewControllerLayoutGuide type="bottom" id="FqL-dk-CiH"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="h31-nN-T9z" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="h31-nN-T9z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -307,9 +307,6 @@
                             <constraint firstItem="x73-SC-pOc" firstAttribute="top" secondItem="iY9-zi-6oy" secondAttribute="bottom" constant="15" id="yEP-bo-f3v"/>
                             <constraint firstItem="jfX-mI-BPb" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="bottom" constant="5" id="yaI-sI-V4I"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="recoverButton" destination="Rls-Cu-J3h" id="EcU-6g-zF0"/>
@@ -321,6 +318,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKO-s9-LeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="98"/>
+        </scene>
+        <!--Configuration View Controller-->
+        <scene sceneID="OO4-wm-OB1">
+            <objects>
+                <viewController storyboardIdentifier="Configuration" id="pbF-7Z-FAE" customClass="ELConfigurationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="avy-ZV-FRU"/>
+                        <viewControllerLayoutGuide type="bottom" id="5dl-sm-1Ta"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="idg-YN-WxD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-HS-575">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ofq-HS-575" firstAttribute="centerX" secondItem="idg-YN-WxD" secondAttribute="centerX" id="2Qh-Jo-xiD"/>
+                            <constraint firstItem="ofq-HS-575" firstAttribute="centerY" secondItem="idg-YN-WxD" secondAttribute="centerY" id="rgA-s9-pJP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicatorView" destination="ofq-HS-575" id="be5-2c-syL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4HF-2R-5jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1538" y="98"/>
         </scene>
     </scenes>
     <resources>
