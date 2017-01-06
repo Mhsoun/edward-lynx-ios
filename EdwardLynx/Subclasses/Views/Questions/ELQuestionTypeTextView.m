@@ -18,10 +18,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    // UI
-    self.textView.layer.cornerRadius = 4.0f;
-    self.textView.clipsToBounds = YES;
 }
 
 #pragma mark - Public Methods
