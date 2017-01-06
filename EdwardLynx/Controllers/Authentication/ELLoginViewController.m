@@ -90,7 +90,8 @@ static CGFloat const kELCornerRadius = 2.0f;
     [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
                                      key:kELAuthInstanceUserDefaultsKey];
     
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
+                                 instantiateViewControllerWithIdentifier:@"Configuration"]
                        animated:YES
                      completion:nil];
 }
