@@ -8,8 +8,13 @@
 
 #import <REValidation/REValidation.h>
 
+#import "ELSurveysAPIClient.h"
+
 @interface ELFeedbackViewManager : NSObject
 
+@property (strong, nonatomic) id<ELAPIResponseDelegate> delegate;
+
+- (void)processInstantFeedback:(NSDictionary *)formDict;
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
 - (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict;
 

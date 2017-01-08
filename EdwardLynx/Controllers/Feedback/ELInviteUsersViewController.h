@@ -9,7 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELFeedbackViewManager.h"
 
-@interface ELInviteUsersViewController : ELBaseViewController
+@interface ELInviteUsersViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 

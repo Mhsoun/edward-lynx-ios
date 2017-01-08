@@ -13,6 +13,14 @@
 static NSString * const kELNoQuestionType = @"No type selected";
 static NSString * const kELNoParticipantRole = @"No role selected";
 
+#pragma mark - Class Extension
+
+@interface ELFeedbackViewManager ()
+
+@property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
+
+@end
+
 @implementation ELFeedbackViewManager
 
 #pragma mark - Lifecycle
@@ -24,12 +32,31 @@ static NSString * const kELNoParticipantRole = @"No role selected";
         return nil;
     }
     
+    __weak typeof(self) weakSelf = self;
+    
+    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.delegate onAPIResponseSuccess:responseDict];
+        });
+    };
+    
     [self setupValidators];
     
     return self;
 }
 
 #pragma mark - Public Methods
+
+- (void)processInstantFeedback:(NSDictionary *)formDict {
+    [[[ELSurveysAPIClient alloc] init] createInstantFeedbackWithParams:formDict
+                                                            completion:self.requestCompletionBlock];
+}
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {
     NSString *key;

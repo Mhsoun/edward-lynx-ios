@@ -171,6 +171,30 @@
 
 #pragma mark - App-related Helper Methods
 
++ (kELAnswerType)answerTypeByLabel:(NSString *)label {
+    if ([label isEqualToString:@"Numeric 1-5 Scale"]) {
+        return kELAnswerTypeOneToFiveScale;
+    } else if ([label isEqualToString:@"Numeric 1-10 Scale"]) {
+        return kELAnswerTypeOneToTenScale;
+    } else if ([label isEqualToString:@"Agreement Scale"]) {
+        return kELAnswerTypeAgreeementScale;
+    } else if ([label isEqualToString:@"Yes/No Scale"]) {
+        return kELAnswerTypeYesNoScale;
+    } else if ([label isEqualToString:@"Strong Agreement Scale"]) {
+        return kELAnswerTypeStrongAgreeementScale;
+    } else if ([label isEqualToString:@"Text"]) {
+        return kELAnswerTypeText;
+    } else if ([label isEqualToString:@"Inverted Agreement Scale"]) {
+        return kELAnswerTypeInvertedAgreementScale;
+    } else if ([label isEqualToString:@"1-10 with explanation"]) {
+        return kELAnswerTypeOneToTenWithExplanation;
+    } else if ([label isEqualToString:@"Custom Scale"]) {
+        return kELAnswerTypeCustomScale;
+    } else {
+        return -1;
+    }
+}
+
 + (NSString *)labelByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"string" byAnswerType:type];
 }

@@ -49,6 +49,7 @@
 + (void)setupFabric;
 + (void)setupIQKeyboardManager;
 
++ (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (void)setupGlobalUIChanges;
 + (void)styleSearchBar:(UISearchBar *)searchBar;

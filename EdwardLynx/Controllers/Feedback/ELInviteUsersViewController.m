@@ -30,14 +30,23 @@ static NSString * const kELNoParticipantRole = @"No role selected";
     
     // Initialization
     self.viewManager = [[ELFeedbackViewManager alloc] init];
+    self.viewManager.delegate = self;
     self.roleLabel.text = kELNoParticipantRole;
-    
-    NSLog(@"%@", self.instantFeedbackDict);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Protocol Methods (ELFeedbackViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    // TODO Implementation
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    // TODO Implementation
 }
 
 #pragma mark - Interface Builder Actions
@@ -48,6 +57,7 @@ static NSString * const kELNoParticipantRole = @"No role selected";
 
 - (IBAction)onAddButtonClick:(id)sender {
     BOOL isValid;
+    NSDictionary *formDict;
     ELFormItemGroup *nameGroup,
                     *emailGroup,
                     *roleGroup;
@@ -71,7 +81,23 @@ static NSString * const kELNoParticipantRole = @"No role selected";
         return;
     }
     
-    // TODO API call
+    // TEMP Form data
+    formDict = @{@"name": @"",
+                 @"lang": @"en",
+                 @"type": @"instant",
+                 @"startDate": @"",
+                 @"endDate": @"",
+                 @"description": @"",
+                 @"inviteText": @"",
+                 @"thankYouText": @"",
+                 @"questionInfoText": @"",
+                 @"questions": @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
+                                   @"isNA": @NO,
+                                   @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]]),
+                                                @"options": @[]}}],
+                 @"recipients": @[]};
+    
+//    [self.viewManager processInstantFeedback:formDict];
 }
 
 @end
