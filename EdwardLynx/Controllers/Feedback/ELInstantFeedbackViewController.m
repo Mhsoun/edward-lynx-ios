@@ -52,6 +52,9 @@ static NSString * const kELNoQuestionType = @"No type selected";
 
 - (IBAction)onQuestionTypeButtonClick:(id)sender {
     UIAlertController *controller;
+    NSArray *answerTypes = @[@(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale), @(kELAnswerTypeAgreeementScale),
+                             @(kELAnswerTypeYesNoScale), @(kELAnswerTypeStrongAgreeementScale), @(kELAnswerTypeText),
+                             @(kELAnswerTypeInvertedAgreementScale), @(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeCustomScale)];
     void (^alertActionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         self.questionTypeLabel.text = action.title;
     };
@@ -60,33 +63,14 @@ static NSString * const kELNoQuestionType = @"No type selected";
                                                      message:nil
                                               preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToFiveScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToTenScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelAgreeementScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelYesNoScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelStrongAgreeementScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelText
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelInvertedAgreementScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelOneToTenWithExplanation
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELAnswerTypeLabelCustomScale
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:alertActionBlock]];
+    for (NSNumber *answerTypeObj in answerTypes) {
+        kELAnswerType answerType = [answerTypeObj integerValue];
+        
+        [controller addAction:[UIAlertAction actionWithTitle:[ELUtils labelByAnswerType:answerType]
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:alertActionBlock]];
+    }
+    
     [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];

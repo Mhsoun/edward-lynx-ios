@@ -70,6 +70,8 @@ static NSString * const kELNoParticipantRole = @"No role selected";
     if (!isValid) {
         return;
     }
+    
+    // TODO API call
 }
 
 @end

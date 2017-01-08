@@ -56,16 +56,6 @@ extern NSString * const kELLogoutAlertMessage;
 
 #pragma mark - Constants
 
-extern NSString * const kELAnswerTypeLabelOneToFiveScale;
-extern NSString * const kELAnswerTypeLabelOneToTenScale;
-extern NSString * const kELAnswerTypeLabelAgreeementScale;
-extern NSString * const kELAnswerTypeLabelYesNoScale;
-extern NSString * const kELAnswerTypeLabelStrongAgreeementScale;
-extern NSString * const kELAnswerTypeLabelText;
-extern NSString * const kELAnswerTypeLabelInvertedAgreementScale;
-extern NSString * const kELAnswerTypeLabelOneToTenWithExplanation;
-extern NSString * const kELAnswerTypeLabelCustomScale;
-
 extern NSString * const kELErrorDomain;
 
 extern NSString * const kELFabricEmail;
