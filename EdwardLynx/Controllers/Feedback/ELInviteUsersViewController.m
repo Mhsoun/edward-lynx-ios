@@ -10,12 +10,16 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELFormViewHeight = 395;
 static NSString * const kELNoParticipantRole = @"No role selected";
+static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Class Extension
 
 @interface ELInviteUsersViewController ()
 
+@property (nonatomic, strong) ELTableDataSource *dataSource;
+@property (nonatomic, strong) ELDataProvider<NSDictionary *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
 
 @end
@@ -29,14 +33,39 @@ static NSString * const kELNoParticipantRole = @"No role selected";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.roleLabel.text = kELNoParticipantRole;
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@{@"name": @"Some User",
+                                                                  @"email": @"someuser@gmail.com"},
+                                                                @{@"name": @"Some User",
+                                                                  @"email": @"someuser@gmail.com"},
+                                                                @{@"name": @"Some User",
+                                                                  @"email": @"someuser@gmail.com"},
+                                                                @{@"name": @"Some User",
+                                                                  @"email": @"someuser@gmail.com"},
+                                                                @{@"name": @"Some User",
+                                                                  @"email": @"someuser@gmail.com"}]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
-    self.roleLabel.text = kELNoParticipantRole;
+    self.tableView.scrollEnabled = NO;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Dynamically adjust scroll view based on table view content
+    [self adjustScrollViewContentSize];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -47,6 +76,24 @@ static NSString * const kELNoParticipantRole = @"No role selected";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     // TODO Implementation
+}
+
+#pragma mark - Private Methods
+
+- (void)adjustScrollViewContentSize {
+    CGRect tableFrame = self.tableView.frame;
+    CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
+    
+    tableFrame.size.height = tableViewContentSizeHeight;
+    
+    [self.tableView setFrame:tableFrame];
+    [self.tableView setContentSize:CGSizeMake(self.tableView.contentSize.width,
+                                              tableViewContentSizeHeight)];
+    
+    // Set the content size of your scroll view to be the content size of your
+    // table view + whatever else you have in the scroll view.
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width,
+                                             (kELFormViewHeight + tableViewContentSizeHeight + 30));
 }
 
 #pragma mark - Interface Builder Actions

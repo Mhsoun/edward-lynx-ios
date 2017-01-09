@@ -7,18 +7,22 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
+#import "ELTableDataSource.h"
 
 @interface ELInviteUsersViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roleErrorLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onRoleButtonClick:(id)sender;
 - (IBAction)onAddButtonClick:(id)sender;
 
