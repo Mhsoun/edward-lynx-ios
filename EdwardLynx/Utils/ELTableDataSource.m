@@ -52,6 +52,12 @@
     self.emptyDescription = description.length == 0 ? self.emptyDescription : description;
 }
 
+- (void)updateTableViewData:(__kindof NSArray *)dataArray {
+    self.dataProvider = [[ELDataProvider alloc] initWithDataArray:dataArray];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -520,6 +520,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="INVITE" id="zar-hO-SbN">
                         <barButtonItem key="backBarButtonItem" title=" " id="IWE-6r-hW4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ySt-Ph-0vK">
+                            <connections>
+                                <action selector="onDoneButtonClick:" destination="omf-Pf-luc" id="5yb-jG-7Gw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailErrorLabel" destination="y6U-B0-7VK" id="8HS-SX-mhD"/>

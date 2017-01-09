@@ -17,5 +17,6 @@
                      dataProvider:(ELDataProvider *)dataProvider
                    cellIdentifier:(NSString *)cellIdentifier;
 - (void)dataSetEmptyText:(NSString *)text description:(NSString *)description;
+- (void)updateTableViewData:(__kindof NSArray *)dataArray;
 
 @end

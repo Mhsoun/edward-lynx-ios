@@ -36,6 +36,8 @@
     return @{};
 }
 
+#pragma mark - Getter/Setter Methods
+
 - (ELQuestion *)question {
     return _question;
 }

@@ -21,6 +21,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+@property (nonatomic, strong) NSMutableArray *mParticipants;
 
 @end
 
@@ -34,9 +35,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // Initialization
     self.roleLabel.text = kELNoParticipantRole;
+    self.mParticipants = [[NSMutableArray alloc] init];
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:self.mParticipants];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
@@ -101,7 +103,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (IBAction)onAddButtonClick:(id)sender {
     BOOL isValid;
-    NSDictionary *formDict;
     ELFormItemGroup *nameGroup,
                     *emailGroup,
                     *roleGroup;
@@ -125,6 +126,21 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         return;
     }
     
+    // Update Users list
+    [self.mParticipants addObject:[[ELParticipant alloc] initWithDictionary:@{@"name": self.nameTextField.text,
+                                                                              @"email": self.emailTextField.text} error:nil]];
+    [self.dataSource updateTableViewData:self.mParticipants];
+    [self adjustScrollViewContentSize];
+}
+
+- (IBAction)onDoneButtonClick:(id)sender {
+    NSDictionary *formDict;
+    NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
+    
+    for (ELParticipant *participant in self.mParticipants) {
+        [mParticipants addObject:[participant toDictionary]];
+    }
+    
     // TEMP Form data
     formDict = @{@"name": @"",
                  @"lang": @"en",
@@ -139,9 +155,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                    @"isNA": @NO,
                                    @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]]),
                                                 @"options": @[]}}],
-                 @"recipients": @[]};
-    
-//    [self.viewManager processInstantFeedback:formDict];
+                 @"recipients": [mParticipants copy]};
 }
 
 @end

@@ -26,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onRoleButtonClick:(id)sender;
 - (IBAction)onAddButtonClick:(id)sender;
+- (IBAction)onDoneButtonClick:(id)sender;
 
 @end
