@@ -24,10 +24,10 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *userDict = (NSDictionary *)object;
+    ELParticipant *participant = (ELParticipant *)object;
     
-    self.nameLabel.text = userDict[@"name"];
-    self.emailLabel.text = userDict[@"email"];
+    self.nameLabel.text = participant.name;
+    self.emailLabel.text = participant.email;
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

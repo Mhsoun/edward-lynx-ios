@@ -9,6 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
+#import "ELParticipant.h"
 #import "ELTableDataSource.h"
 
 @interface ELInviteUsersViewController : ELBaseViewController<ELAPIResponseDelegate>

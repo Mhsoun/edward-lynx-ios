@@ -477,7 +477,7 @@
                                                     <constraint firstItem="dR2-K5-EYc" firstAttribute="top" secondItem="gpd-2v-15G" secondAttribute="bottom" id="z7y-KK-0Bn"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ivZ-tA-rX1">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ivZ-tA-rX1">
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -509,10 +509,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qvq-og-F06" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="Qxd-5T-XJS"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="VCM-Oy-2e0"/>
-                            <constraint firstItem="Qvq-og-F06" firstAttribute="centerY" secondItem="1Yd-aB-hNx" secondAttribute="centerY" id="pdJ-lG-iIH"/>
-                            <constraint firstItem="Qvq-og-F06" firstAttribute="height" secondItem="1Yd-aB-hNx" secondAttribute="height" id="rP0-kv-bYf"/>
-                            <constraint firstItem="Qvq-og-F06" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="zqs-gU-oK3"/>
+                            <constraint firstItem="Qvq-og-F06" firstAttribute="top" secondItem="NU1-15-NPY" secondAttribute="bottom" id="dcn-da-5Hx"/>
+                            <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="Qvq-og-F06" secondAttribute="bottom" id="tr9-lI-9L3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>

@@ -19,7 +19,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @interface ELInviteUsersViewController ()
 
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<NSDictionary *> *provider;
+@property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
 
 @end
@@ -34,24 +34,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // Initialization
     self.roleLabel.text = kELNoParticipantRole;
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@{@"name": @"Some User",
-                                                                  @"email": @"someuser@gmail.com"},
-                                                                @{@"name": @"Some User",
-                                                                  @"email": @"someuser@gmail.com"},
-                                                                @{@"name": @"Some User",
-                                                                  @"email": @"someuser@gmail.com"},
-                                                                @{@"name": @"Some User",
-                                                                  @"email": @"someuser@gmail.com"},
-                                                                @{@"name": @"Some User",
-                                                                  @"email": @"someuser@gmail.com"}]];
+    self.viewManager = [[ELFeedbackViewManager alloc] init];
+    self.viewManager.delegate = self;
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
-    self.viewManager = [[ELFeedbackViewManager alloc] init];
-    self.viewManager.delegate = self;
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self.dataSource dataSetEmptyText:@"No participant(s) added yet."
+                          description:@""];
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
 }
@@ -84,6 +77,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     CGRect tableFrame = self.tableView.frame;
     CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
     
+    if (tableViewContentSizeHeight == 0) {
+        return;
+    }
+    
     tableFrame.size.height = tableViewContentSizeHeight;
     
     [self.tableView setFrame:tableFrame];
@@ -99,7 +96,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onRoleButtonClick:(id)sender {
-
+    // TODO Implementation
 }
 
 - (IBAction)onAddButtonClick:(id)sender {

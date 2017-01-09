@@ -82,7 +82,7 @@
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = self.emptyText;
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18],
-                                 NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELVioletColor]};
+                                 NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELWhiteColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -94,10 +94,9 @@
     
     paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    
+    paragraph.alignment = NSTextAlignmentCenter;    
     attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
-                   NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELLightVioletColor],
+                   NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELWhiteColor],
                    NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];

@@ -40,6 +40,7 @@
 		A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A721E0B79E00019231E /* ELOAuthInstance.m */; };
 		A94821A21E23370B008B738A /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94821A11E23370B008B738A /* ParticipantCell.xib */; };
 		A94821A51E233885008B738A /* ELParticipantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A94821A41E233885008B738A /* ELParticipantTableViewCell.m */; };
+		A94821A81E2355FC008B738A /* ELParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = A94821A71E2355FC008B738A /* ELParticipant.m */; };
 		A94D102F1DF7E66700982E43 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D102E1DF7E66700982E43 /* ELConstants.m */; };
 		A9685D101E014E1D0079FA84 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9685D0E1E014E1D0079FA84 /* Settings.storyboard */; };
 		A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9685D121E0153420079FA84 /* ELChangePassViewController.m */; };
@@ -168,6 +169,8 @@
 		A94821A11E23370B008B738A /* ParticipantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantCell.xib; sourceTree = "<group>"; };
 		A94821A31E233885008B738A /* ELParticipantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELParticipantTableViewCell.h; sourceTree = "<group>"; };
 		A94821A41E233885008B738A /* ELParticipantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELParticipantTableViewCell.m; sourceTree = "<group>"; };
+		A94821A61E2355FC008B738A /* ELParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELParticipant.h; sourceTree = "<group>"; };
+		A94821A71E2355FC008B738A /* ELParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELParticipant.m; sourceTree = "<group>"; };
 		A94D102D1DF7E63000982E43 /* ELConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELConstants.h; sourceTree = "<group>"; };
 		A94D102E1DF7E66700982E43 /* ELConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConstants.m; sourceTree = "<group>"; };
 		A9685D0F1E014E1D0079FA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 				A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */,
 				A9335A711E0B79E00019231E /* ELOAuthInstance.h */,
 				A9335A721E0B79E00019231E /* ELOAuthInstance.m */,
+				A94821A61E2355FC008B738A /* ELParticipant.h */,
+				A94821A71E2355FC008B738A /* ELParticipant.m */,
 				A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */,
 				A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */,
 				A97F9FF81E1CF14A008F9EF4 /* ELQuestionCategory.h */,
@@ -909,6 +914,7 @@
 				A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */,
 				A9C95A0B1E1F9D4500184223 /* ELFeedbackViewManager.m in Sources */,
 				A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */,
+				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
