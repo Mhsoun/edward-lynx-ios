@@ -14,8 +14,8 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithFormKey:(NSString *)key {
-    return [super initWithNibName:@"QuestionTypeAgreementView" valueKey:key];
+- (instancetype)init {
+    return [super initWithNibName:@"QuestionTypeAgreementView"];
 }
 
 - (void)awakeFromNib {
@@ -33,7 +33,8 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    return @{};
+    return @{@"question": @(_question.objectId),
+             @"answer": _question.answer.options[[self.pickerView selectedRowInComponent:0]]};
 }
 
 #pragma mark - Getter/Setter Methods

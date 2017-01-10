@@ -12,6 +12,4 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
-- (instancetype)initWithFormKey:(NSString *)key;
-
 @end

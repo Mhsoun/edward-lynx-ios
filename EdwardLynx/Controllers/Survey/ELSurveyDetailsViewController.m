@@ -91,4 +91,27 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     [self.tableView reloadData];
 }
 
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onDoneButtonClick:(id)sender {
+    NSDictionary *responseDict;
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    
+    // Retrieve answer from question views
+    for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
+        ELQuestionTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        [mAnswers addObject:[[cell questionView] formValues]];
+    }
+    
+    responseDict = @{@"key": @"", @"answers": [mAnswers copy]};    
+}
+
 @end

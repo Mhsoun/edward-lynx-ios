@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *questionContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *questionContainerHeightConstraint;
 
+- (__kindof ELBaseQuestionTypeView *)questionView;
+
 @end

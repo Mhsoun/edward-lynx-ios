@@ -12,8 +12,8 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithFormKey:(NSString *)key {
-    return [super initWithNibName:@"QuestionTypeTextView" valueKey:key];
+- (instancetype)init {
+    return [super initWithNibName:@"QuestionTypeTextView"];
 }
 
 - (void)awakeFromNib {
@@ -23,7 +23,8 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    return @{};
+    return @{@"question": @(self.question.objectId),
+             @"answer": self.textView.text};
 }
 
 @end

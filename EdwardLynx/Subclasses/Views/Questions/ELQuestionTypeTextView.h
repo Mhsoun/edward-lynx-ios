@@ -12,6 +12,4 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
-- (instancetype)initWithFormKey:(NSString *)key;
-
 @end

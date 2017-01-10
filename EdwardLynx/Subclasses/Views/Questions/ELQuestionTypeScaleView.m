@@ -14,14 +14,12 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithFormKey:(NSString *)key {
-    return [super initWithNibName:@"QuestionTypeScaleView" valueKey:key];
+- (instancetype)init {
+    return [super initWithNibName:@"QuestionTypeScaleView"];
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    // TODO UI Implementation
 }
 
 #pragma mark - Private Methods
@@ -47,7 +45,8 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    return @{};
+    return @{@"question": @(_question.objectId),
+             @"answer": [self.scaleChoices titleForSegmentAtIndex:self.scaleChoices.selectedSegmentIndex]};
 }
 
 - (ELQuestion *)question {

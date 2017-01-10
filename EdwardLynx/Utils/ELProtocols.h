@@ -39,7 +39,7 @@
 
 @protocol ELQuestionTypeDelegate <NSObject>
 
-- (instancetype)initWithNibName:(NSString *)nib valueKey:(NSString *)key;
+- (instancetype)initWithNibName:(NSString *)nib;
 - (NSDictionary *)formValues;
 
 @end

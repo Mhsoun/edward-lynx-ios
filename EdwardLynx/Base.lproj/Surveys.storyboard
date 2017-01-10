@@ -193,6 +193,15 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Wy4-fF-BUq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cBE-1d-M2A">
+                            <connections>
+                                <action selector="onDoneButtonClick:" destination="Zf1-Y0-xAe" id="CT7-6l-O9N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="indicatorView" destination="RK2-oj-eZo" id="y5w-Nn-ePV"/>
                         <outlet property="tableView" destination="pcV-ai-2E6" id="rOz-Cr-lOW"/>
@@ -207,7 +216,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mVU-3I-vkF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zvl-AN-D9U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zvl-AN-D9U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
