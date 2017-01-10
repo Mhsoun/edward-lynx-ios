@@ -67,6 +67,7 @@
 		A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */; };
 		A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */; };
 		A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */; };
+		A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC8B81E24BB5900F47D61 /* ELModel.m */; };
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
@@ -211,6 +212,8 @@
 		A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswer.m; sourceTree = "<group>"; };
 		A97F9FFE1E1CF59D008F9EF4 /* ELAnswerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerOption.h; sourceTree = "<group>"; };
 		A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerOption.m; sourceTree = "<group>"; };
+		A99EC8B71E24BB5900F47D61 /* ELModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELModel.h; sourceTree = "<group>"; };
+		A99EC8B81E24BB5900F47D61 /* ELModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELModel.m; sourceTree = "<group>"; };
 		A9A4DF831DFEA12200CC4FAA /* ELUsersAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUsersAPIClient.h; sourceTree = "<group>"; };
 		A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUsersAPIClient.m; sourceTree = "<group>"; };
 		A9A4DF861DFEAC5000CC4FAA /* ELSurveysAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveysAPIClient.h; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				A96AE0461E0FA05D00AD56BE /* ELSurvey.m */,
 				A90A58481E0A8633003F9F8B /* ELUser.h */,
 				A90A58491E0A8633003F9F8B /* ELUser.m */,
+				A99EC8B71E24BB5900F47D61 /* ELModel.h */,
+				A99EC8B81E24BB5900F47D61 /* ELModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -941,6 +946,7 @@
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
+				A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */,

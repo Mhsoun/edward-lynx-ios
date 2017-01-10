@@ -29,6 +29,19 @@
                         completion:completion];
 }
 
+- (void)submitAnswerForSurveyWithId:(int64_t)surveyId
+                             params:(NSDictionary *)params
+                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyAnswersEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];

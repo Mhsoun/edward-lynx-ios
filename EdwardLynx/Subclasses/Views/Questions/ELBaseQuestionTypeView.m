@@ -12,7 +12,7 @@
 
 #pragma mark - Protocol Methods (ELQuestionType)
 
-- (instancetype)initWithNibName:(NSString *)nib valueKey:(NSString *)key {
+- (instancetype)initWithNibName:(NSString *)nib {
     NSArray *elements;
     
     self = [super init];
@@ -32,9 +32,7 @@
             break;
         }
     }
-    
-    _questionKey = key;
-    
+        
     return self;
 }
 

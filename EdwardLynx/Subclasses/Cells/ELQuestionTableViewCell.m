@@ -49,7 +49,7 @@
     [self.questionContainerView addSubview:questionView];
 }
 
-#pragma mark - Private Methods
+#pragma mark - Public Methods
 
 - (__kindof ELBaseQuestionTypeView *)questionView {
     for (__kindof UIView *view in self.questionContainerView.subviews) {

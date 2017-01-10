@@ -32,7 +32,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELDetailViewManager alloc] init];
+    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
     self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -74,7 +74,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSMutableArray *mData = [[NSMutableArray alloc] init];
-        
+    
     for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
         [mData addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
     }
@@ -89,6 +89,31 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     [self.indicatorView stopAnimating];
     [self.tableView setDelegate:self];
     [self.tableView reloadData];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onDoneButtonClick:(id)sender {
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    
+    // Retrieve answer from question views
+    for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
+        ELQuestionTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        [mAnswers addObject:[[cell questionView] formValues]];
+    }
+    
+    // TODO Handle validation and get value for `key`
+    
+//    [self.viewManager processSurveyAnswerSubmissionWithFormData:@{@"key": @"",
+//                                                                  @"answers": [mAnswers copy]}];
 }
 
 @end

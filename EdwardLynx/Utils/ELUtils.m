@@ -242,31 +242,31 @@
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
             return [objectType isEqualToString:@"string"] ? @"Numeric 1-5 Scale" :
-                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeOneToTenScale:
             return [objectType isEqualToString:@"string"] ? @"Numeric 1-10 Scale" :
-                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeAgreeementScale:
             return [objectType isEqualToString:@"string"] ? @"Agreement Scale" :
-                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeAgreementView alloc] init];
         case kELAnswerTypeYesNoScale:
             return [objectType isEqualToString:@"string"] ? @"Yes/No Scale" :
-                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeStrongAgreeementScale:
             return [objectType isEqualToString:@"string"] ? @"Strong Agreement Scale" :
-                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeAgreementView alloc] init];
         case kELAnswerTypeText:
             return [objectType isEqualToString:@"string"] ? @"Text" :
-                                                            [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeTextView alloc] init];
         case kELAnswerTypeInvertedAgreementScale:
             return [objectType isEqualToString:@"string"] ? @"Inverted Agreement Scale" :
-                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeAgreementView alloc] init];
         case kELAnswerTypeOneToTenWithExplanation:
             return [objectType isEqualToString:@"string"] ? @"1-10 with explanation" :
-                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? @"Custom Scale" :
-                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         default:
             return nil;
     }

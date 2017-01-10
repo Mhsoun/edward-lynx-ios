@@ -13,6 +13,9 @@
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)createInstantFeedbackWithParams:(NSDictionary *)params
                              completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)submitAnswerForSurveyWithId:(int64_t)surveyId
+                             params:(NSDictionary *)params
+                         completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)userSurveyForId:(int64_t)surveyId

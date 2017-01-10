@@ -10,6 +10,7 @@
 #import "ELDataProvider.h"
 #import "ELDetailViewManager.h"
 #import "ELQuestionCategory.h"
+#import "ELQuestionTableViewCell.h"
 #import "ELSurvey.h"
 #import "ELTableDataSource.h"
 
@@ -19,5 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+- (IBAction)onDoneButtonClick:(id)sender;
 
 @end

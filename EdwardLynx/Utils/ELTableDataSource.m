@@ -71,7 +71,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     
-    // Configure cell content
     [cell configure:[self.dataProvider objectAtIndexPath:indexPath] atIndexPath:indexPath];
     
     return cell;
