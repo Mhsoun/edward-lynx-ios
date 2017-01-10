@@ -9,12 +9,12 @@
 #import <JSONModel/JSONModel.h>
 
 #import "ELAnswer.h"
+#import "ELModel.h"
 
 @protocol ELAnswer;
 
-@interface ELQuestion : JSONModel
+@interface ELQuestion : ELModel
 
-@property (nonatomic) int64_t objectId;
 @property (nonatomic) NSString *text;
 @property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isNA;

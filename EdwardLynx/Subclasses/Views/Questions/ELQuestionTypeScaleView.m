@@ -25,11 +25,21 @@
 #pragma mark - Private Methods
 
 - (void)setupNumberScale {
+    NSInteger index = 0;
+    NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
+    
     // Segmented Control
     [self.scaleChoices removeAllSegments];
     
-    for (int i = 0; i < [_question.answer.options count]; i++) {
-        ELAnswerOption *option = _question.answer.options[i];
+    if (_question.isNA) {
+        index = -1;
+        
+        [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A",
+                                                                         @"value": @(-1)} error:nil]];
+    }
+    
+    for (int i = 0; i < [mOptions count]; i++) {
+        ELAnswerOption *option = mOptions[i];
         
         [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
                                           atIndex:i
@@ -37,7 +47,7 @@
     }
     
     [self.scaleChoices setSelectedSegmentIndex:0];
-//    [self.scaleChoices setSelectedSegmentIndex:_question.isNA ? -1 : 0];
+//    [self.scaleChoices setSelectedSegmentIndex:index];
     
     // Text View
     self.textView.hidden = _question.answer.type != kELAnswerTypeOneToTenWithExplanation;

@@ -8,13 +8,13 @@
 
 #import <JSONModel/JSONModel.h>
 
+#import "ELModel.h"
 #import "ELQuestion.h"
 
 @protocol ELQuestion;
 
-@interface ELQuestionCategory : JSONModel
+@interface ELQuestionCategory : ELModel
 
-@property (nonatomic) int64_t objectId;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *shortDescription;
 @property (nonatomic) BOOL isSurvey;

@@ -8,9 +8,10 @@
 
 #import <JSONModel/JSONModel.h>
 
-@interface ELSurvey : JSONModel
+#import "ELModel.h"
 
-@property (nonatomic) int64_t objectId;
+@interface ELSurvey : ELModel
+
 @property (nonatomic) int64_t type;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *lang;

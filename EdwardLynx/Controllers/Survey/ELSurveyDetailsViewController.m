@@ -32,7 +32,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELDetailViewManager alloc] init];
+    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
     self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -94,7 +94,6 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
-    NSDictionary *responseDict;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     // Retrieve answer from question views
@@ -111,7 +110,10 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         [mAnswers addObject:[[cell questionView] formValues]];
     }
     
-    responseDict = @{@"key": @"", @"answers": [mAnswers copy]};
+    // TODO Handle validation and get value for `key`
+    
+//    [self.viewManager processSurveyAnswerSubmissionWithFormData:@{@"key": @"",
+//                                                                  @"answers": [mAnswers copy]}];
 }
 
 @end

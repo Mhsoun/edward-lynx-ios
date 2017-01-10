@@ -20,13 +20,14 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)init {
+- (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject {
     self = [super init];
     
     if (!self) {
         return nil;
     }
     
+    _detailObject = detailObject;
     __weak typeof(self) weakSelf = self;
     
     self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
@@ -46,8 +47,8 @@
 
 #pragma mark - Public Methods
 
-- (void)processAnswerSubmissionForSurveyId:(int64_t)surveyId withFormData:(NSDictionary *)formDict {
-    [[[ELSurveysAPIClient alloc] init] submitAnswerForSurveyWithId:surveyId
+- (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
+    [[[ELSurveysAPIClient alloc] init] submitAnswerForSurveyWithId:self.detailObject.objectId
                                                             params:formDict
                                                         completion:self.requestCompletionBlock];
 }
