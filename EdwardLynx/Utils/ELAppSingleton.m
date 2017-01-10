@@ -31,6 +31,7 @@
     }
     
     self.user = nil;
+    self.participants = nil;
     
     return self;
 }

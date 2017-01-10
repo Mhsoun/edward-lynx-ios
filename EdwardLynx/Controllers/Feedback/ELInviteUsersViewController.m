@@ -10,9 +10,9 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELFormViewHeight = 395;
-static NSString * const kELNoParticipantRole = @"No role selected";
+static CGFloat const kELFormViewHeight = 120;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
+static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 #pragma mark - Class Extension
 
@@ -21,7 +21,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
-@property (nonatomic, strong) NSMutableArray *mParticipants;
 
 @end
 
@@ -34,18 +33,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.roleLabel.text = kELNoParticipantRole;
-    self.mParticipants = [[NSMutableArray alloc] init];
+    self.evaluationLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
-    self.provider = [[ELDataProvider alloc] initWithDataArray:self.mParticipants];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].participants];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.dataSource dataSetEmptyText:@"No participant(s) added yet."
+    [self.dataSource dataSetEmptyText:@"No participants"
                           description:@""];
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
@@ -61,6 +59,9 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
+    
+    // Search Bar
+    [ELUtils styleSearchBar:self.searchBar];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -97,47 +98,11 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onRoleButtonClick:(id)sender {
-    // TODO Implementation
-}
-
-- (IBAction)onAddButtonClick:(id)sender {
-    BOOL isValid;
-    ELFormItemGroup *nameGroup,
-                    *emailGroup,
-                    *roleGroup;
-    
-    nameGroup = [[ELFormItemGroup alloc] initWithText:self.nameTextField.text
-                                                 icon:nil
-                                           errorLabel:self.nameErrorLabel];
-    emailGroup = [[ELFormItemGroup alloc] initWithText:self.emailTextField.text
-                                                     icon:nil
-                                               errorLabel:self.emailErrorLabel];
-    roleGroup = [[ELFormItemGroup alloc] initWithText:self.roleLabel.text
-                                                 icon:nil
-                                           errorLabel:self.roleErrorLabel];
-    isValid = [self.viewManager validateInstantFeedbackInviteUsersFormValues:@{@"name": nameGroup,
-                                                                               @"email": emailGroup,
-                                                                               @"role": roleGroup}];
-    
-    [[IQKeyboardManager sharedManager] resignFirstResponder];
-    
-    if (!isValid) {
-        return;
-    }
-    
-    // Update Users list
-    [self.mParticipants addObject:[[ELParticipant alloc] initWithDictionary:@{@"name": self.nameTextField.text,
-                                                                              @"email": self.emailTextField.text} error:nil]];
-    [self.dataSource updateTableViewData:self.mParticipants];
-    [self adjustScrollViewContentSize];
-}
-
 - (IBAction)onDoneButtonClick:(id)sender {
     NSDictionary *formDict;
     NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
     
-    for (ELParticipant *participant in self.mParticipants) {
+    for (ELParticipant *participant in [ELAppSingleton sharedInstance].participants) {
         [mParticipants addObject:[participant toDictionary]];
     }
     
