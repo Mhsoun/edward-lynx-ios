@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ar-v8-8lp" id="z93-6a-3vE">
-                <frame key="frameInset" width="375" height="99"/>
+                <frame key="frameInset" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBu-9M-WrE">
@@ -31,27 +32,27 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cg6-fh-BGT">
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="Cg6-fh-BGT" secondAttribute="height" multiplier="1:1" id="k5Q-ql-Nkx"/>
-                            <constraint firstAttribute="height" constant="30" id="lJf-Id-KwW"/>
-                        </constraints>
-                    </imageView>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAB-kt-cxK">
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cg6-fh-BGT">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Cg6-fh-BGT" secondAttribute="height" multiplier="1:1" id="k5Q-ql-Nkx"/>
+                            <constraint firstAttribute="height" constant="30" id="lJf-Id-KwW"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="leading" secondItem="TBu-9M-WrE" secondAttribute="leading" id="0Dd-3m-M10"/>
-                    <constraint firstItem="Cg6-fh-BGT" firstAttribute="leading" secondItem="TBu-9M-WrE" secondAttribute="trailing" constant="10" id="AC7-Dp-VEA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TBu-9M-WrE" secondAttribute="trailing" constant="20" id="5B0-Cm-BBg"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="trailing" secondItem="TBu-9M-WrE" secondAttribute="trailing" id="GwR-0f-wEb"/>
-                    <constraint firstAttribute="trailing" secondItem="Cg6-fh-BGT" secondAttribute="trailing" constant="10" id="JgY-1i-0Kg"/>
-                    <constraint firstItem="TBu-9M-WrE" firstAttribute="leading" secondItem="z93-6a-3vE" secondAttribute="leading" constant="10" id="OAj-32-LOR"/>
+                    <constraint firstAttribute="trailing" secondItem="Cg6-fh-BGT" secondAttribute="trailing" constant="20" id="JgY-1i-0Kg"/>
+                    <constraint firstItem="TBu-9M-WrE" firstAttribute="leading" secondItem="z93-6a-3vE" secondAttribute="leading" constant="20" id="OAj-32-LOR"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="top" secondItem="TBu-9M-WrE" secondAttribute="bottom" id="l8U-8Q-Tzv"/>
                     <constraint firstItem="TBu-9M-WrE" firstAttribute="centerY" secondItem="z93-6a-3vE" secondAttribute="centerY" multiplier="0.8" id="md3-go-kmq"/>
                     <constraint firstItem="Cg6-fh-BGT" firstAttribute="centerY" secondItem="z93-6a-3vE" secondAttribute="centerY" id="tIp-jv-qEt"/>
