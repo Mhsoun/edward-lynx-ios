@@ -10,4 +10,8 @@
 
 @implementation ELParticipant
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
 @end

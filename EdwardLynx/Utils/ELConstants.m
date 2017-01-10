@@ -55,6 +55,7 @@ NSString * const kELAPISurveyEndpoint = @"%@/surveys/%@";
 NSString * const kELAPISurveyAnswersEndpoint = @"%@/surveys/%@/answers";
 NSString * const kELAPISurveyQuestionsEndpoint = @"%@/surveys/%@/questions";
 NSString * const kELAPIUserEndpoint = @"%@/user";
+NSString * const kELAPIUsersEndpoint = @"%@/users?type=list";
 NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 #pragma mark - HTTP Methods
