@@ -14,7 +14,7 @@
 
 @interface ELAnswer : JSONModel
 
-@property (nonatomic) int64_t type;
+@property (nonatomic) kELAnswerType type;
 @property (nonatomic) NSString *shortDescription;
 @property (nonatomic) NSString *help;
 @property (nonatomic) BOOL isText;

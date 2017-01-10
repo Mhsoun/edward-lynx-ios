@@ -13,15 +13,16 @@
 #import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
 
-@interface ELTextFieldGroup ()
+@interface ELFormItemGroup ()
 
 @property (nonatomic, strong) __kindof UITextField *textField;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UILabel *errorLabel;
 
 @end
 
-@implementation ELTextFieldGroup
+@implementation ELFormItemGroup
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
                          icon:(UIImageView *)icon
@@ -39,8 +40,24 @@
     return self;
 }
 
+- (instancetype)initWithText:(NSString *)text
+                        icon:(UIImageView *)icon
+                  errorLabel:(UILabel *)errorLabel {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _text = text;
+    _icon = icon;
+    _errorLabel = errorLabel;
+    
+    return self;
+}
+
 - (NSString *)textValue {
-    return self.textField.text;
+    return !self.textField ? self.text : self.textField.text;
 }
 
 - (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors {
@@ -154,6 +171,34 @@
 
 #pragma mark - App-related Helper Methods
 
++ (kELAnswerType)answerTypeByLabel:(NSString *)label {
+    if ([label isEqualToString:@"Numeric 1-5 Scale"]) {
+        return kELAnswerTypeOneToFiveScale;
+    } else if ([label isEqualToString:@"Numeric 1-10 Scale"]) {
+        return kELAnswerTypeOneToTenScale;
+    } else if ([label isEqualToString:@"Agreement Scale"]) {
+        return kELAnswerTypeAgreeementScale;
+    } else if ([label isEqualToString:@"Yes/No Scale"]) {
+        return kELAnswerTypeYesNoScale;
+    } else if ([label isEqualToString:@"Strong Agreement Scale"]) {
+        return kELAnswerTypeStrongAgreeementScale;
+    } else if ([label isEqualToString:@"Text"]) {
+        return kELAnswerTypeText;
+    } else if ([label isEqualToString:@"Inverted Agreement Scale"]) {
+        return kELAnswerTypeInvertedAgreementScale;
+    } else if ([label isEqualToString:@"1-10 with explanation"]) {
+        return kELAnswerTypeOneToTenWithExplanation;
+    } else if ([label isEqualToString:@"Custom Scale"]) {
+        return kELAnswerTypeCustomScale;
+    } else {
+        return -1;
+    }
+}
+
++ (NSString *)labelByAnswerType:(kELAnswerType)type {
+    return [[self class] object:@"string" byAnswerType:type];
+}
+
 + (void)setupGlobalUIChanges {
     // UINavigationBar
     [[UINavigationBar appearance] setTranslucent:NO];
@@ -190,25 +235,38 @@
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
+    return [[self class] object:@"view" byAnswerType:type];
+}
+
++ (id)object:(NSString *)objectType byAnswerType:(kELAnswerType)type {
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
-            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Numeric 1-5 Scale" :
+                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeOneToTenScale:
-            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Numeric 1-10 Scale" :
+                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeAgreeementScale:
-            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Agreement Scale" :
+                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeYesNoScale:
-            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Yes/No Scale" :
+                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeStrongAgreeementScale:
-            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Strong Agreement Scale" :
+                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeText:
-            return [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Text" :
+                                                            [[ELQuestionTypeTextView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeInvertedAgreementScale:
-            return [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Inverted Agreement Scale" :
+                                                            [[ELQuestionTypeAgreementView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeOneToTenWithExplanation:
-            return nil;  // TEMP Should be view corresponding to answer type
+            return [objectType isEqualToString:@"string"] ? @"1-10 with explanation" :
+                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         case kELAnswerTypeCustomScale:
-            return [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
+            return [objectType isEqualToString:@"string"] ? @"Custom Scale" :
+                                                            [[ELQuestionTypeScaleView alloc] initWithFormKey:@"sample"];
         default:
             return nil;
     }

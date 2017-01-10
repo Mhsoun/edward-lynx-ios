@@ -18,10 +18,10 @@
             </subviews>
             <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="yZN-Va-x0Q" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="GnE-Df-OQN"/>
                 <constraint firstItem="yZN-Va-x0Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KcP-eF-Qt6"/>
+                <constraint firstItem="yZN-Va-x0Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TLD-vs-tAS"/>
                 <constraint firstItem="yZN-Va-x0Q" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="iLs-hO-DAZ"/>
-                <constraint firstItem="yZN-Va-x0Q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="w3l-6D-SqM"/>
+                <constraint firstAttribute="bottom" secondItem="yZN-Va-x0Q" secondAttribute="bottom" id="z9o-WL-YFA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

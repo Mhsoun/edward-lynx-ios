@@ -25,16 +25,6 @@ NSString * const kELLogoutAlertMessage = @"Logging out will require the app for 
 
 #pragma mark - Constants
 
-NSString * const kELAnswerTypeLabelOneToFiveScale = @"Numeric 1-5 Scale";
-NSString * const kELAnswerTypeLabelOneToTenScale = @"Numeric 1-10 Scale";
-NSString * const kELAnswerTypeLabelAgreeementScale = @"Agreement Scale";
-NSString * const kELAnswerTypeLabelYesNoScale = @"Yes/No Scale";
-NSString * const kELAnswerTypeLabelStrongAgreeementScale = @"Strong Agreement Scale";
-NSString * const kELAnswerTypeLabelText = @"Text";
-NSString * const kELAnswerTypeLabelInvertedAgreementScale = @"Inverted Agreement Scale";
-NSString * const kELAnswerTypeLabelOneToTenWithExplanation = @"1-10 with explanation";
-NSString * const kELAnswerTypeLabelCustomScale = @"Custom Scale";
-
 NSString * const kELErrorDomain = @"com.ingenuitymobile.EdwardLynx.error";
 
 NSString * const kELFabricEmail = @"FabricEmail";

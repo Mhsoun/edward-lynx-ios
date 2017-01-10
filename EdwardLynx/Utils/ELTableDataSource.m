@@ -52,6 +52,12 @@
     self.emptyDescription = description.length == 0 ? self.emptyDescription : description;
 }
 
+- (void)updateTableViewData:(__kindof NSArray *)dataArray {
+    self.dataProvider = [[ELDataProvider alloc] initWithDataArray:dataArray];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -82,7 +88,7 @@
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = self.emptyText;
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18],
-                                 NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELVioletColor]};
+                                 NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELWhiteColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -94,10 +100,9 @@
     
     paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    
+    paragraph.alignment = NSTextAlignmentCenter;    
     attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
-                   NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELLightVioletColor],
+                   NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELWhiteColor],
                    NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];

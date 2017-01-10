@@ -17,11 +17,15 @@
 
 @class ELBaseQuestionTypeView;
 
-@interface ELTextFieldGroup : NSObject
+@interface ELFormItemGroup : NSObject
 
 - (instancetype)initWithField:(__kindof UITextField *)textField
                          icon:(UIImageView *)icon
                    errorLabel:(UILabel *)errorLabel;
+
+- (instancetype)initWithText:(NSString *)text
+                        icon:(UIImageView *)icon
+                  errorLabel:(UILabel *)errorLabel;
 
 - (NSString *)textValue;
 - (void)toggleValidationIndicatorsBasedOnErrors:(NSArray *)errors;
@@ -45,6 +49,8 @@
 + (void)setupFabric;
 + (void)setupIQKeyboardManager;
 
++ (kELAnswerType)answerTypeByLabel:(NSString *)label;
++ (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (void)setupGlobalUIChanges;
 + (void)styleSearchBar:(UISearchBar *)searchBar;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;

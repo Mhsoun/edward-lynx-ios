@@ -11,6 +11,8 @@
 @interface ELSurveysAPIClient : ELAPIClient
 
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)createInstantFeedbackWithParams:(NSDictionary *)params
+                             completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)userSurveyForId:(int64_t)surveyId
