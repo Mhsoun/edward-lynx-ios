@@ -13,5 +13,6 @@
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
 - (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId;
+- (void)processAnswerSubmissionForSurveyId:(int64_t)surveyId withFormData:(NSDictionary *)formDict;
 
 @end

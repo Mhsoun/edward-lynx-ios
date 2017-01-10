@@ -44,6 +44,14 @@
     return self;
 }
 
+#pragma mark - Public Methods
+
+- (void)processAnswerSubmissionForSurveyId:(int64_t)surveyId withFormData:(NSDictionary *)formDict {
+    [[[ELSurveysAPIClient alloc] init] submitAnswerForSurveyWithId:surveyId
+                                                            params:formDict
+                                                        completion:self.requestCompletionBlock];
+}
+
 - (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
     [[[ELSurveysAPIClient alloc] init] userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
 }
