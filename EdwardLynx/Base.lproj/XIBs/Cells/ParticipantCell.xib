@@ -50,8 +50,8 @@
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="leading" secondItem="TBu-9M-WrE" secondAttribute="leading" id="0Dd-3m-M10"/>
                     <constraint firstItem="Cg6-fh-BGT" firstAttribute="leading" secondItem="TBu-9M-WrE" secondAttribute="trailing" constant="10" id="AC7-Dp-VEA"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="trailing" secondItem="TBu-9M-WrE" secondAttribute="trailing" id="GwR-0f-wEb"/>
-                    <constraint firstAttribute="trailing" secondItem="Cg6-fh-BGT" secondAttribute="trailing" id="JgY-1i-0Kg"/>
-                    <constraint firstItem="TBu-9M-WrE" firstAttribute="leading" secondItem="z93-6a-3vE" secondAttribute="leading" id="OAj-32-LOR"/>
+                    <constraint firstAttribute="trailing" secondItem="Cg6-fh-BGT" secondAttribute="trailing" constant="10" id="JgY-1i-0Kg"/>
+                    <constraint firstItem="TBu-9M-WrE" firstAttribute="leading" secondItem="z93-6a-3vE" secondAttribute="leading" constant="10" id="OAj-32-LOR"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="top" secondItem="TBu-9M-WrE" secondAttribute="bottom" id="l8U-8Q-Tzv"/>
                     <constraint firstItem="TBu-9M-WrE" firstAttribute="centerY" secondItem="z93-6a-3vE" secondAttribute="centerY" multiplier="0.8" id="md3-go-kmq"/>
                     <constraint firstItem="Cg6-fh-BGT" firstAttribute="centerY" secondItem="z93-6a-3vE" secondAttribute="centerY" id="tIp-jv-qEt"/>

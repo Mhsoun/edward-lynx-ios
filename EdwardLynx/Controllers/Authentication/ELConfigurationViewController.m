@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kIAPICCallsNumber = 1;
+static NSInteger const kIAPICCallsNumber = 2;
 
 #pragma mark - Class Extension
 
@@ -82,6 +82,10 @@ static NSInteger const kIAPICCallsNumber = 1;
             [self fetchUserProfileFromAPIWithCompletion:self.apiCallBlock];
             
             break;
+        case 2:
+            [self fetchUsersFromAPIWithCompletion:self.apiCallBlock];
+            
+            break;
         default:
             break;
     }
@@ -95,6 +99,20 @@ static NSInteger const kIAPICCallsNumber = 1;
             
             completion();
         });
+    }];
+}
+
+- (void)fetchUsersFromAPIWithCompletion:(void (^)())completion {
+    [[[ELUsersAPIClient alloc] init] retrieveUsersWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *participantDict in responseDict[@"items"]) {
+            [mParticipants addObject:[[ELParticipant alloc] initWithDictionary:participantDict error:nil]];
+        }
+        
+        [ELAppSingleton sharedInstance].participants = [mParticipants copy];
+        
+        completion();
     }];
 }
 

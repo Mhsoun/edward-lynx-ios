@@ -86,6 +86,7 @@ extern NSString * const kELAPISurveyEndpoint;
 extern NSString * const kELAPISurveyAnswersEndpoint;
 extern NSString * const kELAPISurveyQuestionsEndpoint;
 extern NSString * const kELAPIUserEndpoint;
+extern NSString * const kELAPIUsersEndpoint;
 extern NSString * const kELAPILoginEndpoint;
 
 #pragma mark - HTTP Methods

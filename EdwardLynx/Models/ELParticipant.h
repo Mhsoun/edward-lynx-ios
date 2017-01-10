@@ -8,7 +8,9 @@
 
 #import <JSONModel/JSONModel.h>
 
-@interface ELParticipant : JSONModel
+#import "ELModel.h"
+
+@interface ELParticipant : ELModel
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
