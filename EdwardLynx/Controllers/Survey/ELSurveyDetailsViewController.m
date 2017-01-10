@@ -74,7 +74,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSMutableArray *mData = [[NSMutableArray alloc] init];
-        
+    
     for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
         [mData addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
     }
@@ -111,7 +111,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         [mAnswers addObject:[[cell questionView] formValues]];
     }
     
-    responseDict = @{@"key": @"", @"answers": [mAnswers copy]};    
+    responseDict = @{@"key": @"", @"answers": [mAnswers copy]};
 }
 
 @end

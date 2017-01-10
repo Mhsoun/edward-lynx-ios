@@ -24,7 +24,7 @@
 
 - (NSDictionary *)formValues {
     return @{@"question": @(self.question.objectId),
-             @"answer": self.textView.text};
+             @"answer": self.question.isNA ? @(-1) : self.textView.text};
 }
 
 @end

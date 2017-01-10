@@ -37,6 +37,7 @@
     }
     
     [self.scaleChoices setSelectedSegmentIndex:0];
+//    [self.scaleChoices setSelectedSegmentIndex:_question.isNA ? -1 : 0];
     
     // Text View
     self.textView.hidden = _question.answer.type != kELAnswerTypeOneToTenWithExplanation;
@@ -45,8 +46,16 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
+    ELAnswerOption *option;
+    int64_t value = -1;
+    
+    if (!_question.isNA) {
+        option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
+        value = option.value;
+    }
+    
     return @{@"question": @(_question.objectId),
-             @"answer": [self.scaleChoices titleForSegmentAtIndex:self.scaleChoices.selectedSegmentIndex]};
+             @"answer": @(value)};
 }
 
 - (ELQuestion *)question {

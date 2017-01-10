@@ -33,8 +33,10 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
+    ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
+    
     return @{@"question": @(_question.objectId),
-             @"answer": _question.answer.options[[self.pickerView selectedRowInComponent:0]]};
+             @"answer": _question.isNA ? @(-1) : @(option.value)};
 }
 
 #pragma mark - Getter/Setter Methods
