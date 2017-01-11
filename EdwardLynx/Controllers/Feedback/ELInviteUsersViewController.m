@@ -33,9 +33,12 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.searchBar.delegate = self;
     self.evaluationLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
+    
     self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].participants];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
@@ -59,6 +62,21 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSMutableArray *mParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
+    NSString *condition = @"SELF.name CONTAINS [cd]%@ || SELF.email CONTAINS [cd]%@";
+    
+    if (searchText.length > 0) {
+        [mParticipants filterUsingPredicate:[NSPredicate predicateWithFormat:condition,
+                                             searchText,
+                                             searchText]];
+    }
+    
+    [self.dataSource updateTableViewData:[mParticipants copy]];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
