@@ -245,7 +245,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Participants" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F">
+                                                    <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Participants" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F" customClass="ELSearchBar">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Wxx-A6-SDD"/>

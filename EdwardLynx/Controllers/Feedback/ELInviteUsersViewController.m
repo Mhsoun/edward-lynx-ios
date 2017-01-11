@@ -60,9 +60,6 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
-    
-    // Search Bar
-    [ELUtils styleSearchBar:self.searchBar];
 }
 
 #pragma mark - Protocol Methods (UITableView)
