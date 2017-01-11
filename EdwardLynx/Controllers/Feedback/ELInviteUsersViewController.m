@@ -21,6 +21,7 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+@property (nonatomic, strong) NSMutableArray *mParticipants;
 
 @end
 
@@ -33,13 +34,19 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.searchBar.delegate = self;
+    self.mParticipants = [[NSMutableArray alloc] init];
     self.evaluationLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
+    
     self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].participants];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -59,6 +66,56 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSMutableArray *mParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
+    NSString *condition = @"SELF.name CONTAINS [cd]%@ || SELF.email CONTAINS [cd]%@";
+    
+    if (searchText.length > 0) {
+        [mParticipants filterUsingPredicate:[NSPredicate predicateWithFormat:condition,
+                                             searchText,
+                                             searchText]];
+    }
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mParticipants copy]];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.provider numberOfRows];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    
+    [cell configure:[self.provider objectAtIndexPath:indexPath] atIndexPath:indexPath];
+    
+    // Toggle selected state
+    if ([cell.participant.isSelected boolValue]) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        
+        if (![self.mParticipants containsObject:[cell.participant toDictionary]]) {
+            [self.mParticipants addObject:[cell.participant toDictionary]];
+        }
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [self.mParticipants removeObject:[cell.participant toDictionary]];
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [cell handleObject:[self.provider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -97,13 +154,8 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 - (IBAction)onDoneButtonClick:(id)sender {
     NSDictionary *formDict;
-    NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
     
-    for (NSIndexPath *indexPath in [self.tableView indexPathsForSelectedRows]) {
-        ELParticipant *participant = [ELAppSingleton sharedInstance].participants[indexPath.row];
-        
-        [mParticipants addObject:[participant toDictionary]];
-    }
+    return;  // TEMP
     
     // TEMP Form data
     formDict = @{@"name": @"",
@@ -119,7 +171,7 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
                                    @"isNA": @NO,
                                    @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]]),
                                                 @"options": @[]}}],
-                 @"recipients": [mParticipants copy]};
+                 @"recipients": [self.mParticipants copy]};
 }
 
 @end

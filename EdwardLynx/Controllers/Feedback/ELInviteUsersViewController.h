@@ -10,9 +10,10 @@
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
 #import "ELParticipant.h"
+#import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
 
-@interface ELInviteUsersViewController : ELBaseViewController<ELAPIResponseDelegate>
+@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 
