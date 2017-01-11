@@ -52,7 +52,6 @@
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (void)setupGlobalUIChanges;
-+ (void)styleSearchBar:(UISearchBar *)searchBar;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;
 
 @end

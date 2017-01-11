@@ -77,9 +77,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     [cell handleObject:[self.dataProvider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [cell handleObject:[self.dataProvider objectAtIndexPath:indexPath] deselectionActionAtIndexPath:indexPath];
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)

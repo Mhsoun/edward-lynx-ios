@@ -47,13 +47,6 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    // Search Bar
-    [ELUtils styleSearchBar:self.searchBar];
-}
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

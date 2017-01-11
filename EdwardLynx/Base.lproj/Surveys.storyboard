@@ -29,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz">
+                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IbC-0c-RET"/>

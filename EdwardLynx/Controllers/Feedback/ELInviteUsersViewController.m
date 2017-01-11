@@ -59,9 +59,6 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
-    
-    // Search Bar
-    [ELUtils styleSearchBar:self.searchBar];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -102,7 +99,9 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     NSDictionary *formDict;
     NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
     
-    for (ELParticipant *participant in [ELAppSingleton sharedInstance].participants) {
+    for (NSIndexPath *indexPath in [self.tableView indexPathsForSelectedRows]) {
+        ELParticipant *participant = [ELAppSingleton sharedInstance].participants[indexPath.row];
+        
         [mParticipants addObject:[participant toDictionary]];
     }
     

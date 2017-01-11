@@ -212,28 +212,6 @@
                                           barMetrics:UIBarMetricsDefault];
 }
 
-+ (void)styleSearchBar:(UISearchBar *)searchBar {
-    searchBar.tintColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
-    
-    // Text Field
-    UITextField *searchTextField = [searchBar valueForKey:@"_searchField"];
-    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:16];
-    
-    [searchTextField setFont:font];
-    [searchTextField setTextColor:[UIColor whiteColor]];
-    [searchTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [searchTextField setMinimumFontSize:12];
-    [searchTextField setBounds:CGRectMake(0, 0, CGRectGetWidth(searchTextField.frame), 40)];
-    
-    // Cancel Button
-    id barButtonAppearanceInSearchBar = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]];
-    
-    [barButtonAppearanceInSearchBar setTitle:@"Cancel"];
-    [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName: font,
-                                                             NSForegroundColorAttributeName: [UIColor whiteColor]}
-                                                  forState:UIControlStateNormal];
-}
-
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"view" byAnswerType:type];
 }

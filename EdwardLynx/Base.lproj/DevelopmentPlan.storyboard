@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-tl-C2i">
+                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-tl-C2i" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HFA-ci-HuF"/>
@@ -124,7 +124,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G5J-N5-rFW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4fG-mj-QL5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4fG-mj-QL5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

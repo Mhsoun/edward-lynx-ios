@@ -71,6 +71,7 @@
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
+		A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AC0EA21E25AEC700137975 /* ELSearchBar.m */; };
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
 		A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */; };
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
@@ -220,6 +221,8 @@
 		A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveysAPIClient.m; sourceTree = "<group>"; };
 		A9A4DF891DFEB45F00CC4FAA /* ELQuestionsAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionsAPIClient.h; sourceTree = "<group>"; };
 		A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionsAPIClient.m; sourceTree = "<group>"; };
+		A9AC0EA11E25AEC700137975 /* ELSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearchBar.h; sourceTree = "<group>"; };
+		A9AC0EA21E25AEC700137975 /* ELSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearchBar.m; sourceTree = "<group>"; };
 		A9B36AA71DFE54A300599909 /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
 		A9B36AA81DFE54A300599909 /* ELUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUtils.m; sourceTree = "<group>"; };
 		A9B36AAA1DFE5E4F00599909 /* ELLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLoginViewController.h; sourceTree = "<group>"; };
@@ -366,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				A9121AA51E07B86700ED9934 /* Cells */,
+				A9AC0EA01E25AEB200137975 /* Others */,
 				A9121AA41E07B80B00ED9934 /* Views */,
 			);
 			path = Subclasses;
@@ -592,6 +596,15 @@
 				A90160071E1C99C6005A8E61 /* ELListViewManager.m */,
 			);
 			path = ViewManagers;
+			sourceTree = "<group>";
+		};
+		A9AC0EA01E25AEB200137975 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC0EA11E25AEC700137975 /* ELSearchBar.h */,
+				A9AC0EA21E25AEC700137975 /* ELSearchBar.m */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		A9B36AAD1DFE746700599909 /* API */ = {
@@ -961,6 +974,7 @@
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */,
 				A9C95A081E1F939F00184223 /* ELInviteUsersViewController.m in Sources */,
+				A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A94821A51E233885008B738A /* ELParticipantTableViewCell.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
