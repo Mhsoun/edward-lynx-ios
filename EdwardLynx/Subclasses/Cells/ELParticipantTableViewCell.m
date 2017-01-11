@@ -26,16 +26,13 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELParticipant *participant = (ELParticipant *)object;
     
+    self.participant = participant;
     self.nameLabel.text = participant.name;
     self.emailLabel.text = participant.email;
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    self.accessoryType = UITableViewCellAccessoryCheckmark;
-}
-
-- (void)handleObject:(id)object deselectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    self.accessoryType = UITableViewCellAccessoryNone;
+    self.participant.isSelected = [self.participant.isSelected isEqual:@1] ? @0 : @1;
 }
 
 @end
