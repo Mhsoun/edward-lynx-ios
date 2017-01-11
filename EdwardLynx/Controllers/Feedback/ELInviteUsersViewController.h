@@ -12,7 +12,7 @@
 #import "ELParticipant.h"
 #import "ELTableDataSource.h"
 
-@interface ELInviteUsersViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELInviteUsersViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 

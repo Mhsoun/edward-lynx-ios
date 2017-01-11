@@ -6,8 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ELSearchBar : UISearchBar
 
 @end

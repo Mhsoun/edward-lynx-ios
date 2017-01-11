@@ -31,7 +31,11 @@
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    //
+    self.accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+- (void)handleObject:(id)object deselectionActionAtIndexPath:(NSIndexPath *)indexPath {
+    self.accessoryType = UITableViewCellAccessoryNone;
 }
 
 @end

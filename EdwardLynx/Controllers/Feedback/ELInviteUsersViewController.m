@@ -40,7 +40,6 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
-    self.tableView.delegate = self;
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -60,20 +59,6 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
-}
-
-#pragma mark - Protocol Methods (UITableView)
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)

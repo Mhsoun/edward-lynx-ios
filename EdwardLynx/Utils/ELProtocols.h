@@ -47,6 +47,8 @@
 @protocol ELRowHandlerDelegate <NSObject>
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath;
+@optional
+- (void)handleObject:(id)object deselectionActionAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
