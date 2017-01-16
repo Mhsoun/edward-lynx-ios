@@ -10,6 +10,18 @@
 
 @implementation ELSurveysAPIClient
 
+- (void)currentUserInstantFeedbacksWithFilter:(NSString *)filter
+                                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIGetHTTPMethod
+                                        queryParams:@{@"filter": filter}];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];

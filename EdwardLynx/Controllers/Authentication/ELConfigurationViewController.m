@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kIAPICCallsNumber = 2;
+static NSInteger const kIAPICCallsNumber = 3;
 
 #pragma mark - Class Extension
 
@@ -86,9 +86,28 @@ static NSInteger const kIAPICCallsNumber = 2;
             [self fetchUsersFromAPIWithCompletion:self.apiCallBlock];
             
             break;
+        case 3:
+            [self fetchUserInstantFeedbacksFromAPIWithCompletion:self.apiCallBlock];
+            
+            break;
         default:
             break;
     }
+}
+
+- (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)())completion {
+    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                                                  completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
+                [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+            }
+            
+            [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+        });
+    }];
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)())completion {

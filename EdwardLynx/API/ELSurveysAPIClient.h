@@ -10,6 +10,8 @@
 
 @interface ELSurveysAPIClient : ELAPIClient
 
+- (void)currentUserInstantFeedbacksWithFilter:(NSString *)filter
+                                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)createInstantFeedbackWithParams:(NSDictionary *)params
                              completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
