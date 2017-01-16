@@ -52,11 +52,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
-    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
-                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
-                             @(kELAnswerTypeInvertedAgreementScale)];
     
-    return [answerTypes containsObject:@(question.answer.type)] ? 150 : 100;
+    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 150 : 100;
 }
 
 #pragma mark - Protocol Methods (ELAPIResponseDelegate)

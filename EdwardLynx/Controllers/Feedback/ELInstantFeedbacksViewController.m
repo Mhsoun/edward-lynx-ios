@@ -16,6 +16,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 
 @interface ELInstantFeedbacksViewController ()
 
+@property (nonatomic, strong) ELInstantFeedback *selectedFeedback;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELInstantFeedback *> *provider;
 
@@ -34,6 +35,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -43,20 +45,19 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"AnswerInstantFeedback"]) {
+        ELAnswerInstantFeedbackViewController *controller = (ELAnswerInstantFeedbackViewController *)[segue destinationViewController];
+        controller.feedback = self.selectedFeedback;
+    }
 }
-*/
 
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ELAppSingleton sharedInstance].instantFeedbacks.count;
+    return [self.provider numberOfRows];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,6 +71,12 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     cell.detailTextLabel.text = [ELUtils labelByAnswerType:question.answer.type];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
+    
+    [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
 }
 
 @end

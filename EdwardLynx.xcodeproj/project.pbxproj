@@ -78,6 +78,7 @@
 		A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */; };
 		A9BF26811E2D3AA700F42859 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */; };
 		A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */; };
+		A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */; };
 		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 		A9C95A051E1F701A00184223 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C95A041E1F701A00184223 /* ELConfigurationViewController.m */; };
 		A9C95A081E1F939F00184223 /* ELInviteUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C95A071E1F939F00184223 /* ELInviteUsersViewController.m */; };
@@ -237,6 +238,8 @@
 		A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbacksViewController.h; sourceTree = "<group>"; };
 		A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbacksViewController.m; sourceTree = "<group>"; };
 		A9BF26831E2D3BFC00F42859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InstantFeedback.storyboard; sourceTree = "<group>"; };
+		A9BF26851E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerInstantFeedbackViewController.h; sourceTree = "<group>"; };
+		A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerInstantFeedbackViewController.m; sourceTree = "<group>"; };
 		A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 		A9C95A031E1F701A00184223 /* ELConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELConfigurationViewController.h; sourceTree = "<group>"; };
@@ -688,6 +691,8 @@
 		A9E53D591E1B6C3400E9BB3C /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
+				A9BF26851E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.h */,
+				A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */,
 				A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */,
 				A9E53D5B1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m */,
 				A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */,
@@ -951,6 +956,7 @@
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
+				A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
 				A9E53D631E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,

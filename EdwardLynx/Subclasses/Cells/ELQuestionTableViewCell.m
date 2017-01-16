@@ -24,14 +24,10 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    BOOL toExpand;
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
-    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
-                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
-                             @(kELAnswerTypeInvertedAgreementScale)];
+    BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
-    toExpand = [answerTypes containsObject:@(question.answer.type)];
     questionView = [ELUtils viewByAnswerType:question.answer.type];
     questionView.question = question;
     
