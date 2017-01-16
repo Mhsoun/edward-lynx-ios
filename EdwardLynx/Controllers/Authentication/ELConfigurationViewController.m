@@ -98,15 +98,15 @@ static NSInteger const kIAPICCallsNumber = 3;
 - (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)())completion {
     [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
                                                                   completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
-                [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
-            }
-            
-            [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
-        });
+        NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
+            [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+        }
+        
+        [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+        
+        completion();
     }];
 }
 

@@ -1,5 +1,5 @@
 //
-//  ELInstantFeedbackViewController.h
+//  ELCreateInstantFeedbackViewController.h
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 03/01/2017.
@@ -10,7 +10,7 @@
 #import "ELFeedbackViewManager.h"
 #import "ELInviteUsersViewController.h"
 
-@interface ELInstantFeedbackViewController : ELBaseViewController
+@interface ELCreateInstantFeedbackViewController : ELBaseViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *questionTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *questionTypeButton;
