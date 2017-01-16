@@ -21,8 +21,10 @@
 
 - (void)createInstantFeedbackWithParams:(NSDictionary *)params
                              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
-    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIPostHTTPMethod];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
     
     [self performAuthenticatedTask:YES
                        withRequest:request

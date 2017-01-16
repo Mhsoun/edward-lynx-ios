@@ -46,6 +46,7 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
+NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/question_categories";
 NSString * const kELAPIQuestionCategoryEndpoint = @"%@/question_categories/%@";
 NSString * const kELAPIQuestionsEndpoint = @"%@/questions";

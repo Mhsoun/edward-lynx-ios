@@ -77,6 +77,7 @@ extern NSString * const kELUserRoleSupervisor;
 
 extern NSString * const kELAPIVersionNamespace;
 extern NSString * const kELAPIRootEndpoint;
+extern NSString * const kELAPIInstantFeedbackEndpoint;
 extern NSString * const kELAPIQuestionCategoriesEndpoint;
 extern NSString * const kELAPIQuestionCategoryEndpoint;
 extern NSString * const kELAPIQuestionsEndpoint;
