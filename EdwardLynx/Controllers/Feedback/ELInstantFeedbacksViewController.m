@@ -16,7 +16,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 
 @interface ELInstantFeedbacksViewController ()
 
-@property (nonatomic, strong) ELInstantFeedback *selectedFeedback;
+@property (nonatomic, strong) ELInstantFeedback *selectedInstantFeedback;
 @property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELInstantFeedback *> *provider;
@@ -59,7 +59,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AnswerInstantFeedback"]) {
         ELAnswerInstantFeedbackViewController *controller = (ELAnswerInstantFeedbackViewController *)[segue destinationViewController];
-        controller.feedback = self.selectedFeedback;
+        controller.instantFeedback = self.selectedInstantFeedback;
     }
 }
 
@@ -83,7 +83,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
+    self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
     
     [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
 }
@@ -116,11 +116,10 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
+    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks" description:@""];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView reloadData];
-    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks"
-                          description:@""];
 }
 
 @end

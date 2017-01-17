@@ -44,7 +44,7 @@
     // Update Instant Feedback list
     NSMutableArray *mInstantFeedbacks = [[ELAppSingleton sharedInstance].instantFeedbacks mutableCopy];
     
-    [mInstantFeedbacks removeObject:self.feedback];
+    [mInstantFeedbacks removeObject:self.instantFeedback];
     
     [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
     
@@ -55,7 +55,7 @@
 
 - (void)layoutPage {
     __kindof ELBaseQuestionTypeView *questionView;
-    ELQuestion *question = self.feedback.question;
+    ELQuestion *question = self.instantFeedback.question;
     BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
@@ -78,10 +78,10 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
-    NSDictionary *formDict = @{@"key": self.feedback.key,
+    NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
     
-    [self.viewManager processInstantFeedbackAnswerSubmissionAtId:self.feedback.objectId
+    [self.viewManager processInstantFeedbackAnswerSubmissionAtId:self.instantFeedback.objectId
                                                     withFormData:formDict];
 }
 

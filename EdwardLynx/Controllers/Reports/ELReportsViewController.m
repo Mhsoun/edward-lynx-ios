@@ -16,6 +16,7 @@ static NSString * const kELCellIdentifier = @"ReportCell";
 
 @interface ELReportsViewController ()
 
+@property (nonatomic, strong) ELInstantFeedback *selectedInstantFeedback;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELDataProvider<NSString *> *provider;
@@ -45,7 +46,10 @@ static NSString * const kELCellIdentifier = @"ReportCell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //
+    if ([segue.identifier isEqualToString:@"ReportDetails"]) {
+        ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
+        controller.instantFeedback = self.selectedInstantFeedback;
+    }
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -68,9 +72,9 @@ static NSString * const kELCellIdentifier = @"ReportCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    self.selectedFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
+    self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
     
-//    [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
+    [self performSegueWithIdentifier:@"ReportDetails" sender:self];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)

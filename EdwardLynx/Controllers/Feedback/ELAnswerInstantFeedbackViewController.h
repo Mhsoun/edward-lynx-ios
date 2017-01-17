@@ -14,7 +14,7 @@
 
 @interface ELAnswerInstantFeedbackViewController : ELBaseViewController<ELAPIResponseDelegate>
 
-@property (nonatomic, strong) ELInstantFeedback *feedback;
+@property (nonatomic, strong) ELInstantFeedback *instantFeedback;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;

@@ -28,6 +28,7 @@
 		A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15941E03C96100CAEC43 /* ELActionView.m */; };
 		A91BF5951E2DFBA200F203A2 /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91BF5931E2DFBA200F203A2 /* Reports.storyboard */; };
 		A91BF5991E2DFBEB00F203A2 /* ELReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */; };
+		A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */; };
 		A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9214DC61E08D80B0021EA5E /* Profile.storyboard */; };
 		A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */; };
 		A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */; };
@@ -153,6 +154,8 @@
 		A91BF5941E2DFBA200F203A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Reports.storyboard; sourceTree = "<group>"; };
 		A91BF5971E2DFBEB00F203A2 /* ELReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportsViewController.h; sourceTree = "<group>"; };
 		A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportsViewController.m; sourceTree = "<group>"; };
+		A91BF59A1E2E1F2400F203A2 /* ELReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportDetailsViewController.h; sourceTree = "<group>"; };
+		A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportDetailsViewController.m; sourceTree = "<group>"; };
 		A9214DC71E08D80B0021EA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELProfileViewController.h; sourceTree = "<group>"; };
 		A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELProfileViewController.m; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 		A91BF5961E2DFBDC00F203A2 /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				A91BF59A1E2E1F2400F203A2 /* ELReportDetailsViewController.h */,
+				A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */,
 				A91BF5971E2DFBEB00F203A2 /* ELReportsViewController.h */,
 				A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */,
 			);
@@ -971,6 +976,7 @@
 				A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */,
 				A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
+				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */,

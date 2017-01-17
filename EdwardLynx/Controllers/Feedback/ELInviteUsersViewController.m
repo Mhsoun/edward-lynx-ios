@@ -162,7 +162,7 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     formDict = @{@"lang": @"en",
                  @"anonymous": self.instantFeedbackDict[@"anonymous"],
                  @"questions": @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
-                                   @"isNA": @NO,
+                                   @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
                                    @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]])}}],
                  @"recipients": [self.mParticipants copy]};
     

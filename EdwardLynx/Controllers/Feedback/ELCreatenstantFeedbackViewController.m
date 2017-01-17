@@ -100,7 +100,8 @@ static NSString * const kELNoQuestionType = @"No type selected";
                                                errorLabel:self.questionErrorLabel];
     self.instantFeedbackDict = @{@"type": typeGroup,
                                  @"question": questionGroup,
-                                 @"anonymous": @(self.isAnonymousSwitch.on)};
+                                 @"anonymous": @(self.isAnonymousSwitch.on),
+                                 @"isNA": @(self.isNASwitch.on)};
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.instantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];

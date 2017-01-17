@@ -10,6 +10,7 @@
 #import "ELDataProvider.h"
 #import "ELListViewManager.h"
 #import "ELQuestion.h"
+#import "ELReportDetailsViewController.h"
 #import "ELTableDataSource.h"
 
 @interface ELReportsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>

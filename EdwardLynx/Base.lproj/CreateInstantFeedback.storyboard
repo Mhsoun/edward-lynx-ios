@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--CREATE FEEDBACK-->
+        <!--CREATE INSTANT FEEDBACK-->
         <scene sceneID="brb-OX-bKd">
             <objects>
                 <viewController id="RPK-Zk-nOa" customClass="ELCreateInstantFeedbackViewController" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question Type" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-Tr-b41">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Type" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-Tr-b41">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="woU-W1-US1"/>
@@ -127,6 +127,12 @@
                                 </constraints>
                                 <color key="onTintColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is N/A" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tgA-52-d0c">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-w3-2iZ">
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.60392156862745094" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -153,6 +159,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDv-e7-VtE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="HGF-Pz-ghe"/>
+                                    <constraint firstAttribute="height" constant="30" id="bMx-tA-VwP"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,17 +177,21 @@
                             <constraint firstItem="xiY-zR-h5U" firstAttribute="trailing" secondItem="BvV-Tr-b41" secondAttribute="trailing" id="6yo-sl-lMI"/>
                             <constraint firstItem="FvS-CB-0xv" firstAttribute="trailing" secondItem="LqK-pq-nP3" secondAttribute="trailing" id="8BW-wN-08x"/>
                             <constraint firstItem="Wtl-d7-0wX" firstAttribute="leading" secondItem="BvV-Tr-b41" secondAttribute="leading" id="9Ej-3X-5gT"/>
+                            <constraint firstItem="wDv-e7-VtE" firstAttribute="centerY" secondItem="tgA-52-d0c" secondAttribute="centerY" id="AOW-1J-qsX"/>
                             <constraint firstItem="Wtl-d7-0wX" firstAttribute="top" secondItem="xiY-zR-h5U" secondAttribute="top" id="Dww-6Z-r5h"/>
+                            <constraint firstItem="wDv-e7-VtE" firstAttribute="top" secondItem="Q3M-IP-237" secondAttribute="bottom" constant="10" id="FGC-vq-ANy"/>
                             <constraint firstItem="5l6-Qq-Lzo" firstAttribute="trailing" secondItem="pl3-u0-15y" secondAttribute="trailingMargin" id="GPI-oh-hdK"/>
-                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="WO5-DV-VLL" secondAttribute="bottom" constant="20" id="Iag-1s-yEw"/>
+                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="WO5-DV-VLL" secondAttribute="bottom" constant="100" id="Iag-1s-yEw"/>
                             <constraint firstItem="Q3M-IP-237" firstAttribute="centerY" secondItem="WO5-DV-VLL" secondAttribute="centerY" id="MYQ-R5-TEA"/>
                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="trailing" secondItem="Q3M-IP-237" secondAttribute="trailing" id="NNo-41-8dV"/>
                             <constraint firstItem="Wtl-d7-0wX" firstAttribute="height" secondItem="xiY-zR-h5U" secondAttribute="height" id="PLd-1a-ISh"/>
                             <constraint firstItem="BvV-Tr-b41" firstAttribute="leading" secondItem="pl3-u0-15y" secondAttribute="leadingMargin" id="PwF-Oz-L2s"/>
+                            <constraint firstItem="wDv-e7-VtE" firstAttribute="leading" secondItem="tgA-52-d0c" secondAttribute="trailing" constant="10" id="RLq-cL-4HR"/>
                             <constraint firstItem="WO5-DV-VLL" firstAttribute="leading" secondItem="LqK-pq-nP3" secondAttribute="leading" id="Rc0-hA-bmQ"/>
                             <constraint firstItem="xiY-zR-h5U" firstAttribute="leading" secondItem="Wtl-d7-0wX" secondAttribute="trailing" constant="5" id="Ujq-qc-9NL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zuK-hV-1Mv" secondAttribute="trailing" id="Xj7-PY-Xct"/>
                             <constraint firstItem="Q3M-IP-237" firstAttribute="leading" secondItem="WO5-DV-VLL" secondAttribute="trailing" constant="10" id="YvE-HO-UTu"/>
+                            <constraint firstItem="tgA-52-d0c" firstAttribute="leading" secondItem="WO5-DV-VLL" secondAttribute="leading" id="Z9e-qd-nb8"/>
                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="leading" secondItem="WO5-DV-VLL" secondAttribute="leading" id="bJj-k9-Gs1"/>
                             <constraint firstItem="xiY-zR-h5U" firstAttribute="top" secondItem="BvV-Tr-b41" secondAttribute="bottom" id="bNq-ZO-oko"/>
                             <constraint firstItem="LqK-pq-nP3" firstAttribute="leading" secondItem="BvV-Tr-b41" secondAttribute="leading" id="eA3-1q-Aw2"/>
@@ -183,20 +200,23 @@
                             <constraint firstAttribute="trailingMargin" secondItem="BvV-Tr-b41" secondAttribute="trailing" id="loV-7u-6bN"/>
                             <constraint firstItem="BvV-Tr-b41" firstAttribute="top" secondItem="AL4-Ki-O5e" secondAttribute="bottom" constant="20" id="mZQ-RV-Q8P"/>
                             <constraint firstItem="5l6-Qq-Lzo" firstAttribute="leading" secondItem="pl3-u0-15y" secondAttribute="leadingMargin" id="pJk-vd-HVH"/>
+                            <constraint firstItem="tgA-52-d0c" firstAttribute="height" secondItem="WO5-DV-VLL" secondAttribute="height" id="pOh-bs-SlJ"/>
                             <constraint firstItem="Q3M-IP-237" firstAttribute="trailing" secondItem="FvS-CB-0xv" secondAttribute="trailing" id="qpj-Cx-eQT"/>
                             <constraint firstItem="LqK-pq-nP3" firstAttribute="trailing" secondItem="BvV-Tr-b41" secondAttribute="trailing" id="vIx-c1-CnF"/>
                             <constraint firstItem="WO5-DV-VLL" firstAttribute="height" secondItem="LqK-pq-nP3" secondAttribute="height" id="xWk-yT-baw"/>
                             <constraint firstItem="LqK-pq-nP3" firstAttribute="top" secondItem="zuK-hV-1Mv" secondAttribute="bottom" constant="10" id="xi8-Ar-cFo"/>
+                            <constraint firstItem="wDv-e7-VtE" firstAttribute="trailing" secondItem="Q3M-IP-237" secondAttribute="trailing" id="xmZ-hO-qVo"/>
                             <constraint firstItem="5l6-Qq-Lzo" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="bottom" constant="5" id="zqf-yj-pgz"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="CREATE FEEDBACK" id="ZYd-Wg-Okj"/>
+                    <navigationItem key="navigationItem" title="CREATE INSTANT FEEDBACK" id="ZYd-Wg-Okj"/>
                     <connections>
                         <outlet property="inviteButton" destination="vhu-w3-2iZ" id="EIn-am-dXv"/>
                         <outlet property="isAnonymousSwitch" destination="Q3M-IP-237" id="Odz-3R-WDc"/>
+                        <outlet property="isNASwitch" destination="wDv-e7-VtE" id="gqK-lt-oQ6"/>
                         <outlet property="questionErrorLabel" destination="5l6-Qq-Lzo" id="NIy-hi-hZs"/>
                         <outlet property="questionTextView" destination="Lgq-ju-qSg" id="1rd-dN-y7e"/>
                         <outlet property="questionTypeButton" destination="xiY-zR-h5U" id="dNf-jh-1pT"/>
