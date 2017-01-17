@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kIAPICCallsNumber = 3;
+static NSInteger const kIAPICCallsNumber = 2;
 
 #pragma mark - Class Extension
 

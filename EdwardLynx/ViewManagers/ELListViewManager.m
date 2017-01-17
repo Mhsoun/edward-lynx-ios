@@ -47,6 +47,11 @@
     return self;
 }
 
+- (void)processRetrievalOfInstantFeedbacks {
+    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                                                  completion:self.requestCompletionBlock];
+}
+
 - (void)processRetrievalOfSurveys {
     [self.client currentUserSurveysWithCompletion:self.requestCompletionBlock];
 }

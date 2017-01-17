@@ -41,6 +41,13 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    // Update Instant Feedback list
+    NSMutableArray *mInstantFeedbacks = [[ELAppSingleton sharedInstance].instantFeedbacks mutableCopy];
+    
+    [mInstantFeedbacks removeObject:self.feedback];
+    
+    [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

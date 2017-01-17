@@ -60,13 +60,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="APF-Tg-14y"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="APF-Tg-14y" firstAttribute="centerY" secondItem="QBI-Yj-DiI" secondAttribute="centerY" id="KhO-xw-PFc"/>
                             <constraint firstItem="hlQ-Ey-032" firstAttribute="top" secondItem="QBI-Yj-DiI" secondAttribute="bottom" id="PRc-Kx-Pmf"/>
                             <constraint firstAttribute="trailing" secondItem="QBI-Yj-DiI" secondAttribute="trailing" id="QyB-GP-PTb"/>
                             <constraint firstItem="QBI-Yj-DiI" firstAttribute="top" secondItem="SuN-BS-PBC" secondAttribute="bottom" constant="20" id="bgf-mg-keo"/>
                             <constraint firstItem="QBI-Yj-DiI" firstAttribute="leading" secondItem="2mT-Xq-TB9" secondAttribute="leading" id="wYW-PJ-2xh"/>
+                            <constraint firstItem="APF-Tg-14y" firstAttribute="centerX" secondItem="QBI-Yj-DiI" secondAttribute="centerX" id="wZu-Bc-BhO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
@@ -74,6 +77,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="INSTANT FEEDBACK REQUESTS" id="abA-ak-a58"/>
                     <connections>
+                        <outlet property="indicatorView" destination="APF-Tg-14y" id="b1U-3j-8y7"/>
                         <outlet property="tableView" destination="QBI-Yj-DiI" id="9kB-QA-MDG"/>
                         <segue destination="bqt-Nj-koZ" kind="show" identifier="AnswerInstantFeedback" id="Lke-VF-UHN"/>
                     </connections>

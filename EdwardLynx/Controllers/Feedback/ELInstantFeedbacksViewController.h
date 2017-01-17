@@ -8,13 +8,15 @@
 
 #import "ELAnswerInstantFeedbackViewController.h"
 #import "ELBaseViewController.h"
-#import "ELInstantFeedback.h"
 #import "ELDataProvider.h"
+#import "ELInstantFeedback.h"
+#import "ELListViewManager.h"
 #import "ELQuestion.h"
 #import "ELTableDataSource.h"
 
-@interface ELInstantFeedbacksViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ELInstantFeedbacksViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end

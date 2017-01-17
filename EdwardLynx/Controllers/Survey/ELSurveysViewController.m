@@ -66,7 +66,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve surveys"
+    [self.dataSource dataSetEmptyText:@"Failed to retrieve Surveys"
                           description:@"Please try again later."];
 }
 

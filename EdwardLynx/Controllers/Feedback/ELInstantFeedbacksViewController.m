@@ -17,6 +17,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 @interface ELInstantFeedbacksViewController ()
 
 @property (nonatomic, strong) ELInstantFeedback *selectedFeedback;
+@property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELInstantFeedback *> *provider;
 
@@ -31,21 +32,26 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.viewManager = [[ELListViewManager alloc] init];
+    self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks"
-                          description:@""];
+    // Retrieve Instant Feedbacks
+    [self.viewManager processRetrievalOfInstantFeedbacks];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Refresh Instant Feedback items
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation
@@ -80,6 +86,41 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     self.selectedFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
     
     [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
+}
+
+#pragma mark - Protocol Methods (ELListViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.indicatorView stopAnimating];
+    [self.dataSource dataSetEmptyText:@"Failed to retrieve Instant Feedbacks"
+                          description:@"Please try again later."];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
+        [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+    }
+    
+    [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.indicatorView stopAnimating];
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
+    [self.tableView reloadData];
+    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks"
+                          description:@""];
 }
 
 @end
