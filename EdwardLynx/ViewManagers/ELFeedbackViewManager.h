@@ -15,6 +15,9 @@
 @property (strong, nonatomic) id<ELAPIResponseDelegate> delegate;
 
 - (void)processInstantFeedback:(NSDictionary *)formDict;
+- (void)processInstantFeedbackAnswerSubmissionAtId:(int64_t)objId
+                                      withFormData:(NSDictionary *)formDict;
+
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
 - (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict;
 

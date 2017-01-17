@@ -10,17 +10,23 @@
 
 @interface ELSurveysAPIClient : ELAPIClient
 
-- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)answerInstantFeedbackWithId:(int64_t)instantFeedbackId
+                             params:(NSDictionary *)params
+                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)createInstantFeedbackWithParams:(NSDictionary *)params
-                             completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+                             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)currentUserInstantFeedbacksWithFilter:(NSString *)filter
+                                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+
+- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
-                         completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
-                        completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)userSurveyForId:(int64_t)surveyId
-             completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)userSurveyQuestionsForId:(int64_t)surveyId
-                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 @end

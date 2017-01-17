@@ -35,6 +35,9 @@ NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
 
+CGFloat const kELQuestionTypeDefaultHeight = 65;
+CGFloat const kELQuestionTypeExpandedHeight = 115;
+
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";
 NSString * const kELUserRoleFeedbackProvider = @"feedback-provider";
@@ -46,6 +49,9 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
+NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
+NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
+NSString * const kELAPIInstantFeedbackAnswersEndpoint = @"%@/instant-feedbacks/%@/answers";
 NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/question_categories";
 NSString * const kELAPIQuestionCategoryEndpoint = @"%@/question_categories/%@";
 NSString * const kELAPIQuestionsEndpoint = @"%@/questions";

@@ -66,6 +66,9 @@ extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
 
+extern CGFloat const kELQuestionTypeDefaultHeight;
+extern CGFloat const kELQuestionTypeExpandedHeight;
+
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;
 extern NSString * const kELUserRoleFeedbackProvider;
@@ -77,6 +80,9 @@ extern NSString * const kELUserRoleSupervisor;
 
 extern NSString * const kELAPIVersionNamespace;
 extern NSString * const kELAPIRootEndpoint;
+extern NSString * const kELAPIInstantFeedbacksEndpoint;
+extern NSString * const kELAPIInstantFeedbackEndpoint;
+extern NSString * const kELAPIInstantFeedbackAnswersEndpoint;
 extern NSString * const kELAPIQuestionCategoriesEndpoint;
 extern NSString * const kELAPIQuestionCategoryEndpoint;
 extern NSString * const kELAPIQuestionsEndpoint;

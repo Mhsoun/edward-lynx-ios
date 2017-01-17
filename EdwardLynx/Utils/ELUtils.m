@@ -199,6 +199,24 @@
     return [[self class] object:@"string" byAnswerType:type];
 }
 
++ (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {
+    for (__kindof UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
+            return subview;
+        }
+    }
+    
+    return nil;
+}
+
++ (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
+    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
+                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
+                             @(kELAnswerTypeInvertedAgreementScale)];
+    
+    return [answerTypes containsObject:@(type)];
+}
+
 + (void)setupGlobalUIChanges {
     // UINavigationBar
     [[UINavigationBar appearance] setTranslucent:NO];
@@ -215,6 +233,8 @@
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"view" byAnswerType:type];
 }
+
+#pragma mark - Private Methods
 
 + (id)object:(NSString *)objectType byAnswerType:(kELAnswerType)type {
     switch (type) {

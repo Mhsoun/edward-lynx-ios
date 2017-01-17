@@ -122,10 +122,14 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     // TODO Implementation
+    NSLog(@"%@", errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    // TODO Implementation
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                 instantiateInitialViewController]
+                       animated:YES
+                     completion:nil];
 }
 
 #pragma mark - Private Methods
@@ -155,23 +159,14 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 - (IBAction)onDoneButtonClick:(id)sender {
     NSDictionary *formDict;
     
-    return;  // TEMP
-    
-    // TEMP Form data
-    formDict = @{@"name": @"",
-                 @"lang": @"en",
-                 @"type": @"instant",
-                 @"startDate": @"",
-                 @"endDate": @"",
-                 @"description": @"",
-                 @"inviteText": @"",
-                 @"thankYouText": @"",
-                 @"questionInfoText": @"",
+    formDict = @{@"lang": @"en",
+                 @"anonymous": self.instantFeedbackDict[@"anonymous"],
                  @"questions": @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
                                    @"isNA": @NO,
-                                   @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]]),
-                                                @"options": @[]}}],
+                                   @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]])}}],
                  @"recipients": [self.mParticipants copy]};
+    
+    [self.viewManager processInstantFeedback:formDict];
 }
 
 @end

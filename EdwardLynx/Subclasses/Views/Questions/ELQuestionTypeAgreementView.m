@@ -36,6 +36,7 @@
 
 - (void)setupPickerView {
     // Initialization
+    self.helpLabel.text = self.question.answer.help;
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
 }
@@ -43,10 +44,16 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
+    // TODO Handle isNA questions
+//    ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
+//    
+//    return @{@"question": @(_question.objectId),
+//             @"answer": _question.isNA ? @(-1) : @(option.value)};
+    
     ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
     
     return @{@"question": @(_question.objectId),
-             @"answer": _question.isNA ? @(-1) : @(option.value)};
+             @"answer": @(option.value)};
 }
 
 #pragma mark - Getter/Setter Methods

@@ -86,9 +86,28 @@ static NSInteger const kIAPICCallsNumber = 2;
             [self fetchUsersFromAPIWithCompletion:self.apiCallBlock];
             
             break;
+        case 3:
+            [self fetchUserInstantFeedbacksFromAPIWithCompletion:self.apiCallBlock];
+            
+            break;
         default:
             break;
     }
+}
+
+- (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)())completion {
+    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                                                  completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
+            [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+        }
+        
+        [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+        
+        completion();
+    }];
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)())completion {

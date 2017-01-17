@@ -21,7 +21,7 @@
         <!--CREATE FEEDBACK-->
         <scene sceneID="brb-OX-bKd">
             <objects>
-                <viewController id="RPK-Zk-nOa" customClass="ELInstantFeedbackViewController" sceneMemberID="viewController">
+                <viewController id="RPK-Zk-nOa" customClass="ELCreateInstantFeedbackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AL4-Ki-O5e"/>
                         <viewControllerLayoutGuide type="bottom" id="5Zj-V1-4Je"/>

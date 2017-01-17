@@ -160,20 +160,29 @@
                         <outlet property="reportsView" destination="6Um-Ae-bKj" id="C27-qL-BxE"/>
                         <outlet property="scrollView" destination="VEi-ti-0lx" id="O6t-H9-6fN"/>
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
-                        <segue destination="RpM-p2-AU4" kind="show" identifier="InstantFeedback" id="5Fl-OE-4wS"/>
+                        <segue destination="RpM-p2-AU4" kind="show" identifier="CreateInstantFeedback" id="5Fl-OE-4wS"/>
+                        <segue destination="w5L-eZ-idj" kind="show" identifier="InstantFeedback" id="GyE-BV-OFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPm-HC-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="122.78860569715144"/>
         </scene>
-        <!--Feedback-->
+        <!--CreateInstantFeedback-->
         <scene sceneID="U8v-0W-Eop">
             <objects>
-                <viewControllerPlaceholder storyboardName="Feedback" id="RpM-p2-AU4" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CreateInstantFeedback" id="RpM-p2-AU4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sl-Fc-esW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="122"/>
+            <point key="canvasLocation" x="1477" y="122"/>
+        </scene>
+        <!--InstantFeedback-->
+        <scene sceneID="wce-Ep-cXG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InstantFeedback" id="w5L-eZ-idj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVO-SW-PWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="173"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FIh-XW-KD8">

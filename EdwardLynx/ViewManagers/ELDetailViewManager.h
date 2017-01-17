@@ -15,6 +15,7 @@
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
+
 - (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId;
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;
 

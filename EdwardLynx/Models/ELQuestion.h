@@ -20,6 +20,5 @@
 @property (nonatomic) BOOL isNA;
 @property (nonatomic) BOOL isFollowUpQuestion;
 @property (nonatomic) ELAnswer *answer;
-@property (nonatomic) int64_t order;
 
 @end

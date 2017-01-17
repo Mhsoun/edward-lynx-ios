@@ -64,7 +64,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     
     // Shortcuts section
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback",
-                                                             @"segue": @"InstantFeedback",
+                                                             @"segue": @"CreateInstantFeedback",
                                                              @"description": @"Description on creating instant feedback.",
                                                              @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
     shortcutView.frame = self.createFeedbackView.frame;
@@ -107,7 +107,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     // Action Required section
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"360",
                                                          @"title": @"Feedback Requests",
-                                                         @"count": @"3",
+                                                         @"count": @(0),
                                                          @"segue": @"",
                                                          @"permissions": @[@(kELRolePermissionParticipateInSurvey),
                                                                            @(kELRolePermissionSubmitSurvey)]}];
@@ -119,7 +119,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"New",
                                                          @"title": @"Reports",
-                                                         @"count": @"6",
+                                                         @"count": @(0),
                                                          @"segue": @"",
                                                          @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                            @(kELRolePermissionViewAnonymousTeamReports)]}];
@@ -131,11 +131,11 @@ static CGFloat const kELCornerRadius = 5.0f;
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"Instant",
                                                          @"title": @"Feedback Requests",
-                                                         @"count": @"2",
-                                                         @"segue": @"",
+                                                         @"count": @([ELAppSingleton sharedInstance].instantFeedbacks.count),
+                                                         @"segue": @"InstantFeedback",
                                                          @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
     actionView.frame = self.instantFeedbackActionView.frame;
-//    actionView.delegate = self;
+    actionView.delegate = self;
     
     [self.instantFeedbackActionView addSubview:actionView];
     [self.instantFeedbackActionView.layer setCornerRadius:kELCornerRadius];

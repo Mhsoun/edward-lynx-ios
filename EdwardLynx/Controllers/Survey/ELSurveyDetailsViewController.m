@@ -52,14 +52,11 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
-    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
-                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
-                             @(kELAnswerTypeInvertedAgreementScale)];
     
-    return [answerTypes containsObject:@(question.answer.type)] ? 150 : 100;
+    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 185 : 135;
 }
 
-#pragma mark - Protocol Methods (ELAPIResponseDelegate)
+#pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
@@ -107,7 +104,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         
         cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         
-        [mAnswers addObject:[[cell questionView] formValues]];
+        [mAnswers addObject:[[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues]];
     }
     
     // TODO Handle validation and get value for `key`

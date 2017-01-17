@@ -1,12 +1,12 @@
 //
-//  ELInstantFeedbackViewController.m
+//  ELCreateInstantFeedbackViewController.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 03/01/2017.
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELInstantFeedbackViewController.h"
+#import "ELCreateInstantFeedbackViewController.h"
 
 #pragma mark - Private Constants
 
@@ -14,14 +14,14 @@ static NSString * const kELNoQuestionType = @"No type selected";
 
 #pragma mark - Class Extension
 
-@interface ELInstantFeedbackViewController ()
+@interface ELCreateInstantFeedbackViewController ()
 
 @property (nonatomic, strong) NSDictionary *instantFeedbackDict;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
 
 @end
 
-@implementation ELInstantFeedbackViewController
+@implementation ELCreateInstantFeedbackViewController
 
 #pragma mark - Lifecycle
 
@@ -98,7 +98,9 @@ static NSString * const kELNoQuestionType = @"No type selected";
     questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
                                                      icon:nil
                                                errorLabel:self.questionErrorLabel];
-    self.instantFeedbackDict = @{@"type": typeGroup, @"question": questionGroup};
+    self.instantFeedbackDict = @{@"type": typeGroup,
+                                 @"question": questionGroup,
+                                 @"anonymous": @(self.isAnonymousSwitch.on)};
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.instantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];

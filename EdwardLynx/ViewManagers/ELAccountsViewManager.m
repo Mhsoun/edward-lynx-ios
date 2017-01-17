@@ -29,9 +29,9 @@
         return nil;
     }
     
-    _formDict = @{};
     _client = [[ELUsersAPIClient alloc] init];
-    
+    _formDict = @{};
+        
     __weak typeof(self) weakSelf = self;
     
     self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {

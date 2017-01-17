@@ -14,9 +14,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ELQuestionTypeScaleView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nn7-zd-FiS">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Frn-aR-54R"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7gl-gU-V1B">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -41,15 +50,19 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="7gl-gU-V1B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2dC-QT-b86"/>
+                <constraint firstItem="Nn7-zd-FiS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5gh-sG-vtE"/>
                 <constraint firstItem="ihh-VR-yln" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="75i-Nn-XjA"/>
                 <constraint firstAttribute="trailing" secondItem="7gl-gU-V1B" secondAttribute="trailing" id="7Gp-kq-NGF"/>
-                <constraint firstItem="ihh-VR-yln" firstAttribute="top" secondItem="7gl-gU-V1B" secondAttribute="bottom" constant="5" id="aWd-i9-EsH"/>
-                <constraint firstItem="7gl-gU-V1B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hgh-il-ivm"/>
+                <constraint firstAttribute="trailing" secondItem="Nn7-zd-FiS" secondAttribute="trailing" id="QVL-8M-uB0"/>
+                <constraint firstItem="ihh-VR-yln" firstAttribute="top" secondItem="7gl-gU-V1B" secondAttribute="bottom" constant="10" id="aWd-i9-EsH"/>
+                <constraint firstItem="7gl-gU-V1B" firstAttribute="top" secondItem="Nn7-zd-FiS" secondAttribute="bottom" id="hAi-DU-FTA"/>
+                <constraint firstItem="Nn7-zd-FiS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iW6-R0-FMy"/>
                 <constraint firstAttribute="bottom" secondItem="ihh-VR-yln" secondAttribute="bottom" id="tL3-7y-F6z"/>
                 <constraint firstAttribute="trailing" secondItem="ihh-VR-yln" secondAttribute="trailing" id="xdP-TA-lMS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="helpLabel" destination="Nn7-zd-FiS" id="VYq-zD-3Y1"/>
                 <outlet property="scaleChoices" destination="7gl-gU-V1B" id="CHb-IH-0nZ"/>
                 <outlet property="textView" destination="ihh-VR-yln" id="w0r-jX-gNL"/>
             </connections>

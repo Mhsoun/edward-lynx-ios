@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
+- (void)processRetrievalOfInstantFeedbacks;
 - (void)processRetrievalOfSurveys;
 
 @end
