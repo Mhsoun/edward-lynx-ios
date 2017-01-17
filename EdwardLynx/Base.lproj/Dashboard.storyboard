@@ -162,6 +162,7 @@
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
                         <segue destination="RpM-p2-AU4" kind="show" identifier="CreateInstantFeedback" id="5Fl-OE-4wS"/>
                         <segue destination="w5L-eZ-idj" kind="show" identifier="InstantFeedback" id="GyE-BV-OFn"/>
+                        <segue destination="3Fr-eJ-sc1" kind="show" identifier="Reports" id="nPw-dG-srp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPm-HC-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,6 +184,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVO-SW-PWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1446" y="173"/>
+        </scene>
+        <!--Reports-->
+        <scene sceneID="soG-8O-SC9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reports" id="3Fr-eJ-sc1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5I-iu-LZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1402" y="225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FIh-XW-KD8">
