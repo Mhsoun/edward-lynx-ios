@@ -62,7 +62,7 @@
         return;
     }
     
-    self.heightConstraint.constant = toExpand ? kELQuestionTypeExpandedHeight : kELQuestionTypeDefaultHeight;
+    self.heightConstraint.constant = toExpand ? 185 : 135;
     questionView.frame = self.questionTypeView.frame;
     
     [self.questionTypeView addSubview:questionView];

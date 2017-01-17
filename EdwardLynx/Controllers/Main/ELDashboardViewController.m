@@ -107,7 +107,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     // Action Required section
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"360",
                                                          @"title": @"Feedback Requests",
-                                                         @"count": @(3),
+                                                         @"count": @(0),
                                                          @"segue": @"",
                                                          @"permissions": @[@(kELRolePermissionParticipateInSurvey),
                                                                            @(kELRolePermissionSubmitSurvey)]}];
@@ -119,7 +119,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"New",
                                                          @"title": @"Reports",
-                                                         @"count": @(6),
+                                                         @"count": @(0),
                                                          @"segue": @"",
                                                          @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                            @(kELRolePermissionViewAnonymousTeamReports)]}];

@@ -28,6 +28,8 @@
     NSInteger index = 0;
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
+    self.helpLabel.text = self.question.answer.help;
+    
     // Segmented Control
     [self.scaleChoices removeAllSegments];
     
