@@ -51,6 +51,7 @@
 
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
++ (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
 + (void)setupGlobalUIChanges;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;

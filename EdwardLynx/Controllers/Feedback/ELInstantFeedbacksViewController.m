@@ -38,6 +38,9 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks"
+                          description:@""];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +69,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     feedback = [ELAppSingleton sharedInstance].instantFeedbacks[indexPath.row];
-    question = feedback.questions[0];
+    question = feedback.question;
     cell.textLabel.text = question.text;
     cell.detailTextLabel.text = [ELUtils labelByAnswerType:question.answer.type];
     

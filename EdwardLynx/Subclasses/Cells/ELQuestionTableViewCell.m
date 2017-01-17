@@ -39,22 +39,10 @@
         return;
     }
     
-    self.questionContainerHeightConstraint.constant = toExpand ? 90 : 40;
+    self.questionContainerHeightConstraint.constant = toExpand ? kELQuestionTypeExpandedHeight : kELQuestionTypeDefaultHeight;
     questionView.frame = self.questionContainerView.frame;
     
     [self.questionContainerView addSubview:questionView];
-}
-
-#pragma mark - Public Methods
-
-- (__kindof ELBaseQuestionTypeView *)questionView {
-    for (__kindof UIView *view in self.questionContainerView.subviews) {
-        if ([view isKindOfClass:[ELBaseQuestionTypeView class]]) {
-            return view;
-        }
-    }
-    
-    return nil;
 }
 
 @end

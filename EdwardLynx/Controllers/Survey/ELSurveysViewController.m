@@ -57,7 +57,7 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
     }
 }
 
-#pragma mark - Protocol Methods (ELAPIResponseDelegate)
+#pragma mark - Protocol Methods (ELListViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];

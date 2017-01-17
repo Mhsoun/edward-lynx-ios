@@ -12,6 +12,7 @@
 
 @interface ELDetailViewManager ()
 
+@property (nonatomic, strong) ELSurveysAPIClient *client;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
@@ -27,7 +28,9 @@
         return nil;
     }
     
+    _client = [[ELSurveysAPIClient alloc] init];
     _detailObject = detailObject;
+    
     __weak typeof(self) weakSelf = self;
     
     self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
@@ -48,13 +51,13 @@
 #pragma mark - Public Methods
 
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
-    [[[ELSurveysAPIClient alloc] init] submitAnswerForSurveyWithId:self.detailObject.objectId
-                                                            params:formDict
-                                                        completion:self.requestCompletionBlock];
+    [self.client submitAnswerForSurveyWithId:self.detailObject.objectId
+                                      params:formDict
+                                  completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
-    [[[ELSurveysAPIClient alloc] init] userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
+    [self.client userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
 }
 
 @end

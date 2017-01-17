@@ -12,6 +12,8 @@
 
 @interface ELAnswerInstantFeedbackViewController ()
 
+@property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+
 @end
 
 @implementation ELAnswerInstantFeedbackViewController
@@ -21,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.viewManager = [[ELFeedbackViewManager alloc] init];
+    self.viewManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,24 +34,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Protocol Methods (ELFeedbackViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    // TODO Implementation
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGRect frame;
     __kindof ELBaseQuestionTypeView *questionView;
-    ELQuestion *question = self.feedback.questions[0];
-    
-    // Answer Type
-    frame = self.questionTypeView.frame;
-    frame.size.height = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
-    
-    self.questionLabel.text = question.text;
+    ELQuestion *question = self.feedback.question;
+    BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
-    questionView.frame = frame;
     questionView.question = question;
     
+    // Content
+    self.questionLabel.text = question.text;
+    
+    // UI
+    if (!questionView) {
+        return;
+    }
+    
+    self.heightConstraint.constant = toExpand ? kELQuestionTypeExpandedHeight : kELQuestionTypeDefaultHeight;
+    questionView.frame = self.questionTypeView.frame;
+    
     [self.questionTypeView addSubview:questionView];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onDoneButtonClick:(id)sender {
+    NSDictionary *formDict = @{@"key": self.feedback.key,
+                               @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
+    
+    [self.viewManager processInstantFeedbackAnswerSubmissionAtId:self.feedback.objectId
+                                                    withFormData:formDict];
 }
 
 @end

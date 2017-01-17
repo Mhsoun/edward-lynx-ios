@@ -122,6 +122,13 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" id="2ww-PD-LlL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wMv-OV-idl">
+                            <connections>
+                                <action selector="onDoneButtonClick:" destination="bqt-Nj-koZ" id="Xa3-HT-MRC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="heightConstraint" destination="oc4-jG-oRL" id="btZ-on-fl2"/>
                         <outlet property="questionLabel" destination="Cwa-BI-yGr" id="bo4-32-juF"/>

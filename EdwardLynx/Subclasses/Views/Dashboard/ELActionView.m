@@ -63,6 +63,8 @@
     self.titleLabel.text = contentDict[@"title"];
     self.countLabel.text = [contentDict[@"count"] stringValue];
     
+    self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
+    
     self.bgView.layer.cornerRadius = 5.0f;
     self.countLabel.layer.cornerRadius = 12.5f;
     

@@ -56,16 +56,23 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    ELAnswerOption *option;
-    int64_t value = -1;
+    // TODO Handle isNA questions
+//    ELAnswerOption *option;
     
-    if (!_question.isNA) {
-        option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
-        value = option.value;
-    }
+//    int64_t value = -1;
+//    
+//    if (!_question.isNA) {
+//        option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
+//        value = option.value;
+//    }
+    
+//    return @{@"question": @(_question.objectId),
+//             @"answer": @(value)};
+    
+    ELAnswerOption *option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
     
     return @{@"question": @(_question.objectId),
-             @"answer": @(value)};
+             @"answer": @(option.value)};
 }
 
 - (ELQuestion *)question {

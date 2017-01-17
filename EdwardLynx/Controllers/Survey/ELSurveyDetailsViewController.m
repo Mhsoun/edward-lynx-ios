@@ -56,7 +56,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 150 : 100;
 }
 
-#pragma mark - Protocol Methods (ELAPIResponseDelegate)
+#pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
@@ -104,7 +104,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         
         cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         
-        [mAnswers addObject:[[cell questionView] formValues]];
+        [mAnswers addObject:[[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues]];
     }
     
     // TODO Handle validation and get value for `key`

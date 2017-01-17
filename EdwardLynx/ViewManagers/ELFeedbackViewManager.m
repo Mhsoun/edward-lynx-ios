@@ -17,6 +17,7 @@ static NSString * const kELNoParticipantRole = @"No role selected";
 
 @interface ELFeedbackViewManager ()
 
+@property (nonatomic, strong) ELSurveysAPIClient *client;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
@@ -31,6 +32,8 @@ static NSString * const kELNoParticipantRole = @"No role selected";
     if (!self) {
         return nil;
     }
+    
+    _client = [[ELSurveysAPIClient alloc] init];
     
     __weak typeof(self) weakSelf = self;
     
@@ -54,8 +57,15 @@ static NSString * const kELNoParticipantRole = @"No role selected";
 #pragma mark - Public Methods
 
 - (void)processInstantFeedback:(NSDictionary *)formDict {
-    [[[ELSurveysAPIClient alloc] init] createInstantFeedbackWithParams:formDict
-                                                            completion:self.requestCompletionBlock];
+    [self.client createInstantFeedbackWithParams:formDict
+                                      completion:self.requestCompletionBlock];
+}
+
+- (void)processInstantFeedbackAnswerSubmissionAtId:(int64_t)objId
+                                      withFormData:(NSDictionary *)formDict {
+    [self.client answerInstantFeedbackWithId:objId
+                                      params:formDict
+                                  completion:self.requestCompletionBlock];
 }
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {

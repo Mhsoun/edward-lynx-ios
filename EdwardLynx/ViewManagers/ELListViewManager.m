@@ -12,6 +12,7 @@
 
 @interface ELListViewManager ()
 
+@property (nonatomic, strong) ELSurveysAPIClient *client;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
@@ -26,6 +27,8 @@
     if (!self) {
         return nil;
     }
+    
+    _client = [[ELSurveysAPIClient alloc] init];
     
     __weak typeof(self) weakSelf = self;
     
@@ -45,7 +48,7 @@
 }
 
 - (void)processRetrievalOfSurveys {
-    [[[ELSurveysAPIClient alloc] init] currentUserSurveysWithCompletion:self.requestCompletionBlock];
+    [self.client currentUserSurveysWithCompletion:self.requestCompletionBlock];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "ELModel.h"
 
-@protocol ELQuestion;
+@class ELQuestion;
 
 @interface ELInstantFeedback : ELModel
 
@@ -17,6 +17,6 @@
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSString *key;
 @property (nonatomic) NSString *lang;
-@property (nonatomic) NSArray<ELQuestion> *questions;
+@property (nonatomic) ELQuestion *question;
 
 @end

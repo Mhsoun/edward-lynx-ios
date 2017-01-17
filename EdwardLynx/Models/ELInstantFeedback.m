@@ -12,7 +12,12 @@
 @implementation ELInstantFeedback
 
 + (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"question": @"questions"}];
+}
+
+- (void)setQuestionWithNSArray:(NSArray *)questions {
+    self.question = [[ELQuestion alloc] initWithDictionary:questions[0] error:nil];
 }
 
 @end

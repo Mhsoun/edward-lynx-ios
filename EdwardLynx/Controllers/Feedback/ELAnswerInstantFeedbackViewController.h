@@ -8,14 +8,17 @@
 
 #import "ELBaseQuestionTypeView.h"
 #import "ELBaseViewController.h"
+#import "ELFeedbackViewManager.h"
 #import "ELQuestion.h"
+#import "ELSurveysAPIClient.h"
 
-@interface ELAnswerInstantFeedbackViewController : ELBaseViewController
+@interface ELAnswerInstantFeedbackViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (nonatomic, strong) ELInstantFeedback *feedback;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionTypeView;
+- (IBAction)onDoneButtonClick:(id)sender;
 
 @end

@@ -10,9 +10,35 @@
 
 @implementation ELSurveysAPIClient
 
+#pragma mark - Instant Feedback
+
+- (void)answerInstantFeedbackWithId:(int64_t)instantFeedbackId
+                             params:(NSDictionary *)params completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+- (void)createInstantFeedbackWithParams:(NSDictionary *)params
+                             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbacksEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)currentUserInstantFeedbacksWithFilter:(NSString *)filter
                                    completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbacksEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod
                                         queryParams:@{@"filter": filter}];
@@ -22,21 +48,11 @@
                         completion:completion];
 }
 
-- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+#pragma mark - Surveys
+
+- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
-    
-    [self performAuthenticatedTask:YES
-                       withRequest:request
-                        completion:completion];
-}
-
-- (void)createInstantFeedbackWithParams:(NSDictionary *)params
-                             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint, kELAPIVersionNamespace];
-    NSMutableURLRequest *request = [self requestFor:endpoint
-                                             method:kELAPIPostHTTPMethod
-                                         bodyParams:params];
     
     [self performAuthenticatedTask:YES
                        withRequest:request
@@ -69,7 +85,7 @@
 }
 
 - (void)userSurveyForId:(int64_t)surveyId
-             completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveyEndpoint, kELAPIVersionNamespace, @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
@@ -80,7 +96,7 @@
 }
 
 - (void)userSurveyQuestionsForId:(int64_t)surveyId
-                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveyQuestionsEndpoint, kELAPIVersionNamespace, @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];

@@ -199,6 +199,16 @@
     return [[self class] object:@"string" byAnswerType:type];
 }
 
++ (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {
+    for (__kindof UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
+            return subview;
+        }
+    }
+    
+    return nil;
+}
+
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
     NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
                              @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
