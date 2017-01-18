@@ -44,6 +44,7 @@ static NSString * const kELNoQuestionType = @"No type selected";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"InviteFeedbackParticipants"]) {
         ELInviteUsersViewController *controller = [segue destinationViewController];
+        controller.inviteType = kELInviteUsersInstantFeedback;
         controller.instantFeedbackDict = self.instantFeedbackDict;
     }
 }

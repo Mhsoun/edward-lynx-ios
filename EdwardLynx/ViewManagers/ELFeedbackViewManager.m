@@ -68,6 +68,12 @@ static NSString * const kELNoParticipantRole = @"No role selected";
                                   completion:self.requestCompletionBlock];
 }
 
+- (void)processSharingOfReportToUsers:(NSDictionary *)params atId:(int64_t)objId {
+    [self.client shareInstantFeedback:objId
+                               params:params
+                           completion:self.requestCompletionBlock];
+}
+
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {
     NSString *key;
     NSArray *typeErrors, *questionErrors;

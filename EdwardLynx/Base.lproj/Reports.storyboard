@@ -108,10 +108,21 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="aHG-bx-ulF" kind="show" identifier="ShareReport" id="Vh9-EP-Xss"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-0g-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="537"/>
+        </scene>
+        <!--Invite-->
+        <scene sceneID="6WY-Ic-vNb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Invite" id="aHG-bx-ulF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctc-dV-rKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2282" y="536"/>
         </scene>
     </scenes>
 </document>

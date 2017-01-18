@@ -13,5 +13,6 @@
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSections;
 - (ObjectType)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (void)updateObject:(ObjectType)object atIndexPath:(NSIndexPath *)indexPath;
 
 @end

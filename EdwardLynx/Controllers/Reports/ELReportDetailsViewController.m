@@ -33,6 +33,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShareReport"]) {
+        ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
+        controller.inviteType = kELInviteUsersReports;
+        controller.instantFeedback = self.instantFeedback;
+    }
+}
+
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
@@ -46,7 +56,7 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onShareButtonClick:(id)sender {
-    
+    [self performSegueWithIdentifier:@"ShareReport" sender:self];
 }
 
 @end

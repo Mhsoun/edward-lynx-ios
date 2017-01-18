@@ -52,6 +52,7 @@
 		A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96AE0401E0F844300AD56BE /* SurveyCell.xib */; };
 		A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */; };
 		A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0461E0FA05D00AD56BE /* ELSurvey.m */; };
+		A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E6E571E2F13F30056EDB1 /* Invite.storyboard */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -198,6 +199,7 @@
 		A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTableViewCell.m; sourceTree = "<group>"; };
 		A96AE0451E0FA05D00AD56BE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A96AE0461E0FA05D00AD56BE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
+		A96E6E581E2F13F30056EDB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invite.storyboard; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
 				A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */,
 				A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */,
+				A96E6E571E2F13F30056EDB1 /* Invite.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */,
 				A9214DC61E08D80B0021EA5E /* Profile.storyboard */,
@@ -863,6 +866,7 @@
 				A97086761E1E36F300CDC2DF /* QuestionTypeScaleView.xib in Resources */,
 				A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */,
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
+				A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
@@ -1117,6 +1121,14 @@
 				A96AE03B1E0F773600AD56BE /* Base */,
 			);
 			name = Surveys.storyboard;
+			sourceTree = "<group>";
+		};
+		A96E6E571E2F13F30056EDB1 /* Invite.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96E6E581E2F13F30056EDB1 /* Base */,
+			);
+			name = Invite.storyboard;
 			sourceTree = "<group>";
 		};
 		A96F27581DFF8B2B00609E27 /* Authentication.storyboard */ = {

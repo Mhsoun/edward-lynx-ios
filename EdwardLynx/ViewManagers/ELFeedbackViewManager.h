@@ -17,6 +17,8 @@
 - (void)processInstantFeedback:(NSDictionary *)formDict;
 - (void)processInstantFeedbackAnswerSubmissionAtId:(int64_t)objId
                                       withFormData:(NSDictionary *)formDict;
+- (void)processSharingOfReportToUsers:(NSDictionary *)params
+                                 atId:(int64_t)objId;
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
 - (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict;

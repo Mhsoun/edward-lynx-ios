@@ -15,10 +15,14 @@
 
 @interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 
+@property (nonatomic) kELInviteUsers inviteType;
+
+@property (strong, nonatomic) ELInstantFeedback *instantFeedback;
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *evaluationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onDoneButtonClick:(id)sender;

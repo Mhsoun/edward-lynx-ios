@@ -54,12 +54,6 @@
     [self.client userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
 }
 
-- (void)processSharingOfReportToUsers:(NSArray *)userIds atId:(int64_t)objId {
-    [self.client shareInstantFeedback:objId
-                               params:@{@"users": userIds}
-                           completion:self.requestCompletionBlock];
-}
-
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
     [self.client submitAnswerForSurveyWithId:self.detailObject.objectId
                                       params:formDict

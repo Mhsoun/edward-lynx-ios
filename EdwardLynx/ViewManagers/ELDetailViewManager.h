@@ -17,7 +17,6 @@
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 
 - (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId;
-- (void)processSharingOfReportToUsers:(NSArray *)userIds atId:(int64_t)objId;
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;
 
 @end

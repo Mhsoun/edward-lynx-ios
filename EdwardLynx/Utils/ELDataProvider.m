@@ -27,7 +27,7 @@
         return nil;
     }
     
-    _dataArray = [dataArray copy];
+    _dataArray = dataArray;
     
     return self;
 }
@@ -52,6 +52,14 @@
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
     return self.dataArray[indexPath.row];
+}
+
+- (void)updateObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *mObjects = [self.dataArray mutableCopy];
+    
+    [mObjects insertObject:object atIndex:indexPath.row];
+    
+    self.dataArray = [mObjects copy];
 }
 
 @end

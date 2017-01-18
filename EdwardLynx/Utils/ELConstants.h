@@ -39,6 +39,11 @@ typedef NS_ENUM(NSInteger, kELRolePermission) {
     kELRolePermissionInstantFeedback
 };
 
+typedef NS_ENUM(NSInteger, kELInviteUsers) {
+    kELInviteUsersInstantFeedback,
+    kELInviteUsersReports
+};
+
 #pragma mark - .plist Keys (Root)
 
 extern NSString * const kELAPIClientPlistKey;
