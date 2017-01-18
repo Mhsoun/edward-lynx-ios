@@ -36,7 +36,6 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     // Initialization
     self.searchBar.delegate = self;
     self.mParticipants = [[NSMutableArray alloc] init];
-    self.evaluationLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -54,6 +53,20 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
                           description:@""];
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
+    
+    // Additional details
+    switch (self.inviteType) {
+        case kELInviteUsersInstantFeedback:
+            [self layoutInstantFeedbackSharePage];
+            
+            break;
+        case kELInviteUsersReports:
+            [self layoutReportSharePage];
+            
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +79,20 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
+}
+
+#pragma mark - Private Methods
+
+- (void)layoutInstantFeedbackSharePage {
+    self.headerLabel.text = @"Invite people to participate";
+    self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    self.searchBar.placeholder = @"Search Participants";
+}
+
+- (void)layoutReportSharePage {
+    self.headerLabel.text = @"Share report to users";
+    self.detailLabel.text = @"Select users for them to be able to view this report";
+    self.searchBar.placeholder = @"Search Users";
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
@@ -100,12 +127,12 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     if ([cell.participant.isSelected boolValue]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         
-        if (![self.mParticipants containsObject:[cell.participant toDictionary]]) {
-            [self.mParticipants addObject:[cell.participant toDictionary]];
+        if (![self.mParticipants containsObject:cell.participant]) {
+            [self.mParticipants addObject:cell.participant];
         }
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
-        [self.mParticipants removeObject:[cell.participant toDictionary]];
+        [self.mParticipants removeObject:cell.participant];
     }
     
     return cell;
@@ -122,10 +149,21 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     // TODO Implementation
-    NSLog(@"%@", errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    // Clear selections
+    for (int i = 0; i < self.mParticipants.count; i++) {
+        ELParticipant *participant = self.mParticipants[i];
+        participant.isSelected = @NO;
+        
+        [self.provider updateObject:participant
+                        atIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    }
+    
+    [self.mParticipants removeAllObjects];
+    
+    // Back to the Dashboard
     [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                                  instantiateInitialViewController]
                        animated:YES
@@ -157,16 +195,25 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
-    NSDictionary *formDict;
+    NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
-    formDict = @{@"lang": @"en",
-                 @"anonymous": self.instantFeedbackDict[@"anonymous"],
-                 @"questions": @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
-                                   @"isNA": @NO,
-                                   @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]])}}],
-                 @"recipients": [self.mParticipants copy]};
-    
-    [self.viewManager processInstantFeedback:formDict];
+    if (self.inviteType == kELInviteUsersInstantFeedback) {
+        NSArray *questions = @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
+                                 @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
+                                 @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]])}}];
+        
+        for (ELParticipant *participant in self.mParticipants) [mUsers addObject:[participant toDictionary]];
+        
+        [self.viewManager processInstantFeedback:@{@"lang": @"en",
+                                                   @"anonymous": self.instantFeedbackDict[@"anonymous"],
+                                                   @"questions": questions,
+                                                   @"recipients": [mUsers copy]}];
+    } else if (self.inviteType == kELInviteUsersReports) {
+        for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
+        
+        [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
+                                                   atId:self.instantFeedback.objectId];
+    }
 }
 
 @end

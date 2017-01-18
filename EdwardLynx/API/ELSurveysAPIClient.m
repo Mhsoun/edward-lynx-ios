@@ -48,6 +48,29 @@
                         completion:completion];
 }
 
+- (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId
+                                completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+- (void)shareInstantFeedback:(int64_t)instantFeedbackId
+                      params:(NSDictionary *)params
+                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackSharesEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 #pragma mark - Surveys
 
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {

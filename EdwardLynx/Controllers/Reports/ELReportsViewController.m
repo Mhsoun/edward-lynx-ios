@@ -1,31 +1,29 @@
 //
-//  ELInstantFeedbacksViewController.m
+//  ELReportsViewController.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 17/01/2017.
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELInstantFeedbacksViewController.h"
+#import "ELReportsViewController.h"
 
 #pragma mark - Private Constants
 
-static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
+static NSString * const kELCellIdentifier = @"ReportCell";
 
 #pragma mark - Class Extension
 
-@interface ELInstantFeedbacksViewController ()
+@interface ELReportsViewController ()
 
 @property (nonatomic, strong) ELInstantFeedback *selectedInstantFeedback;
-@property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<ELInstantFeedback *> *provider;
+@property (nonatomic, strong) ELListViewManager *viewManager;
+@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
 
 @end
 
-@implementation ELInstantFeedbacksViewController
-
-#pragma mark - Lifecycle
+@implementation ELReportsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,10 +32,10 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Initialization
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
-    // Retrieve Instant Feedbacks
-    [self.viewManager processRetrievalOfInstantFeedbacks];
+    // Retrieve surveys
+    [self.viewManager processRetrievalOfReports];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,20 +43,11 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    // Refresh Instant Feedback items
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
-    
-    [self.tableView reloadData];
-}
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AnswerInstantFeedback"]) {
-        ELAnswerInstantFeedbackViewController *controller = (ELAnswerInstantFeedbackViewController *)[segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"ReportDetails"]) {
+        ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
         controller.instantFeedback = self.selectedInstantFeedback;
     }
 }
@@ -85,7 +74,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
     
-    [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
+    [self performSegueWithIdentifier:@"ReportDetails" sender:self];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -97,7 +86,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve Instant Feedbacks"
+    [self.dataSource dataSetEmptyText:@"Failed to retrieve Reports"
                           description:@"Please try again later."];
 }
 
@@ -116,10 +105,11 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks" description:@""];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView reloadData];
+    [self.dataSource dataSetEmptyText:@"No Reports"
+                          description:@""];
 }
 
 @end

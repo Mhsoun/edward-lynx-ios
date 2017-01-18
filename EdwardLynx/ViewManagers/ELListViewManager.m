@@ -48,8 +48,13 @@
 }
 
 - (void)processRetrievalOfInstantFeedbacks {
-    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
-                                                                  completion:self.requestCompletionBlock];
+    [self.client currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                            completion:self.requestCompletionBlock];
+}
+
+- (void)processRetrievalOfReports {
+    [self.client currentUserInstantFeedbacksWithFilter:@"mine"
+                                            completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveys {

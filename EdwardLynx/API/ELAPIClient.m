@@ -8,6 +8,10 @@
 
 #import "ELAPIClient.h"
 
+#pragma mark - Private Constants
+
+static NSString * const kELInvalidCredentials = @"invalid_credentials";
+
 @implementation ELAPIClient
 
 #pragma mark - Class Methods
@@ -34,7 +38,8 @@
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        if (error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
+        if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) &&
+            (responseDict[@"error"] && ![responseDict[@"error"] isEqualToString:kELInvalidCredentials])) {
             // Check if task requires user to be authenticated to invoke refreshing of credentials
             if (isAuthenticated) {
                 [ELUtils processReauthenticationWithCompletion:^(NSError *error) {

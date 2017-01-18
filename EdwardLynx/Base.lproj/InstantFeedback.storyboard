@@ -29,7 +29,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBI-Yj-DiI">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InstantFeedbackCell" textLabel="BAm-NV-juo" detailTextLabel="2lw-xL-kQ9" style="IBUITableViewCellStyleSubtitle" id="m49-Ry-DiG">
@@ -56,7 +56,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000000000002" green="0.20784313730000001" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -67,7 +67,7 @@
                             <constraint firstItem="APF-Tg-14y" firstAttribute="centerY" secondItem="QBI-Yj-DiI" secondAttribute="centerY" id="KhO-xw-PFc"/>
                             <constraint firstItem="hlQ-Ey-032" firstAttribute="top" secondItem="QBI-Yj-DiI" secondAttribute="bottom" id="PRc-Kx-Pmf"/>
                             <constraint firstAttribute="trailing" secondItem="QBI-Yj-DiI" secondAttribute="trailing" id="QyB-GP-PTb"/>
-                            <constraint firstItem="QBI-Yj-DiI" firstAttribute="top" secondItem="SuN-BS-PBC" secondAttribute="bottom" constant="20" id="bgf-mg-keo"/>
+                            <constraint firstItem="QBI-Yj-DiI" firstAttribute="top" secondItem="SuN-BS-PBC" secondAttribute="bottom" id="bgf-mg-keo"/>
                             <constraint firstItem="QBI-Yj-DiI" firstAttribute="leading" secondItem="2mT-Xq-TB9" secondAttribute="leading" id="wYW-PJ-2xh"/>
                             <constraint firstItem="APF-Tg-14y" firstAttribute="centerX" secondItem="QBI-Yj-DiI" secondAttribute="centerX" id="wZu-Bc-BhO"/>
                         </constraints>

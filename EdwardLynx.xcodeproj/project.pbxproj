@@ -26,6 +26,9 @@
 		A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */; };
 		A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91B15911E03C90500CAEC43 /* ActionView.xib */; };
 		A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B15941E03C96100CAEC43 /* ELActionView.m */; };
+		A91BF5951E2DFBA200F203A2 /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91BF5931E2DFBA200F203A2 /* Reports.storyboard */; };
+		A91BF5991E2DFBEB00F203A2 /* ELReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */; };
+		A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */; };
 		A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9214DC61E08D80B0021EA5E /* Profile.storyboard */; };
 		A9214DCB1E08D87B0021EA5E /* ELProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */; };
 		A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9214DCD1E092AAE0021EA5E /* ELEditProfileViewController.m */; };
@@ -49,6 +52,7 @@
 		A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96AE0401E0F844300AD56BE /* SurveyCell.xib */; };
 		A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */; };
 		A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0461E0FA05D00AD56BE /* ELSurvey.m */; };
+		A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E6E571E2F13F30056EDB1 /* Invite.storyboard */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -148,6 +152,11 @@
 		A91B15911E03C90500CAEC43 /* ActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionView.xib; path = EdwardLynx/Base.lproj/XIBs/Views/ActionView.xib; sourceTree = SOURCE_ROOT; };
 		A91B15931E03C96100CAEC43 /* ELActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELActionView.h; sourceTree = "<group>"; };
 		A91B15941E03C96100CAEC43 /* ELActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELActionView.m; sourceTree = "<group>"; };
+		A91BF5941E2DFBA200F203A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Reports.storyboard; sourceTree = "<group>"; };
+		A91BF5971E2DFBEB00F203A2 /* ELReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportsViewController.h; sourceTree = "<group>"; };
+		A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportsViewController.m; sourceTree = "<group>"; };
+		A91BF59A1E2E1F2400F203A2 /* ELReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportDetailsViewController.h; sourceTree = "<group>"; };
+		A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportDetailsViewController.m; sourceTree = "<group>"; };
 		A9214DC71E08D80B0021EA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A9214DC91E08D87B0021EA5E /* ELProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELProfileViewController.h; sourceTree = "<group>"; };
 		A9214DCA1E08D87B0021EA5E /* ELProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELProfileViewController.m; sourceTree = "<group>"; };
@@ -190,6 +199,7 @@
 		A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTableViewCell.m; sourceTree = "<group>"; };
 		A96AE0451E0FA05D00AD56BE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A96AE0461E0FA05D00AD56BE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
+		A96E6E581E2F13F30056EDB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invite.storyboard; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -388,6 +398,17 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
+		A91BF5961E2DFBDC00F203A2 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				A91BF59A1E2E1F2400F203A2 /* ELReportDetailsViewController.h */,
+				A91BF59B1E2E1F2400F203A2 /* ELReportDetailsViewController.m */,
+				A91BF5971E2DFBEB00F203A2 /* ELReportsViewController.h */,
+				A91BF5981E2DFBEB00F203A2 /* ELReportsViewController.m */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		A9308BC51DED74B5007B4F9F = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +490,7 @@
 				A9E53D591E1B6C3400E9BB3C /* Feedback */,
 				A94229491E1A5FB1004F9566 /* Main */,
 				A94229481E1A5F8C004F9566 /* Profile */,
+				A91BF5961E2DFBDC00F203A2 /* Reports */,
 				A942294A1E1A5FCA004F9566 /* Survey */,
 			);
 			path = Controllers;
@@ -482,9 +504,11 @@
 				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
 				A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */,
 				A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */,
+				A96E6E571E2F13F30056EDB1 /* Invite.storyboard */,
 				A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */,
 				A9121A981E07A7DE00ED9934 /* LeftMenu.storyboard */,
 				A9214DC61E08D80B0021EA5E /* Profile.storyboard */,
+				A91BF5931E2DFBA200F203A2 /* Reports.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
 				A96AE03A1E0F773600AD56BE /* Surveys.storyboard */,
 				A91B157E1E03A44500CAEC43 /* XIBs */,
@@ -842,12 +866,14 @@
 				A97086761E1E36F300CDC2DF /* QuestionTypeScaleView.xib in Resources */,
 				A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */,
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
+				A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
+				A91BF5951E2DFBA200F203A2 /* Reports.storyboard in Resources */,
 				A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */,
 				A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */,
 				A91B15901E03B7BD00CAEC43 /* ShortcutView.xib in Resources */,
@@ -954,6 +980,7 @@
 				A91B15841E03A5BA00CAEC43 /* ELStatusView.m in Sources */,
 				A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
+				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */,
@@ -980,6 +1007,7 @@
 				A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
+				A91BF5991E2DFBEB00F203A2 /* ELReportsViewController.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
@@ -1055,6 +1083,14 @@
 			name = Dashboard.storyboard;
 			sourceTree = "<group>";
 		};
+		A91BF5931E2DFBA200F203A2 /* Reports.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A91BF5941E2DFBA200F203A2 /* Base */,
+			);
+			name = Reports.storyboard;
+			sourceTree = "<group>";
+		};
 		A9214DC61E08D80B0021EA5E /* Profile.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1085,6 +1121,14 @@
 				A96AE03B1E0F773600AD56BE /* Base */,
 			);
 			name = Surveys.storyboard;
+			sourceTree = "<group>";
+		};
+		A96E6E571E2F13F30056EDB1 /* Invite.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96E6E581E2F13F30056EDB1 /* Base */,
+			);
+			name = Invite.storyboard;
 			sourceTree = "<group>";
 		};
 		A96F27581DFF8B2B00609E27 /* Authentication.storyboard */ = {

@@ -37,7 +37,7 @@
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
                                           instantiateViewControllerWithIdentifier:@"Configuration"];
     }
-        
+    
     return YES;
 }
 

@@ -17,6 +17,11 @@
                              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)currentUserInstantFeedbacksWithFilter:(NSString *)filter
                                    completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId
+                                completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)shareInstantFeedback:(int64_t)instantFeedbackId
+                      params:(NSDictionary *)params
+                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 - (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
