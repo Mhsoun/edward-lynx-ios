@@ -50,14 +50,20 @@
 
 #pragma mark - Public Methods
 
+- (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
+    [self.client userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
+}
+
+- (void)processSharingOfReportToUsers:(NSArray *)userIds atId:(int64_t)objId {
+    [self.client shareInstantFeedback:objId
+                               params:@{@"users": userIds}
+                           completion:self.requestCompletionBlock];
+}
+
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
     [self.client submitAnswerForSurveyWithId:self.detailObject.objectId
                                       params:formDict
                                   completion:self.requestCompletionBlock];
-}
-
-- (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
-    [self.client userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
 }
 
 @end

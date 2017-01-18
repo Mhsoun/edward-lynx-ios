@@ -7,10 +7,12 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELDetailViewManager.h"
 #import "ELInstantFeedback.h"
 
-@interface ELReportDetailsViewController : ELBaseViewController
+@interface ELReportDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
+- (IBAction)onShareButtonClick:(id)sender;
 
 @end

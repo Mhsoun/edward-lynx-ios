@@ -83,6 +83,7 @@ extern NSString * const kELAPIRootEndpoint;
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;
 extern NSString * const kELAPIInstantFeedbackAnswersEndpoint;
+extern NSString * const kELAPIInstantFeedbackSharesEndpoint;
 extern NSString * const kELAPIQuestionCategoriesEndpoint;
 extern NSString * const kELAPIQuestionCategoryEndpoint;
 extern NSString * const kELAPIQuestionsEndpoint;
