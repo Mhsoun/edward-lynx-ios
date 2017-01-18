@@ -50,8 +50,14 @@
 
 #pragma mark - Public Methods
 
-- (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId {
-    [self.client userSurveyQuestionsForId:objId completion:self.requestCompletionBlock];
+- (void)processRetrievalOfReportDetails {
+    [self.client instantFeedbackReportDetailsWithId:self.detailObject.objectId
+                                         completion:self.requestCompletionBlock];
+}
+
+- (void)processRetrievalOfSurveyQuestions {
+    [self.client userSurveyQuestionsForId:self.detailObject.objectId
+                               completion:self.requestCompletionBlock];
 }
 
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {

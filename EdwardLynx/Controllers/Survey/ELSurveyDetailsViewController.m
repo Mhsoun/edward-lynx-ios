@@ -40,7 +40,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
          forCellReuseIdentifier:kELCellIdentifier];
     
     // Retrieve surveys questions
-    [self.viewManager processRetrievalOfSurveyQuestionsAtId:self.survey.objectId];
+    [self.viewManager processRetrievalOfSurveyQuestions];
 }
 
 - (void)didReceiveMemoryWarning {

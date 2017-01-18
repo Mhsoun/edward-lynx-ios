@@ -12,5 +12,6 @@
 
 @property (nonatomic) NSString *shortDescription;
 @property (nonatomic) int64_t value;
+@property (nonatomic) int64_t count;
 
 @end

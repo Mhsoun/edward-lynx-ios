@@ -48,7 +48,8 @@
                         completion:completion];
 }
 
-- (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+- (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId
+                                completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     

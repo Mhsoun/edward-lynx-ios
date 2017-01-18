@@ -16,7 +16,8 @@
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 
-- (void)processRetrievalOfSurveyQuestionsAtId:(int64_t)objId;
+- (void)processRetrievalOfReportDetails;
+- (void)processRetrievalOfSurveyQuestions;
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;
 
 @end

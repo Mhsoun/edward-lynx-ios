@@ -24,8 +24,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.viewManager = [[ELDetailViewManager alloc] init];
+    // Initialization
+    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.instantFeedback];
     self.viewManager.delegate = self;
+    
+    [self.viewManager processRetrievalOfReportDetails];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,11 +49,15 @@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    //
+    // TODO Implementation
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    //
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
+        [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
+    }
 }
 
 #pragma mark - Interface Builder Actions
