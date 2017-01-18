@@ -90,10 +90,7 @@ static CGFloat const kELCornerRadius = 2.0f;
     [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
                                      key:kELAuthInstanceUserDefaultsKey];
     
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
-                                 instantiateViewControllerWithIdentifier:@"Configuration"]
-                       animated:YES
-                     completion:nil];
+    [self performSegueWithIdentifier:@"Configuration" sender:self];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)

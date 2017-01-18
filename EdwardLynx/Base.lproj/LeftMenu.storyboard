@@ -55,11 +55,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Yf-Wd-DhD" id="u9x-My-Nif">
-                                    <frame key="frameInset" width="375" height="49.5"/>
+                                    <frame key="frameInset" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pdE-jQ-kVu">
-                                            <frame key="frameInset" minX="15" width="345" height="49.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,7 +74,6 @@
                     <connections>
                         <segue destination="9kA-0g-ytD" kind="custom" identifier="Dashboard" customClass="SASlideMenuContentSegue" id="LdH-li-jKi"/>
                         <segue destination="SJ3-c6-UFM" kind="custom" identifier="Profile" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
-                        <segue destination="S3o-81-DRG" kind="custom" identifier="Surveys" customClass="SASlideMenuContentSegue" id="R61-KG-DGw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgs-oc-ffC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,14 +87,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3w-FR-4C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792" y="168"/>
-        </scene>
-        <!--Surveys-->
-        <scene sceneID="o8b-uU-84s">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Surveys" id="S3o-81-DRG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eHy-qF-emT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1799" y="225"/>
         </scene>
     </scenes>
 </document>
