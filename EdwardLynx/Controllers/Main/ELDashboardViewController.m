@@ -95,11 +95,11 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self.reportsView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys",
-                                                             @"segue": @"",
+                                                             @"segue": @"Surveys",
                                                              @"description": @"Description on viewing surveys.",
                                                              @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
     shortcutView.frame = self.surveysView.frame;
-//    shortcutView.delegate = self;
+    shortcutView.delegate = self;
     
     [self.surveysView addSubview:shortcutView];
     [self.surveysView.layer setCornerRadius:kELCornerRadius];

@@ -12,12 +12,16 @@
 
 static NSString * const kELNoQuestionType = @"No type selected";
 
+static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
+static NSString * const kELOptionCellIdentifier = @"OptionCell";
+
 #pragma mark - Class Extension
 
 @interface ELCreateInstantFeedbackViewController ()
 
 @property (nonatomic, strong) NSDictionary *instantFeedbackDict;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+@property (nonatomic, strong) NSMutableArray *mScaleOptions;
 
 @end
 
@@ -31,7 +35,12 @@ static NSString * const kELNoQuestionType = @"No type selected";
     
     // Initialization
     self.viewManager = [[ELFeedbackViewManager alloc] init];
+    self.mScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
     self.questionTypeLabel.text = kELNoQuestionType;
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +58,53 @@ static NSString * const kELNoQuestionType = @"No type selected";
     }
 }
 
+#pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.mScaleOptions.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *option = self.mScaleOptions[indexPath.row];
+    
+    if (option.length == 0) {
+        ELAddScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
+        cell.optionTextField.delegate = self;
+        
+        return cell;
+    } else {
+        ELScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier];
+        cell.tag = indexPath.row;
+        cell.delegate = self;
+        cell.optionLabel.text = option;
+        
+        return cell;
+    }
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    // Add Option
+    if (textField.text.length > 0) {
+        [self.mScaleOptions insertObject:textField.text atIndex:0];
+        [self.tableView reloadData];
+    }
+    
+    textField.text = @"";
+    
+    return YES;
+}
+
+#pragma mark - Protocol Methods (ELScaleOptionTableViewCell)
+
+- (void)onDeletionAtRow:(NSInteger)row {
+    [self.mScaleOptions removeObjectAtIndex:row];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onQuestionTypeButtonClick:(id)sender {
@@ -58,6 +114,7 @@ static NSString * const kELNoQuestionType = @"No type selected";
                              @(kELAnswerTypeInvertedAgreementScale), @(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeCustomScale)];
     void (^alertActionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         self.questionTypeLabel.text = action.title;
+        self.tableView.hidden = [ELUtils answerTypeByLabel:action.title] != kELAnswerTypeCustomScale;
     };
     
     controller = [UIAlertController alertControllerWithTitle:@"Select preferred Question type"

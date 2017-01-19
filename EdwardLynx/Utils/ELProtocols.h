@@ -52,4 +52,12 @@
 
 @end
 
+#pragma mark - Class-specific Delegates
+
+@protocol ELScaleOptionCellDelegate <NSObject>
+
+- (void)onDeletionAtRow:(NSInteger)row;
+
+@end
+
 #endif /* ELProtocols_h */

@@ -181,11 +181,12 @@
                         <outlet property="usernameErrorLabel" destination="0n9-mH-Dxz" id="BPH-FI-FJW"/>
                         <outlet property="usernameIcon" destination="cYW-qv-0tg" id="PlT-TV-CEd"/>
                         <outlet property="usernameTextField" destination="vhw-1P-ZZy" id="Cah-Dx-GF7"/>
+                        <segue destination="pbF-7Z-FAE" kind="presentation" identifier="Configuration" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="mKM-5B-bkO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwG-ct-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="98"/>
+            <point key="canvasLocation" x="919" y="-81"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="tol-AC-3z7">
@@ -317,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKO-s9-LeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="98"/>
+            <point key="canvasLocation" x="582" y="681"/>
         </scene>
         <!--Configuration View Controller-->
         <scene sceneID="OO4-wm-OB1">
@@ -347,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4HF-2R-5jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="98"/>
+            <point key="canvasLocation" x="1263" y="681"/>
         </scene>
     </scenes>
     <resources>
