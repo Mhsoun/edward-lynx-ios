@@ -114,6 +114,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
                              @(kELAnswerTypeInvertedAgreementScale), @(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeCustomScale)];
     void (^alertActionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         self.questionTypeLabel.text = action.title;
+        self.tableView.hidden = [ELUtils answerTypeByLabel:action.title] != kELAnswerTypeCustomScale;
     };
     
     controller = [UIAlertController alertControllerWithTitle:@"Select preferred Question type"
