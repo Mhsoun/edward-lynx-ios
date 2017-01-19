@@ -17,7 +17,7 @@ static NSInteger const kIAPICCallsNumber = 2;
 @interface ELConfigurationViewController ()
 
 @property (nonatomic) NSInteger index;
-@property (nonatomic, strong) void (^apiCallBlock)();
+@property (nonatomic, strong) void (^apiCallBlock)(NSError *);
 
 @end
 
@@ -32,7 +32,13 @@ static NSInteger const kIAPICCallsNumber = 2;
     // Initialization
     __weak typeof(self) weakSelf = self;
     self.index = 1;
-    self.apiCallBlock = ^{
+    self.apiCallBlock = ^(NSError *error) {
+        if (error) {
+            [weakSelf.indicatorView stopAnimating];
+            
+            return;
+        }
+        
         weakSelf.index++;
         
         if (weakSelf.index <= kIAPICCallsNumber) {
@@ -95,43 +101,46 @@ static NSInteger const kIAPICCallsNumber = 2;
     }
 }
 
-- (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)())completion {
-    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
-                                                                  completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
-            [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
-        }
-        
-        [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
-        
-        completion();
+- (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)(NSError *))completion {
+    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer" completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
+                [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+            }
+            
+            [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
+            
+            completion(error);
+        });
     }];
 }
 
-- (void)fetchUserProfileFromAPIWithCompletion:(void (^)())completion {
+- (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
     [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
                                                                                   error:nil]];
             
-            completion();
+            completion(error);
         });
     }];
 }
 
-- (void)fetchUsersFromAPIWithCompletion:(void (^)())completion {
+- (void)fetchUsersFromAPIWithCompletion:(void (^)(NSError *))completion {
     [[[ELUsersAPIClient alloc] init] retrieveUsersWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *participantDict in responseDict[@"items"]) {
-            [mParticipants addObject:[[ELParticipant alloc] initWithDictionary:participantDict error:nil]];
-        }
-        
-        [ELAppSingleton sharedInstance].participants = [mParticipants copy];
-        
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *participantDict in responseDict[@"items"]) {
+                [mParticipants addObject:[[ELParticipant alloc] initWithDictionary:participantDict error:nil]];
+            }
+            
+            [ELAppSingleton sharedInstance].participants = [mParticipants copy];
+            
+            completion(error);
+        });
     }];
 }
 
