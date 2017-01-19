@@ -188,8 +188,8 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     
     // Set the content size of your scroll view to be the content size of your
     // table view + whatever else you have in the scroll view.
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width,
-                                             (kELFormViewHeight + tableViewContentSizeHeight + 30));
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
+                                               (kELFormViewHeight + tableViewContentSizeHeight + 30))];
 }
 
 #pragma mark - Interface Builder Actions

@@ -10,8 +10,9 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELCellHeight = 45;
+static CGFloat const kELFormViewHeight = 350;
 static NSString * const kELNoQuestionType = @"No type selected";
-
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -38,6 +39,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     self.mScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
     self.questionTypeLabel.text = kELNoQuestionType;
     
+    self.tableView.scrollEnabled = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -85,12 +87,14 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    
     // Add Option
     if (textField.text.length > 0) {
         [self.mScaleOptions insertObject:textField.text atIndex:0];
         [self.tableView reloadData];
+        
+        // Dynamically adjust scroll view based on table view content
+        [self adjustScrollViewContentSize];
+        [self scrollToBottom];
     }
     
     textField.text = @"";
@@ -103,6 +107,29 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 - (void)onDeletionAtRow:(NSInteger)row {
     [self.mScaleOptions removeObjectAtIndex:row];
     [self.tableView reloadData];
+    
+    // Dynamically adjust scroll view based on table view content
+    [self adjustScrollViewContentSize];
+}
+
+#pragma mark - Private Methods
+
+- (void)adjustScrollViewContentSize {
+    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mScaleOptions.count) + kELCellHeight;
+    
+    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
+    [self.tableView updateConstraints];
+    
+    // Set the content size of your scroll view to be the content size of your
+    // table view + whatever else you have in the scroll view.
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
+                                               (kELFormViewHeight + tableViewContentSizeHeight + 30))];
+}
+
+- (void)scrollToBottom {
+    CGRect rect = CGRectMake(self.scrollView.contentSize.width - 1, self.scrollView.contentSize.height - 1, 1, 1);
+    
+    [self.scrollView scrollRectToVisible:rect animated:YES];
 }
 
 #pragma mark - Interface Builder Actions
@@ -113,8 +140,12 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
                              @(kELAnswerTypeYesNoScale), @(kELAnswerTypeStrongAgreeementScale), @(kELAnswerTypeText),
                              @(kELAnswerTypeInvertedAgreementScale), @(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeCustomScale)];
     void (^alertActionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
+        CGFloat height = [ELUtils answerTypeByLabel:action.title] == kELAnswerTypeCustomScale ? (kELCellHeight * 2) : 0;
+        
         self.questionTypeLabel.text = action.title;
-        self.tableView.hidden = [ELUtils answerTypeByLabel:action.title] != kELAnswerTypeCustomScale;
+        
+        [self.tableViewHeightConstraint setConstant:height];
+        [self.tableView updateConstraints];
     };
     
     controller = [UIAlertController alertControllerWithTitle:@"Select preferred Question type"

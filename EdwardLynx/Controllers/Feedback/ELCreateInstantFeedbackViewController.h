@@ -14,6 +14,7 @@
 
 @interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELScaleOptionCellDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *questionTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *questionTypeButton;
 @property (weak, nonatomic) IBOutlet UILabel *questionTypeErrorLabel;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
 - (IBAction)onQuestionTypeButtonClick:(id)sender;
 - (IBAction)onInviteButtonClick:(id)sender;
