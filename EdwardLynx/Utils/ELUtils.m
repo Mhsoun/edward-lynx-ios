@@ -125,6 +125,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 completion(error);
+                
+                return;
             }
             
             [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
@@ -210,6 +212,27 @@
 
 + (NSString *)labelByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"string" byAnswerType:type];
+}
+
++ (NSString *)labelBySurveyStatus:(kELSurveyStatus)status {
+    switch (status) {
+        case kELSurveyStatusOpen:
+            return @"Open";
+            
+            break;
+        case kELSurveyStatusPartial:
+            return @"Partial";
+            
+            break;
+        case kELSurveyStatusComplete:
+            return @"Completed";
+            
+            break;
+        default:
+            return @"Open";  // TEMP Remove once the `status` attribute has already been added on the API side
+            
+            break;
+    }
 }
 
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {

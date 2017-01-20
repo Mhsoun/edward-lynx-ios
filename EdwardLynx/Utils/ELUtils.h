@@ -52,6 +52,7 @@
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
++ (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
 + (void)setupGlobalUIChanges;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;

@@ -35,6 +35,11 @@ typedef NS_ENUM(NSInteger, kELAnswerType) {
     kELAnswerTypeCustomScale = 8
 };
 
+typedef NS_ENUM(NSInteger, kELInviteUsers) {
+    kELInviteUsersInstantFeedback,
+    kELInviteUsersReports
+};
+
 typedef NS_ENUM(NSInteger, kELRolePermission) {
     kELRolePermissionParticipateInSurvey,
     kELRolePermissionSelectFeedbackProviders,
@@ -47,9 +52,10 @@ typedef NS_ENUM(NSInteger, kELRolePermission) {
     kELRolePermissionInstantFeedback
 };
 
-typedef NS_ENUM(NSInteger, kELInviteUsers) {
-    kELInviteUsersInstantFeedback,
-    kELInviteUsersReports
+typedef NS_ENUM(NSInteger, kELSurveyStatus) {
+    kELSurveyStatusOpen = 0,
+    kELSurveyStatusPartial = 1,
+    kELSurveyStatusComplete = 2
 };
 
 #pragma mark - .plist Keys (Root)

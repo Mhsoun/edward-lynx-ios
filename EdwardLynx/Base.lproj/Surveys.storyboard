@@ -195,7 +195,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Wy4-fF-BUq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cBE-1d-M2A">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="cBE-1d-M2A">
                             <connections>
                                 <action selector="onDoneButtonClick:" destination="Zf1-Y0-xAe" id="CT7-6l-O9N"/>
                             </connections>
