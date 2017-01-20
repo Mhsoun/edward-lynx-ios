@@ -95,7 +95,7 @@
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */; };
-		A9E53D5C1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m */; };
+		A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */; };
 		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
 		A9E53D631E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */; };
 		A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */; };
@@ -275,7 +275,7 @@
 		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateInstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateInstantFeedbackViewController.h; sourceTree = "<group>"; };
-		A9E53D5B1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreatenstantFeedbackViewController.m; sourceTree = "<group>"; };
+		A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateInstantFeedbackViewController.m; sourceTree = "<group>"; };
 		A9E53D5E1E1B8BB200E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DevelopmentPlan.storyboard; sourceTree = "<group>"; };
 		A9E53D611E1B920F00E9BB3C /* ELDevelopmentPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlansViewController.h; sourceTree = "<group>"; };
 		A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlansViewController.m; sourceTree = "<group>"; };
@@ -728,7 +728,7 @@
 				A9BF26851E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.h */,
 				A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */,
 				A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */,
-				A9E53D5B1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m */,
+				A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */,
 				A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */,
 				A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */,
 				A9C95A061E1F939F00184223 /* ELInviteUsersViewController.h */,
@@ -1042,7 +1042,7 @@
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
 				A9C95A051E1F701A00184223 /* ELConfigurationViewController.m in Sources */,
 				A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */,
-				A9E53D5C1E1B6C4D00E9BB3C /* ELCreatenstantFeedbackViewController.m in Sources */,
+				A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */,
 				A9121AA31E07AF6A00ED9934 /* ELTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -92,11 +92,18 @@
     
     if (view == nil) {
         label = [[UILabel alloc] initWithFrame:self.pickerView.frame];
+        
+        // Appearance
         label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont fontWithName:@"Lato-Bold" size:16];
         label.text = [self.mOptions[row] shortDescription];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
-        label.font = [UIFont fontWithName:@"Lato-Bold" size:16];
+        
+        // Autoshrink
+        label.lineBreakMode = NSLineBreakByClipping;
+        label.minimumScaleFactor = 0.5;
+        label.numberOfLines = 2;
     }
     
     return label;

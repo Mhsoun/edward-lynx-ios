@@ -69,15 +69,16 @@
         return;
     }
     
-    self.heightConstraint.constant = toExpand ? 185 : 135;
-    questionView.frame = self.questionTypeView.frame;
+    [self.heightConstraint setConstant:toExpand ? 185 : 135];
+    [self.questionTypeView updateConstraints];
     
+    [questionView setFrame:self.questionTypeView.frame];
     [self.questionTypeView addSubview:questionView];
 }
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onDoneButtonClick:(id)sender {
+- (IBAction)onSubmitButtonClick:(id)sender {
     NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
     

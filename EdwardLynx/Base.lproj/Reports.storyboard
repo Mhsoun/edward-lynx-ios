@@ -38,7 +38,7 @@
                                             <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g9q-uI-aYf">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="g9q-uI-aYf">
                                                     <frame key="frameInset" minX="15" minY="17" width="33" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
@@ -63,7 +63,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kwk-8Z-fj5" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" id="75e-k3-Ex0"/>
+                            <constraint firstItem="Kwk-8Z-fj5" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" constant="10" id="75e-k3-Ex0"/>
                             <constraint firstItem="4e1-ma-hXA" firstAttribute="centerY" secondItem="Kwk-8Z-fj5" secondAttribute="centerY" id="JR1-nh-VxX"/>
                             <constraint firstAttribute="trailing" secondItem="Kwk-8Z-fj5" secondAttribute="trailing" id="Qj2-kA-KSe"/>
                             <constraint firstItem="4e1-ma-hXA" firstAttribute="centerX" secondItem="Kwk-8Z-fj5" secondAttribute="centerX" id="fzF-hC-5Yb"/>
