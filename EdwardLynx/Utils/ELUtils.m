@@ -130,7 +130,7 @@
             [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
                                              key:kELAuthInstanceUserDefaultsKey];
             
-            NSLog(@"%@: Credentials reauthenticated", [self class]);
+            DLog(@"%@: Credentials reauthenticated", [self class]);
             
             completion(nil);
         });

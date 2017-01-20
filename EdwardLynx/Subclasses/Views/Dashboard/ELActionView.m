@@ -83,8 +83,6 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    NSLog(@"%@", [self class]);
-    
     [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
 }
 
