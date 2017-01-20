@@ -15,9 +15,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, readonly) NSPersistentContainer *persistentContainer;
 
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
-
+- (void)registerDeviceToFirebaseAndAPI;
+- (void)registerForRemoteNotifications;
 - (void)saveContext;
 - (UIViewController *)visibleViewController:(UIViewController *)rootViewController;
 

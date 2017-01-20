@@ -24,7 +24,6 @@
     
     // Setup Firebase and Push Notifications
     [self setupFirebase];
-    [self registerForRemoteNotifications];
     
     // Setup IQKeyboardManager
     [ELUtils setupIQKeyboardManager];
@@ -121,7 +120,7 @@
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
                     */
-                    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+                    DLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }
             }];
@@ -139,12 +138,73 @@
     if ([context hasChanges] && ![context save:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        DLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
 }
 
 #pragma mark - Public Methods
+
+- (void)registerDeviceToFirebaseAndAPI {
+    NSString *deviceId = @"<unique-device-id-here";  // TEMP
+    
+    if (!self.firebaseToken) {
+        // Renew Firebase token
+        [[FIRInstanceID instanceID] deleteIDWithHandler:^(NSError * _Nullable error) {
+            self.firebaseToken = [FIRInstanceID instanceID].token;
+            
+            if (!self.firebaseToken) {
+                // Call method again to retry refreshing of Firebase token
+                [self registerDeviceToFirebaseAndAPI];
+            } else {
+                DLog(@"%@", deviceId);
+                
+                // TODO Register device to API
+            }
+        }];
+    } else {
+        DLog(@"%@", deviceId);
+        
+        // TODO Register device to API
+    }
+}
+
+- (void)registerForRemoteNotifications {
+    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        UNAuthorizationOptions authorizationOptions = (UNAuthorizationOptionSound |
+                                                       UNAuthorizationOptionAlert |
+                                                       UNAuthorizationOptionBadge);
+        
+        center.delegate = self;
+        
+        [center requestAuthorizationWithOptions:authorizationOptions
+                              completionHandler:^(BOOL granted, NSError * _Nullable error){
+            if (!error) {
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            }
+        }];
+    } else {  // For iOS 9 and earlier
+        UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound |
+                                                       UIUserNotificationTypeAlert |
+                                                       UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:allNotificationTypes
+                                                                                 categories:nil];
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+}
+
+- (void)triggerRegisterForNotifications {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+        [delegate registerDeviceToFirebaseAndAPI];
+    } else {
+        [delegate registerForRemoteNotifications];
+    }
+}
 
 - (UIViewController *)visibleViewController:(UIViewController *)rootViewController {
     UIViewController *presentedViewController;
@@ -177,38 +237,11 @@
 - (void)connectToFCM {
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
         if (error != nil) {
-            NSLog(@"AppDelegate: Unable to connect to FCM. %@", error);
+            DLog(@"AppDelegate: Unable to connect to FCM. %@", error);
         } else {
-            NSLog(@"AppDelegate: Connected to FCM.");
+            DLog(@"AppDelegate: Connected to FCM.");
         }
     }];
-}
-
-- (void)registerForRemoteNotifications {
-    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        UNAuthorizationOptions authorizationOptions = (UNAuthorizationOptionSound |
-                                                       UNAuthorizationOptionAlert |
-                                                       UNAuthorizationOptionBadge);
-        
-        center.delegate = self;
-        
-        [center requestAuthorizationWithOptions:authorizationOptions
-                              completionHandler:^(BOOL granted, NSError * _Nullable error){
-            if (!error) {
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
-            }
-        }];
-    } else {  // For iOS 9 and earlier
-        UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound |
-                                                       UIUserNotificationTypeAlert |
-                                                       UIUserNotificationTypeBadge);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:allNotificationTypes
-                                                                                 categories:nil];
-        
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
 }
 
 - (void)setupFirebase {

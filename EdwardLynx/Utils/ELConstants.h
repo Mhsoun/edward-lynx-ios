@@ -9,6 +9,14 @@
 #ifndef ELConstants_h
 #define ELConstants_h
 
+#pragma mark - Macros
+
+#ifdef DEBUG
+    #define DLog(...) NSLog(__VA_ARGS__)
+#else
+    #define DLog(...)
+#endif
+
 #define IDIOM UI_USER_INTERFACE_IDIOM()
 #define IPAD UIUserInterfaceIdiomPad
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)

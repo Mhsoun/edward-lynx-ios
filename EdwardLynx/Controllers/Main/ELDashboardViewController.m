@@ -25,6 +25,11 @@ static CGFloat const kELCornerRadius = 5.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Register for Remote Notifications
+#if !(TARGET_OS_SIMULATOR)
+    [self triggerRegisterForNotifications];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,6 +150,18 @@ static CGFloat const kELCornerRadius = 5.0f;
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
     [self performSegueWithIdentifier:identifier sender:self];
+}
+
+#pragma mark - Private Methods
+
+- (void)triggerRegisterForNotifications {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+        [delegate registerDeviceToFirebaseAndAPI];
+    } else {
+        [delegate registerForRemoteNotifications];
+    }
 }
 
 @end
