@@ -11,7 +11,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 45;
-static CGFloat const kELFormViewHeight = 350;
+static CGFloat const kELFormViewHeight = 360;
 static NSString * const kELNoQuestionType = @"No type selected";
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
@@ -39,10 +39,10 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     self.mScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
     self.questionTypeLabel.text = kELNoQuestionType;
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.scrollEnabled = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,7 +174,9 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
         popPresenter.sourceRect = [(UIButton *)sender bounds];
     }
     
-    [self presentViewController:controller animated:YES completion:nil];
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
 }
 
 - (IBAction)onInviteButtonClick:(id)sender {

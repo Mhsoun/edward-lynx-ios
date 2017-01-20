@@ -39,7 +39,7 @@
                                             <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BAm-NV-juo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="BAm-NV-juo">
                                                     <frame key="frameInset" minX="15" minY="17" width="33" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
@@ -67,7 +67,7 @@
                             <constraint firstItem="APF-Tg-14y" firstAttribute="centerY" secondItem="QBI-Yj-DiI" secondAttribute="centerY" id="KhO-xw-PFc"/>
                             <constraint firstItem="hlQ-Ey-032" firstAttribute="top" secondItem="QBI-Yj-DiI" secondAttribute="bottom" id="PRc-Kx-Pmf"/>
                             <constraint firstAttribute="trailing" secondItem="QBI-Yj-DiI" secondAttribute="trailing" id="QyB-GP-PTb"/>
-                            <constraint firstItem="QBI-Yj-DiI" firstAttribute="top" secondItem="SuN-BS-PBC" secondAttribute="bottom" id="bgf-mg-keo"/>
+                            <constraint firstItem="QBI-Yj-DiI" firstAttribute="top" secondItem="SuN-BS-PBC" secondAttribute="bottom" constant="10" id="bgf-mg-keo"/>
                             <constraint firstItem="QBI-Yj-DiI" firstAttribute="leading" secondItem="2mT-Xq-TB9" secondAttribute="leading" id="wYW-PJ-2xh"/>
                             <constraint firstItem="APF-Tg-14y" firstAttribute="centerX" secondItem="QBI-Yj-DiI" secondAttribute="centerX" id="wZu-Bc-BhO"/>
                         </constraints>
@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="916" y="869"/>
         </scene>
-        <!--Answer Instant Feedback View Controller-->
+        <!--INSTANT FEEDBACK-->
         <scene sceneID="Z66-Xd-JIP">
             <objects>
                 <viewController id="bqt-Nj-koZ" customClass="ELAnswerInstantFeedbackViewController" sceneMemberID="viewController">
@@ -100,22 +100,41 @@
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cwa-BI-yGr">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fe2-gS-Nec">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="oc4-jG-oRL"/>
+                                    <constraint firstAttribute="height" constant="185" id="oc4-jG-oRL"/>
                                 </constraints>
                             </view>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9V0-Dg-MzZ">
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Rpe-yi-mgn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSubmitButtonClick:" destination="bqt-Nj-koZ" eventType="touchUpInside" id="NSI-Hw-RC6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9V0-Dg-MzZ" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="DPU-fr-VwJ"/>
+                            <constraint firstItem="9V0-Dg-MzZ" firstAttribute="top" secondItem="fe2-gS-Nec" secondAttribute="bottom" constant="10" id="Dz4-8Z-nwz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fe2-gS-Nec" secondAttribute="trailing" id="Eea-z9-xWc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cwa-BI-yGr" secondAttribute="trailing" id="NYw-KG-eZL"/>
                             <constraint firstItem="fe2-gS-Nec" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="Vj9-2P-ND5"/>
+                            <constraint firstItem="9V0-Dg-MzZ" firstAttribute="trailing" secondItem="Nhc-Ql-6OT" secondAttribute="trailingMargin" id="ewT-Ju-Jje"/>
                             <constraint firstItem="Cwa-BI-yGr" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="g96-WB-kih"/>
                             <constraint firstItem="fe2-gS-Nec" firstAttribute="top" secondItem="Cwa-BI-yGr" secondAttribute="bottom" constant="10" id="mg2-9H-3s6"/>
                             <constraint firstItem="Cwa-BI-yGr" firstAttribute="top" secondItem="E6c-FH-tuU" secondAttribute="bottom" constant="20" id="utV-w8-9yy"/>
@@ -124,13 +143,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="2ww-PD-LlL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wMv-OV-idl">
-                            <connections>
-                                <action selector="onDoneButtonClick:" destination="bqt-Nj-koZ" id="Xa3-HT-MRC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="INSTANT FEEDBACK" id="2ww-PD-LlL"/>
                     <connections>
                         <outlet property="heightConstraint" destination="oc4-jG-oRL" id="btZ-on-fl2"/>
                         <outlet property="questionLabel" destination="Cwa-BI-yGr" id="bo4-32-juF"/>

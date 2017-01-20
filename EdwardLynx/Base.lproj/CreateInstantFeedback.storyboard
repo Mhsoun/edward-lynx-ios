@@ -133,12 +133,13 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q3M-IP-237">
+                                                    <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q3M-IP-237">
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="bnm-Rq-PdR"/>
                                                             <constraint firstAttribute="height" constant="30" id="xHK-HR-RTs"/>
                                                         </constraints>
-                                                        <color key="onTintColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     </switch>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is N/A" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tgA-52-d0c">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -146,19 +147,20 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wDv-e7-VtE">
+                                                    <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wDv-e7-VtE">
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="HGF-Pz-ghe"/>
                                                             <constraint firstAttribute="height" constant="30" id="bMx-tA-VwP"/>
                                                         </constraints>
-                                                        <color key="onTintColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="FvS-CB-0xv" firstAttribute="top" secondItem="LqK-pq-nP3" secondAttribute="bottom" constant="5" id="3dk-HD-qjL"/>
                                                     <constraint firstItem="FvS-CB-0xv" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="7MP-fN-vMz"/>
-                                                    <constraint firstAttribute="height" constant="350" id="ABi-UR-EKD"/>
+                                                    <constraint firstAttribute="height" constant="360" id="ABi-UR-EKD"/>
                                                     <constraint firstItem="wDv-e7-VtE" firstAttribute="top" secondItem="Q3M-IP-237" secondAttribute="bottom" constant="10" id="IQj-Us-aL6"/>
                                                     <constraint firstItem="wDv-e7-VtE" firstAttribute="leading" secondItem="tgA-52-d0c" secondAttribute="trailing" constant="5" id="ISZ-HO-0rt"/>
                                                     <constraint firstItem="WO5-DV-VLL" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="Iqp-Or-81L"/>
@@ -182,6 +184,7 @@
                                                     <constraint firstItem="Wtl-d7-0wX" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="nA0-rF-LsZ"/>
                                                     <constraint firstItem="Wtl-d7-0wX" firstAttribute="height" secondItem="xiY-zR-h5U" secondAttribute="height" id="ncq-Lk-Ga0"/>
                                                     <constraint firstItem="zuK-hV-1Mv" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="oUr-1B-4b5"/>
+                                                    <constraint firstItem="LqK-pq-nP3" firstAttribute="height" secondItem="BvV-Tr-b41" secondAttribute="height" id="pI2-IW-WWB"/>
                                                     <constraint firstItem="tgA-52-d0c" firstAttribute="centerY" secondItem="wDv-e7-VtE" secondAttribute="centerY" id="qwa-xD-i0N"/>
                                                     <constraint firstItem="tgA-52-d0c" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="rZy-Ep-uDp"/>
                                                     <constraint firstItem="BvV-Tr-b41" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="sYw-Se-cvw"/>
@@ -225,7 +228,7 @@
                                                                         <action selector="onDeleteButtonClick:" destination="nq7-WU-Iti" eventType="touchUpInside" id="k6O-aq-aOW"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yQX-jc-YTV">
+                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yQX-jc-YTV">
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -255,10 +258,10 @@
                                                             <frame key="frameInset" width="343" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
+                                                                <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
                                                                     <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                                 </textField>
                                                             </subviews>
