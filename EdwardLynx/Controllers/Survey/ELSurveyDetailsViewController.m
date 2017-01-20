@@ -18,7 +18,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDetailViewManager *viewManager;
+@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
 @property (nonatomic, strong) ELDataProvider<ELQuestion *> *provider;
 
 @end
@@ -32,15 +33,17 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
-    self.viewManager.delegate = self;
+    self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
+    self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
+    self.surveyViewManager.delegate = self;
+    self.detailViewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
     
     // Retrieve surveys questions
-    [self.viewManager processRetrievalOfSurveyQuestions];
+    [self.detailViewManager processRetrievalOfSurveyQuestions];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +91,17 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     [self.tableView reloadData];
 }
 
+#pragma mark - Protocol Methods (ELSurveyViewManager)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    // TODO Implementation
+    DLog(@"%@", errorDict);
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
@@ -95,6 +109,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     
     // Retrieve answer from question views
     for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
+        NSDictionary *formValues;
         ELQuestionTableViewCell *cell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
@@ -103,14 +118,21 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
                                       animated:NO];
         
         cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        formValues = [[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues];
         
-        [mAnswers addObject:[[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues]];
+        if (!formValues) {
+            [ELUtils animateCell:cell];
+            
+            continue;
+        }
+        
+        [mAnswers addObject:formValues];
     }
     
-    // TODO Handle validation and get value for `key`
-    
-//    [self.viewManager processSurveyAnswerSubmissionWithFormData:@{@"key": @"",
-//                                                                  @"answers": [mAnswers copy]}];
+    if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
+        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
+                                                                            @"answers": [mAnswers copy]}];
+    }
 }
 
 @end

@@ -12,9 +12,10 @@
 #import "ELQuestionCategory.h"
 #import "ELQuestionTableViewCell.h"
 #import "ELSurvey.h"
+#import "ELSurveyViewManager.h"
 #import "ELTableDataSource.h"
 
-@interface ELSurveyDetailsViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELSurveyDetailsViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 

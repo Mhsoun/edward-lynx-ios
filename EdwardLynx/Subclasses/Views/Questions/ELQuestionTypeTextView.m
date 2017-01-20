@@ -25,9 +25,9 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    // TODO Handle isNA questions
-//    return @{@"question": @(self.question.objectId),
-//             @"answer": self.question.isNA ? @(-1) : self.textView.text};
+    if (!_question.optional && self.textView.text.length == 0) {
+        return nil;
+    }
     
     return @{@"question": @(self.question.objectId),
              @"answer": self.textView.text};

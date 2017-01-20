@@ -171,6 +171,19 @@
 
 #pragma mark - App-related Helper Methods
 
++ (void)animateCell:(__kindof UITableViewCell *)cell {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    
+    animation.keyPath = @"position.x";
+    animation.values =  @[@0, @20, @-20, @10, @0];
+    animation.keyTimes = @[@0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1];
+    animation.duration = 0.3;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.additive = YES;
+    
+    [cell.layer addAnimation:animation forKey:@"shake"];
+}
+
 + (kELAnswerType)answerTypeByLabel:(NSString *)label {
     if ([label isEqualToString:@"Numeric 1-5 Scale"]) {
         return kELAnswerTypeOneToFiveScale;

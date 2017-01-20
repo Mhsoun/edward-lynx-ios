@@ -49,6 +49,7 @@
 + (void)setupFabric;
 + (void)setupIQKeyboardManager;
 
++ (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;

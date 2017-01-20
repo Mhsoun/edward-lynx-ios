@@ -18,6 +18,13 @@
 
 @end
 
+@protocol ELAPIPostResponseDelegate <NSObject>
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict;
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict;
+
+@end
+
 @protocol ELBaseViewControllerDelegate <NSObject>
 
 @optional
