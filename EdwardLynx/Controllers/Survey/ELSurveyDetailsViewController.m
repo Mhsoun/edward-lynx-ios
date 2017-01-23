@@ -60,7 +60,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
     
-    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 185 : 135;
+    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 150 : 110;
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)

@@ -36,7 +36,6 @@
 
 - (void)setupPickerView {
     // Initialization
-    self.helpLabel.text = self.question.answer.help;
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
 }

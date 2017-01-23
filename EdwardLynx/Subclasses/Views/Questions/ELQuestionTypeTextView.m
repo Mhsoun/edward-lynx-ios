@@ -39,8 +39,6 @@
 
 - (void)setQuestion:(ELQuestion *)question {
     _question = question;
-    
-    self.helpLabel.text = _question.answer.help;
 }
 
 @end

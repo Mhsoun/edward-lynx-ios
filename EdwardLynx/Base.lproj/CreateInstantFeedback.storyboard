@@ -182,7 +182,7 @@
                                                         <rect key="frame" x="0.0" y="73" width="343" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nq7-WU-Iti" id="5Hh-om-1Va">
-                                                            <frame key="frameInset" width="343" height="44"/>
+                                                            <frame key="frameInset" width="343" height="44.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c8-TR-4pK" userLabel="Delete Button">
@@ -223,7 +223,7 @@
                                                         <rect key="frame" x="0.0" y="118" width="343" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dat-In-jp2" id="2ny-1s-Kx7">
-                                                            <frame key="frameInset" width="343" height="44"/>
+                                                            <frame key="frameInset" width="343" height="44.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
@@ -253,8 +253,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Wvt-79-2DY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                                <state key="normal" title="Invite">
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                <state key="normal" title="Select Participants">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="disabled" title="Processing..."/>

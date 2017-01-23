@@ -37,8 +37,8 @@ NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
 
-CGFloat const kELQuestionTypeDefaultHeight = 65;
-CGFloat const kELQuestionTypeExpandedHeight = 115;
+CGFloat const kELQuestionTypeDefaultHeight = 40;
+CGFloat const kELQuestionTypeExpandedHeight = 80;
 
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";

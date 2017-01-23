@@ -107,7 +107,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ex9-TF-YkB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                 <state key="normal" title="Invite">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

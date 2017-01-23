@@ -17,15 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Rj-Rg-hdw">
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="owg-83-zld"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BAY-ya-BPD">
                     <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,17 +30,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9Rj-Rg-hdw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E1J-9K-99t"/>
-                <constraint firstAttribute="trailing" secondItem="9Rj-Rg-hdw" secondAttribute="trailing" id="Ixm-k8-vC2"/>
-                <constraint firstItem="9Rj-Rg-hdw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ouv-WG-lW2"/>
                 <constraint firstItem="BAY-ya-BPD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Tda-xo-sUx"/>
                 <constraint firstItem="BAY-ya-BPD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="a5b-bs-NLM"/>
-                <constraint firstItem="BAY-ya-BPD" firstAttribute="top" secondItem="9Rj-Rg-hdw" secondAttribute="bottom" constant="10" id="eD0-AR-d0g"/>
                 <constraint firstAttribute="bottom" secondItem="BAY-ya-BPD" secondAttribute="bottom" id="pEZ-LM-8W6"/>
+                <constraint firstItem="BAY-ya-BPD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zDN-qh-Rhc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="helpLabel" destination="9Rj-Rg-hdw" id="4FZ-Qu-Res"/>
                 <outlet property="textView" destination="BAY-ya-BPD" id="R6E-MV-rex"/>
             </connections>
         </view>
