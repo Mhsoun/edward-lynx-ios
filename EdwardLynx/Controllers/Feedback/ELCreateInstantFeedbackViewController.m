@@ -11,7 +11,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 45;
-static CGFloat const kELFormViewHeight = 360;
+static CGFloat const kELFormViewHeight = 410;
 static NSString * const kELNoQuestionType = @"No type selected";
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
@@ -20,9 +20,11 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
 @interface ELCreateInstantFeedbackViewController ()
 
+@property (nonatomic, strong) NSString *selectedAnswerType;
 @property (nonatomic, strong) NSDictionary *instantFeedbackDict;
+@property (nonatomic, strong) NSMutableArray *mCustomScaleOptions;
+@property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
-@property (nonatomic, strong) NSMutableArray *mScaleOptions;
 
 @end
 
@@ -35,9 +37,9 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.selectedAnswerType = kELNoQuestionType;
     self.viewManager = [[ELFeedbackViewManager alloc] init];
-    self.mScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
-    self.questionTypeLabel.text = kELNoQuestionType;
+    self.mCustomScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.scrollEnabled = NO;
@@ -55,6 +57,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"InviteFeedbackParticipants"]) {
         ELInviteUsersViewController *controller = [segue destinationViewController];
+        
         controller.inviteType = kELInviteUsersInstantFeedback;
         controller.instantFeedbackDict = self.instantFeedbackDict;
     }
@@ -63,11 +66,11 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.mScaleOptions.count;
+    return self.mCustomScaleOptions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *option = self.mScaleOptions[indexPath.row];
+    NSString *option = self.mCustomScaleOptions[indexPath.row];
     
     if (option.length == 0) {
         ELAddScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
@@ -89,7 +92,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // Add Option
     if (textField.text.length > 0) {
-        [self.mScaleOptions insertObject:textField.text atIndex:0];
+        [self.mCustomScaleOptions insertObject:textField.text atIndex:0];
         [self.tableView reloadData];
         
         // Dynamically adjust scroll view based on table view content
@@ -102,10 +105,54 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     return YES;
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
+    NSArray *answerTypes = @[[ELUtils labelByAnswerType:kELAnswerTypeYesNoScale],
+                             [ELUtils labelByAnswerType:kELAnswerTypeText],
+                             [ELUtils labelByAnswerType:kELAnswerTypeOneToTenScale],
+                             [ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
+    
+    // Radio Group
+    for (NSString *answerType in answerTypes) {
+        TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
+        
+        data.selected = NO;
+        data.identifier = answerType;
+        
+        data.labelText = answerType;
+        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+        data.labelColor = [UIColor whiteColor];
+        
+        data.borderColor = [UIColor whiteColor];
+        data.circleColor = [UIColor whiteColor];
+        data.borderRadius = 15;
+        data.circleRadius = 10;
+        
+        [mData addObject:data];
+    }
+    
+    self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
+                                                                   layout:TNRadioButtonGroupLayoutVertical];
+    
+    [self.radioGroup setIdentifier:@"Answer Types group"];
+    [self.radioGroup setMarginBetweenItems:15];
+    
+    [self.radioGroup create];
+    [self.radioGroupView addSubview:self.radioGroup];
+    
+    // Notification to handle selection changes
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAnswerTypeGroupUpdate:)
+                                                 name:SELECTED_RADIO_BUTTON_CHANGED
+                                               object:self.radioGroup];
+}
+
 #pragma mark - Protocol Methods (ELScaleOptionTableViewCell)
 
 - (void)onDeletionAtRow:(NSInteger)row {
-    [self.mScaleOptions removeObjectAtIndex:row];
+    [self.mCustomScaleOptions removeObjectAtIndex:row];
     [self.tableView reloadData];
     
     // Dynamically adjust scroll view based on table view content
@@ -115,7 +162,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 #pragma mark - Private Methods
 
 - (void)adjustScrollViewContentSize {
-    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mScaleOptions.count) + kELCellHeight;
+    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mCustomScaleOptions.count) + kELCellHeight;
     
     [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
     [self.tableView updateConstraints];
@@ -134,56 +181,11 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onQuestionTypeButtonClick:(id)sender {
-    UIAlertController *controller;
-    NSArray *answerTypes = @[@(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale), @(kELAnswerTypeAgreeementScale),
-                             @(kELAnswerTypeYesNoScale), @(kELAnswerTypeStrongAgreeementScale), @(kELAnswerTypeText),
-                             @(kELAnswerTypeInvertedAgreementScale), @(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeCustomScale)];
-    void (^alertActionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        CGFloat height = [ELUtils answerTypeByLabel:action.title] == kELAnswerTypeCustomScale ? (kELCellHeight * 2) : 0;
-        
-        self.questionTypeLabel.text = action.title;
-        
-        [self.tableViewHeightConstraint setConstant:height];
-        [self.tableView updateConstraints];
-    };
-    
-    controller = [UIAlertController alertControllerWithTitle:@"Select preferred Question type"
-                                                     message:nil
-                                              preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    for (NSNumber *answerTypeObj in answerTypes) {
-        kELAnswerType answerType = [answerTypeObj integerValue];
-        
-        [controller addAction:[UIAlertAction actionWithTitle:[ELUtils labelByAnswerType:answerType]
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:alertActionBlock]];
-    }
-    
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
-                                                   style:UIAlertActionStyleCancel
-                                                 handler:nil]];
-    
-    if (IDIOM == IPAD) {
-        UIPopoverPresentationController *popPresenter;
-        
-        [controller setModalPresentationStyle:UIModalPresentationPopover];
-        
-        popPresenter = [controller popoverPresentationController];
-        popPresenter.sourceView = (UIButton *)sender;
-        popPresenter.sourceRect = [(UIButton *)sender bounds];
-    }
-    
-    [self presentViewController:controller
-                       animated:YES
-                     completion:nil];
-}
-
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid;
     ELFormItemGroup *typeGroup, *questionGroup;
     
-    typeGroup = [[ELFormItemGroup alloc] initWithText:self.questionTypeLabel.text
+    typeGroup = [[ELFormItemGroup alloc] initWithText:self.selectedAnswerType
                                                  icon:nil
                                            errorLabel:self.questionTypeErrorLabel];
     questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
@@ -202,6 +204,12 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     }
     
     [self performSegueWithIdentifier:@"InviteFeedbackParticipants" sender:self];
+}
+
+#pragma mark - Notifications
+
+- (void)onAnswerTypeGroupUpdate:(NSNotification *)notification {
+    self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
 }
 
 @end
