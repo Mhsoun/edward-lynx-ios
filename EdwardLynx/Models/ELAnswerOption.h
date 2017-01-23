@@ -10,7 +10,7 @@
 
 @interface ELAnswerOption : JSONModel
 
-@property (nonatomic) NSString *shortDescription;
+@property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) int64_t value;
 @property (nonatomic) int64_t count;
 

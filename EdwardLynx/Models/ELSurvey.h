@@ -13,11 +13,12 @@
 @interface ELSurvey : ELModel
 
 @property (nonatomic) int64_t type;
+@property (nonatomic) kELSurveyStatus status;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *lang;
-@property (nonatomic) NSString<Optional> *status;
-@property (nonatomic) NSString *shortDescription;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
+@property (nonatomic) NSString *shortDescription;
+@property (nonatomic) NSString<Optional> *key;
 
 @end

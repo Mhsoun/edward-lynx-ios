@@ -113,7 +113,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (void)setUserDefaultsValue:(id)value forKey:(NSString *)key {
++ (void)setUserDefaultsValue:(id)value key:(NSString *)key {
     [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -125,6 +125,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 completion(error);
+                
+                return;
             }
             
             [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
@@ -171,6 +173,19 @@
 
 #pragma mark - App-related Helper Methods
 
++ (void)animateCell:(__kindof UITableViewCell *)cell {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    
+    animation.keyPath = @"position.x";
+    animation.values =  @[@0, @20, @-20, @10, @0];
+    animation.keyTimes = @[@0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1];
+    animation.duration = 0.3;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.additive = YES;
+    
+    [cell.layer addAnimation:animation forKey:@"shake"];
+}
+
 + (kELAnswerType)answerTypeByLabel:(NSString *)label {
     if ([label isEqualToString:@"Numeric 1-5 Scale"]) {
         return kELAnswerTypeOneToFiveScale;
@@ -199,6 +214,41 @@
     return [[self class] object:@"string" byAnswerType:type];
 }
 
++ (NSString *)labelBySurveyStatus:(kELSurveyStatus)status {
+    switch (status) {
+        case kELSurveyStatusOpen:
+            return @"Open";
+            
+            break;
+        case kELSurveyStatusPartial:
+            return @"Partial";
+            
+            break;
+        case kELSurveyStatusComplete:
+            return @"Completed";
+            
+            break;
+        default:
+            return @"Open";  // TEMP Remove once the `status` attribute has already been added on the API side
+            
+            break;
+    }
+}
+
++ (void)presentToastAtView:(UIView *)view
+                   message:(NSString *)message
+                completion:(void (^)())completion {
+    [view makeToast:message
+           duration:1.0f
+           position:CSToastPositionBottom
+              title:nil
+              image:nil
+              style:nil
+              completion:^(BOOL didTap) {
+                  completion();
+              }];
+}
+
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {
     for (__kindof UIView *subview in view.subviews) {
         if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
@@ -218,6 +268,15 @@
 }
 
 + (void)setupGlobalUIChanges {
+    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+    
+    // Toast
+    style.messageFont = [UIFont fontWithName:@"Lato-Regular" size:14.0f];
+    style.messageColor = [UIColor whiteColor];
+    
+    [CSToastManager setSharedStyle:style];
+    [CSToastManager setQueueEnabled:YES];
+    
     // UINavigationBar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

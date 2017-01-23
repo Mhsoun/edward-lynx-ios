@@ -53,9 +53,8 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                     
                     oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
                     
-                    [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
-                    
                     // Re-execute task
+                    [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
                     [self performAuthenticatedTask:isAuthenticated
                                        withRequest:request
                                         completion:completion];

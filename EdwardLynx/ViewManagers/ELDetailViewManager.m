@@ -13,6 +13,7 @@
 @interface ELDetailViewManager ()
 
 @property (nonatomic, strong) ELSurveysAPIClient *client;
+@property (nonatomic, strong) __kindof ELModel *detailObject;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
@@ -58,12 +59,6 @@
 - (void)processRetrievalOfSurveyQuestions {
     [self.client userSurveyQuestionsForId:self.detailObject.objectId
                                completion:self.requestCompletionBlock];
-}
-
-- (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
-    [self.client submitAnswerForSurveyWithId:self.detailObject.objectId
-                                      params:formDict
-                                  completion:self.requestCompletionBlock];
 }
 
 @end

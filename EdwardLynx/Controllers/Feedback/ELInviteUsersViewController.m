@@ -13,6 +13,8 @@
 static CGFloat const kELFormViewHeight = 120;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
+static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
+static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback successfully created.";
 
 #pragma mark - Class Extension
 
@@ -152,6 +154,9 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSString *successMessage = self.inviteType == kELInviteUsersInstantFeedback ? kELSuccessMessageInstantFeedback :
+                                                                                  kELSuccessMessageShareReport;
+    
     // Clear selections
     for (int i = 0; i < self.mParticipants.count; i++) {
         ELParticipant *participant = self.mParticipants[i];
@@ -164,10 +169,14 @@ static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
     [self.mParticipants removeAllObjects];
     
     // Back to the Dashboard
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                 instantiateInitialViewController]
-                       animated:YES
-                     completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:successMessage
+                     completion:^{
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                     instantiateInitialViewController]
+                           animated:YES
+                         completion:nil];
+    }];
 }
 
 #pragma mark - Private Methods

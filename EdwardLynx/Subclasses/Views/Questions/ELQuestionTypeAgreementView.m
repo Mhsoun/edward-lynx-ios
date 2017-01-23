@@ -44,12 +44,6 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    // TODO Handle isNA questions
-//    ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
-//    
-//    return @{@"question": @(_question.objectId),
-//             @"answer": _question.isNA ? @(-1) : @(option.value)};
-    
     ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
     
     return @{@"question": @(_question.objectId),
@@ -67,8 +61,8 @@
     self.mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     if (_question.isNA) {
-        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A",
-                                                                              @"value": @(-1)} error:nil]];
+        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
+                                                                      error:nil]];
     }
     
     [self setupPickerView];
@@ -88,7 +82,7 @@
             viewForRow:(NSInteger)row
           forComponent:(NSInteger)component
            reusingView:(UIView *)view {
-    UILabel *label = (UILabel*)view;
+    UILabel *label = (UILabel *)view;
     
     if (view == nil) {
         label = [[UILabel alloc] initWithFrame:self.pickerView.frame];

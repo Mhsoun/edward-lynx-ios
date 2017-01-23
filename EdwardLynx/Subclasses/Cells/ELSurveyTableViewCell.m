@@ -25,11 +25,12 @@
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELSurvey *survey = (ELSurvey *)object;
+    NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
     
     // Content
     self.surveyLabel.text = survey.name;
     self.timestampLabel.text = @"3 days ago";  // TEMP
-    self.statusLabel.text = @"UNFINISHED";  // TEMP
+    self.statusLabel.text = [NSString stringWithFormat:@"  %@  ", status];
     
     // UI
     self.statusLabel.layer.cornerRadius = 2.0f;

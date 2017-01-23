@@ -15,4 +15,9 @@
                                                                   @"shortDescription": @"description"}];
 }
 
+// TEMP Remove once the `status` attribute has already been added on the API side
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"status"];
+}
+
 @end

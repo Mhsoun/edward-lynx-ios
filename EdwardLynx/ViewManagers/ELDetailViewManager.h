@@ -11,13 +11,11 @@
 
 @interface ELDetailViewManager : NSObject
 
-@property (nonatomic, strong) __kindof ELModel *detailObject;
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 
 - (void)processRetrievalOfReportDetails;
 - (void)processRetrievalOfSurveyQuestions;
-- (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;
 
 @end

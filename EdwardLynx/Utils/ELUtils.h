@@ -37,9 +37,12 @@
 + (id)getUserDefaultsCustomObjectForKey:(NSString *)key;
 + (id)getUserDefaultsObjectForKey:(NSString *)key;
 + (id)getUserDefaultsValueForKey:(NSString *)key;
-+ (void)setUserDefaultsCustomObject:(__kindof NSObject *)object key:(NSString *)key;
-+ (void)setUserDefaultsObject:(__kindof NSObject *)object key:(NSString *)key;
-+ (void)setUserDefaultsValue:(id)value forKey:(NSString *)key;
++ (void)setUserDefaultsCustomObject:(__kindof NSObject *)object
+                                key:(NSString *)key;
++ (void)setUserDefaultsObject:(__kindof NSObject *)object
+                          key:(NSString *)key;
++ (void)setUserDefaultsValue:(id)value
+                         key:(NSString *)key;
 
 + (void)processReauthenticationWithCompletion:(void (^)(NSError *error))completion;
 
@@ -49,9 +52,14 @@
 + (void)setupFabric;
 + (void)setupIQKeyboardManager;
 
++ (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
++ (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
++ (void)presentToastAtView:(UIView *)view
+                   message:(NSString *)message
+                completion:(void (^)())completion;
 + (void)setupGlobalUIChanges;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;

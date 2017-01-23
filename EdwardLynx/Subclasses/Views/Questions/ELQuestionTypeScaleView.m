@@ -25,7 +25,6 @@
 #pragma mark - Private Methods
 
 - (void)setupNumberScale {
-    NSInteger index = 0;
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     self.helpLabel.text = self.question.answer.help;
@@ -34,10 +33,8 @@
     [self.scaleChoices removeAllSegments];
     
     if (_question.isNA) {
-        index = -1;
-        
-        [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A",
-                                                                         @"value": @(-1)} error:nil]];
+        [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
+                                                                 error:nil]];
     }
     
     for (int i = 0; i < [mOptions count]; i++) {
@@ -48,9 +45,6 @@
                                          animated:NO];
     }
     
-    [self.scaleChoices setSelectedSegmentIndex:0];
-//    [self.scaleChoices setSelectedSegmentIndex:index];
-    
     // Text View
     self.textView.hidden = _question.answer.type != kELAnswerTypeOneToTenWithExplanation;
 }
@@ -58,20 +52,13 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    // TODO Handle isNA questions
-//    ELAnswerOption *option;
+    ELAnswerOption *option;
     
-//    int64_t value = -1;
-//    
-//    if (!_question.isNA) {
-//        option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
-//        value = option.value;
-//    }
+    if (!_question.optional && self.scaleChoices.selectedSegmentIndex < 0) {
+        return nil;
+    }
     
-//    return @{@"question": @(_question.objectId),
-//             @"answer": @(value)};
-    
-    ELAnswerOption *option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
+    option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
     
     return @{@"question": @(_question.objectId),
              @"answer": @(option.value)};
