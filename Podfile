@@ -1,6 +1,7 @@
 abstract_target 'BasePods' do
     pod 'AFNetworking', '~> 3.1' 
     pod 'Crashlytics'
+    pod 'DYSlideView', '~> 0.0'
     pod 'DZNEmptyDataSet', '~> 1.8'
     pod 'Fabric'
     pod 'Firebase'
