@@ -113,7 +113,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (void)setUserDefaultsValue:(id)value forKey:(NSString *)key {
++ (void)setUserDefaultsValue:(id)value key:(NSString *)key {
     [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -235,6 +235,20 @@
     }
 }
 
++ (void)presentToastAtView:(UIView *)view
+                   message:(NSString *)message
+                completion:(void (^)())completion {
+    [view makeToast:message
+           duration:1.0f
+           position:CSToastPositionBottom
+              title:nil
+              image:nil
+              style:nil
+              completion:^(BOOL didTap) {
+                  completion();
+              }];
+}
+
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {
     for (__kindof UIView *subview in view.subviews) {
         if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
@@ -254,6 +268,15 @@
 }
 
 + (void)setupGlobalUIChanges {
+    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+    
+    // Toast
+    style.messageFont = [UIFont fontWithName:@"Lato-Regular" size:14.0f];
+    style.messageColor = [UIColor whiteColor];
+    
+    [CSToastManager setSharedStyle:style];
+    [CSToastManager setQueueEnabled:YES];
+    
     // UINavigationBar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

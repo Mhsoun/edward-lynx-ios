@@ -13,11 +13,13 @@
 static NSString * const kELCellIdentifier = @"QuestionCell";
 static NSString * const kELActionSaveToDraft = @"Save to draft";
 static NSString * const kELActionSubmit = @"Submit";
+static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@";
 
 #pragma mark - Class Extension
 
 @interface ELSurveyDetailsViewController ()
 
+@property (nonatomic) BOOL isSurveyFinal;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
@@ -101,7 +103,15 @@ static NSString * const kELActionSubmit = @"Submit";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSString *successMessage = [NSString stringWithFormat:kELSurveyAnswerSuccessMessage, self.isSurveyFinal ? @"submitted." :
+                                                                                                              @"saved to draft."];
+    
+    // Back to the Surveys list
+    [ELUtils presentToastAtView:self.view
+                        message:successMessage
+                     completion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Interface Builder Actions
@@ -113,6 +123,8 @@ static NSString * const kELActionSubmit = @"Submit";
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         NSDictionary *formDict;
+        
+        self.isSurveyFinal = @([action.title isEqualToString:kELActionSubmit]);
         
         // Retrieve answer from question views
         for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
@@ -138,7 +150,7 @@ static NSString * const kELActionSubmit = @"Submit";
         
         if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
             formDict = @{@"key": self.survey.key,
-                         @"final": @([action.title isEqualToString:kELActionSubmit]),
+                         @"final": @(self.isSurveyFinal),
                          @"answers": [mAnswers copy]};
             
             [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
