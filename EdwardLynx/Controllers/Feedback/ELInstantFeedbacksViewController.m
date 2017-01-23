@@ -71,13 +71,11 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELInstantFeedback *feedback;
-    ELQuestion *question;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     feedback = [ELAppSingleton sharedInstance].instantFeedbacks[indexPath.row];
-    question = feedback.question;
-    cell.textLabel.text = question.text;
-    cell.detailTextLabel.text = [ELUtils labelByAnswerType:question.answer.type];
+    cell.textLabel.text = feedback.question.text;
+    cell.detailTextLabel.text = [ELUtils labelByAnswerType:feedback.question.answer.type];
     
     return cell;
 }

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,10 +27,7 @@
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-zP-pqA">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="26z-4p-s7b"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,25 +46,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oex-s9-PlX">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="oex-s9-PlX" secondAttribute="height" multiplier="1:1" id="C9z-Do-2yL"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="leading" secondItem="9Ue-zP-pqA" secondAttribute="leading" id="3QR-q3-btN"/>
-                            <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="Bev-ru-OgZ" secondAttribute="bottom" constant="5" id="9Er-bM-LAk"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="BFk-k8-USL"/>
-                            <constraint firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" constant="40" id="D0r-Gr-kyY"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" constant="15" id="D0r-Gr-kyY"/>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="top" secondItem="9Ue-zP-pqA" secondAttribute="bottom" id="Qy5-7t-juE"/>
-                            <constraint firstItem="oex-s9-PlX" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="dmx-7h-eHB"/>
-                            <constraint firstAttribute="trailing" secondItem="oex-s9-PlX" secondAttribute="trailing" constant="10" id="iOm-5j-CG6"/>
-                            <constraint firstItem="oex-s9-PlX" firstAttribute="centerY" secondItem="c7D-tH-CVd" secondAttribute="centerY" id="jCP-Vj-UzB"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="k2c-WN-Ttg"/>
-                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="leading" secondItem="c7D-tH-CVd" secondAttribute="leading" constant="10" id="lqg-V1-mDV"/>
-                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="top" secondItem="c7D-tH-CVd" secondAttribute="top" constant="15" id="njO-YY-bna"/>
+                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="leading" secondItem="c7D-tH-CVd" secondAttribute="leading" constant="15" id="lqg-V1-mDV"/>
+                            <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="Bev-ru-OgZ" secondAttribute="bottom" constant="5" id="mq4-OZ-Wqc"/>
+                            <constraint firstItem="9Ue-zP-pqA" firstAttribute="top" secondItem="c7D-tH-CVd" secondAttribute="top" constant="10" id="njO-YY-bna"/>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="p8c-8h-zdQ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -86,7 +74,6 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="statusIcon" destination="oex-s9-PlX" id="fvH-c0-55Z"/>
                 <outlet property="statusLabel" destination="GVa-h5-dbd" id="qb4-ra-qn3"/>
                 <outlet property="surveyLabel" destination="9Ue-zP-pqA" id="gF1-NK-Ze0"/>
                 <outlet property="timestampLabel" destination="Bev-ru-OgZ" id="n3G-sf-UiE"/>

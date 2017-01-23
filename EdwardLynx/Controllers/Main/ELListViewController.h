@@ -8,6 +8,7 @@
 
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
+#import "ELInstantFeedback.h"
 #import "ELListViewManager.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"

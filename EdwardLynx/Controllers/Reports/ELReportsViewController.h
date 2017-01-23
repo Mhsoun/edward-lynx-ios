@@ -7,15 +7,17 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELDataProvider.h"
-#import "ELListViewManager.h"
-#import "ELQuestion.h"
+#import "ELInstantFeedback.h"
+#import "ELListViewController.h"
 #import "ELReportDetailsViewController.h"
-#import "ELTableDataSource.h"
 
-@interface ELReportsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
+#import <DYSlideView/DYSlideView.h>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@interface ELReportsViewController : ELBaseViewController<ELListViewControllerDelegate, DYSlideViewDelegate>
+
+@property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet DYSlideView *slideView;
 
 @end

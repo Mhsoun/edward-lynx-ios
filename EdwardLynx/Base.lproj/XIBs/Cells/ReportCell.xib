@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReportCell" id="YJL-6I-Lpf" customClass="ELReportTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YJL-6I-Lpf" id="B4B-hP-hli">
+                <frame key="frameInset" width="375" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQJ-JB-a9M" customClass="RNThemeView">
+                        <subviews>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-Ug-dZN">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jSf-RM-xl9">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Gr6-1w-cF6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 3, 2014" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v6m-Qn-8lG">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="iKC-eb-ui8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invited: 31" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-S7-aP2">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6ht-nN-NP1"/>
+                                    <constraint firstAttribute="height" constant="15" id="DQ2-qw-OdE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered: 1" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-Hb-diq">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="exq-9q-s0o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AKw-Hb-diq" firstAttribute="top" secondItem="v6m-Qn-8lG" secondAttribute="bottom" id="9Vq-lW-OKf"/>
+                            <constraint firstItem="AKw-Hb-diq" firstAttribute="leading" secondItem="Nww-S7-aP2" secondAttribute="trailing" id="9av-in-bge"/>
+                            <constraint firstItem="Nww-S7-aP2" firstAttribute="leading" secondItem="v6m-Qn-8lG" secondAttribute="leading" id="AUv-97-img"/>
+                            <constraint firstItem="jSf-RM-xl9" firstAttribute="top" secondItem="VnG-Ug-dZN" secondAttribute="bottom" id="MX0-Qw-1qJ"/>
+                            <constraint firstAttribute="bottom" secondItem="AKw-Hb-diq" secondAttribute="bottom" constant="5" id="P9T-04-Kss"/>
+                            <constraint firstItem="Nww-S7-aP2" firstAttribute="top" secondItem="v6m-Qn-8lG" secondAttribute="bottom" id="Xwy-X3-rxs"/>
+                            <constraint firstAttribute="bottom" secondItem="Nww-S7-aP2" secondAttribute="bottom" constant="5" id="bBs-cg-Pli"/>
+                            <constraint firstItem="v6m-Qn-8lG" firstAttribute="trailing" secondItem="jSf-RM-xl9" secondAttribute="trailing" id="c1u-aZ-BvG"/>
+                            <constraint firstItem="VnG-Ug-dZN" firstAttribute="top" secondItem="dQJ-JB-a9M" secondAttribute="top" constant="10" id="clt-TN-Uvk"/>
+                            <constraint firstItem="jSf-RM-xl9" firstAttribute="leading" secondItem="VnG-Ug-dZN" secondAttribute="leading" id="mdz-9l-aX5"/>
+                            <constraint firstAttribute="trailing" secondItem="VnG-Ug-dZN" secondAttribute="trailing" constant="15" id="qoE-5A-pRf"/>
+                            <constraint firstItem="jSf-RM-xl9" firstAttribute="trailing" secondItem="VnG-Ug-dZN" secondAttribute="trailing" id="rFP-P8-Xta"/>
+                            <constraint firstItem="v6m-Qn-8lG" firstAttribute="leading" secondItem="jSf-RM-xl9" secondAttribute="leading" id="snt-0Q-2Ub"/>
+                            <constraint firstItem="AKw-Hb-diq" firstAttribute="trailing" secondItem="v6m-Qn-8lG" secondAttribute="trailing" id="tc4-Id-uyI"/>
+                            <constraint firstItem="VnG-Ug-dZN" firstAttribute="leading" secondItem="dQJ-JB-a9M" secondAttribute="leading" constant="15" id="wf5-wa-Vwt"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="dQJ-JB-a9M" firstAttribute="centerX" secondItem="B4B-hP-hli" secondAttribute="centerX" id="8dA-ZK-4FN"/>
+                    <constraint firstItem="dQJ-JB-a9M" firstAttribute="width" secondItem="B4B-hP-hli" secondAttribute="width" id="JTd-qj-03a"/>
+                    <constraint firstItem="dQJ-JB-a9M" firstAttribute="height" secondItem="B4B-hP-hli" secondAttribute="height" id="LFv-Ov-qqk"/>
+                    <constraint firstItem="dQJ-JB-a9M" firstAttribute="centerY" secondItem="B4B-hP-hli" secondAttribute="centerY" id="xw1-3P-DkY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="answeredLabel" destination="AKw-Hb-diq" id="mxD-Vk-bBV"/>
+                <outlet property="invitedLabel" destination="Nww-S7-aP2" id="zjZ-xT-9lk"/>
+                <outlet property="reportLabel" destination="VnG-Ug-dZN" id="6Ct-1c-Un0"/>
+                <outlet property="shortDescriptionLabel" destination="jSf-RM-xl9" id="IEo-oa-iY4"/>
+                <outlet property="timestampLabel" destination="v6m-Qn-8lG" id="7Dd-Rd-9gF"/>
+            </connections>
+            <point key="canvasLocation" x="69.5" y="-12"/>
+        </tableViewCell>
+    </objects>
+</document>

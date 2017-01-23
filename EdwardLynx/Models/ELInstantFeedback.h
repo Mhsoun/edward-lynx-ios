@@ -7,8 +7,7 @@
 //
 
 #import "ELModel.h"
-
-@class ELQuestion;
+#import "ELQuestion.h"
 
 @interface ELInstantFeedback : ELModel
 

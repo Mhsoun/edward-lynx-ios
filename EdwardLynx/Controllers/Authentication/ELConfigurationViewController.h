@@ -7,6 +7,8 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELInstantFeedback.h"
+#import "ELParticipant.h"
 #import "ELSurveysAPIClient.h"
 
 @interface ELConfigurationViewController : ELBaseViewController

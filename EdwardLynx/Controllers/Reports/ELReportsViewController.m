@@ -10,16 +10,13 @@
 
 #pragma mark - Private Constants
 
-static NSString * const kELCellIdentifier = @"ReportCell";
+static NSString * const kELReportSegueIdentifier = @"ReportDetails";
 
 #pragma mark - Class Extension
 
 @interface ELReportsViewController ()
 
-@property (nonatomic, strong) ELInstantFeedback *selectedInstantFeedback;
-@property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELListViewManager *viewManager;
-@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
+@property (nonatomic, strong) NSArray *tabs;
 
 @end
 
@@ -30,12 +27,19 @@ static NSString * const kELCellIdentifier = @"ReportCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELListViewManager alloc] init];
-    self.viewManager.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tabs = @[@"ALL", @"360 REPORTS", @"INSTANT"];
     
-    // Retrieve surveys
-    [self.viewManager processRetrievalOfReports];
+    self.slideView.delegate = self;
+    self.slideView.slideBarColor = [UIColor clearColor];
+    self.slideView.slideBarHeight = 40;
+    
+    self.slideView.sliderHeight = 0;
+    
+    self.slideView.buttonNormalColor = [UIColor whiteColor];
+    self.slideView.buttonSelectedColor = [UIColor orangeColor];
+    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
+    
+    self.slideView.indexForDefaultItem = @0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,70 +50,54 @@ static NSString * const kELCellIdentifier = @"ReportCell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ReportDetails"]) {
+    if ([segue.identifier isEqualToString:kELReportSegueIdentifier]) {
         ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
+        
         controller.instantFeedback = self.selectedInstantFeedback;
     }
 }
 
-#pragma mark - Protocol Methods (UITableView)
+#pragma mark - Protocol Methods (ELListViewController)
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.provider numberOfRows];
+- (void)onRowSelection:(__kindof ELModel *)object {
+    self.selectedInstantFeedback = (ELInstantFeedback *)object;
+    
+    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELInstantFeedback *feedback;
-    ELQuestion *question;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
-    
-    feedback = [ELAppSingleton sharedInstance].instantFeedbacks[indexPath.row];
-    question = feedback.question;
-    cell.textLabel.text = question.text;
-    cell.detailTextLabel.text = [ELUtils labelByAnswerType:question.answer.type];
-    
-    return cell;
+#pragma mark - Protocol Methods (DYSlideView)
+
+- (NSInteger)DY_numberOfViewControllersInSlideView {
+    return self.tabs.count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
-    
-    [self performSegueWithIdentifier:@"ReportDetails" sender:self];
+- (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
+    return self.tabs[index];
 }
 
-#pragma mark - Protocol Methods (ELListViewManager)
-
-- (void)onAPIResponseError:(NSDictionary *)errorDict {
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
+- (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
+    ELListViewController *controller = [[UIStoryboard storyboardWithName:@"List" bundle:nil]
+                                        instantiateInitialViewController];
     
-    [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve Reports"
-                          description:@"Please try again later."];
-}
-
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
+    controller.delegate = self;
+    controller.listType = kELListTypeReports;
     
-    for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
-        [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+    switch (index) {
+        case 0:
+            controller.listFilter = kELListFilterAll;
+            
+            break;
+        case 1:
+            controller.listFilter = -1;  // TEMP
+            
+            break;
+        default:
+            controller.listFilter = -1;  // TEMP
+            
+            break;
     }
     
-    [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
-    
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    
-    [self.indicatorView stopAnimating];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.tableView reloadData];
-    [self.dataSource dataSetEmptyText:@"No Reports"
-                          description:@""];
+    return controller;
 }
 
 @end

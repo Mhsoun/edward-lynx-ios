@@ -78,7 +78,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
                 [mData addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
+            case kELListTypeReports:
+                [mData addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
+                break;
             default:
                 break;
         }

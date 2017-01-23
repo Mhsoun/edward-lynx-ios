@@ -41,6 +41,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShareReport"]) {
         ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
+        
         controller.inviteType = kELInviteUsersReports;
         controller.instantFeedback = self.instantFeedback;
     }

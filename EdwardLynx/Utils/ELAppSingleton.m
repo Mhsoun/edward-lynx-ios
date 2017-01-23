@@ -7,6 +7,8 @@
 //
 
 #import "ELAppSingleton.h"
+#import "ELInstantFeedback.h"
+#import "ELParticipant.h"
 
 @implementation ELAppSingleton
 

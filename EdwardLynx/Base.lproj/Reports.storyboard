@@ -5,14 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
-        </array>
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--REPORTS-->
         <scene sceneID="WVS-UR-LJn">
@@ -26,49 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kwk-8Z-fj5">
+                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" text="" placeholder="Search Reports" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-i4-rc6" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="0.26666666666666666" green="0.12549019607843137" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportCell" textLabel="g9q-uI-aYf" detailTextLabel="R8f-NV-478" style="IBUITableViewCellStyleSubtitle" id="D6z-KO-uGA">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D6z-KO-uGA" id="Rmv-in-fD5">
-                                            <frame key="frameInset" width="375" height="69"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="g9q-uI-aYf">
-                                                    <frame key="frameInset" minX="15" minY="17" width="33" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R8f-NV-478">
-                                                    <frame key="frameInset" minX="15" minY="37" width="41" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="0.20784313725490194" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-ma-hXA"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QFr-Jy-jst"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-fz-41W" customClass="DYSlideView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kwk-8Z-fj5" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" constant="10" id="75e-k3-Ex0"/>
-                            <constraint firstItem="4e1-ma-hXA" firstAttribute="centerY" secondItem="Kwk-8Z-fj5" secondAttribute="centerY" id="JR1-nh-VxX"/>
-                            <constraint firstAttribute="trailing" secondItem="Kwk-8Z-fj5" secondAttribute="trailing" id="Qj2-kA-KSe"/>
-                            <constraint firstItem="4e1-ma-hXA" firstAttribute="centerX" secondItem="Kwk-8Z-fj5" secondAttribute="centerX" id="fzF-hC-5Yb"/>
-                            <constraint firstItem="Kwk-8Z-fj5" firstAttribute="leading" secondItem="CP3-W7-7Kf" secondAttribute="leading" id="pag-Qv-jcv"/>
-                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="Kwk-8Z-fj5" secondAttribute="bottom" id="zBT-Gn-Nuq"/>
+                            <constraint firstItem="IhY-fz-41W" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="18W-Km-93d"/>
+                            <constraint firstItem="Dct-i4-rc6" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XQ8-Ji-lIp"/>
+                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="IhY-fz-41W" secondAttribute="bottom" id="eDW-So-fqy"/>
+                            <constraint firstItem="Dct-i4-rc6" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="jCr-f7-54S"/>
+                            <constraint firstItem="Dct-i4-rc6" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" id="qGH-JX-jRm"/>
+                            <constraint firstItem="IhY-fz-41W" firstAttribute="top" secondItem="Dct-i4-rc6" secondAttribute="bottom" id="qip-1Z-fpU"/>
+                            <constraint firstItem="IhY-fz-41W" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="tBp-Pu-cvB"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
@@ -76,14 +45,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
                     <connections>
-                        <outlet property="indicatorView" destination="4e1-ma-hXA" id="PTN-Fp-3XI"/>
-                        <outlet property="tableView" destination="Kwk-8Z-fj5" id="RJg-j0-V5H"/>
+                        <outlet property="searchBar" destination="Dct-i4-rc6" id="iba-Mn-r4J"/>
+                        <outlet property="slideView" destination="IhY-fz-41W" id="C7t-Oq-M2Z"/>
                         <segue destination="lWz-hf-IaL" kind="show" identifier="ReportDetails" id="wav-zX-WHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-ay-F4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="537"/>
+            <point key="canvasLocation" x="856.79999999999995" y="536.58170914542734"/>
         </scene>
         <!--Report Details View Controller-->
         <scene sceneID="Jti-rr-qaS">

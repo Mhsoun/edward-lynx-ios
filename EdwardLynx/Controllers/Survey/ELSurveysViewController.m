@@ -39,7 +39,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     
     self.slideView.buttonNormalColor = [UIColor whiteColor];
     self.slideView.buttonSelectedColor = [UIColor orangeColor];
-    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:14];
+    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
     
     self.slideView.indexForDefaultItem = @0;
 }
