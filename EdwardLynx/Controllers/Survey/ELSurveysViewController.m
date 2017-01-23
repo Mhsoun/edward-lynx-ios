@@ -10,36 +10,38 @@
 
 #pragma mark - Private Constants
 
-static NSString * const kELCellIdentifier = @"SurveyCell";
+static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 #pragma mark - Class Extension
 
 @interface ELSurveysViewController ()
 
-@property (nonatomic, strong) ELSurvey *selectedSurvey;
-@property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELListViewManager *viewManager;
-@property (nonatomic, strong) ELDataProvider<ELSurvey *> *provider;
+@property (nonatomic, strong) NSArray *tabs;
 
 @end
 
 @implementation ELSurveysViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.selectedSurvey = nil;
-    self.viewManager = [[ELListViewManager alloc] init];
-    self.viewManager.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tabs = @[@"ALL", @"UNFINISHED", @"COMPLETED"];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    self.slideView.delegate = self;
+    self.slideView.slideBarColor = [UIColor clearColor];
+    self.slideView.slideBarHeight = 40;
     
-    // Retrieve surveys
-    [self.viewManager processRetrievalOfSurveys];
+    self.slideView.sliderHeight = 0;
+    
+    self.slideView.buttonNormalColor = [UIColor whiteColor];
+    self.slideView.buttonSelectedColor = [UIColor orangeColor];
+    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:14];
+    
+    self.slideView.indexForDefaultItem = @0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,61 +52,54 @@ static NSString * const kELCellIdentifier = @"SurveyCell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"SurveyDetails"]) {
+    if ([segue.identifier isEqualToString:kELSurveySegueIdentifier]) {
         ELSurveyDetailsViewController *controller = [segue destinationViewController];
         
         controller.survey = self.selectedSurvey;
     }
 }
 
-#pragma mark - Protocol Methods (ELListViewManager)
+#pragma mark - Protocol Methods (ELListViewController)
 
-- (void)onAPIResponseError:(NSDictionary *)errorDict {
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
+- (void)onRowSelection:(__kindof ELModel *)object {
+    self.selectedSurvey = (ELSurvey *)object;
     
-    [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve Surveys"
-                          description:@"Please try again later."];
+    [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
 }
 
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    NSMutableArray *mData = [[NSMutableArray alloc] init];
+#pragma mark - Protocol Methods (DYSlideView)
+
+- (NSInteger)DY_numberOfViewControllersInSlideView {
+    return self.tabs.count;
+}
+
+- (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
+    return self.tabs[index];
+}
+
+- (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
+    ELListViewController *controller = [[UIStoryboard storyboardWithName:@"List" bundle:nil]
+                                        instantiateInitialViewController];
     
-    for (NSDictionary *surveyDict in responseDict[@"items"]) {
-        [mData addObject:[[ELSurvey alloc] initWithDictionary:surveyDict error:nil]];
+    controller.delegate = self;
+    controller.listType = kELListTypeSurveys;
+    
+    switch (index) {
+        case 0:
+            controller.listFilter = kELListFilterAll;
+            
+            break;
+        case 1:
+            controller.listFilter = -1;  // TEMP
+            
+            break;
+        default:
+            controller.listFilter = -1;  // TEMP
+            
+            break;
     }
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[mData copy]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    
-    [self.indicatorView stopAnimating];
-    [self.tableView setDelegate:self];
-    [self.tableView reloadData];
-}
-
-#pragma mark - Protocol Methods (UITableView)
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedSurvey = [self.provider objectAtIndexPath:indexPath];
-    
-    [self performSegueWithIdentifier:@"SurveyDetails" sender:self];
-}
-
-#pragma mark - Interface Builder Actions
-
-- (IBAction)onTabButtonClick:(id)sender {
-    NSArray *buttons = @[self.allTabButton,
-                         self.unfinishedTabButton,
-                         self.completedTabButton];
-    
-    for (UIButton *button in buttons) {
-        [button setEnabled:![sender isEqual:button]];
-    }
+    return controller;
 }
 
 @end
