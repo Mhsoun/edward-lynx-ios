@@ -25,5 +25,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)onLoginButtonClick:(id)sender;
+- (IBAction)onContactUsButtonClick:(id)sender;
 
 @end
