@@ -9,10 +9,18 @@
 #import "ELBaseViewController.h"
 #import "ELUsersAPIClient.h"
 
+#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
+
 @interface ELProfileViewController : ELBaseViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
+@property (weak, nonatomic) IBOutlet UIView *radioGroupView;
+@property (weak, nonatomic) IBOutlet UITextField *roleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *departmentTextField;
+@property (weak, nonatomic) IBOutlet UITextField *countryTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 
 @end

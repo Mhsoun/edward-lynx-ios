@@ -62,7 +62,7 @@
                                     <constraint firstItem="vhw-1P-ZZy" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="top" constant="5" id="Tz3-3P-Ycc"/>
                                     <constraint firstAttribute="bottom" secondItem="cYW-qv-0tg" secondAttribute="bottom" constant="5" id="h4N-r1-SIE"/>
                                     <constraint firstAttribute="bottom" secondItem="vhw-1P-ZZy" secondAttribute="bottom" constant="5" id="i0p-a1-cyt"/>
-                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="10" id="pgE-WM-K8I"/>
+                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="5" id="pgE-WM-K8I"/>
                                     <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" constant="10" id="sv8-g7-qlJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -101,7 +101,7 @@
                                     <constraint firstAttribute="bottom" secondItem="KJh-Oa-Pda" secondAttribute="bottom" constant="5" id="W9V-Su-juf"/>
                                     <constraint firstAttribute="bottom" secondItem="1hR-H6-4Zt" secondAttribute="bottom" constant="5" id="h1x-M5-7JD"/>
                                     <constraint firstItem="KJh-Oa-Pda" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="top" constant="5" id="ktf-vQ-oqq"/>
-                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="10" id="teF-w5-r5O"/>
+                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="5" id="teF-w5-r5O"/>
                                     <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" constant="10" id="ygT-B4-7wh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -253,7 +253,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="dud-7A-Ds6" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="0MF-mv-LOX"/>
-                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="leading" secondItem="0zg-eg-vpS" secondAttribute="trailing" constant="10" id="0Mt-n2-Hrd"/>
+                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="leading" secondItem="0zg-eg-vpS" secondAttribute="trailing" constant="5" id="0Mt-n2-Hrd"/>
                                     <constraint firstAttribute="bottom" secondItem="0zg-eg-vpS" secondAttribute="bottom" constant="5" id="MnT-OP-Rev"/>
                                     <constraint firstAttribute="trailing" secondItem="dud-7A-Ds6" secondAttribute="trailing" constant="10" id="UAX-r4-l4H"/>
                                     <constraint firstItem="0zg-eg-vpS" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="f00-Jk-e1L"/>

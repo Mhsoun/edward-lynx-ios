@@ -12,6 +12,9 @@
 
 @interface ELProfileViewController ()
 
+@property (nonatomic, strong) NSString *selectedGender;
+@property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
+
 @end
 
 @implementation ELProfileViewController
@@ -35,14 +38,61 @@
     [self populatePage];
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
+    NSArray *genders = @[@"Male", @"Female", @"Other"];
+    
+    // Radio Group
+    for (int i = 0; i < genders.count; i++) {
+        NSString *genderType = genders[i];
+        TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
+        
+        data.selected = i == 0;
+        data.identifier = [genderType lowercaseString];
+        
+        data.labelText = genderType;
+        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+        data.labelColor = [UIColor whiteColor];
+        
+        data.borderColor = [UIColor whiteColor];
+        data.circleColor = [UIColor whiteColor];
+        data.borderRadius = 15;
+        data.circleRadius = 10;
+        
+        [mData addObject:data];
+    }
+    
+    self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
+                                                                   layout:TNRadioButtonGroupLayoutVertical];
+    
+    [self.radioGroup setIdentifier:@"Gender group"];
+    [self.radioGroup setMarginBetweenItems:15];
+    
+    [self.radioGroup create];
+    [self.radioGroupView addSubview:self.radioGroup];
+    
+    // Notification to handle selection changes
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onGenderTypeGroupUpdate:)
+                                                 name:SELECTED_RADIO_BUTTON_CHANGED
+                                               object:self.radioGroup];
+}
+
 #pragma mark - Private Methods
 
 - (void)populatePage {
     ELUser *user = [ELAppSingleton sharedInstance].user;
     
-    self.nameLabel.text = user.name;
-    self.emailLabel.text = user.email;
-    self.infoLabel.text = user.info;
+    self.nameTextField.text = user.name;
+    self.emailTextField.text = user.email;
+}
+
+#pragma mark - Notifications
+
+- (void)onGenderTypeGroupUpdate:(NSNotification *)notification {
+    self.selectedGender = self.radioGroup.selectedRadioButton.data.identifier;
 }
 
 @end
