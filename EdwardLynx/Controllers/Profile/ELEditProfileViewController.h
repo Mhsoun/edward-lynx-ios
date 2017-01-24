@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
 @property (weak, nonatomic) IBOutlet UIView *radioGroupView;
+@property (weak, nonatomic) IBOutlet UITextView *infoTextView;
 @property (weak, nonatomic) IBOutlet UITextField *roleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *departmentTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;

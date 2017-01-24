@@ -116,7 +116,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onDoneButtonClick:(id)sender {
+- (IBAction)onSubmitButtonClick:(id)sender {
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Submit Options"
                                                                         message:@"You have the option to save your answers partially or submit for completion."

@@ -54,7 +54,13 @@
 #pragma mark - Public Methods
 
 - (void)processProfileUpdate {
-    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue]}
+    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
+                                            @"info": [self.formDict[@"info"] textValue],
+                                            @"role": [self.formDict[@"role"] textValue],
+                                            @"department": [self.formDict[@"department"] textValue],
+                                            @"gender": [self.formDict[@"gender"] textValue],
+                                            @"city": [self.formDict[@"city"] textValue],
+                                            @"country": [self.formDict[@"country"] textValue]}
                                completion:self.requestCompletionBlock];
 }
 
@@ -125,21 +131,22 @@
 }
 
 - (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict {
-    NSArray *errors;
+    NSArray *nameErrors;
     ELFormItemGroup *formFieldGroup;
+    NSString *key = @"name";
     
     self.formDict = formDict;
     
-    for (NSString *key in [formDict allKeys]) {
+    if (formDict[key]) {
         formFieldGroup = formDict[key];
-        errors = [REValidation validateObject:[formFieldGroup textValue]
-                                         name:@"Field"
-                                   validators:@[@"presence", @"length(0, 255)"]];
+        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
+                                             name:@"Name"
+                                       validators:@[@"presence", @"length(0, 255)"]];
         
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
     
-    return errors.count == 0;
+    return nameErrors.count == 0;
 }
 
 - (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict {

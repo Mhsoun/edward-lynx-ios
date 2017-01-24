@@ -34,10 +34,10 @@ static CGFloat const kELCornerRadius = 2.0f;
     self.viewManager.delegate = self;
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
-    self.usernameGroup = [[ELFormItemGroup alloc] initWithField:self.usernameTextField
+    self.usernameGroup = [[ELFormItemGroup alloc] initWithInput:self.usernameTextField
                                                            icon:self.usernameIcon
                                                      errorLabel:self.usernameErrorLabel];
-    self.passwordGroup = [[ELFormItemGroup alloc] initWithField:self.passwordTextField
+    self.passwordGroup = [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
                                                            icon:self.passwordIcon
                                                      errorLabel:self.passwordErrorLabel];
 }

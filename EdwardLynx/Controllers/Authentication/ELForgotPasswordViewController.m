@@ -70,7 +70,7 @@ static CGFloat const kELCornerRadius = 2.0f;
 
 - (IBAction)onRecoverButtonClick:(id)sender {
     BOOL isValid;
-    ELFormItemGroup *formFieldGroup = [[ELFormItemGroup alloc] initWithField:self.usernameEmailTextField
+    ELFormItemGroup *formFieldGroup = [[ELFormItemGroup alloc] initWithInput:self.usernameEmailTextField
                                                                         icon:self.usernameEmailIcon
                                                                   errorLabel:self.usernameEmailErrorLabel];
     
