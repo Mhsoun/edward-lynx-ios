@@ -19,7 +19,7 @@
 
 @interface ELFormItemGroup : NSObject
 
-- (instancetype)initWithField:(__kindof UIView<UITextInput> *)textField
+- (instancetype)initWithInput:(__kindof UIView<UITextInput> *)textField
                          icon:(UIImageView *)icon
                    errorLabel:(UILabel *)errorLabel;
 

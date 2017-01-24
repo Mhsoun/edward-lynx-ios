@@ -40,22 +40,22 @@
     self.departmentTextField.delegate = self;
     self.countryTextField.delegate = self;
     self.cityTextField.delegate = self;
-    self.nameGroup = [[ELFormItemGroup alloc] initWithField:self.nameTextField
+    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
-    self.infoGroup = [[ELFormItemGroup alloc] initWithField:self.infoTextView
+    self.infoGroup = [[ELFormItemGroup alloc] initWithInput:self.infoTextView
                                                        icon:nil
                                                  errorLabel:nil];
-    self.roleGroup = [[ELFormItemGroup alloc] initWithField:self.roleTextField
+    self.roleGroup = [[ELFormItemGroup alloc] initWithInput:self.roleTextField
                                                        icon:nil
                                                  errorLabel:nil];
-    self.departmentGroup = [[ELFormItemGroup alloc] initWithField:self.departmentTextField
+    self.departmentGroup = [[ELFormItemGroup alloc] initWithInput:self.departmentTextField
                                                              icon:nil
                                                        errorLabel:nil];
-    self.countryGroup = [[ELFormItemGroup alloc] initWithField:self.countryTextField
+    self.countryGroup = [[ELFormItemGroup alloc] initWithInput:self.countryTextField
                                                           icon:nil
                                                     errorLabel:nil];
-    self.cityGroup = [[ELFormItemGroup alloc] initWithField:self.cityTextField
+    self.cityGroup = [[ELFormItemGroup alloc] initWithInput:self.cityTextField
                                                        icon:nil
                                                  errorLabel:nil];
     self.formGroupsDict = @{@"name": self.nameGroup,

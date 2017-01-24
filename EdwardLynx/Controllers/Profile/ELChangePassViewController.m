@@ -34,13 +34,13 @@
     self.currentPasswordTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
-    self.currentPasswordGroup = [[ELFormItemGroup alloc] initWithField:self.currentPasswordTextField
+    self.currentPasswordGroup = [[ELFormItemGroup alloc] initWithInput:self.currentPasswordTextField
                                                                   icon:nil
                                                             errorLabel:self.currentPasswordErrorLabel];
-    self.passwordGroup = [[ELFormItemGroup alloc] initWithField:self.passwordTextField
+    self.passwordGroup = [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
                                                            icon:nil
                                                      errorLabel:self.passwordErrorLabel];
-    self.confirmPasswordGroup = [[ELFormItemGroup alloc] initWithField:self.confirmPasswordTextField
+    self.confirmPasswordGroup = [[ELFormItemGroup alloc] initWithInput:self.confirmPasswordTextField
                                                                   icon:nil
                                                             errorLabel:self.confirmPasswordErrorLabel];
     self.formGroupsDict = @{@"currentPassword": self.currentPasswordGroup,
