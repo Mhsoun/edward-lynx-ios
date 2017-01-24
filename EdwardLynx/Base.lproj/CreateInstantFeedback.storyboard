@@ -80,7 +80,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="Lgq-ju-qSg" secondAttribute="trailing" constant="5" id="Slp-3P-7lx"/>
                                                             <constraint firstAttribute="height" constant="120" id="cfO-2m-UXl"/>
-                                                            <constraint firstItem="Lgq-ju-qSg" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="top" id="dID-Yl-GV3"/>
+                                                            <constraint firstItem="Lgq-ju-qSg" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="top" constant="5" id="dID-Yl-GV3"/>
                                                             <constraint firstItem="Lgq-ju-qSg" firstAttribute="leading" secondItem="FvS-CB-0xv" secondAttribute="leading" constant="5" id="p9g-3x-LIl"/>
                                                             <constraint firstAttribute="bottom" secondItem="Lgq-ju-qSg" secondAttribute="bottom" constant="5" id="uud-p3-c3D"/>
                                                         </constraints>
@@ -131,7 +131,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="Wtl-d7-0wX" secondAttribute="trailing" id="04D-IV-2P3"/>
                                                     <constraint firstItem="FvS-CB-0xv" firstAttribute="top" secondItem="LqK-pq-nP3" secondAttribute="bottom" constant="5" id="3dk-HD-qjL"/>
                                                     <constraint firstItem="FvS-CB-0xv" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="7MP-fN-vMz"/>
-                                                    <constraint firstAttribute="height" constant="420" id="ABi-UR-EKD"/>
+                                                    <constraint firstAttribute="height" constant="430" id="ABi-UR-EKD"/>
                                                     <constraint firstItem="wDv-e7-VtE" firstAttribute="top" secondItem="Q3M-IP-237" secondAttribute="bottom" constant="5" id="IQj-Us-aL6"/>
                                                     <constraint firstItem="wDv-e7-VtE" firstAttribute="leading" secondItem="tgA-52-d0c" secondAttribute="trailing" constant="5" id="ISZ-HO-0rt"/>
                                                     <constraint firstItem="WO5-DV-VLL" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="Iqp-Or-81L"/>
@@ -148,11 +148,11 @@
                                                     <constraint firstAttribute="bottom" secondItem="wDv-e7-VtE" secondAttribute="bottom" id="dtw-bp-LPL"/>
                                                     <constraint firstAttribute="trailing" secondItem="5l6-Qq-Lzo" secondAttribute="trailing" id="ghw-Gx-d2Y"/>
                                                     <constraint firstItem="Q3M-IP-237" firstAttribute="top" secondItem="5l6-Qq-Lzo" secondAttribute="bottom" constant="5" id="gvy-k3-uai"/>
-                                                    <constraint firstItem="5l6-Qq-Lzo" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="bottom" id="gwc-Zr-h7X"/>
+                                                    <constraint firstItem="5l6-Qq-Lzo" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="bottom" constant="5" id="gwc-Zr-h7X"/>
                                                     <constraint firstItem="Wtl-d7-0wX" firstAttribute="top" secondItem="BvV-Tr-b41" secondAttribute="bottom" constant="5" id="iR7-fJ-W7O"/>
                                                     <constraint firstItem="BvV-Tr-b41" firstAttribute="top" secondItem="Jt1-nM-ccJ" secondAttribute="top" constant="20" id="jNY-eE-ukf"/>
                                                     <constraint firstItem="zuK-hV-1Mv" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="oUr-1B-4b5"/>
-                                                    <constraint firstItem="zuK-hV-1Mv" firstAttribute="top" secondItem="Wtl-d7-0wX" secondAttribute="bottom" id="omY-mV-Stl"/>
+                                                    <constraint firstItem="zuK-hV-1Mv" firstAttribute="top" secondItem="Wtl-d7-0wX" secondAttribute="bottom" constant="5" id="omY-mV-Stl"/>
                                                     <constraint firstItem="LqK-pq-nP3" firstAttribute="height" secondItem="BvV-Tr-b41" secondAttribute="height" id="pI2-IW-WWB"/>
                                                     <constraint firstItem="tgA-52-d0c" firstAttribute="centerY" secondItem="wDv-e7-VtE" secondAttribute="centerY" id="qwa-xD-i0N"/>
                                                     <constraint firstItem="tgA-52-d0c" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="rZy-Ep-uDp"/>
@@ -182,7 +182,7 @@
                                                         <rect key="frame" x="0.0" y="73" width="343" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nq7-WU-Iti" id="5Hh-om-1Va">
-                                                            <frame key="frameInset" width="343" height="44.5"/>
+                                                            <frame key="frameInset" width="343" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c8-TR-4pK" userLabel="Delete Button">
@@ -223,7 +223,7 @@
                                                         <rect key="frame" x="0.0" y="118" width="343" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dat-In-jp2" id="2ny-1s-Kx7">
-                                                            <frame key="frameInset" width="343" height="44.5"/>
+                                                            <frame key="frameInset" width="343" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
@@ -253,8 +253,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Wvt-79-2DY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                <state key="normal" title="Select Participants">
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                                <state key="normal" title="SELECT PARTICIPANTS">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="disabled" title="Processing..."/>

@@ -54,8 +54,7 @@
 #pragma mark - Public Methods
 
 - (void)processProfileUpdate {
-    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
-                                            @"info": [self.formDict[@"info"] textValue]}
+    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue]}
                                completion:self.requestCompletionBlock];
 }
 
@@ -126,21 +125,21 @@
 }
 
 - (BOOL)validateProfileUpdateFormValues:(NSDictionary *)formDict {
-    NSArray *nameErrors;
+    NSArray *errors;
     ELFormItemGroup *formFieldGroup;
     
     self.formDict = formDict;
     
     for (NSString *key in [formDict allKeys]) {
         formFieldGroup = formDict[key];
-        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
-                                             name:@"Field"
-                                       validators:@[@"presence", @"length(0, 255)"]];
+        errors = [REValidation validateObject:[formFieldGroup textValue]
+                                         name:@"Field"
+                                   validators:@[@"presence", @"length(0, 255)"]];
         
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
     }
     
-    return nameErrors.count == 0;
+    return errors.count == 0;
 }
 
 - (BOOL)validateChangePasswordFormValues:(NSDictionary *)formDict {

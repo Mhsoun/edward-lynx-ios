@@ -11,18 +11,13 @@
 
 @interface ELChangePassViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *currentPasswordView;
 @property (weak, nonatomic) IBOutlet UITextField *currentPasswordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *currentPasswordErrorLabel;
-
-@property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *passwordErrorLabel;
-
-@property (weak, nonatomic) IBOutlet UIView *confirmPasswordView;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *confirmPasswordErrorLabel;
-
-- (IBAction)onDoneClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+- (IBAction)onSaveButtonClick:(id)sender;
 
 @end

@@ -8,10 +8,6 @@
 
 #import "ELChangePassViewController.h"
 
-#pragma mark - Private Constants
-
-static CGFloat const kELCornerRadius = 4.0f;
-
 #pragma mark - Class Extension
 
 @interface ELChangePassViewController ()
@@ -70,6 +66,8 @@ static CGFloat const kELCornerRadius = 4.0f;
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     NSString *errorKey = @"validation_errors";
     
+    self.saveButton.enabled = YES;
+    
     if (!errorDict[errorKey]) {
         return;
     }
@@ -82,21 +80,17 @@ static CGFloat const kELCornerRadius = 4.0f;
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
-    // Fields
-    self.currentPasswordView.layer.cornerRadius = kELCornerRadius;
-    self.passwordView.layer.cornerRadius = kELCornerRadius;
-    self.confirmPasswordView.layer.cornerRadius = kELCornerRadius;
+    [self.saveButton setEnabled:YES];
+    [ELUtils presentToastAtView:self.view
+                        message:@"Password update successful."
+                     completion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onDoneClick:(id)sender {
+- (IBAction)onSaveButtonClick:(id)sender {
     BOOL isValid = [self.viewManager validateChangePasswordFormValues:self.formGroupsDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
@@ -105,6 +99,7 @@ static CGFloat const kELCornerRadius = 4.0f;
         return;
     }
     
+    [self.saveButton setEnabled:NO];
     [self.viewManager processChangePassword];
 }
 

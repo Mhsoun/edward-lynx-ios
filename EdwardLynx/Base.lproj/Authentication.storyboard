@@ -62,7 +62,7 @@
                                     <constraint firstItem="vhw-1P-ZZy" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="top" constant="5" id="Tz3-3P-Ycc"/>
                                     <constraint firstAttribute="bottom" secondItem="cYW-qv-0tg" secondAttribute="bottom" constant="5" id="h4N-r1-SIE"/>
                                     <constraint firstAttribute="bottom" secondItem="vhw-1P-ZZy" secondAttribute="bottom" constant="5" id="i0p-a1-cyt"/>
-                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="10" id="pgE-WM-K8I"/>
+                                    <constraint firstItem="cYW-qv-0tg" firstAttribute="leading" secondItem="vhw-1P-ZZy" secondAttribute="trailing" constant="5" id="pgE-WM-K8I"/>
                                     <constraint firstAttribute="trailing" secondItem="cYW-qv-0tg" secondAttribute="trailing" constant="10" id="sv8-g7-qlJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -101,7 +101,7 @@
                                     <constraint firstAttribute="bottom" secondItem="KJh-Oa-Pda" secondAttribute="bottom" constant="5" id="W9V-Su-juf"/>
                                     <constraint firstAttribute="bottom" secondItem="1hR-H6-4Zt" secondAttribute="bottom" constant="5" id="h1x-M5-7JD"/>
                                     <constraint firstItem="KJh-Oa-Pda" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="top" constant="5" id="ktf-vQ-oqq"/>
-                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="10" id="teF-w5-r5O"/>
+                                    <constraint firstItem="KJh-Oa-Pda" firstAttribute="leading" secondItem="1hR-H6-4Zt" secondAttribute="trailing" constant="5" id="teF-w5-r5O"/>
                                     <constraint firstAttribute="trailing" secondItem="KJh-Oa-Pda" secondAttribute="trailing" constant="10" id="ygT-B4-7wh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -117,13 +117,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI" customClass="RNThemeButton">
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                <state key="normal" title="LOGIN"/>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI">
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hSC-gh-Xqf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <state key="disabled" title="PROCESSING..."/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="lightVioletColor"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="whiteColor"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onLoginButtonClick:" destination="tQv-J5-SIN" eventType="touchUpInside" id="KQ2-cz-8Ft"/>
@@ -179,7 +184,6 @@
                             <constraint firstItem="jZj-dI-Wdm" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="ezB-kb-YYx"/>
                             <constraint firstItem="yJB-1E-GBO" firstAttribute="centerY" secondItem="WfS-sv-2yd" secondAttribute="centerY" constant="-20" id="fFr-3E-By7"/>
                             <constraint firstItem="0n9-mH-Dxz" firstAttribute="top" secondItem="yJB-1E-GBO" secondAttribute="bottom" constant="5" id="hWb-Zm-ct2"/>
-                            <constraint firstItem="T2j-yn-dSI" firstAttribute="height" secondItem="5Kh-UQ-IPT" secondAttribute="height" id="hvY-Pt-sFv"/>
                             <constraint firstItem="jZj-dI-Wdm" firstAttribute="top" secondItem="95j-rQ-DgJ" secondAttribute="bottom" constant="5" id="mkz-jw-vq9"/>
                             <constraint firstItem="95j-rQ-DgJ" firstAttribute="centerX" secondItem="WfS-sv-2yd" secondAttribute="centerX" id="rG3-PN-dFY"/>
                             <constraint firstItem="T2j-yn-dSI" firstAttribute="top" secondItem="5Kh-UQ-IPT" secondAttribute="bottom" constant="25" id="rHP-mH-euC"/>
@@ -253,7 +257,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="dud-7A-Ds6" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="0MF-mv-LOX"/>
-                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="leading" secondItem="0zg-eg-vpS" secondAttribute="trailing" constant="10" id="0Mt-n2-Hrd"/>
+                                    <constraint firstItem="dud-7A-Ds6" firstAttribute="leading" secondItem="0zg-eg-vpS" secondAttribute="trailing" constant="5" id="0Mt-n2-Hrd"/>
                                     <constraint firstAttribute="bottom" secondItem="0zg-eg-vpS" secondAttribute="bottom" constant="5" id="MnT-OP-Rev"/>
                                     <constraint firstAttribute="trailing" secondItem="dud-7A-Ds6" secondAttribute="trailing" constant="10" id="UAX-r4-l4H"/>
                                     <constraint firstItem="0zg-eg-vpS" firstAttribute="top" secondItem="x73-SC-pOc" secondAttribute="top" constant="5" id="f00-Jk-e1L"/>

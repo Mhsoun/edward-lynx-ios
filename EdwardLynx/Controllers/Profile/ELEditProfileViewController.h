@@ -9,16 +9,20 @@
 #import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
 
+#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
+
 @interface ELEditProfileViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
-
-@property (weak, nonatomic) IBOutlet UIView *infoView;
-@property (weak, nonatomic) IBOutlet UITextField *infoTextField;
-@property (weak, nonatomic) IBOutlet UILabel *infoErrorLabel;
-
-- (IBAction)onDoneClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
+@property (weak, nonatomic) IBOutlet UIView *radioGroupView;
+@property (weak, nonatomic) IBOutlet UITextField *roleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *departmentTextField;
+@property (weak, nonatomic) IBOutlet UITextField *countryTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+- (IBAction)onSaveButtonClick:(id)sender;
 
 @end

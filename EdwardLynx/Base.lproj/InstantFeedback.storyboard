@@ -116,7 +116,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Rpe-yi-mgn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="SUBMIT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -130,7 +130,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9V0-Dg-MzZ" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="DPU-fr-VwJ"/>
-                            <constraint firstItem="9V0-Dg-MzZ" firstAttribute="top" secondItem="fe2-gS-Nec" secondAttribute="bottom" constant="10" id="Dz4-8Z-nwz"/>
+                            <constraint firstItem="BWa-1n-puT" firstAttribute="top" secondItem="9V0-Dg-MzZ" secondAttribute="bottom" constant="10" id="DTo-R3-16l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fe2-gS-Nec" secondAttribute="trailing" id="Eea-z9-xWc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cwa-BI-yGr" secondAttribute="trailing" id="NYw-KG-eZL"/>
                             <constraint firstItem="fe2-gS-Nec" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="Vj9-2P-ND5"/>
