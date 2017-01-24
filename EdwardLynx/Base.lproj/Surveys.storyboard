@@ -3,9 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Medium.ttf">
             <string>Lato-Medium</string>
         </array>
@@ -107,19 +111,36 @@
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdd-eb-LRQ">
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wpf-b9-6Qy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Processing..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="RK2-oj-eZo"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="145-aY-t2C"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="7v2-no-ISb"/>
-                            <constraint firstItem="avk-8k-Fbh" firstAttribute="top" secondItem="pcV-ai-2E6" secondAttribute="bottom" id="8dC-bg-DMt"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerY" secondItem="pcV-ai-2E6" secondAttribute="centerY" id="Fq8-4S-sdq"/>
+                            <constraint firstAttribute="bottom" secondItem="bdd-eb-LRQ" secondAttribute="bottom" constant="10" id="LUs-oq-69V"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="top" secondItem="7yV-gT-lKP" secondAttribute="bottom" id="QUT-Ud-aS6"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerX" secondItem="pcV-ai-2E6" secondAttribute="centerX" id="R43-9V-TWS"/>
+                            <constraint firstItem="bdd-eb-LRQ" firstAttribute="trailing" secondItem="dte-5j-kGD" secondAttribute="trailingMargin" id="WJN-ai-ioV"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="ewA-0f-ZjP"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="bottom" id="n4D-g8-FmA"/>
+                            <constraint firstItem="bdd-eb-LRQ" firstAttribute="top" secondItem="pcV-ai-2E6" secondAttribute="bottom" constant="10" id="nWw-ou-JhG"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="qg5-5G-A4v"/>
+                            <constraint firstItem="bdd-eb-LRQ" firstAttribute="leading" secondItem="dte-5j-kGD" secondAttribute="leadingMargin" id="s8i-W4-MJZ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
@@ -141,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgg-sB-Jof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002" y="154"/>
+            <point key="canvasLocation" x="2000.8" y="152.47376311844079"/>
         </scene>
     </scenes>
 </document>

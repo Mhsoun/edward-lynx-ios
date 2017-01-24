@@ -125,11 +125,11 @@
                         <constraints>
                             <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="vah-jb-Lki" secondAttribute="bottom" constant="10" id="2gx-Au-Wpo"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="trailing" secondItem="1Yd-aB-hNx" secondAttribute="trailingMargin" id="AJ5-3u-Asz"/>
+                            <constraint firstItem="vah-jb-Lki" firstAttribute="top" secondItem="Qvq-og-F06" secondAttribute="bottom" constant="10" id="BLB-Su-l2t"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="Qxd-5T-XJS"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="VCM-Oy-2e0"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="leading" secondItem="1Yd-aB-hNx" secondAttribute="leadingMargin" id="YUN-kq-uVp"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="top" secondItem="NU1-15-NPY" secondAttribute="bottom" id="dcn-da-5Hx"/>
-                            <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="Qvq-og-F06" secondAttribute="bottom" id="rZ4-BL-Dpo"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>

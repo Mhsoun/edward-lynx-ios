@@ -13,9 +13,6 @@
 static NSString * const kELReportCellIdentifier = @"ReportCell";
 static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
-static NSString * const kELReportSegueIdentifier = @"ReportDetails";
-static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
-
 #pragma mark - Class Extension
 
 @interface ELListViewController ()
