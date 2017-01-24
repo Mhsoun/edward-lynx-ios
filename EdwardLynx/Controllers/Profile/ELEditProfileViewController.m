@@ -67,6 +67,8 @@
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     NSString *errorKey = @"validation_errors";
     
+    self.saveButton.enabled = YES;
+    
     if (!errorDict[errorKey]) {
         return;
     }
@@ -79,17 +81,21 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
-                                                                          error:nil]];
+    [self.saveButton setEnabled:YES];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [ELUtils presentToastAtView:self.view
+                        message:@"Profile update successful."
+                     completion:^{
+        [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
+                                                                              error:nil]];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSMutableArray *mData = [[NSMutableArray alloc] init];
     NSArray *genders = @[@"Male", @"Female", @"Other"];
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
     
     // Radio Group
     for (int i = 0; i < genders.count; i++) {
@@ -147,6 +153,7 @@
         return;
     }
     
+    [self.saveButton setEnabled:NO];
     [self.viewManager processProfileUpdate];
 }
 

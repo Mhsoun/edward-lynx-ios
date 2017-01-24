@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *departmentTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
-
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)onSaveButtonClick:(id)sender;
 
 @end

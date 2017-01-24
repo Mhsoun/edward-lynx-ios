@@ -116,14 +116,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wpf-b9-6Qy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <state key="normal" title="Submit">
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="SUBMIT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Processing..."/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSubmitButtonClick:" destination="Zf1-Y0-xAe" eventType="touchUpInside" id="bYU-8X-rJb"/>
+                                </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="RK2-oj-eZo"/>
                         </subviews>
@@ -132,10 +134,10 @@
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="145-aY-t2C"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="7v2-no-ISb"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerY" secondItem="pcV-ai-2E6" secondAttribute="centerY" id="Fq8-4S-sdq"/>
-                            <constraint firstAttribute="bottom" secondItem="bdd-eb-LRQ" secondAttribute="bottom" constant="10" id="LUs-oq-69V"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="top" secondItem="7yV-gT-lKP" secondAttribute="bottom" id="QUT-Ud-aS6"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerX" secondItem="pcV-ai-2E6" secondAttribute="centerX" id="R43-9V-TWS"/>
                             <constraint firstItem="bdd-eb-LRQ" firstAttribute="trailing" secondItem="dte-5j-kGD" secondAttribute="trailingMargin" id="WJN-ai-ioV"/>
+                            <constraint firstItem="avk-8k-Fbh" firstAttribute="top" secondItem="bdd-eb-LRQ" secondAttribute="bottom" constant="10" id="ccr-aF-77F"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="ewA-0f-ZjP"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="bottom" id="n4D-g8-FmA"/>
                             <constraint firstItem="bdd-eb-LRQ" firstAttribute="top" secondItem="pcV-ai-2E6" secondAttribute="bottom" constant="10" id="nWw-ou-JhG"/>
@@ -147,13 +149,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Wy4-fF-BUq">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="cBE-1d-M2A">
-                            <connections>
-                                <action selector="onDoneButtonClick:" destination="Zf1-Y0-xAe" id="CT7-6l-O9N"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Wy4-fF-BUq"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="indicatorView" destination="RK2-oj-eZo" id="y5w-Nn-ePV"/>

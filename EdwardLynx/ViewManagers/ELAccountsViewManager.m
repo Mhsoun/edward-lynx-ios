@@ -54,8 +54,7 @@
 #pragma mark - Public Methods
 
 - (void)processProfileUpdate {
-    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue],
-                                            @"info": [self.formDict[@"info"] textValue]}
+    [self.client updateUserInfoWithParams:@{@"name": [self.formDict[@"name"] textValue]}
                                completion:self.requestCompletionBlock];
 }
 

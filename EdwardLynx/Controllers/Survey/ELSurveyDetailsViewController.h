@@ -21,6 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
-- (IBAction)onDoneButtonClick:(id)sender;
+- (IBAction)onSubmitButtonClick:(id)sender;
 
 @end
