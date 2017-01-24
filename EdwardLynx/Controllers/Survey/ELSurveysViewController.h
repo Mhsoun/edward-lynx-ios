@@ -7,20 +7,17 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELDataProvider.h"
-#import "ELListViewManager.h"
+#import "ELListViewController.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
-#import "ELTableDataSource.h"
 
-@interface ELSurveysViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
+#import <DYSlideView/DYSlideView.h>
+
+@interface ELSurveysViewController : ELBaseViewController<ELListViewControllerDelegate, DYSlideViewDelegate>
+
+@property (strong, nonatomic) ELSurvey *selectedSurvey;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *allTabButton;
-@property (weak, nonatomic) IBOutlet UIButton *unfinishedTabButton;
-@property (weak, nonatomic) IBOutlet UIButton *completedTabButton;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
-- (IBAction)onTabButtonClick:(id)sender;
+@property (weak, nonatomic) IBOutlet DYSlideView *slideView;
 
 @end

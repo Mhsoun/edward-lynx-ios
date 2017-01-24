@@ -10,7 +10,6 @@
 
 @interface ELQuestionTypeAgreementView : ELBaseQuestionTypeView<UIPickerViewDataSource, UIPickerViewDelegate, ELQuestionTypeDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

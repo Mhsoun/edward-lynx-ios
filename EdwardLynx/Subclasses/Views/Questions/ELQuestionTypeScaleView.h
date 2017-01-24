@@ -10,7 +10,6 @@
 
 @interface ELQuestionTypeScaleView : ELBaseQuestionTypeView<ELQuestionTypeDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scaleChoices;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 

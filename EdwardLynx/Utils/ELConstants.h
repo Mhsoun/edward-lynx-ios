@@ -75,6 +75,8 @@ extern NSString * const kELLogoutAlertMessage;
 
 #pragma mark - Constants
 
+extern NSString * const kELEdwardLynxContactUsURL;
+
 extern NSString * const kELErrorDomain;
 
 extern NSString * const kELFabricEmail;

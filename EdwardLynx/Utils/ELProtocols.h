@@ -61,6 +61,12 @@
 
 #pragma mark - Class-specific Delegates
 
+@protocol ELListViewControllerDelegate <NSObject>
+
+- (void)onRowSelection:(__kindof ELModel *)object;
+
+@end
+
 @protocol ELScaleOptionCellDelegate <NSObject>
 
 - (void)onDeletionAtRow:(NSInteger)row;

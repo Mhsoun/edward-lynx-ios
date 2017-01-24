@@ -8,8 +8,8 @@
 
 #import <JSONModel/JSONModel.h>
 
-#import "ELAnswer.h"
 #import "ELModel.h"
+#import "ELAnswer.h"
 
 @protocol ELAnswer;
 

@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
+  - DYSlideView (0.0.9)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
   - Firebase (3.11.0):
@@ -56,12 +57,14 @@ PODS:
   - REValidation (0.1.4)
   - RNThemeManager (0.1.0)
   - SASlideMenu (2.0.3)
+  - TNRadioButtonGroup (0.4)
   - Toast (3.1.0)
   - UITextView+Placeholder (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - Crashlytics
+  - DYSlideView (~> 0.0)
   - DZNEmptyDataSet (~> 1.8)
   - Fabric
   - Firebase
@@ -73,12 +76,14 @@ DEPENDENCIES:
   - REValidation (~> 0.1)
   - RNThemeManager (~> 0.1)
   - SASlideMenu (~> 2.0)
+  - TNRadioButtonGroup (~> 0.4)
   - Toast (~> 3.1)
   - UITextView+Placeholder (~> 1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  DYSlideView: 221fa9de34dfe803201b6faa1eb083f2bc8e6291
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -96,9 +101,10 @@ SPEC CHECKSUMS:
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
   RNThemeManager: 7734a5619abe15e21556c9c3ff2df8f3ab20a538
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
+  TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 7cc8f13a287718ddf015ea26db64f7cd4971bb13
+PODFILE CHECKSUM: 49160dfd668a49b3e0c8ae510c224b8f86eef6b0
 
 COCOAPODS: 1.0.1

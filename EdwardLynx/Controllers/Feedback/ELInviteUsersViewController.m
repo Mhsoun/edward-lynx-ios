@@ -112,6 +112,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.provider = [[ELDataProvider alloc] initWithDataArray:[mParticipants copy]];
     
     [self.tableView reloadData];
+    [self adjustScrollViewContentSize];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -203,7 +204,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onDoneButtonClick:(id)sender {
+- (IBAction)onInviteButtonClick:(id)sender {
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
     if (self.inviteType == kELInviteUsersInstantFeedback) {

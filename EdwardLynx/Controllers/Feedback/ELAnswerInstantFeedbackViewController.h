@@ -9,6 +9,7 @@
 #import "ELBaseQuestionTypeView.h"
 #import "ELBaseViewController.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELQuestion.h"
 #import "ELSurveysAPIClient.h"
 

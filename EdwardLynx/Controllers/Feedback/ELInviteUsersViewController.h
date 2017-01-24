@@ -9,6 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
@@ -25,6 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)onDoneButtonClick:(id)sender;
+- (IBAction)onInviteButtonClick:(id)sender;
 
 @end

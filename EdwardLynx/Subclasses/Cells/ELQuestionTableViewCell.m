@@ -8,6 +8,14 @@
 
 #import "ELQuestionTableViewCell.h"
 
+#pragma mark - Class Extension
+
+@interface ELQuestionTableViewCell ()
+
+@property (nonatomic, strong) NSString *helpText;
+
+@end
+
 @implementation ELQuestionTableViewCell
 
 - (void)awakeFromNib {
@@ -33,6 +41,7 @@
     
     // Content
     self.questionLabel.text = question.text;
+    self.helpText = question.answer.help;
     
     // UI
     if (!questionView) {
@@ -43,6 +52,14 @@
     questionView.frame = self.questionContainerView.frame;
     
     [self.questionContainerView addSubview:questionView];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onPopupHelpButtonClick:(id)sender {
+    [self makeToast:self.helpText
+           duration:99999
+           position:CSToastPositionCenter];
 }
 
 @end

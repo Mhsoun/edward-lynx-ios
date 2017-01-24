@@ -10,7 +10,6 @@
 
 @interface ELQuestionTypeTextView : ELBaseQuestionTypeView
 
-@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
