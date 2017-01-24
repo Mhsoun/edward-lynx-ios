@@ -24,7 +24,7 @@
 
 @implementation ELFormItemGroup
 
-- (instancetype)initWithField:(__kindof UITextField *)textField
+- (instancetype)initWithField:(__kindof UIView<UITextInput> *)textField
                          icon:(UIImageView *)icon
                    errorLabel:(UILabel *)errorLabel {
     self = [super init];

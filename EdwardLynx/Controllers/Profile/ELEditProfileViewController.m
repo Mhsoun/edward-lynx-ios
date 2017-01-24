@@ -14,9 +14,14 @@
 
 @property (nonatomic, strong) NSString *selectedGender;
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup, *emailGroup;
 @property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup,
+                                              *infoGroup,
+                                              *roleGroup,
+                                              *departmentGroup,
+                                              *countryGroup,
+                                              *cityGroup;
 
 @end
 
@@ -38,10 +43,27 @@
     self.nameGroup = [[ELFormItemGroup alloc] initWithField:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
-    self.emailGroup = [[ELFormItemGroup alloc] initWithField:self.emailTextField
-                                                        icon:nil
-                                                  errorLabel:self.emailErrorLabel];
-    self.formGroupsDict = @{@"name": self.nameGroup, @"email": self.emailGroup};
+    self.infoGroup = [[ELFormItemGroup alloc] initWithField:self.infoTextView
+                                                       icon:nil
+                                                 errorLabel:nil];
+    self.roleGroup = [[ELFormItemGroup alloc] initWithField:self.roleTextField
+                                                       icon:nil
+                                                 errorLabel:nil];
+    self.departmentGroup = [[ELFormItemGroup alloc] initWithField:self.departmentTextField
+                                                             icon:nil
+                                                       errorLabel:nil];
+    self.countryGroup = [[ELFormItemGroup alloc] initWithField:self.countryTextField
+                                                          icon:nil
+                                                    errorLabel:nil];
+    self.cityGroup = [[ELFormItemGroup alloc] initWithField:self.cityTextField
+                                                       icon:nil
+                                                 errorLabel:nil];
+    self.formGroupsDict = @{@"name": self.nameGroup,
+                            @"info": self.infoGroup,
+                            @"role": self.roleGroup,
+                            @"department": self.departmentGroup,
+                            @"city": self.cityGroup,
+                            @"country": self.countryGroup};
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -94,15 +116,18 @@
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    ELUser *user = [ELAppSingleton sharedInstance].user;
     NSArray *genders = @[@"Male", @"Female", @"Other"];
     NSMutableArray *mData = [[NSMutableArray alloc] init];
+    
+    self.selectedGender = user.gender.length > 0 ? user.gender : genders[0];
     
     // Radio Group
     for (int i = 0; i < genders.count; i++) {
         NSString *genderType = genders[i];
         TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
         
-        data.selected = i == 0;
+        data.selected = [self.selectedGender isEqualToString:[genderType lowercaseString]];
         data.identifier = [genderType lowercaseString];
         
         data.labelText = genderType;
@@ -140,12 +165,25 @@
     
     self.nameTextField.text = user.name;
     self.emailTextField.text = user.email;
+    self.infoTextView.text = user.info;
+    self.roleTextField.text = user.role;
+    self.departmentTextField.text = user.department;
+    self.countryTextField.text = user.country;
+    self.cityTextField.text = user.city;
 }
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSaveButtonClick:(id)sender {
-    BOOL isValid = [self.viewManager validateProfileUpdateFormValues:self.formGroupsDict];
+    BOOL isValid;
+    NSMutableDictionary *mFormDict = [self.formGroupsDict mutableCopy];
+    ELFormItemGroup *genderGroup = [[ELFormItemGroup alloc] initWithText:self.selectedGender
+                                                                    icon:nil
+                                                              errorLabel:nil];
+    
+    mFormDict[@"gender"] = genderGroup;
+    self.formGroupsDict = [mFormDict copy];
+    isValid = [self.viewManager validateProfileUpdateFormValues:self.formGroupsDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
