@@ -11,8 +11,9 @@
 @interface ELSurveyTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *surveyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *statusIcon;
+@property (weak, nonatomic) IBOutlet UILabel *expiryLabel;
+
 
 @end

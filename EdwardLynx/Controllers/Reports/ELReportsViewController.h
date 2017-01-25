@@ -6,12 +6,12 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DYSlideView/DYSlideView.h>
+
 #import "ELBaseViewController.h"
 #import "ELInstantFeedback.h"
 #import "ELListViewController.h"
 #import "ELReportDetailsViewController.h"
-
-#import <DYSlideView/DYSlideView.h>
 
 @interface ELReportsViewController : ELBaseViewController<ELListViewControllerDelegate, DYSlideViewDelegate>
 

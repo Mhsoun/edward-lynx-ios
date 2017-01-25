@@ -214,6 +214,23 @@
     return [[self class] object:@"string" byAnswerType:type];
 }
 
++ (NSString *)labelByReportType:(kELReportType)type {
+    switch (type) {
+        case kELReportType360:
+            return @"360 Reports";
+            
+            break;
+        case kELReportTypeInstant:
+            return @"Instant";
+            
+            break;
+        default:
+            return nil;
+            
+            break;
+    }
+}
+
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status {
     switch (status) {
         case kELSurveyStatusOpen:
@@ -228,8 +245,12 @@
             return @"Completed";
             
             break;
+        case kELSurveyStatusNotInvited:
+            return @"Not Invited";
+            
+            break;
         default:
-            return @"Open";  // TEMP Remove once the `status` attribute has already been added on the API side
+            return nil;
             
             break;
     }

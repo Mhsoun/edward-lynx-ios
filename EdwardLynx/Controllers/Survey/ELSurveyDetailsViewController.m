@@ -124,7 +124,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         NSDictionary *formDict;
         
-        self.isSurveyFinal = @([action.title isEqualToString:kELActionSubmit]);
+        self.isSurveyFinal = [action.title isEqualToString:kELActionSubmit];
         
         // Retrieve answer from question views
         for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {

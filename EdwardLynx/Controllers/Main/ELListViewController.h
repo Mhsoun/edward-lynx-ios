@@ -20,13 +20,13 @@ typedef NS_ENUM(NSInteger, kELListType) {
 };
 
 typedef NS_ENUM(NSInteger, kELListFilter) {
-    kELListFilterAll
+    kELListFilterAll = 5
 };
 
 @interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic) kELListType listType;
-@property (nonatomic) kELListFilter listFilter;
+@property (nonatomic) NSInteger listFilter;
 
 @property (strong, nonatomic) id<ELListViewControllerDelegate> delegate;
 

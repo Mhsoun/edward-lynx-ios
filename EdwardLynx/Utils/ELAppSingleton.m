@@ -34,6 +34,10 @@
     
     self.user = nil;
     self.participants = nil;
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
     return self;
 }
