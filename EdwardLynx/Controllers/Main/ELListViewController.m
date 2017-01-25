@@ -85,7 +85,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         
     }
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[mData copy]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self filterList:mData]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:self.cellIdentifier];
@@ -96,6 +96,28 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 #pragma mark - Private Methods
+
+- (NSArray *)filterList:(__kindof NSArray *)list {
+    NSPredicate *predicate;
+    
+    switch (self.listType) {
+        case kELListTypeSurveys:
+            predicate = [NSPredicate predicateWithFormat:@"SELF.status == %d", self.listFilter];
+            
+            return self.listFilter == kELListFilterAll ? [list copy] :
+                                                         [[list filteredArrayUsingPredicate:predicate] copy];
+            
+            break;
+        case kELListTypeReports:
+            return [list copy];
+            
+            break;
+        default:
+            return nil;
+            
+            break;
+    }
+}
 
 - (void)loadListByType {
     switch (self.listType) {

@@ -27,7 +27,9 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.tabs = @[@"ALL", @"360 REPORTS", @"INSTANT"];
+    self.tabs = @[@(kELListFilterAll),
+                  @(kELReportType360),
+                  @(kELReportTypeInstant)];
     
     self.slideView.delegate = self;
     self.slideView.slideBarColor = [UIColor clearColor];
@@ -37,7 +39,7 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     
     self.slideView.buttonNormalColor = [UIColor whiteColor];
     self.slideView.buttonSelectedColor = [UIColor orangeColor];
-    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
+    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:12];
     
     self.slideView.indexForDefaultItem = @0;
 }
@@ -72,7 +74,7 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
 }
 
 - (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
-    return self.tabs[index];
+    return index == 0 ? @"ALL" : [[ELUtils labelByReportType:[self.tabs[index] integerValue]] uppercaseString];
 }
 
 - (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
@@ -81,21 +83,7 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     
     controller.delegate = self;
     controller.listType = kELListTypeReports;
-    
-    switch (index) {
-        case 0:
-            controller.listFilter = kELListFilterAll;
-            
-            break;
-        case 1:
-            controller.listFilter = -1;  // TEMP
-            
-            break;
-        default:
-            controller.listFilter = -1;  // TEMP
-            
-            break;
-    }
+    controller.listFilter = [self.tabs[index] integerValue];
     
     return controller;
 }

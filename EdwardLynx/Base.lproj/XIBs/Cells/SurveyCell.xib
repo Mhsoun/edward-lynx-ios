@@ -9,6 +9,9 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -31,7 +34,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-ru-OgZ">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-ru-OgZ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="K3W-gq-2ze"/>
@@ -46,18 +49,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6RC-qb-dSM">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="icT-Ve-33F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="leading" secondItem="9Ue-zP-pqA" secondAttribute="leading" id="3QR-q3-btN"/>
+                            <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="6RC-qb-dSM" secondAttribute="bottom" constant="5" id="9oy-7T-UzW"/>
+                            <constraint firstAttribute="bottom" secondItem="GVa-h5-dbd" secondAttribute="bottom" constant="5" id="AZn-Cl-IC8"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="BFk-k8-USL"/>
                             <constraint firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" constant="15" id="D0r-Gr-kyY"/>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="top" secondItem="9Ue-zP-pqA" secondAttribute="bottom" id="Qy5-7t-juE"/>
+                            <constraint firstItem="6RC-qb-dSM" firstAttribute="trailing" secondItem="Bev-ru-OgZ" secondAttribute="trailing" id="XRb-Q7-QTK"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="k2c-WN-Ttg"/>
                             <constraint firstItem="9Ue-zP-pqA" firstAttribute="leading" secondItem="c7D-tH-CVd" secondAttribute="leading" constant="15" id="lqg-V1-mDV"/>
-                            <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="Bev-ru-OgZ" secondAttribute="bottom" constant="5" id="mq4-OZ-Wqc"/>
                             <constraint firstItem="9Ue-zP-pqA" firstAttribute="top" secondItem="c7D-tH-CVd" secondAttribute="top" constant="10" id="njO-YY-bna"/>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="p8c-8h-zdQ"/>
+                            <constraint firstItem="6RC-qb-dSM" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="w2l-Uq-pg5"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
@@ -74,9 +89,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="descriptionLabel" destination="Bev-ru-OgZ" id="gPE-Io-Rba"/>
+                <outlet property="expiryLabel" destination="6RC-qb-dSM" id="WwJ-dy-erd"/>
                 <outlet property="statusLabel" destination="GVa-h5-dbd" id="qb4-ra-qn3"/>
                 <outlet property="surveyLabel" destination="9Ue-zP-pqA" id="gF1-NK-Ze0"/>
-                <outlet property="timestampLabel" destination="Bev-ru-OgZ" id="n3G-sf-UiE"/>
             </connections>
             <point key="canvasLocation" x="70" y="-12"/>
         </tableViewCell>

@@ -29,7 +29,8 @@
     
     // Content
     self.surveyLabel.text = survey.name;
-    self.timestampLabel.text = @"3 days ago";  // TEMP
+    self.descriptionLabel.text = survey.shortDescription;
+    self.expiryLabel.text = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:survey.endDate];
     self.statusLabel.text = [NSString stringWithFormat:@"  %@  ", status];
     
     // UI
