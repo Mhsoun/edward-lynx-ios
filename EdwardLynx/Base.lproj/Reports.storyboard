@@ -14,10 +14,13 @@
                         <viewControllerLayoutGuide type="top" id="Qyc-Fx-Ved"/>
                         <viewControllerLayoutGuide type="bottom" id="qPU-YK-kM5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CP3-W7-7Kf" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="CP3-W7-7Kf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qGm-JT-xDh">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <searchBar contentMode="scaleToFill" searchBarStyle="minimal" text="" placeholder="Search Reports" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-i4-rc6" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -32,16 +35,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IhY-fz-41W" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="18W-Km-93d"/>
+                            <constraint firstItem="qGm-JT-xDh" firstAttribute="centerY" secondItem="CP3-W7-7Kf" secondAttribute="centerY" id="9Qs-Cd-cbE"/>
+                            <constraint firstItem="qGm-JT-xDh" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="HIh-AZ-jlJ"/>
+                            <constraint firstItem="qGm-JT-xDh" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="SVJ-u0-ov9"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XQ8-Ji-lIp"/>
                             <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="IhY-fz-41W" secondAttribute="bottom" id="eDW-So-fqy"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="jCr-f7-54S"/>
+                            <constraint firstItem="qGm-JT-xDh" firstAttribute="height" secondItem="CP3-W7-7Kf" secondAttribute="height" id="jOZ-mW-UYf"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" id="qGH-JX-jRm"/>
                             <constraint firstItem="IhY-fz-41W" firstAttribute="top" secondItem="Dct-i4-rc6" secondAttribute="bottom" id="qip-1Z-fpU"/>
                             <constraint firstItem="IhY-fz-41W" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="tBp-Pu-cvB"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
                     <connections>
@@ -62,13 +66,21 @@
                         <viewControllerLayoutGuide type="top" id="Knm-wX-oy2"/>
                         <viewControllerLayoutGuide type="bottom" id="R6f-2t-ijF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4qo-ep-dde" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="4qo-ep-dde">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-g1-jiS">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
+                        <constraints>
+                            <constraint firstItem="Kb3-g1-jiS" firstAttribute="centerY" secondItem="4qo-ep-dde" secondAttribute="centerY" id="CHV-i3-NZB"/>
+                            <constraint firstItem="Kb3-g1-jiS" firstAttribute="centerX" secondItem="4qo-ep-dde" secondAttribute="centerX" id="I12-fL-H2p"/>
+                            <constraint firstItem="Kb3-g1-jiS" firstAttribute="height" secondItem="4qo-ep-dde" secondAttribute="height" id="am7-JD-fWU"/>
+                            <constraint firstItem="Kb3-g1-jiS" firstAttribute="width" secondItem="4qo-ep-dde" secondAttribute="width" id="uKm-Lv-l0S"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yXU-8r-PZH">
                         <barButtonItem key="rightBarButtonItem" title="Share" id="lT7-AG-ENN">
@@ -94,4 +106,7 @@
             <point key="canvasLocation" x="2282" y="536"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>

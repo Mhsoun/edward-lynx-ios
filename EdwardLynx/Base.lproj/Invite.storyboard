@@ -23,10 +23,13 @@
                         <viewControllerLayoutGuide type="top" id="NU1-15-NPY"/>
                         <viewControllerLayoutGuide type="bottom" id="aKu-sz-6yt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Yd-aB-hNx" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="1Yd-aB-hNx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="d26-9K-pem">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvq-og-F06">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-y2-fTE" userLabel="Content View">
@@ -126,14 +129,15 @@
                             <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="vah-jb-Lki" secondAttribute="bottom" constant="10" id="2gx-Au-Wpo"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="trailing" secondItem="1Yd-aB-hNx" secondAttribute="trailingMargin" id="AJ5-3u-Asz"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="top" secondItem="Qvq-og-F06" secondAttribute="bottom" constant="10" id="BLB-Su-l2t"/>
+                            <constraint firstItem="d26-9K-pem" firstAttribute="height" secondItem="1Yd-aB-hNx" secondAttribute="height" id="I0K-gF-ldU"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="Qxd-5T-XJS"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="VCM-Oy-2e0"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="leading" secondItem="1Yd-aB-hNx" secondAttribute="leadingMargin" id="YUN-kq-uVp"/>
+                            <constraint firstItem="d26-9K-pem" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="Zbg-0x-hu6"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="top" secondItem="NU1-15-NPY" secondAttribute="bottom" id="dcn-da-5Hx"/>
+                            <constraint firstItem="d26-9K-pem" firstAttribute="centerY" secondItem="1Yd-aB-hNx" secondAttribute="centerY" id="kEk-cN-XvG"/>
+                            <constraint firstItem="d26-9K-pem" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="lmJ-CU-iBe"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="INVITE" id="zar-hO-SbN"/>
                     <connections>
@@ -149,4 +153,7 @@
             <point key="canvasLocation" x="1740" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>

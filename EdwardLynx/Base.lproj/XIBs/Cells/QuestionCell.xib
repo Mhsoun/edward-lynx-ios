@@ -21,7 +21,7 @@
                 <frame key="frameInset" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVg-zw-L5O" customClass="RNThemeView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVg-zw-L5O">
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wI5-O5-eCS">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" id="BGa-iZ-bRT"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
@@ -62,9 +62,6 @@
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
                             <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" id="jPV-Pr-1yb"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
