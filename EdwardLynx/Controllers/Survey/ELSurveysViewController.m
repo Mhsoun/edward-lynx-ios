@@ -39,12 +39,16 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     self.slideView.slideBarColor = [UIColor clearColor];
     self.slideView.slideBarHeight = 40;
     
+    self.slideView.sliderColor = [UIColor clearColor];
     self.slideView.sliderHeight = 0;
+    self.slideView.sliderScale = 0;
     
     self.slideView.buttonNormalColor = [UIColor whiteColor];
     self.slideView.buttonSelectedColor = [UIColor orangeColor];
     self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:12];
     
+    self.slideView.scrollEnabled = YES;
+    self.slideView.scrollViewBounces = YES;
     self.slideView.indexForDefaultItem = @0;
 }
 

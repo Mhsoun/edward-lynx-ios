@@ -25,6 +25,7 @@
 #pragma mark - Private Methods
 
 - (void)setupNumberScale {
+    NSInteger index;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
@@ -46,7 +47,7 @@
     
     // Populate question answer
     if ([_question.value integerValue] > -1) {
-        BOOL index = [_question.value integerValue];
+        index = [_question.value integerValue];
         
         [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
     }
