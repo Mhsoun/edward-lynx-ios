@@ -35,8 +35,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
-    
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // Load list type's corresponding data set
     [self loadListByType];
@@ -62,20 +61,23 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                     cellIdentifier:self.cellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve Surveys"
-                          description:@"Please try again later."];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSString *emptyMessage;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     
     for (NSDictionary *detailDict in responseDict[@"items"]) {
         switch (self.listType) {
             case kELListTypeSurveys:
+                emptyMessage = @"No surveys";
+                
                 [mData addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
             case kELListTypeReports:
+                emptyMessage = @"No reports";
+                
                 [mData addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
@@ -90,6 +92,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:self.cellIdentifier];
     
+    [self.dataSource dataSetEmptyText:emptyMessage description:@""];
     [self.indicatorView stopAnimating];
     [self.tableView setDelegate:self];
     [self.tableView reloadData];

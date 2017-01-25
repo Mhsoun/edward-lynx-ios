@@ -17,6 +17,12 @@
 }
 
 - (void)setQuestionWithNSArray:(NSArray *)questions {
+    if (questions.count == 0) {
+        self.question = nil;
+        
+        return;
+    }
+    
     self.question = [[ELQuestion alloc] initWithDictionary:questions[0] error:nil];
 }
 

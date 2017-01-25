@@ -15,7 +15,7 @@
 #import "ELSurveyViewManager.h"
 #import "ELTableDataSource.h"
 
-@interface ELSurveyDetailsViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
+@interface ELSurveyDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 

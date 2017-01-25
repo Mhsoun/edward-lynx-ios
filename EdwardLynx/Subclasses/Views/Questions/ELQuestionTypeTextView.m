@@ -33,12 +33,19 @@
              @"answer": self.textView.text};
 }
 
+#pragma mark - Getter/Setter Methods
+
 - (ELQuestion *)question {
     return _question;
 }
 
 - (void)setQuestion:(ELQuestion *)question {
     _question = question;
+    
+    // Populate question answer
+    if (_question.value && _question.value.length > 0) {
+        self.textView.text = _question.value;
+    }
 }
 
 @end
