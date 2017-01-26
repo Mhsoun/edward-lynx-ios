@@ -144,17 +144,20 @@ extern NSString * const kELAuthCredentialsUserDefaultsKey;
 
 #pragma mark - RNThemeManager .plist Keys
 
+extern NSString * const kELContainerColor;
 extern NSString * const kELHeaderColor;
 extern NSString * const kELBlackColor;
-extern NSString * const kELWhiteColor;
-extern NSString * const kELGreenColor;
-extern NSString * const kELOrangeColor;
-extern NSString * const kELLightGrayColor;
-extern NSString * const kELGrayColor;
+extern NSString * const kELBlueColor;
 extern NSString * const kELDarkGrayColor;
-extern NSString * const kELLightVioletColor;
-extern NSString * const kELVioletColor;
 extern NSString * const kELDarkVioletColor;
+extern NSString * const kELGrayColor;
+extern NSString * const kELGreenColor;
+extern NSString * const kELLightGrayColor;
+extern NSString * const kELLightVioletColor;
+extern NSString * const kELPinkColor;
+extern NSString * const kELOrangeColor;
+extern NSString * const kELVioletColor;
+extern NSString * const kELWhiteColor;
 
 #pragma mark - Status Codes
 
