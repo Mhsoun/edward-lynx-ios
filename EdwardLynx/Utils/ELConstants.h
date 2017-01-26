@@ -40,6 +40,12 @@ typedef NS_ENUM(NSInteger, kELInviteUsers) {
     kELInviteUsersReports
 };
 
+typedef NS_ENUM(NSInteger, kELListFilter) {
+    kELListFilterAll = 5,
+    kELListFilterUnfinished = 1,
+    kELListFilterComplete = 2
+};
+
 typedef NS_ENUM(NSInteger, kELReportType) {
     kELReportType360,
     kELReportTypeInstant

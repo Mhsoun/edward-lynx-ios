@@ -18,10 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ef-zA-5ab" id="CbY-gh-v3l">
-                <frame key="frameInset" width="375" height="99"/>
+                <frame key="frameInset" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVg-zw-L5O" customClass="RNThemeView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVg-zw-L5O">
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wI5-O5-eCS">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,22 +49,19 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" constant="15" id="4CI-HP-om1"/>
+                            <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" id="BGa-iZ-bRT"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="trailing" constant="5" id="H5h-Vn-fwh"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="bottom" secondItem="wI5-O5-eCS" secondAttribute="bottom" id="NWP-Vf-G7Q"/>
+                            <constraint firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" constant="15" id="OJl-JM-MYF"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="leading" id="OOP-Pt-eVO"/>
-                            <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="top" id="VS8-7g-G6O"/>
                             <constraint firstAttribute="bottom" secondItem="9Vc-ws-lKI" secondAttribute="bottom" constant="10" id="Ymu-J0-qNp"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="15" id="bqp-7X-igO"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
-                            <constraint firstItem="F6T-bb-pPX" firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" id="lWD-Oq-D8F"/>
+                            <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" id="jPV-Pr-1yb"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

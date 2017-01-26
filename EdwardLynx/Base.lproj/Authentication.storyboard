@@ -352,6 +352,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="QPa-b7-fUh">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-HS-575">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
@@ -359,7 +362,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ofq-HS-575" firstAttribute="centerX" secondItem="idg-YN-WxD" secondAttribute="centerX" id="2Qh-Jo-xiD"/>
+                            <constraint firstItem="QPa-b7-fUh" firstAttribute="height" secondItem="idg-YN-WxD" secondAttribute="height" id="GyC-ph-PtJ"/>
+                            <constraint firstItem="QPa-b7-fUh" firstAttribute="centerX" secondItem="idg-YN-WxD" secondAttribute="centerX" id="MKV-6Q-5k2"/>
                             <constraint firstItem="ofq-HS-575" firstAttribute="centerY" secondItem="idg-YN-WxD" secondAttribute="centerY" id="rgA-s9-pJP"/>
+                            <constraint firstItem="QPa-b7-fUh" firstAttribute="width" secondItem="idg-YN-WxD" secondAttribute="width" id="s0Z-cn-bfO"/>
+                            <constraint firstItem="QPa-b7-fUh" firstAttribute="centerY" secondItem="idg-YN-WxD" secondAttribute="centerY" id="sgN-np-832"/>
                         </constraints>
                     </view>
                     <connections>
@@ -372,6 +379,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="1948" height="4034"/>
         <image name="Lock" width="74" height="88"/>
         <image name="Logo" width="95" height="118"/>
         <image name="Person" width="68" height="63"/>

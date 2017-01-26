@@ -63,23 +63,6 @@ static NSInteger const kIAPICCallsNumber = 2;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
-    CAGradientLayer *gradient;
-    
-    // View
-    gradient = [CAGradientLayer layer];
-    gradient.frame = self.view.bounds;
-    gradient.colors = [NSArray arrayWithObjects:
-                       (id)[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor].CGColor,
-                       (id)[[RNThemeManager sharedManager] colorForKey:kELVioletColor].CGColor,
-                       nil];
-    
-    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:kELLightVioletColor]];
-    [self.view.layer insertSublayer:gradient atIndex:0];
-}
-
 #pragma mark - Private Methods
 
 - (void)fetchDataFromAPI {

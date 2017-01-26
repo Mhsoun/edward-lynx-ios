@@ -209,7 +209,13 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 #pragma mark - Notifications
 
 - (void)onAnswerTypeGroupUpdate:(NSNotification *)notification {
+    BOOL isCustomScale;
+    
     self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
+    isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
+    
+    [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
+    [self.tableView updateConstraints];
 }
 
 @end

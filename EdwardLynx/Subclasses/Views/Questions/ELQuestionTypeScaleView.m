@@ -25,6 +25,8 @@
 #pragma mark - Private Methods
 
 - (void)setupNumberScale {
+    NSInteger index;
+    BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     // Segmented Control
@@ -41,6 +43,13 @@
         [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
                                           atIndex:i
                                          animated:NO];
+    }
+    
+    // Populate question answer
+    if ([_question.value integerValue] > -1) {
+        index = [_question.value integerValue];
+        
+        [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
     }
     
     // Text View
@@ -61,6 +70,8 @@
     return @{@"question": @(_question.objectId),
              @"answer": @(option.value)};
 }
+
+#pragma mark - Getter/Setter Methods
 
 - (ELQuestion *)question {
     return _question;

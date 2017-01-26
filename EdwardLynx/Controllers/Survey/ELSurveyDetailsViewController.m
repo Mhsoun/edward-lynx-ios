@@ -37,6 +37,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.title = [self.survey.name uppercaseString];
     self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
     self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
     self.surveyViewManager.delegate = self;
@@ -56,6 +57,19 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 }
 
 #pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.provider numberOfRows];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    
+    [cell configure:[self.provider objectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell setUserInteractionEnabled:self.survey.status != kELSurveyStatusComplete];
+    
+    return cell;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
@@ -77,21 +91,23 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    NSMutableArray *mData = [[NSMutableArray alloc] init];
+    NSMutableArray *mQuestions = [[NSMutableArray alloc] init];
     
     for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
-        [mData addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
+        ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict
+                                                                                error:nil];
+        
+        [mQuestions addObjectsFromArray:category.questions];
     }
     
-    ELQuestionCategory *category = mData[0];  // TEMP
-    
-    self.provider = [[ELDataProvider alloc] initWithDataArray:category.questions];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mQuestions copy]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
     [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
     [self.tableView reloadData];
 }
 
@@ -148,12 +164,17 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
             [mAnswers addObject:formValues];
         }
         
-        if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
-            formDict = @{@"key": self.survey.key,
-                         @"final": @(self.isSurveyFinal),
-                         @"answers": [mAnswers copy]};
-            
+        formDict = @{@"key": self.survey.key,
+                     @"final": @(self.isSurveyFinal),
+                     @"answers": [mAnswers copy]};
+        
+        if (!self.isSurveyFinal) {
             [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+        } else {
+            // Validate first before submission
+            if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
+                [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+            }
         }
     };
     

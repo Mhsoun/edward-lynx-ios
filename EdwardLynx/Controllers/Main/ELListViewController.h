@@ -19,10 +19,6 @@ typedef NS_ENUM(NSInteger, kELListType) {
     kELListTypeSurveys
 };
 
-typedef NS_ENUM(NSInteger, kELListFilter) {
-    kELListFilterAll = 5
-};
-
 @interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic) kELListType listType;

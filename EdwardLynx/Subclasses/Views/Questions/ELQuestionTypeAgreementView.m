@@ -38,6 +38,13 @@
     // Initialization
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
+    
+    // Populate question answer
+    if ([_question.value integerValue] > -1) {
+        [self.pickerView selectRow:[_question.value integerValue]
+                       inComponent:0
+                          animated:YES];
+    }
 }
 
 #pragma mark - Public Methods

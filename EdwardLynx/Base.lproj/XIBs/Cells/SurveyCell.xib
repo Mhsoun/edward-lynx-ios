@@ -23,10 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DyU-IJ-je5" id="1a2-5o-QSs">
-                <frame key="frameInset" width="375" height="99"/>
+                <frame key="frameInset" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-tH-CVd" customClass="RNThemeView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-tH-CVd">
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-zP-pqA">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="leading" secondItem="9Ue-zP-pqA" secondAttribute="leading" id="3QR-q3-btN"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="6RC-qb-dSM" secondAttribute="bottom" constant="5" id="9oy-7T-UzW"/>
@@ -74,9 +74,6 @@
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="p8c-8h-zdQ"/>
                             <constraint firstItem="6RC-qb-dSM" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="w2l-Uq-pg5"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

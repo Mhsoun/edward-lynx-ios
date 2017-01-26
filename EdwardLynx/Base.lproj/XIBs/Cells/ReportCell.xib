@@ -23,10 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YJL-6I-Lpf" id="B4B-hP-hli">
-                <frame key="frameInset" width="375" height="99"/>
+                <frame key="frameInset" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQJ-JB-a9M" customClass="RNThemeView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQJ-JB-a9M">
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-Ug-dZN">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AKw-Hb-diq" firstAttribute="top" secondItem="v6m-Qn-8lG" secondAttribute="bottom" id="9Vq-lW-OKf"/>
                             <constraint firstItem="AKw-Hb-diq" firstAttribute="leading" secondItem="Nww-S7-aP2" secondAttribute="trailing" id="9av-in-bge"/>
@@ -90,9 +90,6 @@
                             <constraint firstItem="AKw-Hb-diq" firstAttribute="trailing" secondItem="v6m-Qn-8lG" secondAttribute="trailing" id="tc4-Id-uyI"/>
                             <constraint firstItem="VnG-Ug-dZN" firstAttribute="leading" secondItem="dQJ-JB-a9M" secondAttribute="leading" constant="15" id="wf5-wa-Vwt"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -23,10 +23,13 @@
                         <viewControllerLayoutGuide type="top" id="AL4-Ki-O5e"/>
                         <viewControllerLayoutGuide type="bottom" id="5Zj-V1-4Je"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pl3-u0-15y" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="pl3-u0-15y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-w2-2uV">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDT-HF-7gS">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9j-OR-anh" userLabel="Content View">
@@ -63,7 +66,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvS-CB-0xv" userLabel="Radio Group View">
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgq-ju-qSg">
-                                                                <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
@@ -75,11 +78,11 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="Lgq-ju-qSg" secondAttribute="trailing" constant="5" id="Slp-3P-7lx"/>
                                                             <constraint firstAttribute="height" constant="120" id="cfO-2m-UXl"/>
-                                                            <constraint firstItem="Lgq-ju-qSg" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="top" constant="5" id="dID-Yl-GV3"/>
+                                                            <constraint firstItem="Lgq-ju-qSg" firstAttribute="top" secondItem="FvS-CB-0xv" secondAttribute="top" id="dID-Yl-GV3"/>
                                                             <constraint firstItem="Lgq-ju-qSg" firstAttribute="leading" secondItem="FvS-CB-0xv" secondAttribute="leading" constant="5" id="p9g-3x-LIl"/>
                                                             <constraint firstAttribute="bottom" secondItem="Lgq-ju-qSg" secondAttribute="bottom" constant="5" id="uud-p3-c3D"/>
                                                         </constraints>
@@ -181,7 +184,7 @@
                                                         <rect key="frame" x="0.0" y="73" width="345" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nq7-WU-Iti" id="5Hh-om-1Va">
-                                                            <frame key="frameInset" width="345" height="44.5"/>
+                                                            <frame key="frameInset" width="345" height="45"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c8-TR-4pK" userLabel="Delete Button">
@@ -222,11 +225,11 @@
                                                         <rect key="frame" x="0.0" y="118" width="345" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dat-In-jp2" id="2ny-1s-Kx7">
-                                                            <frame key="frameInset" width="345" height="44.5"/>
+                                                            <frame key="frameInset" width="345" height="45"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
-                                                                    <color key="backgroundColor" red="0.60392156860000001" green="0.41960784309999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
@@ -294,14 +297,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="I4j-w2-2uV" firstAttribute="height" secondItem="pl3-u0-15y" secondAttribute="height" id="3DZ-jc-0eC"/>
                             <constraint firstItem="QDT-HF-7gS" firstAttribute="width" secondItem="pl3-u0-15y" secondAttribute="width" id="LbI-rI-ZeI"/>
+                            <constraint firstItem="I4j-w2-2uV" firstAttribute="centerY" secondItem="pl3-u0-15y" secondAttribute="centerY" id="SDy-q9-JgG"/>
+                            <constraint firstItem="I4j-w2-2uV" firstAttribute="centerX" secondItem="pl3-u0-15y" secondAttribute="centerX" id="cur-6B-i4d"/>
                             <constraint firstItem="QDT-HF-7gS" firstAttribute="top" secondItem="AL4-Ki-O5e" secondAttribute="bottom" id="fWM-zg-WEF"/>
+                            <constraint firstItem="I4j-w2-2uV" firstAttribute="width" secondItem="pl3-u0-15y" secondAttribute="width" id="lab-Di-c9O"/>
                             <constraint firstItem="5Zj-V1-4Je" firstAttribute="top" secondItem="QDT-HF-7gS" secondAttribute="bottom" id="mvf-Mk-Hp8"/>
                             <constraint firstItem="QDT-HF-7gS" firstAttribute="centerX" secondItem="pl3-u0-15y" secondAttribute="centerX" id="xKB-EU-s8f"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="CREATE INSTANT FEEDBACK" id="ZYd-Wg-Okj"/>
                     <connections>
@@ -332,4 +336,7 @@
             <point key="canvasLocation" x="1469" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>

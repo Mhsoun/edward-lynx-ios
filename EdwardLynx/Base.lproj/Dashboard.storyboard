@@ -15,10 +15,13 @@
                         <viewControllerLayoutGuide type="top" id="PHU-zc-u1l"/>
                         <viewControllerLayoutGuide type="bottom" id="T7T-Dc-jYF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j8u-U5-0mq" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="j8u-U5-0mq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-k5-PUd">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-ti-0lx">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-a3-NpI" userLabel="Content View">
@@ -140,13 +143,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="VEi-ti-0lx" secondAttribute="bottom" constant="10" id="GWm-Eb-uum"/>
+                            <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerY" secondItem="j8u-U5-0mq" secondAttribute="centerY" id="QNY-lZ-OCD"/>
+                            <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerX" secondItem="j8u-U5-0mq" secondAttribute="centerX" id="QOO-cN-rjv"/>
+                            <constraint firstItem="ZY0-k5-PUd" firstAttribute="height" secondItem="j8u-U5-0mq" secondAttribute="height" id="ZeM-zF-Vhg"/>
+                            <constraint firstItem="ZY0-k5-PUd" firstAttribute="width" secondItem="j8u-U5-0mq" secondAttribute="width" id="eye-ck-nkr"/>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="top" secondItem="PHU-zc-u1l" secondAttribute="bottom" constant="10" id="q6Y-jz-yD0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VEi-ti-0lx" secondAttribute="trailing" id="tcA-ad-hT5"/>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="leading" secondItem="j8u-U5-0mq" secondAttribute="leadingMargin" id="zD1-6k-cWc"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="DASHBOARD" id="Ta0-tH-txy"/>
                     <connections>
@@ -207,7 +211,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -221,4 +225,7 @@
             <point key="canvasLocation" x="-87.200000000000003" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>

@@ -26,10 +26,13 @@
                         <viewControllerLayoutGuide type="top" id="XZc-ax-756"/>
                         <viewControllerLayoutGuide type="bottom" id="7rK-a5-TH7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2ER-dR-ZIR" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="2ER-dR-ZIR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="aau-TZ-5Uz">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -44,16 +47,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="14u-9K-jQq" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="5jM-Cq-Lai"/>
+                            <constraint firstItem="aau-TZ-5Uz" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="LEj-PR-669"/>
                             <constraint firstItem="14u-9K-jQq" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="X8q-My-Ubk"/>
                             <constraint firstItem="14u-9K-jQq" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="Zo9-g7-s2P"/>
                             <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="14u-9K-jQq" secondAttribute="bottom" id="bOU-RN-S3M"/>
+                            <constraint firstItem="aau-TZ-5Uz" firstAttribute="height" secondItem="2ER-dR-ZIR" secondAttribute="height" id="ndU-ib-DUQ"/>
+                            <constraint firstItem="aau-TZ-5Uz" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="oEr-F3-zph"/>
+                            <constraint firstItem="aau-TZ-5Uz" firstAttribute="centerY" secondItem="2ER-dR-ZIR" secondAttribute="centerY" id="unO-uO-epV"/>
                             <constraint firstItem="wt7-lQ-5zz" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="viI-5I-gux"/>
                             <constraint firstItem="wt7-lQ-5zz" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="xkz-Yf-fu5"/>
                             <constraint firstItem="wt7-lQ-5zz" firstAttribute="top" secondItem="XZc-ax-756" secondAttribute="bottom" id="zdr-tZ-JyH"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
                     <connections>
@@ -74,10 +78,13 @@
                         <viewControllerLayoutGuide type="top" id="7yV-gT-lKP"/>
                         <viewControllerLayoutGuide type="bottom" id="avk-8k-Fbh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dte-5j-kGD" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="dte-5j-kGD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-vZ-E9c">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-f4-vAK">
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-Q7-qrw">
@@ -133,10 +140,14 @@
                         <constraints>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="145-aY-t2C"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="7v2-no-ISb"/>
+                            <constraint firstItem="ggX-vZ-E9c" firstAttribute="height" secondItem="dte-5j-kGD" secondAttribute="height" id="Ady-Yv-8lS"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerY" secondItem="pcV-ai-2E6" secondAttribute="centerY" id="Fq8-4S-sdq"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="top" secondItem="7yV-gT-lKP" secondAttribute="bottom" id="QUT-Ud-aS6"/>
                             <constraint firstItem="RK2-oj-eZo" firstAttribute="centerX" secondItem="pcV-ai-2E6" secondAttribute="centerX" id="R43-9V-TWS"/>
+                            <constraint firstItem="ggX-vZ-E9c" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="RgO-iZ-6jT"/>
+                            <constraint firstItem="ggX-vZ-E9c" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="Rim-fQ-rao"/>
                             <constraint firstItem="bdd-eb-LRQ" firstAttribute="trailing" secondItem="dte-5j-kGD" secondAttribute="trailingMargin" id="WJN-ai-ioV"/>
+                            <constraint firstItem="ggX-vZ-E9c" firstAttribute="centerY" secondItem="dte-5j-kGD" secondAttribute="centerY" id="Zfx-fl-wxt"/>
                             <constraint firstItem="avk-8k-Fbh" firstAttribute="top" secondItem="bdd-eb-LRQ" secondAttribute="bottom" constant="10" id="ccr-aF-77F"/>
                             <constraint firstItem="8Q4-f4-vAK" firstAttribute="centerX" secondItem="dte-5j-kGD" secondAttribute="centerX" id="ewA-0f-ZjP"/>
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="bottom" id="n4D-g8-FmA"/>
@@ -144,9 +155,6 @@
                             <constraint firstItem="pcV-ai-2E6" firstAttribute="width" secondItem="dte-5j-kGD" secondAttribute="width" id="qg5-5G-A4v"/>
                             <constraint firstItem="bdd-eb-LRQ" firstAttribute="leading" secondItem="dte-5j-kGD" secondAttribute="leadingMargin" id="s8i-W4-MJZ"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Wy4-fF-BUq"/>
@@ -161,4 +169,7 @@
             <point key="canvasLocation" x="2000.8" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>
