@@ -12,7 +12,13 @@
 
 static CGFloat const kELFormViewHeight = 120;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
+
+static NSString * const kELSelectAllButtonLabel = @"Select all";
+static NSString * const kELDeselectAllButtonLabel = @"Deselect all";
+
+static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %ld";
 static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
+
 static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
 static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback successfully created.";
 
@@ -20,6 +26,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 @interface ELInviteUsersViewController ()
 
+@property (nonatomic) BOOL selected, allCellsAction, allSelected;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
@@ -36,8 +43,12 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.searchBar.delegate = self;
+    self.selected = NO;
+    self.allSelected = NO;
+    self.allCellsAction = NO;
     self.mParticipants = [[NSMutableArray alloc] init];
+    self.searchBar.delegate = self;
+    self.selectAllButton.titleLabel.text = kELSelectAllButtonLabel;
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -127,7 +138,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [cell configure:[self.provider objectAtIndexPath:indexPath] atIndexPath:indexPath];
     
     // Toggle selected state
-    if ([cell.participant.isSelected boolValue]) {
+    if (cell.participant.isSelected) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         
         if (![self.mParticipants containsObject:cell.participant]) {
@@ -138,20 +149,57 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         [self.mParticipants removeObject:cell.participant];
     }
     
+    // Button state
+    self.allSelected = cell.participant.isSelected;
+    
+    if (self.mParticipants.count >= [self.provider numberOfRows] &&
+        indexPath.row == [self.provider numberOfRows] - 1) {
+        [self.selectAllButton setTitle:self.allSelected ? kELDeselectAllButtonLabel : kELSelectAllButtonLabel
+                              forState:UIControlStateNormal];
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
+    ELParticipantTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [cell handleObject:[self.provider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
-    [self.tableView reloadData];
+    // FIX Cell being need to be clicked twice to invoke method
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (self.allCellsAction) {
+        cell.participant.isSelected = self.selected;
+    } else {
+        [cell handleObject:[self.provider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
+    }
+    
+    // Toggle selected state
+    if (cell.participant.isSelected) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        
+        if (![self.mParticipants containsObject:cell.participant]) {
+            [self.mParticipants addObject:cell.participant];
+        }
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [self.mParticipants removeObject:cell.participant];
+    }
+    
+    // Button state
+    if (!self.allCellsAction) {
+        [self.selectAllButton setTitle:self.selected ? kELSelectAllButtonLabel : kELDeselectAllButtonLabel
+                              forState:UIControlStateNormal];
+    }
+    
+    // Updated selected users label
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     // TODO Implementation
+    DLog(@"%@", errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -203,6 +251,27 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onSelectAllButtonClick:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    NSString *title = [button.titleLabel.text isEqualToString:kELSelectAllButtonLabel] ? kELDeselectAllButtonLabel :
+                                                                                         kELSelectAllButtonLabel;
+    
+    self.allCellsAction = YES;
+    self.selected = [button.titleLabel.text isEqualToString:kELSelectAllButtonLabel];
+    
+    [button setTitle:title forState:UIControlStateNormal];
+    
+    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionBottom];
+        [[self.tableView delegate] tableView:self.tableView
+                     didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    }
+    
+    self.allCellsAction = NO;
+}
 
 - (IBAction)onInviteButtonClick:(id)sender {
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];

@@ -32,7 +32,7 @@
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    self.participant.isSelected = [self.participant.isSelected isEqual:@1] ? @0 : @1;
+    self.participant.isSelected = !self.participant.isSelected;
 }
 
 @end
