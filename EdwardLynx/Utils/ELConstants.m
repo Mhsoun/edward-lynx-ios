@@ -82,9 +82,11 @@ NSString * const kELAuthCredentialsUserDefaultsKey = @"AuthCredentialsUserDefaul
 
 #pragma mark - RNThemeManager .plist Keys
 
+NSString * const kELHeaderColor = @"headerColor";
 NSString * const kELBlackColor = @"blackColor";
 NSString * const kELWhiteColor = @"whiteColor";
 NSString * const kELGreenColor = @"greenColor";
+NSString * const kELOrangeColor = @"orangeColor";
 NSString * const kELLightGrayColor = @"lightGrayColor";
 NSString * const kELGrayColor = @"grayColor";
 NSString * const kELDarkGrayColor = @"darkGrayColor";

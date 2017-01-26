@@ -92,7 +92,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     self.slideView.sliderScale = 0;
     
     self.slideView.buttonNormalColor = [UIColor whiteColor];
-    self.slideView.buttonSelectedColor = [UIColor orangeColor];
+    self.slideView.buttonSelectedColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
     
     self.slideView.scrollEnabled = YES;

@@ -144,9 +144,11 @@ extern NSString * const kELAuthCredentialsUserDefaultsKey;
 
 #pragma mark - RNThemeManager .plist Keys
 
+extern NSString * const kELHeaderColor;
 extern NSString * const kELBlackColor;
 extern NSString * const kELWhiteColor;
 extern NSString * const kELGreenColor;
+extern NSString * const kELOrangeColor;
 extern NSString * const kELLightGrayColor;
 extern NSString * const kELGrayColor;
 extern NSString * const kELDarkGrayColor;
