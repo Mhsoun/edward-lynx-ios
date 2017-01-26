@@ -55,6 +55,7 @@
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
++ (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelByReportType:(kELReportType)type;
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;

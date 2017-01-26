@@ -214,6 +214,25 @@
     return [[self class] object:@"string" byAnswerType:type];
 }
 
++ (NSString *)labelByListFilter:(kELListFilter)filter {
+    switch (filter) {
+        case kELListFilterAll:
+            return @"All";
+            
+            break;
+        case kELListFilterUnfinished:
+            return @"Unfinished";
+            
+            break;
+        case kELListFilterComplete:
+            return @"Completed";
+            
+            break;
+        default:
+            break;
+    }
+}
+
 + (NSString *)labelByReportType:(kELReportType)type {
     switch (type) {
         case kELReportType360:
