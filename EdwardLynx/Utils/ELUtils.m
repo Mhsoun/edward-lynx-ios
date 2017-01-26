@@ -329,6 +329,23 @@
                                           barMetrics:UIBarMetricsDefault];
 }
 
++ (void)setupSlideView:(DYSlideView *)slideView {
+    slideView.slideBarColor = [UIColor clearColor];
+    slideView.slideBarHeight = 40;
+    
+    slideView.sliderColor = [UIColor clearColor];
+    slideView.sliderHeight = 0;
+    slideView.sliderScale = 0;
+    
+    slideView.buttonNormalColor = [UIColor whiteColor];
+    slideView.buttonSelectedColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
+    
+    slideView.scrollEnabled = YES;
+    slideView.scrollViewBounces = YES;
+    slideView.indexForDefaultItem = @0;
+}
+
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"view" byAnswerType:type];
 }

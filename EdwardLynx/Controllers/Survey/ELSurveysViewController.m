@@ -32,8 +32,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     self.tabs = @[@(kELListFilterAll),
                   @(kELListFilterUnfinished),
                   @(kELListFilterComplete)];
+    self.slideView.delegate = self;
     
-    [self setupSlideView];
+    // Slide view
+    [ELUtils setupSlideView:self.slideView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,26 +80,6 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     controller.listFilter = [self.tabs[index] integerValue];
     
     return controller;
-}
-
-#pragma mark - Private Methods
-
-- (void)setupSlideView {
-    self.slideView.delegate = self;
-    self.slideView.slideBarColor = [UIColor clearColor];
-    self.slideView.slideBarHeight = 40;
-    
-    self.slideView.sliderColor = [UIColor clearColor];
-    self.slideView.sliderHeight = 0;
-    self.slideView.sliderScale = 0;
-    
-    self.slideView.buttonNormalColor = [UIColor whiteColor];
-    self.slideView.buttonSelectedColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
-    
-    self.slideView.scrollEnabled = YES;
-    self.slideView.scrollViewBounces = YES;
-    self.slideView.indexForDefaultItem = @0;
 }
 
 @end
