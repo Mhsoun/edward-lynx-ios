@@ -21,8 +21,8 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 @interface ELCreateInstantFeedbackViewController ()
 
 @property (nonatomic, strong) NSString *selectedAnswerType;
-@property (nonatomic, strong) NSDictionary *instantFeedbackDict;
 @property (nonatomic, strong) NSMutableArray *mCustomScaleOptions;
+@property (nonatomic, strong) NSMutableDictionary *mInstantFeedbackDict;
 @property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
 
@@ -40,11 +40,12 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     self.selectedAnswerType = kELNoQuestionType;
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.mCustomScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
+    self.mInstantFeedbackDict = [[NSMutableDictionary alloc] init];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.scrollEnabled = NO;
-    self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +60,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
         ELInviteUsersViewController *controller = [segue destinationViewController];
         
         controller.inviteType = kELInviteUsersInstantFeedback;
-        controller.instantFeedbackDict = self.instantFeedbackDict;
+        controller.instantFeedbackDict = self.mInstantFeedbackDict;
     }
 }
 
@@ -92,12 +93,11 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // Add Option
     if (textField.text.length > 0) {
-        [self.mCustomScaleOptions insertObject:textField.text atIndex:0];
+        [self.mCustomScaleOptions insertObject:textField.text atIndex:self.mCustomScaleOptions.count - 1];
         [self.tableView reloadData];
         
         // Dynamically adjust scroll view based on table view content
         [self adjustScrollViewContentSize];
-        [self scrollToBottom];
     }
     
     textField.text = @"";
@@ -173,12 +173,6 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
                                                (kELFormViewHeight + tableViewContentSizeHeight + 30))];
 }
 
-- (void)scrollToBottom {
-    CGRect rect = CGRectMake(self.scrollView.contentSize.width - 1, self.scrollView.contentSize.height - 1, 1, 1);
-    
-    [self.scrollView scrollRectToVisible:rect animated:YES];
-}
-
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onInviteButtonClick:(id)sender {
@@ -191,11 +185,16 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
                                                      icon:nil
                                                errorLabel:self.questionErrorLabel];
-    self.instantFeedbackDict = @{@"type": typeGroup,
-                                 @"question": questionGroup,
-                                 @"anonymous": @(self.isAnonymousSwitch.on),
-                                 @"isNA": @(self.isNASwitch.on)};
-    isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.instantFeedbackDict];
+    self.mInstantFeedbackDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": typeGroup,
+                                                                                @"question": questionGroup,
+                                                                                @"anonymous": @(self.isAnonymousSwitch.on),
+                                                                                @"isNA": @(self.isNASwitch.on)}];
+    
+    if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
+        [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
+    }
+    
+    isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     

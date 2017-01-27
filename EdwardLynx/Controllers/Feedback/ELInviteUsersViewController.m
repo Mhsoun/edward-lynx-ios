@@ -161,8 +161,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     // Button state
     self.allSelected = cell.participant.isSelected;
     
-    if (self.mParticipants.count >= [self.provider numberOfRows] &&
-        indexPath.row == [self.provider numberOfRows] - 1) {
+    if (self.mParticipants.count >= [self.provider numberOfRows] && indexPath.row == [self.provider numberOfRows] - 1) {
         [self.selectAllButton setTitle:self.allSelected ? kELDeselectAllButtonLabel : kELSelectAllButtonLabel
                               forState:UIControlStateNormal];
     }
@@ -230,8 +229,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                     instantiateInitialViewController]
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
                            animated:YES
                          completion:nil];
     }];
@@ -286,9 +284,28 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
     if (self.inviteType == kELInviteUsersInstantFeedback) {
-        NSArray *questions = @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
-                                 @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
-                                 @"answer": @{@"type": @([ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]])}}];
+        if (!self.mParticipants.count) {
+            [ELUtils presentToastAtView:self.view
+                                message:@"No participants selected"
+                             completion:^{
+                                 // NOTE No implementation needed
+                                 // FIX Allow nil completion
+                             }];
+            
+            return;
+        }
+        
+        NSArray *questions;
+        kELAnswerType answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
+        NSMutableDictionary *mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
+        
+        if (self.instantFeedbackDict[@"options"]) {
+            [mAnswerDict setObject:self.instantFeedbackDict[@"options"] forKey:@"options"];
+        }
+        
+        questions = @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
+                        @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
+                        @"answer": [mAnswerDict copy]}];
         
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:[participant toDictionary]];
         
