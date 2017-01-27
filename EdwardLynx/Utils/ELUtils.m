@@ -317,16 +317,36 @@
     [CSToastManager setSharedStyle:style];
     [CSToastManager setQueueEnabled:YES];
     
-    // UINavigationBar
+    // Navigation Bar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]];
+    [[UINavigationBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0],
                                                            NSForegroundColorAttributeName: [UIColor whiteColor]}];
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                       forBarPosition:UIBarPositionAny
                                           barMetrics:UIBarMetricsDefault];
+    
+    // Search Bar
+    [[UISearchBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+}
+
++ (void)setupSlideView:(DYSlideView *)slideView {
+    slideView.slideBarColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
+    slideView.slideBarHeight = 50;
+    
+    slideView.sliderColor = [UIColor clearColor];
+    slideView.sliderHeight = 0;
+    slideView.sliderScale = 0;
+    
+    slideView.buttonNormalColor = [UIColor whiteColor];
+    slideView.buttonSelectedColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
+    
+    slideView.scrollEnabled = YES;
+    slideView.scrollViewBounces = YES;
+    slideView.indexForDefaultItem = @0;
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {

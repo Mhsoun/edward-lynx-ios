@@ -62,8 +62,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.dataSource dataSetEmptyText:@"No participants"
-                          description:@""];
+    [self.dataSource dataSetEmptyText:@"No users" description:@""];
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
     
@@ -99,13 +98,11 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (void)layoutInstantFeedbackSharePage {
     self.headerLabel.text = @"Invite people to participate";
     self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
-    self.searchBar.placeholder = @"Search Participants";
 }
 
 - (void)layoutReportSharePage {
     self.headerLabel.text = @"Share report to users";
     self.detailLabel.text = @"Select users for them to be able to view this report";
-    self.searchBar.placeholder = @"Search Users";
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
@@ -124,6 +121,18 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     
     [self.tableView reloadData];
     [self adjustScrollViewContentSize];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
 }
 
 #pragma mark - Protocol Methods (UITableView)

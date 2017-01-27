@@ -30,18 +30,11 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     self.tabs = @[@(kELListFilterAll),
                   @(kELReportType360),
                   @(kELReportTypeInstant)];
-    
     self.slideView.delegate = self;
-    self.slideView.slideBarColor = [UIColor clearColor];
-    self.slideView.slideBarHeight = 40;
+    self.searchBar.delegate = self;
     
-    self.slideView.sliderHeight = 0;
-    
-    self.slideView.buttonNormalColor = [UIColor whiteColor];
-    self.slideView.buttonSelectedColor = [UIColor orangeColor];
-    self.slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:12];
-    
-    self.slideView.indexForDefaultItem = @0;
+    // Slide view
+    [ELUtils setupSlideView:self.slideView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +50,20 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
         
         controller.instantFeedback = self.selectedInstantFeedback;
     }
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
 }
 
 #pragma mark - Protocol Methods (ELListViewController)

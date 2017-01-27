@@ -13,7 +13,7 @@
 #import "ELListViewController.h"
 #import "ELReportDetailsViewController.h"
 
-@interface ELReportsViewController : ELBaseViewController<ELListViewControllerDelegate, DYSlideViewDelegate>
+@interface ELReportsViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>
 
 @property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
 

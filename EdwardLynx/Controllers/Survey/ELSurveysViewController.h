@@ -13,7 +13,7 @@
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
 
-@interface ELSurveysViewController : ELBaseViewController<ELListViewControllerDelegate, DYSlideViewDelegate>
+@interface ELSurveysViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>
 
 @property (strong, nonatomic) ELSurvey *selectedSurvey;
 

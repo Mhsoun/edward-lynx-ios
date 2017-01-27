@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qGm-JT-xDh">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" text="" placeholder="Search Reports" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-i4-rc6" customClass="ELSearchBar">
+                            <searchBar contentMode="scaleToFill" text="" placeholder="Search Reports" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-i4-rc6" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QFr-Jy-jst"/>

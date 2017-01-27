@@ -27,7 +27,7 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7y-Eg-skO" customClass="RNThemeView">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-xe-AJ3">

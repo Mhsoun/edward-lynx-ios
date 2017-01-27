@@ -34,7 +34,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-y2-fTE" userLabel="Content View">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2n-ay-hRY" userLabel="Form View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2n-ay-hRY" userLabel="Form View" customClass="RNThemeView">
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite people to participate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6m-Fd-J6y">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,7 +54,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Participants" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F" customClass="ELSearchBar">
+                                                    <searchBar contentMode="scaleToFill" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F" customClass="ELSearchBar">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Wxx-A6-SDD"/>
@@ -62,25 +62,27 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </searchBar>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="Atn-qS-zWA"/>
-                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" constant="10" id="Bdg-LV-Edg"/>
+                                                    <constraint firstAttribute="height" constant="110" id="Atn-qS-zWA"/>
+                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="Bdg-LV-Edg"/>
                                                     <constraint firstAttribute="trailing" secondItem="84t-JN-A4w" secondAttribute="trailing" id="Det-mU-Wyd"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IPk-wm-Q6F" secondAttribute="trailing" constant="10" id="NYH-Ev-Ec8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IPk-wm-Q6F" secondAttribute="trailing" id="NYH-Ev-Ec8"/>
                                                     <constraint firstItem="b6m-Fd-J6y" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="Ora-b3-tUG"/>
                                                     <constraint firstAttribute="trailing" secondItem="b6m-Fd-J6y" secondAttribute="trailing" id="TrQ-GJ-33E"/>
                                                     <constraint firstItem="IPk-wm-Q6F" firstAttribute="top" secondItem="84t-JN-A4w" secondAttribute="bottom" constant="10" id="WpS-tX-5Rt"/>
-                                                    <constraint firstItem="b6m-Fd-J6y" firstAttribute="top" secondItem="d2n-ay-hRY" secondAttribute="top" constant="20" id="bnK-eB-qVR"/>
+                                                    <constraint firstItem="b6m-Fd-J6y" firstAttribute="top" secondItem="d2n-ay-hRY" secondAttribute="top" constant="10" id="bnK-eB-qVR"/>
                                                     <constraint firstItem="84t-JN-A4w" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="cnq-on-Hef"/>
                                                     <constraint firstItem="84t-JN-A4w" firstAttribute="top" secondItem="b6m-Fd-J6y" secondAttribute="bottom" id="jSd-Yr-7GJ"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Dd-bUV" userLabel="Selected View">
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. of people selected: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-ls-lhD">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -90,7 +92,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                                         <state key="normal" title="Select all">
-                                                            <color key="titleColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="onSelectAllButtonClick:" destination="omf-Pf-luc" eventType="touchUpInside" id="LRC-WC-G7N"/>
@@ -142,7 +144,7 @@
                                 </constraints>
                             </scrollView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vah-jb-Lki">
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ex9-TF-YkB"/>
                                 </constraints>

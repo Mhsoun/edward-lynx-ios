@@ -33,8 +33,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <progressView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="xbO-n2-MHd">
-                    <color key="progressTintColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="trackTintColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="progressTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="trackTintColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                 </progressView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -82,15 +82,22 @@ NSString * const kELAuthCredentialsUserDefaultsKey = @"AuthCredentialsUserDefaul
 
 #pragma mark - RNThemeManager .plist Keys
 
+NSString * const kELContainerColor = @"containerColor";
+NSString * const kELHeaderColor = @"headerColor";
+NSString * const kELTextFieldBGColor = @"textFieldBGColor";
+NSString * const kELTextFieldInputColor = @"textFieldInputColor";
 NSString * const kELBlackColor = @"blackColor";
-NSString * const kELWhiteColor = @"whiteColor";
+NSString * const kELBlueColor = @"blueColor";
+NSString * const kELDarkGrayColor = @"darkGrayColor";
+NSString * const kELDarkVioletColor = @"darkVioletColor";
+NSString * const kELGrayColor = @"grayColor";
 NSString * const kELGreenColor = @"greenColor";
 NSString * const kELLightGrayColor = @"lightGrayColor";
-NSString * const kELGrayColor = @"grayColor";
-NSString * const kELDarkGrayColor = @"darkGrayColor";
 NSString * const kELLightVioletColor = @"lightVioletColor";
+NSString * const kELPinkColor = @"pinkColor";
+NSString * const kELOrangeColor = @"orangeColor";
 NSString * const kELVioletColor = @"violetColor";
-NSString * const kELDarkVioletColor = @"darkVioletColor";
+NSString * const kELWhiteColor = @"whiteColor";
 
 #pragma mark - Status Codes
 

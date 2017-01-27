@@ -58,7 +58,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="descriptionLabel" destination="AoG-AB-tYm" id="LEG-P0-dg1"/>
