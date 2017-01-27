@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *questionContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *popupHelpButton;
 - (IBAction)onPopupHelpButtonClick:(id)sender;
 
 @end

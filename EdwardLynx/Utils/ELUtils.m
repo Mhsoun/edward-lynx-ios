@@ -383,7 +383,7 @@
                                                             [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? @"Custom Scale" :
-                                                            [[ELQuestionTypeScaleView alloc] init];
+                                                            [[ELQuestionTypeAgreementView alloc] init];
         default:
             return nil;
     }

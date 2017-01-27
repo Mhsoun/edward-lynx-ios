@@ -12,6 +12,7 @@
 
 @interface ELDataProvider ()
 
+@property (nonatomic) NSInteger sections;
 @property (nonatomic, strong) NSArray *dataArray;
 
 @end
@@ -21,12 +22,17 @@
 #pragma mark - Lifecycle
 
 - (instancetype)initWithDataArray:(__kindof NSArray *)dataArray {
+    return [self initWithDataArray:dataArray sections:1];
+}
+
+- (instancetype)initWithDataArray:(__kindof NSArray *)dataArray sections:(NSInteger)sections {
     self = [super init];
     
     if (!self) {
         return nil;
     }
     
+    _sections = sections;
     _dataArray = dataArray;
     
     return self;
@@ -35,23 +41,19 @@
 #pragma mark - Methods
 
 - (NSInteger)numberOfRows {
-    return [self numberOfRowsInSection:0];
-}
-
-- (NSInteger)numberOfRowsInSection:(NSInteger)section {
-    if (self.numberOfSections > 1) {
-        return [self.dataArray[section] count];
-    }
-    
     return self.dataArray.count;
 }
 
 - (NSInteger)numberOfSections {
-    return 1;
+    return self.sections;
 }
 
-- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
+- (id)rowObjectAtIndexPath:(NSIndexPath *)indexPath {
     return self.dataArray[indexPath.row];
+}
+
+- (id)sectionObjectAtIndexPath:(NSIndexPath *)indexPath {
+    return self.dataArray[indexPath.section];
 }
 
 - (void)updateObject:(id)object atIndexPath:(NSIndexPath *)indexPath {

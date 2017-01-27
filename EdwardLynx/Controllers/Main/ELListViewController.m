@@ -49,7 +49,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate onRowSelection:[self.provider objectAtIndexPath:indexPath]];
+    [self.delegate onRowSelection:[self.provider rowObjectAtIndexPath:indexPath]];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)

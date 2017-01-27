@@ -65,13 +65,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataProvider numberOfRowsInSection:section];
+    return [self.dataProvider numberOfRows];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     
-    [cell configure:[self.dataProvider objectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell configure:[self.dataProvider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
     
     return cell;
 }
@@ -79,13 +79,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [cell handleObject:[self.dataProvider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
+    [cell handleObject:[self.dataProvider rowObjectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     __kindof UITableViewCell<ELRowHandlerDelegate> *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [cell handleObject:[self.dataProvider objectAtIndexPath:indexPath] deselectionActionAtIndexPath:indexPath];
+    [cell handleObject:[self.dataProvider rowObjectAtIndexPath:indexPath] deselectionActionAtIndexPath:indexPath];
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)

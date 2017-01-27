@@ -9,10 +9,11 @@
 @interface ELDataProvider<__covariant ObjectType> : NSObject
 
 - (instancetype)initWithDataArray:(__kindof NSArray *)dataArray;
+- (instancetype)initWithDataArray:(__kindof NSArray *)dataArray sections:(NSInteger)sections;
 - (NSInteger)numberOfRows;
-- (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSections;
-- (ObjectType)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (ObjectType)rowObjectAtIndexPath:(NSIndexPath *)indexPath;
+- (ObjectType)sectionObjectAtIndexPath:(NSIndexPath *)indexPath;
 - (void)updateObject:(ObjectType)object atIndexPath:(NSIndexPath *)indexPath;
 
 @end
