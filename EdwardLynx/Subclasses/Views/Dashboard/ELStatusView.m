@@ -42,7 +42,7 @@
     }
     
     [self registerTapGesture];
-    [self setupContent:detailsDict];
+    [self setupWithDetails:detailsDict];
     
     return self;
 }
@@ -56,7 +56,7 @@
     [self addGestureRecognizer:tap];
 }
 
-- (void)setupContent:(NSDictionary *)contentDict {
+- (void)setupWithDetails:(NSDictionary *)contentDict {
     // Labels
     self.titleLabel.text = contentDict[@"title"];
     self.detailsLabel.text = [contentDict[@"details"] uppercaseString];

@@ -44,7 +44,7 @@
     self.segueIdentifier = detailsDict[@"segue"];
     
     [self registerTapGesture];
-    [self setupContent:detailsDict];
+    [self setupWithDetails:detailsDict];
     
     return self;
 }
@@ -58,7 +58,10 @@
     [self addGestureRecognizer:tap];
 }
 
-- (void)setupContent:(NSDictionary *)contentDict {
+- (void)setupWithDetails:(NSDictionary *)contentDict {
+    UIColor *color = [[RNThemeManager sharedManager] colorForKey:contentDict[@"color"]];
+    
+    // Content
     self.valueLabel.text = contentDict[@"value"];
     self.titleLabel.text = contentDict[@"title"];
     self.countLabel.text = [contentDict[@"count"] stringValue];
@@ -66,8 +69,11 @@
 //    self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
     self.countLabel.hidden = YES;
     
+    // UI
     self.bgView.layer.cornerRadius = 5.0f;
     self.countLabel.layer.cornerRadius = 12.5f;
+    self.valueLabel.textColor = color;
+    self.countLabel.backgroundColor = color;
     
     [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
