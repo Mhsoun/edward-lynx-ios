@@ -6,6 +6,10 @@
 	<string>462063</string>
 	<key>headerColor</key>
 	<string>331548</string>
+	<key>textFieldBGColor</key>
+	<string>72508a</string>
+	<key>textFieldInputColor</key>
+	<string>2b133d</string>
 	<key>blackColor</key>
 	<string>3c3c3c</string>
 	<key>blueColor</key>

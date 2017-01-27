@@ -33,7 +33,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="aau-TZ-5Uz">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz" customClass="ELSearchBar">
+                            <searchBar contentMode="scaleToFill" placeholder="Search Surveys" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-lQ-5zz" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IbC-0c-RET"/>
@@ -85,7 +85,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-vZ-E9c">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-f4-vAK">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-f4-vAK" userLabel="Theme View" customClass="RNThemeView">
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-Q7-qrw">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -112,6 +112,9 @@
                                     <constraint firstItem="yqP-VO-O4q" firstAttribute="top" secondItem="8Q4-f4-vAK" secondAttribute="top" constant="5" id="fPA-Gc-ugt"/>
                                     <constraint firstItem="MKb-Q7-qrw" firstAttribute="leading" secondItem="8Q4-f4-vAK" secondAttribute="leading" constant="15" id="rMy-B9-jZI"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ai-2E6">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

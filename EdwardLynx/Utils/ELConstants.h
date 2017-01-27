@@ -146,6 +146,8 @@ extern NSString * const kELAuthCredentialsUserDefaultsKey;
 
 extern NSString * const kELContainerColor;
 extern NSString * const kELHeaderColor;
+extern NSString * const kELTextFieldBGColor;
+extern NSString * const kELTextFieldInputColor;
 extern NSString * const kELBlackColor;
 extern NSString * const kELBlueColor;
 extern NSString * const kELDarkGrayColor;

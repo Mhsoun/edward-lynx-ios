@@ -28,7 +28,7 @@
                                                                                                         target:nil
                                                                                                         action:nil];
     
-    [[UIBarButtonItem appearance] setTintColor:[[RNThemeManager sharedManager] colorForKey:@"orangeColor"]];
+    [[UIBarButtonItem appearance] setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
     
     // Subclass-specific UI-related additions
     [self layoutPage];

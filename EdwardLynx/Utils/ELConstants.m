@@ -84,6 +84,8 @@ NSString * const kELAuthCredentialsUserDefaultsKey = @"AuthCredentialsUserDefaul
 
 NSString * const kELContainerColor = @"containerColor";
 NSString * const kELHeaderColor = @"headerColor";
+NSString * const kELTextFieldBGColor = @"textFieldBGColor";
+NSString * const kELTextFieldInputColor = @"textFieldInputColor";
 NSString * const kELBlackColor = @"blackColor";
 NSString * const kELBlueColor = @"blueColor";
 NSString * const kELDarkGrayColor = @"darkGrayColor";

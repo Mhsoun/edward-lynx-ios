@@ -33,6 +33,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
                   @(kELListFilterUnfinished),
                   @(kELListFilterComplete)];
     self.slideView.delegate = self;
+    self.searchBar.delegate = self;
     
     // Slide view
     [ELUtils setupSlideView:self.slideView];
@@ -51,6 +52,20 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         
         controller.survey = self.selectedSurvey;
     }
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
 }
 
 #pragma mark - Protocol Methods (ELListViewController)

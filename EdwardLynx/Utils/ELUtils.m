@@ -317,7 +317,7 @@
     [CSToastManager setSharedStyle:style];
     [CSToastManager setQueueEnabled:YES];
     
-    // UINavigationBar
+    // Navigation Bar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
@@ -327,11 +327,14 @@
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                       forBarPosition:UIBarPositionAny
                                           barMetrics:UIBarMetricsDefault];
+    
+    // Search Bar
+    [[UISearchBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
 }
 
 + (void)setupSlideView:(DYSlideView *)slideView {
-    slideView.slideBarColor = [UIColor clearColor];
-    slideView.slideBarHeight = 40;
+    slideView.slideBarColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
+    slideView.slideBarHeight = 50;
     
     slideView.sliderColor = [UIColor clearColor];
     slideView.sliderHeight = 0;
