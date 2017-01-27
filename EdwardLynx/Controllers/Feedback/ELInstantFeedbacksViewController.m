@@ -81,7 +81,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider objectAtIndexPath:indexPath];
+    self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider rowObjectAtIndexPath:indexPath];
     
     [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
 }

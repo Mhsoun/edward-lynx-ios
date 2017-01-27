@@ -10,6 +10,9 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,14 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ef-zA-5ab" id="CbY-gh-v3l">
-                <frame key="frameInset" width="375" height="99.5"/>
+                <frame key="frameInset" width="375" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVg-zw-L5O">
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wI5-O5-eCS">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,10 +58,10 @@
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="trailing" constant="5" id="H5h-Vn-fwh"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="bottom" secondItem="wI5-O5-eCS" secondAttribute="bottom" id="NWP-Vf-G7Q"/>
-                            <constraint firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" constant="15" id="OJl-JM-MYF"/>
+                            <constraint firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" constant="25" id="OJl-JM-MYF"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="leading" id="OOP-Pt-eVO"/>
                             <constraint firstAttribute="bottom" secondItem="9Vc-ws-lKI" secondAttribute="bottom" constant="10" id="Ymu-J0-qNp"/>
-                            <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="15" id="bqp-7X-igO"/>
+                            <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="25" id="bqp-7X-igO"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
                             <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" id="jPV-Pr-1yb"/>
                         </constraints>

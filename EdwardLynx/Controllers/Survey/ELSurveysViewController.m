@@ -56,6 +56,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 #pragma mark - Protocol Methods (UISearchBar)
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    // TODO Filtering implementation
+}
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:YES animated:YES];
 }

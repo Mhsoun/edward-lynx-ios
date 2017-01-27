@@ -58,23 +58,53 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 
 #pragma mark - Protocol Methods (UITableView)
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [self.provider numberOfSections];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.provider numberOfRows];
+    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    
+    return category.questions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELQuestion *question = [(ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath] questions][indexPath.row];
     
-    [cell configure:[self.provider objectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell configure:question atIndexPath:indexPath];
     [cell setUserInteractionEnabled:self.survey.status != kELSurveyStatusComplete];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELQuestion *question = (ELQuestion *)[self.provider objectAtIndexPath:indexPath];
+    ELQuestion *question = [(ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath] questions][indexPath.row];
     
     return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 150 : 110;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, -15, tableView.frame.size.width, 25)];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath];
+    
+    label.font = [UIFont fontWithName:@"Lato-Bold" size:18];
+    label.text = category.title;
+    label.textColor = [UIColor whiteColor];
+    label.lineBreakMode = NSLineBreakByClipping;
+    label.numberOfLines = 1;
+    label.minimumScaleFactor = 0.5;
+    
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor clearColor]];
+    
+    return view;
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -91,16 +121,17 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    NSMutableArray *mQuestions = [[NSMutableArray alloc] init];
+    NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
     for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
         ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict
                                                                                 error:nil];
         
-        [mQuestions addObjectsFromArray:category.questions];
+        [mCategories addObject:category];
     }
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[mQuestions copy]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mCategories copy]
+                                                     sections:[mCategories count]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];

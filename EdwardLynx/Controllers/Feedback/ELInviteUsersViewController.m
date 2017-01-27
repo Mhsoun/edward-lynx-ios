@@ -144,7 +144,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
-    [cell configure:[self.provider objectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell configure:[self.provider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
     
     // Toggle selected state
     if (cell.participant.isSelected) {
@@ -179,7 +179,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     if (self.allCellsAction) {
         cell.participant.isSelected = self.selected;
     } else {
-        [cell handleObject:[self.provider objectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
+        [cell handleObject:[self.provider rowObjectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
     }
     
     // Toggle selected state

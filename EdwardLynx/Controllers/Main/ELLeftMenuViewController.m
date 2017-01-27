@@ -68,7 +68,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *segueIdentifier = [self.provider objectAtIndexPath:indexPath];
+    NSString *segueIdentifier = [self.provider rowObjectAtIndexPath:indexPath];
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Logout"
@@ -118,7 +118,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 }
 
 - (NSString *)segueIdForIndexPath:(NSIndexPath *)indexPath {
-    return [self.provider objectAtIndexPath:indexPath];
+    return [self.provider rowObjectAtIndexPath:indexPath];
 }
 
 - (NSIndexPath *)selectedIndexPath {

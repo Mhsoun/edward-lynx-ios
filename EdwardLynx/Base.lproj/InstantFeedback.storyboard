@@ -136,9 +136,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9V0-Dg-MzZ" firstAttribute="top" secondItem="fe2-gS-Nec" secondAttribute="bottom" constant="10" id="3rn-3g-TqJ"/>
                             <constraint firstItem="dxb-eD-2MV" firstAttribute="width" secondItem="Nhc-Ql-6OT" secondAttribute="width" id="4bu-Z7-n9d"/>
                             <constraint firstItem="9V0-Dg-MzZ" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="DPU-fr-VwJ"/>
-                            <constraint firstItem="BWa-1n-puT" firstAttribute="top" secondItem="9V0-Dg-MzZ" secondAttribute="bottom" constant="10" id="DTo-R3-16l"/>
                             <constraint firstItem="dxb-eD-2MV" firstAttribute="centerX" secondItem="Nhc-Ql-6OT" secondAttribute="centerX" id="DnP-DQ-oQG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fe2-gS-Nec" secondAttribute="trailing" id="Eea-z9-xWc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cwa-BI-yGr" secondAttribute="trailing" id="NYw-KG-eZL"/>
