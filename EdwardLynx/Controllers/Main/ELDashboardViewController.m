@@ -114,6 +114,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"title": @"Feedback Requests",
                                                          @"count": @(0),
                                                          @"segue": @"",
+                                                         @"color": kELGreenColor,
                                                          @"permissions": @[@(kELRolePermissionParticipateInSurvey),
                                                                            @(kELRolePermissionSubmitSurvey)]}];
     actionView.frame = self.feedbackActionView.frame;
@@ -126,6 +127,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"title": @"Reports",
                                                          @"count": @(0),
                                                          @"segue": @"",
+                                                         @"color": kELBlueColor,
                                                          @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                            @(kELRolePermissionViewAnonymousTeamReports)]}];
     actionView.frame = self.reportsActionView.frame;
@@ -138,6 +140,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"title": @"Feedback Requests",
                                                          @"count": @([ELAppSingleton sharedInstance].instantFeedbacks.count),
                                                          @"segue": @"InstantFeedback",
+                                                         @"color": kELPinkColor,
                                                          @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
     actionView.frame = self.instantFeedbackActionView.frame;
     actionView.delegate = self;

@@ -44,7 +44,7 @@
     self.segueIdentifier = detailsDict[@"segue"];
     
     [self registerTapGesture];
-    [self setupContent:detailsDict];
+    [self setupWithDetails:detailsDict];
     
     return self;
 }
@@ -58,7 +58,7 @@
     [self addGestureRecognizer:tap];
 }
 
-- (void)setupContent:(NSDictionary *)contentDict {
+- (void)setupWithDetails:(NSDictionary *)contentDict {
     self.icon.image = contentDict[@"icon"];
     self.titleLabel.text = contentDict[@"title"];
     self.descriptionLabel.text = contentDict[@"description"];
