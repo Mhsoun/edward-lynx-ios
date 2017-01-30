@@ -35,6 +35,7 @@
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
     BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
+    CGFloat toExpandHeight = question.answer.type == kELAnswerTypeOneToTenWithExplanation ? 110 : kELQuestionTypeExpandedHeight;
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
     questionView.question = question;
@@ -48,7 +49,7 @@
         return;
     }
     
-    self.questionContainerHeightConstraint.constant = toExpand ? kELQuestionTypeExpandedHeight : kELQuestionTypeDefaultHeight;
+    self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
     questionView.frame = self.questionContainerView.frame;
     
     [self.questionContainerView addSubview:questionView];

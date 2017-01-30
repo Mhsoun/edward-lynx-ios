@@ -27,6 +27,7 @@
 - (void)setupNumberScale {
     NSInteger index;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
+    BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     // Segmented Control
@@ -45,6 +46,9 @@
                                          animated:NO];
     }
     
+    [self.topConstraint setConstant:!isOneToTenWithExplanation ? 25 : 0];
+    [self.scaleChoices updateConstraints];
+    
     // Populate question answer
     if ([_question.value integerValue] > -1) {
         index = [_question.value integerValue];
@@ -53,7 +57,7 @@
     }
     
     // Text View
-    self.textView.hidden = _question.answer.type != kELAnswerTypeOneToTenWithExplanation;
+    self.textView.hidden = !isOneToTenWithExplanation;
 }
 
 #pragma mark - Public Methods

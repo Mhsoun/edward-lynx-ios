@@ -80,8 +80,9 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = [(ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath] questions][indexPath.row];
+    CGFloat toExpandHeight = question.answer.type == kELAnswerTypeOneToTenWithExplanation ? 180 : 150;
     
-    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? 150 : 110;
+    return [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type] ? toExpandHeight : 110;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
