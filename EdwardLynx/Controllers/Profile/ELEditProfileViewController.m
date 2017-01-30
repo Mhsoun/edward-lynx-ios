@@ -143,7 +143,7 @@
     }
     
     self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
-                                                                   layout:TNRadioButtonGroupLayoutVertical];
+                                                                   layout:TNRadioButtonGroupLayoutHorizontal];
     
     [self.radioGroup setIdentifier:@"Gender group"];
     [self.radioGroup setMarginBetweenItems:15];
