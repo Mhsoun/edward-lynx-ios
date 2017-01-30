@@ -33,7 +33,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     // Initialization
     self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Logout"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard", @"Profile", @"Settings", @"Logout"]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
@@ -61,8 +61,8 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    self.tableView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
-    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor];
+    self.tableView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor];
+    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
 }
 
 #pragma mark - Protocol Methods (UITableView)

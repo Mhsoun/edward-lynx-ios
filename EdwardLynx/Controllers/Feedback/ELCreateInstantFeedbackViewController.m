@@ -75,11 +75,13 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     
     if (option.length == 0) {
         ELAddScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
+        
         cell.optionTextField.delegate = self;
         
         return cell;
     } else {
         ELScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier];
+        
         cell.tag = indexPath.row;
         cell.delegate = self;
         cell.optionLabel.text = option;
@@ -126,7 +128,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
         data.labelColor = [UIColor whiteColor];
         
         data.borderColor = [UIColor whiteColor];
-        data.circleColor = [UIColor whiteColor];
+        data.circleColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
         data.borderRadius = 15;
         data.circleRadius = 10;
         

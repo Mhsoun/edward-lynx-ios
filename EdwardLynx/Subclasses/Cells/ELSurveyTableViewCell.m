@@ -26,15 +26,18 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELSurvey *survey = (ELSurvey *)object;
     NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
+    NSString *dateString = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:survey.endDate];
+    NSString *colorString = survey.status == kELSurveyStatusComplete ? kELGreenColor : kELDarkGrayColor;
     
     // Content
     self.surveyLabel.text = survey.name;
     self.descriptionLabel.text = survey.shortDescription;
-    self.expiryLabel.text = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:survey.endDate];
+    self.expiryLabel.text = [NSString stringWithFormat:@"Expires on %@", dateString];
     self.statusLabel.text = [NSString stringWithFormat:@"  %@  ", status];
     
     // UI
     self.statusLabel.layer.cornerRadius = 2.0f;
+    self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
