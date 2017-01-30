@@ -49,10 +49,25 @@
         return;
     }
     
-    self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
-    questionView.frame = self.questionContainerView.frame;
+    // Check if subview as already been added
+    if (![self hasQuestionViewAsSubview]) {
+        self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
+        questionView.frame = self.questionContainerView.frame;
+        
+        [self.questionContainerView addSubview:questionView];
+    }
+}
+
+#pragma mark - Private Methods
+
+- (BOOL)hasQuestionViewAsSubview {
+    for (UIView *subview in self.questionContainerView.subviews) {
+        if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
+            return YES;
+        }
+    }
     
-    [self.questionContainerView addSubview:questionView];
+    return NO;
 }
 
 #pragma mark - Interface Builder Actions
