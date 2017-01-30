@@ -74,6 +74,7 @@
                     <connections>
                         <segue destination="9kA-0g-ytD" kind="custom" identifier="Dashboard" customClass="SASlideMenuContentSegue" id="LdH-li-jKi"/>
                         <segue destination="SJ3-c6-UFM" kind="custom" identifier="Profile" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
+                        <segue destination="ebx-6g-TEt" kind="custom" identifier="Settings" customClass="SASlideMenuContentSegue" id="IdI-FE-K7J"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgs-oc-ffC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,6 +88,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3w-FR-4C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792" y="168"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="VZh-Ny-j6n">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="ebx-6g-TEt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmI-9N-bWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="219"/>
         </scene>
     </scenes>
 </document>

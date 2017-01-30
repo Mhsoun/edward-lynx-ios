@@ -53,6 +53,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Clear form
+    self.currentPasswordTextField.text = @"";
+    self.passwordTextField.text = @"";
+    self.confirmPasswordTextField.text = @"";
+}
+
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -80,6 +89,15 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    // Update password stored on NSUserDefaults
+    NSMutableDictionary *mCredentialsDict = [[ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey] mutableCopy];
+    
+    [mCredentialsDict setObject:self.confirmPasswordTextField.text
+                         forKey:@"password"];
+    [ELUtils setUserDefaultsObject:[mCredentialsDict copy]
+                               key:kELAuthCredentialsUserDefaultsKey];
+    
+    // Exit
     [self.saveButton setEnabled:YES];
     [ELUtils presentToastAtView:self.view
                         message:@"Password update successful."
