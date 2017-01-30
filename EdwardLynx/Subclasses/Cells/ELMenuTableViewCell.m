@@ -22,7 +22,7 @@
     // Change selected cell background color
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.selectedBackgroundView.frame];
     
-    [backgroundView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]];
+    [backgroundView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
     [self setSelectedBackgroundView:backgroundView];
 }
 

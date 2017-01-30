@@ -61,8 +61,8 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    self.tableView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
-    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor];
+    self.tableView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor];
+    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
 }
 
 #pragma mark - Protocol Methods (UITableView)
