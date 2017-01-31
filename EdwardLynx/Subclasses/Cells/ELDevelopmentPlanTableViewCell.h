@@ -10,9 +10,9 @@
 
 @interface ELDevelopmentPlanTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *developmentPlanLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *completedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *statusIcon;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @end

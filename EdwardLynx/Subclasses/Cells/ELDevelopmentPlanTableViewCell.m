@@ -24,15 +24,18 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    ELDevelopmentPlan *plan = (ELDevelopmentPlan *)object;
+    ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
+    CGFloat progress = [[devPlan progressDetails][@"value"] floatValue];
     
     // Content
-    self.developmentPlanLabel.text = plan.name;
-    self.timestampLabel.text = plan.timestamp;
-    self.statusLabel.text = [plan.status uppercaseString];
+    self.nameLabel.text = devPlan.name;
+    self.completedLabel.text = [devPlan progressDetails][@"text"];
+    self.timestampLabel.text = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:devPlan.createdAt];
     
     // UI
-    self.statusLabel.layer.cornerRadius = 2.0f;
+    self.progressView.progress = progress;
+    self.progressView.progressTintColor = [[RNThemeManager sharedManager] colorForKey:progress == 1 ? kELGreenColor :
+                                                                                                      kELOrangeColor];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

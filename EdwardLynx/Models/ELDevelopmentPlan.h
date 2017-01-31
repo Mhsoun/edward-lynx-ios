@@ -6,12 +6,19 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELGoal.h"
+
 #import <JSONModel/JSONModel.h>
 
-@interface ELDevelopmentPlan : JSONModel
+@protocol ELGoal;
+
+@interface ELDevelopmentPlan : ELModel
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *timestamp;
-@property (nonatomic) NSString *status;
+@property (nonatomic) NSDate *createdAt;
+@property (nonatomic) NSDate *updatedAt;
+@property (nonatomic) NSArray<ELGoal> *goals;
+
+- (NSDictionary *)progressDetails;
 
 @end

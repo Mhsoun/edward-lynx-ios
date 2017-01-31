@@ -8,10 +8,13 @@
 
 #import <JSONModel/JSONModel.h>
 
-@interface ELGoal : JSONModel
+@interface ELGoal : ELModel
 
-@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *title;
 @property (nonatomic) NSString<Optional> *shortDescription;
-@property (nonatomic) NSDate *dueDate;
+@property (nonatomic) BOOL checked;
+@property (nonatomic) int64_t position;
+@property (nonatomic) NSDate<Optional> *dueDate;
+@property (nonatomic) BOOL reminderSent;
 
 @end

@@ -16,8 +16,8 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
 
 @interface ELDevelopmentPlansViewController ()
 
-@property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<ELDevelopmentPlan *> *provider;
+@property (nonatomic, strong) NSArray *tabs;
+@property (nonatomic, strong) ELDevelopmentPlan *selectedDevPlan;
 
 @end
 
@@ -30,21 +30,14 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    NSDictionary *testData = @{@"name": @"Test Development Plan",
-                               @"timestamp": @"3 days ago",
-                               @"status": @"unfinished"};
+    self.tabs = @[@(kELListFilterAll),
+                  @(kELListFilterUnfinished),
+                  @(kELListFilterComplete)];
+    self.slideView.delegate = self;
+    self.searchBar.delegate = self;
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[[[ELDevelopmentPlan alloc] initWithDictionary:testData error:nil],
-                                                                [[ELDevelopmentPlan alloc] initWithDictionary:testData error:nil],
-                                                                [[ELDevelopmentPlan alloc] initWithDictionary:testData error:nil]]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    self.tableView.delegate = self;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    // Slide view
+    [ELUtils setupSlideView:self.slideView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,22 +51,51 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
     // TODO Implementation
 }
 
-#pragma mark - Protocol Methods (UITableView)
+#pragma mark - Protocol Methods (UISearchBar)
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO Handle selection
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    // TODO Filtering implementation
 }
 
-#pragma mark - Interface Builder Actions
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
 
-- (IBAction)onTabButtonClick:(id)sender {
-    NSArray *buttons = @[self.allTabButton,
-                         self.unfinishedTabButton,
-                         self.completedTabButton];
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
     
-    for (UIButton *button in buttons) {
-        [button setEnabled:![sender isEqual:button]];
-    }
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
+}
+
+#pragma mark - Protocol Methods (ELListViewController)
+
+- (void)onRowSelection:(__kindof ELModel *)object {
+    self.selectedDevPlan = (ELDevelopmentPlan *)object;
+    
+    //
+}
+
+#pragma mark - Protocol Methods (DYSlideView)
+
+- (NSInteger)DY_numberOfViewControllersInSlideView {
+    return self.tabs.count;
+}
+
+- (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
+    return [[ELUtils labelByListFilter:[self.tabs[index] integerValue]] uppercaseString];
+}
+
+- (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
+    ELListViewController *controller = [[UIStoryboard storyboardWithName:@"List" bundle:nil]
+                                        instantiateInitialViewController];
+    
+    controller.delegate = self;
+    controller.listType = kELListTypeDevPlan;
+    controller.listFilter = [self.tabs[index] integerValue];
+    
+    return controller;
 }
 
 @end

@@ -15,8 +15,6 @@
 
 @interface ELSurveysViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>
 
-@property (strong, nonatomic) ELSurvey *selectedSurvey;
-
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet DYSlideView *slideView;
 

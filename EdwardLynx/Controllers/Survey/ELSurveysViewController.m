@@ -17,6 +17,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 @interface ELSurveysViewController ()
 
 @property (nonatomic, strong) NSArray *tabs;
+@property (nonatomic, strong) ELSurvey *selectedSurvey;
 
 @end
 
