@@ -13,6 +13,8 @@
 @interface ELDevelopmentPlanDetailViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup, *dateGroup;
 
 @end
 
@@ -26,6 +28,10 @@
     
     // Initialization
     self.hasCreatedGoal = NO;
+    self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
+                                                       icon:nil
+                                                 errorLabel:self.nameErrorLabel];
     
     [self populatePage];
 }
@@ -63,14 +69,23 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
-    NSDateFormatter *formatter;
+    BOOL isValid;
+    NSDateFormatter *formatter = [ELAppSingleton sharedInstance].dateFormatter;
     
-    // TODO Check for validity
-    
-    formatter = [ELAppSingleton sharedInstance].dateFormatter;
     formatter.dateFormat = kELAPIDateFormat;
     formatter.timeZone = [NSTimeZone systemTimeZone];
     formatter.locale = [NSLocale systemLocale];
+    self.dateGroup = [[ELFormItemGroup alloc] initWithText:[formatter stringFromDate:self.datePicker.date]
+                                                      icon:nil
+                                                errorLabel:self.dateErrorLabel];
+    isValid = [self.viewManager validateAddGoalFormValue:@{@"name": self.nameGroup,
+                                                           @"date": self.dateGroup}];
+    
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if (!isValid) {
+        return;
+    }
     
     self.hasCreatedGoal = YES;
     self.goal = [[ELGoal alloc] initWithDictionary:@{@"title": self.nameTextField.text,

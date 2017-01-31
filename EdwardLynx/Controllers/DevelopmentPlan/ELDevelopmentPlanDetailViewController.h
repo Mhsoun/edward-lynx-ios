@@ -7,6 +7,7 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 
 @interface ELDevelopmentPlanDetailViewController : ELBaseViewController
@@ -17,8 +18,10 @@
 @property (strong, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *remindSwitch;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UILabel *dateErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *categorySwitch;
 - (IBAction)onAddGoalButtonClick:(id)sender;
 
