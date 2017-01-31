@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
         </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
@@ -24,77 +27,63 @@
                 <frame key="frameInset" width="375" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtG-0Q-yUK" customClass="RNThemeView">
-                        <subviews>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Bl-LL-2gc">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="vFu-wu-L5G"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-B0-GT5">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="rIf-5a-djR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6j-Vi-7EN">
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="Uff-5d-wKt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-Mg-xsD">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VDn-Mg-xsD" secondAttribute="height" multiplier="1:1" id="ar8-EE-4MU"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Bl-LL-2gc">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4 Completed" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-B0-GT5">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0Bl-LL-2gc" firstAttribute="leading" secondItem="vtG-0Q-yUK" secondAttribute="leading" constant="10" id="Anc-vV-rlY"/>
-                            <constraint firstItem="y6j-Vi-7EN" firstAttribute="top" secondItem="RD2-B0-GT5" secondAttribute="bottom" constant="5" id="BHY-Up-irA"/>
-                            <constraint firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" constant="40" id="FhQ-xK-xb9"/>
-                            <constraint firstAttribute="trailing" secondItem="VDn-Mg-xsD" secondAttribute="trailing" constant="10" id="Mc5-62-iXV"/>
-                            <constraint firstItem="y6j-Vi-7EN" firstAttribute="height" secondItem="RD2-B0-GT5" secondAttribute="height" id="NdX-ey-mJY"/>
-                            <constraint firstItem="y6j-Vi-7EN" firstAttribute="leading" secondItem="RD2-B0-GT5" secondAttribute="leading" id="QmR-6z-kYU"/>
-                            <constraint firstItem="RD2-B0-GT5" firstAttribute="leading" secondItem="0Bl-LL-2gc" secondAttribute="leading" id="aIB-xw-weq"/>
-                            <constraint firstItem="0Bl-LL-2gc" firstAttribute="top" secondItem="vtG-0Q-yUK" secondAttribute="top" constant="15" id="bVM-Xw-eak"/>
-                            <constraint firstItem="VDn-Mg-xsD" firstAttribute="centerY" secondItem="vtG-0Q-yUK" secondAttribute="centerY" id="c9C-Cu-0S1"/>
-                            <constraint firstItem="RD2-B0-GT5" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="irA-8v-cAY"/>
-                            <constraint firstItem="VDn-Mg-xsD" firstAttribute="height" secondItem="RD2-B0-GT5" secondAttribute="height" id="k00-D6-mwn"/>
-                            <constraint firstItem="RD2-B0-GT5" firstAttribute="top" secondItem="0Bl-LL-2gc" secondAttribute="bottom" id="oa0-iD-ERT"/>
+                            <constraint firstAttribute="width" constant="100" id="8eG-lI-Bfv"/>
+                            <constraint firstAttribute="height" constant="20" id="rIf-5a-djR"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Ji-d0N">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="zrp-BE-dl2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="YT4-F4-Tp0">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="PxV-RG-4Ck"/>
+                        </constraints>
+                        <color key="progressTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="trackTintColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </progressView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="vtG-0Q-yUK" firstAttribute="height" secondItem="c2o-TC-82i" secondAttribute="height" id="Kbs-9k-Etn"/>
-                    <constraint firstItem="vtG-0Q-yUK" firstAttribute="width" secondItem="c2o-TC-82i" secondAttribute="width" id="QfK-Iy-GhM"/>
-                    <constraint firstItem="vtG-0Q-yUK" firstAttribute="centerY" secondItem="c2o-TC-82i" secondAttribute="centerY" id="uiU-wl-JR1"/>
-                    <constraint firstItem="vtG-0Q-yUK" firstAttribute="centerX" secondItem="c2o-TC-82i" secondAttribute="centerX" id="z04-29-qcr"/>
+                    <constraint firstItem="cw7-Ji-d0N" firstAttribute="leading" secondItem="RD2-B0-GT5" secondAttribute="trailing" id="8lX-LR-OQ1"/>
+                    <constraint firstItem="RD2-B0-GT5" firstAttribute="leading" secondItem="0Bl-LL-2gc" secondAttribute="leading" id="Fle-Kh-Gpu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0Bl-LL-2gc" secondAttribute="trailing" constant="15" id="V2Y-Uh-Xii"/>
+                    <constraint firstItem="0Bl-LL-2gc" firstAttribute="leading" secondItem="c2o-TC-82i" secondAttribute="leadingMargin" constant="15" id="XEA-Ng-d3t"/>
+                    <constraint firstItem="cw7-Ji-d0N" firstAttribute="top" secondItem="0Bl-LL-2gc" secondAttribute="bottom" id="ckj-6B-v3f"/>
+                    <constraint firstAttribute="bottom" secondItem="YT4-F4-Tp0" secondAttribute="bottom" constant="10" id="gol-Bp-bJc"/>
+                    <constraint firstItem="YT4-F4-Tp0" firstAttribute="leading" secondItem="0Bl-LL-2gc" secondAttribute="leading" id="ija-WU-zHU"/>
+                    <constraint firstItem="0Bl-LL-2gc" firstAttribute="top" secondItem="c2o-TC-82i" secondAttribute="topMargin" constant="5" id="lMU-xn-kLV"/>
+                    <constraint firstItem="cw7-Ji-d0N" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="lXT-aQ-RzF"/>
+                    <constraint firstItem="YT4-F4-Tp0" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="oyI-al-KrG"/>
+                    <constraint firstItem="RD2-B0-GT5" firstAttribute="top" secondItem="0Bl-LL-2gc" secondAttribute="bottom" id="za5-u6-bhL"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="developmentPlanLabel" destination="0Bl-LL-2gc" id="zYu-fB-lMW"/>
-                <outlet property="statusIcon" destination="VDn-Mg-xsD" id="rgT-pP-hUT"/>
-                <outlet property="statusLabel" destination="y6j-Vi-7EN" id="HwM-Ib-KZI"/>
-                <outlet property="timestampLabel" destination="RD2-B0-GT5" id="pmV-nr-VVC"/>
+                <outlet property="completedLabel" destination="RD2-B0-GT5" id="Y1b-wr-5Vh"/>
+                <outlet property="nameLabel" destination="0Bl-LL-2gc" id="XX3-7C-RYU"/>
+                <outlet property="progressView" destination="YT4-F4-Tp0" id="eVu-hE-WU9"/>
+                <outlet property="timestampLabel" destination="cw7-Ji-d0N" id="ia6-Kh-R1R"/>
             </connections>
-            <point key="canvasLocation" x="70" y="-12"/>
+            <point key="canvasLocation" x="69.5" y="-12"/>
         </tableViewCell>
     </objects>
 </document>
