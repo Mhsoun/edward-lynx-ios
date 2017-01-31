@@ -14,4 +14,12 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
+- (NSDictionary *)progressDetails {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
+    
+    return @{@"text": [NSString stringWithFormat:@"%@ / %@ Completed", @(completedGoals), @(self.goals.count)],
+             @"value": @(completedGoals / (CGFloat)self.goals.count)};
+}
+
 @end

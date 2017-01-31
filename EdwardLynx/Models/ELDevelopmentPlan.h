@@ -19,4 +19,6 @@
 @property (nonatomic) NSDate *updatedAt;
 @property (nonatomic) NSArray<ELGoal> *goals;
 
+- (NSDictionary *)progressDetails;
+
 @end
