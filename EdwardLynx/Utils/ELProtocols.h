@@ -61,6 +61,12 @@
 
 #pragma mark - Class-specific Delegates
 
+@protocol ELDevelopmentPlanGoalDelegate <NSObject>
+
+- (void)onGoalAddition:(__kindof ELModel *)object;
+
+@end
+
 @protocol ELListViewControllerDelegate <NSObject>
 
 - (void)onRowSelection:(__kindof ELModel *)object;

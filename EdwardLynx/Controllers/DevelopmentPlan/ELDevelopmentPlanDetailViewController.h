@@ -14,10 +14,12 @@
 @property (nonatomic) BOOL toAddNew;
 
 @property (strong, nonatomic) ELGoal *goal;
+@property (strong, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *remindSwitch;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UISwitch *categorySwitch;
+- (IBAction)onAddGoalButtonClick:(id)sender;
 
 @end

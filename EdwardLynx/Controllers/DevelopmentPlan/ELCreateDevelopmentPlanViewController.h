@@ -9,7 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELDevelopmentPlanDetailViewController.h"
 
-@interface ELCreateDevelopmentPlanViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ELCreateDevelopmentPlanViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELDevelopmentPlanGoalDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

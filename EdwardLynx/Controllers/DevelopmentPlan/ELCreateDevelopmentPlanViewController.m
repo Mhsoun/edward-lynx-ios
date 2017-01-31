@@ -53,6 +53,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     ELDevelopmentPlanDetailViewController *controller = (ELDevelopmentPlanDetailViewController *)[segue destinationViewController];
     BOOL toAddNew = [segue.identifier isEqualToString:kELAddGoalSegueIdentifier];
     
+    controller.delegate = self;
     controller.toAddNew = toAddNew;
     controller.goal = self.selectedGoal;
 }
@@ -74,10 +75,18 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         
         cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
         cell.textLabel.text = goal.title;
-        cell.detailTextLabel.text = @"Some description";  // TEMP
     }
     
     return cell;
+}
+
+#pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
+
+- (void)onGoalAddition:(__kindof ELModel *)object {
+    ELGoal *goal = (ELGoal *)object;
+    
+    [self.mGoals insertObject:goal atIndex:self.mGoals.count - 1];
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -15,4 +15,8 @@
                                                                   @"shortDescription": @"description"}];
 }
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"objectId"];
+}
+
 @end

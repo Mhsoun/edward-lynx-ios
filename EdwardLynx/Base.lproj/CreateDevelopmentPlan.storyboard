@@ -324,6 +324,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="onAddGoalButtonClick:" destination="5p5-cO-Rg3" eventType="touchUpInside" id="RC9-QR-aqh"/>
                                                     <action selector="onDoneButtonClick:" destination="T2w-k7-xfI" eventType="touchUpInside" id="rfg-gN-59V"/>
                                                 </connections>
                                             </button>
