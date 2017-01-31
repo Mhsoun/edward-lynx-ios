@@ -12,7 +12,8 @@
 
 @interface ELListViewManager ()
 
-@property (nonatomic, strong) ELSurveysAPIClient *client;
+@property (nonatomic, strong) ELDevelopmentPlanAPIClient *devPlanClient;
+@property (nonatomic, strong) ELSurveysAPIClient *surveyClient;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
@@ -28,7 +29,8 @@
         return nil;
     }
     
-    _client = [[ELSurveysAPIClient alloc] init];
+    _surveyClient = [[ELSurveysAPIClient alloc] init];
+    _devPlanClient = [[ELDevelopmentPlanAPIClient alloc] init];
     
     __weak typeof(self) weakSelf = self;
     
@@ -47,18 +49,22 @@
     return self;
 }
 
+- (void)processRetrievalOfDevelopmentPlans {
+    [self.devPlanClient currentUserDevelopmentPlansWithCompletion:self.requestCompletionBlock];
+}
+
 - (void)processRetrievalOfInstantFeedbacks {
-    [self.client currentUserInstantFeedbacksWithFilter:@"to_answer"
+    [self.surveyClient currentUserInstantFeedbacksWithFilter:@"to_answer"
                                             completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfReports {
-    [self.client currentUserInstantFeedbacksWithFilter:@"mine"
+    [self.surveyClient currentUserInstantFeedbacksWithFilter:@"mine"
                                             completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveys {
-    [self.client currentUserSurveysWithCompletion:self.requestCompletionBlock];
+    [self.surveyClient currentUserSurveysWithCompletion:self.requestCompletionBlock];
 }
 
 @end

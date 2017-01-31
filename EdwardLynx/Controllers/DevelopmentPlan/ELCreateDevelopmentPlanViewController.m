@@ -73,7 +73,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         ELGoal *goal = (ELGoal *)value;
         
         cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
-        cell.textLabel.text = goal.name;
+        cell.textLabel.text = goal.title;
         cell.detailTextLabel.text = @"Some description";  // TEMP
     }
     

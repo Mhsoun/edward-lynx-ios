@@ -10,6 +10,7 @@
 
 #pragma mark - Private Constants
 
+static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReportCellIdentifier = @"ReportCell";
 static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
@@ -81,6 +82,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 [mData addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
+            case kELListTypeDevPlan:
+                emptyMessage = @"No development plans";
+                
+                [mData addObject:[[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil]];
+                
+                break;
             default:
                 break;
         }
@@ -112,9 +119,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             break;
         case kELListTypeReports:
-            return [list copy];
+            return [list copy];  // TEMP
             
             break;
+        case kELListTypeDevPlan:
+            return [list copy];  // TEMP
         default:
             return nil;
             
@@ -138,6 +147,14 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                  forCellReuseIdentifier:self.cellIdentifier];
             
             [self.viewManager processRetrievalOfReports];
+            
+            break;
+        case kELListTypeDevPlan:
+            [self setCellIdentifier:kELDevPlanCellIdentifier];
+            [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
+                 forCellReuseIdentifier:self.cellIdentifier];
+            
+            [self.viewManager processRetrievalOfDevelopmentPlans];
             
             break;
         default:

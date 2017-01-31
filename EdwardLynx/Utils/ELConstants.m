@@ -51,20 +51,27 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
+
+NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
+
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
 NSString * const kELAPIInstantFeedbackAnswersEndpoint = @"%@/instant-feedbacks/%@/answers";
 NSString * const kELAPIInstantFeedbackSharesEndpoint = @"%@/instant-feedbacks/%@/shares";
+
 NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/question_categories";
 NSString * const kELAPIQuestionCategoryEndpoint = @"%@/question_categories/%@";
 NSString * const kELAPIQuestionsEndpoint = @"%@/questions";
 NSString * const kELAPIQuestionEndpoint = @"%@/questions/%@";
+
 NSString * const kELAPISurveysEndpoint = @"%@/surveys";
 NSString * const kELAPISurveyEndpoint = @"%@/surveys/%@";
 NSString * const kELAPISurveyAnswersEndpoint = @"%@/surveys/%@/answers";
 NSString * const kELAPISurveyQuestionsEndpoint = @"%@/surveys/%@/questions";
+
 NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPIUsersEndpoint = @"%@/users?type=list";
+
 NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 #pragma mark - HTTP Methods

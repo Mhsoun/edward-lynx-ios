@@ -27,12 +27,11 @@
     ELDevelopmentPlan *plan = (ELDevelopmentPlan *)object;
     
     // Content
-    self.developmentPlanLabel.text = plan.name;
-    self.timestampLabel.text = plan.timestamp;
-    self.statusLabel.text = [plan.status uppercaseString];
+    self.nameLabel.text = plan.name;
+    self.timestampLabel.text = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:plan.createdAt];
     
     // UI
-    self.statusLabel.layer.cornerRadius = 2.0f;
+    self.progressView.layer.cornerRadius = 2.5f;
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,7 +11,8 @@
 @implementation ELGoal
 
 + (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"shortDescription": @"description"}];
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"shortDescription": @"description"}];
 }
 
 @end

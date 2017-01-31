@@ -42,7 +42,7 @@
 #pragma mark - Private Methods
 
 - (void)populatePage {
-    self.nameTextField.text = self.goal ? self.goal.name : @"";
+    self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.datePicker.date = self.goal ? self.goal.dueDate : [NSDate date];
 }
 
