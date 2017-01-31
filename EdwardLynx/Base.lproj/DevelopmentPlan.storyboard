@@ -1,141 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="G5J-N5-rFW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OKY-to-Fl0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--DEVELOPMENT PLAN-->
-        <scene sceneID="x2O-qu-936">
+        <!--DEVELOPMENT PLANS-->
+        <scene sceneID="SXH-FB-3pK">
             <objects>
-                <viewController id="1Su-dI-j7T" customClass="ELDevelopmentPlansViewController" sceneMemberID="viewController">
+                <viewController id="OKY-to-Fl0" customClass="ELDevelopmentPlansViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4EA-o5-INz"/>
-                        <viewControllerLayoutGuide type="bottom" id="fym-zP-mTi"/>
+                        <viewControllerLayoutGuide type="top" id="bm3-XA-YF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="xrl-lO-vif"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZqC-1A-nBb" customClass="RNThemeView">
+                    <view key="view" contentMode="scaleToFill" id="T6L-h1-8Z0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUo-tl-C2i" customClass="ELSearchBar">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gyz-hb-emz">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <searchBar contentMode="scaleToFill" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-vi-zh3" customClass="ELSearchBar">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="HFA-ci-HuF"/>
+                                    <constraint firstAttribute="height" constant="50" id="Q8W-sx-wdH"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </searchBar>
-                            <button contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oL-Yn-7cE" customClass="RNThemeButton">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="xjo-yP-xlS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
-                                <state key="normal" title="ALL"/>
-                                <state key="disabled">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onTabButtonClick:" destination="1Su-dI-j7T" eventType="touchUpInside" id="LAb-Jd-TIF"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHr-MF-VTf" customClass="RNThemeButton">
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
-                                <state key="normal" title="UNFINISHED"/>
-                                <state key="disabled">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onTabButtonClick:" destination="1Su-dI-j7T" eventType="touchUpInside" id="crm-dx-CjA"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8G-jF-8fb" customClass="RNThemeButton">
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
-                                <state key="normal" title="COMPLETED"/>
-                                <state key="disabled">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textColorKey" value="lightGrayColor"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onTabButtonClick:" destination="1Su-dI-j7T" eventType="touchUpInside" id="PHS-Um-1I5"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="28M-JU-3eL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8u-cM-jJf" customClass="DYSlideView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6oL-Yn-7cE" firstAttribute="top" secondItem="TUo-tl-C2i" secondAttribute="bottom" id="1wx-An-qud"/>
-                            <constraint firstAttribute="trailing" secondItem="28M-JU-3eL" secondAttribute="trailing" id="8AH-qc-SqA"/>
-                            <constraint firstItem="28M-JU-3eL" firstAttribute="leading" secondItem="ZqC-1A-nBb" secondAttribute="leading" id="C2P-tm-9Qj"/>
-                            <constraint firstItem="fym-zP-mTi" firstAttribute="top" secondItem="28M-JU-3eL" secondAttribute="bottom" id="HBP-th-YLm"/>
-                            <constraint firstItem="N8G-jF-8fb" firstAttribute="top" secondItem="TUo-tl-C2i" secondAttribute="bottom" id="K91-QU-EMG"/>
-                            <constraint firstItem="N8G-jF-8fb" firstAttribute="leading" secondItem="pHr-MF-VTf" secondAttribute="trailing" id="LSa-ls-ehI"/>
-                            <constraint firstItem="pHr-MF-VTf" firstAttribute="height" secondItem="6oL-Yn-7cE" secondAttribute="height" id="LzM-Tb-Bqs"/>
-                            <constraint firstItem="pHr-MF-VTf" firstAttribute="leading" secondItem="6oL-Yn-7cE" secondAttribute="trailing" id="Ph6-ZS-4Kw"/>
-                            <constraint firstItem="28M-JU-3eL" firstAttribute="top" secondItem="N8G-jF-8fb" secondAttribute="bottom" id="QPa-B4-qKL"/>
-                            <constraint firstItem="pHr-MF-VTf" firstAttribute="width" secondItem="6oL-Yn-7cE" secondAttribute="width" id="QZ8-Hx-twe"/>
-                            <constraint firstItem="TUo-tl-C2i" firstAttribute="centerX" secondItem="ZqC-1A-nBb" secondAttribute="centerX" id="Xcr-gy-XNK"/>
-                            <constraint firstItem="TUo-tl-C2i" firstAttribute="top" secondItem="4EA-o5-INz" secondAttribute="bottom" id="Ylt-71-96n"/>
-                            <constraint firstItem="N8G-jF-8fb" firstAttribute="width" secondItem="pHr-MF-VTf" secondAttribute="width" id="ggO-bz-e4F"/>
-                            <constraint firstItem="N8G-jF-8fb" firstAttribute="height" secondItem="pHr-MF-VTf" secondAttribute="height" id="h0w-1c-Dd5"/>
-                            <constraint firstItem="pHr-MF-VTf" firstAttribute="top" secondItem="TUo-tl-C2i" secondAttribute="bottom" id="ncH-KT-oWM"/>
-                            <constraint firstItem="6oL-Yn-7cE" firstAttribute="leading" secondItem="ZqC-1A-nBb" secondAttribute="leading" id="utk-Ir-yyr"/>
-                            <constraint firstItem="TUo-tl-C2i" firstAttribute="width" secondItem="ZqC-1A-nBb" secondAttribute="width" id="vn0-Vd-YBJ"/>
-                            <constraint firstAttribute="trailing" secondItem="N8G-jF-8fb" secondAttribute="trailing" id="yzi-5w-C6x"/>
+                            <constraint firstItem="gyz-hb-emz" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="17X-7V-ZXe"/>
+                            <constraint firstItem="gyz-hb-emz" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="1tc-dU-JF2"/>
+                            <constraint firstItem="Knh-vi-zh3" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="2QL-Cc-gxd"/>
+                            <constraint firstItem="Knh-vi-zh3" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="IsW-qS-BWS"/>
+                            <constraint firstItem="Knh-vi-zh3" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Pbf-pl-Ml2"/>
+                            <constraint firstItem="v8u-cM-jJf" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="R6M-2R-cRU"/>
+                            <constraint firstItem="v8u-cM-jJf" firstAttribute="top" secondItem="Knh-vi-zh3" secondAttribute="bottom" id="YDc-cD-9u8"/>
+                            <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="v8u-cM-jJf" secondAttribute="bottom" id="dP6-AO-0qm"/>
+                            <constraint firstItem="gyz-hb-emz" firstAttribute="height" secondItem="T6L-h1-8Z0" secondAttribute="height" id="hV7-E8-JcL"/>
+                            <constraint firstItem="gyz-hb-emz" firstAttribute="centerY" secondItem="T6L-h1-8Z0" secondAttribute="centerY" id="mC6-7Z-hNx"/>
+                            <constraint firstItem="v8u-cM-jJf" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="rMG-cJ-L15"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="darkVioletColor"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="DEVELOPMENT PLAN" id="8r3-0h-7vB"/>
+                    <navigationItem key="navigationItem" title="DEVELOPMENT PLANS" id="AZJ-jF-NaL"/>
                     <connections>
-                        <outlet property="allTabButton" destination="6oL-Yn-7cE" id="nKQ-be-X81"/>
-                        <outlet property="completedTabButton" destination="N8G-jF-8fb" id="u2T-t7-k0L"/>
-                        <outlet property="searchBar" destination="TUo-tl-C2i" id="ouV-Ej-dS9"/>
-                        <outlet property="tableView" destination="28M-JU-3eL" id="Kgg-Os-Z0L"/>
-                        <outlet property="unfinishedTabButton" destination="pHr-MF-VTf" id="KnM-0H-O06"/>
+                        <outlet property="searchBar" destination="Knh-vi-zh3" id="q2n-uW-mAq"/>
+                        <outlet property="slideView" destination="v8u-cM-jJf" id="0mF-go-mTl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1vC-cp-cD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gtu-s9-bba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="-134.48275862068968"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CxI-iv-RQl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G5J-N5-rFW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4fG-mj-QL5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1Su-dI-j7T" kind="relationship" relationship="rootViewController" id="0hU-8T-Gna"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gg5-xj-WZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-226.40000000000001" y="-134.48275862068968"/>
+            <point key="canvasLocation" x="430" y="-169"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1948" height="4034"/>
+    </resources>
 </document>

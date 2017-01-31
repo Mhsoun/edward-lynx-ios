@@ -77,6 +77,8 @@
 		A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */; };
 		A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */; };
 		A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */; };
+		A9996B411E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9996B3F1E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard */; };
+		A9996B441E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */; };
 		A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC8B81E24BB5900F47D61 /* ELModel.m */; };
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
@@ -85,6 +87,7 @@
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
 		A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */; };
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
+		A9B5D2AB1E4039A000D5A0EA /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */; };
 		A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */; };
 		A9BF26811E2D3AA700F42859 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */; };
 		A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */; };
@@ -98,6 +101,7 @@
 		A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */; };
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
+		A9D5C4891E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */; };
 		A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */; };
 		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
@@ -243,6 +247,9 @@
 		A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswer.m; sourceTree = "<group>"; };
 		A97F9FFE1E1CF59D008F9EF4 /* ELAnswerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerOption.h; sourceTree = "<group>"; };
 		A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerOption.m; sourceTree = "<group>"; };
+		A9996B401E3F4ADB00600891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateDevelopmentPlan.storyboard; sourceTree = "<group>"; };
+		A9996B421E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateDevelopmentPlanViewController.h; sourceTree = "<group>"; };
+		A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateDevelopmentPlanViewController.m; sourceTree = "<group>"; };
 		A99EC8B71E24BB5900F47D61 /* ELModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELModel.h; sourceTree = "<group>"; };
 		A99EC8B81E24BB5900F47D61 /* ELModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELModel.m; sourceTree = "<group>"; };
 		A9A4DF831DFEA12200CC4FAA /* ELUsersAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUsersAPIClient.h; sourceTree = "<group>"; };
@@ -259,6 +266,8 @@
 		A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLoginViewController.m; sourceTree = "<group>"; };
 		A9B36AAE1DFE749000599909 /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A9B36AAF1DFE749000599909 /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
+		A9B5D2A91E4039A000D5A0EA /* ELGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoal.h; sourceTree = "<group>"; };
+		A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoal.m; sourceTree = "<group>"; };
 		A9BF267B1E2D323000F42859 /* ELInstantFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedback.h; sourceTree = "<group>"; };
 		A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedback.m; sourceTree = "<group>"; };
 		A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbacksViewController.h; sourceTree = "<group>"; };
@@ -283,6 +292,8 @@
 		A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
 		A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
 		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
+		A9D5C4871E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanDetailViewController.h; sourceTree = "<group>"; };
+		A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanDetailViewController.m; sourceTree = "<group>"; };
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateInstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateInstantFeedbackViewController.m; sourceTree = "<group>"; };
@@ -348,6 +359,8 @@
 				A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */,
 				A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */,
 				A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */,
+				A9B5D2A91E4039A000D5A0EA /* ELGoal.h */,
+				A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */,
 				A9BF267B1E2D323000F42859 /* ELInstantFeedback.h */,
 				A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */,
 				A99EC8B71E24BB5900F47D61 /* ELModel.h */,
@@ -522,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				A96F27581DFF8B2B00609E27 /* Authentication.storyboard */,
+				A9996B3F1E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard */,
 				A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */,
 				A91B157B1E03983900CAEC43 /* Dashboard.storyboard */,
 				A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */,
@@ -756,8 +770,12 @@
 		A9E53D601E1B91FE00E9BB3C /* DevelopmentPlan */ = {
 			isa = PBXGroup;
 			children = (
+				A9996B421E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.h */,
+				A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */,
 				A9E53D611E1B920F00E9BB3C /* ELDevelopmentPlansViewController.h */,
 				A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */,
+				A9D5C4871E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.h */,
+				A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */,
 			);
 			path = DevelopmentPlan;
 			sourceTree = "<group>";
@@ -912,6 +930,7 @@
 				A91DCD3C1E35E518006F2778 /* ReportCell.xib in Resources */,
 				A96AE03C1E0F773600AD56BE /* Surveys.storyboard in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
+				A9996B411E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard in Resources */,
 				A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */,
 				A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
@@ -1030,6 +1049,7 @@
 				A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */,
 				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
+				A9996B441E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m in Sources */,
 				A91DCD371E35C997006F2778 /* ELListViewController.m in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */,
@@ -1052,11 +1072,13 @@
 				A97086791E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m in Sources */,
 				A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */,
 				A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */,
+				A9D5C4891E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m in Sources */,
 				A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */,
 				A9C95A081E1F939F00184223 /* ELInviteUsersViewController.m in Sources */,
 				A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */,
+				A9B5D2AB1E4039A000D5A0EA /* ELGoal.m in Sources */,
 				A91B15871E03A6BB00CAEC43 /* ELDashboardViewController.m in Sources */,
 				A94821A51E233885008B738A /* ELParticipantTableViewCell.m in Sources */,
 				A9308BD31DED74B6007B4F9F /* main.m in Sources */,
@@ -1177,6 +1199,14 @@
 				A96F27591DFF8B2B00609E27 /* Base */,
 			);
 			name = Authentication.storyboard;
+			sourceTree = "<group>";
+		};
+		A9996B3F1E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9996B401E3F4ADB00600891 /* Base */,
+			);
+			name = CreateDevelopmentPlan.storyboard;
 			sourceTree = "<group>";
 		};
 		A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */ = {
