@@ -229,7 +229,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil] instantiateInitialViewController]
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                     instantiateInitialViewController]
                            animated:YES
                          completion:nil];
     }];

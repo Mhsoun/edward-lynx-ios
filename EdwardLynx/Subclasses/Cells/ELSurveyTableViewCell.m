@@ -26,7 +26,7 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELSurvey *survey = (ELSurvey *)object;
     NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
-    NSString *dateString = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:survey.endDate];
+    NSString *dateString = [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:survey.endDate];
     NSString *colorString = survey.status == kELSurveyStatusComplete ? kELGreenColor : kELDarkGrayColor;
     
     // Content

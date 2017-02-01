@@ -70,12 +70,9 @@
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;
-    NSDateFormatter *formatter = [ELAppSingleton sharedInstance].dateFormatter;
+    NSString *dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
     
-    formatter.dateFormat = kELAPIDateFormat;
-    formatter.timeZone = [NSTimeZone systemTimeZone];
-    formatter.locale = [NSLocale systemLocale];
-    self.dateGroup = [[ELFormItemGroup alloc] initWithText:[formatter stringFromDate:self.datePicker.date]
+    self.dateGroup = [[ELFormItemGroup alloc] initWithText:dateString
                                                       icon:nil
                                                 errorLabel:self.dateErrorLabel];
     isValid = [self.viewManager validateAddGoalFormValues:@{@"name": self.nameGroup,
@@ -92,7 +89,7 @@
                                                      @"description": self.descriptionTextView.text,
                                                      @"checked": @NO,
                                                      @"position": @0,
-                                                     @"dueDate": [formatter stringFromDate:self.datePicker.date],
+                                                     @"dueDate": dateString,
                                                      @"reminderSent": @NO}
                                              error:nil];
     

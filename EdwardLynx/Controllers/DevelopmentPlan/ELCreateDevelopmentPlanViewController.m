@@ -39,10 +39,12 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // Initialization
     self.mGoals = [[NSMutableArray alloc] initWithArray:@[@""]];
-    self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
+    
+    self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.estimatedRowHeight = kELCellHeight;
@@ -93,6 +95,27 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     return [value isKindOfClass:[NSString class]] ? kELCellHeight : UITableViewAutomaticDimension;
 }
 
+#pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    // TODO Implementation
+    DLog(@"%@", errorDict);
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    self.doneButton.enabled = YES;
+    
+    // Back to the Dashboard
+    [ELUtils presentToastAtView:self.view
+                        message:@"Development Plan successfully created."
+                     completion:^{
+                         [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                                      instantiateInitialViewController]
+                                            animated:YES
+                                          completion:nil];
+                     }];
+}
+
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
 
 - (void)onGoalAddition:(__kindof ELModel *)object {
@@ -114,6 +137,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 - (IBAction)onDoneButtonClick:(id)sender {
     BOOL isValid;
+    NSMutableArray *mGoals = [[NSMutableArray alloc] init];
     
     if (self.mGoals.count == 1) {
         [ELUtils presentToastAtView:self.view
@@ -135,10 +159,14 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         return;
     }
     
-    self.doneButton.enabled = NO;
+    [self.doneButton setEnabled:NO];
+    [self.mGoals removeObjectAtIndex:self.mGoals.count - 1];
     
-    // TODO API Call
+    for (ELGoal *goal in self.mGoals) [mGoals addObject:[goal toDictionary]];
     
+    [self.viewManager processCreateDevelopmentPlan:@{@"name": self.nameTextField.text,
+                                                     @"target": @([ELAppSingleton sharedInstance].user.objectId),
+                                                     @"goals": [mGoals copy]}];
 }
 
 @end

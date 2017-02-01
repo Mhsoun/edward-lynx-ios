@@ -19,4 +19,10 @@
     return [propertyName isEqualToString:@"objectId"];
 }
 
+- (NSDictionary *)toDictionary {
+    return @{@"title": self.title,
+             @"description": self.shortDescription,
+             @"dueDate": [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.dueDate]};
+}
+
 @end

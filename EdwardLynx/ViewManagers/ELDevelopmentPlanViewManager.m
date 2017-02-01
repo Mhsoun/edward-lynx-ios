@@ -51,11 +51,14 @@
 
 #pragma mark - Public Methods
 
+- (void)processCreateDevelopmentPlan:(NSDictionary *)formDict {
+    [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
+}
+
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict {
     NSString *key;
     NSArray *nameErrors, *dateErrors;
     ELFormItemGroup *formFieldGroup;
-    NSDateFormatter *formatter;
     
     key = @"name";
     
@@ -74,11 +77,7 @@
         NSDate *date;
         
         formFieldGroup = formDict[key];
-        formatter = [ELAppSingleton sharedInstance].dateFormatter;
-        formatter.dateFormat = kELAPIDateFormat;
-        formatter.timeZone = [NSTimeZone systemTimeZone];
-        formatter.locale = [NSLocale systemLocale];
-        date = [formatter dateFromString:[formFieldGroup textValue]];
+        date = [[ELAppSingleton sharedInstance].apiDateFormatter dateFromString:[formFieldGroup textValue]];
         dateErrors = [date mt_isBefore:[NSDate date]] ? @[@"Reminder date should be on or after today."] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:dateErrors];
