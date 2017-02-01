@@ -10,6 +10,7 @@
 
 #import "ELBaseViewController.h"
 #import "ELDevelopmentPlan.h"
+#import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELListViewController.h"
 
 @interface ELDevelopmentPlansViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>

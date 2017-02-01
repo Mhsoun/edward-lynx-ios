@@ -61,7 +61,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ELDevelopmentPlanDetailViewController *controller = (ELDevelopmentPlanDetailViewController *)[segue destinationViewController];
+    ELGoalDetailsViewController *controller = (ELGoalDetailsViewController *)[segue destinationViewController];
     BOOL toAddNew = [segue.identifier isEqualToString:kELAddGoalSegueIdentifier];
     
     controller.delegate = self;

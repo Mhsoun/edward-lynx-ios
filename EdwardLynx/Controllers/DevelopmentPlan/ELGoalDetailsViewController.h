@@ -1,5 +1,5 @@
 //
-//  ELDevelopmentPlanDetailViewController.h
+//  ELGoalDetailsViewController.h
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 30/01/2017.
@@ -10,7 +10,7 @@
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 
-@interface ELDevelopmentPlanDetailViewController : ELBaseViewController
+@interface ELGoalDetailsViewController : ELBaseViewController
 
 @property (nonatomic) BOOL toAddNew;
 
