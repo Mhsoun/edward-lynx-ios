@@ -25,6 +25,8 @@ NSString * const kELLogoutAlertMessage = @"Logging out will require the app for 
 
 #pragma mark - Constants
 
+NSString * const kELAPIDateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
+
 NSString * const kELEdwardLynxContactUsURL = @"http://www.edwardlynx.com/contact/";
 
 NSString * const kELErrorDomain = @"com.ingenuitymobile.EdwardLynx.error";

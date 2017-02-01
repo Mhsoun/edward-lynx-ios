@@ -14,7 +14,8 @@
 @property (nonatomic, strong) NSArray *instantFeedbacks;
 @property (nonatomic, strong) NSArray *participants;
 @property (nonatomic, strong) NSString *deviceToken;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *apiDateFormatter;
+@property (nonatomic, strong) NSDateFormatter *printDateFormatter;
 
 + (instancetype)sharedInstance;
 

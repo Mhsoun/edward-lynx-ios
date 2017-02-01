@@ -34,9 +34,14 @@
     
     self.user = nil;
     self.participants = nil;
-    self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.apiDateFormatter = [[NSDateFormatter alloc] init];
+    self.printDateFormatter = [[NSDateFormatter alloc] init];
     
-    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    self.apiDateFormatter.dateFormat = kELAPIDateFormat;
+    self.apiDateFormatter.timeZone = [NSTimeZone systemTimeZone];
+    self.apiDateFormatter.locale = [NSLocale systemLocale];
+    
+    self.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
     
     return self;
 }

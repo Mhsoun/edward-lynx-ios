@@ -11,5 +11,7 @@
 @interface ELDevelopmentPlanAPIClient : ELAPIClient
 
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)createDevelopmentPlansWithParams:(NSDictionary *)params
+                              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 @end

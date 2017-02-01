@@ -30,7 +30,7 @@
     // Content
     self.nameLabel.text = devPlan.name;
     self.completedLabel.text = [devPlan progressDetails][@"text"];
-    self.timestampLabel.text = [[ELAppSingleton sharedInstance].dateFormatter stringFromDate:devPlan.createdAt];
+    self.timestampLabel.text = [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:devPlan.createdAt];
     
     // UI
     self.progressView.progress = progress;
