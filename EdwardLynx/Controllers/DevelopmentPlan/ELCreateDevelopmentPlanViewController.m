@@ -10,6 +10,8 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELCellHeight = 60;
+
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
 static NSString * const kELGoalCellIdentifier = @"GoalCell";
 
@@ -22,6 +24,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 @property (nonatomic, strong) NSMutableArray *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
+@property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 
 @end
 
@@ -35,8 +38,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // Initialization
     self.mGoals = [[NSMutableArray alloc] initWithArray:@[@""]];
+    self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.estimatedRowHeight = kELCellHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
@@ -65,19 +70,23 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
     id value = self.mGoals[indexPath.row];
     
     if ([value isKindOfClass:[NSString class]]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:kELAddGoalCellIdentifier];
+        return [tableView dequeueReusableCellWithIdentifier:kELAddGoalCellIdentifier];
     } else {
-        ELGoal *goal = (ELGoal *)value;
+        ELGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
         
-        cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
-        cell.textLabel.text = goal.title;
+        [cell configure:value atIndexPath:indexPath];
+        
+        return cell;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value = self.mGoals[indexPath.row];
     
-    return cell;
+    return [value isKindOfClass:[NSString class]] ? kELCellHeight : UITableViewAutomaticDimension;
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
@@ -100,7 +109,15 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
-    //
+    BOOL isValid = [self.viewManager validateDevelopmentPlanFormValues:@{}];
+    
+    if (!isValid) {
+        return;
+    }
+    
+    self.doneButton.enabled = NO;
+    
+    // TODO API Call
 }
 
 @end

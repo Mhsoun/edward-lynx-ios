@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) id<ELAPIPostResponseDelegate> delegate;
 
-- (BOOL)validateAddGoalFormValue:(NSDictionary *)formDict;
+- (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict;
+- (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict;
 
 @end

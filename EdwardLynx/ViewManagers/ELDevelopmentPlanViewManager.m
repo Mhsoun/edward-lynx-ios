@@ -51,7 +51,7 @@
 
 #pragma mark - Public Methods
 
-- (BOOL)validateAddGoalFormValue:(NSDictionary *)formDict {
+- (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict {
     NSString *key;
     NSArray *nameErrors, *dateErrors;
     ELFormItemGroup *formFieldGroup;
@@ -85,6 +85,10 @@
     }
     
     return nameErrors.count == 0 && dateErrors.count == 0;
+}
+
+- (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict {
+    return NO;
 }
 
 #pragma mark - Private Methods

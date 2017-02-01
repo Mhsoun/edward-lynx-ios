@@ -78,8 +78,8 @@
     self.dateGroup = [[ELFormItemGroup alloc] initWithText:[formatter stringFromDate:self.datePicker.date]
                                                       icon:nil
                                                 errorLabel:self.dateErrorLabel];
-    isValid = [self.viewManager validateAddGoalFormValue:@{@"name": self.nameGroup,
-                                                           @"date": self.dateGroup}];
+    isValid = [self.viewManager validateAddGoalFormValues:@{@"name": self.nameGroup,
+                                                            @"date": self.dateGroup}];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
@@ -89,10 +89,10 @@
     
     self.hasCreatedGoal = YES;
     self.goal = [[ELGoal alloc] initWithDictionary:@{@"title": self.nameTextField.text,
-                                                     @"description": @"",
+                                                     @"description": self.descriptionTextView.text,
                                                      @"checked": @NO,
                                                      @"position": @0,
-                                                     @"dueDate": [formatter stringFromDate:self.datePicker.date],  // 2017-01-31T06:54:33+01:00
+                                                     @"dueDate": [formatter stringFromDate:self.datePicker.date],
                                                      @"reminderSent": @NO}
                                              error:nil];
     
