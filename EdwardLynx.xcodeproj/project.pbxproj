@@ -88,6 +88,7 @@
 		A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */; };
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
 		A9B3953F1E418E7D00D878BE /* ELGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */; };
+		A9B395441E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B395431E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.m */; };
 		A9B5D2AB1E4039A000D5A0EA /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */; };
 		A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AD1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m */; };
 		A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */; };
@@ -104,7 +105,7 @@
 		A9CCA70E1E1A11D300ACA299 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */; };
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
-		A9D5C4891E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */; };
+		A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */; };
 		A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */; };
 		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
@@ -271,6 +272,8 @@
 		A9B36AAF1DFE749000599909 /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 		A9B3953D1E418E7D00D878BE /* ELGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalTableViewCell.h; sourceTree = "<group>"; };
 		A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalTableViewCell.m; sourceTree = "<group>"; };
+		A9B395421E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanDetailsViewController.h; sourceTree = "<group>"; };
+		A9B395431E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanDetailsViewController.m; sourceTree = "<group>"; };
 		A9B5D2A91E4039A000D5A0EA /* ELGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoal.h; sourceTree = "<group>"; };
 		A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoal.m; sourceTree = "<group>"; };
 		A9B5D2AC1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanAPIClient.h; sourceTree = "<group>"; };
@@ -301,8 +304,8 @@
 		A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
 		A9CCA7111E1A31AE00ACA299 /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
 		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
-		A9D5C4871E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanDetailViewController.h; sourceTree = "<group>"; };
-		A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanDetailViewController.m; sourceTree = "<group>"; };
+		A9D5C4871E3F99DA00AF183D /* ELGoalDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalDetailsViewController.h; sourceTree = "<group>"; };
+		A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalDetailsViewController.m; sourceTree = "<group>"; };
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateInstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateInstantFeedbackViewController.m; sourceTree = "<group>"; };
@@ -787,10 +790,12 @@
 			children = (
 				A9996B421E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.h */,
 				A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */,
+				A9B395421E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.h */,
+				A9B395431E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.m */,
 				A9E53D611E1B920F00E9BB3C /* ELDevelopmentPlansViewController.h */,
 				A9E53D621E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m */,
-				A9D5C4871E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.h */,
-				A9D5C4881E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m */,
+				A9D5C4871E3F99DA00AF183D /* ELGoalDetailsViewController.h */,
+				A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */,
 			);
 			path = DevelopmentPlan;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				A91B15951E03C96100CAEC43 /* ELActionView.m in Sources */,
 				A96AE03F1E0F777A00AD56BE /* ELSurveysViewController.m in Sources */,
 				A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */,
+				A9B395441E41C03400D878BE /* ELDevelopmentPlanDetailsViewController.m in Sources */,
 				A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */,
 				A901600B1E1CDAAD005A8E61 /* ELDetailViewManager.m in Sources */,
 				A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */,
@@ -1089,7 +1095,7 @@
 				A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */,
 				A9B3953F1E418E7D00D878BE /* ELGoalTableViewCell.m in Sources */,
 				A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */,
-				A9D5C4891E3F99DA00AF183D /* ELDevelopmentPlanDetailViewController.m in Sources */,
+				A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */,
 				A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */,
 				A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,

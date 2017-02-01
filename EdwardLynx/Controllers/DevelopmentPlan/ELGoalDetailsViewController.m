@@ -1,16 +1,16 @@
 //
-//  ELDevelopmentPlanDetailViewController.m
+//  ELGoalDetailsViewController.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 30/01/2017.
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELDevelopmentPlanDetailViewController.h"
+#import "ELGoalDetailsViewController.h"
 
 #pragma mark - Class Extension
 
-@interface ELDevelopmentPlanDetailViewController ()
+@interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ELDevelopmentPlanDetailViewController
+@implementation ELGoalDetailsViewController
 
 #pragma mark - Lifecycle
 

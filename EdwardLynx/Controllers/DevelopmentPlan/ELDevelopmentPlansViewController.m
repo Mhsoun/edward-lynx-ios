@@ -11,6 +11,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
+static NSString * const kELSegueIdentifier = @"DevelopmentPlanDetail";
 
 #pragma mark - Class Extension
 
@@ -48,7 +49,11 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // TODO Implementation
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
+        ELDevelopmentPlanDetailsViewController *controller = (ELDevelopmentPlanDetailsViewController *)[segue destinationViewController];
+        
+        controller.devPlan = self.selectedDevPlan;
+    }
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
@@ -74,7 +79,7 @@ static NSString * const kELCellIdentifier = @"DevelopmentPlanCell";
 - (void)onRowSelection:(__kindof ELModel *)object {
     self.selectedDevPlan = (ELDevelopmentPlan *)object;
     
-    //
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 #pragma mark - Protocol Methods (DYSlideView)

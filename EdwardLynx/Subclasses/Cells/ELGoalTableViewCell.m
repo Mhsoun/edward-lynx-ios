@@ -27,7 +27,7 @@
     ELGoal *goal = (ELGoal *)object;
     
     self.goalLabel.text = goal.title;
-    self.descriptionLabel.text = goal.shortDescription;
+    self.descriptionLabel.text = goal.shortDescription.length == 0 ? @"No description added." : goal.shortDescription;
 }
 
 @end
