@@ -25,6 +25,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 @property (nonatomic, strong) NSMutableArray *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
 @end
 
@@ -39,6 +40,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     // Initialization
     self.mGoals = [[NSMutableArray alloc] initWithArray:@[@""]];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
+                                                       icon:nil
+                                                 errorLabel:self.nameErrorLabel];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.estimatedRowHeight = kELCellHeight;
@@ -109,7 +113,23 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDoneButtonClick:(id)sender {
-    BOOL isValid = [self.viewManager validateDevelopmentPlanFormValues:@{}];
+    BOOL isValid;
+    
+    if (self.mGoals.count == 1) {
+        [ELUtils presentToastAtView:self.view
+                            message:@"No goals added"
+                         completion:^{
+                             // NOTE No implementation needed
+                             // FIX Allow nil completion
+                         }];
+        
+        return;
+    }
+    
+    isValid = ([self.viewManager validateDevelopmentPlanFormValues:@{@"name": self.nameGroup}] &&
+               self.mGoals.count > 0);
+    
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
         return;
@@ -118,6 +138,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.doneButton.enabled = NO;
     
     // TODO API Call
+    
 }
 
 @end

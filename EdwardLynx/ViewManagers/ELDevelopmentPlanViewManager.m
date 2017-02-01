@@ -88,7 +88,22 @@
 }
 
 - (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict {
-    return NO;
+    NSString *key;
+    NSArray *nameErrors;
+    ELFormItemGroup *formFieldGroup;
+    
+    key = @"name";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
+                                             name:@"Name"
+                                       validators:@[@"presence"]];
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+    }
+    
+    return nameErrors.count == 0;
 }
 
 #pragma mark - Private Methods
