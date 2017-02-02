@@ -120,8 +120,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 - (void)onGoalAddition:(__kindof ELModel *)object {
     ELGoal *goal = (ELGoal *)object;
+    NSInteger position = self.mGoals.count - 1;
     
-    [self.mGoals insertObject:goal atIndex:self.mGoals.count - 1];
+    goal.position = position;
+    
+    [self.mGoals insertObject:goal atIndex:position];
     [self.tableView reloadData];
 }
 

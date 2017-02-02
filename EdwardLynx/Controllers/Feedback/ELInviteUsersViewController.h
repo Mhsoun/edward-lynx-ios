@@ -14,7 +14,7 @@
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
 
-@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic) kELInviteUsers inviteType;
 
@@ -30,5 +30,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onSelectAllButtonClick:(id)sender;
 - (IBAction)onInviteButtonClick:(id)sender;
+- (IBAction)onInviteByEmailButtonClick:(id)sender;
 
 @end

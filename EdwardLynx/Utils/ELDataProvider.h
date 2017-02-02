@@ -10,6 +10,7 @@
 
 - (instancetype)initWithDataArray:(__kindof NSArray *)dataArray;
 - (instancetype)initWithDataArray:(__kindof NSArray *)dataArray sections:(NSInteger)sections;
+
 - (NSInteger)numberOfRows;
 - (NSInteger)numberOfSections;
 - (ObjectType)rowObjectAtIndexPath:(NSIndexPath *)indexPath;

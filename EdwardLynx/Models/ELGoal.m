@@ -21,6 +21,7 @@
 
 - (NSDictionary *)toDictionary {
     return @{@"title": self.title,
+             @"position": @(self.position),
              @"description": self.shortDescription,
              @"dueDate": [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.dueDate]};
 }

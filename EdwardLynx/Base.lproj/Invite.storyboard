@@ -159,14 +159,32 @@
                                     <action selector="onInviteButtonClick:" destination="omf-Pf-luc" eventType="touchUpInside" id="SnY-yx-ify"/>
                                 </connections>
                             </button>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9s-4t-stq">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hFI-Yb-VCS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="INVITE PEOPLE BY EMAIL">
+                                    <color key="titleColor" red="0.96862745098039216" green="0.58823529411764708" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onInviteByEmailButtonClick:" destination="omf-Pf-luc" eventType="touchUpInside" id="7eT-hb-u57"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="vah-jb-Lki" secondAttribute="bottom" constant="10" id="2gx-Au-Wpo"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="trailing" secondItem="1Yd-aB-hNx" secondAttribute="trailingMargin" id="AJ5-3u-Asz"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="top" secondItem="Qvq-og-F06" secondAttribute="bottom" constant="10" id="BLB-Su-l2t"/>
                             <constraint firstItem="d26-9K-pem" firstAttribute="height" secondItem="1Yd-aB-hNx" secondAttribute="height" id="I0K-gF-ldU"/>
+                            <constraint firstItem="b9s-4t-stq" firstAttribute="trailing" secondItem="vah-jb-Lki" secondAttribute="trailing" id="IV1-BH-9Tt"/>
+                            <constraint firstItem="aKu-sz-6yt" firstAttribute="top" secondItem="b9s-4t-stq" secondAttribute="bottom" constant="10" id="K9z-CZ-iD6"/>
+                            <constraint firstItem="b9s-4t-stq" firstAttribute="top" secondItem="vah-jb-Lki" secondAttribute="bottom" constant="5" id="LBw-hj-nx0"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="width" secondItem="1Yd-aB-hNx" secondAttribute="width" id="Qxd-5T-XJS"/>
                             <constraint firstItem="Qvq-og-F06" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="VCM-Oy-2e0"/>
                             <constraint firstItem="vah-jb-Lki" firstAttribute="leading" secondItem="1Yd-aB-hNx" secondAttribute="leadingMargin" id="YUN-kq-uVp"/>
@@ -174,6 +192,7 @@
                             <constraint firstItem="Qvq-og-F06" firstAttribute="top" secondItem="NU1-15-NPY" secondAttribute="bottom" id="dcn-da-5Hx"/>
                             <constraint firstItem="d26-9K-pem" firstAttribute="centerY" secondItem="1Yd-aB-hNx" secondAttribute="centerY" id="kEk-cN-XvG"/>
                             <constraint firstItem="d26-9K-pem" firstAttribute="centerX" secondItem="1Yd-aB-hNx" secondAttribute="centerX" id="lmJ-CU-iBe"/>
+                            <constraint firstItem="b9s-4t-stq" firstAttribute="leading" secondItem="vah-jb-Lki" secondAttribute="leading" id="yzK-zc-5rl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="INVITE" id="zar-hO-SbN"/>
