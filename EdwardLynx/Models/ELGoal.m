@@ -15,6 +15,10 @@
                                                                   @"shortDescription": @"description"}];
 }
 
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"categoryChecked"] || [propertyName isEqualToString:@"dueDateChecked"];
+}
+
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
     return [propertyName isEqualToString:@"objectId"];
 }

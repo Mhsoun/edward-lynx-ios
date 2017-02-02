@@ -11,6 +11,6 @@
 @interface ELCategory : ELModel
 
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString *shortDescription;
+@property (nonatomic) NSString<Optional> *shortDescription;
 
 @end

@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryErrorLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoryViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *addGoalButton;
 - (IBAction)onSwitchValueChange:(id)sender;
 - (IBAction)onCategoryButtonClick:(id)sender;
 - (IBAction)onAddGoalButtonClick:(id)sender;

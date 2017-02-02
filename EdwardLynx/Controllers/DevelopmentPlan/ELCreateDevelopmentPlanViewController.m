@@ -22,6 +22,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 @interface ELCreateDevelopmentPlanViewController ()
 
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) NSMutableArray *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
@@ -89,6 +90,16 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value = self.mGoals[indexPath.row];
+    
+    self.selectedIndexPath = indexPath;
+    
+    [self setSelectedGoal:[value isKindOfClass:[NSString class]] ? nil : (ELGoal *)value];
+    [self performSegueWithIdentifier:[value isKindOfClass:[NSString class]] ? kELAddGoalSegueIdentifier : kELGoalSegueIdentifier
+                              sender:self];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value = self.mGoals[indexPath.row];
     
@@ -128,12 +139,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [self.tableView reloadData];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = self.mGoals[indexPath.row];
+- (void)onGoalUpdate:(__kindof ELModel *)object {
+    ELGoal *goal = (ELGoal *)object;
     
-    [self setSelectedGoal:[value isKindOfClass:[NSString class]] ? nil : (ELGoal *)value];
-    [self performSegueWithIdentifier:[value isKindOfClass:[NSString class]] ? kELAddGoalSegueIdentifier : kELGoalSegueIdentifier
-                                                   sender:self];
+    [self.mGoals replaceObjectAtIndex:self.selectedIndexPath.row withObject:goal];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Interface Builder Actions

@@ -531,6 +531,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="GOAL DETAILS" id="O5J-gr-nQK"/>
                     <connections>
+                        <outlet property="addGoalButton" destination="0mI-Vz-p3Z" id="ISL-yb-DbS"/>
                         <outlet property="categoryErrorLabel" destination="PiF-vf-Hea" id="R3T-wS-vIc"/>
                         <outlet property="categoryLabel" destination="Xwl-fl-Yaf" id="KvD-Nu-KhV"/>
                         <outlet property="categorySwitch" destination="r19-J0-Bx3" id="Bbb-yK-r9q"/>

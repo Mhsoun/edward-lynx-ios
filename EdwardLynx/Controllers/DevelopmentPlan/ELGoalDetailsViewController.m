@@ -12,6 +12,7 @@
 
 static CGFloat const kELCategoryViewInitialHeight = 35;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
+static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 
 #pragma mark - Class Extension
 
@@ -39,6 +40,10 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
     
+    [self.addGoalButton setTitle:[NSString stringWithFormat:kELGoalButtonLabel, self.toAddNew ? @"ADD" : @"UPDATE"]
+                        forState:UIControlStateNormal];
+    
+    // Goal details
     [self populatePage];
 }
 
@@ -54,7 +59,11 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
         return;
     }
     
-    [self.delegate onGoalAddition:self.goal];
+    if (self.toAddNew) {
+        [self.delegate onGoalAddition:self.goal];
+    } else {
+        [self.delegate onGoalUpdate:self.goal];
+    }    
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -69,14 +78,19 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
 
 - (void)populatePage {
     self.nameTextField.text = self.goal ? self.goal.title : @"";
-    self.datePicker.date = self.goal ? self.goal.dueDate : [NSDate date];
+    
+    // Date
+    [self.remindSwitch setOn:self.goal.dueDateChecked];
+    [self.datePicker setDate:self.goal ? self.goal.dueDate : [NSDate date]];
+    [self toggleBasedOnSwitchValue:self.remindSwitch];
+    
+    // Category
+    [self.categorySwitch setOn:self.goal.categoryChecked];
+    [self.categoryLabel setText:self.goal.category.length == 0 ? kELNoCategorySelected : self.goal.category];
+    [self toggleBasedOnSwitchValue:self.categorySwitch];
 }
 
-#pragma mark - Interface Builder Actions
-
-- (IBAction)onSwitchValueChange:(id)sender {
-    UISwitch *switchButton = (UISwitch *)sender;
-    
+- (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
     if ([switchButton isEqual:self.remindSwitch]) {
         self.dateErrorLabel.hidden = YES;
         self.datePickerViewHeightConstraint.constant = switchButton.isOn ? kELDatePickerViewInitialHeight : 0;
@@ -87,6 +101,12 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
         
         [self.categoryView updateConstraints];
     }
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onSwitchValueChange:(id)sender {
+    [self toggleBasedOnSwitchValue:(UISwitch *)sender];
 }
 
 - (IBAction)onCategoryButtonClick:(id)sender {
@@ -147,6 +167,9 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
                                                      @"dueDate": dateString,
                                                      @"reminderSent": @NO}
                                              error:nil];
+    self.goal.category = self.categoryLabel.text;
+    self.goal.categoryChecked = self.categorySwitch.on;
+    self.goal.dueDateChecked = self.remindSwitch.on;
     
     [self.navigationController popViewControllerAnimated:YES];
 }
