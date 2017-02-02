@@ -12,7 +12,6 @@
 
 static CGFloat const kELCellHeight = 45;
 static CGFloat const kELFormViewHeight = 430;
-static NSString * const kELNoQuestionType = @"No type selected";
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -100,6 +99,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
         
         // Dynamically adjust scroll view based on table view content
         [self adjustScrollViewContentSize];
+        [ELUtils scrollViewToBottom:self.scrollView];
     }
     
     textField.text = @"";

@@ -12,7 +12,6 @@
 
 static CGFloat const kELCategoryViewInitialHeight = 35;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
-static NSString * const kELNoCategorySelected = @"No category selected";
 
 #pragma mark - Class Extension
 
@@ -20,7 +19,7 @@ static NSString * const kELNoCategorySelected = @"No category selected";
 
 @property (nonatomic) BOOL hasCreatedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup, *dateGroup;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
 @end
 
@@ -116,12 +115,23 @@ static NSString * const kELNoCategorySelected = @"No category selected";
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;
     NSString *dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
+    NSMutableDictionary *mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
     
-    self.dateGroup = [[ELFormItemGroup alloc] initWithText:dateString
-                                                      icon:nil
-                                                errorLabel:self.dateErrorLabel];
-    isValid = [self.viewManager validateAddGoalFormValues:@{@"name": self.nameGroup,
-                                                            @"date": self.dateGroup}];
+    if (self.remindSwitch.isOn) {
+        [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:dateString
+                                                               icon:nil
+                                                         errorLabel:self.dateErrorLabel]
+                       forKey:@"date"];
+    }
+    
+    if (self.categorySwitch.isOn) {
+        [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:self.categoryLabel.text
+                                                               icon:nil
+                                                         errorLabel:self.categoryErrorLabel]
+                       forKey:@"category"];
+    }
+    
+    isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) ELGoal *goal;
 @property (strong, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;

@@ -307,6 +307,13 @@
     return [answerTypes containsObject:@(type)];
 }
 
++ (void)scrollViewToBottom:(UIScrollView *)scrollView {
+    CGSize contentSize = scrollView.contentSize;
+    
+    [scrollView scrollRectToVisible:CGRectMake(contentSize.width - 1, contentSize.height - 1, 1, 1)
+                           animated:YES];
+}
+
 + (void)setupGlobalUIChanges {
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     

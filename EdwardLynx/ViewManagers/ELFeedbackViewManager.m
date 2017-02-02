@@ -8,11 +8,6 @@
 
 #import "ELFeedbackViewManager.h"
 
-#pragma mark - Private Constants
-
-static NSString * const kELNoQuestionType = @"No type selected";
-static NSString * const kELNoParticipantRole = @"No role selected";
-
 #pragma mark - Class Extension
 
 @interface ELFeedbackViewManager ()
@@ -83,7 +78,7 @@ static NSString * const kELNoParticipantRole = @"No role selected";
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[@"A question type should be selected"] : nil;
+        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[@"An answer type should be selected"] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
     }
@@ -104,9 +99,7 @@ static NSString * const kELNoParticipantRole = @"No role selected";
 
 - (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict {
     NSString *key;
-    NSArray *nameErrors,
-            *emailErrors,
-            *roleErrors;
+    NSArray *nameErrors, *emailErrors;
     ELFormItemGroup *formFieldGroup;
     
     key = @"name";
@@ -131,18 +124,7 @@ static NSString * const kELNoParticipantRole = @"No role selected";
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
     }
     
-    key = @"role";
-    
-    if (formDict[key]) {
-        formFieldGroup = formDict[key];
-        roleErrors = [[formDict[key] textValue] isEqualToString:kELNoParticipantRole] ? @[@"A role should be selected"] : nil;
-        
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:roleErrors];
-    }
-    
-    return nameErrors.count == 0 &&
-           emailErrors.count == 0 &&
-           roleErrors.count == 0;
+    return nameErrors.count == 0 && emailErrors.count == 0;
 }
 
 #pragma mark - Private Methods

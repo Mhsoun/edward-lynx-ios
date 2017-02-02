@@ -10,6 +10,10 @@
 
 #import "ELDevelopmentPlanAPIClient.h"
 
+#pragma mark - Public Constants
+
+static NSString * const kELNoCategorySelected = @"No category selected";
+
 @interface ELDevelopmentPlanViewManager : NSObject
 
 @property (nonatomic, strong) id<ELAPIPostResponseDelegate> delegate;

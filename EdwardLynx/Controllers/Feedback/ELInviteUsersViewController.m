@@ -266,13 +266,6 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.detailLabel.text = @"Select users for them to be able to view this report";
 }
 
-- (void)scrollToBottom {
-    CGSize contentSize = self.scrollView.contentSize;
-    
-    [self.scrollView scrollRectToVisible:CGRectMake(contentSize.width - 1, contentSize.height - 1, 1, 1)
-                                animated:YES];
-}
-
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     if (self.mParticipants.count == 0) {
         [self.selectAllButton setTitle:kELSelectAllButtonLabel forState:UIControlStateNormal];
@@ -375,7 +368,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         
         [self.tableView reloadData];
         [self adjustScrollViewContentSize];
-        [self scrollToBottom];
+        [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label
         self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];

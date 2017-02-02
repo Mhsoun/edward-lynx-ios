@@ -544,6 +544,7 @@
                         <outlet property="nameErrorLabel" destination="op1-b8-ilF" id="esi-ze-6H4"/>
                         <outlet property="nameTextField" destination="LUr-JD-Pcc" id="gQP-Jf-VQi"/>
                         <outlet property="remindSwitch" destination="ztL-yD-R2W" id="jgr-Ex-lCY"/>
+                        <outlet property="scrollView" destination="0Db-kG-rhq" id="gH5-Rk-ghj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBE-3Z-bCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
