@@ -8,11 +8,17 @@
 
 #import "ELGoalDetailsViewController.h"
 
+#pragma mark - Private Constants
+
+static CGFloat const kELCategoryViewInitialHeight = 35;
+static CGFloat const kELDatePickerViewInitialHeight = 200;
+
 #pragma mark - Class Extension
 
 @interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic, strong) NSMutableArray *mCategories;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 @property (nonatomic, strong) ELFormItemGroup *nameGroup, *dateGroup;
 
@@ -28,6 +34,7 @@
     
     // Initialization
     self.hasCreatedGoal = NO;
+    self.mCategories = [[NSMutableArray alloc] initWithArray:@[@"Test"]];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
@@ -67,6 +74,41 @@
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onSwitchValueChange:(id)sender {
+    UISwitch *switchButton = (UISwitch *)sender;
+    
+    if ([switchButton isEqual:self.remindSwitch]) {
+        self.dateErrorLabel.hidden = YES;
+        self.datePickerViewHeightConstraint.constant = switchButton.isOn ? kELDatePickerViewInitialHeight : 0;
+        
+        [self.datePickerView updateConstraints];
+    } else if ([switchButton isEqual:self.categorySwitch]) {
+        self.categoryViewHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
+        
+        [self.categoryView updateConstraints];
+    }
+}
+
+- (IBAction)onCategoryButtonClick:(id)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Category Selection"
+                                                                        message:@"Select from list of categories"
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    for (NSString *category in self.mCategories) {
+        [controller addAction:[UIAlertAction actionWithTitle:category
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]];
+    }
+    
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
+}
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;

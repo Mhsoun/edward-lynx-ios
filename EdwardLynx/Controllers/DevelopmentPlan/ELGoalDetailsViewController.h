@@ -21,9 +21,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UISwitch *remindSwitch;
+@property (weak, nonatomic) IBOutlet UIView *datePickerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *categorySwitch;
+@property (weak, nonatomic) IBOutlet UIView *categoryView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoryViewHeightConstraint;
+- (IBAction)onSwitchValueChange:(id)sender;
+- (IBAction)onCategoryButtonClick:(id)sender;
 - (IBAction)onAddGoalButtonClick:(id)sender;
 
 @end
