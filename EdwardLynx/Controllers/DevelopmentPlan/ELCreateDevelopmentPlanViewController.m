@@ -11,6 +11,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 60;
+static CGFloat const kELFormViewHeight = 125;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
 static NSString * const kELGoalCellIdentifier = @"GoalCell";
@@ -137,6 +138,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [self.mGoals insertObject:goal atIndex:position];
     [self.tableView reloadData];
+    [self adjustScrollViewContentSize];
+    [ELUtils scrollViewToBottom:self.scrollView];
 }
 
 - (void)onGoalUpdate:(__kindof ELModel *)object {
@@ -144,6 +147,28 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [self.mGoals replaceObjectAtIndex:self.selectedIndexPath.row withObject:goal];
     [self.tableView reloadData];
+}
+
+#pragma mark - Private Methods
+
+- (void)adjustScrollViewContentSize {
+    CGRect tableFrame = self.tableView.frame;
+    CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
+    
+    if (tableViewContentSizeHeight == 0) {
+        return;
+    }
+    
+    tableFrame.size.height = tableViewContentSizeHeight;
+    
+    [self.tableView setFrame:tableFrame];
+    [self.tableView setContentSize:CGSizeMake(self.tableView.contentSize.width,
+                                              tableViewContentSizeHeight)];
+    
+    // Set the content size of your scroll view to be the content size of your
+    // table view + whatever else you have in the scroll view.
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
+                                               (kELFormViewHeight + tableViewContentSizeHeight))];
 }
 
 #pragma mark - Interface Builder Actions

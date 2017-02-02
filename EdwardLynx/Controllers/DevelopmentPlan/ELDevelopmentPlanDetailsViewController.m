@@ -28,7 +28,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     
     // Initialization
     self.title = [self.devPlan.name uppercaseString];
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
