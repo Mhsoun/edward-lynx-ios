@@ -26,11 +26,12 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 @interface ELInviteUsersViewController ()
 
-@property (nonatomic) BOOL selected, allCellsAction, allSelected;
+@property (nonatomic) BOOL selected, allCellsAction;
+@property (nonatomic, strong) UIAlertAction *inviteAction;
+@property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
-@property (nonatomic, strong) NSMutableArray *mParticipants;
 
 @end
 
@@ -44,16 +45,16 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     
     // Initialization
     self.selected = NO;
-    self.allSelected = NO;
     self.allCellsAction = NO;
-    self.mParticipants = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
+    self.mParticipants = [[NSMutableArray alloc] init];
+    self.mInitialParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
     self.selectAllButton.titleLabel.text = kELSelectAllButtonLabel;
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].participants];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self.mInitialParticipants copy]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
@@ -93,31 +94,26 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [self adjustScrollViewContentSize];
 }
 
-#pragma mark - Private Methods
-
-- (void)layoutInstantFeedbackSharePage {
-    self.headerLabel.text = @"Invite people to participate";
-    self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
-}
-
-- (void)layoutReportSharePage {
-    self.headerLabel.text = @"Share report to users";
-    self.detailLabel.text = @"Select users for them to be able to view this report";
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // Clear selections
+    [self clearSelection];
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSMutableArray *mParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
+    NSMutableArray *mFilteredParticipants = [self.mInitialParticipants mutableCopy];
     NSString *condition = @"SELF.name CONTAINS [cd]%@ || SELF.email CONTAINS [cd]%@";
     
     if (searchText.length > 0) {
-        [mParticipants filterUsingPredicate:[NSPredicate predicateWithFormat:condition,
-                                             searchText,
-                                             searchText]];
+        [mFilteredParticipants filterUsingPredicate:[NSPredicate predicateWithFormat:condition,
+                                                     searchText,
+                                                     searchText]];
     }
     
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[mParticipants copy]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mFilteredParticipants copy]];
     
     [self.tableView reloadData];
     [self adjustScrollViewContentSize];
@@ -145,26 +141,11 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     [cell configure:[self.provider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
-    
-    // Toggle selected state
-    if (cell.participant.isSelected) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        
-        if (![self.mParticipants containsObject:cell.participant]) {
-            [self.mParticipants addObject:cell.participant];
-        }
-    } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-        [self.mParticipants removeObject:cell.participant];
-    }
+    [cell setAccessoryType:cell.participant.isSelected ? UITableViewCellAccessoryCheckmark :
+                                                         UITableViewCellAccessoryNone];
     
     // Button state
-    self.allSelected = cell.participant.isSelected;
-    
-    if (self.mParticipants.count >= [self.provider numberOfRows] && indexPath.row == [self.provider numberOfRows] - 1) {
-        [self.selectAllButton setTitle:self.allSelected ? kELDeselectAllButtonLabel : kELSelectAllButtonLabel
-                              forState:UIControlStateNormal];
-    }
+    [self updateSelectAllButtonForIndexPath:indexPath];
     
     return cell;
 }
@@ -194,13 +175,25 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     }
     
     // Button state
-    if (!self.allCellsAction) {
-        [self.selectAllButton setTitle:self.selected ? kELSelectAllButtonLabel : kELDeselectAllButtonLabel
-                              forState:UIControlStateNormal];
-    }
-    
+    [self updateSelectAllButtonForIndexPath:indexPath];
+
     // Updated selected users label
     self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSArray *emailErrors;
+    NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    emailErrors = [REValidation validateObject:finalString
+                                          name:@"Email"
+                                    validators:@[@"presence", @"email"]];
+    
+    [self.inviteAction setEnabled:emailErrors.count == 0];
+    
+    return YES;
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -215,15 +208,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                                                   kELSuccessMessageShareReport;
     
     // Clear selections
-    for (int i = 0; i < self.mParticipants.count; i++) {
-        ELParticipant *participant = self.mParticipants[i];
-        participant.isSelected = @NO;
-        
-        [self.provider updateObject:participant
-                        atIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-    }
-    
-    [self.mParticipants removeAllObjects];
+    [self clearSelection];
     
     // Back to the Dashboard
     [ELUtils presentToastAtView:self.view
@@ -258,6 +243,50 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                (kELFormViewHeight + tableViewContentSizeHeight + 30))];
 }
 
+- (void)clearSelection {
+    for (int i = 0; i < self.mParticipants.count; i++) {
+        ELParticipant *participant = self.mParticipants[i];
+        
+        participant.isSelected = @NO;
+        
+        [self.provider updateObject:participant
+                        atIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    }
+    
+    [self.mParticipants removeAllObjects];
+}
+
+- (void)layoutInstantFeedbackSharePage {
+    self.headerLabel.text = @"Invite people to participate";
+    self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+}
+
+- (void)layoutReportSharePage {
+    self.headerLabel.text = @"Share report to users";
+    self.detailLabel.text = @"Select users for them to be able to view this report";
+}
+
+- (void)scrollToBottom {
+    CGSize contentSize = self.scrollView.contentSize;
+    
+    [self.scrollView scrollRectToVisible:CGRectMake(contentSize.width - 1, contentSize.height - 1, 1, 1)
+                                animated:YES];
+}
+
+- (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
+    if (self.mParticipants.count == 0) {
+        [self.selectAllButton setTitle:kELSelectAllButtonLabel forState:UIControlStateNormal];
+    } else if (self.mParticipants.count == [self.provider numberOfRows]) {
+        [self.selectAllButton setTitle:self.mInitialParticipants.count ? kELDeselectAllButtonLabel : self.selectAllButton.titleLabel.text
+                              forState:UIControlStateNormal];
+    } else if (self.allCellsAction) {
+        if (self.mParticipants.count >= [self.provider numberOfRows] && indexPath.row == [self.provider numberOfRows] - 1) {
+            [self.selectAllButton setTitle:self.selected ? kELDeselectAllButtonLabel : kELSelectAllButtonLabel
+                                  forState:UIControlStateNormal];
+        }
+    }
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
@@ -285,6 +314,10 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
     if (self.inviteType == kELInviteUsersInstantFeedback) {
+        kELAnswerType answerType;
+        NSArray *questions;
+        NSMutableDictionary *mAnswerDict;
+        
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
                                 message:@"No participants selected"
@@ -296,9 +329,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
             return;
         }
         
-        NSArray *questions;
-        kELAnswerType answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
-        NSMutableDictionary *mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
+        answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
+        mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
         if (self.instantFeedbackDict[@"options"]) {
             [mAnswerDict setObject:self.instantFeedbackDict[@"options"] forKey:@"options"];
@@ -320,6 +352,51 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
                                                    atId:self.instantFeedback.objectId];
     }
+}
+
+- (IBAction)onInviteByEmailButtonClick:(id)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Invite a user"
+                                                                        message:@"Enter a valid e-mail address:"
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:@{@"id": @(-1),
+                                                                                 @"name": @"Invited by E-mail",
+                                                                                 @"email": controller.textFields.firstObject.text}
+                                                                         error:nil];
+        participant.isSelected = YES;
+        
+        [self.mParticipants addObject:participant];
+        [self.mInitialParticipants addObject:participant];
+        
+        self.provider = [[ELDataProvider alloc] initWithDataArray:[self.mInitialParticipants copy]];
+        
+        [self.tableView reloadData];
+        [self adjustScrollViewContentSize];
+        [self scrollToBottom];
+        
+        // Updated selected users label
+        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+    }];
+    self.inviteAction.enabled = NO;
+    
+    [controller addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypeEmailAddress;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        
+        [REValidation registerDefaultValidators];
+        [REValidation registerDefaultErrorMessages];
+    }];
+    [controller addAction:self.inviteAction];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
 }
 
 @end

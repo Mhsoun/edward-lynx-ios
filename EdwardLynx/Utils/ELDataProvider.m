@@ -57,11 +57,7 @@
 }
 
 - (void)updateObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *mObjects = [self.dataArray mutableCopy];
-    
-    [mObjects insertObject:object atIndex:indexPath.row];
-    
-    self.dataArray = [mObjects copy];
+    [[self.dataArray mutableCopy] insertObject:object atIndex:indexPath.row];
 }
 
 @end
