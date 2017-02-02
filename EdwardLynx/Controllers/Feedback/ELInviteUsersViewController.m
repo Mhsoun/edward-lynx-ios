@@ -359,7 +359,9 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                                         message:@"Enter a valid e-mail address:"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     
-    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail"
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action) {
         ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:@{@"id": @(-1),
                                                                                  @"name": @"Invited by E-mail",
                                                                                  @"email": controller.textFields.firstObject.text}

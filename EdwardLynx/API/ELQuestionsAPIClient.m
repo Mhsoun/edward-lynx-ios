@@ -38,7 +38,8 @@
 @implementation ELQuestionCategoriesAPIClient
 
 - (void)categoriesOfUserWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSMutableURLRequest *request = [self requestFor:kELAPIQuestionCategoriesEndpoint method:kELAPIGetHTTPMethod];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIQuestionCategoriesEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
                        withRequest:request

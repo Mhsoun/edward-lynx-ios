@@ -12,13 +12,13 @@
 
 static CGFloat const kELCategoryViewInitialHeight = 35;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
+static NSString * const kELNoCategorySelected = @"No category selected";
 
 #pragma mark - Class Extension
 
 @interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
-@property (nonatomic, strong) NSMutableArray *mCategories;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 @property (nonatomic, strong) ELFormItemGroup *nameGroup, *dateGroup;
 
@@ -34,7 +34,7 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
     
     // Initialization
     self.hasCreatedGoal = NO;
-    self.mCategories = [[NSMutableArray alloc] initWithArray:@[@"Test"]];
+    self.categoryLabel.text = kELNoCategorySelected;
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
@@ -94,15 +94,18 @@ static CGFloat const kELDatePickerViewInitialHeight = 200;
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Category Selection"
                                                                         message:@"Select from list of categories"
                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
+    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
+        self.categoryLabel.text = action.title;
+    };
     
     [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
-    for (NSString *category in self.mCategories) {
-        [controller addAction:[UIAlertAction actionWithTitle:category
+    for (ELCategory *category in [ELAppSingleton sharedInstance].categories) {
+        [controller addAction:[UIAlertAction actionWithTitle:category.title
                                                        style:UIAlertActionStyleDefault
-                                                     handler:nil]];
+                                                     handler:actionBlock]];
     }
     
     [self presentViewController:controller

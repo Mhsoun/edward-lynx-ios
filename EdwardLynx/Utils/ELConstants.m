@@ -61,8 +61,8 @@ NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
 NSString * const kELAPIInstantFeedbackAnswersEndpoint = @"%@/instant-feedbacks/%@/answers";
 NSString * const kELAPIInstantFeedbackSharesEndpoint = @"%@/instant-feedbacks/%@/shares";
 
-NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/question_categories";
-NSString * const kELAPIQuestionCategoryEndpoint = @"%@/question_categories/%@";
+NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/categories";
+NSString * const kELAPIQuestionCategoryEndpoint = @"%@/categories/%@";
 NSString * const kELAPIQuestionsEndpoint = @"%@/questions";
 NSString * const kELAPIQuestionEndpoint = @"%@/questions/%@";
 

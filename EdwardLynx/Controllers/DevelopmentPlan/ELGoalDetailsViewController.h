@@ -7,6 +7,7 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELCategory.h"
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 
@@ -27,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *categorySwitch;
 @property (weak, nonatomic) IBOutlet UIView *categoryView;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryErrorLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoryViewHeightConstraint;
 - (IBAction)onSwitchValueChange:(id)sender;
 - (IBAction)onCategoryButtonClick:(id)sender;

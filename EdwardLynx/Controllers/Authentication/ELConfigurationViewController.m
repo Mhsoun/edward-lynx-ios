@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kIAPICCallsNumber = 2;
+static NSInteger const kIAPICCallsNumber = 3;
 
 #pragma mark - Class Extension
 
@@ -76,12 +76,32 @@ static NSInteger const kIAPICCallsNumber = 2;
             
             break;
         case 3:
+            [self fetchQuestionCategoriesFromAPIWithCompletion:self.apiCallBlock];
+            
+            break;
+        case 4:
             [self fetchUserInstantFeedbacksFromAPIWithCompletion:self.apiCallBlock];
             
             break;
         default:
             break;
     }
+}
+
+- (void)fetchQuestionCategoriesFromAPIWithCompletion:(void (^)(NSError *))completion {
+    [[[ELQuestionCategoriesAPIClient alloc] init] categoriesOfUserWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *mCategories = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *categoryDict in responseDict[@"items"]) {
+                [mCategories addObject:[[ELCategory alloc] initWithDictionary:categoryDict error:nil]];
+            }
+            
+            [ELAppSingleton sharedInstance].categories = [mCategories copy];
+            
+            completion(error);
+        });
+    }];
 }
 
 - (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)(NSError *))completion {
