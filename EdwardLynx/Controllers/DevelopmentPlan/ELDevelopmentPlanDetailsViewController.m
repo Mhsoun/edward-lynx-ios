@@ -10,11 +10,16 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELActionCellHeight = 60;
+static CGFloat const kELGoalCellHeight = 85;
+
 static NSString * const kELCellIdentifier = @"GoalCell";
 
 #pragma mark - Class Extension
 
 @interface ELDevelopmentPlanDetailsViewController ()
+
+@property (nonatomic) NSInteger selectedIndex;
 
 @end
 
@@ -28,6 +33,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     
     // Initialization
     self.title = [self.devPlan.name uppercaseString];
+    self.selectedIndex = -1;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -50,6 +56,36 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     [cell configure:self.devPlan.goals[indexPath.row] atIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectedIndex == indexPath.row) {  // User taps expanded row
+        self.selectedIndex = -1;
+        
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (self.selectedIndex != -1) {  // User taps different row
+        NSIndexPath *prevPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
+        self.selectedIndex = indexPath.row;
+        
+        [tableView reloadRowsAtIndexPaths:@[prevPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {  // User taps new row with none expanded
+        self.selectedIndex = indexPath.row;
+        
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+    // Scroll selected cell to top (to initially display much content as possible)
+    [tableView scrollToRowAtIndexPath:indexPath
+                     atScrollPosition:UITableViewScrollPositionTop
+                             animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELGoal *goal = self.devPlan.goals[indexPath.row];
+    CGFloat expandedHeight = (kELActionCellHeight * goal.actions.count) + kELGoalCellHeight;
+    
+    return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
 }
 
 @end
