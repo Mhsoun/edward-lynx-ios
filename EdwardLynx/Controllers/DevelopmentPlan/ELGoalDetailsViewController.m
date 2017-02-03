@@ -12,6 +12,7 @@
 
 static CGFloat const kELCategoryViewInitialHeight = 35;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
+static CGFloat const kELTableViewInitialHeight = 90;
 static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 
 #pragma mark - Class Extension
@@ -19,6 +20,7 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 @interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 @property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
@@ -34,14 +36,16 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
     
     // Initialization
     self.hasCreatedGoal = NO;
+    self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
     self.categoryLabel.text = kELNoCategorySelected;
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
     
-    [self.addGoalButton setTitle:[NSString stringWithFormat:kELGoalButtonLabel, self.toAddNew ? @"ADD" : @"UPDATE"]
-                        forState:UIControlStateNormal];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     // Goal details
     [self populatePage];
@@ -66,9 +70,23 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
     }    
 }
 
+#pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.mActions.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    // Button
+    [self.addGoalButton setTitle:[NSString stringWithFormat:kELGoalButtonLabel, self.toAddNew ? @"ADD" : @"UPDATE"]
+                        forState:UIControlStateNormal];
+    
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    
     [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];

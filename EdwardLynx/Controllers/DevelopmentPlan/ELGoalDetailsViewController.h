@@ -11,7 +11,7 @@
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 
-@interface ELGoalDetailsViewController : ELBaseViewController
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) BOOL toAddNew;
 
@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UISwitch *remindSwitch;
 @property (weak, nonatomic) IBOutlet UIView *datePickerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerViewHeightConstraint;
