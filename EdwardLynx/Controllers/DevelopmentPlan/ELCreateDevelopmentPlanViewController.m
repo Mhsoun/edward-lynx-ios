@@ -11,6 +11,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 60;
+static CGFloat const kELFormViewHeight = 125;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
 static NSString * const kELGoalCellIdentifier = @"GoalCell";
@@ -22,6 +23,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 @interface ELCreateDevelopmentPlanViewController ()
 
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) NSMutableArray *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
@@ -89,6 +91,16 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value = self.mGoals[indexPath.row];
+    
+    self.selectedIndexPath = indexPath;
+    
+    [self setSelectedGoal:[value isKindOfClass:[NSString class]] ? nil : (ELGoal *)value];
+    [self performSegueWithIdentifier:[value isKindOfClass:[NSString class]] ? kELAddGoalSegueIdentifier : kELGoalSegueIdentifier
+                              sender:self];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value = self.mGoals[indexPath.row];
     
@@ -126,14 +138,37 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [self.mGoals insertObject:goal atIndex:position];
     [self.tableView reloadData];
+    [self adjustScrollViewContentSize];
+    [ELUtils scrollViewToBottom:self.scrollView];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = self.mGoals[indexPath.row];
+- (void)onGoalUpdate:(__kindof ELModel *)object {
+    ELGoal *goal = (ELGoal *)object;
     
-    [self setSelectedGoal:[value isKindOfClass:[NSString class]] ? nil : (ELGoal *)value];
-    [self performSegueWithIdentifier:[value isKindOfClass:[NSString class]] ? kELAddGoalSegueIdentifier : kELGoalSegueIdentifier
-                                                   sender:self];
+    [self.mGoals replaceObjectAtIndex:self.selectedIndexPath.row withObject:goal];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Private Methods
+
+- (void)adjustScrollViewContentSize {
+    CGRect tableFrame = self.tableView.frame;
+    CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
+    
+    if (tableViewContentSizeHeight == 0) {
+        return;
+    }
+    
+    tableFrame.size.height = tableViewContentSizeHeight;
+    
+    [self.tableView setFrame:tableFrame];
+    [self.tableView setContentSize:CGSizeMake(self.tableView.contentSize.width,
+                                              tableViewContentSizeHeight)];
+    
+    // Set the content size of your scroll view to be the content size of your
+    // table view + whatever else you have in the scroll view.
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
+                                               (kELFormViewHeight + tableViewContentSizeHeight))];
 }
 
 #pragma mark - Interface Builder Actions

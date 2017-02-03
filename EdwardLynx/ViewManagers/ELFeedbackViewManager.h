@@ -10,6 +10,10 @@
 
 #import "ELSurveysAPIClient.h"
 
+#pragma mark - Public Constants
+
+static NSString * const kELNoQuestionType = @"No type selected";
+
 @interface ELFeedbackViewManager : NSObject
 
 @property (strong, nonatomic) id<ELAPIResponseDelegate> delegate;

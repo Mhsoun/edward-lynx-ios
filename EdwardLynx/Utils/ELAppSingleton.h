@@ -11,6 +11,7 @@
 @interface ELAppSingleton : NSObject
 
 @property (nonatomic, strong) ELUser *user;
+@property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSArray *instantFeedbacks;
 @property (nonatomic, strong) NSArray *participants;
 @property (nonatomic, strong) NSString *deviceToken;

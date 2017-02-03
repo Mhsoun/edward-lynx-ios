@@ -266,13 +266,6 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.detailLabel.text = @"Select users for them to be able to view this report";
 }
 
-- (void)scrollToBottom {
-    CGSize contentSize = self.scrollView.contentSize;
-    
-    [self.scrollView scrollRectToVisible:CGRectMake(contentSize.width - 1, contentSize.height - 1, 1, 1)
-                                animated:YES];
-}
-
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     if (self.mParticipants.count == 0) {
         [self.selectAllButton setTitle:kELSelectAllButtonLabel forState:UIControlStateNormal];
@@ -359,7 +352,9 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                                         message:@"Enter a valid e-mail address:"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     
-    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail"
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action) {
         ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:@{@"id": @(-1),
                                                                                  @"name": @"Invited by E-mail",
                                                                                  @"email": controller.textFields.firstObject.text}
@@ -373,7 +368,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         
         [self.tableView reloadData];
         [self adjustScrollViewContentSize];
-        [self scrollToBottom];
+        [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label
         self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];

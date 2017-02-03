@@ -57,7 +57,9 @@
 
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict {
     NSString *key;
-    NSArray *nameErrors, *dateErrors;
+    NSArray *nameErrors,
+            *dateErrors,
+            *categoryErrors;
     ELFormItemGroup *formFieldGroup;
     
     key = @"name";
@@ -83,7 +85,18 @@
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:dateErrors];
     }
     
-    return nameErrors.count == 0 && dateErrors.count == 0;
+    key = @"category";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        categoryErrors = [[formFieldGroup textValue] isEqualToString:kELNoCategorySelected] ? @[@"No category selected."] : nil;
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:categoryErrors];
+    }
+    
+    return (nameErrors.count == 0 &&
+            dateErrors.count == 0 &&
+            categoryErrors.count == 0);
 }
 
 - (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict {

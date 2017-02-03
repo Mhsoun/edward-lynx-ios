@@ -42,7 +42,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
     self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
     self.surveyViewManager.delegate = self;
     self.detailViewManager.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];

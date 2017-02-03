@@ -8,13 +8,21 @@
 
 #import "ELGoalDetailsViewController.h"
 
+#pragma mark - Private Constants
+
+static CGFloat const kELCategoryViewInitialHeight = 35;
+static CGFloat const kELDatePickerViewInitialHeight = 200;
+static CGFloat const kELTableViewInitialHeight = 90;
+static NSString * const kELGoalButtonLabel = @"%@ GOAL";
+
 #pragma mark - Class Extension
 
 @interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup, *dateGroup;
+@property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
 @end
 
@@ -28,11 +36,18 @@
     
     // Initialization
     self.hasCreatedGoal = NO;
+    self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
+    self.categoryLabel.text = kELNoCategorySelected;
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    // Goal details
     [self populatePage];
 }
 
@@ -48,12 +63,30 @@
         return;
     }
     
-    [self.delegate onGoalAddition:self.goal];
+    if (self.toAddNew) {
+        [self.delegate onGoalAddition:self.goal];
+    } else {
+        [self.delegate onGoalUpdate:self.goal];
+    }    
+}
+
+#pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.mActions.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    // Button
+    [self.addGoalButton setTitle:[NSString stringWithFormat:kELGoalButtonLabel, self.toAddNew ? @"ADD" : @"UPDATE"]
+                        forState:UIControlStateNormal];
+    
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    
     [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
@@ -63,20 +96,80 @@
 
 - (void)populatePage {
     self.nameTextField.text = self.goal ? self.goal.title : @"";
-    self.datePicker.date = self.goal ? self.goal.dueDate : [NSDate date];
+    
+    // Date
+    [self.remindSwitch setOn:self.goal.dueDateChecked];
+    [self.datePicker setDate:self.goal ? self.goal.dueDate : [NSDate date]];
+    [self toggleBasedOnSwitchValue:self.remindSwitch];
+    
+    // Category
+    [self.categorySwitch setOn:self.goal.categoryChecked];
+    [self.categoryLabel setText:self.goal.category.length == 0 ? kELNoCategorySelected : self.goal.category];
+    [self toggleBasedOnSwitchValue:self.categorySwitch];
+}
+
+- (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
+    if ([switchButton isEqual:self.remindSwitch]) {
+        self.dateErrorLabel.hidden = YES;
+        self.datePickerViewHeightConstraint.constant = switchButton.isOn ? kELDatePickerViewInitialHeight : 0;
+        
+        [self.datePickerView updateConstraints];
+    } else if ([switchButton isEqual:self.categorySwitch]) {
+        self.categoryViewHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
+        
+        [self.categoryView updateConstraints];
+    }
 }
 
 #pragma mark - Interface Builder Actions
 
+- (IBAction)onSwitchValueChange:(id)sender {
+    [self toggleBasedOnSwitchValue:(UISwitch *)sender];
+}
+
+- (IBAction)onCategoryButtonClick:(id)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Category Selection"
+                                                                        message:@"Select from list of categories"
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
+        self.categoryLabel.text = action.title;
+    };
+    
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    for (ELCategory *category in [ELAppSingleton sharedInstance].categories) {
+        [controller addAction:[UIAlertAction actionWithTitle:category.title
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:actionBlock]];
+    }
+    
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
+}
+
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;
     NSString *dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
+    NSMutableDictionary *mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
     
-    self.dateGroup = [[ELFormItemGroup alloc] initWithText:dateString
-                                                      icon:nil
-                                                errorLabel:self.dateErrorLabel];
-    isValid = [self.viewManager validateAddGoalFormValues:@{@"name": self.nameGroup,
-                                                            @"date": self.dateGroup}];
+    if (self.remindSwitch.isOn) {
+        [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:dateString
+                                                               icon:nil
+                                                         errorLabel:self.dateErrorLabel]
+                       forKey:@"date"];
+    }
+    
+    if (self.categorySwitch.isOn) {
+        [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:self.categoryLabel.text
+                                                               icon:nil
+                                                         errorLabel:self.categoryErrorLabel]
+                       forKey:@"category"];
+    }
+    
+    isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
@@ -92,6 +185,9 @@
                                                      @"dueDate": dateString,
                                                      @"reminderSent": @NO}
                                              error:nil];
+    self.goal.category = self.categoryLabel.text;
+    self.goal.categoryChecked = self.categorySwitch.on;
+    self.goal.dueDateChecked = self.remindSwitch.on;
     
     [self.navigationController popViewControllerAnimated:YES];
 }

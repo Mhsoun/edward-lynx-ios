@@ -63,6 +63,7 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion;
++ (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
 + (void)setupSlideView:(DYSlideView *)slideView;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
