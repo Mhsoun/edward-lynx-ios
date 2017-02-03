@@ -14,4 +14,9 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
+- (NSDictionary *)apiDictionary {
+    return @{@"title": self.title,
+             @"position": @(self.position)};
+}
+
 @end
