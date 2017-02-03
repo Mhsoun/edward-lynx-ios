@@ -73,9 +73,9 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     NSString *option = self.mCustomScaleOptions[indexPath.row];
     
     if (option.length == 0) {
-        ELAddScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
+        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
         
-        cell.optionTextField.delegate = self;
+        cell.textField.delegate = self;
         
         return cell;
     } else {

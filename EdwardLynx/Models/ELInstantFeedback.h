@@ -14,9 +14,9 @@
 @property (nonatomic) BOOL anonymous;
 @property (nonatomic) BOOL closed;
 @property (nonatomic) NSDate *createdAt;
-@property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSString *lang;
-@property (nonatomic) ELQuestion *question;
+@property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSArray<Optional> *shares;
+@property (nonatomic) ELQuestion *question;
 
 @end

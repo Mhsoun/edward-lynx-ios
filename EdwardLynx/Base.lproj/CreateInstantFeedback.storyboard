@@ -211,19 +211,24 @@
                                                             <outlet property="optionLabel" destination="yQX-jc-YTV" id="dhI-lD-i0l"/>
                                                         </connections>
                                                     </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddOptionCell" id="dat-In-jp2" customClass="ELAddScaleOptionTableViewCell">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddOptionCell" id="dat-In-jp2" customClass="ELAddObjectTableViewCell">
                                                         <rect key="frame" x="0.0" y="118" width="345" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dat-In-jp2" id="2ny-1s-Kx7">
                                                             <frame key="frameInset" width="345" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
+                                                                <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-AY-G71">
                                                                     <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="textColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                            <color key="value" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -236,7 +241,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <outlet property="optionTextField" destination="4EI-AY-G71" id="iyb-6Q-tkV"/>
+                                                            <outlet property="textField" destination="4EI-AY-G71" id="Fyb-aB-GZl"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>

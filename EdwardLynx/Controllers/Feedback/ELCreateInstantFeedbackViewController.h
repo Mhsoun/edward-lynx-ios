@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAddScaleOptionTableViewCell.h"
+#import "ELAddObjectTableViewCell.h"
 #import "ELBaseViewController.h"
 #import "ELFeedbackViewManager.h"
 #import "ELInviteUsersViewController.h"
