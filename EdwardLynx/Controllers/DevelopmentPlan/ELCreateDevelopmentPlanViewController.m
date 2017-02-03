@@ -188,8 +188,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         return;
     }
     
-    isValid = ([self.viewManager validateDevelopmentPlanFormValues:@{@"name": self.nameGroup}] &&
-               self.mGoals.count > 0);
+    isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": self.nameGroup}];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
