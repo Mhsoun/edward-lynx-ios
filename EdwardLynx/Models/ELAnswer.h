@@ -15,10 +15,10 @@
 @interface ELAnswer : JSONModel
 
 @property (nonatomic) kELAnswerType type;
-@property (nonatomic) NSString<Optional> *shortDescription;
-@property (nonatomic) NSString *help;
 @property (nonatomic) BOOL isText;
 @property (nonatomic) BOOL isNumeric;
+@property (nonatomic) NSString *help;
+@property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSArray<Optional, ELAnswerOption> *options;
 
 @end

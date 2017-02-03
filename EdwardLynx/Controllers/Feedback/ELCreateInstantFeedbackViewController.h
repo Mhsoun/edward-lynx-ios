@@ -6,15 +6,15 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAddScaleOptionTableViewCell.h"
+#import "ELAddObjectTableViewCell.h"
 #import "ELBaseViewController.h"
 #import "ELFeedbackViewManager.h"
 #import "ELInviteUsersViewController.h"
-#import "ELScaleOptionTableViewCell.h"
+#import "ELItemTableViewCell.h"
 
 #import <TNRadioButtonGroup/TNRadioButtonGroup.h>
 
-@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELScaleOptionCellDelegate>
+@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *radioGroupView;

@@ -15,11 +15,11 @@
 
 @interface ELQuestion : ELModel
 
-@property (nonatomic) NSString *text;
-@property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isNA;
+@property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isFollowUpQuestion;
-@property (nonatomic) ELAnswer *answer;
+@property (nonatomic) NSString *text;
 @property (nonatomic) NSString<Optional> *value;
+@property (nonatomic) ELAnswer *answer;
 
 @end

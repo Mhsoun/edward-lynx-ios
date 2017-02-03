@@ -11,9 +11,12 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCategoryViewInitialHeight = 35;
+static CGFloat const kELCellHeight = 50;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
-static CGFloat const kELTableViewInitialHeight = 90;
+
 static NSString * const kELGoalButtonLabel = @"%@ GOAL";
+static NSString * const kELActionCellIdentifier = @"ActionCell";
+static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 
 #pragma mark - Class Extension
 
@@ -37,11 +40,11 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
     // Initialization
     self.hasCreatedGoal = NO;
     self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
-    self.categoryLabel.text = kELNoCategorySelected;
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                        icon:nil
                                                  errorLabel:self.nameErrorLabel];
+    self.categoryLabel.text = kELNoCategorySelected;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
@@ -77,7 +80,45 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    id value = self.mActions[indexPath.row];
+    
+    if ([value isKindOfClass:[NSString class]]) {
+        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier];
+        
+        cell.textField.delegate = self;
+        
+        return cell;
+    } else {
+        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
+        
+        cell.tag = indexPath.row;
+        cell.delegate = self;
+        cell.optionLabel.text = [(ELGoalAction *)value title];
+        
+        return cell;
+    }
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    // Add Option
+    if (textField.text.length > 0) {
+        NSInteger position = self.mActions.count - 1;
+        ELGoalAction *action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
+                                                                          @"title": textField.text,
+                                                                          @"checked": @NO,
+                                                                          @"position": @(position)}
+                                                                  error:nil];
+        
+        [self.mActions insertObject:action atIndex:position];
+        [self.tableView reloadData];
+        [self adjustTableViewSize];
+    }
+    
+    textField.text = @"";
+    
+    return YES;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -92,7 +133,22 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
     [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
 }
 
+#pragma mark - Protocol Methods (ELItemTableViewCell)
+
+- (void)onDeletionAtRow:(NSInteger)row {
+    [self.mActions removeObjectAtIndex:row];
+    [self.tableView reloadData];
+    [self adjustTableViewSize];
+}
+
 #pragma mark - Private Methods
+
+- (void)adjustTableViewSize {
+    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mActions.count) + kELCellHeight;
+    
+    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
+    [self.tableView updateConstraints];
+}
 
 - (void)populatePage {
     self.nameTextField.text = self.goal ? self.goal.title : @"";
@@ -106,6 +162,17 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
     [self.categorySwitch setOn:self.goal.categoryChecked];
     [self.categoryLabel setText:self.goal.category.length == 0 ? kELNoCategorySelected : self.goal.category];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
+    
+    // Actions
+    if (self.goal.actions.count == 0) {
+        return;
+    }
+    
+    [self.mActions removeAllObjects];
+    [self.mActions addObjectsFromArray:self.goal.actions];
+    [self.mActions addObject:@""];
+    [self.tableView reloadData];
+    [self adjustTableViewSize];
 }
 
 - (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
@@ -152,6 +219,7 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;
+    NSMutableArray *mActions = [[NSMutableArray alloc] init];
     NSString *dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
     NSMutableDictionary *mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
     
@@ -177,13 +245,18 @@ static NSString * const kELGoalButtonLabel = @"%@ GOAL";
         return;
     }
     
+    [self.mActions removeObjectAtIndex:self.mActions.count - 1];
+    
+    for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
+    
     self.hasCreatedGoal = YES;
     self.goal = [[ELGoal alloc] initWithDictionary:@{@"title": self.nameTextField.text,
                                                      @"description": self.descriptionTextView.text,
                                                      @"checked": @NO,
                                                      @"position": @0,
                                                      @"dueDate": dateString,
-                                                     @"reminderSent": @NO}
+                                                     @"reminderSent": @NO,
+                                                     @"actions": [mActions copy]}
                                              error:nil];
     self.goal.category = self.categoryLabel.text;
     self.goal.categoryChecked = self.categorySwitch.on;

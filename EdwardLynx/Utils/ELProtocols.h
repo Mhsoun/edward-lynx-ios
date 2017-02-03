@@ -68,15 +68,15 @@
 
 @end
 
-@protocol ELListViewControllerDelegate <NSObject>
+@protocol ELItemCellDelegate <NSObject>
 
-- (void)onRowSelection:(__kindof ELModel *)object;
+- (void)onDeletionAtRow:(NSInteger)row;
 
 @end
 
-@protocol ELScaleOptionCellDelegate <NSObject>
+@protocol ELListViewControllerDelegate <NSObject>
 
-- (void)onDeletionAtRow:(NSInteger)row;
+- (void)onRowSelection:(__kindof ELModel *)object;
 
 @end
 

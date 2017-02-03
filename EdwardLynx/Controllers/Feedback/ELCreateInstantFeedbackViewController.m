@@ -73,13 +73,13 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     NSString *option = self.mCustomScaleOptions[indexPath.row];
     
     if (option.length == 0) {
-        ELAddScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
+        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
         
-        cell.optionTextField.delegate = self;
+        cell.textField.delegate = self;
         
         return cell;
     } else {
-        ELScaleOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier];
+        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier];
         
         cell.tag = indexPath.row;
         cell.delegate = self;
@@ -151,7 +151,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
                                                object:self.radioGroup];
 }
 
-#pragma mark - Protocol Methods (ELScaleOptionTableViewCell)
+#pragma mark - Protocol Methods (ELItemTableViewCell)
 
 - (void)onDeletionAtRow:(NSInteger)row {
     [self.mCustomScaleOptions removeObjectAtIndex:row];

@@ -12,8 +12,8 @@
 
 @interface ELParticipant : ELModel
 
+@property (nonatomic) BOOL isSelected;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
-@property (nonatomic) BOOL isSelected;
 
 @end

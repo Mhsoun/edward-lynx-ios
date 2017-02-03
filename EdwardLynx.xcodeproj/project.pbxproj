@@ -57,8 +57,8 @@
 		A96AE0441E0F84A400AD56BE /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */; };
 		A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0461E0FA05D00AD56BE /* ELSurvey.m */; };
 		A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E6E571E2F13F30056EDB1 /* Invite.storyboard */; };
-		A96E6E5C1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5B1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.m */; };
-		A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */; };
+		A96E6E5C1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */; };
+		A96E6E5F1E2F74450056EDB1 /* ELItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -77,6 +77,7 @@
 		A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */; };
 		A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */; };
 		A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */; };
+		A982B0981E442D0C000A12D0 /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A982B0971E442D0C000A12D0 /* ELGoalAction.m */; };
 		A9996B411E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9996B3F1E3F4ADB00600891 /* CreateDevelopmentPlan.storyboard */; };
 		A9996B441E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */; };
 		A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC8B81E24BB5900F47D61 /* ELModel.m */; };
@@ -221,10 +222,10 @@
 		A96AE0451E0FA05D00AD56BE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A96AE0461E0FA05D00AD56BE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
 		A96E6E581E2F13F30056EDB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invite.storyboard; sourceTree = "<group>"; };
-		A96E6E5A1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddScaleOptionTableViewCell.h; sourceTree = "<group>"; };
-		A96E6E5B1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAddScaleOptionTableViewCell.m; sourceTree = "<group>"; };
-		A96E6E5D1E2F74450056EDB1 /* ELScaleOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELScaleOptionTableViewCell.h; sourceTree = "<group>"; };
-		A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELScaleOptionTableViewCell.m; sourceTree = "<group>"; };
+		A96E6E5A1E2F743A0056EDB1 /* ELAddObjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddObjectTableViewCell.h; sourceTree = "<group>"; };
+		A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAddObjectTableViewCell.m; sourceTree = "<group>"; };
+		A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELItemTableViewCell.h; sourceTree = "<group>"; };
+		A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELItemTableViewCell.m; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -252,6 +253,8 @@
 		A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswer.m; sourceTree = "<group>"; };
 		A97F9FFE1E1CF59D008F9EF4 /* ELAnswerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerOption.h; sourceTree = "<group>"; };
 		A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerOption.m; sourceTree = "<group>"; };
+		A982B0961E442D0C000A12D0 /* ELGoalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalAction.h; sourceTree = "<group>"; };
+		A982B0971E442D0C000A12D0 /* ELGoalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalAction.m; sourceTree = "<group>"; };
 		A9996B401E3F4ADB00600891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateDevelopmentPlan.storyboard; sourceTree = "<group>"; };
 		A9996B421E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateDevelopmentPlanViewController.h; sourceTree = "<group>"; };
 		A9996B431E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateDevelopmentPlanViewController.m; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 				A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */,
 				A9B5D2A91E4039A000D5A0EA /* ELGoal.h */,
 				A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */,
+				A982B0961E442D0C000A12D0 /* ELGoalAction.h */,
+				A982B0971E442D0C000A12D0 /* ELGoalAction.m */,
 				A9BF267B1E2D323000F42859 /* ELInstantFeedback.h */,
 				A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */,
 				A99EC8B71E24BB5900F47D61 /* ELModel.h */,
@@ -410,12 +415,14 @@
 		A9121AA51E07B86700ED9934 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A96E6E5A1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.h */,
-				A96E6E5B1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.m */,
+				A96E6E5A1E2F743A0056EDB1 /* ELAddObjectTableViewCell.h */,
+				A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */,
 				A9E53D661E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.h */,
 				A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */,
 				A9B3953D1E418E7D00D878BE /* ELGoalTableViewCell.h */,
 				A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */,
+				A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */,
+				A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */,
 				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
 				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
 				A94821A31E233885008B738A /* ELParticipantTableViewCell.h */,
@@ -424,8 +431,6 @@
 				A9CCA7001E19F6D100ACA299 /* ELQuestionTableViewCell.m */,
 				A91DCD3D1E35E649006F2778 /* ELReportTableViewCell.h */,
 				A91DCD3E1E35E649006F2778 /* ELReportTableViewCell.m */,
-				A96E6E5D1E2F74450056EDB1 /* ELScaleOptionTableViewCell.h */,
-				A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */,
 				A96AE0421E0F84A400AD56BE /* ELSurveyTableViewCell.h */,
 				A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */,
 			);
@@ -1078,6 +1083,7 @@
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A9996B441E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m in Sources */,
 				A91DCD371E35C997006F2778 /* ELListViewController.m in Sources */,
+				A982B0981E442D0C000A12D0 /* ELGoalAction.m in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
 				A9CCA70B1E1A111C00ACA299 /* ELQuestionTypeTextView.m in Sources */,
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
@@ -1089,7 +1095,7 @@
 				A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */,
 				A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
-				A96E6E5C1E2F743A0056EDB1 /* ELAddScaleOptionTableViewCell.m in Sources */,
+				A96E6E5C1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
 				A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */,
 				A9CCA7011E19F6D100ACA299 /* ELQuestionTableViewCell.m in Sources */,
@@ -1102,7 +1108,7 @@
 				A9B3953F1E418E7D00D878BE /* ELGoalTableViewCell.m in Sources */,
 				A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */,
 				A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */,
-				A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */,
+				A96E6E5F1E2F74450056EDB1 /* ELItemTableViewCell.m in Sources */,
 				A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */,
