@@ -25,4 +25,6 @@
 @property (nonatomic) NSDate<Optional> *dueDate;
 @property (nonatomic) NSArray<ELGoalAction> *actions;
 
+- (NSDictionary *)progressDetails;
+
 @end

@@ -23,6 +23,14 @@
     return [propertyName isEqualToString:@"objectId"];
 }
 
+- (NSDictionary *)progressDetails {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSInteger completedActions = [[self.actions filteredArrayUsingPredicate:predicate] count];
+    
+    return @{@"text": [NSString stringWithFormat:@"%@ / %@ Completed", @(completedActions), @(self.actions.count)],
+             @"value": @(completedActions / (CGFloat)self.actions.count)};
+}
+
 - (NSDictionary *)toDictionary {
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     

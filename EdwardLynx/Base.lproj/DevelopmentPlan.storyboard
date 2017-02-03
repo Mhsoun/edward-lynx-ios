@@ -213,9 +213,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="completedLabel" destination="JaT-Uz-Dfj" id="2lF-zA-dbf"/>
                                             <outlet property="descriptionLabel" destination="C5b-oJ-ooc" id="z2g-cy-fIo"/>
                                             <outlet property="goalLabel" destination="paG-Rc-1qL" id="uSI-Jf-JjQ"/>
-                                            <outlet property="progressLabel" destination="JaT-Uz-Dfj" id="Lg4-42-rzP"/>
                                             <outlet property="tableView" destination="Qnm-14-QoF" id="yTW-DS-cg4"/>
                                             <outlet property="timestampLabel" destination="YUX-J5-sdP" id="UsB-aG-ppv"/>
                                         </connections>
