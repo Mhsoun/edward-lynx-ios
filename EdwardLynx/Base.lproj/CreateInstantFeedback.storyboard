@@ -170,7 +170,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OptionCell" id="nq7-WU-Iti" customClass="ELScaleOptionTableViewCell">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OptionCell" id="nq7-WU-Iti" customClass="ELItemTableViewCell">
                                                         <rect key="frame" x="0.0" y="73" width="345" height="45"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nq7-WU-Iti" id="5Hh-om-1Va">

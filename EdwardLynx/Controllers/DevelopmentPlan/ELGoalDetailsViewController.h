@@ -12,8 +12,9 @@
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 #import "ELGoalAction.h"
+#import "ELItemTableViewCell.h"
 
-@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
 
 @property (nonatomic) BOOL toAddNew;
 

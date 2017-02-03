@@ -89,9 +89,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
+        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
         
-        cell.textLabel.text = [(ELGoalAction *)value title];
+        cell.tag = indexPath.row;
+        cell.delegate = self;
+        cell.optionLabel.text = [(ELGoalAction *)value title];
         
         return cell;
     }
@@ -129,6 +131,14 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    
     [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+}
+
+#pragma mark - Protocol Methods (ELItemTableViewCell)
+
+- (void)onDeletionAtRow:(NSInteger)row {
+    [self.mActions removeObjectAtIndex:row];
+    [self.tableView reloadData];
+    [self adjustTableViewSize];
 }
 
 #pragma mark - Private Methods

@@ -340,24 +340,48 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActionCell" textLabel="oyc-5q-XkG" style="IBUITableViewCellStyleDefault" id="vJH-l2-XWC" customClass="ELScaleOptionTableViewCell">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActionCell" id="PEl-Nc-XCf" userLabel="ActionCell" customClass="ELItemTableViewCell">
                                                         <rect key="frame" x="0.0" y="73" width="345" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vJH-l2-XWC" id="gz2-z5-bip">
+                                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PEl-Nc-XCf" id="qEO-xZ-7ig">
                                                             <frame key="frameInset" width="345" height="49"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="oyc-5q-XkG">
-                                                                    <frame key="frameInset" minX="15" width="315" height="49"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-fU-iC2" userLabel="Delete Button">
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="gyT-fU-iC2" secondAttribute="height" multiplier="1:1" id="wMD-1u-gHS"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                                                    <state key="normal" title="X">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="onDeleteButtonClick:" destination="PEl-Nc-XCf" eventType="touchUpInside" id="9er-KV-LGr"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-GZ-JHH">
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="centerY" secondItem="qEO-xZ-7ig" secondAttribute="centerY" id="Iyw-Xz-1KV"/>
+                                                                <constraint firstItem="gyT-fU-iC2" firstAttribute="leading" secondItem="m3E-GZ-JHH" secondAttribute="trailing" constant="5" id="cBp-tG-7u8"/>
+                                                                <constraint firstAttribute="trailing" secondItem="gyT-fU-iC2" secondAttribute="trailing" constant="5" id="o7M-xf-MF3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="gyT-fU-iC2" secondAttribute="bottom" constant="5" id="pZM-4I-TDF"/>
+                                                                <constraint firstItem="gyT-fU-iC2" firstAttribute="top" secondItem="qEO-xZ-7ig" secondAttribute="top" constant="5" id="smq-gJ-3kt"/>
+                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="height" secondItem="gyT-fU-iC2" secondAttribute="height" id="tkl-o7-S9Q"/>
+                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="leading" secondItem="qEO-xZ-7ig" secondAttribute="leading" constant="5" id="wGz-hw-aDx"/>
+                                                            </constraints>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <outlet property="optionLabel" destination="m3E-GZ-JHH" id="9hg-ue-fh0"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddActionCell" id="UGH-6o-geO" customClass="ELAddObjectTableViewCell">
                                                         <rect key="frame" x="0.0" y="123" width="345" height="50"/>

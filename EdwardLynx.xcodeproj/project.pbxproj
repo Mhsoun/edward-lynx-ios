@@ -58,7 +58,7 @@
 		A96AE0471E0FA05D00AD56BE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AE0461E0FA05D00AD56BE /* ELSurvey.m */; };
 		A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E6E571E2F13F30056EDB1 /* Invite.storyboard */; };
 		A96E6E5C1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */; };
-		A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */; };
+		A96E6E5F1E2F74450056EDB1 /* ELItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */; };
 		A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96F27581DFF8B2B00609E27 /* Authentication.storyboard */; };
 		A96F275D1DFF981E00609E27 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A96F275C1DFF981E00609E27 /* default.plist */; };
 		A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */; };
@@ -224,8 +224,8 @@
 		A96E6E581E2F13F30056EDB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invite.storyboard; sourceTree = "<group>"; };
 		A96E6E5A1E2F743A0056EDB1 /* ELAddObjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddObjectTableViewCell.h; sourceTree = "<group>"; };
 		A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAddObjectTableViewCell.m; sourceTree = "<group>"; };
-		A96E6E5D1E2F74450056EDB1 /* ELScaleOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELScaleOptionTableViewCell.h; sourceTree = "<group>"; };
-		A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELScaleOptionTableViewCell.m; sourceTree = "<group>"; };
+		A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELItemTableViewCell.h; sourceTree = "<group>"; };
+		A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELItemTableViewCell.m; sourceTree = "<group>"; };
 		A96F27591DFF8B2B00609E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		A96F275C1DFF981E00609E27 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		A96F27611DFF9D5E00609E27 /* ELProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProtocols.h; sourceTree = "<group>"; };
@@ -421,6 +421,8 @@
 				A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */,
 				A9B3953D1E418E7D00D878BE /* ELGoalTableViewCell.h */,
 				A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */,
+				A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */,
+				A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */,
 				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
 				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
 				A94821A31E233885008B738A /* ELParticipantTableViewCell.h */,
@@ -429,8 +431,6 @@
 				A9CCA7001E19F6D100ACA299 /* ELQuestionTableViewCell.m */,
 				A91DCD3D1E35E649006F2778 /* ELReportTableViewCell.h */,
 				A91DCD3E1E35E649006F2778 /* ELReportTableViewCell.m */,
-				A96E6E5D1E2F74450056EDB1 /* ELScaleOptionTableViewCell.h */,
-				A96E6E5E1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m */,
 				A96AE0421E0F84A400AD56BE /* ELSurveyTableViewCell.h */,
 				A96AE0431E0F84A400AD56BE /* ELSurveyTableViewCell.m */,
 			);
@@ -1108,7 +1108,7 @@
 				A9B3953F1E418E7D00D878BE /* ELGoalTableViewCell.m in Sources */,
 				A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */,
 				A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */,
-				A96E6E5F1E2F74450056EDB1 /* ELScaleOptionTableViewCell.m in Sources */,
+				A96E6E5F1E2F74450056EDB1 /* ELItemTableViewCell.m in Sources */,
 				A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */,
 				A91B158E1E03B68100CAEC43 /* ELShortcutView.m in Sources */,
 				A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */,
