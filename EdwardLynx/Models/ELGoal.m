@@ -24,12 +24,15 @@
 }
 
 - (NSDictionary *)toDictionary {
+    NSMutableArray *mActions = [[NSMutableArray alloc] init];
+    
+    for (ELGoalAction *action in self.actions) [mActions addObject:[action apiDictionary]];
+    
     return @{@"title": self.title,
-             @"description": self.shortDescription,
              @"position": @(self.position),
              @"description": self.shortDescription,
              @"dueDate": [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.dueDate],
-             @"actions": self.actions};
+             @"actions": [mActions copy]};
 }
 
 @end

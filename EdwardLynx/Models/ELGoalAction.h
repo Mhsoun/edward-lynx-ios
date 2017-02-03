@@ -14,4 +14,6 @@
 @property (nonatomic) BOOL checked;
 @property (nonatomic) NSString *title;
 
+- (NSDictionary *)apiDictionary;
+
 @end
