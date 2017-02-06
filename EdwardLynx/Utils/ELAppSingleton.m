@@ -43,6 +43,8 @@
     
     self.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
     
+    self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
     return self;
 }
 
