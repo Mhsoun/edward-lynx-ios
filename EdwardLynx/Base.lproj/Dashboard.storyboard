@@ -219,7 +219,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -234,6 +234,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>

@@ -12,6 +12,7 @@
 
 @interface ELAppSingleton : NSObject
 
+@property (nonatomic) BOOL hasLoadedApplication;
 @property (nonatomic, strong) ELUser *user;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSArray *instantFeedbacks;

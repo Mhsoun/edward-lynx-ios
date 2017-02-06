@@ -34,6 +34,7 @@
     
     self.user = nil;
     self.participants = nil;
+    self.hasLoadedApplication = NO;
     self.apiDateFormatter = [[NSDateFormatter alloc] init];
     self.printDateFormatter = [[NSDateFormatter alloc] init];
     

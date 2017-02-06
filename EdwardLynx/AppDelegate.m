@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#pragma mark - Class Extension
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) NSString *firebaseToken;
@@ -15,6 +17,8 @@
 @end
 
 @implementation AppDelegate
+
+#pragma mark - Delegate Methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -48,6 +52,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[FIRMessaging messaging] disconnect];
+    
+    DLog(@"Disconnected from FCM.");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -56,30 +63,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self connectToFCM];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
-        return;
-    }
-    
-    // TODO Process notification
-    
-    completionHandler(UIBackgroundFetchResultNoData);
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
-        return;
-    }
-    
-    // TODO Process notification
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -96,6 +86,50 @@
     // Register Device token to Firebase
     [[FIRInstanceID instanceID] setAPNSToken:deviceToken
                                         type:FIRInstanceIDAPNSTokenTypeUnknown];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    DLog(@"%@: %@", [self class], error.localizedDescription);
+}
+
+#pragma mark - Notification Received Methods (iOS 9)
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
+        return;
+    }
+    
+    [self processReceivedNotification:userInfo
+                       forApplication:application];
+    
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
+        return;
+    }
+    
+    [self processReceivedNotification:userInfo
+                       forApplication:application];
+}
+
+#pragma mark - Notification Received Methods (iOS 10)
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    // Called when a notification is delivered to a foreground app.
+    [self processReceivedNotification:notification.request.content.userInfo
+                       forApplication:[UIApplication sharedApplication]];
+    
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler {
+    // Called to let your app know which action was selected by the user for a given notification.
+    [self processReceivedNotification:response.notification.request.content.userInfo
+                       forApplication:[UIApplication sharedApplication]];
+    
+    completionHandler();
 }
 
 #pragma mark - Core Data stack
@@ -155,14 +189,28 @@
                 // Call method again to retry refreshing of Firebase token
                 [self registerDeviceToFirebaseAndAPI];
             } else {
-                [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-                    //
+                [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
+                                                        withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (!error) {
+                            return;
+                        }
+                        
+                        DLog(@"Device registered for notifications.");
+                    });
                 }];
             }
         }];
     } else {
-        [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            //
+        [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
+                                                withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!error) {
+                    return;
+                }
+                
+                DLog(@"Device registered for notifications.");
+            });
         }];
     }
 }
@@ -233,6 +281,13 @@
 #pragma mark - Private Methods
 
 - (void)connectToFCM {
+    if (!self.firebaseToken && ![[FIRInstanceID instanceID] token]) {
+        return;
+    }
+    
+    // Disconnect previous FCM connection if it exists.
+    [[FIRMessaging messaging] disconnect];
+    
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
         if (error != nil) {
             DLog(@"AppDelegate: Unable to connect to FCM. %@", error);
@@ -240,6 +295,32 @@
             DLog(@"AppDelegate: Connected to FCM.");
         }
     }];
+}
+
+- (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
+    UIAlertController *controller;
+    __kindof UIViewController *visibleController = [self visibleViewController:self.window.rootViewController];
+    
+    if (application.applicationState == UIApplicationStateActive ||
+        application.applicationState == UIApplicationStateInactive) {
+        // When app is starting
+        if (![ELAppSingleton sharedInstance].hasLoadedApplication) {
+            return;  // TODO Display
+        }
+        
+        // App is active
+        controller = [UIAlertController alertControllerWithTitle:@"Notification"
+                                                         message:@"A notification has been received"
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+        
+        [controller addAction:[UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]];
+        
+        [visibleController presentViewController:controller
+                                        animated:YES
+                                      completion:nil];
+    }
 }
 
 - (void)setupFirebase {

@@ -26,6 +26,9 @@ static CGFloat const kELCornerRadius = 5.0f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initialization
+    [ELAppSingleton sharedInstance].hasLoadedApplication = YES;
+    
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
