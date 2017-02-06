@@ -16,7 +16,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 static NSString * const kELSelectAllButtonLabel = @"Select all";
 static NSString * const kELDeselectAllButtonLabel = @"Deselect all";
 
-static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %ld";
+static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %@";
 static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
@@ -179,7 +179,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
 }
 
 #pragma mark - Protocol Methods (UITextField)
@@ -258,7 +258,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     for (int i = 0; i < self.mParticipants.count; i++) {
         ELParticipant *participant = self.mParticipants[i];
         
-        participant.isSelected = @NO;
+        participant.isSelected = NO;
         
         [self.provider updateObject:participant
                         atIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -389,7 +389,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label
-        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
     }];
     self.inviteAction.enabled = NO;
     

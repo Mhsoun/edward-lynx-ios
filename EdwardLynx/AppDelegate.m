@@ -146,8 +146,6 @@
 #pragma mark - Public Methods
 
 - (void)registerDeviceToFirebaseAndAPI {
-    NSString *deviceId = @"<unique-device-id-here";  // TEMP
-    
     if (!self.firebaseToken) {
         // Renew Firebase token
         [[FIRInstanceID instanceID] deleteIDWithHandler:^(NSError * _Nullable error) {
@@ -157,15 +155,15 @@
                 // Call method again to retry refreshing of Firebase token
                 [self registerDeviceToFirebaseAndAPI];
             } else {
-                DLog(@"%@", deviceId);
-                
-                // TODO Register device to API
+                [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                    //
+                }];
             }
         }];
     } else {
-        DLog(@"%@", deviceId);
-        
-        // TODO Register device to API
+        [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+            //
+        }];
     }
 }
 

@@ -50,6 +50,18 @@
     [self authenticateWithBodyParams:[mBodyParams copy] completion:completion];
 }
 
+- (void)registerFirebaseToken:(NSString *)token
+               withCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIUserDeviceEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:@{@"token": token}];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)retrieveUsersWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIUsersEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint

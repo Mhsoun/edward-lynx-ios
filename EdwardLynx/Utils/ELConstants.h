@@ -134,6 +134,7 @@ extern NSString * const kELAPISurveyAnswersEndpoint;
 extern NSString * const kELAPISurveyQuestionsEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;
+extern NSString * const kELAPIUserDeviceEndpoint;
 extern NSString * const kELAPIUsersEndpoint;
 
 extern NSString * const kELAPILoginEndpoint;

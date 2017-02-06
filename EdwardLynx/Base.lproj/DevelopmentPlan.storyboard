@@ -162,11 +162,11 @@
                                                                     <rect key="frame" x="0.0" y="28" width="310" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mLv-8l-hVZ" id="Hkf-Dk-nGI">
-                                                                        <frame key="frameInset" width="310" height="43"/>
+                                                                        <frame key="frameInset" width="310" height="43.5"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <label multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="nFQ-9Y-wba">
-                                                                                <frame key="frameInset" minX="15" width="280" height="43"/>
+                                                                                <frame key="frameInset" minX="15" width="280" height="43.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>

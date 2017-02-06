@@ -72,6 +72,7 @@ NSString * const kELAPISurveyAnswersEndpoint = @"%@/surveys/%@/answers";
 NSString * const kELAPISurveyQuestionsEndpoint = @"%@/surveys/%@/questions";
 
 NSString * const kELAPIUserEndpoint = @"%@/user";
+NSString * const kELAPIUserDeviceEndpoint = @"%@/user/devices";
 NSString * const kELAPIUsersEndpoint = @"%@/users?type=list";
 
 NSString * const kELAPILoginEndpoint = @"oauth/token";
