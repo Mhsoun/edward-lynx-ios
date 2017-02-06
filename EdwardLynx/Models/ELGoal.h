@@ -22,6 +22,7 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString<Ignore> *category;
 @property (nonatomic) NSString<Optional> *shortDescription;
+@property (nonatomic) NSString<Ignore> *urlLink;
 @property (nonatomic) NSDate<Optional> *dueDate;
 @property (nonatomic) NSArray<ELGoalAction> *actions;
 

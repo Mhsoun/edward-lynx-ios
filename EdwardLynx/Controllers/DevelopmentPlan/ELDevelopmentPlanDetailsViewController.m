@@ -51,9 +51,12 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELGoal *goal = self.devPlan.goals[indexPath.row];
     ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
-    [cell configure:self.devPlan.goals[indexPath.row] atIndexPath:indexPath];
+    goal.urlLink = [NSString stringWithFormat:@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId)];
+    
+    [cell configure:goal atIndexPath:indexPath];
     
     return cell;
 }
@@ -65,6 +68,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (self.selectedIndex != -1) {  // User taps different row
         NSIndexPath *prevPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
+        
         self.selectedIndex = indexPath.row;
         
         [tableView reloadRowsAtIndexPaths:@[prevPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -86,6 +90,27 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     CGFloat expandedHeight = (kELActionCellHeight * goal.actions.count) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
+}
+
+#pragma mark - Protocol Methods (ELDevelopmentPlanGoalAction)
+
+- (void)onGoalActionUpdate:(__kindof ELModel *)object {
+    ELGoalAction *action = (ELGoalAction *)object;
+    ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
+    
+    [client updateGoalActionWithParams:[action apiPatchDictionary]
+                                  link:action.urlLink
+                            completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        if (error) {
+            return;
+        }
+        
+        [ELUtils presentToastAtView:self.view
+                            message:@"Action successfully updated."
+                         completion:^{
+                             //
+                         }];
+    }];
 }
 
 @end

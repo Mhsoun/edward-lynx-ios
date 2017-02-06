@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ELDevelopmentPlanAPIClient.h"
 #import "ELGoal.h"
 
 @interface ELGoalTableViewCell : UITableViewCell<UITableViewDataSource, UITableViewDelegate, ELConfigurableCellDelegate>

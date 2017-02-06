@@ -34,7 +34,7 @@
 - (NSDictionary *)toDictionary {
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     
-    for (ELGoalAction *action in self.actions) [mActions addObject:[action apiDictionary]];
+    for (ELGoalAction *action in self.actions) [mActions addObject:[action apiGetDictionary]];
     
     return @{@"title": self.title,
              @"position": @(self.position),

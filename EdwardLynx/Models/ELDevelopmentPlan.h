@@ -15,6 +15,7 @@
 @interface ELDevelopmentPlan : ELModel
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString<Ignore> *urlLink;
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSDate *updatedAt;
 @property (nonatomic) NSArray<ELGoal> *goals;

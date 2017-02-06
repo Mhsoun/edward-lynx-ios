@@ -66,6 +66,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSString *emptyMessage;
+    ELDevelopmentPlan *devPlan;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     
     for (NSDictionary *detailDict in responseDict[@"items"]) {
@@ -84,8 +85,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 break;
             case kELListTypeDevPlan:
                 emptyMessage = @"No development plans";
+                devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
+                devPlan.urlLink = detailDict[@"_links"][@"self"][@"href"];
                 
-                [mData addObject:[[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil]];
+                [mData addObject:devPlan];
                 
                 break;
             default:

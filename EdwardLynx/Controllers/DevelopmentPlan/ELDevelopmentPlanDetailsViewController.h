@@ -8,6 +8,7 @@
 
 #import "ELBaseViewController.h"
 #import "ELDevelopmentPlan.h"
+#import "ELDevelopmentPlanAPIClient.h"
 #import "ELGoalTableViewCell.h"
 
 @interface ELDevelopmentPlanDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>

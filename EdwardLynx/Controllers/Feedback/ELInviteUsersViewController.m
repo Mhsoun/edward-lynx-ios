@@ -28,6 +28,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 @property (nonatomic) BOOL selected, allCellsAction;
 @property (nonatomic, strong) UIAlertAction *inviteAction;
+@property (nonatomic, strong) UIAlertController *alertController;
 @property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
@@ -184,14 +185,24 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSArray *emailErrors;
-    NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSArray *emailErrors, *nameErrors;
+    NSArray<UITextField *> *textFields = self.alertController.textFields;
+    NSString *finalEmailString = textFields.lastObject.text;
+    NSString *finalNameString = textFields.firstObject.text;
     
-    emailErrors = [REValidation validateObject:finalString
+    [REValidation registerDefaultValidators];
+    [REValidation registerDefaultErrorMessages];
+    
+    // TODO Polish validation
+    
+    emailErrors = [REValidation validateObject:finalEmailString
                                           name:@"Email"
                                     validators:@[@"presence", @"email"]];
+    nameErrors = [REValidation validateObject:finalNameString
+                                         name:@"Email"
+                                   validators:@[@"presence"]];
     
-    [self.inviteAction setEnabled:emailErrors.count == 0];
+    [self.inviteAction setEnabled:(nameErrors.count == 0 && emailErrors.count == 0)];
     
     return YES;
 }
@@ -333,7 +344,10 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                         @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
                         @"answer": [mAnswerDict copy]}];
         
-        for (ELParticipant *participant in self.mParticipants) [mUsers addObject:[participant toDictionary]];
+        for (ELParticipant *participant in self.mParticipants) {
+            [mUsers addObject:participant.isAddedByEmail ? [participant addedByEmailDictionary] :
+                                                           [participant apiPostDictionary]];
+        }
         
         [self.viewManager processInstantFeedback:@{@"lang": @"en",
                                                    @"anonymous": self.instantFeedbackDict[@"anonymous"],
@@ -348,18 +362,22 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 - (IBAction)onInviteByEmailButtonClick:(id)sender {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Invite a user"
-                                                                        message:@"Enter a valid e-mail address:"
-                                                                 preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    self.alertController = [UIAlertController alertControllerWithTitle:@"Invite a user"
+                                                               message:@"Enter user's name and e-mail address:"
+                                                        preferredStyle:UIAlertControllerStyleAlert];
     
-    self.inviteAction = [UIAlertAction actionWithTitle:@"Add E-mail"
+    self.inviteAction = [UIAlertAction actionWithTitle:@"Add User"
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {
+        NSArray<UITextField *> *textFields = self.alertController.textFields;
         ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:@{@"id": @(-1),
-                                                                                 @"name": @"Invited by E-mail",
-                                                                                 @"email": controller.textFields.firstObject.text}
+                                                                                 @"name": textFields.firstObject.text,
+                                                                                 @"email": textFields.lastObject.text}
                                                                          error:nil];
+        
         participant.isSelected = YES;
+        participant.isAddedByEmail = YES;
         
         [self.mParticipants addObject:participant];
         [self.mInitialParticipants addObject:participant];
@@ -375,21 +393,26 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     }];
     self.inviteAction.enabled = NO;
     
-    [controller addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.delegate = self;
+    [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.delegate = weakSelf;
+        textField.placeholder = @"Name";
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    }];
+    [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.delegate = weakSelf;
+        textField.placeholder = @"E-mail";
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        
-        [REValidation registerDefaultValidators];
-        [REValidation registerDefaultErrorMessages];
     }];
-    [controller addAction:self.inviteAction];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [self.alertController addAction:self.inviteAction];
+    [self.alertController addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
-    [self presentViewController:controller
+    [self presentViewController:self.alertController
                        animated:YES
                      completion:nil];
 }

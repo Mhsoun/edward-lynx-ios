@@ -13,5 +13,8 @@
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)createDevelopmentPlansWithParams:(NSDictionary *)params
                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)updateGoalActionWithParams:(NSDictionary *)params
+                              link:(NSString *)link
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 @end

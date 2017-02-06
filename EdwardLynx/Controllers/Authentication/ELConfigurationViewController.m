@@ -137,7 +137,10 @@ static NSInteger const kIAPICCallsNumber = 3;
             NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
             
             for (NSDictionary *participantDict in responseDict[@"items"]) {
-                [mParticipants addObject:[[ELParticipant alloc] initWithDictionary:participantDict error:nil]];
+                ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:participantDict error:nil];
+                
+                [participant setIsAddedByEmail:NO];
+                [mParticipants addObject:participant];
             }
             
             [ELAppSingleton sharedInstance].participants = [mParticipants copy];
