@@ -13,7 +13,9 @@
 @property (nonatomic) int64_t position;
 @property (nonatomic) BOOL checked;
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString<Ignore> *urlLink;
 
-- (NSDictionary *)apiDictionary;
+- (NSDictionary *)apiGetDictionary;
+- (NSDictionary *)apiPatchDictionary;
 
 @end

@@ -13,7 +13,11 @@
 @interface ELParticipant : ELModel
 
 @property (nonatomic) BOOL isSelected;
+@property (nonatomic) BOOL isAddedByEmail;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
+
+- (NSDictionary *)addedByEmailDictionary;
+- (NSDictionary *)apiPostDictionary;
 
 @end

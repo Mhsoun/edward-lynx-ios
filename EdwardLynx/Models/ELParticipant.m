@@ -15,7 +15,16 @@
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"isSelected"];
+    return [propertyName isEqualToString:@"isSelected"] || [propertyName isEqualToString:@"isAddedByEmail"];
+}
+
+- (NSDictionary *)addedByEmailDictionary {
+    return @{@"name": self.name,
+             @"email": self.email};
+}
+
+- (NSDictionary *)apiPostDictionary {
+    return @{@"id": @(self.objectId)};
 }
 
 @end

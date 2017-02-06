@@ -219,9 +219,23 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid;
+    NSString *dateString;
+    NSMutableDictionary *mFormItems;
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
-    NSString *dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
-    NSMutableDictionary *mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
+    
+    if (self.mActions.count == 1) {
+        [ELUtils presentToastAtView:self.view
+                            message:@"No actions added"
+                         completion:^{
+                             // NOTE No implementation needed
+                             // FIX Allow nil completion
+                         }];
+        
+        return;
+    }
+    
+    dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
+    mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
     
     if (self.remindSwitch.isOn) {
         [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:dateString
