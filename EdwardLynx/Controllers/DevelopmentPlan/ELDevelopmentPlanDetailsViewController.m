@@ -20,6 +20,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 @interface ELDevelopmentPlanDetailsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 
 @end
 
@@ -32,8 +33,17 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.title = [self.devPlan.name uppercaseString];
+    if (!self.devPlan) {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        
+        [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
+    } else {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
+        self.title = [self.devPlan.name uppercaseString];
+    }
+
     self.selectedIndex = -1;
+    self.detailViewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -90,6 +100,19 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     CGFloat expandedHeight = (kELActionCellHeight * goal.actions.count) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
+}
+
+#pragma mark - Protocol Methods (ELDetailViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    DLog(@"%@", errorDict);
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
+    self.title = self.devPlan.name;
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoalAction)

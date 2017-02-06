@@ -12,7 +12,9 @@
 
 @interface ELDetailViewManager ()
 
-@property (nonatomic, strong) ELSurveysAPIClient *client;
+@property (nonatomic) int64_t objectId;
+@property (nonatomic, strong) ELDevelopmentPlanAPIClient *devPlanClient;
+@property (nonatomic, strong) ELSurveysAPIClient *surveyClient;
 @property (nonatomic, strong) __kindof ELModel *detailObject;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
@@ -29,8 +31,37 @@
         return nil;
     }
     
-    _client = [[ELSurveysAPIClient alloc] init];
+    _devPlanClient = [[ELDevelopmentPlanAPIClient alloc] init];
+    _surveyClient = [[ELSurveysAPIClient alloc] init];
     _detailObject = detailObject;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.delegate onAPIResponseSuccess:responseDict];
+        });
+    };
+    
+    return self;
+}
+
+- (instancetype)initWithObjectId:(int64_t)objectId {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _devPlanClient = [[ELDevelopmentPlanAPIClient alloc] init];
+    _surveyClient = [[ELSurveysAPIClient alloc] init];
+    _objectId = objectId;
     
     __weak typeof(self) weakSelf = self;
     
@@ -51,14 +82,35 @@
 
 #pragma mark - Public Methods
 
+- (void)processRetrievalOfDevelopmentPlanDetails {
+    [self.devPlanClient developmentPlanWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                               withCompletion:self.requestCompletionBlock];
+}
+
+- (void)processRetrievalOfInstantFeedbackDetails {
+    [self.surveyClient instantFeedbackWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                                  completion:self.requestCompletionBlock];
+}
+
 - (void)processRetrievalOfReportDetails {
-    [self.client instantFeedbackReportDetailsWithId:self.detailObject.objectId
-                                         completion:self.requestCompletionBlock];
+    [self.surveyClient instantFeedbackReportDetailsWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                                               completion:self.requestCompletionBlock];
+}
+
+- (void)processRetrievalOfSurveyDetails {
+    [self.surveyClient userSurveyWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                             completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveyQuestions {
-    [self.client userSurveyQuestionsForId:self.detailObject.objectId
-                               completion:self.requestCompletionBlock];
+    [self.surveyClient userSurveyQuestionsWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                                      completion:self.requestCompletionBlock];
+}
+
+#pragma mark - Private Methods
+
+- (void)initViewManager {
+    
 }
 
 @end

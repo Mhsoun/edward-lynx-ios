@@ -14,7 +14,7 @@
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
 
-@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELAPIResponseDelegate>
+@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELAPIPostResponseDelegate>
 
 @property (nonatomic) kELInviteUsers inviteType;
 

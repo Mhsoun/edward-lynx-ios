@@ -33,6 +33,9 @@ static CGFloat const kELCornerRadius = 5.0f;
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
 #endif
+    
+    // Assign the dashboard as the new root controller
+    [(AppDelegate *)[UIApplication sharedApplication].delegate assignNewRootViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,7 +95,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self.createDevPlanView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports",
-                                                             @"segue": @"Reports",
+                                                             @"segue": @"Report",
                                                              @"description": @"Description on viewing reports.",
                                                              @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                                @(kELRolePermissionViewAnonymousTeamReports)]}];
@@ -103,7 +106,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self.reportsView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys",
-                                                             @"segue": @"Surveys",
+                                                             @"segue": @"Survey",
                                                              @"description": @"Description on viewing surveys.",
                                                              @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
     shortcutView.frame = self.surveysView.frame;

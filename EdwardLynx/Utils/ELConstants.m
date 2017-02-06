@@ -55,6 +55,7 @@ NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
 
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
+NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
 
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";

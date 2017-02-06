@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseViewController.h"
+#import "ELBaseDetailViewController.h"
 #import "ELDataProvider.h"
 #import "ELDetailViewManager.h"
 #import "ELQuestionCategory.h"
@@ -15,7 +15,12 @@
 #import "ELSurveyViewManager.h"
 #import "ELTableDataSource.h"
 
-@interface ELSurveyDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
+typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
+    kELSurveyResponseTypeDetails,
+    kELSurveyResponseTypeQuestions
+};
+
+@interface ELSurveyDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 

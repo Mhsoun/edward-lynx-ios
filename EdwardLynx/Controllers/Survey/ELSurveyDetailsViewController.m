@@ -19,6 +19,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 
 @interface ELSurveyDetailsViewController ()
 
+@property (nonatomic) kELSurveyResponseType responseType;
 @property (nonatomic) BOOL isSurveyFinal;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -37,18 +38,28 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.title = [self.survey.name uppercaseString];
-    self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
-    self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
-    self.surveyViewManager.delegate = self;
+    if (!self.survey) {
+        self.responseType = kELSurveyResponseTypeDetails;
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        
+        // Retrieve survey details
+        [self.detailViewManager processRetrievalOfSurveyDetails];
+    } else {
+        self.title = [self.survey.name uppercaseString];
+        self.responseType = kELSurveyResponseTypeQuestions;
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
+        self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
+        self.surveyViewManager.delegate = self;
+        
+        // Retrieve surveys questions
+        [self.detailViewManager processRetrievalOfSurveyQuestions];
+    }
+    
     self.detailViewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
-    
-    // Retrieve surveys questions
-    [self.detailViewManager processRetrievalOfSurveyQuestions];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +74,8 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:[NSIndexPath indexPathForRow:0
+                                                                                                                    inSection:section]];
     
     return category.questions.count;
 }
@@ -111,42 +123,60 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
+    NSString *emptyMessage = [NSString stringWithFormat:@"Failed to retrieve %@",
+                              self.responseType == kELSurveyResponseTypeDetails ? @"survey details." :
+                                                                                  @"questions"];
+    
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve questions"
-                          description:@"Please try again later."];
+    [self.dataSource dataSetEmptyText:emptyMessage description:@"Please try again later."];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
-    for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
-        ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict
-                                                                                error:nil];
-        
-        [mCategories addObject:category];
+    switch (self.responseType) {
+        case kELSurveyResponseTypeDetails:
+            self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
+            self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
+            self.surveyViewManager.delegate = self;
+            self.title = [self.survey.name uppercaseString];
+            
+            // Retrieve surveys questions
+            self.responseType = kELSurveyResponseTypeQuestions;
+            
+            [self.detailViewManager processRetrievalOfSurveyQuestions];
+            
+            break;
+        case kELSurveyResponseTypeQuestions:
+            for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
+                [mCategories addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
+            }
+            
+            self.provider = [[ELDataProvider alloc] initWithDataArray:[mCategories copy]
+                                                             sections:[mCategories count]];
+            self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                              dataProvider:self.provider
+                                                            cellIdentifier:kELCellIdentifier];
+            
+            [self.indicatorView stopAnimating];
+            [self.tableView setDelegate:self];
+            [self.tableView setDataSource:self];
+            [self.tableView reloadData];
+            
+            break;
+        default:
+            break;
     }
-    
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[mCategories copy]
-                                                     sections:[mCategories count]];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
-    
-    [self.indicatorView stopAnimating];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.tableView reloadData];
 }
 
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
     DLog(@"%@", errorDict);
 }
 

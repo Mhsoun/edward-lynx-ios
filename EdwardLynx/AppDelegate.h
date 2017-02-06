@@ -14,15 +14,18 @@
 
 #import "ELUsersAPIClient.h"
 
+@class ELBaseDetailViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, readonly) NSPersistentContainer *persistentContainer;
 
+- (void)assignNewRootViewController:(__kindof UIViewController *)controller;
 - (void)registerDeviceToFirebaseAndAPI;
 - (void)registerForRemoteNotifications;
 - (void)saveContext;
-- (UIViewController *)visibleViewController:(UIViewController *)rootViewController;
+- (__kindof UIViewController *)visibleViewController:(UIViewController *)rootViewController;
 
 @end
 

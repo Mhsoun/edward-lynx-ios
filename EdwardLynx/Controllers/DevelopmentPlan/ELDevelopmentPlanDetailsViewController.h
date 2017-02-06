@@ -6,12 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseViewController.h"
+#import "ELBaseDetailViewController.h"
+#import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanAPIClient.h"
 #import "ELGoalTableViewCell.h"
 
-@interface ELDevelopmentPlanDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ELDevelopmentPlanDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (strong, nonatomic) ELDevelopmentPlan *devPlan;
 

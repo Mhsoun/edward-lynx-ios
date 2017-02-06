@@ -209,12 +209,11 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
-- (void)onAPIResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     DLog(@"%@", errorDict);
 }
 
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     NSString *successMessage = self.inviteType == kELInviteUsersInstantFeedback ? kELSuccessMessageInstantFeedback :
                                                                                   kELSuccessMessageShareReport;
     

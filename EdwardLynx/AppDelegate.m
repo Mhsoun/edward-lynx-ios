@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ELBaseDetailViewController.h"
 
 #pragma mark - Class Extension
 
@@ -179,6 +180,10 @@
 
 #pragma mark - Public Methods
 
+- (void)assignNewRootViewController:(__kindof UIViewController *)controller {
+    self.window.rootViewController = controller;
+}
+
 - (void)registerDeviceToFirebaseAndAPI {
     if (!self.firebaseToken) {
         // Renew Firebase token
@@ -252,7 +257,7 @@
     }
 }
 
-- (UIViewController *)visibleViewController:(UIViewController *)rootViewController {
+- (__kindof UIViewController *)visibleViewController:(UIViewController *)rootViewController {
     UIViewController *presentedViewController;
     
     if (rootViewController.presentedViewController == nil) {
@@ -298,28 +303,57 @@
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
-    UIAlertController *controller;
-    __kindof UIViewController *visibleController = [self visibleViewController:self.window.rootViewController];
+//    UIAlertController *alertController;
+    __kindof ELBaseDetailViewController *detailVc;
     
-    if (application.applicationState == UIApplicationStateActive ||
-        application.applicationState == UIApplicationStateInactive) {
+    if (application.applicationState == UIApplicationStateActive || application.applicationState == UIApplicationStateInactive) {
+        NSString *identifier, *storyboardName;
+        
         // When app is starting
         if (![ELAppSingleton sharedInstance].hasLoadedApplication) {
             return;  // TODO Display
         }
         
+        // TODO Banner or sorts
+        
         // App is active
-        controller = [UIAlertController alertControllerWithTitle:@"Notification"
-                                                         message:@"A notification has been received"
-                                                  preferredStyle:UIAlertControllerStyleAlert];
+//        alertController = [UIAlertController alertControllerWithTitle:@"Notification"
+//                                                              message:@"A notification has been received"
+//                                                       preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
+//                                                            style:UIAlertActionStyleDefault
+//                                                          handler:nil]];
+//        
+//        [visibleController presentViewController:alertController
+//                                        animated:YES
+//                                      completion:nil];
         
-        [controller addAction:[UIAlertAction actionWithTitle:@"Ok"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:nil]];
+        int64_t type = [userInfo[@"type"] intValue];
+        int64_t objectId = [userInfo[@"id"] intValue];
         
-        [visibleController presentViewController:controller
-                                        animated:YES
-                                      completion:nil];
+        switch (type) {
+            case 0:
+                storyboardName = @"DevelopmentPlan";
+                
+                break;
+            case 1:
+                storyboardName = @"InstantFeedback";
+                
+                break;
+            case 2:
+                storyboardName = @"Survey";
+                
+                break;
+            default:
+                break;
+        }
+        
+        identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
+        detailVc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+        detailVc.objectId = objectId;
+        
+        [self.window.rootViewController.navigationController pushViewController:detailVc animated:YES];
     }
 }
 
