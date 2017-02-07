@@ -36,7 +36,6 @@
         [self populatePage];
     }
     
-    
     self.feedbackViewManager = [[ELFeedbackViewManager alloc] init];
     self.feedbackViewManager.delegate = self;
     self.detailViewManager.delegate = self;
@@ -62,7 +61,7 @@
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
+    DLog(@"Error: %@", errorDict);
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

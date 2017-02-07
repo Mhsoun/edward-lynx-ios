@@ -199,7 +199,10 @@
                     <navigationItem key="navigationItem" title="INVITE" id="zar-hO-SbN"/>
                     <connections>
                         <outlet property="detailLabel" destination="84t-JN-A4w" id="NZ5-Sw-Nrk"/>
+                        <outlet property="emailButton" destination="b9s-4t-stq" id="yp5-Xq-x43"/>
+                        <outlet property="emailButtonHeightConstraint" destination="hFI-Yb-VCS" id="S9i-yN-bKo"/>
                         <outlet property="headerLabel" destination="b6m-Fd-J6y" id="5jg-JE-X44"/>
+                        <outlet property="inviteButton" destination="vah-jb-Lki" id="xDP-RF-nWG"/>
                         <outlet property="noOfPeopleLabel" destination="VRi-ls-lhD" id="4YZ-NM-Hwb"/>
                         <outlet property="scrollView" destination="Qvq-og-F06" id="yAW-LA-4di"/>
                         <outlet property="searchBar" destination="IPk-wm-Q6F" id="ozy-ff-nSd"/>

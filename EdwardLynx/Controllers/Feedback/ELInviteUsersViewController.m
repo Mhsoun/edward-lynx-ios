@@ -10,6 +10,7 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELEmailButtonHeight = 40;
 static CGFloat const kELFormViewHeight = 120;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 
@@ -217,6 +218,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     NSString *successMessage = self.inviteType == kELInviteUsersInstantFeedback ? kELSuccessMessageInstantFeedback :
                                                                                   kELSuccessMessageShareReport;
     
+    self.inviteButton.enabled = YES;
+    
     // Clear selections
     [self clearSelection];
     
@@ -267,13 +270,23 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 - (void)layoutInstantFeedbackSharePage {
+    // Details
     self.headerLabel.text = @"Invite people to participate";
     self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    
+    // Button
+    [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
+    [self.emailButton updateConstraints];
 }
 
 - (void)layoutReportSharePage {
+    // Details
     self.headerLabel.text = @"Share report to users";
     self.detailLabel.text = @"Select users for them to be able to view this report";
+    
+    // Button
+    [self.emailButtonHeightConstraint setConstant:0];
+    [self.emailButton updateConstraints];
 }
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
@@ -329,6 +342,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
             return;
         }
         
+        self.inviteButton.enabled = NO;
+        
         answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
@@ -350,6 +365,16 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                    @"questions": questions,
                                                    @"recipients": [mUsers copy]}];
     } else if (self.inviteType == kELInviteUsersReports) {
+        if (!self.mParticipants.count) {
+            [ELUtils presentToastAtView:self.view
+                                message:@"No participants selected"
+                             completion:^{}];
+            
+            return;
+        }
+        
+        self.inviteButton.enabled = NO;
+        
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
         [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
