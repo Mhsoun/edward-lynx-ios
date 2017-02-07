@@ -152,6 +152,7 @@ extern NSString * const kELAPIPutHTTPMethod;
 
 extern NSString * const kELAuthInstanceUserDefaultsKey;
 extern NSString * const kELAuthCredentialsUserDefaultsKey;
+extern NSString * const kELDeviceTokenUserDefaultsKey;
 
 #pragma mark - RNThemeManager .plist Keys
 

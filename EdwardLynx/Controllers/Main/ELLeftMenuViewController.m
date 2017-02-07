@@ -33,11 +33,11 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     // Initialization
     self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[@"Dashboard",
-                                                                @"Development Plans",
-                                                                @"Profile",
-                                                                @"Settings",
-                                                                @"Logout"]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:@[NSLocalizedString(@"kELDashboardItemDashboard", nil),
+                                                                NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
+                                                                NSLocalizedString(@"kELDashboardItemProfile", nil),
+                                                                NSLocalizedString(@"kELDashboardItemSettings", nil),
+                                                                NSLocalizedString(@"kELLogoutButton", nil)]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
@@ -75,21 +75,22 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     NSString *segueIdentifier = [self.provider rowObjectAtIndexPath:indexPath];
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Logout"
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELLogoutButton", nil)
                                                                             message:kELLogoutAlertMessage
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
-        [controller addAction:[UIAlertAction actionWithTitle:@"Logout"
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELLogoutButton", nil)
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
             // Remove auth header
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthInstanceUserDefaultsKey];
             
-            [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateInitialViewController]
+            [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
+                                         instantiateInitialViewController]
                                animated:YES
                              completion:nil];
         }]];
-        [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                        style:UIAlertActionStyleCancel
                                                      handler:^(UIAlertAction * _Nonnull action) {
             [self.tableView selectRowAtIndexPath:self.prevIndexPath

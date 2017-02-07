@@ -50,7 +50,9 @@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@: %@", [self class], errorDict);
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:^{}];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {

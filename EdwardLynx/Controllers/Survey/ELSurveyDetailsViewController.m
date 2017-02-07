@@ -11,9 +11,6 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"QuestionCell";
-static NSString * const kELActionSaveToDraft = @"Save to draft";
-static NSString * const kELActionSubmit = @"Submit";
-static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@";
 
 #pragma mark - Class Extension
 
@@ -123,9 +120,8 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    NSString *emptyMessage = [NSString stringWithFormat:@"Failed to retrieve %@",
-                              self.responseType == kELSurveyResponseTypeDetails ? @"survey details." :
-                                                                                  @"questions"];
+    NSString *emptyMessage = NSLocalizedString(self.responseType == kELSurveyResponseTypeDetails ? @"kELSurveyDetailsRetrievalError" :
+                                                                                                   @"kELSurveyQuestionsRetrievalError", nil);
     
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
@@ -133,7 +129,8 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:emptyMessage description:@"Please try again later."];
+    [self.dataSource dataSetEmptyText:emptyMessage
+                          description:NSLocalizedString(@"kELErrorDetailsMessage", nil)];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -177,12 +174,14 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@: %@", [self class], errorDict);
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELSurveyPostError", nil)
+                     completion:^{}];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    NSString *successMessage = [NSString stringWithFormat:kELSurveyAnswerSuccessMessage, self.isSurveyFinal ? @"submitted." :
-                                                                                                              @"saved to draft."];
+    NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
+                                                                      @"kELSurveySaveToDraftSuccess", nil);
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
@@ -196,13 +195,13 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 
 - (IBAction)onSubmitButtonClick:(id)sender {
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Submit Options"
-                                                                        message:@"You have the option to save your answers partially or submit for completion."
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELSurveySubmitHeaderMessage", nil)
+                                                                        message:NSLocalizedString(@"kELSurveySubmitDetailsMessage", nil)
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         NSDictionary *formDict;
         
-        self.isSurveyFinal = [action.title isEqualToString:kELActionSubmit];
+        self.isSurveyFinal = [action.title isEqualToString:NSLocalizedString(@"kELSubmitButton", nil)];
         
         // Retrieve answer from question views
         for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
@@ -240,13 +239,13 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
         }
     };
     
-    [controller addAction:[UIAlertAction actionWithTitle:kELActionSaveToDraft
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELSaveToDraftButton", nil)
                                                    style:UIAlertActionStyleDefault
                                                  handler:actionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:kELActionSubmit
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELSubmitButton", nil)
                                                    style:UIAlertActionStyleDefault
                                                  handler:actionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     

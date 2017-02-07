@@ -90,6 +90,7 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 NSString * const kELAuthInstanceUserDefaultsKey = @"AuthInstanceUserDefaults";
 NSString * const kELAuthCredentialsUserDefaultsKey = @"AuthCredentialsUserDefaultsKey";
+NSString * const kELDeviceTokenUserDefaultsKey = @"DeviceTokenUserDefaultsKey";
 
 #pragma mark - RNThemeManager .plist Keys
 

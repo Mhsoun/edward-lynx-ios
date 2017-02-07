@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSArray *instantFeedbacks;
 @property (nonatomic, strong) NSArray *participants;
-@property (nonatomic, strong) NSString *deviceToken;
 @property (nonatomic, strong) NSDateFormatter *apiDateFormatter;
 @property (nonatomic, strong) NSDateFormatter *printDateFormatter;
 @property (nonatomic, strong) AFURLSessionManager *manager;

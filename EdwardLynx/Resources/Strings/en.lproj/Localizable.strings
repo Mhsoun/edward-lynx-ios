@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  EdwardLynx
+
+  Created by Jason Jon E. Carreos on 07/02/2017.
+  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
+*/
+
+/* General */
+
+"kELCancelButton" = "Cancel";
+"kELLogoutButton" = "Logout";
+"kELSaveToDraftButton" = "Save to draft";
+"kELSubmitButton" = "Submit";
+
+"kELEmailLabel" = "E-mail";
+"kELNameLabel" = "Name";
+
+"kELDetailsPageLoadError" = "Failed to load details.";
+
+"kELErrorDetailsMessage" = "Please try again later.";
+
+/* Dashboard */
+
+"kELDashboardItemDashboard" = "Dashboard";
+"kELDashboardItemDevelopmentPlan" = "Development Plan";
+"kELDashboardItemProfile" = "Profile";
+"kELDashboardItemSettings" = "Settings";
+
+/* Development Plans */
+
+"kELDevelopmentPlanCreateError" = "Failed creating Development Plan.";
+"kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan.";
+
+"kELDevelopmentPlanGoalsValidation" = "No Goals added.";
+"kELDevelopmentPlanGoalActionsValidation" = "No Goal Actions added.";
+
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated.";
+
+"kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
+"kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
+
+/* Feedback */
+
+"kELFeedbacksRetrievalError" = "Failed retrieving Instant Feedbacks.";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks.";
+"kELFeedbackAnswerError" = "Failed answering Instant Feedback.";
+"kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback.";
+
+/* Invite/Share */
+
+"kELInviteUsersHeaderMessage" = "Invite people to participate";
+"kELInviteUsersEvaluationLabel" = "The person evaluated is: %@";
+
+"kELInviteUsersRetrievalError" = "Failed retrieving Users.";
+"kELInviteUsersRetrievalEmpty" = "No users.";
+
+"kELInviteUsersAddEmailHeaderMessage" = "Invite a user";
+"kELInviteUsersAddEmailDetailsMessage" = "Enter user's name and e-mail address:";
+"kELInviteUsersAddEmailButtonAdd" = "Add User";
+
+"kELShareReportsHeaderMessage" = "Share report to users";
+"kELShareReportsDetailsMessage" = "Select users for them to be able to view this report";
+
+"kELUsersNumberSelectedLabel" = "No. of people selected: %@";
+"kELUsersSelectionValidation" = "No users selected.";
+
+/* Profile */
+
+"kELProfileChangePasswordSuccess" = "Successfully updated password.";
+"kELProfileUpdateSuccess" = "Successfully updated profile.";
+"kELProfileGenderMale" = "Male";
+"kELProfileGenderFemale" = "Female";
+"kELProfileGenderOther" = "Other";
+
+/* Surveys */
+
+"kELSurveySubmitHeaderMessage" = "Submit Options";
+"kELSurveySubmitDetailsMessage" = "You have the option to save your answers partially or submit for completion.";
+"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details.";
+"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions.";
+"kELSurveySubmissionSuccess" = "Successfully submitted answers.";
+"kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts.";
+"kELSurveyPostError" = "Failed to post answers.";
+

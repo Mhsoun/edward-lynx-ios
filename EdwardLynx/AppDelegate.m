@@ -88,12 +88,14 @@
         [token appendFormat:@"%02.2hhX", data[i]];
     }
     
-    // Store Device token to singleton
-    [ELAppSingleton sharedInstance].deviceToken = [token copy];
+    // Store Device token to User Defaults
+    [ELUtils setUserDefaultsValue:[token copy] key:kELDeviceTokenUserDefaultsKey];
     
     // Register Device token to Firebase
     [[FIRInstanceID instanceID] setAPNSToken:deviceToken
                                         type:FIRInstanceIDAPNSTokenTypeUnknown];
+    
+    [self registerDeviceToFirebaseAndAPI];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -192,6 +194,15 @@
 }
 
 - (void)registerDeviceToFirebaseAndAPI {
+    NSString *deviceToken = [ELUtils getUserDefaultsValueForKey:kELDeviceTokenUserDefaultsKey];
+    NSString *deviceId = [NSString stringWithFormat:@"%@-%@-%@-%@-%lld-%@",
+                          [UIDevice currentDevice].name,
+                          [UIDevice currentDevice].model,
+                          [UIDevice currentDevice].systemName,
+                          [UIDevice currentDevice].systemVersion,
+                          [ELAppSingleton sharedInstance].user.objectId,
+                          deviceToken];
+    
     if (!self.firebaseToken) {
         // Renew Firebase token
         [[FIRInstanceID instanceID] deleteIDWithHandler:^(NSError * _Nullable error) {
@@ -202,26 +213,24 @@
                 [self registerDeviceToFirebaseAndAPI];
             } else {
                 [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
+                                                              deviceId:deviceId
                                                         withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (!error) {
-                            return;
+                            DLog(@"Device registered for notifications.");
                         }
-                        
-                        DLog(@"Device registered for notifications.");
                     });
                 }];
             }
         }];
     } else {
         [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
+                                                      deviceId:deviceId
                                                 withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!error) {
-                    return;
+                    DLog(@"Device registered for notifications.");
                 }
-                
-                DLog(@"Device registered for notifications.");
             });
         }];
     }
@@ -238,7 +247,7 @@
         
         [center requestAuthorizationWithOptions:authorizationOptions
                               completionHandler:^(BOOL granted, NSError * _Nullable error){
-            if (!error) {
+            if (error) {
                 [[UIApplication sharedApplication] registerForRemoteNotifications];
             }
         }];

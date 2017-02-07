@@ -105,7 +105,9 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@: %@", [self class], errorDict);
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:^{}];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -129,7 +131,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         }
         
         [ELUtils presentToastAtView:self.view
-                            message:@"Action successfully updated."
+                            message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
                          completion:^{}];
     }];
 }

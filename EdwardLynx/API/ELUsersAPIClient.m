@@ -51,11 +51,13 @@
 }
 
 - (void)registerFirebaseToken:(NSString *)token
-               withCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+                     deviceId:(NSString *)deviceId
+               withCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIUserDeviceEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
-                                         bodyParams:@{@"token": token}];
+                                         bodyParams:@{@"token": token,
+                                                      @"deviceId": deviceId}];
     
     [self performAuthenticatedTask:YES
                        withRequest:request

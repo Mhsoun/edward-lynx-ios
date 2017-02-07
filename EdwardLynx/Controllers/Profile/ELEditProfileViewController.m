@@ -106,7 +106,7 @@
     [self.saveButton setEnabled:YES];
     
     [ELUtils presentToastAtView:self.view
-                        message:@"Profile update successful."
+                        message:NSLocalizedString(@"kELProfileUpdateSuccess", nil)
                      completion:^{
         [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
                                                                               error:nil]];
@@ -117,8 +117,10 @@
 
 - (void)layoutPage {
     ELUser *user = [ELAppSingleton sharedInstance].user;
-    NSArray *genders = @[@"Male", @"Female", @"Other"];
     NSMutableArray *mData = [[NSMutableArray alloc] init];
+    NSArray *genders = @[NSLocalizedString(@"kELProfileGenderMale", nil),
+                         NSLocalizedString(@"kELProfileGenderFemale", nil),
+                         NSLocalizedString(@"kELProfileGenderOther", nil)];
     
     self.selectedGender = user.gender.length > 0 ? user.gender : genders[0];
     

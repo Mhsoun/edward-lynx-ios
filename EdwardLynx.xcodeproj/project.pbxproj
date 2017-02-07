@@ -88,6 +88,7 @@
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
 		A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AC0EA21E25AEC700137975 /* ELSearchBar.m */; };
+		A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9AD21AB1E49B92900624F99 /* Localizable.strings */; };
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
 		A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAB1DFE5E4F00599909 /* ELLoginViewController.m */; };
 		A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AAF1DFE749000599909 /* ELAPIClient.m */; };
@@ -332,6 +333,7 @@
 		A9AD21981E49B28700624F99 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Report.strings; sourceTree = "<group>"; };
 		A9AD21991E49B28700624F99 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
 		A9AD219A1E49B28700624F99 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Survey.strings; sourceTree = "<group>"; };
+		A9AD21AA1E49B92900624F99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9B36AA71DFE54A300599909 /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
 		A9B36AA81DFE54A300599909 /* ELUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUtils.m; sourceTree = "<group>"; };
 		A9B36AAA1DFE5E4F00599909 /* ELLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLoginViewController.h; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 		A96F27651DFFA24600609E27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9AD219B1E49B53700624F99 /* Strings */,
 				A96F27661DFFA24600609E27 /* Fonts */,
 			);
 			path = Resources;
@@ -776,6 +779,14 @@
 				A9AC0EA21E25AEC700137975 /* ELSearchBar.m */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		A9AD219B1E49B53700624F99 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD21AB1E49B92900624F99 /* Localizable.strings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 		A9B36AAD1DFE746700599909 /* API */ = {
@@ -983,6 +994,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = A9308BC51DED74B5007B4F9F;
 			productRefGroup = A9308BCF1DED74B6007B4F9F /* Products */;
@@ -1014,6 +1026,7 @@
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
+				A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
@@ -1359,6 +1372,14 @@
 				A9AD218E1E49B28600624F99 /* ru */,
 			);
 			name = CreateDevelopmentPlan.storyboard;
+			sourceTree = "<group>";
+		};
+		A9AD21AB1E49B92900624F99 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AD21AA1E49B92900624F99 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */ = {
