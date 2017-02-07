@@ -130,9 +130,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         
         [ELUtils presentToastAtView:self.view
                             message:@"Action successfully updated."
-                         completion:^{
-                             //
-                         }];
+                         completion:^{}];
     }];
 }
 

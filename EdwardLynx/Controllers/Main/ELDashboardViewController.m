@@ -16,6 +16,8 @@ static CGFloat const kELCornerRadius = 5.0f;
 
 @interface ELDashboardViewController ()
 
+@property (nonatomic, strong) AppDelegate *delegate;
+
 @end
 
 @implementation ELDashboardViewController
@@ -27,15 +29,22 @@ static CGFloat const kELCornerRadius = 5.0f;
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [ELAppSingleton sharedInstance].hasLoadedApplication = YES;
+    
+    // Assign the dashboard as the new root controller
+    [self.delegate assignNewRootViewController:self];
     
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
-#endif
     
-    // Assign the dashboard as the new root controller
-    [(AppDelegate *)[UIApplication sharedApplication].delegate assignNewRootViewController:self];
+    if (self.delegate.userInfo) {
+        [self.delegate displayViewControllerByNotification:self.delegate.userInfo];
+        
+        self.delegate.userInfo = nil;
+    }
+#endif
 }
 
 - (void)didReceiveMemoryWarning {

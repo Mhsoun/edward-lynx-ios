@@ -180,10 +180,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     if (self.mGoals.count == 1) {
         [ELUtils presentToastAtView:self.view
                             message:@"No goals added"
-                         completion:^{
-                             // NOTE No implementation needed
-                             // FIX Allow nil completion
-                         }];
+                         completion:^{}];
         
         return;
     }

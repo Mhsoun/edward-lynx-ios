@@ -324,10 +324,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
                                 message:@"No participants selected"
-                             completion:^{
-                                 // NOTE No implementation needed
-                                 // FIX Allow nil completion
-                             }];
+                             completion:^{}];
             
             return;
         }

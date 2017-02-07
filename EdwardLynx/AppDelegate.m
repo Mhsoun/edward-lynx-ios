@@ -24,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.userInfo = nil;
+    
     // Setup Fabric
     [ELUtils setupFabric];
     
@@ -40,6 +42,11 @@
     if ([ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey]) {
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
                                           instantiateViewControllerWithIdentifier:@"Configuration"];
+    }
+    
+    // Check if app is launched due to user tapping to a notification while app is closed
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        self.userInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     }
     
     return YES;
@@ -292,7 +299,6 @@
     
     // Disconnect previous FCM connection if it exists.
     [[FIRMessaging messaging] disconnect];
-    
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
         if (error != nil) {
             DLog(@"AppDelegate: Unable to connect to FCM. %@", error);
@@ -302,58 +308,61 @@
     }];
 }
 
-- (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
-//    UIAlertController *alertController;
+- (void)displayViewControllerByNotification:(NSDictionary *)userInfo {
+    NSString *identifier, *storyboardName;
     __kindof ELBaseDetailViewController *detailVc;
+    int64_t type = [userInfo[@"type"] intValue];
+    int64_t objectId = [userInfo[@"id"] intValue];
+    
+    switch (type) {
+        case 0:
+            storyboardName = @"DevelopmentPlan";
+            
+            break;
+        case 1:
+            storyboardName = @"InstantFeedback";
+            
+            break;
+        case 2:
+            storyboardName = @"Survey";
+            
+            break;
+        default:
+            break;
+    }
+    
+    identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
+    detailVc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+    detailVc.objectId = objectId;
+    
+    [self.window.rootViewController.navigationController pushViewController:detailVc animated:YES];
+}
+
+- (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
+    UIAlertController *alertController;
+    __kindof ELBaseViewController *visibleController = [self visibleViewController:self.window.rootViewController];
     
     if (application.applicationState == UIApplicationStateActive || application.applicationState == UIApplicationStateInactive) {
-        NSString *identifier, *storyboardName;
-        
         // When app is starting
         if (![ELAppSingleton sharedInstance].hasLoadedApplication) {
-            return;  // TODO Display
+            return;  // TODO Display notification
         }
         
         // TODO Banner or sorts
         
         // App is active
-//        alertController = [UIAlertController alertControllerWithTitle:@"Notification"
-//                                                              message:@"A notification has been received"
-//                                                       preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
-//                                                            style:UIAlertActionStyleDefault
-//                                                          handler:nil]];
-//        
-//        [visibleController presentViewController:alertController
-//                                        animated:YES
-//                                      completion:nil];
+        // TODO Initial contents
+        alertController = [UIAlertController alertControllerWithTitle:@"Notification"
+                                                              message:@"A notification has been received"
+                                                       preferredStyle:UIAlertControllerStyleAlert];
         
-        int64_t type = [userInfo[@"type"] intValue];
-        int64_t objectId = [userInfo[@"id"] intValue];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil]];
         
-        switch (type) {
-            case 0:
-                storyboardName = @"DevelopmentPlan";
-                
-                break;
-            case 1:
-                storyboardName = @"InstantFeedback";
-                
-                break;
-            case 2:
-                storyboardName = @"Survey";
-                
-                break;
-            default:
-                break;
-        }
-        
-        identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
-        detailVc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
-        detailVc.objectId = objectId;
-        
-        [self.window.rootViewController.navigationController pushViewController:detailVc animated:YES];
+        [visibleController presentViewController:alertController
+                                        animated:YES
+                                      completion:nil];
     }
 }
 
