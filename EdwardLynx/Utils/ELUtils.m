@@ -9,6 +9,7 @@
 #import "ELUtils.h"
 
 #import "ELBaseQuestionTypeView.h"
+#import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"
 #import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
@@ -208,6 +209,18 @@
     } else {
         return -1;
     }
+}
+
++ (void)displayPopupForViewController:(__kindof UIViewController *)controller {
+    ELPopupViewController *popup = [[ELPopupViewController alloc] init];
+    
+    popup.view.frame = CGRectMake(controller.view.frame.origin.x,
+                                  controller.view.frame.origin.y,
+                                  controller.view.frame.size.width - 100,
+                                  300);
+    popup.popupViewOffset = CGPointMake(0, -50);
+    
+    [controller presentPopupViewController:popup animated:YES completion:nil];
 }
 
 + (NSString *)labelByAnswerType:(kELAnswerType)type {
