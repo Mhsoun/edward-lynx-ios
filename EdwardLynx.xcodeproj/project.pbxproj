@@ -74,6 +74,8 @@
 		A97086791E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97086781E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m */; };
 		A970867C1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */; };
 		A970867E1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */; };
+		A971CA5A1E48E0B800B14773 /* ELPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A971CA591E48E0B800B14773 /* ELPopupViewController.m */; };
+		A971CA5C1E48E10C00B14773 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A971CA5B1E48E10C00B14773 /* PopupView.xib */; };
 		A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */; };
 		A97F9FFD1E1CF4F6008F9EF4 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFC1E1CF4F6008F9EF4 /* ELAnswer.m */; };
 		A97FA0001E1CF59D008F9EF4 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97F9FFF1E1CF59D008F9EF4 /* ELAnswerOption.m */; };
@@ -247,6 +249,9 @@
 		A970867A1E1E504800CDC2DF /* ELQuestionTypeAgreementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeAgreementView.h; sourceTree = "<group>"; };
 		A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeAgreementView.m; sourceTree = "<group>"; };
 		A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeAgreementView.xib; sourceTree = "<group>"; };
+		A971CA581E48E0B800B14773 /* ELPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPopupViewController.h; sourceTree = "<group>"; };
+		A971CA591E48E0B800B14773 /* ELPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELPopupViewController.m; sourceTree = "<group>"; };
+		A971CA5B1E48E10C00B14773 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		A97F9FF81E1CF14A008F9EF4 /* ELQuestionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionCategory.h; sourceTree = "<group>"; };
 		A97F9FF91E1CF14A008F9EF4 /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
 		A97F9FFB1E1CF4F6008F9EF4 /* ELAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswer.h; sourceTree = "<group>"; };
@@ -620,6 +625,8 @@
 				A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */,
 				A91DCD351E35C997006F2778 /* ELListViewController.h */,
 				A91DCD361E35C997006F2778 /* ELListViewController.m */,
+				A971CA581E48E0B800B14773 /* ELPopupViewController.h */,
+				A971CA591E48E0B800B14773 /* ELPopupViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -743,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A971CA5B1E48E10C00B14773 /* PopupView.xib */,
 				A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */,
 				A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */,
 				A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */,
@@ -964,6 +972,7 @@
 				A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */,
 				A9121A9A1E07A7DE00ED9934 /* LeftMenu.storyboard in Resources */,
 				A96F27701DFFA28E00609E27 /* Lato-Regular.ttf in Resources */,
+				A971CA5C1E48E10C00B14773 /* PopupView.xib in Resources */,
 				A96F276E1DFFA28E00609E27 /* Lato-Light.ttf in Resources */,
 				A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */,
 			);
@@ -1089,6 +1098,7 @@
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
+				A971CA5A1E48E0B800B14773 /* ELPopupViewController.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A91BF5991E2DFBEB00F203A2 /* ELReportsViewController.m in Sources */,
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,

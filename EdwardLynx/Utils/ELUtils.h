@@ -17,6 +17,7 @@
 #import "ELUsersAPIClient.h"
 
 @class ELBaseQuestionTypeView;
+@class ELPopupViewController;
 
 @interface ELFormItemGroup : NSObject
 
@@ -55,6 +56,7 @@
 
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
++ (void)displayPopupForViewController:(__kindof UIViewController *)controller;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelByReportType:(kELReportType)type;
