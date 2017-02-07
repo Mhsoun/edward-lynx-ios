@@ -49,7 +49,7 @@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    DLog(@"Error: %@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -61,7 +61,7 @@
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    DLog(@"Error: %@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

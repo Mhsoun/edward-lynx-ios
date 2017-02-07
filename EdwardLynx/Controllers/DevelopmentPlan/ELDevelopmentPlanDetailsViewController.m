@@ -105,7 +105,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {

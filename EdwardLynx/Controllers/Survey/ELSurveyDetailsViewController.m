@@ -177,7 +177,7 @@ static NSString * const kELSurveyAnswerSuccessMessage = @"Survey successfully %@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

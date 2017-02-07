@@ -110,8 +110,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
-    DLog(@"%@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

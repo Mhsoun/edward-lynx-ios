@@ -211,7 +211,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@", errorDict);
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

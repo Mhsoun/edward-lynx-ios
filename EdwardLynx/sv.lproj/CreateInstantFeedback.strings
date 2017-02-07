@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "0c8-TR-4pK"; */
+"0c8-TR-4pK.normalTitle" = "X";
+
+/* Class = "UITextField"; placeholder = "Add Option"; ObjectID = "4EI-AY-G71"; */
+"4EI-AY-G71.placeholder" = "Add Option";
+
+/* Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41"; */
+"BvV-Tr-b41.text" = "Answer Type";
+
+/* Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3"; */
+"LqK-pq-nP3.text" = "Question";
+
+/* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
+"WO5-DV-VLL.text" = "Is Anonymous";
+
+/* Class = "UINavigationItem"; title = "CREATE INSTANT FEEDBACK"; ObjectID = "ZYd-Wg-Okj"; */
+"ZYd-Wg-Okj.title" = "CREATE INSTANT FEEDBACK";
+
+/* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
+"eM8-uf-ggi.text" = "Options";
+
+/* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
+"tgA-52-d0c.text" = "Add a N/A option";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "vhu-w3-2iZ"; */
+"vhu-w3-2iZ.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "SELECT PARTICIPANTS"; ObjectID = "vhu-w3-2iZ"; */
+"vhu-w3-2iZ.normalTitle" = "SELECT PARTICIPANTS";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yQX-jc-YTV"; */
+"yQX-jc-YTV.text" = "Label";

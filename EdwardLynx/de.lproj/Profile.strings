@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "0O3-sy-krY"; */
+"0O3-sy-krY.text" = "Info";
+
+/* Class = "UILabel"; text = "Role"; ObjectID = "3VS-oh-Dyo"; */
+"3VS-oh-Dyo.text" = "Role";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "B6X-dK-AVR"; */
+"B6X-dK-AVR.text" = "City";
+
+/* Class = "UILabel"; text = "Department"; ObjectID = "IYD-Fd-0fI"; */
+"IYD-Fd-0fI.text" = "Department";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "KIE-Hp-b3o"; */
+"KIE-Hp-b3o.text" = "Country";
+
+/* Class = "UINavigationItem"; title = "PROFILE"; ObjectID = "KUQ-vm-yU0"; */
+"KUQ-vm-yU0.title" = "PROFILE";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "aHy-DJ-e6N"; */
+"aHy-DJ-e6N.text" = "Gender";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "dxl-P5-CHQ"; */
+"dxl-P5-CHQ.text" = "Name";
+
+/* Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "pfG-4u-dUc"; */
+"pfG-4u-dUc.disabledTitle" = "PROCESSING...";
+
+/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "pfG-4u-dUc"; */
+"pfG-4u-dUc.normalTitle" = "SAVE";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "sRf-Jg-FHm"; */
+"sRf-Jg-FHm.text" = "Email";

@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "ADD GOAL"; ObjectID = "0mI-Vz-p3Z"; */
+"0mI-Vz-p3Z.normalTitle" = "ADD GOAL";
+
+/* Class = "UILabel"; text = "Development Plan Name"; ObjectID = "76e-JE-FPl"; */
+"76e-JE-FPl.text" = "Development Plan Name";
+
+/* Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "9wj-up-hY1"; */
+"9wj-up-hY1.disabledTitle" = "PROCESSING...";
+
+/* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "9wj-up-hY1"; */
+"9wj-up-hY1.normalTitle" = "DONE";
+
+/* Class = "UILabel"; text = "Link on a category"; ObjectID = "Ei9-aC-MO4"; */
+"Ei9-aC-MO4.text" = "Link on a category";
+
+/* Class = "UITextField"; placeholder = "Goal"; ObjectID = "LUr-JD-Pcc"; */
+"LUr-JD-Pcc.placeholder" = "Goal";
+
+/* Class = "UINavigationItem"; title = "GOAL DETAILS"; ObjectID = "O5J-gr-nQK"; */
+"O5J-gr-nQK.title" = "GOAL DETAILS";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "OUN-sx-Efm"; */
+"OUN-sx-Efm.text" = "Description";
+
+/* Class = "UILabel"; text = "Goal 1"; ObjectID = "Q7D-Sd-ScC"; */
+"Q7D-Sd-ScC.text" = "Goal 1";
+
+/* Class = "UINavigationItem"; title = "CREATE DEVELOPMENT PLAN"; ObjectID = "Vv2-Q3-oR2"; */
+"Vv2-Q3-oR2.title" = "CREATE DEVELOPMENT PLAN";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "Xwl-fl-Yaf"; */
+"Xwl-fl-Yaf.text" = "Category";
+
+/* Class = "UILabel"; text = "Actions"; ObjectID = "ec1-sT-EDz"; */
+"ec1-sT-EDz.text" = "Actions";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "gyT-fU-iC2"; */
+"gyT-fU-iC2.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "Remind me on day"; ObjectID = "k8P-kX-1PH"; */
+"k8P-kX-1PH.text" = "Remind me on day";
+
+/* Class = "UITextField"; placeholder = "Add Action"; ObjectID = "lus-69-q1b"; */
+"lus-69-q1b.placeholder" = "Add Action";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "m3E-GZ-JHH"; */
+"m3E-GZ-JHH.text" = "Label";
+
+/* Class = "UILabel"; text = "Add Goal"; ObjectID = "vM7-NI-Vru"; */
+"vM7-NI-Vru.text" = "Add Goal";
+
+/* Class = "UILabel"; text = "Goals"; ObjectID = "y2D-su-Kaj"; */
+"y2D-su-Kaj.text" = "Goals";

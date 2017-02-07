@@ -50,7 +50,7 @@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
+    DLog(@"%@: %@", [self class], errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
