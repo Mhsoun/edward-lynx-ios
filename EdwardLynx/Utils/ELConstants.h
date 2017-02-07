@@ -117,6 +117,7 @@ extern NSString * const kELAPIVersionNamespace;
 extern NSString * const kELAPIRootEndpoint;
 
 extern NSString * const kELAPIDevelopmentPlansEndpoint;
+extern NSString * const kELAPIDevelopmentPlanEndpoint;
 
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;
@@ -134,6 +135,7 @@ extern NSString * const kELAPISurveyAnswersEndpoint;
 extern NSString * const kELAPISurveyQuestionsEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;
+extern NSString * const kELAPIUserDeviceEndpoint;
 extern NSString * const kELAPIUsersEndpoint;
 
 extern NSString * const kELAPILoginEndpoint;

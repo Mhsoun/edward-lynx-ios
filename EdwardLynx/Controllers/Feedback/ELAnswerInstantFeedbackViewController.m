@@ -12,7 +12,8 @@
 
 @interface ELAnswerInstantFeedbackViewController ()
 
-@property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELFeedbackViewManager *feedbackViewManager;
 
 @end
 
@@ -25,8 +26,19 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELFeedbackViewManager alloc] init];
-    self.viewManager.delegate = self;
+    if (!self.instantFeedback) {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        
+        [self.detailViewManager processRetrievalOfInstantFeedbackDetails];
+    } else {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.instantFeedback];
+        
+        [self populatePage];
+    }
+    
+    self.feedbackViewManager = [[ELFeedbackViewManager alloc] init];
+    self.feedbackViewManager.delegate = self;
+    self.detailViewManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,13 +46,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protocol Methods (ELFeedbackViewManager)
+#pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
+    DLog(@"Error: %@", errorDict);
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.instantFeedback = [[ELInstantFeedback alloc] initWithDictionary:responseDict error:nil];
+    
+    [self populatePage];
+}
+
+#pragma mark - Protocol Methods (ELFeedbackViewManager)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    DLog(@"Error: %@", errorDict);
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     // Update Instant Feedback list
     NSMutableArray *mInstantFeedbacks = [[ELAppSingleton sharedInstance].instantFeedbacks mutableCopy];
     
@@ -51,15 +75,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - Protocol Methods (ELBaseViewController)
+#pragma mark - Private Methods
 
-- (void)layoutPage {
+- (void)populatePage {
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = self.instantFeedback.question;
     BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
-    questionView.question = question;
     
     // Content
     self.questionLabel.text = question.text;
@@ -69,10 +92,11 @@
         return;
     }
     
+    questionView.question = question;
+    questionView.frame = self.questionTypeView.frame;
+    
     [self.heightConstraint setConstant:toExpand ? 185 : 135];
     [self.questionTypeView updateConstraints];
-    
-    [questionView setFrame:self.questionTypeView.frame];
     [self.questionTypeView addSubview:questionView];
 }
 
@@ -82,8 +106,8 @@
     NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
     
-    [self.viewManager processInstantFeedbackAnswerSubmissionAtId:self.instantFeedback.objectId
-                                                    withFormData:formDict];
+    [self.feedbackViewManager processInstantFeedbackAnswerSubmissionAtId:self.instantFeedback.objectId
+                                                            withFormData:formDict];
 }
 
 @end

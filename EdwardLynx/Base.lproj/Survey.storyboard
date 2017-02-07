@@ -73,7 +73,7 @@
         <!--Survey Details View Controller-->
         <scene sceneID="9FL-RF-ejk">
             <objects>
-                <viewController id="Zf1-Y0-xAe" customClass="ELSurveyDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyDetails" id="Zf1-Y0-xAe" customClass="ELSurveyDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7yV-gT-lKP"/>
                         <viewControllerLayoutGuide type="bottom" id="avk-8k-Fbh"/>
@@ -173,6 +173,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>

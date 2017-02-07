@@ -7,13 +7,14 @@
 //
 
 #import "ELBaseQuestionTypeView.h"
-#import "ELBaseViewController.h"
+#import "ELBaseDetailViewController.h"
+#import "ELDetailViewManager.h"
 #import "ELFeedbackViewManager.h"
 #import "ELInstantFeedback.h"
 #import "ELQuestion.h"
 #import "ELSurveysAPIClient.h"
 
-@interface ELAnswerInstantFeedbackViewController : ELBaseViewController<ELAPIResponseDelegate>
+@interface ELAnswerInstantFeedbackViewController : ELBaseDetailViewController<ELAPIPostResponseDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
 

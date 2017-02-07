@@ -16,7 +16,6 @@
 @interface ELQuestionCategory : ELModel
 
 @property (nonatomic) int64_t order;
-@property (nonatomic) BOOL isSurvey;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSArray<ELQuestion> *questions;

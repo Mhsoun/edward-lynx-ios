@@ -35,12 +35,12 @@
     self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [weakSelf.delegate onAPIResponseError:error.userInfo];
+                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
                 
                 return;
             }
             
-            [weakSelf.delegate onAPIResponseSuccess:responseDict];
+            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
         });
     };
     

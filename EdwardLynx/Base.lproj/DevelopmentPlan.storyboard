@@ -73,7 +73,7 @@
         <!--Development Plan Details View Controller-->
         <scene sceneID="KJ5-8Z-dJw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fHP-1B-U5H" customClass="ELDevelopmentPlanDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DevelopmentPlanDetails" automaticallyAdjustsScrollViewInsets="NO" id="fHP-1B-U5H" customClass="ELDevelopmentPlanDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k8w-hZ-vY0"/>
                         <viewControllerLayoutGuide type="bottom" id="X97-nQ-Vl8"/>
@@ -266,6 +266,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>

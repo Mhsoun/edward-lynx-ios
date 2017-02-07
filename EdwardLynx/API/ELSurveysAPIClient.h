@@ -19,6 +19,8 @@
                                    completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId
                                 completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)instantFeedbackWithId:(int64_t)instantFeedbackId
+                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)shareInstantFeedback:(int64_t)instantFeedbackId
                       params:(NSDictionary *)params
                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
@@ -29,9 +31,9 @@
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
-- (void)userSurveyForId:(int64_t)surveyId
-             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
-- (void)userSurveyQuestionsForId:(int64_t)surveyId
-                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)userSurveyWithId:(int64_t)surveyId
+              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)userSurveyQuestionsWithId:(int64_t)surveyId
+                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 @end

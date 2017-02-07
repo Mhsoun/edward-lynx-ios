@@ -96,9 +96,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             
             [ELUtils presentToastAtView:visibleController.view
                                 message:@"Action successfully updated."
-                             completion:^{
-                                 //
-                             }];
+                             completion:^{}];
         }];
     };
     

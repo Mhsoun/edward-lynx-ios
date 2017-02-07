@@ -16,6 +16,8 @@ static CGFloat const kELCornerRadius = 5.0f;
 
 @interface ELDashboardViewController ()
 
+@property (nonatomic, strong) AppDelegate *delegate;
+
 @end
 
 @implementation ELDashboardViewController
@@ -26,9 +28,22 @@ static CGFloat const kELCornerRadius = 5.0f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initialization
+    self.delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [ELAppSingleton sharedInstance].hasLoadedApplication = YES;
+    
+    // Assign the dashboard as the new root controller
+    [self.delegate assignNewRootViewController:self];
+    
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
+    
+    if (self.delegate.userInfo) {
+        [self.delegate displayViewControllerByNotification:self.delegate.userInfo];
+        
+        self.delegate.userInfo = nil;
+    }
 #endif
 }
 
@@ -89,7 +104,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self.createDevPlanView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports",
-                                                             @"segue": @"Reports",
+                                                             @"segue": @"Report",
                                                              @"description": @"Description on viewing reports.",
                                                              @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                                @(kELRolePermissionViewAnonymousTeamReports)]}];
@@ -100,7 +115,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self.reportsView.layer setCornerRadius:kELCornerRadius];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys",
-                                                             @"segue": @"Surveys",
+                                                             @"segue": @"Survey",
                                                              @"description": @"Description on viewing surveys.",
                                                              @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
     shortcutView.frame = self.surveysView.frame;

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELDevelopmentPlanAPIClient.h"
 #import "ELModel.h"
 #import "ELSurveysAPIClient.h"
 
@@ -14,8 +15,12 @@
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
+- (instancetype)initWithObjectId:(int64_t)objectId;
 
+- (void)processRetrievalOfDevelopmentPlanDetails;
+- (void)processRetrievalOfInstantFeedbackDetails;
 - (void)processRetrievalOfReportDetails;
+- (void)processRetrievalOfSurveyDetails;
 - (void)processRetrievalOfSurveyQuestions;
 
 @end

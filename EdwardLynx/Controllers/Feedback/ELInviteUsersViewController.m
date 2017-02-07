@@ -10,13 +10,14 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELEmailButtonHeight = 40;
 static CGFloat const kELFormViewHeight = 120;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 static NSString * const kELSelectAllButtonLabel = @"Select all";
 static NSString * const kELDeselectAllButtonLabel = @"Deselect all";
 
-static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %ld";
+static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %@";
 static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
 
 static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
@@ -179,7 +180,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
 }
 
 #pragma mark - Protocol Methods (UITextField)
@@ -209,14 +210,15 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
-- (void)onAPIResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     DLog(@"%@", errorDict);
 }
 
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     NSString *successMessage = self.inviteType == kELInviteUsersInstantFeedback ? kELSuccessMessageInstantFeedback :
                                                                                   kELSuccessMessageShareReport;
+    
+    self.inviteButton.enabled = YES;
     
     // Clear selections
     [self clearSelection];
@@ -258,7 +260,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     for (int i = 0; i < self.mParticipants.count; i++) {
         ELParticipant *participant = self.mParticipants[i];
         
-        participant.isSelected = @NO;
+        participant.isSelected = NO;
         
         [self.provider updateObject:participant
                         atIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -268,13 +270,23 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 - (void)layoutInstantFeedbackSharePage {
+    // Details
     self.headerLabel.text = @"Invite people to participate";
     self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    
+    // Button
+    [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
+    [self.emailButton updateConstraints];
 }
 
 - (void)layoutReportSharePage {
+    // Details
     self.headerLabel.text = @"Share report to users";
     self.detailLabel.text = @"Select users for them to be able to view this report";
+    
+    // Button
+    [self.emailButtonHeightConstraint setConstant:0];
+    [self.emailButton updateConstraints];
 }
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
@@ -325,13 +337,12 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
                                 message:@"No participants selected"
-                             completion:^{
-                                 // NOTE No implementation needed
-                                 // FIX Allow nil completion
-                             }];
+                             completion:^{}];
             
             return;
         }
+        
+        self.inviteButton.enabled = NO;
         
         answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
@@ -354,6 +365,16 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
                                                    @"questions": questions,
                                                    @"recipients": [mUsers copy]}];
     } else if (self.inviteType == kELInviteUsersReports) {
+        if (!self.mParticipants.count) {
+            [ELUtils presentToastAtView:self.view
+                                message:@"No participants selected"
+                             completion:^{}];
+            
+            return;
+        }
+        
+        self.inviteButton.enabled = NO;
+        
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
         [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
@@ -389,7 +410,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label
-        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, self.mParticipants.count];
+        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
     }];
     self.inviteAction.enabled = NO;
     

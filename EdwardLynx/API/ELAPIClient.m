@@ -25,12 +25,8 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSURLSessionDataTask *dataTask;
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    dataTask = [manager dataTaskWithRequest:request
-                          completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionDataTask *dataTask = [[ELAppSingleton sharedInstance].manager dataTaskWithRequest:request
+                                                                                completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         AppDelegate *delegate;
         NSString *errorMessage;
         UIAlertController *alertController;

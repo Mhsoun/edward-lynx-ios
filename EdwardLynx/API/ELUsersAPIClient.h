@@ -15,6 +15,8 @@
                  password:(NSString *)password
                completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)registerFirebaseToken:(NSString *)token
+               withCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)retrieveUsersWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)updateUserInfoWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;

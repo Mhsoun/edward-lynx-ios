@@ -165,8 +165,8 @@
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
                         <segue destination="RpM-p2-AU4" kind="show" identifier="CreateInstantFeedback" id="5Fl-OE-4wS"/>
                         <segue destination="w5L-eZ-idj" kind="show" identifier="InstantFeedback" id="GyE-BV-OFn"/>
-                        <segue destination="3Fr-eJ-sc1" kind="show" identifier="Reports" id="nPw-dG-srp"/>
-                        <segue destination="4iW-fL-E7B" kind="show" identifier="Surveys" id="XI9-4j-iwp"/>
+                        <segue destination="3Fr-eJ-sc1" kind="show" identifier="Report" id="nPw-dG-srp"/>
+                        <segue destination="4iW-fL-E7B" kind="show" identifier="Survey" id="XI9-4j-iwp"/>
                         <segue destination="cE8-ig-1ah" kind="show" identifier="CreateDevelopmentPlan" id="c98-mo-DOi"/>
                     </connections>
                 </viewController>
@@ -190,18 +190,18 @@
             </objects>
             <point key="canvasLocation" x="1446" y="173"/>
         </scene>
-        <!--Reports-->
+        <!--Report-->
         <scene sceneID="soG-8O-SC9">
             <objects>
-                <viewControllerPlaceholder storyboardName="Reports" id="3Fr-eJ-sc1" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Report" id="3Fr-eJ-sc1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5I-iu-LZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1402" y="225"/>
         </scene>
-        <!--Surveys-->
+        <!--Survey-->
         <scene sceneID="7lt-Ph-scx">
             <objects>
-                <viewControllerPlaceholder storyboardName="Surveys" id="4iW-fL-E7B" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Survey" id="4iW-fL-E7B" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu9-YP-anr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1402" y="278"/>
@@ -234,6 +234,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>
