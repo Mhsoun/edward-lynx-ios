@@ -1,0 +1,9 @@
+
+/* Class = "UISearchBar"; placeholder = "Search Reports"; ObjectID = "Dct-i4-rc6"; */
+"Dct-i4-rc6.placeholder" = "Search Reports";
+
+/* Class = "UINavigationItem"; title = "REPORTS"; ObjectID = "ecC-sn-zjy"; */
+"ecC-sn-zjy.title" = "REPORTS";
+
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "lT7-AG-ENN"; */
+"lT7-AG-ENN.title" = "Share";

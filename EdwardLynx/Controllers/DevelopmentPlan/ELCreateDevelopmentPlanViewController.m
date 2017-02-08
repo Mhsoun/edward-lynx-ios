@@ -110,8 +110,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    // TODO Implementation
-    DLog(@"%@", errorDict);
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
+                     completion:^{}];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -119,7 +120,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // Back to the Dashboard
     [ELUtils presentToastAtView:self.view
-                        message:@"Development Plan successfully created."
+                        message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
                          [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                                                       instantiateInitialViewController]
@@ -179,7 +180,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     if (self.mGoals.count == 1) {
         [ELUtils presentToastAtView:self.view
-                            message:@"No goals added"
+                            message:NSLocalizedString(@"kELDevelopmentPlanGoalsValidation", nil)
                          completion:^{}];
         
         return;

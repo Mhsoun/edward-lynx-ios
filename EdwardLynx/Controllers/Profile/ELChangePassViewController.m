@@ -100,7 +100,7 @@
     // Exit
     [self.saveButton setEnabled:YES];
     [ELUtils presentToastAtView:self.view
-                        message:@"Password update successful."
+                        message:NSLocalizedString(@"kELProfileChangePasswordSuccess", nil)
                      completion:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];

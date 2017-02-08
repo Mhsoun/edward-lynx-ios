@@ -1,0 +1,9 @@
+
+/* Class = "UINavigationItem"; title = "SURVEYS"; ObjectID = "B21-4l-6el"; */
+"B21-4l-6el.title" = "SURVEYS";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "bdd-eb-LRQ"; */
+"bdd-eb-LRQ.normalTitle" = "SUBMIT";
+
+/* Class = "UISearchBar"; placeholder = "Search Surveys"; ObjectID = "wt7-lQ-5zz"; */
+"wt7-lQ-5zz.placeholder" = "Search Surveys";

@@ -14,7 +14,6 @@ static CGFloat const kELCategoryViewInitialHeight = 35;
 static CGFloat const kELCellHeight = 50;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
 
-static NSString * const kELGoalButtonLabel = @"%@ GOAL";
 static NSString * const kELActionCellIdentifier = @"ActionCell";
 static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 
@@ -124,8 +123,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    NSString *buttonLabel = self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" : @"kELDevelopmentPlanGoalButtonUpdate";
+    
     // Button
-    [self.addGoalButton setTitle:[NSString stringWithFormat:kELGoalButtonLabel, self.toAddNew ? @"ADD" : @"UPDATE"]
+    [self.addGoalButton setTitle:NSLocalizedString(buttonLabel, nil)
                         forState:UIControlStateNormal];
     
     // Date Picker
@@ -195,14 +196,14 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 }
 
 - (IBAction)onCategoryButtonClick:(id)sender {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Category Selection"
-                                                                        message:@"Select from list of categories"
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:nil
                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         self.categoryLabel.text = action.title;
     };
     
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
@@ -225,7 +226,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     if (self.mActions.count == 1) {
         [ELUtils presentToastAtView:self.view
-                            message:@"No actions added"
+                            message:NSLocalizedString(@"kELDevelopmentPlanGoalActionsValidation", nil)
                          completion:^{}];
         
         return;

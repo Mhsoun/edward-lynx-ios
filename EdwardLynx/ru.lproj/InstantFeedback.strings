@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "2lw-xL-kQ9"; */
+"2lw-xL-kQ9.text" = "Subtitle";
+
+/* Class = "UINavigationItem"; title = "INSTANT FEEDBACK"; ObjectID = "2ww-PD-LlL"; */
+"2ww-PD-LlL.title" = "INSTANT FEEDBACK";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "9V0-Dg-MzZ"; */
+"9V0-Dg-MzZ.normalTitle" = "SUBMIT";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "BAm-NV-juo"; */
+"BAm-NV-juo.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "INSTANT FEEDBACK REQUESTS"; ObjectID = "abA-ak-a58"; */
+"abA-ak-a58.title" = "INSTANT FEEDBACK REQUESTS";

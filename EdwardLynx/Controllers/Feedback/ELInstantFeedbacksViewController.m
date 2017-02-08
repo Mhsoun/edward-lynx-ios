@@ -95,8 +95,8 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"Failed to retrieve Instant Feedbacks"
-                          description:@"Please try again later."];
+    [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELFeedbacksRetrievalError", nil)
+                          description:NSLocalizedString(@"kELErrorDetailsMessage", nil)];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -114,7 +114,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:@"No Instant Feedbacks" description:@""];
+    [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELFeedbacksRetrievalEmpty", nil) description:@""];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView reloadData];

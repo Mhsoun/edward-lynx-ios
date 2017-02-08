@@ -17,9 +17,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 static NSString * const kELSelectAllButtonLabel = @"Select all";
 static NSString * const kELDeselectAllButtonLabel = @"Deselect all";
 
-static NSString * const kELNoOfPeopleLabel = @"No. of people selected: %@";
-static NSString * const kELEvaluationLabel = @"The person evaluated is: %@";
-
 static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
 static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback successfully created.";
 
@@ -65,7 +62,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.dataSource dataSetEmptyText:@"No users" description:@""];
+    [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil) description:@""];
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
     
@@ -180,7 +177,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                 @(self.mParticipants.count)];
 }
 
 #pragma mark - Protocol Methods (UITextField)
@@ -211,7 +209,9 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    DLog(@"%@", errorDict);
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELInviteUsersRetrievalError", nil)
+                     completion:^{}];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -271,8 +271,9 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 - (void)layoutInstantFeedbackSharePage {
     // Details
-    self.headerLabel.text = @"Invite people to participate";
-    self.detailLabel.text = [NSString stringWithFormat:kELEvaluationLabel, [ELAppSingleton sharedInstance].user.name];
+    self.headerLabel.text = NSLocalizedString(@"kELInviteUsersHeaderMessage", nil);
+    self.detailLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELInviteUsersEvaluationLabel", nil),
+                             [ELAppSingleton sharedInstance].user.name];
     
     // Button
     [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
@@ -281,8 +282,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 - (void)layoutReportSharePage {
     // Details
-    self.headerLabel.text = @"Share report to users";
-    self.detailLabel.text = @"Select users for them to be able to view this report";
+    self.headerLabel.text = NSLocalizedString(@"kELShareReportsHeaderMessage", nil);
+    self.detailLabel.text = NSLocalizedString(@"kELShareReportsDetailsMessage", nil);
     
     // Button
     [self.emailButtonHeightConstraint setConstant:0];
@@ -336,7 +337,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
-                                message:@"No participants selected"
+                                message:NSLocalizedString(@"kELUsersSelectionValidation", nil)
                              completion:^{}];
             
             return;
@@ -367,7 +368,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     } else if (self.inviteType == kELInviteUsersReports) {
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
-                                message:@"No participants selected"
+                                message:NSLocalizedString(@"kELUsersSelectionValidation", nil)
                              completion:^{}];
             
             return;
@@ -384,11 +385,11 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 
 - (IBAction)onInviteByEmailButtonClick:(id)sender {
     __weak typeof(self) weakSelf = self;
-    self.alertController = [UIAlertController alertControllerWithTitle:@"Invite a user"
-                                                               message:@"Enter user's name and e-mail address:"
+    self.alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil)
+                                                               message:NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil)
                                                         preferredStyle:UIAlertControllerStyleAlert];
     
-    self.inviteAction = [UIAlertAction actionWithTitle:@"Add User"
+    self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailButtonAdd", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {
         NSArray<UITextField *> *textFields = self.alertController.textFields;
@@ -410,26 +411,27 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label
-        self.noOfPeopleLabel.text = [NSString stringWithFormat:kELNoOfPeopleLabel, @(self.mParticipants.count)];
+        self.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                     @(self.mParticipants.count)];
     }];
     self.inviteAction.enabled = NO;
     
     [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.delegate = weakSelf;
-        textField.placeholder = @"Name";
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
         textField.keyboardType = UIKeyboardTypeDefault;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     }];
     [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.delegate = weakSelf;
-        textField.placeholder = @"E-mail";
+        textField.placeholder = NSLocalizedString(@"kELEmailLabel", nil);
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     }];
     [self.alertController addAction:self.inviteAction];
-    [self.alertController addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [self.alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
