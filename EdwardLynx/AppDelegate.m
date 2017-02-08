@@ -348,30 +348,20 @@
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
-    UIAlertController *alertController;
     __kindof ELBaseViewController *visibleController = [self visibleViewController:self.window.rootViewController];
     
-    if (application.applicationState == UIApplicationStateActive || application.applicationState == UIApplicationStateInactive) {
+    if (application.applicationState == UIApplicationStateActive ||
+        application.applicationState == UIApplicationStateInactive) {
         // When app is starting
         if (![ELAppSingleton sharedInstance].hasLoadedApplication) {
             return;  // TODO Display notification
         }
         
-        // TODO Banner or sorts
-        
         // App is active
-        // TODO Initial contents
-        alertController = [UIAlertController alertControllerWithTitle:@"Notification"
-                                                              message:@"A notification has been received"
-                                                       preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:nil]];
-        
-        [visibleController presentViewController:alertController
-                                        animated:YES
-                                      completion:nil];
+        // TODO Banner or sorts (Initial implementation)
+        [ELUtils presentToastAtView:visibleController.view
+                            message:@"A notification has been received"
+                         completion:^{}];
     }
 }
 
