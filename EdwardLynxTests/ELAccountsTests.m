@@ -168,8 +168,8 @@
     
     // Given
     expectation = [self expectationWithDescription:@"Asynchronous API request"];
-    formDict = @{@"password": @"somepassword",
-                 @"currentPassword": @"newpasword"};
+    formDict = @{@"password": @"",
+                 @"currentPassword": @"asdfasdfasdf"};
     
     // When
     [self.client updateUserInfoWithParams:formDict
@@ -189,8 +189,10 @@
     
     // Given
     expectation = [self expectationWithDescription:@"Asynchronous API request"];
-    formDict = @{@"password": @"somepassword",
-                 @"currentPassword": @"newpasword"};
+    
+    // NOTE Assumption that the admin account is the one stored in the app
+    formDict = @{@"password": @"password123",
+                 @"currentPassword": @"pass123"};
     
     // When
     [self.client updateUserInfoWithParams:formDict
@@ -262,13 +264,13 @@
     
     // Given
     expectation = [self expectationWithDescription:@"Asynchronous API request"];
-    formDict = @{@"name": @"Some Name",
-                 @"info": @"Some Info",
-                 @"role": @"Some Role",
-                 @"department": @"Some Department",
-                 @"gender": @"Male",
-                 @"city": @"Some City",
-                 @"country": @"Some Country"};
+    formDict = @{@"name": @"",
+                 @"info": @"",
+                 @"role": @"",
+                 @"department": @"",
+                 @"gender": @"",
+                 @"city": @"",
+                 @"country": @""};
     
     // When
     [self.client updateUserInfoWithParams:formDict

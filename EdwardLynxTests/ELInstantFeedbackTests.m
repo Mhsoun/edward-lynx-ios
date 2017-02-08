@@ -39,7 +39,7 @@
     
     // Given
     group1 = [[ELFormItemGroup alloc] initWithText:@"No type selected" icon:nil errorLabel:nil];
-    group2 = [[ELFormItemGroup alloc] initWithText:@"Is this a question?" icon:nil errorLabel:nil];
+    group2 = [[ELFormItemGroup alloc] initWithText:@"Is this a question from iOS Unit test?" icon:nil errorLabel:nil];
     
     // When
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:@{@"type": group1,
@@ -57,7 +57,7 @@
     
     // Given
     group1 = [[ELFormItemGroup alloc] initWithText:@"Yes/No Scale" icon:nil errorLabel:nil];
-    group2 = [[ELFormItemGroup alloc] initWithText:@"Is this a question?" icon:nil errorLabel:nil];
+    group2 = [[ELFormItemGroup alloc] initWithText:@"Is this a question from iOS Unit test?" icon:nil errorLabel:nil];
     
     // When
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:@{@"type": group1,
