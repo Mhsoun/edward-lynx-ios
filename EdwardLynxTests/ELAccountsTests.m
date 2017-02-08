@@ -310,4 +310,38 @@
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
+- (void)testUserProfileInfoRetrieval {
+    XCTestExpectation *expectation;
+    
+    // Given
+    expectation = [self expectationWithDescription:@"Asynchronous API request"];
+    
+    // When
+    [self.client userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        // Then
+        XCTAssert(!error && !responseDict[@"error"]);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testUsersRetrieval {
+    XCTestExpectation *expectation;
+    
+    // Given
+    expectation = [self expectationWithDescription:@"Asynchronous API request"];
+    
+    // When
+    [self.client retrieveUsersWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        // Then
+        XCTAssert(!error && !responseDict[@"error"]);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
 @end

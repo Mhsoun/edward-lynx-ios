@@ -118,4 +118,22 @@
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
+- (void)testUserInstantFeedbacksRetrieval {
+    XCTestExpectation *expectation;
+    
+    // Given
+    expectation = [self expectationWithDescription:@"Asynchronous API request"];
+    
+    // When
+    [self.client currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                            completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        // Then
+        XCTAssert(!error && !responseDict[@"error"]);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
 @end

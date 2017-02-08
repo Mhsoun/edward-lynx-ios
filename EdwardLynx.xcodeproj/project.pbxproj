@@ -121,6 +121,7 @@
 		A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
+		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
 		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -397,6 +398,7 @@
 		A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
+		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +609,7 @@
 				A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */,
 				A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */,
 				A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */,
+				A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */,
 				A9308BF01DED74B6007B4F9F /* Info.plist */,
 			);
 			path = EdwardLynxTests;
@@ -1276,6 +1279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */,
 				A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */,
 				A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */,
 				A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */,
