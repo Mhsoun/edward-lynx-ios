@@ -119,6 +119,7 @@
 		A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */; };
 		A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */; };
 		A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */; };
+		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -393,6 +394,7 @@
 		A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTableViewCell.m; sourceTree = "<group>"; };
 		A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
 		A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
+		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +603,7 @@
 			isa = PBXGroup;
 			children = (
 				A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */,
+				A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */,
 				A9308BF01DED74B6007B4F9F /* Info.plist */,
 			);
 			path = EdwardLynxTests;
@@ -1271,6 +1274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */,
+				A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

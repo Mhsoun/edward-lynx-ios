@@ -69,10 +69,10 @@
 
 - (void)testLoginCredentialsFail {
     NSString *username, *password;
+    XCTestExpectation *expectation;
     
     // Given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Asynchronous API request"];
-    
+    expectation = [self expectationWithDescription:@"Asynchronous API request"];    
     username = @"test";
     password = @"test";
     
@@ -91,10 +91,10 @@
 
 - (void)testLoginCredentialsSuccess {
     NSString *username, *password;
+    XCTestExpectation *expectation;
     
     // Given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Asynchronous API request"];
-    
+    expectation = [self expectationWithDescription:@"Asynchronous API request"];
     username = @"admin@edwardlynx.com";
     password = @"password123";
     
@@ -111,7 +111,7 @@
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
-- (void)testChangePasswordValuesInvalid {
+- (void)testChangePasswordFormValuesInvalid {
     BOOL isValid;
     ELFormItemGroup *group1, *group2, *group3;
     
@@ -144,7 +144,7 @@
     XCTAssert(!isValid);
 }
 
-- (void)testChangePasswordValuesValid {
+- (void)testChangePasswordFormValuesValid {
     BOOL isValid;
     ELFormItemGroup *group1, *group2, *group3;
     
