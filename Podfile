@@ -16,7 +16,6 @@ abstract_target 'BasePods' do
     pod 'RNThemeManager', '~> 0.1'
     pod 'SASlideMenu', '~> 2.0'
     pod 'TNRadioButtonGroup', '~> 0.4'
-    pod 'Toast', '~> 3.1'
     pod 'UITextView+Placeholder', '~> 1.2'
 
     target 'EdwardLynx' do

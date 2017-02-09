@@ -322,15 +322,6 @@
 }
 
 + (void)setupGlobalUIChanges {
-    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
-    
-    // Toast
-    style.messageFont = [UIFont fontWithName:@"Lato-Regular" size:14.0f];
-    style.messageColor = [UIColor whiteColor];
-    
-    [CSToastManager setSharedStyle:style];
-    [CSToastManager setQueueEnabled:YES];
-    
     // Navigation Bar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
