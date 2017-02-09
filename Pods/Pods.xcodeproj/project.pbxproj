@@ -37,7 +37,7 @@
 		19E6319F6ECED7539AABBD9A211F7AEC /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DD1B96DA9CDB470E2E92A1DBA4D4AE0 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BAD14E84A2CC07C311149AD03C68047 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E6B5E63D98ED0D1713EEACB0393EBC /* Foundation.framework */; };
 		1CC0376DB89270D5041806053DEE22C1 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43F7E7F14240F8CF9008A484C168A6 /* JSONModelClassProperty.m */; };
-		1CC438E24588A956113F3C3277788EA6 /* Pods-BasePods-EdwardLynx-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1254D1A0BA2F36E63AF1E70AD2DB7B58 /* Pods-BasePods-EdwardLynx-dummy.m */; };
+		1CC438E24588A956113F3C3277788EA6 /* Pods-BasePods-EdwardLynx-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F10EE78BC3469C2AB77838440653DC /* Pods-BasePods-EdwardLynx-dummy.m */; };
 		1CD7E245A5840BF91C834E899B4A92BE /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = D173D194B0B584E4ADC38BCB19379C8D /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC0C9D9E282ECA279BF1879982F67C4 /* feedbackActivity@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B254889AA67CE5AE9BA9D79D005CBB8D /* feedbackActivity@2x~ipad.png */; };
 		1F39BE3130A532A072E5A25F278BC9EF /* FeedbackPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EC641D010034248F1929CE767A813E /* FeedbackPlaceholder.png */; };
@@ -126,6 +126,7 @@
 		72711DD579724A88CDD3892CDE0F1933 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1742815627142323047A6C0EDC027 /* GTMLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73D8FB8EF5C83F7F03FFE31B8973ADF8 /* iconCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEE9DCE63C03083A6FD59079D8C55B /* iconCamera@2x.png */; };
 		74188F525E675FE1F52BDF55E3D6EB89 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0600A2920B2DF9DBD636ADFFE07C4 /* IQUIScrollView+Additions.m */; };
+		743D10FE035F4937032A7FE2D99C783B /* Pods-BasePods-EdwardLynxTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C133535C294B4AC42C413B5076CB11B8 /* Pods-BasePods-EdwardLynxTests-dummy.m */; };
 		7560B8ECCA334403DB3831C8D91DB262 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B91B232B646B178998DF761D3FF756 /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		767A6D3CCC7B062FC1768365DDEDADE8 /* SASlideMenuRightMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F96DBE27FA5BFB8AEC67B8E8950D76E /* SASlideMenuRightMenuViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		767B42A0CBE714521951B3FCF0D1DA30 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 687972E6C9479851947BCE2A7C7E2A9E /* JSONModel+networking.m */; };
@@ -204,6 +205,7 @@
 		B9632DE214F80CDC48E8D722E59D105F /* SASlideMenuRightMenuSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 34982C3359EDC9CBC9ED4ACBF79DBDCD /* SASlideMenuRightMenuSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9B1FC27A45405D7C21FE884CBA47090 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = BCE1BD64168C841C5C8F0884F77187F1 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF0EF12BA2F22F9966FB2AE26412E94 /* authorize_denied@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57EA3981AE533DFC68750F87FDEAFB49 /* authorize_denied@3x.png */; };
+		BE2AC9CB5EE1C7C65A27C26E7288B8B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E6B5E63D98ED0D1713EEACB0393EBC /* Foundation.framework */; };
 		C066BD05C135A9A641B712D92E4AD146 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E689AA3A7F97445E6D2CDC181B5D47E0 /* JSONKeyMapper.m */; };
 		C09E91209572DF5661EA8CCB9557C364 /* REPresenceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AC9158816390F9B4BF27CAAE9D18CE /* REPresenceValidator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C0A8D6D9FA5306815383DA772C395437 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E6B5E63D98ED0D1713EEACB0393EBC /* Foundation.framework */; };
@@ -268,6 +270,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1166627B17943183049C2BAC8BB44854 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B800FD675250D5E175A9377B8456C387;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		12F7E560898540D6ED15638216A68558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A44E1ED8BA7E0CC0B214F47CA916CBB7;
+			remoteInfo = "UITextView+Placeholder";
+		};
+		201FDFBE2FB5946B112E7F49E1AB0259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F96CE35083B821360A29C729A9EED7E;
+			remoteInfo = SASlideMenu;
+		};
+		31478EB7F8C1CCA1BC025DB9022A17AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16B829456023DBFCA6A01B342F25C467;
+			remoteInfo = TNRadioButtonGroup;
+		};
+		3D1E84712798712D95F7D058379B3DFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0D0C9D20C43FA94D4C88FBFE2601B8E;
+			remoteInfo = IQKeyboardManager;
+		};
+		41EBF68E3AB6344205957E7EDABDFCAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E89EA0620E22EDB775A7C107518644DD;
+			remoteInfo = JSONModel;
+		};
+		43A72234EDB53AD46F2D1EC37F919A03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928353533005A4198EBDA5B700D37B64;
+			remoteInfo = AFNetworking;
+		};
+		50BD23A8321F13F2A93944550C198D97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E423C1A3B29A19F026B6E57969F1AE71;
+			remoteInfo = MTDates;
+		};
 		53EA1152C3AFD35C2A10BCA76E98A73F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -303,12 +361,26 @@
 			remoteGlobalIDString = A44E1ED8BA7E0CC0B214F47CA916CBB7;
 			remoteInfo = "UITextView+Placeholder";
 		};
+		8850B0C63BA19D0990DDD9228D0ABCA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F47E204843B206B22CBF7404AB229AF;
+			remoteInfo = "HockeySDK-HockeySDKResources";
+		};
 		8AAEE43E6353F68D1A35FEAF7C576F33 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B5B018326CBD7DB36910FBE492E6EAA6;
 			remoteInfo = REValidation;
+		};
+		8C1056C2E36F31E99C9FC1BDF49399F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 523D77D103A8AF100017E495A00201A3;
+			remoteInfo = CWPopup;
 		};
 		8C5CB1B383769898F2ADD45F3476481B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -324,12 +396,26 @@
 			remoteGlobalIDString = E423C1A3B29A19F026B6E57969F1AE71;
 			remoteInfo = MTDates;
 		};
+		988BAB865763DC88810747E7D32279E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFE22E835A9DB918A185F018F81DB162;
+			remoteInfo = RNThemeManager;
+		};
 		99BCD1E167AE790D77FD0E4C317495AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 16B829456023DBFCA6A01B342F25C467;
 			remoteInfo = TNRadioButtonGroup;
+		};
+		A1AB5C5DCB0E1BFB209D1CD67E58FE51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31B1A41C8DC1F544AF35A624264B17E5;
+			remoteInfo = DYSlideView;
 		};
 		A251D900331572C88BA1407C8905DBB0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -352,6 +438,13 @@
 			remoteGlobalIDString = 31B1A41C8DC1F544AF35A624264B17E5;
 			remoteInfo = DYSlideView;
 		};
+		BF38BB2C8088C687171C24BED5FC153A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 736E57AD5AEFAAF68D47AE4E8FCB8F68;
+			remoteInfo = DZNEmptyDataSet;
+		};
 		C62EFD2A965CF43FD2BDE52845A67292 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -359,12 +452,26 @@
 			remoteGlobalIDString = 6F47E204843B206B22CBF7404AB229AF;
 			remoteInfo = "HockeySDK-HockeySDKResources";
 		};
+		C6A0DC23B38C255F1FD3729E613D6AB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12CB1BFD828D7D7A70D0BBCAA2014BF4;
+			remoteInfo = Toast;
+		};
 		E7E7E1C9EC6833259EBEFC3554ACB144 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 523D77D103A8AF100017E495A00201A3;
 			remoteInfo = CWPopup;
+		};
+		F39D286FE51D4D80D553215B5619DF25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5B018326CBD7DB36910FBE492E6EAA6;
+			remoteInfo = REValidation;
 		};
 		FCEC90710B1906CB220EEA4C079E7D23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -380,27 +487,28 @@
 		02054FC0D3F516FA88C7BA4C2A10028B /* UITextView+Placeholder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+Placeholder.h"; path = "Sources/UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		0218E9DF3AB38F588CEA957AE95C55C8 /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
 		029BDCE4B48886E88C22FA9B3AAA5833 /* NSError+REValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+REValidation.h"; path = "REValidation/NSError+REValidation.h"; sourceTree = "<group>"; };
-		02C8FDB8FF7D62207885B8199BE7A4E2 /* Pods-BasePods-EdwardLynx-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynx-frameworks.sh"; sourceTree = "<group>"; };
 		04F2B28FB5053FDE0DA348F597E6909C /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
 		05EAE31CB7D1DCE5D40DA2690B6FEC24 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		090A656BDC906B4D1D5988458E9CAFA4 /* SASlideMenuDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuDataSource.h; path = SASlideMenu/SASlideMenu/SASlideMenuDataSource.h; sourceTree = "<group>"; };
 		0919ADFECA1DCDC0603FFDA2193BD064 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		0B36B894AF39FCF4C5CA1430EB5F6AAE /* IQKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardManager.m; path = IQKeyboardManager/IQKeyboardManager.m; sourceTree = "<group>"; };
 		0C7B6222AE7591CAD4093D60DB1E631C /* SASlideMenuNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuNavigationController.h; path = SASlideMenu/SASlideMenu/SASlideMenuNavigationController.h; sourceTree = "<group>"; };
+		0DD2E06269F308130172A181991293CA /* Pods-BasePods-EdwardLynxTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynxTests-frameworks.sh"; sourceTree = "<group>"; };
+		0DF94A39975E796BAD2EB66BBC4CB226 /* Pods-BasePods-EdwardLynx-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BasePods-EdwardLynx-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0DFEA92182EA939275EF464A25BE8521 /* Pods-BasePods-EdwardLynx-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynx-resources.sh"; sourceTree = "<group>"; };
 		0F96DBE27FA5BFB8AEC67B8E8950D76E /* SASlideMenuRightMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuRightMenuViewController.h; path = SASlideMenu/SASlideMenu/SASlideMenuRightMenuViewController.h; sourceTree = "<group>"; };
 		102145A1D07EC1C00D362924FBEFDB9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		10ABA502C05BA8AA8D4664D5D199F653 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/zh-Hans.lproj"; sourceTree = "<group>"; };
 		11B62F6DD908D2CD44AAA14034315FA2 /* Blur@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Blur@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Blur@3x.png"; sourceTree = "<group>"; };
 		1211BCB732CD4F970BC8BC173F41093C /* MTDates-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTDates-prefix.pch"; sourceTree = "<group>"; };
-		1254D1A0BA2F36E63AF1E70AD2DB7B58 /* Pods-BasePods-EdwardLynx-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BasePods-EdwardLynx-dummy.m"; sourceTree = "<group>"; };
 		13284D461FC99C22AF6DB48EE7966998 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		1357F1D5C8C02462D84CB0D5F78D04AF /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/es.lproj"; sourceTree = "<group>"; };
 		1379B456748D55F87E4E556A845214EB /* RNThemeManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNThemeManager-prefix.pch"; sourceTree = "<group>"; };
 		14151A01174BD7751D36FCD3958C47BB /* IQPreviousNextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPreviousNextView.m; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.m; sourceTree = "<group>"; };
 		14D747FFA5CE809B9FA1E02DB9CD5CE2 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		154790767780E0B935E304292CB4EA9D /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
-		15CDCA1C366BFA530773052DF42C3ADD /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1676B17F2AC6102326D7868AFA77FB83 /* RNThemeButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNThemeButton.h; path = Source/RNThemeButton.h; sourceTree = "<group>"; };
+		1867E8B7E39FB7793612AA9F563E9474 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19ED02DDED07723BF0F98BF8EFA20B03 /* buttonRoundedDeleteHighlighted.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedDeleteHighlighted.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png"; sourceTree = "<group>"; };
 		1B518F03A594BB19D0E380E19DB5AAC2 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		1BDD80D7678F3DA0C6527187A2A07FCB /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNRectangularRadioButtonData.h; path = src/TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
@@ -415,6 +523,8 @@
 		2067BE54D3AC0F45EEF7ED67C9208938 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		20FF2E08C44A54B92CC91809BB7F80B5 /* SASlideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SASlideMenu-prefix.pch"; sourceTree = "<group>"; };
 		21088648062551E549A7F61259EAB01E /* RNThemeTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNThemeTextField.h; path = Source/RNThemeTextField.h; sourceTree = "<group>"; };
+		221BA362CF1C9B1E5AE027C9BD52D448 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		235BB979E2B5C08CD5338CEFF0728E98 /* Pods-BasePods-EdwardLynxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynxTests.release.xcconfig"; sourceTree = "<group>"; };
 		2430FFB327E729C5BB8A11E8BF058D93 /* buttonRoundedDelete.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedDelete.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDelete.png"; sourceTree = "<group>"; };
 		2479CB63A1A72D8126E88E89CA8B6419 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
 		24BCE8D2FD6D5B31BEE52DBB63F5AE7C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
@@ -424,7 +534,6 @@
 		297CEA35D569A7DE7FF44FEB3C6CDF28 /* RNThemeLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNThemeLabel.h; path = Source/RNThemeLabel.h; sourceTree = "<group>"; };
 		2AAE079BC659FB4C067DF8B04382A5D6 /* Cancel@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Cancel@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel@3x.png"; sourceTree = "<group>"; };
 		2B76CB60B95DBF65876B463812955483 /* TNCircularRadioButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNCircularRadioButton.m; path = src/TNCircularRadioButton.m; sourceTree = "<group>"; };
-		2B9FD0E8984B90FF7A76ECE9C34FCB2D /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB1742815627142323047A6C0EDC027 /* GTMLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMLogger.m; path = Foundation/GTMLogger.m; sourceTree = "<group>"; };
 		2C301B17BA3C0B85EF9DFDC44D26358C /* TNRadioButtonGroupProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNRadioButtonGroupProtocol.h; path = src/TNRadioButtonGroupProtocol.h; sourceTree = "<group>"; };
 		2DFA8FF841AC7EE785AEFACB378BA373 /* TNCircularRadioButtonData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNCircularRadioButtonData.m; path = src/TNCircularRadioButtonData.m; sourceTree = "<group>"; };
@@ -438,11 +547,14 @@
 		34E3E42D05F3988F13611829F2AA26CD /* TNRadioButtonGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNRadioButtonGroup.m; path = src/TNRadioButtonGroup.m; sourceTree = "<group>"; };
 		35133A6B2B06CD223CA8FAC16935875B /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		353E09306D1FE33453D6CFB9E2ED79AE /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		35BE3B4DFEF3AE49D1A47F2994698D10 /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B520439CAE484527AE93FD124018F /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		3699EDCD012A5D5F8A778E0962B1DC8F /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
+		37054BEE2032CB062376D1E8F359CE7F /* libCWPopup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCWPopup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ACF51DCB394866CBA89A8F99683596 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		37C14A7747CB58C818A9C6FB206DBC05 /* RNThemeTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNThemeTextView.m; path = Source/RNThemeTextView.m; sourceTree = "<group>"; };
 		381B43331A1B731C0D3553985428CF40 /* REURLValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = REURLValidator.h; path = REValidation/Validators/REURLValidator.h; sourceTree = "<group>"; };
+		386F2987E100F366E99B373EA006D127 /* libUITextView+Placeholder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUITextView+Placeholder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E4A4F85F2B15A558747612F80459C9 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQNSArray+Sort.m"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		392AA48E8149DF3C074DC008AB5E3D69 /* ResourceBundle-HockeySDKResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HockeySDKResources-Info.plist"; sourceTree = "<group>"; };
 		3936144CB0FE1FBC3ED764674B1CB987 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
@@ -467,25 +579,26 @@
 		4B7185371748EF9C67283E93784B981C /* JSONModel+networking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JSONModel+networking.h"; path = "JSONModel/JSONModelNetworking/JSONModel+networking.h"; sourceTree = "<group>"; };
 		4B72C916147252597A677F43B192E279 /* RNThemeUpdateProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNThemeUpdateProtocol.h; path = Source/RNThemeUpdateProtocol.h; sourceTree = "<group>"; };
 		4E5E3B572A016838067FD1AEAFE028F8 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		4EC9CB6C8ECD0E6C6F4DECEB44B01F75 /* Pods-BasePods-EdwardLynx-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BasePods-EdwardLynx-acknowledgements.plist"; sourceTree = "<group>"; };
 		4EFBBB1AA7A470C39A6D104CB5B74F4D /* DYSlideView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DYSlideView-prefix.pch"; sourceTree = "<group>"; };
 		4F8E4900D3476868889FAD560ABDF570 /* feedbackActivity@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "feedbackActivity@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/feedbackActivity@3x.png"; sourceTree = "<group>"; };
 		502812BCFCB9FA1BD58F5A08AFCCE73F /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		50969DC976F8BE13A278BD453980C42A /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		5254B9E2C2A68A48E28B561CE08864F0 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUITextFieldView+Additions.h"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		528BE7AFDE08EF4DA97033808BC6F795 /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE2F16079590468294AF7E259FE443 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
-		540D820F15E9B10A3E069E19351B5D90 /* libREValidation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libREValidation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B77977270ECF029970EE785990FD44 /* REEmailValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = REEmailValidator.m; path = REValidation/Validators/REEmailValidator.m; sourceTree = "<group>"; };
 		55CEF8AE8613FA70834C5D445B6A6E3F /* buttonRoundedDeleteHighlighted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "buttonRoundedDeleteHighlighted@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png"; sourceTree = "<group>"; };
+		55FA7EFE9A867EF866809951A67F031B /* libPods-BasePods-EdwardLynxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		561B6B50051442F196331C315ABEB6AF /* Blur@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Blur@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Blur@2x.png"; sourceTree = "<group>"; };
 		574202EB28B091944DCD41568521EA58 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		57E255EDB9253BBFA24C288C52ABF902 /* Pods-BasePods-EdwardLynx-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BasePods-EdwardLynx-acknowledgements.plist"; sourceTree = "<group>"; };
 		57EA3981AE533DFC68750F87FDEAFB49 /* authorize_denied@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "authorize_denied@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/authorize_denied@3x.png"; sourceTree = "<group>"; };
 		581DBC4F5D328A5F4FCF84E9135DC536 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
-		584BB6E5111CA1C59165E0745DE1D9BC /* libCWPopup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCWPopup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB4C33630B806EA633276AAD2B2205 /* CWPopup.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CWPopup.xcconfig; sourceTree = "<group>"; };
 		59F03974B7B13C0936446E306CB75EB9 /* IQKeyboardManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManager.xcconfig; sourceTree = "<group>"; };
 		5A46BEDDF49D6457AF06192435FA801F /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
 		5A63221942AB41AF54B3CFD097A7029C /* SASlideMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuViewController.h; path = SASlideMenu/SASlideMenu/SASlideMenuViewController.h; sourceTree = "<group>"; };
+		5B1FC9BF80F142B1EAB2EA6DD8C37E9F /* libDYSlideView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDYSlideView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E67B474CD00B8044DF838FFD7BB3540 /* TNRadioButtonGroup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TNRadioButtonGroup-dummy.m"; sourceTree = "<group>"; };
 		5E866D788CC7DD8A9FAF9E3918B3B624 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		5F3CB83903689FA5A3D6CBDF255131C3 /* SASlideMenuRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SASlideMenuRootViewController.m; path = SASlideMenu/SASlideMenu/SASlideMenuRootViewController.m; sourceTree = "<group>"; };
@@ -494,7 +607,6 @@
 		61843A8E182D1C8CAFEE2377BEEDCA7A /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
 		61F98820FA2B26EC34D5D6B504E55EC9 /* SASlideMenuLeftMenuSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuLeftMenuSegue.h; path = SASlideMenu/SASlideMenu/SASlideMenuLeftMenuSegue.h; sourceTree = "<group>"; };
 		63FA1B0BBA3A13025C66A9A3AE246FB8 /* buttonRoundedRegular.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedRegular.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedRegular.png"; sourceTree = "<group>"; };
-		64C070673C5E6F5EE4DA03CAEE211A62 /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
 		65DC88B6D3002AFB0A8DC121BD8AC8D7 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
 		66415F5CD7AAE1C4660DCC810687747D /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
 		66FD0B17112415998639AC4902065F62 /* REValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = REValidator.m; path = REValidation/REValidator.m; sourceTree = "<group>"; };
@@ -507,8 +619,9 @@
 		6984F2009F255DCDD93D57A03D8D6929 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
 		69D1CB26C80D154DA415698F24917A49 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		6A26F09066BFC3D216EA32B146F50ECF /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		6AE8487FED0542F32F22758409650E3B /* Pods-BasePods-EdwardLynx-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynx-resources.sh"; sourceTree = "<group>"; };
 		6B1B9A04D98C9D48D1FA5798A477DEE9 /* RELengthValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RELengthValidator.h; path = REValidation/Validators/RELengthValidator.h; sourceTree = "<group>"; };
+		6B54F71823294620F90EF179B7E393C6 /* Pods-BasePods-EdwardLynx-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynx-frameworks.sh"; sourceTree = "<group>"; };
+		6CE7F36F46BD563AD46E70FD00DAEF06 /* libRNThemeManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNThemeManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0F60BA03246368C0F57D499DB86930 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
 		6DD1B96DA9CDB470E2E92A1DBA4D4AE0 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		6DF7DEAD2780A60A94F117E2EA80436B /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
@@ -518,6 +631,7 @@
 		70A19BB7E141DB26B10BF9A274F9B0BF /* Ok.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Ok.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Ok.png"; sourceTree = "<group>"; };
 		70E6B5E63D98ED0D1713EEACB0393EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		70EC24876E09CC338C0F044C162FB5B3 /* JSONModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONModel-prefix.pch"; sourceTree = "<group>"; };
+		71523EBFD7AC9B6A1595D678FAD3A532 /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		718E1AAD0F40D4166307D49BE9830BEC /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
 		726878489A82AF80E57B3C893BDFCA43 /* SASlideMenuPushSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SASlideMenuPushSegue.m; path = SASlideMenu/SASlideMenu/SASlideMenuPushSegue.m; sourceTree = "<group>"; };
 		7325D4763E379BF49CD8AC23E887E251 /* REValidation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = REValidation.m; path = REValidation/REValidation.m; sourceTree = "<group>"; };
@@ -527,16 +641,18 @@
 		76282E84FB313BBCA9E87BE943247055 /* NSDate+MTDates.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+MTDates.h"; path = "MTDates/NSDate+MTDates.h"; sourceTree = "<group>"; };
 		769B88E4E8E777B4CD5DFE69A6FD8922 /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
 		789DF4FFC8B362544E6D778D06D3C10B /* DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
-		7A710ABC1FE0C4B4958B971EA0914419 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeySDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B40D4C823B7BB97BEB0913BDB0855FF /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		7BA9A8B5B4FE3448D5072369AB0A4513 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		7BAB4D2DC2B0BE8CD24DC9C8BF83A49D /* libSASlideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSASlideMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C78FC9BA9C310808C8C357DF43B3778 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
 		7C97D2FFDAFFED2D9FBFE72A402C13E3 /* REValidation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = REValidation.xcconfig; sourceTree = "<group>"; };
+		7DA4B3A1FB4F7C8BE06EE2D7A7583D29 /* Pods-BasePods-EdwardLynxTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BasePods-EdwardLynxTests-resources.sh"; sourceTree = "<group>"; };
 		7E054544B38872C64352E3BDDBC739E0 /* TNRadioButtonGroup.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TNRadioButtonGroup.xcconfig; sourceTree = "<group>"; };
 		7E0D043443D9CCCD4D5C6100DB13CE82 /* TNImageRadioButtonData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNImageRadioButtonData.h; path = src/TNImageRadioButtonData.h; sourceTree = "<group>"; };
 		7E47C57451F1A198ECA2BCB50B3E0283 /* AppIconPlaceHolder.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = AppIconPlaceHolder.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/AppIconPlaceHolder.png"; sourceTree = "<group>"; };
 		7F51AD9DB0FF6570205C1AFD931D793F /* Ok@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Ok@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Ok@3x.png"; sourceTree = "<group>"; };
 		82B91B232B646B178998DF761D3FF756 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		83D3582CFFCC52C86948B4A67AA05EC2 /* libREValidation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libREValidation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		855CB6F04A1E3D6206CA4A314E7B677C /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		85AC9158816390F9B4BF27CAAE9D18CE /* REPresenceValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = REPresenceValidator.m; path = REValidation/Validators/REPresenceValidator.m; sourceTree = "<group>"; };
 		86C4320E7F4703F9BF25DCF694D736BB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
@@ -545,8 +661,8 @@
 		88A8EF1568DB76A738D2C4DD7B3D2F7C /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+IQKeyboardToolbar.m"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		89E1A0D86B757A1CEC36306FC9AE1A18 /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
 		8BC60BAF06FAC926E9D4978CDBF00501 /* buttonRoundedRegularHighlighted.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedRegularHighlighted.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png"; sourceTree = "<group>"; };
-		8CA249ECDAE0E0936418F918750F0E83 /* libMTDates.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMTDates.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA46256FB93550C1897D591C88F46A5 /* UITextView+Placeholder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder-prefix.pch"; sourceTree = "<group>"; };
+		8EBED9787B705058738408E2B846D988 /* libTNRadioButtonGroup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTNRadioButtonGroup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		907653592305052606F1A91280472165 /* authorize_denied@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "authorize_denied@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/authorize_denied@2x.png"; sourceTree = "<group>"; };
 		90C498CAD0B30C72F97F4B79E43C6937 /* GTMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMLogger.h; path = Foundation/GTMLogger.h; sourceTree = "<group>"; };
 		91791BD69D541D1ECAD3602C2463D437 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
@@ -554,9 +670,7 @@
 		938ACF313553273C74A0C1F865E9CE45 /* IQBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.h; sourceTree = "<group>"; };
 		9392E3F04FDD5FAACFC6F0B8721FAA2A /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTitleBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94046068BB1DDB4BB37F35B3E72AB26C /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BE533D217CE1CD14081F91912691FF /* REValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = REValidation.h; path = REValidation/REValidation.h; sourceTree = "<group>"; };
-		94ED086E9705FD835E17CEB53915CFC8 /* libDYSlideView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDYSlideView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		98158E021DAF014417C277B2D62C41E3 /* IQBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.m; sourceTree = "<group>"; };
 		98676A76A5ED3814EDD96D91DC3895C7 /* JSONValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = JSONModel/JSONModelTransformations/JSONValueTransformer.h; sourceTree = "<group>"; };
 		98ED315BAC12F25ED1EEEBDCDA16E7B3 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
@@ -577,6 +691,7 @@
 		A493422F85A9EC69B0FBBF80F2EFA239 /* DYSlideView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DYSlideView-dummy.m"; sourceTree = "<group>"; };
 		A5B55E6319A4AA85C446875AF47714D8 /* SASlideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SASlideMenu.xcconfig; sourceTree = "<group>"; };
 		A6286FB6F33032E4760A6B758E925DCA /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		A64DDEFD67A16ABA5D6AA842B5A1BC9F /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
 		A6D32A0AA7D667D757B0E4F64DD07578 /* DYSlideView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DYSlideView.h; path = Class/DYSlideView.h; sourceTree = "<group>"; };
 		A6F2C73A6C8445063CFEF8EB0ECFB299 /* TNRectangularRadioButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNRectangularRadioButton.h; path = src/TNRectangularRadioButton.h; sourceTree = "<group>"; };
 		A74C9CC4E016145DAB866D6F7195973D /* SASlideMenuLeftMenuSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SASlideMenuLeftMenuSegue.m; path = SASlideMenu/SASlideMenu/SASlideMenuLeftMenuSegue.m; sourceTree = "<group>"; };
@@ -595,6 +710,7 @@
 		B4013F0787AC9B6ED2B4FCD4DB43B60D /* REValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = REValidator.h; path = REValidation/REValidator.h; sourceTree = "<group>"; };
 		B56678D67344EF3FAF9A397A15BCCD29 /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNRectangularRadioButton.m; path = src/TNRectangularRadioButton.m; sourceTree = "<group>"; };
 		B5F8B0528CD6DA19BDF5D93DA94F68D9 /* NSDate+MTDates.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MTDates.m"; path = "MTDates/NSDate+MTDates.m"; sourceTree = "<group>"; };
+		B7D89A341E17A9F9E2FBE9AC8E0922BB /* Pods-BasePods-EdwardLynxTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BasePods-EdwardLynxTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA20ED98CE908DD3566961C381FE4FA1 /* REPresenceValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = REPresenceValidator.h; path = REValidation/Validators/REPresenceValidator.h; sourceTree = "<group>"; };
 		BAE643AA21839A3FF8A85434587F3C7E /* TNRadioButtonData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNRadioButtonData.m; path = src/TNRadioButtonData.m; sourceTree = "<group>"; };
 		BBAA12342F0C0153F9D57E99742A9ACF /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/de.lproj"; sourceTree = "<group>"; };
@@ -602,12 +718,11 @@
 		BCE1BD64168C841C5C8F0884F77187F1 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
 		BD2700F8F25DD32EC343864876F3FA92 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		BDE496726B04753564CA8B6268DF9BEE /* TNCircularRadioButtonData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNCircularRadioButtonData.h; path = src/TNCircularRadioButtonData.h; sourceTree = "<group>"; };
-		BE3A15F215B222CB4B59312064E23650 /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6BB94E5F33E709023DBE72C849D189 /* buttonRoundedRegularHighlighted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "buttonRoundedRegularHighlighted@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png"; sourceTree = "<group>"; };
 		BF9970864E6C228469F2249123E84E30 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		BFF93A1F519934B6A89D0ACB45AB9495 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/hr.lproj"; sourceTree = "<group>"; };
 		C07EFA22555DC945A9080FE5495996D8 /* FIRMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRMessaging.h; path = Sources/FIRMessaging.h; sourceTree = "<group>"; };
-		C0A580619C980A167F8A0A14B02C316E /* libRNThemeManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNThemeManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C133535C294B4AC42C413B5076CB11B8 /* Pods-BasePods-EdwardLynxTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BasePods-EdwardLynxTests-dummy.m"; sourceTree = "<group>"; };
 		C181962DBED2A55A7C1911127DA9D733 /* TNRadioButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNRadioButton.m; path = src/TNRadioButton.m; sourceTree = "<group>"; };
 		C18AE8156A3A0FAB52D8443D3D06060E /* SASlideMenuDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuDelegate.h; path = SASlideMenu/SASlideMenu/SASlideMenuDelegate.h; sourceTree = "<group>"; };
 		C361C6EF626BE99BB7A6C7C53ACE4B3A /* JSONModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSONModel.xcconfig; sourceTree = "<group>"; };
@@ -622,12 +737,11 @@
 		C6BA4AB733763A4C2883BEE459E534BE /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		C84574A132FEF06FB0B48002E4F4BE7E /* SASlideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SASlideMenu-dummy.m"; sourceTree = "<group>"; };
 		C994632C2A0797269B88BBF5F50243F8 /* JSONModelError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = JSONModel/JSONModel/JSONModelError.m; sourceTree = "<group>"; };
-		CA0EACD378F10A5924AE2D88FFA31E39 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA961B0D0B897041926DA21426F444C7 /* IQKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManager.h; path = IQKeyboardManager/IQKeyboardManager.h; sourceTree = "<group>"; };
+		CCE6EE20122BAA29A6610EB8B19E39D6 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB62D939A3AB10ED51EE35A6E8BF03E /* DYSlideView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DYSlideView.m; path = Class/DYSlideView.m; sourceTree = "<group>"; };
 		CDF35766A622B15B3F9220228CC828C4 /* IconGradient.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = IconGradient.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/IconGradient.png"; sourceTree = "<group>"; };
 		CE43F7E7F14240F8CF9008A484C168A6 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
-		CE46B396B524A1DB6408108B6C54B79F /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8D060786BACE4702E8B2EEE3D1EA9F /* JSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
 		D034D86BF5727A73064637699DE08729 /* Cancel.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Cancel.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel.png"; sourceTree = "<group>"; };
 		D0778D0B3374525E2301773A4F5E1276 /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "pt-PT.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/pt-PT.lproj"; sourceTree = "<group>"; };
@@ -635,12 +749,15 @@
 		D40B958E741C4869495D43A6F8BDFC68 /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
 		D4125B8D4B98BF2765DE66CC59672597 /* TNRadioButtonData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNRadioButtonData.h; path = src/TNRadioButtonData.h; sourceTree = "<group>"; };
 		D48E7D170720C967933FAE9DAFF3A46B /* SASlideMenuPushSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SASlideMenuPushSegue.h; path = SASlideMenu/SASlideMenu/SASlideMenuPushSegue.h; sourceTree = "<group>"; };
+		D52C621D86BCDD4B7A7BD5C1BFEA2989 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		D5A0C938CA890830EC2C9F97380EE97D /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstantsInternal.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		D60F5CF674A4EFBE2E82F4CD78CBD0A5 /* libMTDates.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMTDates.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D632F7EE0BC1CB03105F3925AA65ED0F /* iconCamera.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = iconCamera.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/iconCamera.png"; sourceTree = "<group>"; };
 		D638826C4D37A754967620418E09D7BB /* IQTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTextView.m; path = IQKeyboardManager/IQTextView/IQTextView.m; sourceTree = "<group>"; };
 		D6C09692EDD0C2DC594D1AA2B21DAF50 /* feedbackActivity@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "feedbackActivity@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/feedbackActivity@2x.png"; sourceTree = "<group>"; };
 		D6E80CD5B66E264BB0B319E12D829659 /* CWPopup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CWPopup-dummy.m"; sourceTree = "<group>"; };
 		D7A830DD70C967415CF3CB7BFB62E13E /* TNCircularRadioButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNCircularRadioButton.h; path = src/TNCircularRadioButton.h; sourceTree = "<group>"; };
+		D922B0E5876F9A808681B2E3247539E4 /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DCB6F8EA4DAE6B14D351AB846CA265 /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIViewController+Additions.m"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.m"; sourceTree = "<group>"; };
 		DCE3EF6E895F70EEE86BA76F952BF9C3 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
 		DD6A7A6D62BDEA5F10DB0006C1C705FA /* SASlideMenuRightMenuSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SASlideMenuRightMenuSegue.m; path = SASlideMenu/SASlideMenu/SASlideMenuRightMenuSegue.m; sourceTree = "<group>"; };
@@ -650,14 +767,15 @@
 		DF837B1187323262463A4D107873F815 /* JSONHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = JSONModel/JSONModelNetworking/JSONHTTPClient.h; sourceTree = "<group>"; };
 		DFC7C049EA0BD580481746AE3A1AF30D /* SASlideMenuNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SASlideMenuNavigationController.m; path = SASlideMenu/SASlideMenu/SASlideMenuNavigationController.m; sourceTree = "<group>"; };
 		DFE929CC8E23E30B0433658B3C24678C /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIViewController+Additions.h"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		E149CE9DFD736D66446CCA8A5983C3A5 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeySDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20E75413AA0BE0862A5E0D7C7E3ECF4 /* UIColor+HexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+HexString.h"; path = "Source/UIColor+HexString.h"; sourceTree = "<group>"; };
 		E244A388E908266A14C8E54CA1C97F96 /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
 		E33BBA3624C32AA12C49C6C02D4C1A6D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		E34A3FE720C479D3BB42ABB2E18B8631 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		E354A962ACEF900A5A67DE3E85211B5E /* Pods-BasePods-EdwardLynxTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BasePods-EdwardLynxTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E3F23CCD04275E3397F00A5A1070AFD5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		E4C46E6C2670112CF22004DD8F8DB572 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/fr.lproj"; sourceTree = "<group>"; };
 		E4FD442A419C00DEC0A4D0B66C983A91 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
-		E516B603B924839FFF8A7DAEA065B47C /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51B618CD4EA5D3FC1262F29774604EA /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
 		E5D08D5B8379DC75FACEF49AE6F57920 /* JSONAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPI.m; path = JSONModel/JSONModelNetworking/JSONAPI.m; sourceTree = "<group>"; };
 		E689AA3A7F97445E6D2CDC181B5D47E0 /* JSONKeyMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = JSONModel/JSONModelTransformations/JSONKeyMapper.m; sourceTree = "<group>"; };
@@ -667,27 +785,24 @@
 		E83EB6288237255E755C54CD541A44BD /* TNRadioButtonGroup-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TNRadioButtonGroup-prefix.pch"; sourceTree = "<group>"; };
 		E932EB5EE1B111D9CC10239DF8AAAF79 /* DYSlideView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DYSlideView.xcconfig; sourceTree = "<group>"; };
 		EA25A5EC9987CD6C0AE08257C6FCB3C7 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/it.lproj"; sourceTree = "<group>"; };
-		EB096E1B31C7400294639231D7486B2E /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		EB2BEF01285986F8D8213D973E53DB85 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		EBB74DBEBD4C0AC0447707BB557BAE3B /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework"; sourceTree = "<group>"; };
-		ED3B2D2C9BF0D5FC008EF6A3D9194F9A /* Pods-BasePods-EdwardLynx-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BasePods-EdwardLynx-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ED73E65DF5E2EEC95F26B5324022E0FA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		ED808B1B6DB35E8AEEDA93A0C56036A9 /* Arrow.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Arrow.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Arrow.png"; sourceTree = "<group>"; };
 		EDBC51798BC4EEAC7B9AC3277E06062A /* JSONHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = JSONModel/JSONModelNetworking/JSONHTTPClient.m; sourceTree = "<group>"; };
 		EDEE002DC2795B655FEEB1F2506B564D /* Blur.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Blur.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Blur.png"; sourceTree = "<group>"; };
 		EE03498F20F998EB3D9E0D8F79DC98E2 /* IconGradient@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "IconGradient@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/IconGradient@2x.png"; sourceTree = "<group>"; };
 		EE3678501496B5E4BF31123656A8BA99 /* TNImageRadioButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TNImageRadioButton.m; path = src/TNImageRadioButton.m; sourceTree = "<group>"; };
-		EE3ED82E821EB7B5261E35BD3FE77AE4 /* libUITextView+Placeholder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUITextView+Placeholder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED67DABBA3AA23FE4FBD1358DDA7B46 /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstants.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
 		EF192A12BD64AE251A271437E5A14FEF /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		EFC1C5E972387D8CF4361DEAA139C4C4 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelClassProperty.h; path = JSONModel/JSONModel/JSONModelClassProperty.h; sourceTree = "<group>"; };
-		F0AAAB822E4608D2FA7055F288649C40 /* libTNRadioButtonGroup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTNRadioButtonGroup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D6B2866688F0EF2E31E538FB395CA7 /* Cancel@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Cancel@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel@2x.png"; sourceTree = "<group>"; };
 		F1DEEAFAD0850D58EE9B331591138E6A /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/ja.lproj"; sourceTree = "<group>"; };
 		F2139352DE1CC1A72F759188B06A9DBE /* feedbackActivity~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "feedbackActivity~ipad.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/feedbackActivity~ipad.png"; sourceTree = "<group>"; };
-		F36CD50BB725918BCEFCEC75BFA7620A /* libSASlideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSASlideMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F766A43AE2AAFD864779D78DDF67C7C3 /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIWindow+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		F76C9FE39395F832991A74B42FCF38E0 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85964B22625A7DE3724CC58B128A2CA /* IQToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQToolbar.m; path = IQKeyboardManager/IQToolbar/IQToolbar.m; sourceTree = "<group>"; };
+		F8F10EE78BC3469C2AB77838440653DC /* Pods-BasePods-EdwardLynx-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BasePods-EdwardLynx-dummy.m"; sourceTree = "<group>"; };
 		FAA88ED8C9E6013A8304BD1517671B12 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		FD8CD42E1FDAEBBDA76CDEADAFA49B3B /* buttonRoundedDelete@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "buttonRoundedDelete@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDelete@2x.png"; sourceTree = "<group>"; };
 		FE3525BC00EEF83F06D0F5513D67FC10 /* TNRadioButtonGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TNRadioButtonGroup.h; path = src/TNRadioButtonGroup.h; sourceTree = "<group>"; };
@@ -708,6 +823,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E1666E9286EC744443DCDA467AF7A3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		154F38A86CEA184E3C938B25A391C64B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2AC9CB5EE1C7C65A27C26E7288B8B6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,21 +973,6 @@
 			path = FirebaseMessaging;
 			sourceTree = "<group>";
 		};
-		1860E021B8BDAB939BFC2BF98AD89C6A /* Pods-BasePods-EdwardLynx */ = {
-			isa = PBXGroup;
-			children = (
-				ED3B2D2C9BF0D5FC008EF6A3D9194F9A /* Pods-BasePods-EdwardLynx-acknowledgements.markdown */,
-				4EC9CB6C8ECD0E6C6F4DECEB44B01F75 /* Pods-BasePods-EdwardLynx-acknowledgements.plist */,
-				1254D1A0BA2F36E63AF1E70AD2DB7B58 /* Pods-BasePods-EdwardLynx-dummy.m */,
-				02C8FDB8FF7D62207885B8199BE7A4E2 /* Pods-BasePods-EdwardLynx-frameworks.sh */,
-				6AE8487FED0542F32F22758409650E3B /* Pods-BasePods-EdwardLynx-resources.sh */,
-				64C070673C5E6F5EE4DA03CAEE211A62 /* Pods-BasePods-EdwardLynx.debug.xcconfig */,
-				EB096E1B31C7400294639231D7486B2E /* Pods-BasePods-EdwardLynx.release.xcconfig */,
-			);
-			name = "Pods-BasePods-EdwardLynx";
-			path = "Target Support Files/Pods-BasePods-EdwardLynx";
-			sourceTree = "<group>";
-		};
 		1FF68A467EA3D090F120EFB5D5198275 /* DefaultLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,14 +1002,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AFNetworking";
-			sourceTree = "<group>";
-		};
-		38078BEFE8C0860D765C765E3B411C16 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1860E021B8BDAB939BFC2BF98AD89C6A /* Pods-BasePods-EdwardLynx */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		39CDE719B4A4E97066886C01BF40F8EB /* Pods */ = {
@@ -1303,6 +1403,15 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
+		790CDE293B977EAF0D3E5F66091FC462 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDD8BC31F076FADABF0B80187DF7DF4F /* Pods-BasePods-EdwardLynx */,
+				CB8B12136B86199C2D1DBC0038003A1A /* Pods-BasePods-EdwardLynxTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		7C5D3DB394E0BDF2FE04D420CE0170F3 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1323,8 +1432,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				F4CDA5FA9197A41E0081E84F932906EB /* Frameworks */,
 				39CDE719B4A4E97066886C01BF40F8EB /* Pods */,
-				A313C7E6530A8C1F5FAA99E7F1F98250 /* Products */,
-				38078BEFE8C0860D765C765E3B411C16 /* Targets Support Files */,
+				CE0155E5636FCEAF44968B5D08774E59 /* Products */,
+				790CDE293B977EAF0D3E5F66091FC462 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1428,29 +1537,6 @@
 			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
-		A313C7E6530A8C1F5FAA99E7F1F98250 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7A710ABC1FE0C4B4958B971EA0914419 /* HockeySDKResources.bundle */,
-				E516B603B924839FFF8A7DAEA065B47C /* libAFNetworking.a */,
-				584BB6E5111CA1C59165E0745DE1D9BC /* libCWPopup.a */,
-				94ED086E9705FD835E17CEB53915CFC8 /* libDYSlideView.a */,
-				94046068BB1DDB4BB37F35B3E72AB26C /* libDZNEmptyDataSet.a */,
-				CA0EACD378F10A5924AE2D88FFA31E39 /* libGoogleToolboxForMac.a */,
-				2B9FD0E8984B90FF7A76ECE9C34FCB2D /* libIQKeyboardManager.a */,
-				15CDCA1C366BFA530773052DF42C3ADD /* libJSONModel.a */,
-				8CA249ECDAE0E0936418F918750F0E83 /* libMTDates.a */,
-				CE46B396B524A1DB6408108B6C54B79F /* libPods-BasePods-EdwardLynx.a */,
-				540D820F15E9B10A3E069E19351B5D90 /* libREValidation.a */,
-				C0A580619C980A167F8A0A14B02C316E /* libRNThemeManager.a */,
-				F36CD50BB725918BCEFCEC75BFA7620A /* libSASlideMenu.a */,
-				F0AAAB822E4608D2FA7055F288649C40 /* libTNRadioButtonGroup.a */,
-				BE3A15F215B222CB4B59312064E23650 /* libToast.a */,
-				EE3ED82E821EB7B5261E35BD3FE77AE4 /* libUITextView+Placeholder.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A959A7BCCAC91D3C037A9D1155E26FE2 /* MTDates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,6 +1583,45 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/HockeySDK";
+			sourceTree = "<group>";
+		};
+		CB8B12136B86199C2D1DBC0038003A1A /* Pods-BasePods-EdwardLynxTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7D89A341E17A9F9E2FBE9AC8E0922BB /* Pods-BasePods-EdwardLynxTests-acknowledgements.markdown */,
+				E354A962ACEF900A5A67DE3E85211B5E /* Pods-BasePods-EdwardLynxTests-acknowledgements.plist */,
+				C133535C294B4AC42C413B5076CB11B8 /* Pods-BasePods-EdwardLynxTests-dummy.m */,
+				0DD2E06269F308130172A181991293CA /* Pods-BasePods-EdwardLynxTests-frameworks.sh */,
+				7DA4B3A1FB4F7C8BE06EE2D7A7583D29 /* Pods-BasePods-EdwardLynxTests-resources.sh */,
+				CCE6EE20122BAA29A6610EB8B19E39D6 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */,
+				235BB979E2B5C08CD5338CEFF0728E98 /* Pods-BasePods-EdwardLynxTests.release.xcconfig */,
+			);
+			name = "Pods-BasePods-EdwardLynxTests";
+			path = "Target Support Files/Pods-BasePods-EdwardLynxTests";
+			sourceTree = "<group>";
+		};
+		CE0155E5636FCEAF44968B5D08774E59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E149CE9DFD736D66446CCA8A5983C3A5 /* HockeySDKResources.bundle */,
+				F76C9FE39395F832991A74B42FCF38E0 /* libAFNetworking.a */,
+				37054BEE2032CB062376D1E8F359CE7F /* libCWPopup.a */,
+				5B1FC9BF80F142B1EAB2EA6DD8C37E9F /* libDYSlideView.a */,
+				35BE3B4DFEF3AE49D1A47F2994698D10 /* libDZNEmptyDataSet.a */,
+				221BA362CF1C9B1E5AE027C9BD52D448 /* libGoogleToolboxForMac.a */,
+				1867E8B7E39FB7793612AA9F563E9474 /* libIQKeyboardManager.a */,
+				528BE7AFDE08EF4DA97033808BC6F795 /* libJSONModel.a */,
+				D60F5CF674A4EFBE2E82F4CD78CBD0A5 /* libMTDates.a */,
+				D922B0E5876F9A808681B2E3247539E4 /* libPods-BasePods-EdwardLynx.a */,
+				55FA7EFE9A867EF866809951A67F031B /* libPods-BasePods-EdwardLynxTests.a */,
+				83D3582CFFCC52C86948B4A67AA05EC2 /* libREValidation.a */,
+				6CE7F36F46BD563AD46E70FD00DAEF06 /* libRNThemeManager.a */,
+				7BAB4D2DC2B0BE8CD24DC9C8BF83A49D /* libSASlideMenu.a */,
+				8EBED9787B705058738408E2B846D988 /* libTNRadioButtonGroup.a */,
+				71523EBFD7AC9B6A1595D678FAD3A532 /* libToast.a */,
+				386F2987E100F366E99B373EA006D127 /* libUITextView+Placeholder.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D28BD5560FBE4E749A1E676D57AD45AC /* Toast */ = {
@@ -1598,6 +1723,21 @@
 				4A20881E6EA003329A2E2C6C0C9B64AC /* Crashlytics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDD8BC31F076FADABF0B80187DF7DF4F /* Pods-BasePods-EdwardLynx */ = {
+			isa = PBXGroup;
+			children = (
+				0DF94A39975E796BAD2EB66BBC4CB226 /* Pods-BasePods-EdwardLynx-acknowledgements.markdown */,
+				57E255EDB9253BBFA24C288C52ABF902 /* Pods-BasePods-EdwardLynx-acknowledgements.plist */,
+				F8F10EE78BC3469C2AB77838440653DC /* Pods-BasePods-EdwardLynx-dummy.m */,
+				6B54F71823294620F90EF179B7E393C6 /* Pods-BasePods-EdwardLynx-frameworks.sh */,
+				0DFEA92182EA939275EF464A25BE8521 /* Pods-BasePods-EdwardLynx-resources.sh */,
+				A64DDEFD67A16ABA5D6AA842B5A1BC9F /* Pods-BasePods-EdwardLynx.debug.xcconfig */,
+				D52C621D86BCDD4B7A7BD5C1BFEA2989 /* Pods-BasePods-EdwardLynx.release.xcconfig */,
+			);
+			name = "Pods-BasePods-EdwardLynx";
+			path = "Target Support Files/Pods-BasePods-EdwardLynx";
 			sourceTree = "<group>";
 		};
 		F17A508EB859516A6A33E2E37FCA3A76 /* Support Files */ = {
@@ -1906,7 +2046,7 @@
 			);
 			name = SASlideMenu;
 			productName = SASlideMenu;
-			productReference = F36CD50BB725918BCEFCEC75BFA7620A /* libSASlideMenu.a */;
+			productReference = 7BAB4D2DC2B0BE8CD24DC9C8BF83A49D /* libSASlideMenu.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		12CB1BFD828D7D7A70D0BBCAA2014BF4 /* Toast */ = {
@@ -1923,7 +2063,7 @@
 			);
 			name = Toast;
 			productName = Toast;
-			productReference = BE3A15F215B222CB4B59312064E23650 /* libToast.a */;
+			productReference = 71523EBFD7AC9B6A1595D678FAD3A532 /* libToast.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		16B829456023DBFCA6A01B342F25C467 /* TNRadioButtonGroup */ = {
@@ -1940,7 +2080,7 @@
 			);
 			name = TNRadioButtonGroup;
 			productName = TNRadioButtonGroup;
-			productReference = F0AAAB822E4608D2FA7055F288649C40 /* libTNRadioButtonGroup.a */;
+			productReference = 8EBED9787B705058738408E2B846D988 /* libTNRadioButtonGroup.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		31B1A41C8DC1F544AF35A624264B17E5 /* DYSlideView */ = {
@@ -1957,7 +2097,7 @@
 			);
 			name = DYSlideView;
 			productName = DYSlideView;
-			productReference = 94ED086E9705FD835E17CEB53915CFC8 /* libDYSlideView.a */;
+			productReference = 5B1FC9BF80F142B1EAB2EA6DD8C37E9F /* libDYSlideView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		523D77D103A8AF100017E495A00201A3 /* CWPopup */ = {
@@ -1974,7 +2114,7 @@
 			);
 			name = CWPopup;
 			productName = CWPopup;
-			productReference = 584BB6E5111CA1C59165E0745DE1D9BC /* libCWPopup.a */;
+			productReference = 37054BEE2032CB062376D1E8F359CE7F /* libCWPopup.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		6F47E204843B206B22CBF7404AB229AF /* HockeySDK-HockeySDKResources */ = {
@@ -1991,7 +2131,7 @@
 			);
 			name = "HockeySDK-HockeySDKResources";
 			productName = "HockeySDK-HockeySDKResources";
-			productReference = 7A710ABC1FE0C4B4958B971EA0914419 /* HockeySDKResources.bundle */;
+			productReference = E149CE9DFD736D66446CCA8A5983C3A5 /* HockeySDKResources.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		736E57AD5AEFAAF68D47AE4E8FCB8F68 /* DZNEmptyDataSet */ = {
@@ -2008,7 +2148,7 @@
 			);
 			name = DZNEmptyDataSet;
 			productName = DZNEmptyDataSet;
-			productReference = 94046068BB1DDB4BB37F35B3E72AB26C /* libDZNEmptyDataSet.a */;
+			productReference = 35BE3B4DFEF3AE49D1A47F2994698D10 /* libDZNEmptyDataSet.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		928353533005A4198EBDA5B700D37B64 /* AFNetworking */ = {
@@ -2025,7 +2165,38 @@
 			);
 			name = AFNetworking;
 			productName = AFNetworking;
-			productReference = E516B603B924839FFF8A7DAEA065B47C /* libAFNetworking.a */;
+			productReference = F76C9FE39395F832991A74B42FCF38E0 /* libAFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9A193B2BE04D5ED909B41EDAB105E6F0 /* Pods-BasePods-EdwardLynxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FCB4530DE4C28F5AA647F913DEB4821 /* Build configuration list for PBXNativeTarget "Pods-BasePods-EdwardLynxTests" */;
+			buildPhases = (
+				273CCD2456987F43C79D3FE1C6DCD9E5 /* Sources */,
+				154F38A86CEA184E3C938B25A391C64B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B769AC79DEE718514A5A5D45FB828F0 /* PBXTargetDependency */,
+				4498C9D2EE675CA30B4ED0EC6244E2D3 /* PBXTargetDependency */,
+				3024EAAF8189051D6A875C0CC4147127 /* PBXTargetDependency */,
+				689EFA9755BD8342E7C9D42AA4A6849C /* PBXTargetDependency */,
+				0B90D43BCBEF2187AAA939B5B26B3ED4 /* PBXTargetDependency */,
+				61E3123484B7A65FA38EC4FB1410166B /* PBXTargetDependency */,
+				CF65E66D2B0EB120CD433206468B7DDF /* PBXTargetDependency */,
+				C01853EF11E83EA881678C84DDC1D4FD /* PBXTargetDependency */,
+				69DEBBA70AA3DBE80A9E5BF3688F5A1C /* PBXTargetDependency */,
+				9E9FE2E9EFE7D199DD19CBFFCB4B0758 /* PBXTargetDependency */,
+				11300E8B200B631FBB75CE74F6AF0872 /* PBXTargetDependency */,
+				EE9AA355CF79926D34B8F94DD697602A /* PBXTargetDependency */,
+				D6ABD7901B35D9146F4A7AFB9BF94D05 /* PBXTargetDependency */,
+				12986FEEF1337D0952374E32C04C64EB /* PBXTargetDependency */,
+				C7CCCB095669BD7A2D24CC6760ADCFE5 /* PBXTargetDependency */,
+			);
+			name = "Pods-BasePods-EdwardLynxTests";
+			productName = "Pods-BasePods-EdwardLynxTests";
+			productReference = 55FA7EFE9A867EF866809951A67F031B /* libPods-BasePods-EdwardLynxTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		A44E1ED8BA7E0CC0B214F47CA916CBB7 /* UITextView+Placeholder */ = {
@@ -2042,7 +2213,7 @@
 			);
 			name = "UITextView+Placeholder";
 			productName = "UITextView+Placeholder";
-			productReference = EE3ED82E821EB7B5261E35BD3FE77AE4 /* libUITextView+Placeholder.a */;
+			productReference = 386F2987E100F366E99B373EA006D127 /* libUITextView+Placeholder.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B5B018326CBD7DB36910FBE492E6EAA6 /* REValidation */ = {
@@ -2059,7 +2230,7 @@
 			);
 			name = REValidation;
 			productName = REValidation;
-			productReference = 540D820F15E9B10A3E069E19351B5D90 /* libREValidation.a */;
+			productReference = 83D3582CFFCC52C86948B4A67AA05EC2 /* libREValidation.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B800FD675250D5E175A9377B8456C387 /* GoogleToolboxForMac */ = {
@@ -2076,7 +2247,7 @@
 			);
 			name = GoogleToolboxForMac;
 			productName = GoogleToolboxForMac;
-			productReference = CA0EACD378F10A5924AE2D88FFA31E39 /* libGoogleToolboxForMac.a */;
+			productReference = 221BA362CF1C9B1E5AE027C9BD52D448 /* libGoogleToolboxForMac.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D0D0C9D20C43FA94D4C88FBFE2601B8E /* IQKeyboardManager */ = {
@@ -2093,7 +2264,7 @@
 			);
 			name = IQKeyboardManager;
 			productName = IQKeyboardManager;
-			productReference = 2B9FD0E8984B90FF7A76ECE9C34FCB2D /* libIQKeyboardManager.a */;
+			productReference = 1867E8B7E39FB7793612AA9F563E9474 /* libIQKeyboardManager.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		E423C1A3B29A19F026B6E57969F1AE71 /* MTDates */ = {
@@ -2110,7 +2281,7 @@
 			);
 			name = MTDates;
 			productName = MTDates;
-			productReference = 8CA249ECDAE0E0936418F918750F0E83 /* libMTDates.a */;
+			productReference = D60F5CF674A4EFBE2E82F4CD78CBD0A5 /* libMTDates.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		E89EA0620E22EDB775A7C107518644DD /* JSONModel */ = {
@@ -2127,7 +2298,7 @@
 			);
 			name = JSONModel;
 			productName = JSONModel;
-			productReference = 15CDCA1C366BFA530773052DF42C3ADD /* libJSONModel.a */;
+			productReference = 528BE7AFDE08EF4DA97033808BC6F795 /* libJSONModel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F1CF14F6583DCEAC19A5F76A6C143780 /* Pods-BasePods-EdwardLynx */ = {
@@ -2158,7 +2329,7 @@
 			);
 			name = "Pods-BasePods-EdwardLynx";
 			productName = "Pods-BasePods-EdwardLynx";
-			productReference = CE46B396B524A1DB6408108B6C54B79F /* libPods-BasePods-EdwardLynx.a */;
+			productReference = D922B0E5876F9A808681B2E3247539E4 /* libPods-BasePods-EdwardLynx.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		FFE22E835A9DB918A185F018F81DB162 /* RNThemeManager */ = {
@@ -2175,7 +2346,7 @@
 			);
 			name = RNThemeManager;
 			productName = RNThemeManager;
-			productReference = C0A580619C980A167F8A0A14B02C316E /* libRNThemeManager.a */;
+			productReference = 6CE7F36F46BD563AD46E70FD00DAEF06 /* libRNThemeManager.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -2195,7 +2366,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A313C7E6530A8C1F5FAA99E7F1F98250 /* Products */;
+			productRefGroup = CE0155E5636FCEAF44968B5D08774E59 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -2209,6 +2380,7 @@
 				E89EA0620E22EDB775A7C107518644DD /* JSONModel */,
 				E423C1A3B29A19F026B6E57969F1AE71 /* MTDates */,
 				F1CF14F6583DCEAC19A5F76A6C143780 /* Pods-BasePods-EdwardLynx */,
+				9A193B2BE04D5ED909B41EDAB105E6F0 /* Pods-BasePods-EdwardLynxTests */,
 				B5B018326CBD7DB36910FBE492E6EAA6 /* REValidation */,
 				FFE22E835A9DB918A185F018F81DB162 /* RNThemeManager */,
 				0F96CE35083B821360A29C729A9EED7E /* SASlideMenu */,
@@ -2312,6 +2484,14 @@
 			files = (
 				AE7CFCFD9A2D6A89503FCAFA01C6602F /* UITextView+Placeholder-dummy.m in Sources */,
 				8474F1C556D3B5BCC07E4739CC1B392E /* UITextView+Placeholder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		273CCD2456987F43C79D3FE1C6DCD9E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743D10FE035F4937032A7FE2D99C783B /* Pods-BasePods-EdwardLynxTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2489,6 +2669,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0B90D43BCBEF2187AAA939B5B26B3ED4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = B800FD675250D5E175A9377B8456C387 /* GoogleToolboxForMac */;
+			targetProxy = 1166627B17943183049C2BAC8BB44854 /* PBXContainerItemProxy */;
+		};
+		11300E8B200B631FBB75CE74F6AF0872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNThemeManager;
+			target = FFE22E835A9DB918A185F018F81DB162 /* RNThemeManager */;
+			targetProxy = 988BAB865763DC88810747E7D32279E6 /* PBXContainerItemProxy */;
+		};
+		12986FEEF1337D0952374E32C04C64EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toast;
+			target = 12CB1BFD828D7D7A70D0BBCAA2014BF4 /* Toast */;
+			targetProxy = C6A0DC23B38C255F1FD3729E613D6AB1 /* PBXContainerItemProxy */;
+		};
 		15545079D028CAC0798BA72B27AD7DF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CWPopup;
@@ -2500,6 +2698,18 @@
 			name = TNRadioButtonGroup;
 			target = 16B829456023DBFCA6A01B342F25C467 /* TNRadioButtonGroup */;
 			targetProxy = 99BCD1E167AE790D77FD0E4C317495AA /* PBXContainerItemProxy */;
+		};
+		2B769AC79DEE718514A5A5D45FB828F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFNetworking;
+			target = 928353533005A4198EBDA5B700D37B64 /* AFNetworking */;
+			targetProxy = 43A72234EDB53AD46F2D1EC37F919A03 /* PBXContainerItemProxy */;
+		};
+		3024EAAF8189051D6A875C0CC4147127 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DYSlideView;
+			target = 31B1A41C8DC1F544AF35A624264B17E5 /* DYSlideView */;
+			targetProxy = A1AB5C5DCB0E1BFB209D1CD67E58FE51 /* PBXContainerItemProxy */;
 		};
 		3C4ECCDDC2FDD3687C7E04DEB585AA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2513,11 +2723,35 @@
 			target = 0F96CE35083B821360A29C729A9EED7E /* SASlideMenu */;
 			targetProxy = 8C5CB1B383769898F2ADD45F3476481B /* PBXContainerItemProxy */;
 		};
+		4498C9D2EE675CA30B4ED0EC6244E2D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CWPopup;
+			target = 523D77D103A8AF100017E495A00201A3 /* CWPopup */;
+			targetProxy = 8C1056C2E36F31E99C9FC1BDF49399F2 /* PBXContainerItemProxy */;
+		};
+		61E3123484B7A65FA38EC4FB1410166B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "HockeySDK-HockeySDKResources";
+			target = 6F47E204843B206B22CBF7404AB229AF /* HockeySDK-HockeySDKResources */;
+			targetProxy = 8850B0C63BA19D0990DDD9228D0ABCA2 /* PBXContainerItemProxy */;
+		};
 		6557BEF99ED9D401F0C1ADF6FDD6F106 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MTDates;
 			target = E423C1A3B29A19F026B6E57969F1AE71 /* MTDates */;
 			targetProxy = 966F03DE02C1EC63662C01D9748C3998 /* PBXContainerItemProxy */;
+		};
+		689EFA9755BD8342E7C9D42AA4A6849C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DZNEmptyDataSet;
+			target = 736E57AD5AEFAAF68D47AE4E8FCB8F68 /* DZNEmptyDataSet */;
+			targetProxy = BF38BB2C8088C687171C24BED5FC153A /* PBXContainerItemProxy */;
+		};
+		69DEBBA70AA3DBE80A9E5BF3688F5A1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MTDates;
+			target = E423C1A3B29A19F026B6E57969F1AE71 /* MTDates */;
+			targetProxy = 50BD23A8321F13F2A93944550C198D97 /* PBXContainerItemProxy */;
 		};
 		6A28F6EDC5052B2B4D1F1750EAFBC54C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2555,6 +2789,12 @@
 			target = B5B018326CBD7DB36910FBE492E6EAA6 /* REValidation */;
 			targetProxy = 8AAEE43E6353F68D1A35FEAF7C576F33 /* PBXContainerItemProxy */;
 		};
+		9E9FE2E9EFE7D199DD19CBFFCB4B0758 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = REValidation;
+			target = B5B018326CBD7DB36910FBE492E6EAA6 /* REValidation */;
+			targetProxy = F39D286FE51D4D80D553215B5619DF25 /* PBXContainerItemProxy */;
+		};
 		A6A994AEB4AEDCE93779CB8166E0F352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DZNEmptyDataSet;
@@ -2567,17 +2807,47 @@
 			target = 12CB1BFD828D7D7A70D0BBCAA2014BF4 /* Toast */;
 			targetProxy = 6FBEF2E00C2E9605CC671D661FF7BD99 /* PBXContainerItemProxy */;
 		};
+		C01853EF11E83EA881678C84DDC1D4FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONModel;
+			target = E89EA0620E22EDB775A7C107518644DD /* JSONModel */;
+			targetProxy = 41EBF68E3AB6344205957E7EDABDFCAC /* PBXContainerItemProxy */;
+		};
+		C7CCCB095669BD7A2D24CC6760ADCFE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UITextView+Placeholder";
+			target = A44E1ED8BA7E0CC0B214F47CA916CBB7 /* UITextView+Placeholder */;
+			targetProxy = 12F7E560898540D6ED15638216A68558 /* PBXContainerItemProxy */;
+		};
 		CD01945A1C1A89B97317443C1B8CC8C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleToolboxForMac;
 			target = B800FD675250D5E175A9377B8456C387 /* GoogleToolboxForMac */;
 			targetProxy = FCEC90710B1906CB220EEA4C079E7D23 /* PBXContainerItemProxy */;
 		};
+		CF65E66D2B0EB120CD433206468B7DDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManager;
+			target = D0D0C9D20C43FA94D4C88FBFE2601B8E /* IQKeyboardManager */;
+			targetProxy = 3D1E84712798712D95F7D058379B3DFF /* PBXContainerItemProxy */;
+		};
+		D6ABD7901B35D9146F4A7AFB9BF94D05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TNRadioButtonGroup;
+			target = 16B829456023DBFCA6A01B342F25C467 /* TNRadioButtonGroup */;
+			targetProxy = 31478EB7F8C1CCA1BC025DB9022A17AC /* PBXContainerItemProxy */;
+		};
 		DFCE820FB5216658F1331BE1942FF726 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "HockeySDK-HockeySDKResources";
 			target = 6F47E204843B206B22CBF7404AB229AF /* HockeySDK-HockeySDKResources */;
 			targetProxy = C62EFD2A965CF43FD2BDE52845A67292 /* PBXContainerItemProxy */;
+		};
+		EE9AA355CF79926D34B8F94DD697602A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SASlideMenu;
+			target = 0F96CE35083B821360A29C729A9EED7E /* SASlideMenu */;
+			targetProxy = 201FDFBE2FB5946B112E7F49E1AB0259 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2920,7 +3190,7 @@
 		};
 		5091D5DA928C27AE0E9930363209CC51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB096E1B31C7400294639231D7486B2E /* Pods-BasePods-EdwardLynx.release.xcconfig */;
+			baseConfigurationReference = D52C621D86BCDD4B7A7BD5C1BFEA2989 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2962,7 +3232,7 @@
 		};
 		6528FCE71398666DDC78B03DA7385F20 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C070673C5E6F5EE4DA03CAEE211A62 /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
+			baseConfigurationReference = A64DDEFD67A16ABA5D6AA842B5A1BC9F /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -3082,6 +3352,27 @@
 			};
 			name = Release;
 		};
+		884DD1E3CF579A5DF5CCD9A0716D8B41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 235BB979E2B5C08CD5338CEFF0728E98 /* Pods-BasePods-EdwardLynxTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		888AF48701932176D176DA7A3797E219 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E054544B38872C64352E3BDDBC739E0 /* TNRadioButtonGroup.xcconfig */;
@@ -3181,6 +3472,27 @@
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
+		};
+		B7E6BA0D0E1FC0354ECAB7D82CCCF905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCE6EE20122BAA29A6610EB8B19E39D6 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		BD1955636DAC444442699A83C0721397 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3386,6 +3698,15 @@
 			buildConfigurations = (
 				2DECE4FB04A7FC25D6AB51265C373C19 /* Debug */,
 				888AF48701932176D176DA7A3797E219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FCB4530DE4C28F5AA647F913DEB4821 /* Build configuration list for PBXNativeTarget "Pods-BasePods-EdwardLynxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7E6BA0D0E1FC0354ECAB7D82CCCF905 /* Debug */,
+				884DD1E3CF579A5DF5CCD9A0716D8B41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -41,7 +41,6 @@
 		A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9308BDD1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld */; };
 		A9308BE11DED74B6007B4F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE01DED74B6007B4F9F /* Assets.xcassets */; };
 		A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9308BE21DED74B6007B4F9F /* LaunchScreen.storyboard */; };
-		A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A9335A701E0B745C0019231E /* ELAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A6F1E0B745C0019231E /* ELAppSingleton.m */; };
 		A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A9335A721E0B79E00019231E /* ELOAuthInstance.m */; };
@@ -87,6 +86,7 @@
 		A9A4DF851DFEA12200CC4FAA /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF841DFEA12200CC4FAA /* ELUsersAPIClient.m */; };
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
+		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AC0EA21E25AEC700137975 /* ELSearchBar.m */; };
 		A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9AD21AB1E49B92900624F99 /* Localizable.strings */; };
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
@@ -119,6 +119,10 @@
 		A9E53D651E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */; };
 		A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */; };
 		A9E53D6B1E1B9E4500E9BB3C /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */; };
+		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
+		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
+		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
+		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,9 +143,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		033F56945B3FA7E7F16D1DAD /* Pods-BasePods-EdwardLynxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests.release.xcconfig"; sourceTree = "<group>"; };
 		054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
+		820937B7E0183218BBD34E71 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A90160061E1C99C6005A8E61 /* ELListViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELListViewManager.h; sourceTree = "<group>"; };
 		A90160071E1C99C6005A8E61 /* ELListViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListViewManager.m; sourceTree = "<group>"; };
 		A90160091E1CDAAD005A8E61 /* ELDetailViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDetailViewManager.h; sourceTree = "<group>"; };
@@ -197,7 +204,6 @@
 		A9308BE31DED74B6007B4F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9308BE51DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxTests.m; sourceTree = "<group>"; };
 		A9308BF01DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 		A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveysAPIClient.m; sourceTree = "<group>"; };
 		A9A4DF891DFEB45F00CC4FAA /* ELQuestionsAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionsAPIClient.h; sourceTree = "<group>"; };
 		A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionsAPIClient.m; sourceTree = "<group>"; };
+		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9AC0EA11E25AEC700137975 /* ELSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearchBar.h; sourceTree = "<group>"; };
 		A9AC0EA21E25AEC700137975 /* ELSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearchBar.m; sourceTree = "<group>"; };
 		A9AD21631E49B24100624F99 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Authentication.strings; sourceTree = "<group>"; };
@@ -389,6 +396,9 @@
 		A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTableViewCell.m; sourceTree = "<group>"; };
 		A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
 		A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
+		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
+		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
+		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +433,8 @@
 			children = (
 				720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */,
 				2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */,
+				820937B7E0183218BBD34E71 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */,
+				033F56945B3FA7E7F16D1DAD /* Pods-BasePods-EdwardLynxTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -430,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */,
+				025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -592,7 +606,10 @@
 		A9308BED1DED74B6007B4F9F /* EdwardLynxTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9308BEE1DED74B6007B4F9F /* EdwardLynxTests.m */,
+				A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */,
+				A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */,
+				A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */,
+				A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */,
 				A9308BF01DED74B6007B4F9F /* Info.plist */,
 			);
 			path = EdwardLynxTests;
@@ -918,9 +935,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9308C011DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxTests" */;
 			buildPhases = (
+				67275C624DF8954A6FFAA936 /* [CP] Check Pods Manifest.lock */,
 				A9308BE61DED74B6007B4F9F /* Sources */,
 				A9308BE71DED74B6007B4F9F /* Frameworks */,
 				A9308BE81DED74B6007B4F9F /* Resources */,
+				06C264466DE8BA751FDD6FBB /* [CP] Embed Pods Frameworks */,
+				B77959EB522B778FD4F01CD9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1069,6 +1089,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		06C264466DE8BA751FDD6FBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		38697E15D1992B26C294B016 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1085,6 +1120,21 @@
 			showEnvVarsInLog = 0;
 		};
 		59BB75771B83A01AB03C7CA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		67275C624DF8954A6FFAA936 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1126,6 +1176,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7c67a5365060930052205dfdf95102678ef19047 5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672";
+		};
+		B77959EB522B778FD4F01CD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1214,7 +1279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9308BEF1DED74B6007B4F9F /* EdwardLynxTests.m in Sources */,
+				A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */,
+				A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */,
+				A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */,
+				A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1549,6 +1617,7 @@
 		};
 		A9308C021DED74B6007B4F9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 820937B7E0183218BBD34E71 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
@@ -1556,12 +1625,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdwardLynx.app/EdwardLynx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Edward Lynx.app/Edward Lynx";
 			};
 			name = Debug;
 		};
 		A9308C031DED74B6007B4F9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 033F56945B3FA7E7F16D1DAD /* Pods-BasePods-EdwardLynxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
@@ -1569,7 +1639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdwardLynx.app/EdwardLynx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Edward Lynx.app/Edward Lynx";
 			};
 			name = Release;
 		};
