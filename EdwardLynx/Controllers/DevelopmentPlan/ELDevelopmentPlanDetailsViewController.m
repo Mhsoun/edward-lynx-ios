@@ -113,7 +113,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
-    self.title = self.devPlan.name;
+    self.title = [self.devPlan.name uppercaseString];
     
     [self.tableView reloadData];
 }

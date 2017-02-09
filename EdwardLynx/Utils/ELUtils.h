@@ -12,6 +12,7 @@
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <KDNotification/KDToastNotification.h>
 
 #import "AppDelegate.h"
 #import "ELUsersAPIClient.h"

@@ -292,15 +292,8 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {
-    [view makeToast:message
-           duration:1.0f
-           position:CSToastPositionBottom
-              title:nil
-              image:nil
-              style:nil
-              completion:^(BOOL didTap) {
-                  completion();
-              }];
+    [KDToastNotification setNotificionStyle:UIBlurEffectStyleDark];
+    [KDToastNotification showWithText:message duration:1.5 tapped:nil];
 }
 
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {

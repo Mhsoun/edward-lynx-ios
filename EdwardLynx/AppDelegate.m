@@ -9,6 +9,12 @@
 #import "AppDelegate.h"
 #import "ELBaseDetailViewController.h"
 
+#pragma mark - Private Methods
+
+static NSString * const kELNotificationTypeDevPlan = @"dev-plan";
+static NSString * const kELNotificationTypeInstantFeedbackRequest = @"instant-feedback-request";
+static NSString * const kELNotificationTypeSurvey = @"survey";
+
 #pragma mark - Class Extension
 
 @interface AppDelegate ()
@@ -24,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.userInfo = nil;
+    self.notification = nil;
     
     // Setup Fabric
     [ELUtils setupFabric];
@@ -46,7 +52,8 @@
     
     // Check if app is launched due to user tapping to a notification while app is closed
     if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
-        self.userInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+        self.notification = [[ELNotification alloc] initWithDictionary:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]
+                                                                 error:nil];
     }
     
     return YES;
@@ -317,52 +324,39 @@
     }];
 }
 
-- (void)displayViewControllerByNotification:(NSDictionary *)userInfo {
+- (void)displayViewControllerByNotification:(ELNotification *)notification {
     NSString *identifier, *storyboardName;
-    __kindof ELBaseDetailViewController *detailVc;
-    int64_t type = [userInfo[@"type"] intValue];
-    int64_t objectId = [userInfo[@"id"] intValue];
+    __kindof ELBaseDetailViewController *controller;
     
-    switch (type) {
-        case 0:
-            storyboardName = @"DevelopmentPlan";
-            
-            break;
-        case 1:
-            storyboardName = @"InstantFeedback";
-            
-            break;
-        case 2:
-            storyboardName = @"Survey";
-            
-            break;
-        default:
-            break;
+    if ([notification.type isEqualToString:kELNotificationTypeDevPlan]) {
+        storyboardName = @"DevelopmentPlan";
+    } else if ([notification.type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
+        storyboardName = @"InstantFeedback";
+    } else {
+        storyboardName = @"Survey";
     }
     
     identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
-    detailVc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
-    detailVc.objectId = objectId;
+    controller = [[UIStoryboard storyboardWithName:storyboardName bundle:nil]
+                  instantiateViewControllerWithIdentifier:identifier];
+    controller.objectId = notification.objectId;
     
-    [self.notificationRootViewController.navigationController pushViewController:detailVc
+    [self.notificationRootViewController.navigationController pushViewController:controller
                                                                         animated:YES];
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
-    __kindof ELBaseViewController *visibleController = [self visibleViewController:self.window.rootViewController];
+    ELNotification *notification = [[ELNotification alloc] initWithDictionary:userInfo error:nil];
     
     if (application.applicationState == UIApplicationStateActive ||
         application.applicationState == UIApplicationStateInactive) {
-        // When app is starting
-        if (![ELAppSingleton sharedInstance].hasLoadedApplication) {
-            return;  // TODO Display notification
-        }
-        
-        // App is active
-        // TODO Banner or sorts (Initial implementation)
-        [ELUtils presentToastAtView:visibleController.view
-                            message:@"A notification has been received"
-                         completion:^{}];
+        [KDToastNotification setNotificionStyle:UIBlurEffectStyleLight];
+        [KDNotification showWithText:notification.body duration:3.5 tapped:^{
+            if ([ELAppSingleton sharedInstance].hasLoadedApplication) {
+                // App is active
+                [self displayViewControllerByNotification:notification];
+            }
+        }];
     }
 }
 
