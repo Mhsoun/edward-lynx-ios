@@ -32,7 +32,7 @@
     // Content
     self.surveyLabel.text = survey.name;
     self.descriptionLabel.text = survey.shortDescription;
-    self.expiryLabel.text = [NSString stringWithFormat:@"Expires on %@", dateString];
+    self.expiryLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELExpiresOnLabel", nil), dateString];
     self.statusLabel.text = [NSString stringWithFormat:@"  %@  ", status];
     
     // UI

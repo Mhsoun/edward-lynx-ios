@@ -13,7 +13,9 @@
 "kELSaveToDraftButton" = "Save to draft";
 "kELSubmitButton" = "Submit";
 
+"kELCompletedLabel" = "%@ / %@ Completed";
 "kELEmailLabel" = "E-mail";
+"kELExpiresOnLabel" = "Expires on %@";
 "kELNameLabel" = "Name";
 
 "kELDetailsPageLoadError" = "Failed to load details.";
