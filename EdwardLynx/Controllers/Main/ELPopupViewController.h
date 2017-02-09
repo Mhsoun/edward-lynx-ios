@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
+- (instancetype)initWithPreviousController:(__kindof ELBaseViewController *)controller
+                                   details:(NSDictionary *)detailsDict;
+
 - (IBAction)onButtonClick:(id)sender;
 
 @end

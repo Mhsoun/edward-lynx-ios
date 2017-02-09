@@ -29,8 +29,10 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    ELMenuItem *menuItem = (ELMenuItem *)object;
+    
     // Content
-    self.textLabel.text = [(NSString *)object uppercaseString];
+    self.textLabel.text = [menuItem.name uppercaseString];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

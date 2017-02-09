@@ -56,7 +56,8 @@
 
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
-+ (void)displayPopupForViewController:(__kindof UIViewController *)controller;
++ (void)displayPopupForViewController:(__kindof UIViewController *)controller
+                              details:(NSDictionary *)detailsDict;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelByReportType:(kELReportType)type;

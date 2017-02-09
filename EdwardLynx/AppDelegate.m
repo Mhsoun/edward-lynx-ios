@@ -190,7 +190,7 @@
 #pragma mark - Public Methods
 
 - (void)assignNewRootViewController:(__kindof UIViewController *)controller {
-    self.window.rootViewController = controller;
+    self.notificationRootViewController = controller;
 }
 
 - (void)registerDeviceToFirebaseAndAPI {
@@ -344,7 +344,8 @@
     detailVc = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
     detailVc.objectId = objectId;
     
-    [self.window.rootViewController.navigationController pushViewController:detailVc animated:YES];
+    [self.notificationRootViewController.navigationController pushViewController:detailVc
+                                                                        animated:YES];
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {

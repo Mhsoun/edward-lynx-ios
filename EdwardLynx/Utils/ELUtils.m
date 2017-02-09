@@ -211,16 +211,17 @@
     }
 }
 
-+ (void)displayPopupForViewController:(__kindof UIViewController *)controller {
-    ELPopupViewController *popup = [[ELPopupViewController alloc] init];
-    
-    popup.view.frame = CGRectMake(controller.view.frame.origin.x,
-                                  controller.view.frame.origin.y,
-                                  controller.view.frame.size.width - 100,
-                                  300);
++ (void)displayPopupForViewController:(__kindof UIViewController *)controller
+                              details:(NSDictionary *)detailsDict {
+    ELPopupViewController *popup = [[ELPopupViewController alloc] initWithPreviousController:controller
+                                                                                     details:detailsDict];
+
+    popup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 300);
     popup.popupViewOffset = CGPointMake(0, -50);
     
-    [controller presentPopupViewController:popup animated:YES completion:nil];
+    [controller presentPopupViewController:popup
+                                  animated:YES
+                                completion:nil];
 }
 
 + (NSString *)labelByAnswerType:(kELAnswerType)type {

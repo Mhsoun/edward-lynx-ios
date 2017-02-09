@@ -10,9 +10,6 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
-        <array key="Lato-Medium.ttf">
-            <string>Lato-Medium</string>
-        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -33,20 +30,18 @@
             <subviews>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6C0-WM-ye4">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4ZE-Lf-Xwh">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="aoh-5s-9wm"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2jo-MS-n1I">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="2jo-MS-n1I" secondAttribute="height" multiplier="1:1" id="FmH-0P-C1F"/>
                     </constraints>
@@ -56,7 +51,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="yge-Rl-Ac8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -65,7 +60,7 @@
                         <constraint firstAttribute="height" constant="30" id="oF1-dA-NU8"/>
                         <constraint firstAttribute="width" constant="100" id="pXG-vg-enf"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                     <state key="normal" title="Thanks">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -81,11 +76,11 @@
                 <constraint firstAttribute="bottom" secondItem="pOw-HF-Gun" secondAttribute="bottom" constant="20" id="9OJ-Vi-EdN"/>
                 <constraint firstItem="4ZE-Lf-Xwh" firstAttribute="leading" secondItem="6C0-WM-ye4" secondAttribute="leading" id="DXy-p6-LOF"/>
                 <constraint firstItem="2jo-MS-n1I" firstAttribute="top" secondItem="4ZE-Lf-Xwh" secondAttribute="bottom" constant="10" id="Ir3-Ec-efx"/>
-                <constraint firstAttribute="trailing" secondItem="6C0-WM-ye4" secondAttribute="trailing" constant="10" id="MGx-4o-lZm"/>
+                <constraint firstAttribute="trailing" secondItem="6C0-WM-ye4" secondAttribute="trailing" constant="15" id="MGx-4o-lZm"/>
                 <constraint firstItem="twP-gh-Qe5" firstAttribute="leading" secondItem="4ZE-Lf-Xwh" secondAttribute="leading" id="Q3L-bU-aoe"/>
                 <constraint firstItem="4ZE-Lf-Xwh" firstAttribute="top" secondItem="6C0-WM-ye4" secondAttribute="bottom" id="Rsr-m6-rqG"/>
                 <constraint firstItem="twP-gh-Qe5" firstAttribute="trailing" secondItem="4ZE-Lf-Xwh" secondAttribute="trailing" id="UjP-0k-rIb"/>
-                <constraint firstItem="6C0-WM-ye4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="f0s-1J-kkm"/>
+                <constraint firstItem="6C0-WM-ye4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="f0s-1J-kkm"/>
                 <constraint firstItem="2jo-MS-n1I" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fET-Lp-IVd"/>
                 <constraint firstItem="pOw-HF-Gun" firstAttribute="top" secondItem="twP-gh-Qe5" secondAttribute="bottom" constant="10" id="kSo-iq-a7j"/>
                 <constraint firstItem="twP-gh-Qe5" firstAttribute="top" secondItem="2jo-MS-n1I" secondAttribute="bottom" constant="10" id="kq4-W9-u5C"/>
