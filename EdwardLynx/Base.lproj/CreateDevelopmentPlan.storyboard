@@ -653,7 +653,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BdF-Gr-x80"/>

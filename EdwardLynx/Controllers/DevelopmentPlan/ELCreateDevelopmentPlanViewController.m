@@ -182,8 +182,6 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELDevelopmentPlanGoalsValidation", nil)
                          completion:^{}];
-        
-        return;
     }
     
     isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": self.nameGroup}];

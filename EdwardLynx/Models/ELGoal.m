@@ -27,8 +27,10 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
     NSInteger completedActions = [[self.actions filteredArrayUsingPredicate:predicate] count];
     
-    return @{@"text": [NSString stringWithFormat:@"%@ / %@ Completed", @(completedActions), @(self.actions.count)],
-             @"value": @(completedActions / (CGFloat)self.actions.count)};
+    return @{@"value": @(completedActions / (CGFloat)self.actions.count),
+             @"text": [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
+                       @(completedActions),
+                       @(self.actions.count)]};
 }
 
 - (NSDictionary *)toDictionary {
