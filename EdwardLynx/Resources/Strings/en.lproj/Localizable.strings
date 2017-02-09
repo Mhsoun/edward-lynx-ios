@@ -57,8 +57,8 @@
 "kELInviteUsersRetrievalError" = "Failed retrieving Users.";
 "kELInviteUsersRetrievalEmpty" = "No users.";
 
-"kELInviteUsersAddEmailHeaderMessage" = "Invite a user";
-"kELInviteUsersAddEmailDetailsMessage" = "Enter user's name and e-mail address:";
+"kELInviteUsersAddEmailHeaderMessage" = "Add user";
+"kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
 
 "kELShareReportsHeaderMessage" = "Share report to users";

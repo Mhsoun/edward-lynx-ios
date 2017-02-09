@@ -123,10 +123,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSString *buttonLabel = self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" : @"kELDevelopmentPlanGoalButtonUpdate";
+    NSString *buttonLabel = NSLocalizedString(self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" :
+                                                              @"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
-    [self.addGoalButton setTitle:NSLocalizedString(buttonLabel, nil)
+    [self.addGoalButton setTitle:[buttonLabel uppercaseString]
                         forState:UIControlStateNormal];
     
     // Date Picker
@@ -228,8 +229,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELDevelopmentPlanGoalActionsValidation", nil)
                          completion:^{}];
-        
-        return;
     }
     
     dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];

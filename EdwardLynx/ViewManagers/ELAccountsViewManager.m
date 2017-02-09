@@ -92,7 +92,7 @@
         formFieldGroup = formDict[key];
         usernameErrors = [REValidation validateObject:[formFieldGroup textValue]
                                                  name:@"Username"
-                                           validators:@[@"presence", @"length(6, 255)"]];
+                                           validators:@[@"presence"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:usernameErrors];
     }
@@ -103,7 +103,7 @@
         formFieldGroup = formDict[key];
         passwordErrors = [REValidation validateObject:[formFieldGroup textValue]
                                                  name:@"Password"
-                                           validators:@[@"presence", @"length(6, 255)"]];
+                                           validators:@[@"presence"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:passwordErrors];
     }
@@ -141,7 +141,7 @@
         formFieldGroup = formDict[key];
         nameErrors = [REValidation validateObject:[formFieldGroup textValue]
                                              name:@"Name"
-                                       validators:@[@"presence", @"length(0, 255)"]];
+                                       validators:@[@"presence"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
@@ -161,7 +161,7 @@
         formFieldGroup = formDict[key];
         errors = [REValidation validateObject:[formFieldGroup textValue]
                                          name:@"Field"
-                                   validators:@[@"presence", @"length(6, 255)"]];
+                                   validators:@[@"presence"]];
         isValid = isValid && errors.count == 0;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];

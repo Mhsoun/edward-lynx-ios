@@ -124,10 +124,10 @@
                                                     <constraint firstItem="zuK-hV-1Mv" firstAttribute="trailing" secondItem="BvV-Tr-b41" secondAttribute="trailing" id="2Bx-cN-KVe"/>
                                                     <constraint firstItem="5l6-Qq-Lzo" firstAttribute="trailing" secondItem="Lgq-ju-qSg" secondAttribute="trailing" id="2ZL-P3-d6I"/>
                                                     <constraint firstItem="LqK-pq-nP3" firstAttribute="leading" secondItem="zuK-hV-1Mv" secondAttribute="leading" id="6Is-7u-zdR"/>
-                                                    <constraint firstAttribute="height" constant="430" id="ABi-UR-EKD"/>
+                                                    <constraint firstAttribute="height" constant="435" id="ABi-UR-EKD"/>
                                                     <constraint firstItem="BvV-Tr-b41" firstAttribute="top" secondItem="5l6-Qq-Lzo" secondAttribute="bottom" constant="10" id="ApR-2k-Sql"/>
                                                     <constraint firstItem="Wtl-d7-0wX" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" constant="5" id="BJD-Y4-R2w"/>
-                                                    <constraint firstItem="zuK-hV-1Mv" firstAttribute="top" secondItem="Wtl-d7-0wX" secondAttribute="bottom" constant="5" id="EnD-7V-fZh"/>
+                                                    <constraint firstItem="zuK-hV-1Mv" firstAttribute="top" secondItem="Wtl-d7-0wX" secondAttribute="bottom" constant="10" id="EnD-7V-fZh"/>
                                                     <constraint firstItem="5l6-Qq-Lzo" firstAttribute="top" secondItem="Lgq-ju-qSg" secondAttribute="bottom" constant="5" id="GGi-0O-GXt"/>
                                                     <constraint firstItem="WO5-DV-VLL" firstAttribute="leading" secondItem="5l6-Qq-Lzo" secondAttribute="leading" id="HTi-Sk-f4p"/>
                                                     <constraint firstItem="wDv-e7-VtE" firstAttribute="top" secondItem="Q3M-IP-237" secondAttribute="bottom" constant="5" id="IQj-Us-aL6"/>
@@ -333,6 +333,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>
