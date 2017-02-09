@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDictionary *userInfo;
+@property (strong, nonatomic) __kindof UIViewController *notificationRootViewController;
 @property (strong, readonly) NSPersistentContainer *persistentContainer;
 
 - (void)assignNewRootViewController:(__kindof UIViewController *)controller;

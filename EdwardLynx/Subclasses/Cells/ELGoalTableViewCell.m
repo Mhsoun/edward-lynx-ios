@@ -28,6 +28,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     
     self.tintColor = [[RNThemeManager sharedManager] colorForKey:kELGreenColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.scrollEnabled = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
@@ -94,9 +95,18 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             [self.goal setActions:[mActions copy]];
             [self updateContent];
             
-            [ELUtils presentToastAtView:visibleController.view
-                                message:@"Action successfully updated."
-                             completion:^{}];
+            if ([[self.goal progressDetails][@"value"] floatValue] == 1.0f) {
+                NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
+                                              @"header": @"Goal Completed!",
+                                              @"details": @"You've got the right mix of dedication and enthusiasm. Keep it up!"};
+                
+                [ELUtils displayPopupForViewController:visibleController
+                                               details:detailsDict];
+            } else {
+                [ELUtils presentToastAtView:visibleController.view
+                                    message:@"Action successfully updated."
+                                 completion:^{}];
+            }
         }];
     };
     

@@ -19,7 +19,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDataProvider<NSString *> *provider;
+@property (nonatomic, strong) ELDataProvider<ELMenuItem *> *provider;
 
 @end
 
@@ -33,14 +33,11 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     // Initialization
     self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
-    self.provider = [[ELDataProvider alloc] initWithDataArray:@[NSLocalizedString(@"kELDashboardItemDashboard", nil),
-                                                                NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
-                                                                NSLocalizedString(@"kELDashboardItemProfile", nil),
-                                                                NSLocalizedString(@"kELDashboardItemSettings", nil),
-                                                                NSLocalizedString(@"kELLogoutButton", nil)]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self menuItems]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
@@ -72,7 +69,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *segueIdentifier = [self.provider rowObjectAtIndexPath:indexPath];
+    NSString *segueIdentifier = [(ELMenuItem *)[self.provider rowObjectAtIndexPath:indexPath] segueIdentifier];
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELLogoutButton", nil)
@@ -123,11 +120,45 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 }
 
 - (NSString *)segueIdForIndexPath:(NSIndexPath *)indexPath {
-    return [self.provider rowObjectAtIndexPath:indexPath];
+    return [(ELMenuItem *)[self.provider rowObjectAtIndexPath:indexPath] segueIdentifier];
 }
 
 - (NSIndexPath *)selectedIndexPath {
     return self.prevIndexPath;
+}
+
+#pragma mark - Private Methods
+
+- (NSArray *)menuItems {
+    NSDictionary *detailDict;
+    NSMutableArray *mItems = [[NSMutableArray alloc] init];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDashboard", nil),
+                   @"segueIdentifier": @"Dashboard"};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
+                   @"segueIdentifier": @"DevelopmentPlan"};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemProfile", nil),
+                   @"segueIdentifier": @"Profile"};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemSettings", nil),
+                   @"segueIdentifier": @"Settings"};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELLogoutButton", nil),
+                   @"segueIdentifier": @"Logout"};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    return [mItems copy];
 }
 
 @end

@@ -12,18 +12,25 @@
 
 @interface ELPopupViewController ()
 
+@property (nonatomic, strong) NSDictionary *detailsDict;
+@property (nonatomic, strong) __kindof ELBaseViewController *controller;
+
 @end
 
 @implementation ELPopupViewController
 
 #pragma mark - Lifecycle
 
-- (instancetype)init {
+- (instancetype)initWithPreviousController:(__kindof ELBaseViewController *)controller
+                                   details:(NSDictionary *)detailsDict {
     self = [super initWithNibName:@"PopupView" bundle:nil];
     
     if (!self) {
         return nil;
     }
+    
+    _controller = controller;
+    _detailsDict = detailsDict;
     
     return self;
 }
@@ -33,6 +40,8 @@
     // Do any additional setup after loading the view.
     
     self.useBlurForPopup = NO;
+    
+    [self setupPopupDetails];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,20 +49,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Private Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupPopupDetails {
+    self.titleLabel.text = self.detailsDict[@"title"];
+    self.headerLabel.text = self.detailsDict[@"header"];
+    self.detailLabel.text = self.detailsDict[@"details"];
 }
-*/
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onButtonClick:(id)sender {
-    [self dismissPopupViewControllerAnimated:YES completion:nil];
+    if (self.controller.popupViewController) {
+        [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end

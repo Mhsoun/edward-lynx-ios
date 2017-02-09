@@ -75,7 +75,7 @@
                         <segue destination="9kA-0g-ytD" kind="custom" identifier="Dashboard" customClass="SASlideMenuContentSegue" id="LdH-li-jKi"/>
                         <segue destination="SJ3-c6-UFM" kind="custom" identifier="Profile" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
                         <segue destination="ebx-6g-TEt" kind="custom" identifier="Settings" customClass="SASlideMenuContentSegue" id="IdI-FE-K7J"/>
-                        <segue destination="p1Z-dt-uDT" kind="custom" identifier="Development Plans" customClass="SASlideMenuContentSegue" id="IXw-3D-rEt"/>
+                        <segue destination="p1Z-dt-uDT" kind="custom" identifier="DevelopmentPlan" customClass="SASlideMenuContentSegue" id="IXw-3D-rEt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgs-oc-ffC" userLabel="First Responder" sceneMemberID="firstResponder"/>
