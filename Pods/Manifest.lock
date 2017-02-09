@@ -60,6 +60,7 @@ PODS:
   - RNThemeManager (0.1.0)
   - SASlideMenu (2.0.3)
   - TNRadioButtonGroup (0.4)
+  - Toast (3.1.0)
   - UITextView+Placeholder (1.2.0)
 
 DEPENDENCIES:
@@ -80,6 +81,7 @@ DEPENDENCIES:
   - RNThemeManager (~> 0.1)
   - SASlideMenu (~> 2.0)
   - TNRadioButtonGroup (~> 0.4)
+  - Toast (~> 3.1)
   - UITextView+Placeholder (~> 1.2)
 
 SPEC CHECKSUMS:
@@ -106,8 +108,9 @@ SPEC CHECKSUMS:
   RNThemeManager: 7734a5619abe15e21556c9c3ff2df8f3ab20a538
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
   TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 16a27a29ffd27d3dc6509c79928f977c7813e99e
+PODFILE CHECKSUM: c88d571728e76f35653a99407488368dac1a6e86
 
 COCOAPODS: 1.0.1

@@ -141,7 +141,6 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
             self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
             self.surveyViewManager.delegate = self;
-            self.title = [self.survey.name uppercaseString];
             
             // Retrieve surveys questions
             self.responseType = kELSurveyResponseTypeQuestions;
@@ -150,6 +149,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
             
             break;
         case kELSurveyResponseTypeQuestions:
+            self.title = [self.survey.name uppercaseString];
+            
             for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
                 [mCategories addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
             }

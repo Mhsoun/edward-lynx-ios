@@ -73,7 +73,9 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onPopupHelpButtonClick:(id)sender {
-    // TODO Display help text
+    [self makeToast:self.helpText
+           duration:99999
+           position:CSToastPositionCenter];
 }
 
 @end

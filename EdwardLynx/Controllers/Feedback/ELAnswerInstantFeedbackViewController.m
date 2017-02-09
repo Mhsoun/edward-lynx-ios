@@ -33,6 +33,7 @@
     } else {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.instantFeedback];
         
+        [self.indicatorView stopAnimating];
         [self populatePage];
     }
     
@@ -57,6 +58,7 @@
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.instantFeedback = [[ELInstantFeedback alloc] initWithDictionary:responseDict error:nil];
     
+    [self.indicatorView stopAnimating];
     [self populatePage];
 }
 

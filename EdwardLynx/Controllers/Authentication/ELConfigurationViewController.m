@@ -10,7 +10,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kIAPICCallsNumber = 3;
+static NSInteger const kELAPICallsNumber = 3;
 
 #pragma mark - Class Extension
 
@@ -41,17 +41,18 @@ static NSInteger const kIAPICCallsNumber = 3;
         
         weakSelf.index++;
         
-        if (weakSelf.index <= kIAPICCallsNumber) {
+        if (weakSelf.index <= kELAPICallsNumber) {
             [weakSelf fetchDataFromAPI];
             
             return;
         }
         
-        [weakSelf.indicatorView stopAnimating];
         [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                                          instantiateInitialViewController]
                                animated:YES
-                             completion:nil];
+                             completion:^{
+            [weakSelf.indicatorView stopAnimating];
+        }];
     };
     
     // Fetch all necessary data from API
@@ -105,7 +106,8 @@ static NSInteger const kIAPICCallsNumber = 3;
 }
 
 - (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)(NSError *))completion {
-    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer" completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                                                  completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
             

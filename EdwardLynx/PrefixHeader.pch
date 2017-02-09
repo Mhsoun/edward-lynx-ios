@@ -17,6 +17,7 @@
 
 #import <MTDates/NSDate+MTDates.h>
 #import <RNThemeManager/RNThemeManager.h>
+#import <UIView+Toast.h>
 
 #import "ELAppSingleton.h"
 #import "ELConstants.h"

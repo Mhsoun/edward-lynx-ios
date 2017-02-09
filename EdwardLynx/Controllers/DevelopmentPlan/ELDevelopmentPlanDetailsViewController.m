@@ -35,11 +35,13 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     // Initialization
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
-        
+                
         [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
     } else {
-        self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         self.title = [self.devPlan.name uppercaseString];
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
+        
+        [self.indicatorView stopAnimating];
     }
 
     self.selectedIndex = -1;
@@ -115,6 +117,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
     self.title = [self.devPlan.name uppercaseString];
     
+    [self.indicatorView stopAnimating];
     [self.tableView reloadData];
 }
 
