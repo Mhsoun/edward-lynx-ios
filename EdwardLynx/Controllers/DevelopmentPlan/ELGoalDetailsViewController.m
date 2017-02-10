@@ -24,7 +24,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 @property (nonatomic) BOOL hasCreatedGoal;
 @property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
 @end
 
@@ -38,12 +37,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Initialization
     self.hasCreatedGoal = NO;
+    self.categoryLabel.text = kELNoCategorySelected;
     self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
-    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
-                                                       icon:nil
-                                                 errorLabel:self.nameErrorLabel];
-    self.categoryLabel.text = kELNoCategorySelected;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
@@ -224,15 +220,18 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     NSString *dateString;
     NSMutableDictionary *mFormItems;
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
+    ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
+                                                                   icon:nil
+                                                             errorLabel:self.nameErrorLabel];
     
     if (self.mActions.count == 1) {
         [ELUtils presentToastAtView:self.view
-                            message:NSLocalizedString(@"kELDevelopmentPlanGoalActionsValidation", nil)
+                            message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:^{}];
     }
     
     dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
-    mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": self.nameGroup}];
+    mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": nameGroup}];
     
     if (self.remindSwitch.isOn) {
         [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:dateString

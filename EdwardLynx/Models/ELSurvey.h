@@ -18,7 +18,8 @@
 @property (nonatomic) NSString *lang;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-@property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSString<Optional> *key;
+@property (nonatomic) NSString<Optional> *evaluationText;
+@property (nonatomic) NSString<Optional> *shortDescription;
 
 @end

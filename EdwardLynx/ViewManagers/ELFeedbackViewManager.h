@@ -25,6 +25,5 @@ static NSString * const kELNoQuestionType = @"No type selected";
                                  atId:(int64_t)objId;
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
-- (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict;
 
 @end

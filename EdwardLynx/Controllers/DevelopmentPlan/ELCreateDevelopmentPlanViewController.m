@@ -27,7 +27,6 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 @property (nonatomic, strong) NSMutableArray *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup;
 
 @end
 
@@ -41,9 +40,6 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // Initialization
     self.mGoals = [[NSMutableArray alloc] initWithArray:@[@""]];
-    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
-                                                       icon:nil
-                                                 errorLabel:self.nameErrorLabel];
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -122,11 +118,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
-                         [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                                      instantiateInitialViewController]
-                                            animated:YES
-                                          completion:nil];
-                     }];
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                     instantiateInitialViewController]
+                           animated:YES
+                         completion:nil];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
@@ -140,6 +136,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [self.mGoals insertObject:goal atIndex:position];
     [self.tableView reloadData];
     [self adjustScrollViewContentSize];
+    
     [ELUtils scrollViewToBottom:self.scrollView];
 }
 
@@ -177,14 +174,17 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 - (IBAction)onDoneButtonClick:(id)sender {
     BOOL isValid;
     NSMutableArray *mGoals = [[NSMutableArray alloc] init];
+    ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
+                                                                   icon:nil
+                                                             errorLabel:self.nameErrorLabel];
     
     if (self.mGoals.count == 1) {
         [ELUtils presentToastAtView:self.view
-                            message:NSLocalizedString(@"kELDevelopmentPlanGoalsValidation", nil)
+                            message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
                          completion:^{}];
     }
     
-    isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": self.nameGroup}];
+    isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": nameGroup}];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     

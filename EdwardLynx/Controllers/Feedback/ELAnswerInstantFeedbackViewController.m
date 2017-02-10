@@ -71,24 +71,15 @@
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    // Update Instant Feedback list
-    NSMutableArray *mInstantFeedbacks = [[ELAppSingleton sharedInstance].instantFeedbacks mutableCopy];
-    
-    [mInstantFeedbacks removeObject:self.instantFeedback];
-    
-    [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Private Methods
 
 - (void)populatePage {
-    __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = self.instantFeedback.question;
     BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
-    
-    questionView = [ELUtils viewByAnswerType:question.answer.type];
+    __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
     
     // Content
     self.questionLabel.text = question.text;

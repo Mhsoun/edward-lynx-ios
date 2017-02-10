@@ -71,8 +71,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:[NSIndexPath indexPathForRow:0
-                                                                                                                    inSection:section]];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    ELQuestionCategory *category = (ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath];
     
     return category.questions.count;
 }
@@ -120,8 +120,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    NSString *emptyMessage = NSLocalizedString(self.responseType == kELSurveyResponseTypeDetails ? @"kELSurveyDetailsRetrievalError" :
-                                                                                                   @"kELSurveyQuestionsRetrievalError", nil);
+    NSString *key = self.responseType == kELSurveyResponseTypeDetails ? @"kELSurveyDetailsRetrievalError" :
+                                                                        @"kELSurveyQuestionsRetrievalError";
     
     self.provider = [[ELDataProvider alloc] initWithDataArray:@[]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
@@ -129,7 +129,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
-    [self.dataSource dataSetEmptyText:emptyMessage
+    [self.dataSource dataSetEmptyText:NSLocalizedString(key, nil)
                           description:NSLocalizedString(@"kELErrorDetailsMessage", nil)];
 }
 
@@ -155,8 +155,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
                 [mCategories addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
             }
             
-            self.provider = [[ELDataProvider alloc] initWithDataArray:[mCategories copy]
-                                                             sections:[mCategories count]];
+            self.provider = [[ELDataProvider alloc] initWithDataArray:[mCategories copy] sections:[mCategories count]];
             self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                               dataProvider:self.provider
                                                             cellIdentifier:kELCellIdentifier];

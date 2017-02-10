@@ -35,9 +35,11 @@
     self.user = nil;
     self.participants = nil;
     self.hasLoadedApplication = NO;
+    self.validationDict = @{@"com.REValidation.presence": @"%@ can't be blank.",
+                            @"com.REValidation.email": @"%@ is not a valid email."};
+    
     self.apiDateFormatter = [[NSDateFormatter alloc] init];
     self.printDateFormatter = [[NSDateFormatter alloc] init];
-    
     self.apiDateFormatter.dateFormat = kELAPIDateFormat;
     self.apiDateFormatter.timeZone = [NSTimeZone systemTimeZone];
     self.apiDateFormatter.locale = [NSLocale systemLocale];

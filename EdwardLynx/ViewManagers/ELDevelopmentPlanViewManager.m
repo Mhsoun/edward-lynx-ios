@@ -44,7 +44,7 @@
         });
     };
     
-    [self setupValidators];
+    [ELUtils registerValidators];
     
     return self;
 }
@@ -80,7 +80,8 @@
         
         formFieldGroup = formDict[key];
         date = [[ELAppSingleton sharedInstance].apiDateFormatter dateFromString:[formFieldGroup textValue]];
-        dateErrors = [date mt_isBefore:[NSDate date]] ? @[@"Reminder date should be on or after today."] : nil;
+        dateErrors = [date mt_isBefore:[NSDate date]] ? @[NSLocalizedString(@"kELGoalReminderValidationMessage", nil)] :
+                                                        nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:dateErrors];
     }
@@ -89,7 +90,8 @@
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        categoryErrors = [[formFieldGroup textValue] isEqualToString:kELNoCategorySelected] ? @[@"No category selected."] : nil;
+        categoryErrors = [[formFieldGroup textValue] isEqualToString:kELNoCategorySelected] ? @[NSLocalizedString(@"kELGoalCategoryValidationMessage", nil)] :
+                                                                                              nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:categoryErrors];
     }
@@ -109,20 +111,13 @@
     if (formDict[key]) {
         formFieldGroup = formDict[key];
         nameErrors = [REValidation validateObject:[formFieldGroup textValue]
-                                             name:@"Name"
+                                             name:NSLocalizedString(@"kELNameField", nil)
                                        validators:@[@"presence"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
     
     return nameErrors.count == 0;
-}
-
-#pragma mark - Private Methods
-
-- (void)setupValidators {
-    [REValidation registerDefaultValidators];
-    [REValidation registerDefaultErrorMessages];
 }
 
 @end

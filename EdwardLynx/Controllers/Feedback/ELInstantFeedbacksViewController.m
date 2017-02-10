@@ -11,6 +11,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
+static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 #pragma mark - Class Extension
 
@@ -32,12 +33,10 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.viewManager = [[ELListViewManager alloc] init];
-    self.viewManager.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    // Retrieve Instant Feedbacks
-    [self.viewManager processRetrievalOfInstantFeedbacks];
+    self.viewManager = [[ELListViewManager alloc] init];
+    self.viewManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,19 +44,19 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     // Refresh Instant Feedback items
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
-    
-    [self.tableView reloadData];
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    [self.viewManager processRetrievalOfInstantFeedbacks];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AnswerInstantFeedback"]) {
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
         ELAnswerInstantFeedbackViewController *controller = (ELAnswerInstantFeedbackViewController *)[segue destinationViewController];
         
         controller.instantFeedback = self.selectedInstantFeedback;
@@ -74,7 +73,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
     ELInstantFeedback *feedback;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
-    feedback = [ELAppSingleton sharedInstance].instantFeedbacks[indexPath.row];
+    feedback = [self.provider rowObjectAtIndexPath:indexPath];
     cell.textLabel.text = feedback.question.text;
     cell.detailTextLabel.text = [ELUtils labelByAnswerType:feedback.question.answer.type];
     
@@ -84,7 +83,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider rowObjectAtIndexPath:indexPath];
     
-    [self performSegueWithIdentifier:@"AnswerInstantFeedback" sender:self];
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -95,6 +94,7 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    [self.tableView setHidden:NO];
     [self.indicatorView stopAnimating];
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELFeedbacksRetrievalError", nil)
                           description:NSLocalizedString(@"kELErrorDetailsMessage", nil)];
@@ -107,15 +107,14 @@ static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
         [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
     }
     
-    [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
-    
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[ELAppSingleton sharedInstance].instantFeedbacks];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mInstantFeedbacks copy]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
     [self.indicatorView stopAnimating];
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELFeedbacksRetrievalEmpty", nil) description:@""];
+    [self.tableView setHidden:NO];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView reloadData];

@@ -107,10 +107,4 @@
                                       completion:self.requestCompletionBlock];
 }
 
-#pragma mark - Private Methods
-
-- (void)initViewManager {
-    
-}
-
 @end

@@ -80,8 +80,7 @@ static CGFloat const kELCornerRadius = 2.0f;
         return;
     }
     
-    // TODO
-//    [self.viewManager processPasswordRecovery];
+    [self.viewManager processPasswordRecovery];
 }
 
 - (IBAction)onBackButtonClick:(id)sender {

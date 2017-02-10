@@ -15,6 +15,8 @@ static CGFloat const kELFormViewHeight = 435;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
+static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
+
 #pragma mark - Class Extension
 
 @interface ELCreateInstantFeedbackViewController ()
@@ -55,7 +57,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"InviteFeedbackParticipants"]) {
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
         ELInviteUsersViewController *controller = [segue destinationViewController];
         
         controller.inviteType = kELInviteUsersInstantFeedback;
@@ -179,14 +181,13 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid;
-    ELFormItemGroup *typeGroup, *questionGroup;
+    ELFormItemGroup *typeGroup = [[ELFormItemGroup alloc] initWithText:self.selectedAnswerType
+                                                                  icon:nil
+                                                            errorLabel:self.questionTypeErrorLabel];
+    ELFormItemGroup *questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
+                                                                      icon:nil
+                                                                errorLabel:self.questionErrorLabel];
     
-    typeGroup = [[ELFormItemGroup alloc] initWithText:self.selectedAnswerType
-                                                 icon:nil
-                                           errorLabel:self.questionTypeErrorLabel];
-    questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
-                                                     icon:nil
-                                               errorLabel:self.questionErrorLabel];
     self.mInstantFeedbackDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": typeGroup,
                                                                                 @"question": questionGroup,
                                                                                 @"anonymous": @(self.isAnonymousSwitch.on),
@@ -204,7 +205,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
         return;
     }
     
-    [self performSegueWithIdentifier:@"InviteFeedbackParticipants" sender:self];
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 #pragma mark - Notifications
@@ -213,6 +214,7 @@ static NSString * const kELOptionCellIdentifier = @"OptionCell";
     BOOL isCustomScale;
     
     self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
+    
     isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
     
     [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];

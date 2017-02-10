@@ -11,14 +11,8 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELEmailButtonHeight = 40;
-static CGFloat const kELFormViewHeight = 120;
+static CGFloat const kELFormViewHeight = 105;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
-
-static NSString * const kELSelectAllButtonLabel = @"Select all";
-static NSString * const kELDeselectAllButtonLabel = @"Deselect all";
-
-static NSString * const kELSuccessMessageShareReport = @"Reports successfully shared.";
-static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback successfully created.";
 
 #pragma mark - Class Extension
 
@@ -27,7 +21,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 @property (nonatomic) BOOL selected, allCellsAction;
 @property (nonatomic, strong) UIAlertAction *inviteAction;
 @property (nonatomic, strong) UIAlertController *alertController;
-@property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
+@property (nonatomic, strong) NSMutableArray *mInitialParticipants,
+                                             *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
@@ -48,7 +43,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     self.searchBar.delegate = self;
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
-    self.selectAllButton.titleLabel.text = kELSelectAllButtonLabel;
+    self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -152,7 +147,6 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ELParticipantTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    // FIX Cell being need to be clicked twice to invoke method
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (self.allCellsAction) {
@@ -177,7 +171,8 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:
+                                 NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
                                  @(self.mParticipants.count)];
 }
 
@@ -186,18 +181,13 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSArray *emailErrors, *nameErrors;
     NSArray<UITextField *> *textFields = self.alertController.textFields;
-    NSString *finalEmailString = textFields.lastObject.text;
-    NSString *finalNameString = textFields.firstObject.text;
     
-    [REValidation registerDefaultValidators];
-    [REValidation registerDefaultErrorMessages];
+    [ELUtils registerValidators];
     
-    // TODO Polish validation
-    
-    emailErrors = [REValidation validateObject:finalEmailString
+    emailErrors = [REValidation validateObject:textFields.lastObject.text
                                           name:@"Email"
                                     validators:@[@"presence", @"email"]];
-    nameErrors = [REValidation validateObject:finalNameString
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
                                          name:@"Email"
                                    validators:@[@"presence"]];
     
@@ -215,23 +205,16 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    NSString *successMessage = self.inviteType == kELInviteUsersInstantFeedback ? kELSuccessMessageInstantFeedback :
-                                                                                  kELSuccessMessageShareReport;
-    
     self.inviteButton.enabled = YES;
     
     // Clear selections
     [self clearSelection];
     
     // Back to the Dashboard
-    [ELUtils presentToastAtView:self.view
-                        message:successMessage
-                     completion:^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                     instantiateInitialViewController]
-                           animated:YES
-                         completion:nil];
-    }];
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                 instantiateInitialViewController]
+                       animated:YES
+                     completion:nil];
 }
 
 #pragma mark - Private Methods
@@ -272,8 +255,6 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (void)layoutInstantFeedbackSharePage {
     // Details
     self.headerLabel.text = NSLocalizedString(@"kELInviteUsersHeaderMessage", nil);
-    self.detailLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELInviteUsersEvaluationLabel", nil),
-                             [ELAppSingleton sharedInstance].user.name];
     
     // Button
     [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
@@ -283,7 +264,6 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 - (void)layoutReportSharePage {
     // Details
     self.headerLabel.text = NSLocalizedString(@"kELShareReportsHeaderMessage", nil);
-    self.detailLabel.text = NSLocalizedString(@"kELShareReportsDetailsMessage", nil);
     
     // Button
     [self.emailButtonHeightConstraint setConstant:0];
@@ -291,28 +271,47 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
 }
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
-    if (self.mParticipants.count == 0) {
-        [self.selectAllButton setTitle:kELSelectAllButtonLabel forState:UIControlStateNormal];
-    } else if (self.mParticipants.count == [self.provider numberOfRows]) {
-        [self.selectAllButton setTitle:self.mInitialParticipants.count ? kELDeselectAllButtonLabel : self.selectAllButton.titleLabel.text
-                              forState:UIControlStateNormal];
-    } else if (self.allCellsAction) {
-        if (self.mParticipants.count >= [self.provider numberOfRows] && indexPath.row == [self.provider numberOfRows] - 1) {
-            [self.selectAllButton setTitle:self.selected ? kELDeselectAllButtonLabel : kELSelectAllButtonLabel
-                                  forState:UIControlStateNormal];
+    NSString *key;
+    int selected = 0;
+    
+    // Traverse cells to get count of currently selected rows
+    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+        ELParticipantTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell.participant.isSelected) {
+            selected++;
         }
     }
+    
+    if (selected == 0 || !selected) {
+        key = @"kELSelectAllButton";
+    } else if (selected >= [self.provider numberOfRows]) {
+        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+    }
+    
+    if (!key) {
+        return;
+    }
+    
+    [self.selectAllButton setTitle:NSLocalizedString(key, nil) forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
     UIButton *button = (UIButton *)sender;
-    NSString *title = [button.titleLabel.text isEqualToString:kELSelectAllButtonLabel] ? kELDeselectAllButtonLabel :
-                                                                                         kELSelectAllButtonLabel;
+    NSString *title = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)] ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+                                                                                                               NSLocalizedString(@"kELSelectAllButton", nil);
     
     self.allCellsAction = YES;
-    self.selected = [button.titleLabel.text isEqualToString:kELSelectAllButtonLabel];
+    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
     [button setTitle:title forState:UIControlStateNormal];
     
@@ -337,7 +336,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
-                                message:NSLocalizedString(@"kELUsersSelectionValidation", nil)
+                                message:NSLocalizedString(@"kELUsersSelectionValidationMessage", nil)
                              completion:^{}];
             
             return;
@@ -368,7 +367,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
     } else if (self.inviteType == kELInviteUsersReports) {
         if (!self.mParticipants.count) {
             [ELUtils presentToastAtView:self.view
-                                message:NSLocalizedString(@"kELUsersSelectionValidation", nil)
+                                message:NSLocalizedString(@"kELUsersSelectionValidationMessage", nil)
                              completion:^{}];
             
             return;
@@ -408,6 +407,7 @@ static NSString * const kELSuccessMessageInstantFeedback = @"Instant Feedback su
         
         [self.tableView reloadData];
         [self adjustScrollViewContentSize];
+        
         [ELUtils scrollViewToBottom:self.scrollView];
         
         // Updated selected users label

@@ -99,6 +99,7 @@
 		A9B5D2AB1E4039A000D5A0EA /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */; };
 		A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AD1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m */; };
 		A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */; };
+		A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */; };
 		A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */; };
 		A9BF26811E2D3AA700F42859 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */; };
 		A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */; };
@@ -363,6 +364,8 @@
 		A9B5D2AD1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanAPIClient.m; sourceTree = "<group>"; };
 		A9B5D2AF1E4095F500D5A0EA /* ELDevelopmentPlanViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanViewManager.h; sourceTree = "<group>"; };
 		A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanViewManager.m; sourceTree = "<group>"; };
+		A9B6A3201E4DC3D700089E61 /* ELEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELEmailValidator.h; sourceTree = "<group>"; };
+		A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELEmailValidator.m; sourceTree = "<group>"; };
 		A9BF267B1E2D323000F42859 /* ELInstantFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedback.h; sourceTree = "<group>"; };
 		A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedback.m; sourceTree = "<group>"; };
 		A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbacksViewController.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 			children = (
 				A9AC0EA11E25AEC700137975 /* ELSearchBar.h */,
 				A9AC0EA21E25AEC700137975 /* ELSearchBar.m */,
+				A9B6A3201E4DC3D700089E61 /* ELEmailValidator.h */,
+				A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1221,6 +1226,7 @@
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
+				A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */,
 				A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */,
 				A9121A9D1E07A9B900ED9934 /* ELLeftMenuViewController.m in Sources */,
 				A991AF951E4C6548008B79C3 /* ELNotification.m in Sources */,

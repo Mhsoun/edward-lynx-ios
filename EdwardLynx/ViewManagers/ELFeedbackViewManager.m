@@ -44,7 +44,7 @@
         });
     };
     
-    [self setupValidators];
+    [ELUtils registerValidators];
     
     return self;
 }
@@ -78,7 +78,8 @@
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[@"An answer type should be selected"] : nil;
+        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[NSLocalizedString(@"kELAnswerTypeValidation", nil)] :
+                                                                                     nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
     }
@@ -88,50 +89,13 @@
     if (formDict[key]) {
         formFieldGroup = formDict[key];
         questionErrors = [REValidation validateObject:[formDict[key] textValue]
-                                                 name:@"Question"
+                                                 name:NSLocalizedString(@"kELQuestionField", nil)
                                            validators:@[@"presence"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:questionErrors];
     }
     
     return questionErrors.count == 0 && typeErrors.count == 0;
-}
-
-- (BOOL)validateInstantFeedbackInviteUsersFormValues:(NSDictionary *)formDict {
-    NSString *key;
-    NSArray *nameErrors, *emailErrors;
-    ELFormItemGroup *formFieldGroup;
-    
-    key = @"name";
-    
-    if (formDict[key]) {
-        formFieldGroup = formDict[key];
-        nameErrors = [REValidation validateObject:[formDict[key] textValue]
-                                             name:@"Name"
-                                       validators:@[@"presence"]];
-        
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
-    }
-    
-    key = @"email";
-    
-    if (formDict[key]) {
-        formFieldGroup = formDict[key];
-        emailErrors = [REValidation validateObject:[formDict[key] textValue]
-                                              name:@"Email"
-                                        validators:@[@"presence", @"email"]];
-        
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
-    }
-    
-    return nameErrors.count == 0 && emailErrors.count == 0;
-}
-
-#pragma mark - Private Methods
-
-- (void)setupValidators {
-    [REValidation registerDefaultValidators];
-    [REValidation registerDefaultErrorMessages];
 }
 
 @end

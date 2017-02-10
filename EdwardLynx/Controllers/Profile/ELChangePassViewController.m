@@ -14,9 +14,6 @@
 
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *currentPasswordGroup,
-                                              *passwordGroup,
-                                              *confirmPasswordGroup;
 
 @end
 
@@ -34,18 +31,15 @@
     self.currentPasswordTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
-    self.currentPasswordGroup = [[ELFormItemGroup alloc] initWithInput:self.currentPasswordTextField
-                                                                  icon:nil
-                                                            errorLabel:self.currentPasswordErrorLabel];
-    self.passwordGroup = [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
-                                                           icon:nil
-                                                     errorLabel:self.passwordErrorLabel];
-    self.confirmPasswordGroup = [[ELFormItemGroup alloc] initWithInput:self.confirmPasswordTextField
-                                                                  icon:nil
-                                                            errorLabel:self.confirmPasswordErrorLabel];
-    self.formGroupsDict = @{@"currentPassword": self.currentPasswordGroup,
-                            @"password": self.passwordGroup,
-                            @"confirmPassword": self.confirmPasswordGroup};
+    self.formGroupsDict = @{@"currentPassword": [[ELFormItemGroup alloc] initWithInput:self.currentPasswordTextField
+                                                                                  icon:nil
+                                                                            errorLabel:self.currentPasswordErrorLabel],
+                            @"password": [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
+                                                                           icon:nil
+                                                                     errorLabel:self.passwordErrorLabel],
+                            @"confirmPassword": [[ELFormItemGroup alloc] initWithInput:self.confirmPasswordTextField
+                                                                                  icon:nil
+                                                                            errorLabel:self.confirmPasswordErrorLabel]};
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,8 +86,7 @@
     // Update password stored on NSUserDefaults
     NSMutableDictionary *mCredentialsDict = [[ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey] mutableCopy];
     
-    [mCredentialsDict setObject:self.confirmPasswordTextField.text
-                         forKey:@"password"];
+    [mCredentialsDict setObject:self.confirmPasswordTextField.text forKey:@"password"];
     [ELUtils setUserDefaultsObject:[mCredentialsDict copy]
                                key:kELAuthCredentialsUserDefaultsKey];
     

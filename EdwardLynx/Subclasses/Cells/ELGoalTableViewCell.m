@@ -117,14 +117,14 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:@"Complete Action"
-                                                     message:@"Is this action completed?"
+    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
+                                                     message:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil)
                                               preferredStyle:UIAlertControllerStyleAlert];
     
-    [controller addAction:[UIAlertAction actionWithTitle:@"Complete"
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCompleteButton", nil)
                                                    style:UIAlertActionStyleDefault
                                                  handler:actionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
@@ -138,7 +138,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (void)updateContent {
     self.goalLabel.text = self.goal.title;
     self.completedLabel.text = [self.goal progressDetails][@"text"];
-    self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? @"No description added." :
+    self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
                                                                           self.goal.shortDescription;
     
     [self.tableView reloadData];

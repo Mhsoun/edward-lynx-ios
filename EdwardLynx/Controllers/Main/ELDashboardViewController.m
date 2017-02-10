@@ -153,7 +153,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"Instant",
                                                          @"title": @"Feedback Requests",
-                                                         @"count": @([ELAppSingleton sharedInstance].instantFeedbacks.count),
+                                                         @"count": @(0),
                                                          @"segue": @"InstantFeedback",
                                                          @"color": kELPinkColor,
                                                          @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
