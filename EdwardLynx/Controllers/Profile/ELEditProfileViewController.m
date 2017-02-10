@@ -40,30 +40,25 @@
     self.departmentTextField.delegate = self;
     self.countryTextField.delegate = self;
     self.cityTextField.delegate = self;
-    self.nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
-                                                       icon:nil
-                                                 errorLabel:self.nameErrorLabel];
-    self.infoGroup = [[ELFormItemGroup alloc] initWithInput:self.infoTextView
-                                                       icon:nil
-                                                 errorLabel:nil];
-    self.roleGroup = [[ELFormItemGroup alloc] initWithInput:self.roleTextField
-                                                       icon:nil
-                                                 errorLabel:nil];
-    self.departmentGroup = [[ELFormItemGroup alloc] initWithInput:self.departmentTextField
-                                                             icon:nil
-                                                       errorLabel:nil];
-    self.countryGroup = [[ELFormItemGroup alloc] initWithInput:self.countryTextField
-                                                          icon:nil
-                                                    errorLabel:nil];
-    self.cityGroup = [[ELFormItemGroup alloc] initWithInput:self.cityTextField
-                                                       icon:nil
-                                                 errorLabel:nil];
-    self.formGroupsDict = @{@"name": self.nameGroup,
-                            @"info": self.infoGroup,
-                            @"role": self.roleGroup,
-                            @"department": self.departmentGroup,
-                            @"city": self.cityGroup,
-                            @"country": self.countryGroup};
+    self.formGroupsDict = @{@"name": [[ELFormItemGroup alloc] initWithInput:self.nameTextField
+                                                                       icon:nil
+                                                                 errorLabel:self.nameErrorLabel],
+                            @"info": [[ELFormItemGroup alloc] initWithInput:self.infoTextView
+                                                                       icon:nil
+                                                                 errorLabel:nil],
+                            @"role": [[ELFormItemGroup alloc] initWithInput:self.roleTextField
+                                                                       icon:nil
+                                                                 errorLabel:nil],
+                            @"department": [[ELFormItemGroup alloc] initWithInput:self.departmentTextField
+                                                                             icon:nil
+                                                                       errorLabel:nil],
+                            @"city": [[ELFormItemGroup alloc] initWithInput:self.cityTextField
+                                                                       icon:nil
+                                                                 errorLabel:nil],
+                            @"country": [[ELFormItemGroup alloc] initWithInput:self.countryTextField
+                                                                          icon:nil
+                                                                    errorLabel:nil]};
+    
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
     

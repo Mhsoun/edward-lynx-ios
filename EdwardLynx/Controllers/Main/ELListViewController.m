@@ -72,19 +72,19 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     for (NSDictionary *detailDict in responseDict[@"items"]) {
         switch (self.listType) {
             case kELListTypeSurveys:
-                emptyMessage = @"No surveys";
+                emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
                 
                 [mData addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
             case kELListTypeReports:
-                emptyMessage = @"No reports";
+                emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
                 
                 [mData addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
             case kELListTypeDevPlan:
-                emptyMessage = @"No development plans";
+                emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
                 devPlan.urlLink = detailDict[@"_links"][@"self"][@"href"];
                 

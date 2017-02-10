@@ -31,11 +31,10 @@
 
 /* Development Plans */
 
+"kELDevelopmentPlanEmptyMessage"  = "No Development Plans";
+
 "kELDevelopmentPlanCreateError" = "Failed creating Development Plan.";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan.";
-
-"kELDevelopmentPlanGoalsValidation" = "No Goals added.";
-"kELDevelopmentPlanGoalActionsValidation" = "No Goal Actions added.";
 
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated.";
 
@@ -49,7 +48,27 @@
 "kELFeedbackAnswerError" = "Failed answering Instant Feedback.";
 "kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback.";
 
+"kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
+"kELFeedbackAnswerTypeOneToTenScale" = "Numeric 1-10 Scale";
+"kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
+"kELFeedbackAnswerTypeYesNoScale" = "Yes/No Scale";
+"kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
+"kELFeedbackAnswerTypeText" = "Text";
+"kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
+"kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
+"kELFeedbackAnswerTypeCustomScale" = "Custom Scale";
+
+/* Fields */
+
+"kELDefaultField" = "Field";
+"kELNameField" = "Name";
+"kELPasswordField" = "Password";
+"kELQuestionField" = "Question";
+
 /* Invite/Share */
+
+"kELDeselectAllButton" = "Deselect all";
+"kELSelectAllButton" = "Select all";
 
 "kELInviteUsersHeaderMessage" = "Invite people to participate";
 "kELInviteUsersEvaluationLabel" = "The person evaluated is: %@";
@@ -61,11 +80,11 @@
 "kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
 
+"kELReportEmptyMessage" = "No Reports";
+
 "kELShareReportsHeaderMessage" = "Share report to users";
-"kELShareReportsDetailsMessage" = "Select users for them to be able to view this report";
 
 "kELUsersNumberSelectedLabel" = "No. of people selected: %@";
-"kELUsersSelectionValidation" = "No users selected.";
 
 /* Profile */
 
@@ -77,11 +96,26 @@
 
 /* Surveys */
 
+"kELSurveyEmptyMessage"  = "No Surveys";
+
 "kELSurveySubmitHeaderMessage" = "Submit Options";
 "kELSurveySubmitDetailsMessage" = "You have the option to save your answers partially or submit for completion.";
+
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details.";
 "kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions.";
+
 "kELSurveySubmissionSuccess" = "Successfully submitted answers.";
 "kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts.";
 "kELSurveyPostError" = "Failed to post answers.";
 
+/* Validations */
+
+"kELAnswerTypeValidation" = "Answer type should be selected.";
+"kELGoalActionsValidationMessage" = "No Goal Actions added.";
+"kELGoalCategoryValidationMessage" = "No category selected.";
+"kELGoalsValidationMessage" = "No Goals added.";
+"kELGoalReminderValidationMessage" = "Reminder date should be on or after today.";
+"kELPasswordValidationMessage" = "New Password fields must be the same.";
+"kELREValidationEmailMessage" = "%@ can't be blank.";
+"kELREValidationPresenceMessage" = "%@ can't be blank.";
+"kELUsersSelectionValidationMessage" = "No users selected.";

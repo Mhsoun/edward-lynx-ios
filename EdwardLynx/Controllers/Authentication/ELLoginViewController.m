@@ -17,7 +17,7 @@ static CGFloat const kELCornerRadius = 2.0f;
 @interface ELLoginViewController ()
 
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *usernameGroup, *passwordGroup;
+@property (nonatomic, strong) ELFormItemGroup *usernameGroup;
 
 @end
 
@@ -37,9 +37,6 @@ static CGFloat const kELCornerRadius = 2.0f;
     self.usernameGroup = [[ELFormItemGroup alloc] initWithInput:self.usernameTextField
                                                            icon:self.usernameIcon
                                                      errorLabel:self.usernameErrorLabel];
-    self.passwordGroup = [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
-                                                           icon:self.passwordIcon
-                                                     errorLabel:self.passwordErrorLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,8 +113,13 @@ static CGFloat const kELCornerRadius = 2.0f;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onLoginButtonClick:(id)sender {
-    BOOL isValid = [self.viewManager validateLoginFormValues:@{@"username": self.usernameGroup,
-                                                               @"password": self.passwordGroup}];
+    BOOL isValid;
+    ELFormItemGroup *passwordGroup = [[ELFormItemGroup alloc] initWithInput:self.passwordTextField
+                                                                       icon:self.passwordIcon
+                                                                 errorLabel:self.passwordErrorLabel];
+    
+    isValid = [self.viewManager validateLoginFormValues:@{@"username": self.usernameGroup,
+                                                          @"password": passwordGroup}];
     
     self.loginButton.enabled = NO;
     

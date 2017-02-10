@@ -45,15 +45,6 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The person evaluated is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84t-JN-A4w">
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="rQo-ZC-0Zj"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <searchBar contentMode="scaleToFill" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F" customClass="ELSearchBar">
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -63,16 +54,13 @@
                                                     </searchBar>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="110" id="Atn-qS-zWA"/>
+                                                    <constraint firstAttribute="height" constant="95" id="Atn-qS-zWA"/>
                                                     <constraint firstItem="IPk-wm-Q6F" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="Bdg-LV-Edg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="84t-JN-A4w" secondAttribute="trailing" id="Det-mU-Wyd"/>
                                                     <constraint firstAttribute="trailing" secondItem="IPk-wm-Q6F" secondAttribute="trailing" id="NYH-Ev-Ec8"/>
                                                     <constraint firstItem="b6m-Fd-J6y" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="Ora-b3-tUG"/>
+                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="top" secondItem="b6m-Fd-J6y" secondAttribute="bottom" constant="10" id="Tb7-2K-uOx"/>
                                                     <constraint firstAttribute="trailing" secondItem="b6m-Fd-J6y" secondAttribute="trailing" id="TrQ-GJ-33E"/>
-                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="top" secondItem="84t-JN-A4w" secondAttribute="bottom" constant="10" id="WpS-tX-5Rt"/>
                                                     <constraint firstItem="b6m-Fd-J6y" firstAttribute="top" secondItem="d2n-ay-hRY" secondAttribute="top" constant="10" id="bnK-eB-qVR"/>
-                                                    <constraint firstItem="84t-JN-A4w" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="cnq-on-Hef"/>
-                                                    <constraint firstItem="84t-JN-A4w" firstAttribute="top" secondItem="b6m-Fd-J6y" secondAttribute="bottom" id="jSd-Yr-7GJ"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
@@ -198,7 +186,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="INVITE" id="zar-hO-SbN"/>
                     <connections>
-                        <outlet property="detailLabel" destination="84t-JN-A4w" id="NZ5-Sw-Nrk"/>
                         <outlet property="emailButton" destination="b9s-4t-stq" id="yp5-Xq-x43"/>
                         <outlet property="emailButtonHeightConstraint" destination="hFI-Yb-VCS" id="S9i-yN-bKo"/>
                         <outlet property="headerLabel" destination="b6m-Fd-J6y" id="5jg-JE-X44"/>

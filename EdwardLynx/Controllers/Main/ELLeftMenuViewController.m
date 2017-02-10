@@ -33,6 +33,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     // Initialization
     self.prevIndexPath = [NSIndexPath indexPathForRow:kELDefaultRowIndex inSection:0];
+    
     self.provider = [[ELDataProvider alloc] initWithDataArray:[self menuItems]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider

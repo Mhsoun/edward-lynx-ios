@@ -121,23 +121,4 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     [self.tableView reloadData];
 }
 
-#pragma mark - Protocol Methods (ELDevelopmentPlanGoalAction)
-
-- (void)onGoalActionUpdate:(__kindof ELModel *)object {
-    ELGoalAction *action = (ELGoalAction *)object;
-    ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
-    
-    [client updateGoalActionWithParams:[action apiPatchDictionary]
-                                  link:action.urlLink
-                            completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        if (error) {
-            return;
-        }
-        
-        [ELUtils presentToastAtView:self.view
-                            message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
-                         completion:^{}];
-    }];
-}
-
 @end

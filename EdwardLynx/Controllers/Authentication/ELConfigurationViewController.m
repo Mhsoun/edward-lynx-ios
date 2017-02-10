@@ -31,6 +31,7 @@ static NSInteger const kELAPICallsNumber = 3;
     
     // Initialization
     __weak typeof(self) weakSelf = self;
+    
     self.index = 1;
     self.apiCallBlock = ^(NSError *error) {
         if (error) {
@@ -80,10 +81,6 @@ static NSInteger const kELAPICallsNumber = 3;
             [self fetchQuestionCategoriesFromAPIWithCompletion:self.apiCallBlock];
             
             break;
-        case 4:
-            [self fetchUserInstantFeedbacksFromAPIWithCompletion:self.apiCallBlock];
-            
-            break;
         default:
             break;
     }
@@ -99,23 +96,6 @@ static NSInteger const kELAPICallsNumber = 3;
             }
             
             [ELAppSingleton sharedInstance].categories = [mCategories copy];
-            
-            completion(error);
-        });
-    }];
-}
-
-- (void)fetchUserInstantFeedbacksFromAPIWithCompletion:(void (^)(NSError *))completion {
-    [[[ELSurveysAPIClient alloc] init] currentUserInstantFeedbacksWithFilter:@"to_answer"
-                                                                  completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
-                [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
-            }
-            
-            [ELAppSingleton sharedInstance].instantFeedbacks = [mInstantFeedbacks copy];
             
             completion(error);
         });
@@ -139,7 +119,8 @@ static NSInteger const kELAPICallsNumber = 3;
             NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
             
             for (NSDictionary *participantDict in responseDict[@"items"]) {
-                ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:participantDict error:nil];
+                ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:participantDict
+                                                                                 error:nil];
                 
                 [participant setIsAddedByEmail:NO];
                 [mParticipants addObject:participant];
