@@ -171,7 +171,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+    self.noOfPeopleLabel.text = [NSString stringWithFormat:
+                                 NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
                                  @(self.mParticipants.count)];
 }
 
@@ -180,18 +181,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSArray *emailErrors, *nameErrors;
     NSArray<UITextField *> *textFields = self.alertController.textFields;
-    NSString *finalEmailString = textFields.lastObject.text;
-    NSString *finalNameString = textFields.firstObject.text;
     
-    [REValidation registerDefaultValidators];
-    [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
+    [ELUtils registerValidators];
     
-    // TODO Polish validation
-    
-    emailErrors = [REValidation validateObject:finalEmailString
+    emailErrors = [REValidation validateObject:textFields.lastObject.text
                                           name:@"Email"
                                     validators:@[@"presence", @"email"]];
-    nameErrors = [REValidation validateObject:finalNameString
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
                                          name:@"Email"
                                    validators:@[@"presence"]];
     

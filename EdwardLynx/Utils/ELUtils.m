@@ -306,6 +306,12 @@
     return nil;
 }
 
++ (void)registerValidators {
+    [REValidation registerDefaultValidators];
+    [REValidation registerValidator:[ELEmailValidator class]];
+    [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
+}
+
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
     NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
                              @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),

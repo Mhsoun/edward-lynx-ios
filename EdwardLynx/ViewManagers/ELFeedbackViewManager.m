@@ -44,7 +44,7 @@
         });
     };
     
-    [self setupValidators];
+    [ELUtils registerValidators];
     
     return self;
 }
@@ -96,13 +96,6 @@
     }
     
     return questionErrors.count == 0 && typeErrors.count == 0;
-}
-
-#pragma mark - Private Methods
-
-- (void)setupValidators {
-    [REValidation registerDefaultValidators];
-    [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
 }
 
 @end

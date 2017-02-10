@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <REValidation/REValidation.h>
-
 #import "ELUsersAPIClient.h"
 
 @interface ELAccountsViewManager : NSObject

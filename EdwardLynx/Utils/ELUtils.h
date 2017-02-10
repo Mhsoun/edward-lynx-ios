@@ -13,8 +13,10 @@
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <KDNotification/KDToastNotification.h>
+#import <REValidation/REValidation.h>
 
 #import "AppDelegate.h"
+#import "ELEmailValidator.h"
 #import "ELUsersAPIClient.h"
 
 @class ELBaseQuestionTypeView;
@@ -67,6 +69,7 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion;
++ (void)registerValidators;
 + (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
 + (void)setupSlideView:(DYSlideView *)slideView;

@@ -46,7 +46,7 @@
         });
     };
     
-    [self setupValidators];
+    [ELUtils registerValidators];
     
     return self;
 }
@@ -172,13 +172,6 @@
     }
     
     return isValid && isEqual;
-}
-
-#pragma mark - Private Methods
-
-- (void)setupValidators {
-    [REValidation registerDefaultValidators];
-    [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
 }
 
 @end
