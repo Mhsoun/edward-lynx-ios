@@ -57,6 +57,14 @@ platform :ios do
     build_for_hockeyapp(options[:scheme])
   end
 
+  lane :ipa do
+    gym(
+      export_method: "development",
+      include_bitcode: false,
+      include_symbols: true
+    )
+  end
+
   desc "Deploy a new version to the App Store"
   lane :release do
     # match(type: "appstore")
