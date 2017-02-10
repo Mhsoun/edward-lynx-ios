@@ -21,7 +21,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @property (nonatomic) BOOL selected, allCellsAction;
 @property (nonatomic, strong) UIAlertAction *inviteAction;
 @property (nonatomic, strong) UIAlertController *alertController;
-@property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
+@property (nonatomic, strong) NSMutableArray *mInitialParticipants,
+                                             *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
@@ -275,12 +276,27 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
+    int selected = 0;
     
-    // TODO Still has issues
+    // Traverse cells to get count of currently selected rows
+    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+        ELParticipantTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell.participant.isSelected) {
+            selected++;
+        }
+    }
     
-    if (self.mParticipants.count == 0) {
+    if (selected == 0 || !selected) {
         key = @"kELSelectAllButton";
-    } else if (self.mParticipants.count >= [self.provider numberOfRows]) {
+    } else if (selected >= [self.provider numberOfRows]) {
         key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
     }
     
