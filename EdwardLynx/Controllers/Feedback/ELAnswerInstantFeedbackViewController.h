@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionTypeView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 - (IBAction)onSubmitButtonClick:(id)sender;
 
 @end

@@ -222,16 +222,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-07-KT4">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p5v-jx-qA0" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="2HH-hE-UQG"/>
                             <constraint firstItem="mde-e0-Zaa" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="4TV-xg-IbV"/>
+                            <constraint firstItem="J3W-07-KT4" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="5dO-v3-Akf"/>
                             <constraint firstItem="bx7-fe-gQJ" firstAttribute="height" secondItem="fkh-Vt-Trz" secondAttribute="height" id="BnQ-l3-NlB"/>
                             <constraint firstItem="X97-nQ-Vl8" firstAttribute="top" secondItem="p5v-jx-qA0" secondAttribute="bottom" constant="10" id="CDI-8O-Mpn"/>
                             <constraint firstItem="bx7-fe-gQJ" firstAttribute="width" secondItem="fkh-Vt-Trz" secondAttribute="width" id="MNR-Xk-sEb"/>
                             <constraint firstItem="mde-e0-Zaa" firstAttribute="width" secondItem="fkh-Vt-Trz" secondAttribute="width" id="ThC-V5-ddE"/>
                             <constraint firstItem="bx7-fe-gQJ" firstAttribute="centerY" secondItem="fkh-Vt-Trz" secondAttribute="centerY" id="UDT-oP-0u4"/>
+                            <constraint firstItem="J3W-07-KT4" firstAttribute="centerY" secondItem="fkh-Vt-Trz" secondAttribute="centerY" id="bz8-RK-TPh"/>
                             <constraint firstItem="mde-e0-Zaa" firstAttribute="top" secondItem="k8w-hZ-vY0" secondAttribute="bottom" id="d5O-hK-rk3"/>
                             <constraint firstItem="p5v-jx-qA0" firstAttribute="top" secondItem="mde-e0-Zaa" secondAttribute="bottom" constant="10" id="dmQ-Y2-Nna"/>
                             <constraint firstItem="bx7-fe-gQJ" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="gZR-47-y3e"/>
@@ -239,6 +244,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="J3W-07-KT4" id="Ajj-zo-YZh"/>
                         <outlet property="tableView" destination="p5v-jx-qA0" id="yz0-o2-tHg"/>
                     </connections>
                 </viewController>
