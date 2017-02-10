@@ -72,7 +72,7 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                                                                   message:errorMessage
                                                            preferredStyle:UIAlertControllerStyleAlert];
           
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok"
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
                                                                 style:UIAlertActionStyleDefault
                                                               handler:nil]];
             [visibleViewController presentViewController:alertController

@@ -9,7 +9,9 @@
 /* General */
 
 "kELCancelButton" = "Cancel";
+"kELCompleteButton" = "Complete";
 "kELLogoutButton" = "Logout";
+"kELOkButton" = "Ok";
 "kELSaveToDraftButton" = "Save to draft";
 "kELSubmitButton" = "Submit";
 
@@ -17,6 +19,7 @@
 "kELEmailLabel" = "E-mail";
 "kELExpiresOnLabel" = "Expires on %@";
 "kELNameLabel" = "Name";
+"kELNoDescriptionLabel" = "No description";
 
 "kELDetailsPageLoadError" = "Failed to load details.";
 
@@ -30,6 +33,9 @@
 "kELDashboardItemSettings" = "Settings";
 
 /* Development Plans */
+
+"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Complete Action";
+"kELDevelopmentPlanGoalActionCompleteDetaislMessage" = "Is this action completed?";
 
 "kELDevelopmentPlanEmptyMessage"  = "No Development Plans";
 

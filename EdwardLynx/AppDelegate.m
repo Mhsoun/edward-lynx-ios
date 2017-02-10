@@ -350,21 +350,15 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
     
     if (application.applicationState == UIApplicationStateActive ||
         application.applicationState == UIApplicationStateInactive) {
-        KDNotification *notificationBanner;
-        
         if (self.notification) {
             return;
         }
         
         [KDToastNotification setNotificionStyle:UIBlurEffectStyleLight];
-        
-        notificationBanner = [KDNotification showWithText:notification.body
-                                                 duration:3.5
-                                                   tapped:^{
+        [KDNotification showWithText:notification.body
+                            duration:3.5
+                              tapped:^{
             if ([ELAppSingleton sharedInstance].hasLoadedApplication) {
-                // App is active
-                [notificationBanner dismiss];
-                
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
                     [self displayViewControllerByNotification:notification];
