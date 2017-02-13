@@ -20,6 +20,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 @property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
 @property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) NSString *filter;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELListViewManager *viewManager;
@@ -111,27 +112,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Private Methods
 
 - (NSArray *)filterList:(__kindof NSArray *)list {
-    NSPredicate *predicate;
-    
-    switch (self.listType) {
-        case kELListTypeSurveys:
-            predicate = [NSPredicate predicateWithFormat:@"SELF.status == %d", self.listFilter];
-            
-            return self.listFilter == kELListFilterAll ? [list copy] :
-                                                         [[list filteredArrayUsingPredicate:predicate] copy];
-            
-            break;
-        case kELListTypeReports:
-            return [list copy];  // TEMP
-            
-            break;
-        case kELListTypeDevPlan:
-            return [list copy];  // TEMP
-        default:
-            return nil;
-            
-            break;
-    }
+    return [list copy];  // TEMP
 }
 
 - (void)loadListByType {
@@ -163,6 +144,19 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         default:
             break;
     }
+}
+
+- (NSArray *)sortList:(__kindof NSArray *)list {
+    return [list copy];  // TEMP
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onTabButtonClick:(id)sender {
+    // Toggle tab button status
+    self.allTabButton.enabled = ![self.allTabButton isEqual:sender];
+    self.filterTabButton.enabled = ![self.filterTabButton isEqual:sender];
+    self.sortTabButton.enabled = ![self.sortTabButton isEqual:sender];
 }
 
 @end

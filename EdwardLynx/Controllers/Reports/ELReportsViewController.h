@@ -6,18 +6,15 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <DYSlideView/DYSlideView.h>
-
 #import "ELBaseViewController.h"
 #import "ELInstantFeedback.h"
 #import "ELListViewController.h"
 #import "ELReportDetailsViewController.h"
 
-@interface ELReportsViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>
+@interface ELReportsViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
 
 @property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet DYSlideView *slideView;
 
 @end

@@ -40,35 +40,45 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8u-cM-jJf" customClass="DYSlideView">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Td-pFX">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                                <connections>
+                                    <segue destination="52T-gI-Slo" kind="embed" identifier="ListContainer" id="Zbt-We-0Iz"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="17X-7V-ZXe"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="1tc-dU-JF2"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="2QL-Cc-gxd"/>
+                            <constraint firstItem="3ah-Td-pFX" firstAttribute="top" secondItem="Knh-vi-zh3" secondAttribute="bottom" id="6Ym-k4-bx6"/>
+                            <constraint firstItem="3ah-Td-pFX" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="IX0-GB-yR1"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="IsW-qS-BWS"/>
+                            <constraint firstItem="3ah-Td-pFX" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Kuo-Xn-Kce"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Pbf-pl-Ml2"/>
-                            <constraint firstItem="v8u-cM-jJf" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="R6M-2R-cRU"/>
-                            <constraint firstItem="v8u-cM-jJf" firstAttribute="top" secondItem="Knh-vi-zh3" secondAttribute="bottom" id="YDc-cD-9u8"/>
-                            <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="v8u-cM-jJf" secondAttribute="bottom" id="dP6-AO-0qm"/>
+                            <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="3ah-Td-pFX" secondAttribute="bottom" id="dbg-md-d9H"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="height" secondItem="T6L-h1-8Z0" secondAttribute="height" id="hV7-E8-JcL"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="centerY" secondItem="T6L-h1-8Z0" secondAttribute="centerY" id="mC6-7Z-hNx"/>
-                            <constraint firstItem="v8u-cM-jJf" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="rMG-cJ-L15"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DEVELOPMENT PLANS" id="AZJ-jF-NaL"/>
                     <connections>
                         <outlet property="searchBar" destination="Knh-vi-zh3" id="q2n-uW-mAq"/>
-                        <outlet property="slideView" destination="v8u-cM-jJf" id="0mF-go-mTl"/>
                         <segue destination="fHP-1B-U5H" kind="show" identifier="DevelopmentPlanDetail" id="BlV-fo-hfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtu-s9-bba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="-170"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="ahX-hK-G6T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" id="52T-gI-Slo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVy-Id-v4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="295"/>
         </scene>
         <!--Development Plan Details View Controller-->
         <scene sceneID="KJ5-8Z-dJw">

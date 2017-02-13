@@ -27,14 +27,13 @@
     // Text Field
     font = [UIFont fontWithName:@"Lato-Regular" size:16];
     searchTextField = [self valueForKey:@"_searchField"];
-
     
     [searchTextField setFont:font];
     [searchTextField setTextColor:inputColor];
     [searchTextField setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor]];
     [searchTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [searchTextField setMinimumFontSize:12];
-    [searchTextField setBounds:CGRectMake(0, 0, CGRectGetWidth(searchTextField.frame) - 15, 40)];
+    [searchTextField setBounds:CGRectMake(0, 0, CGRectGetWidth(searchTextField.frame) - 15, 35)];
     [searchTextField setValue:inputColor forKeyPath:@"_placeholderLabel.textColor"];
     
     // Cancel Button

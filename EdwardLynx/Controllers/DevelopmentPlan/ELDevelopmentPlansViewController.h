@@ -6,16 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <DYSlideView/DYSlideView.h>
-
 #import "ELBaseViewController.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELListViewController.h"
 
-@interface ELDevelopmentPlansViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, DYSlideViewDelegate>
+@interface ELDevelopmentPlansViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet DYSlideView *slideView;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import <Crashlytics/Crashlytics.h>
-#import <DYSlideView/DYSlideView.h>
 #import <Fabric/Fabric.h>
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
@@ -72,7 +71,6 @@
 + (void)registerValidators;
 + (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
-+ (void)setupSlideView:(DYSlideView *)slideView;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;
 
