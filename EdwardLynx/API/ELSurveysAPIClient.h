@@ -25,7 +25,8 @@
                       params:(NSDictionary *)params
                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
-- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)currentUserSurveysWithQueryParams:(NSDictionary *)params
+                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;

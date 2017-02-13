@@ -21,9 +21,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 @interface ELListViewController ()
 
+@property (nonatomic) NSInteger countPerPage,
+                                page,
+                                total;
 @property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
-@property (nonatomic, strong) NSString *cellIdentifier;
-@property (nonatomic, strong) NSString *filter;
+@property (nonatomic, strong) NSString *cellIdentifier, *filter;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -39,8 +41,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initialization
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -61,6 +65,21 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     // Load list type's corresponding data set
     [self loadListByType];
+}
+
+#pragma mark - Protocol Methods (UIScrollView)
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+    
+    if (endScrolling < scrollView.contentSize.height) {
+        return;
+    }
+    
+    // TODO Add UI indicator for loading of new entries
+    
+//    [scrollView setScrollEnabled:NO];
+//    [self.viewManager processRetrievalOfPaginatedSurveysAtPage:self.page + 1];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -99,6 +118,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     NSString *emptyMessage;
     ELDevelopmentPlan *devPlan;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
+    
+    // Store values
+    self.countPerPage = [responseDict[@"num"] integerValue];
+    self.page = [responseDict[@"pages"] integerValue];
+    self.total = [responseDict[@"total"] integerValue];
     
     for (NSDictionary *detailDict in responseDict[@"items"]) {
         switch (self.listType) {
