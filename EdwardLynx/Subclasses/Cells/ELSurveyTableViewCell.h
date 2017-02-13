@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expiryLabel;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reactivateLabelWidthConstraint;
 
 @end
