@@ -244,6 +244,7 @@
             break;
         case kELPopupTypeList:
             listPopup = [[ELListPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
+            listPopup.delegate = controller;
             listPopup.popupViewOffset = offset;
             
             [controller presentPopupViewController:listPopup

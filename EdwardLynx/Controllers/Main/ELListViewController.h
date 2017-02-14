@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, kELListType) {
     kELListTypeSurveys
 };
 
-@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELListPopupDelegate>
 
 @property (nonatomic) kELListType listType;
 

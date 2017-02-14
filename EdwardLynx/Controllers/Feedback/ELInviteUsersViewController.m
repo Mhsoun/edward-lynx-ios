@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELInviteUsersViewController.h"
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"

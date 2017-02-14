@@ -74,6 +74,13 @@
 
 @end
 
+@protocol ELListPopupDelegate <NSObject>
+
+- (void)onFilterSelections:(NSArray *)selections allFilterItems:(NSArray *)items;
+- (void)onSortSelections:(NSArray *)selections allSortItems:(NSArray *)items;
+
+@end
+
 @protocol ELListViewControllerDelegate <NSObject>
 
 - (void)onRowSelection:(__kindof ELModel *)object;
