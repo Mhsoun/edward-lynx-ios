@@ -6,8 +6,14 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <Firebase/Firebase.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
+#import <KDNotification/KDNotification.h>
+#import <KDNotification/KDToastNotification.h>
+
 #import "AppDelegate.h"
 #import "ELBaseDetailViewController.h"
+#import "ELUsersAPIClient.h"
 
 #pragma mark - Private Methods
 

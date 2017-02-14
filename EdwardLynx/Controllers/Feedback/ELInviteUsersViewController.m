@@ -7,6 +7,11 @@
 //
 
 #import "ELInviteUsersViewController.h"
+#import "ELDataProvider.h"
+#import "ELFeedbackViewManager.h"
+#import "ELParticipant.h"
+#import "ELParticipantTableViewCell.h"
+#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 

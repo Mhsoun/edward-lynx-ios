@@ -6,10 +6,7 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
-
-#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
 
 @interface ELEditProfileViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 

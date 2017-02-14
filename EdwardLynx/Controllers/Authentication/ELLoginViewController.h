@@ -6,10 +6,7 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAPIClient.h"
-#import "ELAccountsViewManager.h"
 #import "ELBaseViewController.h"
-#import "ELOAuthInstance.h"
 
 @interface ELLoginViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 

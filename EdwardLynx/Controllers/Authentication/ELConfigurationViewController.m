@@ -7,6 +7,12 @@
 //
 
 #import "ELConfigurationViewController.h"
+#import "ELCategory.h"
+#import "ELInstantFeedback.h"
+#import "ELParticipant.h"
+#import "ELQuestionsAPIClient.h"
+#import "ELSurveysAPIClient.h"
+#import "ELUsersAPIClient.h"
 
 #pragma mark - Private Constants
 

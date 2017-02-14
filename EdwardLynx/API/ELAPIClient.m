@@ -6,7 +6,11 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
+
 #import "ELAPIClient.h"
+#import "AppDelegate.h"
+#import "ELOAuthInstance.h"
 
 #pragma mark - Private Constants
 

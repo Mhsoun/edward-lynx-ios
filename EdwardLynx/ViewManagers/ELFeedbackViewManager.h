@@ -6,10 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <REValidation/REValidation.h>
-
-#import "ELSurveysAPIClient.h"
-
 #pragma mark - Public Constants
 
 static NSString * const kELNoQuestionType = @"No type selected";

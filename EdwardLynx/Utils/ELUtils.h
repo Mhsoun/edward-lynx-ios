@@ -6,18 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <Crashlytics/Crashlytics.h>
-#import <Fabric/Fabric.h>
-#import <Firebase/Firebase.h>
-#import <FirebaseMessaging/FirebaseMessaging.h>
-#import <IQKeyboardManager/IQKeyboardManager.h>
-#import <KDNotification/KDToastNotification.h>
-#import <REValidation/REValidation.h>
-
-#import "AppDelegate.h"
-#import "ELEmailValidator.h"
-#import "ELUsersAPIClient.h"
-
 @class ELBaseQuestionTypeView;
 @class ELListPopupViewController;
 @class ELPopupViewController;

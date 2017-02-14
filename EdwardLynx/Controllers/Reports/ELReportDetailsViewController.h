@@ -6,11 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAnswerOption.h"
 #import "ELBaseViewController.h"
-#import "ELDetailViewManager.h"
 #import "ELInstantFeedback.h"
-#import "ELInviteUsersViewController.h"
 
 @interface ELReportDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
 

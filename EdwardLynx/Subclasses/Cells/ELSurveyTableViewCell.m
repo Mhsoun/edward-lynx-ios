@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveyTableViewCell.h"
+#import "ELSurvey.h"
 
 @implementation ELSurveyTableViewCell
 

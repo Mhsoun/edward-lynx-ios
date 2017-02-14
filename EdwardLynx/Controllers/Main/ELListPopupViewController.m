@@ -6,8 +6,9 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELDataProvider.h"
 #import "ELListPopupViewController.h"
+#import "ELDataProvider.h"
+#import "ELListTableViewCell.h"
 #import "ELTableDataSource.h"
 
 #pragma mark - Private Methods
@@ -71,8 +72,9 @@ static NSString * const kELCellIdentifier = @"ListCell";
 - (void)layoutPage {
     BOOL isFilter = [self.detailsDict[@"type"] isEqualToString:@"filter"];
     
-    [self.titleLabel setText:isFilter ? @"FILTER BY" : @"SORT BY"];
-    [self.confirmButton setTitle:isFilter ? @"Filter" : @"Sort" forState:UIControlStateNormal];
+    [self.titleLabel setText:[NSLocalizedString(isFilter ? @"kELFilterByLabel" : @"kELSortByLabel", nil) uppercaseString]];
+    [self.confirmButton setTitle:NSLocalizedString(isFilter ? @"kELFilterLabel" : @"kELSortLabel", nil)
+                        forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions

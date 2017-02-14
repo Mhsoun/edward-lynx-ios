@@ -7,6 +7,9 @@
 //
 
 #import "ELLoginViewController.h"
+#import "ELAPIClient.h"
+#import "ELAccountsViewManager.h"
+#import "ELOAuthInstance.h"
 
 #pragma mark - Private Constants
 

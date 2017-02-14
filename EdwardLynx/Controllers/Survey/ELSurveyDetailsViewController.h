@@ -7,13 +7,7 @@
 //
 
 #import "ELBaseDetailViewController.h"
-#import "ELDataProvider.h"
-#import "ELDetailViewManager.h"
-#import "ELQuestionCategory.h"
-#import "ELQuestionTableViewCell.h"
 #import "ELSurvey.h"
-#import "ELSurveyViewManager.h"
-#import "ELTableDataSource.h"
 
 typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
     kELSurveyResponseTypeDetails,

@@ -7,6 +7,11 @@
 //
 
 #import "ELAnswerInstantFeedbackViewController.h"
+#import "ELBaseQuestionTypeView.h"
+#import "ELDetailViewManager.h"
+#import "ELFeedbackViewManager.h"
+#import "ELQuestion.h"
+#import "ELSurveysAPIClient.h"
 
 #pragma mark - Private Constants
 

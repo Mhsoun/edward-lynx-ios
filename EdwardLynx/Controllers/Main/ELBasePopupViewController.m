@@ -8,10 +8,6 @@
 
 #import "ELBasePopupViewController.h"
 
-@interface ELBasePopupViewController ()
-
-@end
-
 @implementation ELBasePopupViewController
 
 - (instancetype)initWithPreviousController:(__kindof UIViewController *)controller

@@ -7,6 +7,9 @@
 //
 
 #import "ELSurveysViewController.h"
+#import "ELListViewController.h"
+#import "ELSurvey.h"
+#import "ELSurveyDetailsViewController.h"
 
 #pragma mark - Private Constants
 

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELSurvey.h"
-
 @interface ELSurveyTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *surveyLabel;

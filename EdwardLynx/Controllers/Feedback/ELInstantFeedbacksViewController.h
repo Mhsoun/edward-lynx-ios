@@ -6,13 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAnswerInstantFeedbackViewController.h"
 #import "ELBaseViewController.h"
-#import "ELDataProvider.h"
-#import "ELInstantFeedback.h"
-#import "ELListViewManager.h"
-#import "ELQuestion.h"
-#import "ELTableDataSource.h"
 
 @interface ELInstantFeedbacksViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 

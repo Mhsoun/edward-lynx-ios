@@ -7,6 +7,8 @@
 //
 
 #import "ELQuestionTableViewCell.h"
+#import "ELBaseQuestionTypeView.h"
+#import "ELQuestion.h"
 
 #pragma mark - Class Extension
 

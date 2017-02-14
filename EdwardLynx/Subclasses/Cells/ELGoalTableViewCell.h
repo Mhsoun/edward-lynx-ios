@@ -6,10 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "ELDevelopmentPlanAPIClient.h"
-#import "ELGoal.h"
-
 @interface ELGoalTableViewCell : UITableViewCell<UITableViewDataSource, UITableViewDelegate, ELConfigurableCellDelegate>
 
 @property (strong, nonatomic) NSString *devPlanName;

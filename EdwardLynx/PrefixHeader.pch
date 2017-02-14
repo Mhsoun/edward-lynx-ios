@@ -16,6 +16,7 @@
 #import <UIKit/UIKit.h>
 
 #import <FontAwesomeTools/FontAwesome.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 #import <MTDates/NSDate+MTDates.h>
 #import <RNThemeManager/RNThemeManager.h>
 #import <UIView+Toast.h>

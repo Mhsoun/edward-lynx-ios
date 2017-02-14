@@ -6,9 +6,8 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "ELActionView.h"
 #import "ELBaseViewController.h"
+#import "ELActionView.h"
 #import "ELShortcutView.h"
 #import "ELStatusView.h"
 

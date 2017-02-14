@@ -8,8 +8,6 @@
 
 #import "ELBaseViewController.h"
 #import "ELInstantFeedback.h"
-#import "ELListViewController.h"
-#import "ELReportDetailsViewController.h"
 
 @interface ELReportsViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
 

@@ -7,6 +7,12 @@
 //
 
 #import "ELGoalDetailsViewController.h"
+#import "ELAddObjectTableViewCell.h"
+#import "ELCategory.h"
+#import "ELDevelopmentPlanViewManager.h"
+#import "ELGoalAction.h"
+#import "ELItemTableViewCell.h"
+
 
 #pragma mark - Private Constants
 

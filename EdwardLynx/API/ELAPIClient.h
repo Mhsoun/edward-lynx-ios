@@ -6,10 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
-
-#import "AppDelegate.h"
-
 @interface ELAPIClient : NSObject
 
 + (NSString *)hostURL;
