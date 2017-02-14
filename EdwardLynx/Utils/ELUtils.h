@@ -7,7 +7,6 @@
 //
 
 #import <Crashlytics/Crashlytics.h>
-#import <DYSlideView/DYSlideView.h>
 #import <Fabric/Fabric.h>
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
@@ -20,6 +19,7 @@
 #import "ELUsersAPIClient.h"
 
 @class ELBaseQuestionTypeView;
+@class ELListPopupViewController;
 @class ELPopupViewController;
 
 @interface ELFormItemGroup : NSObject
@@ -60,6 +60,7 @@
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
+                                 type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (NSString *)labelByListFilter:(kELListFilter)filter;
@@ -72,7 +73,6 @@
 + (void)registerValidators;
 + (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
-+ (void)setupSlideView:(DYSlideView *)slideView;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;
 

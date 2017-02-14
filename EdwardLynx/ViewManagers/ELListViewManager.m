@@ -58,13 +58,19 @@
                                             completion:self.requestCompletionBlock];
 }
 
+- (void)processRetrievalOfPaginatedSurveysAtPage:(NSInteger)page {
+    [self.surveyClient currentUserSurveysWithQueryParams:@{@"page": @(page)}
+                                              completion:self.requestCompletionBlock];
+}
+
 - (void)processRetrievalOfReports {
     [self.surveyClient currentUserInstantFeedbacksWithFilter:@"mine"
                                             completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveys {
-    [self.surveyClient currentUserSurveysWithCompletion:self.requestCompletionBlock];
+    [self.surveyClient currentUserSurveysWithQueryParams:nil
+                                              completion:self.requestCompletionBlock];
 }
 
 @end

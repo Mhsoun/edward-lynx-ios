@@ -59,6 +59,7 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome.otf</string>
 		<string>Lato-Bold.ttf</string>
 		<string>Lato-Heavy.ttf</string>
 		<string>Lato-Italic.ttf</string>

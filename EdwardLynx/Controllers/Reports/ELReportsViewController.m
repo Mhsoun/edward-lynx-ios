@@ -10,6 +10,7 @@
 
 #pragma mark - Private Constants
 
+static NSString * const kELListSegueIdentifier = @"ListContainer";
 static NSString * const kELReportSegueIdentifier = @"ReportDetails";
 
 #pragma mark - Class Extension
@@ -30,11 +31,7 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     self.tabs = @[@(kELListFilterAll),
                   @(kELReportType360),
                   @(kELReportTypeInstant)];
-    self.slideView.delegate = self;
     self.searchBar.delegate = self;
-    
-    // Slide view
-    [ELUtils setupSlideView:self.slideView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +46,11 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
         ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
         
         controller.instantFeedback = self.selectedInstantFeedback;
+    } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
+        ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
+        
+        controller.delegate = self;
+        controller.listType = kELListTypeReports;
     }
 }
 
@@ -76,27 +78,6 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
     self.selectedInstantFeedback = (ELInstantFeedback *)object;
     
     [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
-}
-
-#pragma mark - Protocol Methods (DYSlideView)
-
-- (NSInteger)DY_numberOfViewControllersInSlideView {
-    return self.tabs.count;
-}
-
-- (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
-    return index == 0 ? @"ALL" : [[ELUtils labelByReportType:[self.tabs[index] integerValue]] uppercaseString];
-}
-
-- (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
-    ELListViewController *controller = [[UIStoryboard storyboardWithName:@"List" bundle:nil]
-                                        instantiateInitialViewController];
-    
-    controller.delegate = self;
-    controller.listType = kELListTypeReports;
-    controller.listFilter = [self.tabs[index] integerValue];
-    
-    return controller;
 }
 
 @end

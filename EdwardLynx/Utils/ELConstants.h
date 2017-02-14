@@ -46,6 +46,11 @@ typedef NS_ENUM(NSInteger, kELListFilter) {
     kELListFilterComplete = 2
 };
 
+typedef NS_ENUM(NSInteger, kELPopupType) {
+    kELPopupTypeList,
+    kELPopupTypeMessage
+};
+
 typedef NS_ENUM(NSInteger, kELReportType) {
     kELReportType360,
     kELReportTypeInstant

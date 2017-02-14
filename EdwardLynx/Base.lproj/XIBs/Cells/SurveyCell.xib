@@ -34,6 +34,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact to Reactivate" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="29B-kJ-noK">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="l2b-5i-7DF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-ru-OgZ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -65,13 +74,15 @@
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="top" secondItem="6RC-qb-dSM" secondAttribute="bottom" constant="5" id="9oy-7T-UzW"/>
                             <constraint firstAttribute="bottom" secondItem="GVa-h5-dbd" secondAttribute="bottom" constant="5" id="AZn-Cl-IC8"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="height" secondItem="Bev-ru-OgZ" secondAttribute="height" id="BFk-k8-USL"/>
-                            <constraint firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" constant="15" id="D0r-Gr-kyY"/>
+                            <constraint firstItem="29B-kJ-noK" firstAttribute="trailing" secondItem="Bev-ru-OgZ" secondAttribute="trailing" id="J56-6l-xfA"/>
+                            <constraint firstAttribute="trailing" secondItem="Bev-ru-OgZ" secondAttribute="trailing" constant="15" id="PkC-YC-SVH"/>
                             <constraint firstItem="Bev-ru-OgZ" firstAttribute="top" secondItem="9Ue-zP-pqA" secondAttribute="bottom" id="Qy5-7t-juE"/>
                             <constraint firstItem="6RC-qb-dSM" firstAttribute="trailing" secondItem="Bev-ru-OgZ" secondAttribute="trailing" id="XRb-Q7-QTK"/>
+                            <constraint firstItem="29B-kJ-noK" firstAttribute="centerY" secondItem="9Ue-zP-pqA" secondAttribute="centerY" id="j8J-i2-9Iz"/>
                             <constraint firstItem="GVa-h5-dbd" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="k2c-WN-Ttg"/>
                             <constraint firstItem="9Ue-zP-pqA" firstAttribute="leading" secondItem="c7D-tH-CVd" secondAttribute="leading" constant="15" id="lqg-V1-mDV"/>
                             <constraint firstItem="9Ue-zP-pqA" firstAttribute="top" secondItem="c7D-tH-CVd" secondAttribute="top" constant="10" id="njO-YY-bna"/>
-                            <constraint firstItem="Bev-ru-OgZ" firstAttribute="trailing" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="p8c-8h-zdQ"/>
+                            <constraint firstItem="29B-kJ-noK" firstAttribute="leading" secondItem="9Ue-zP-pqA" secondAttribute="trailing" id="v6v-37-L6r"/>
                             <constraint firstItem="6RC-qb-dSM" firstAttribute="leading" secondItem="Bev-ru-OgZ" secondAttribute="leading" id="w2l-Uq-pg5"/>
                         </constraints>
                     </view>
@@ -88,6 +99,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="Bev-ru-OgZ" id="gPE-Io-Rba"/>
                 <outlet property="expiryLabel" destination="6RC-qb-dSM" id="WwJ-dy-erd"/>
+                <outlet property="reactivateLabelWidthConstraint" destination="l2b-5i-7DF" id="qTd-0i-EOU"/>
                 <outlet property="statusLabel" destination="GVa-h5-dbd" id="qb4-ra-qn3"/>
                 <outlet property="surveyLabel" destination="9Ue-zP-pqA" id="gF1-NK-Ze0"/>
             </connections>

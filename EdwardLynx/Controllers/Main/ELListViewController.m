@@ -10,6 +10,10 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELDefaultRowHeight = 100;
+static CGFloat const kELSurveyRowHeight = 105;
+static CGFloat const kELIconSize = 12.5f;
+
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReportCellIdentifier = @"ReportCell";
 static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
@@ -18,8 +22,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 @interface ELListViewController ()
 
+@property (nonatomic) NSInteger countPerPage,
+                                page,
+                                total;
 @property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
-@property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) NSString *cellIdentifier, *filter;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELListViewManager *viewManager;
@@ -34,12 +42,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Initialization
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    // Load list type's corresponding data set
-    [self loadListByType];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,10 +54,68 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Load list type's corresponding data set
+    [self loadListByType];
+}
+
+#pragma mark - Protocol Methods (UIScrollView)
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+    
+    if (endScrolling < scrollView.contentSize.height) {
+        return;
+    }
+    
+    // TODO Add UI indicator for loading of new entries
+    
+//    [scrollView setScrollEnabled:NO];
+//    [self.viewManager processRetrievalOfPaginatedSurveysAtPage:self.page + 1];
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.delegate onRowSelection:[self.provider rowObjectAtIndexPath:indexPath]];
+}
+
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    // Buttons
+    [self.allTabButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                            forState:UIControlStateNormal];
+    [self.filterTabButton setImage:[FontAwesome imageWithIcon:fa_filter
+                                                    iconColor:nil
+                                                     iconSize:kELIconSize
+                                                    imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                          forState:UIControlStateNormal];
+    [self.sortTabButton setImage:[FontAwesome imageWithIcon:fa_sort
+                                                  iconColor:nil
+                                                   iconSize:kELIconSize
+                                                  imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                        forState:UIControlStateNormal];
+    
+    // Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor clearColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    
+    [self.refreshControl addTarget:self
+                            action:@selector(loadListByType)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -69,16 +134,25 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     ELDevelopmentPlan *devPlan;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     
+    // Store values
+    self.countPerPage = [responseDict[@"num"] integerValue];
+    self.page = [responseDict[@"pages"] integerValue];
+    self.total = [responseDict[@"total"] integerValue];
+    
     for (NSDictionary *detailDict in responseDict[@"items"]) {
         switch (self.listType) {
             case kELListTypeSurveys:
                 emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
+                
+                self.tableView.rowHeight = kELSurveyRowHeight;
                 
                 [mData addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
                 
                 break;
             case kELListTypeReports:
                 emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
+                
+                self.tableView.rowHeight = kELDefaultRowHeight;
                 
                 [mData addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
@@ -87,6 +161,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
                 devPlan.urlLink = detailDict[@"_links"][@"self"][@"href"];
+                
+                self.tableView.rowHeight = kELDefaultRowHeight;
                 
                 [mData addObject:devPlan];
                 
@@ -105,33 +181,18 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [self.dataSource dataSetEmptyText:emptyMessage description:@""];
     [self.indicatorView stopAnimating];
     [self.tableView setDelegate:self];
+    [self.tableView setHidden:NO];
     [self.tableView reloadData];
+    
+    if (self.refreshControl) {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 #pragma mark - Private Methods
 
 - (NSArray *)filterList:(__kindof NSArray *)list {
-    NSPredicate *predicate;
-    
-    switch (self.listType) {
-        case kELListTypeSurveys:
-            predicate = [NSPredicate predicateWithFormat:@"SELF.status == %d", self.listFilter];
-            
-            return self.listFilter == kELListFilterAll ? [list copy] :
-                                                         [[list filteredArrayUsingPredicate:predicate] copy];
-            
-            break;
-        case kELListTypeReports:
-            return [list copy];  // TEMP
-            
-            break;
-        case kELListTypeDevPlan:
-            return [list copy];  // TEMP
-        default:
-            return nil;
-            
-            break;
-    }
+    return [list copy];  // TEMP
 }
 
 - (void)loadListByType {
@@ -162,6 +223,43 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             break;
         default:
             break;
+    }
+}
+
+- (NSArray *)sortList:(__kindof NSArray *)list {
+    return [list copy];  // TEMP
+}
+
+- (BOOL)toggleTabButton:(UIButton *)button basedOnSelection:(id)sender {
+    BOOL isEqual = [button isEqual:sender];
+    
+    [button setTintColor:[[RNThemeManager sharedManager] colorForKey:isEqual ? kELOrangeColor : kELTextFieldBGColor]];
+    [button setTitleColor:[[RNThemeManager sharedManager] colorForKey:isEqual ? kELOrangeColor : kELTextFieldBGColor]
+                 forState:UIControlStateNormal];
+    
+    return isEqual;
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onTabButtonClick:(id)sender {
+    // Toggle tab button status
+    BOOL isAllSelected = [self toggleTabButton:self.allTabButton basedOnSelection:sender];
+    BOOL isFilterSelected = [self toggleTabButton:self.filterTabButton basedOnSelection:sender];
+    BOOL isSortSelected = [self toggleTabButton:self.sortTabButton basedOnSelection:sender];
+        
+    if (isAllSelected) {
+        // TODO
+    } else if (isFilterSelected) {
+        [ELUtils displayPopupForViewController:self
+                                          type:kELPopupTypeList
+                                       details:@{@"type": @"filter",
+                                                 @"items": @[@"Test", @"Yeah", @"Test", @"Yeah"]}];
+    } else if (isSortSelected) {
+        [ELUtils displayPopupForViewController:self
+                                          type:kELPopupTypeList
+                                       details:@{@"type": @"sort",
+                                                 @"items": @[@"Test", @"Yeah", @"Test", @"Yeah"]}];
     }
 }
 

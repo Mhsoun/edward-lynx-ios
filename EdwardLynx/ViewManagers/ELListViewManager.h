@@ -15,6 +15,7 @@
 
 - (void)processRetrievalOfInstantFeedbacks;
 - (void)processRetrievalOfDevelopmentPlans;
+- (void)processRetrievalOfPaginatedSurveysAtPage:(NSInteger)page;
 - (void)processRetrievalOfReports;
 - (void)processRetrievalOfSurveys;
 

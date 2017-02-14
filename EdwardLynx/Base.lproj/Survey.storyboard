@@ -40,17 +40,20 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14u-9K-jQq" customClass="DYSlideView">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hny-fN-KMS">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                                <connections>
+                                    <segue destination="GBw-Bk-MKh" kind="embed" identifier="ListContainer" id="CIY-Oy-g4M"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="14u-9K-jQq" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="5jM-Cq-Lai"/>
                             <constraint firstItem="aau-TZ-5Uz" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="LEj-PR-669"/>
-                            <constraint firstItem="14u-9K-jQq" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="X8q-My-Ubk"/>
-                            <constraint firstItem="14u-9K-jQq" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="Zo9-g7-s2P"/>
-                            <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="14u-9K-jQq" secondAttribute="bottom" id="bOU-RN-S3M"/>
+                            <constraint firstItem="hny-fN-KMS" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="Oc8-M8-nDO"/>
+                            <constraint firstItem="hny-fN-KMS" firstAttribute="top" secondItem="wt7-lQ-5zz" secondAttribute="bottom" id="RZk-GK-rNc"/>
+                            <constraint firstItem="hny-fN-KMS" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="SnM-ZV-3xM"/>
+                            <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="hny-fN-KMS" secondAttribute="bottom" id="iJN-GV-RXk"/>
                             <constraint firstItem="aau-TZ-5Uz" firstAttribute="height" secondItem="2ER-dR-ZIR" secondAttribute="height" id="ndU-ib-DUQ"/>
                             <constraint firstItem="aau-TZ-5Uz" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="oEr-F3-zph"/>
                             <constraint firstItem="aau-TZ-5Uz" firstAttribute="centerY" secondItem="2ER-dR-ZIR" secondAttribute="centerY" id="unO-uO-epV"/>
@@ -62,13 +65,20 @@
                     <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
                     <connections>
                         <outlet property="searchBar" destination="wt7-lQ-5zz" id="aoU-HF-0q4"/>
-                        <outlet property="slideView" destination="14u-9K-jQq" id="D4Q-GC-24U"/>
                         <segue destination="Zf1-Y0-xAe" kind="show" identifier="SurveyDetails" id="k4C-WQ-isg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUC-V9-KHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152.8" y="154.27286356821591"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="CCb-Va-3P9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" id="GBw-Bk-MKh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9B-uU-re7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="576"/>
         </scene>
         <!--Survey Details View Controller-->
         <scene sceneID="9FL-RF-ejk">

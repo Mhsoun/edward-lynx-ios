@@ -82,9 +82,12 @@
 
 #pragma mark - Surveys
 
-- (void)currentUserSurveysWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+- (void)currentUserSurveysWithQueryParams:(NSDictionary *)params
+                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];
-    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIGetHTTPMethod
+                                        queryParams:params];
     
     [self performAuthenticatedTask:YES
                        withRequest:request

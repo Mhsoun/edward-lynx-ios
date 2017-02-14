@@ -3,8 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--List View Controller-->
         <scene sceneID="HIT-RA-YJF">
@@ -18,6 +24,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvD-yh-sd8" customClass="RNThemeButton">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nta-Vs-ko2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <color key="tintColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ALL">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="dd8-ZQ-h9l" eventType="touchUpInside" id="1or-zW-t7X"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-Fn-3Gu" customClass="RNThemeButton">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <color key="tintColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="FILTER">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="dd8-ZQ-h9l" eventType="touchUpInside" id="0vb-Yl-JmK"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x1-Km-sTS" customClass="RNThemeButton">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
+                                <color key="tintColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SORT">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTabButtonClick:" destination="dd8-ZQ-h9l" eventType="touchUpInside" id="jEK-vD-s5K"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-zv-B9X">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,16 +80,30 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0hm-zv-B9X" firstAttribute="centerY" secondItem="8Dz-5G-Te2" secondAttribute="centerY" id="AI9-1B-hnc"/>
-                            <constraint firstItem="0hm-zv-B9X" firstAttribute="height" secondItem="8Dz-5G-Te2" secondAttribute="height" id="ApL-f1-Fyl"/>
+                            <constraint firstItem="o9W-Fn-3Gu" firstAttribute="leading" secondItem="NvD-yh-sd8" secondAttribute="trailing" id="25F-kW-xZN"/>
+                            <constraint firstItem="NvD-yh-sd8" firstAttribute="width" secondItem="o9W-Fn-3Gu" secondAttribute="width" id="3cR-nv-EXb"/>
+                            <constraint firstItem="NvD-yh-sd8" firstAttribute="leading" secondItem="8Dz-5G-Te2" secondAttribute="leading" id="9Ue-zD-ZlO"/>
+                            <constraint firstItem="5x1-Km-sTS" firstAttribute="top" secondItem="o9W-Fn-3Gu" secondAttribute="top" id="BF3-Kg-BYN"/>
+                            <constraint firstItem="9Es-dE-JLJ" firstAttribute="top" secondItem="0hm-zv-B9X" secondAttribute="bottom" constant="10" id="DeY-ee-YrK"/>
+                            <constraint firstItem="5x1-Km-sTS" firstAttribute="leading" secondItem="o9W-Fn-3Gu" secondAttribute="trailing" id="HgX-HS-sXE"/>
+                            <constraint firstItem="o9W-Fn-3Gu" firstAttribute="width" secondItem="5x1-Km-sTS" secondAttribute="width" id="IoV-m7-Er6"/>
+                            <constraint firstItem="o9W-Fn-3Gu" firstAttribute="height" secondItem="NvD-yh-sd8" secondAttribute="height" id="Ksl-tg-TBn"/>
+                            <constraint firstItem="NvD-yh-sd8" firstAttribute="top" secondItem="8Dz-5G-Te2" secondAttribute="topMargin" id="O9d-c9-bA2"/>
                             <constraint firstItem="G6c-VP-x68" firstAttribute="centerY" secondItem="8Dz-5G-Te2" secondAttribute="centerY" id="SuU-HO-B7a"/>
                             <constraint firstItem="0hm-zv-B9X" firstAttribute="width" secondItem="8Dz-5G-Te2" secondAttribute="width" id="T9k-zT-vln"/>
+                            <constraint firstAttribute="trailing" secondItem="5x1-Km-sTS" secondAttribute="trailing" id="Tiz-9J-mmm"/>
                             <constraint firstItem="0hm-zv-B9X" firstAttribute="centerX" secondItem="8Dz-5G-Te2" secondAttribute="centerX" id="VSA-W8-r99"/>
+                            <constraint firstItem="0hm-zv-B9X" firstAttribute="top" secondItem="5x1-Km-sTS" secondAttribute="bottom" id="Zbv-Li-u8B"/>
+                            <constraint firstItem="o9W-Fn-3Gu" firstAttribute="top" secondItem="NvD-yh-sd8" secondAttribute="top" id="iYY-iG-4l0"/>
                             <constraint firstItem="G6c-VP-x68" firstAttribute="centerX" secondItem="8Dz-5G-Te2" secondAttribute="centerX" id="tDh-nk-gKk"/>
+                            <constraint firstItem="5x1-Km-sTS" firstAttribute="height" secondItem="o9W-Fn-3Gu" secondAttribute="height" id="vsm-aT-9sr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allTabButton" destination="NvD-yh-sd8" id="EkM-Gg-TZF"/>
+                        <outlet property="filterTabButton" destination="o9W-Fn-3Gu" id="jnd-Nt-YE7"/>
                         <outlet property="indicatorView" destination="G6c-VP-x68" id="9UB-hm-Ml5"/>
+                        <outlet property="sortTabButton" destination="5x1-Km-sTS" id="UPe-cV-T7N"/>
                         <outlet property="tableView" destination="0hm-zv-B9X" id="NS1-bx-juC"/>
                     </connections>
                 </viewController>

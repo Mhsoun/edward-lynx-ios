@@ -9,6 +9,7 @@
 #import "ELUtils.h"
 
 #import "ELBaseQuestionTypeView.h"
+#import "ELListPopupViewController.h"
 #import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"
 #import "ELQuestionTypeScaleView.h"
@@ -212,16 +213,36 @@
 }
 
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
+                                 type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict {
-    ELPopupViewController *popup = [[ELPopupViewController alloc] initWithPreviousController:controller
-                                                                                     details:detailsDict];
-
-    popup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 300);
-    popup.popupViewOffset = CGPointMake(0, -50);
+    ELPopupViewController *popup;
+    ELListPopupViewController *listPopup;
     
-    [controller presentPopupViewController:popup
-                                  animated:YES
-                                completion:nil];
+    switch (type) {
+        case kELPopupTypeMessage:
+            popup = [[ELPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
+            popup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 300);
+            popup.popupViewOffset = CGPointMake(0, -50);
+            
+            [controller presentPopupViewController:popup
+                                          animated:YES
+                                        completion:nil];
+            
+            break;
+        case kELPopupTypeList:
+            listPopup = [[ELListPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
+            listPopup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 275);
+            listPopup.popupViewOffset = CGPointMake(0, -150);
+            
+            [controller presentPopupViewController:listPopup
+                                          animated:YES
+                                        completion:nil];
+            
+            break;
+        default:
+            break;
+    }
+    
 }
 
 + (NSString *)labelByAnswerType:(kELAnswerType)type {
@@ -350,23 +371,6 @@
     
     // Search Bar
     [[UISearchBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
-}
-
-+ (void)setupSlideView:(DYSlideView *)slideView {
-    slideView.slideBarColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
-    slideView.slideBarHeight = 50;
-    
-    slideView.sliderColor = [UIColor clearColor];
-    slideView.sliderHeight = 0;
-    slideView.sliderScale = 0;
-    
-    slideView.buttonNormalColor = [UIColor whiteColor];
-    slideView.buttonSelectedColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-    slideView.buttonTitleFont = [UIFont fontWithName:@"Lato-Bold" size:13];
-    
-    slideView.scrollEnabled = YES;
-    slideView.scrollViewBounces = YES;
-    slideView.indexForDefaultItem = @0;
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {

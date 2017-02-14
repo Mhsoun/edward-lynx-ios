@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -28,35 +28,45 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-fz-41W" customClass="DYSlideView">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-b1-q6b">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                                <connections>
+                                    <segue destination="ySS-jx-kgb" kind="embed" identifier="ListContainer" id="T5Y-58-9yA"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IhY-fz-41W" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="18W-Km-93d"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="top" secondItem="Dct-i4-rc6" secondAttribute="bottom" id="0dH-tW-1IX"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="centerY" secondItem="CP3-W7-7Kf" secondAttribute="centerY" id="9Qs-Cd-cbE"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="HIh-AZ-jlJ"/>
+                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="6hD-b1-q6b" secondAttribute="bottom" id="HVB-ER-EIK"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="MG7-9c-deg"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="SVJ-u0-ov9"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XJa-pj-454"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XQ8-Ji-lIp"/>
-                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="IhY-fz-41W" secondAttribute="bottom" id="eDW-So-fqy"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="jCr-f7-54S"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="height" secondItem="CP3-W7-7Kf" secondAttribute="height" id="jOZ-mW-UYf"/>
                             <constraint firstItem="Dct-i4-rc6" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" id="qGH-JX-jRm"/>
-                            <constraint firstItem="IhY-fz-41W" firstAttribute="top" secondItem="Dct-i4-rc6" secondAttribute="bottom" id="qip-1Z-fpU"/>
-                            <constraint firstItem="IhY-fz-41W" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="tBp-Pu-cvB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
                     <connections>
                         <outlet property="searchBar" destination="Dct-i4-rc6" id="iba-Mn-r4J"/>
-                        <outlet property="slideView" destination="IhY-fz-41W" id="C7t-Oq-M2Z"/>
                         <segue destination="lWz-hf-IaL" kind="show" identifier="ReportDetails" id="wav-zX-WHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-ay-F4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856.79999999999995" y="536.58170914542734"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="6aG-c6-VLN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" id="ySS-jx-kgb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xK-bm-fez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857" y="985"/>
         </scene>
         <!--Report Details View Controller-->
         <scene sceneID="Jti-rr-qaS">
@@ -107,6 +117,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1948" height="4034"/>
+        <image name="Background" width="247" height="512"/>
     </resources>
 </document>

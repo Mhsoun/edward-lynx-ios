@@ -17,7 +17,6 @@ PODS:
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - CWPopup (1.2.6)
-  - DYSlideView (0.0.9)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
   - Firebase (3.11.0):
@@ -41,6 +40,7 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/Logger (~> 2.1)
+  - FontAwesomeTools (1.2)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -67,11 +67,11 @@ DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - Crashlytics
   - CWPopup (~> 1.2)
-  - DYSlideView (~> 0.0)
   - DZNEmptyDataSet (~> 1.8)
   - Fabric
   - Firebase
   - FirebaseMessaging
+  - FontAwesomeTools (~> 1.2)
   - HockeySDK
   - IQKeyboardManager
   - JSONModel
@@ -88,7 +88,6 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   CWPopup: 3f8b0704a9914813d90372d66525d31f24b27d49
-  DYSlideView: 221fa9de34dfe803201b6faa1eb083f2bc8e6291
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -96,6 +95,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
+  FontAwesomeTools: bd6e4882eed916ed07f8d0ff0fc2972c77640d27
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
@@ -111,6 +111,6 @@ SPEC CHECKSUMS:
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: c88d571728e76f35653a99407488368dac1a6e86
+PODFILE CHECKSUM: 8610851e5f7836fc3120b8c333d000e01b1bc036
 
 COCOAPODS: 1.0.1

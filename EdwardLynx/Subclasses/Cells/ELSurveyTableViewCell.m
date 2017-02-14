@@ -38,6 +38,9 @@
     // UI
     self.statusLabel.layer.cornerRadius = 2.0f;
     self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
+    
+    [self.reactivateLabelWidthConstraint setConstant:[survey.endDate mt_isBefore:[NSDate date]] ? 100 : 0];
+    [self updateConstraints];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

@@ -10,6 +10,7 @@
 
 #pragma mark - Private Constants
 
+static NSString * const kELListSegueIdentifier = @"ListContainer";
 static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 #pragma mark - Class Extension
@@ -33,11 +34,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     self.tabs = @[@(kELListFilterAll),
                   @(kELListFilterUnfinished),
                   @(kELListFilterComplete)];
-    self.slideView.delegate = self;
     self.searchBar.delegate = self;
-    
-    // Slide view
-    [ELUtils setupSlideView:self.slideView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,9 +46,14 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kELSurveySegueIdentifier]) {
-        ELSurveyDetailsViewController *controller = [segue destinationViewController];
+        ELSurveyDetailsViewController *controller = (ELSurveyDetailsViewController *)[segue destinationViewController];
         
         controller.survey = self.selectedSurvey;
+    } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
+        ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
+        
+        controller.delegate = self;
+        controller.listType = kELListTypeSurveys;
     }
 }
 
@@ -79,27 +81,6 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     self.selectedSurvey = (ELSurvey *)object;
     
     [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
-}
-
-#pragma mark - Protocol Methods (DYSlideView)
-
-- (NSInteger)DY_numberOfViewControllersInSlideView {
-    return self.tabs.count;
-}
-
-- (NSString *)DY_titleForViewControllerAtIndex:(NSInteger)index {
-    return [[ELUtils labelByListFilter:[self.tabs[index] integerValue]] uppercaseString];
-}
-
-- (UIViewController *)DY_viewControllerAtIndex:(NSInteger)index {
-    ELListViewController *controller = [[UIStoryboard storyboardWithName:@"List" bundle:nil]
-                                        instantiateInitialViewController];
-    
-    controller.delegate = self;
-    controller.listType = kELListTypeSurveys;
-    controller.listFilter = [self.tabs[index] integerValue];
-    
-    return controller;
 }
 
 @end

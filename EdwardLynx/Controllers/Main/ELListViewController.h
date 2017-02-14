@@ -24,11 +24,14 @@ typedef NS_ENUM(NSInteger, kELListType) {
 @interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic) kELListType listType;
-@property (nonatomic) NSInteger listFilter;
 
 @property (strong, nonatomic) id<ELListViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIButton *allTabButton;
+@property (weak, nonatomic) IBOutlet UIButton *filterTabButton;
+@property (weak, nonatomic) IBOutlet UIButton *sortTabButton;
+- (IBAction)onTabButtonClick:(id)sender;
 
 @end
