@@ -12,6 +12,7 @@
 
 static CGFloat const kELEmailButtonHeight = 40;
 static CGFloat const kELFormViewHeight = 105;
+static CGFloat const kELIconSize = 17.5f;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Class Extension
@@ -19,6 +20,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @interface ELInviteUsersViewController ()
 
 @property (nonatomic) BOOL selected, allCellsAction;
+@property (nonatomic, strong) UIImage *checkIcon;
 @property (nonatomic, strong) UIAlertAction *inviteAction;
 @property (nonatomic, strong) UIAlertController *alertController;
 @property (nonatomic, strong) NSMutableArray *mInitialParticipants,
@@ -44,6 +46,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
     self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
+    self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
+                                      iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                       iconSize:kELIconSize
+                                      imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -135,8 +141,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     [cell configure:[self.provider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
-    [cell setAccessoryType:cell.participant.isSelected ? UITableViewCellAccessoryCheckmark :
-                                                         UITableViewCellAccessoryNone];
+    [cell setAccessoryView:cell.participant.isSelected ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
     
     // Button state
     [self updateSelectAllButtonForIndexPath:indexPath];
@@ -157,13 +162,14 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // Toggle selected state
     if (cell.participant.isSelected) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        cell.accessoryView = [[UIImageView alloc] initWithImage:self.checkIcon];
         
         if (![self.mParticipants containsObject:cell.participant]) {
             [self.mParticipants addObject:cell.participant];
         }
     } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.accessoryView = nil;
+        
         [self.mParticipants removeObject:cell.participant];
     }
     

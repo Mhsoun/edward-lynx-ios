@@ -12,6 +12,7 @@
 
 static CGFloat const kELDefaultRowHeight = 100;
 static CGFloat const kELSurveyRowHeight = 105;
+static CGFloat const kELIconSize = 12.5f;
 
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReportCellIdentifier = @"ReportCell";
@@ -91,6 +92,18 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    // Buttons
+    [self.filterTabButton setImage:[FontAwesome imageWithIcon:fa_filter
+                                                    iconColor:nil
+                                                     iconSize:kELIconSize
+                                                    imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                          forState:UIControlStateNormal];
+    [self.sortTabButton setImage:[FontAwesome imageWithIcon:fa_sort
+                                                  iconColor:nil
+                                                   iconSize:kELIconSize
+                                                  imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                        forState:UIControlStateNormal];
+    
     // Refresh Control
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor clearColor];
@@ -218,10 +231,22 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onTabButtonClick:(id)sender {
+    // TODO Corresponding tab button action
+    
     // Toggle tab button status
-    self.allTabButton.enabled = ![self.allTabButton isEqual:sender];
-    self.filterTabButton.enabled = ![self.filterTabButton isEqual:sender];
-    self.sortTabButton.enabled = ![self.sortTabButton isEqual:sender];
+    BOOL isAllButton = [sender isEqual:self.allTabButton];
+    BOOL isSortButton = [sender isEqual:self.sortTabButton];
+    BOOL isFilterButton = [sender isEqual:self.filterTabButton];
+    
+    [self.allTabButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:isAllButton ? kELOrangeColor : kELTextFieldBGColor]
+                            forState:UIControlStateNormal];
+    [self.sortTabButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:isSortButton ? kELOrangeColor : kELTextFieldBGColor]
+                             forState:UIControlStateNormal];
+    [self.filterTabButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:isFilterButton ? kELOrangeColor : kELTextFieldBGColor]
+                               forState:UIControlStateNormal];
+    
+    [self.sortTabButton setTintColor:[[RNThemeManager sharedManager] colorForKey:isSortButton ? kELOrangeColor : kELTextFieldBGColor]];
+    [self.filterTabButton setTintColor:[[RNThemeManager sharedManager] colorForKey:isFilterButton ? kELOrangeColor : kELTextFieldBGColor]];
 }
 
 @end

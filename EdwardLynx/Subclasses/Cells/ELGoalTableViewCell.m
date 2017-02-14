@@ -10,6 +10,7 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELIconSize = 15;
 static NSString * const kELCellIdentifier = @"ActionCell";
 
 #pragma mark - Class Extension
@@ -55,6 +56,10 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELGoalAction *action = self.goal.actions[indexPath.row];
+    UIImage *checkIcon = [FontAwesome imageWithIcon:fa_check_circle
+                                          iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                           iconSize:kELIconSize
+                                          imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     action.urlLink = [NSString stringWithFormat:@"%@/actions/%@", self.goal.urlLink, @(action.objectId)];
     
@@ -62,7 +67,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
     
-    [cell setAccessoryType:action.checked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
+    [cell setAccessoryView:action.checked ? [[UIImageView alloc] initWithImage:checkIcon] : nil];
     
     return cell;
 }
@@ -75,6 +80,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     __kindof UIViewController *visibleController = [delegate visibleViewController:self.window.rootViewController];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
+        
         
         goalAction.checked = YES;
         
@@ -90,8 +96,12 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             cell = [tableView cellForRowAtIndexPath:indexPath];
             goalAction.checked = YES;
             
-            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            [cell setAccessoryView:[[UIImageView alloc] initWithImage:[FontAwesome imageWithIcon:fa_check_circle
+                                                                                       iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                                                                        iconSize:kELIconSize
+                                                                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)]]];
             [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
+            
             [self.goal setActions:[mActions copy]];
             [self updateContent];
             

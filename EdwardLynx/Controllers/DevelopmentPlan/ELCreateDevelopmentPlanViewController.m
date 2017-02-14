@@ -12,6 +12,7 @@
 
 static CGFloat const kELCellHeight = 60;
 static CGFloat const kELFormViewHeight = 125;
+static CGFloat const kELIconSize = 15;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
 static NSString * const kELGoalCellIdentifier = @"GoalCell";
@@ -77,7 +78,14 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     id value = self.mGoals[indexPath.row];
     
     if ([value isKindOfClass:[NSString class]]) {
-        return [tableView dequeueReusableCellWithIdentifier:kELAddGoalCellIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddGoalCellIdentifier];
+        
+        cell.imageView.image = [FontAwesome imageWithIcon:fa_plus_square
+                                                iconColor:[UIColor whiteColor]
+                                                 iconSize:kELIconSize
+                                                imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+        
+        return cell;
     } else {
         ELGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
         
