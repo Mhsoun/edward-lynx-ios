@@ -80,11 +80,13 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "FontAwesomeTools/FontAwesomeTools/FontAwesome.otf"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/KDNotification/KDNotification.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "FontAwesomeTools/FontAwesomeTools/FontAwesome.otf"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/KDNotification/KDNotification.bundle"
