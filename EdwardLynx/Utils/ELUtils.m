@@ -217,12 +217,16 @@
                               details:(NSDictionary *)detailsDict {
     ELPopupViewController *popup;
     ELListPopupViewController *listPopup;
+    CGPoint offset = CGPointMake(0, -100);
+    
+    if (controller.popupViewController) {
+        return;
+    }
     
     switch (type) {
         case kELPopupTypeMessage:
             popup = [[ELPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
-            popup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 300);
-            popup.popupViewOffset = CGPointMake(0, -50);
+            popup.popupViewOffset = offset;
             
             [controller presentPopupViewController:popup
                                           animated:YES
@@ -231,8 +235,7 @@
             break;
         case kELPopupTypeList:
             listPopup = [[ELListPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
-            listPopup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 275);
-            listPopup.popupViewOffset = CGPointMake(0, -150);
+            listPopup.popupViewOffset = offset;
             
             [controller presentPopupViewController:listPopup
                                           animated:YES

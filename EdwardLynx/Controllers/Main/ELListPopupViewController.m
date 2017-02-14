@@ -77,6 +77,10 @@ static NSString * const kELCellIdentifier = @"ListCell";
 
 #pragma mark - Interface Builder Actions
 
+- (IBAction)onCancelButtonClick:(id)sender {
+    [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)onConfirmButtonClick:(id)sender {
     if (!self.controller.popupViewController) {
         return;

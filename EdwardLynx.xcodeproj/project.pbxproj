@@ -109,6 +109,7 @@
 		A9C1F3C91E52B18800D07326 /* ELBasePopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3C81E52B18800D07326 /* ELBasePopupViewController.m */; };
 		A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F3CA1E52B85E00D07326 /* ListCell.xib */; };
 		A9C1F3CE1E52BA3600D07326 /* ELListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */; };
+		A9C1F3D11E52D9FC00D07326 /* ELFilterSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3D01E52D9FC00D07326 /* ELFilterSortItem.m */; };
 		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 		A9C929551E43281A00783952 /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C929541E43281A00783952 /* ELCategory.m */; };
 		A9C95A051E1F701A00184223 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C95A041E1F701A00184223 /* ELConfigurationViewController.m */; };
@@ -386,6 +387,8 @@
 		A9C1F3CA1E52B85E00D07326 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		A9C1F3CC1E52BA3600D07326 /* ELListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELListTableViewCell.h; sourceTree = "<group>"; };
 		A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListTableViewCell.m; sourceTree = "<group>"; };
+		A9C1F3CF1E52D9FC00D07326 /* ELFilterSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFilterSortItem.h; sourceTree = "<group>"; };
+		A9C1F3D01E52D9FC00D07326 /* ELFilterSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFilterSortItem.m; sourceTree = "<group>"; };
 		A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 		A9C929531E43281A00783952 /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
@@ -481,6 +484,8 @@
 				A9C929541E43281A00783952 /* ELCategory.m */,
 				A9E53D691E1B9E4500E9BB3C /* ELDevelopmentPlan.h */,
 				A9E53D6A1E1B9E4500E9BB3C /* ELDevelopmentPlan.m */,
+				A9C1F3CF1E52D9FC00D07326 /* ELFilterSortItem.h */,
+				A9C1F3D01E52D9FC00D07326 /* ELFilterSortItem.m */,
 				A9B5D2A91E4039A000D5A0EA /* ELGoal.h */,
 				A9B5D2AA1E4039A000D5A0EA /* ELGoal.m */,
 				A982B0961E442D0C000A12D0 /* ELGoalAction.h */,
@@ -1280,6 +1285,7 @@
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
+				A9C1F3D11E52D9FC00D07326 /* ELFilterSortItem.m in Sources */,
 				A9C1F3CE1E52BA3600D07326 /* ELListTableViewCell.m in Sources */,
 				A971CA5A1E48E0B800B14773 /* ELPopupViewController.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,

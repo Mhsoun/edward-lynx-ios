@@ -6,8 +6,12 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELFilterSortItem.h"
+
 @interface ELListTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (strong, nonatomic) ELFilterSortItem *item;
 
 @end

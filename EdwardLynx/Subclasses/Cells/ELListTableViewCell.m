@@ -24,19 +24,28 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    self.titleLabel.text = (NSString *)object;
+    self.item = (ELFilterSortItem *)object;
+    self.titleLabel.text = self.item.title;
+    
+    [self toggleCellSelection];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL isSelected = self.accessoryType == UITableViewCellAccessoryCheckmark;
+    self.item.selected = !self.item.selected;
     
-    self.accessoryType = isSelected ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
-    self.titleLabel.textColor = [[RNThemeManager sharedManager] colorForKey:isSelected ? kELTextFieldInputColor :
-                                                                                         kELOrangeColor];
+    [self toggleCellSelection];
 }
 
 - (void)handleObject:(id)object deselectionActionAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark - Private Methods
+
+- (void)toggleCellSelection {
+    self.accessoryType = self.item.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.titleLabel.textColor = [[RNThemeManager sharedManager] colorForKey:self.item.selected ? kELOrangeColor :
+                                                                                                 kELTextFieldInputColor];
 }
 
 @end
