@@ -7,6 +7,7 @@
 //
 
 #import "ELDashboardViewController.h"
+#import "AppDelegate.h"
 
 #pragma mark - Private Constants
 

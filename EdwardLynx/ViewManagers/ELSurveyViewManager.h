@@ -7,7 +7,6 @@
 //
 
 #import "ELSurvey.h"
-#import "ELSurveysAPIClient.h"
 
 @interface ELSurveyViewManager : NSObject
 

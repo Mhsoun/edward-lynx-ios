@@ -8,10 +8,6 @@
 
 #import "ELBaseDetailViewController.h"
 
-@interface ELBaseDetailViewController ()
-
-@end
-
 @implementation ELBaseDetailViewController
 
 - (void)viewDidLoad {

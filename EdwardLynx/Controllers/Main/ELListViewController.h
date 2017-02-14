@@ -7,13 +7,6 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELDataProvider.h"
-#import "ELDevelopmentPlan.h"
-#import "ELInstantFeedback.h"
-#import "ELListViewManager.h"
-#import "ELSurvey.h"
-#import "ELSurveyDetailsViewController.h"
-#import "ELTableDataSource.h"
 
 typedef NS_ENUM(NSInteger, kELListType) {
     kELListTypeDevPlan,
@@ -21,7 +14,7 @@ typedef NS_ENUM(NSInteger, kELListType) {
     kELListTypeSurveys
 };
 
-@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELListPopupDelegate>
 
 @property (nonatomic) kELListType listType;
 

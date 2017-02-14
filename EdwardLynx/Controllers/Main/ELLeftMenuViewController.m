@@ -7,6 +7,10 @@
 //
 
 #import "ELLeftMenuViewController.h"
+#import "ELBaseViewController.h"
+#import "ELDataProvider.h"
+#import "ELMenuItem.h"
+#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 

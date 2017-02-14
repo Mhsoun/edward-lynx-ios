@@ -6,14 +6,23 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELUtils.h"
+#import <Crashlytics/Crashlytics.h>
+#import <Fabric/Fabric.h>
+#import <Firebase/Firebase.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
+#import <KDNotification/KDToastNotification.h>
+#import <REValidation/REValidation.h>
 
+#import "ELUtils.h"
+#import "AppDelegate.h"
 #import "ELBaseQuestionTypeView.h"
+#import "ELEmailValidator.h"
 #import "ELListPopupViewController.h"
 #import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"
 #import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
+#import "ELUsersAPIClient.h"
 
 @interface ELFormItemGroup ()
 
@@ -217,12 +226,16 @@
                               details:(NSDictionary *)detailsDict {
     ELPopupViewController *popup;
     ELListPopupViewController *listPopup;
+    CGPoint offset = CGPointMake(0, -100);
+    
+    if (controller.popupViewController) {
+        return;
+    }
     
     switch (type) {
         case kELPopupTypeMessage:
             popup = [[ELPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
-            popup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 300);
-            popup.popupViewOffset = CGPointMake(0, -50);
+            popup.popupViewOffset = offset;
             
             [controller presentPopupViewController:popup
                                           animated:YES
@@ -231,8 +244,8 @@
             break;
         case kELPopupTypeList:
             listPopup = [[ELListPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
-            listPopup.view.bounds = CGRectMake(0, 0, controller.view.frame.size.width - 100, 275);
-            listPopup.popupViewOffset = CGPointMake(0, -150);
+            listPopup.delegate = controller;
+            listPopup.popupViewOffset = offset;
             
             [controller presentPopupViewController:listPopup
                                           animated:YES

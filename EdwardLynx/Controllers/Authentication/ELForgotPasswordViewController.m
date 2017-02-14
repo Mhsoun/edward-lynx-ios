@@ -7,6 +7,7 @@
 //
 
 #import "ELForgotPasswordViewController.h"
+#import "ELAccountsViewManager.h"
 
 #pragma mark - Private Constants
 

@@ -6,7 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
+
 #import "ELEditProfileViewController.h"
+#import "ELAccountsViewManager.h"
 
 #pragma mark - Class Extension
 

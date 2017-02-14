@@ -6,7 +6,10 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELFeedbackViewManager.h"
+#import "ELSurveysAPIClient.h"
 
 #pragma mark - Class Extension
 

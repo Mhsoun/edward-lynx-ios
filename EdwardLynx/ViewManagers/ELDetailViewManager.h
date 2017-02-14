@@ -6,9 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELDevelopmentPlanAPIClient.h"
 #import "ELModel.h"
-#import "ELSurveysAPIClient.h"
 
 @interface ELDetailViewManager : NSObject
 

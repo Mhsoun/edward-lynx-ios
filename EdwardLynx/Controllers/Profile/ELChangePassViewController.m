@@ -7,6 +7,7 @@
 //
 
 #import "ELChangePassViewController.h"
+#import "ELAccountsViewManager.h"
 
 #pragma mark - Class Extension
 

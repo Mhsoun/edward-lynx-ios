@@ -8,11 +8,6 @@
 
 #import <SASlideMenu/SASlideMenuViewController.h>
 
-#import "ELBaseViewController.h"
-#import "ELDataProvider.h"
-#import "ELMenuItem.h"
-#import "ELTableDataSource.h"
-
 @interface ELLeftMenuViewController : SASlideMenuViewController<UITableViewDelegate, SASlideMenuDataSource, SASlideMenuDelegate, ELBaseViewControllerDelegate>
 
 @end

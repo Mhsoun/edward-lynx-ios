@@ -6,13 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAddObjectTableViewCell.h"
 #import "ELBaseViewController.h"
-#import "ELFeedbackViewManager.h"
-#import "ELInviteUsersViewController.h"
-#import "ELItemTableViewCell.h"
-
-#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
 
 @interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
 

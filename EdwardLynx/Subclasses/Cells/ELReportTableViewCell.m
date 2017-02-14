@@ -7,6 +7,7 @@
 //
 
 #import "ELReportTableViewCell.h"
+#import "ELInstantFeedback.h"
 
 @implementation ELReportTableViewCell
 

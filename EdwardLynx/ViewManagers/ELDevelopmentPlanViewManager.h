@@ -6,10 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <REValidation/REValidation.h>
-
-#import "ELDevelopmentPlanAPIClient.h"
-
 #pragma mark - Public Constants
 
 static NSString * const kELNoCategorySelected = @"No category selected";

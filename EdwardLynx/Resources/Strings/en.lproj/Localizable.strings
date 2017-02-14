@@ -16,10 +16,14 @@
 "kELSubmitButton" = "Submit";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
+"kELFilterLabel" = "Filter";
+"kELFilterByLabel" = "Filter By";
 "kELEmailLabel" = "E-mail";
 "kELExpiresOnLabel" = "Expires on %@";
 "kELNameLabel" = "Name";
 "kELNoDescriptionLabel" = "No description";
+"kELSortLabel" = "Sort";
+"kELSortByLabel" = "Sort By";
 
 "kELDetailsPageLoadError" = "Failed to load details.";
 

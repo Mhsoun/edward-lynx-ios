@@ -6,8 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELInstantFeedback.h"
-
 @interface ELReportTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *reportLabel;

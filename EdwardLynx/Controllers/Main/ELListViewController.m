@@ -7,6 +7,14 @@
 //
 
 #import "ELListViewController.h"
+#import "ELDataProvider.h"
+#import "ELDevelopmentPlan.h"
+#import "ELFilterSortItem.h"
+#import "ELInstantFeedback.h"
+#import "ELListViewManager.h"
+#import "ELSurvey.h"
+#import "ELSurveyDetailsViewController.h"
+#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 
@@ -25,10 +33,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 @property (nonatomic) NSInteger countPerPage,
                                 page,
                                 total;
-@property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
-@property (nonatomic, strong) NSString *cellIdentifier, *filter;
+@property (nonatomic, strong) NSArray *filterItems, *sortItems;
+@property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
+@property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELListViewManager *viewManager;
 
@@ -116,6 +125,20 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                   forControlEvents:UIControlEventValueChanged];
     
     [self.tableView addSubview:self.refreshControl];
+}
+
+#pragma mark - Protocol Methods (ELListPopup)
+
+- (void)onFilterSelections:(NSArray *)selections allFilterItems:(NSArray *)items {
+    self.filterItems = items;
+    
+    // TODO Handle filtering
+}
+
+- (void)onSortSelections:(NSArray *)selections allSortItems:(NSArray *)items {
+    self.sortItems = items;
+    
+    // TODO Handle sorting
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -243,6 +266,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onTabButtonClick:(id)sender {
+    NSArray *items;
+    
     // Toggle tab button status
     BOOL isAllSelected = [self toggleTabButton:self.allTabButton basedOnSelection:sender];
     BOOL isFilterSelected = [self toggleTabButton:self.filterTabButton basedOnSelection:sender];
@@ -251,15 +276,27 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     if (isAllSelected) {
         // TODO
     } else if (isFilterSelected) {
+        items = self.filterItems ? self.filterItems : @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
+                                                                                                       @"selected": @NO}
+                                                                                               error:nil],
+                                                        [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Unfinished",
+                                                                                                       @"selected": @NO}
+                                                                                               error:nil],
+                                                        [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Expired",
+                                                                                                       @"selected": @NO}
+                                                                                               error:nil]];
+        
         [ELUtils displayPopupForViewController:self
                                           type:kELPopupTypeList
-                                       details:@{@"type": @"filter",
-                                                 @"items": @[@"Test", @"Yeah", @"Test", @"Yeah"]}];
+                                       details:@{@"type": @"filter", @"items": items}];
     } else if (isSortSelected) {
+        items = self.sortItems ? self.sortItems : @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"A-Z/Z-A",
+                                                                                                   @"selected": @NO}
+                                                                                           error:nil]];
+        
         [ELUtils displayPopupForViewController:self
                                           type:kELPopupTypeList
-                                       details:@{@"type": @"sort",
-                                                 @"items": @[@"Test", @"Yeah", @"Test", @"Yeah"]}];
+                                       details:@{@"type": @"sort", @"items": items}];
     }
 }
 

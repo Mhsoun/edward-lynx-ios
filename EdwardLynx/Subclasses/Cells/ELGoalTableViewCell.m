@@ -7,6 +7,9 @@
 //
 
 #import "ELGoalTableViewCell.h"
+#import "AppDelegate.h"
+#import "ELDevelopmentPlanAPIClient.h"
+#import "ELGoal.h"
 
 #pragma mark - Private Constants
 

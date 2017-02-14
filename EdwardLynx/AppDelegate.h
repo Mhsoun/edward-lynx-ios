@@ -7,13 +7,9 @@
 //
 
 #import <CoreData/CoreData.h>
-#import <Firebase/Firebase.h>
-#import <FirebaseMessaging/FirebaseMessaging.h>
-#import <KDNotification/KDNotification.h>
 #import <UserNotifications/UserNotifications.h>
 
 #import "ELNotification.h"
-#import "ELUsersAPIClient.h"
 
 @class ELBaseDetailViewController;
 

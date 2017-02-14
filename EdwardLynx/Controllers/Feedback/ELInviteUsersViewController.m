@@ -6,7 +6,14 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELInviteUsersViewController.h"
+#import "ELDataProvider.h"
+#import "ELFeedbackViewManager.h"
+#import "ELParticipant.h"
+#import "ELParticipantTableViewCell.h"
+#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 

@@ -7,9 +7,6 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELListViewController.h"
-#import "ELSurvey.h"
-#import "ELSurveyDetailsViewController.h"
 
 @interface ELSurveysViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
 

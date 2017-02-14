@@ -6,13 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELAddObjectTableViewCell.h"
 #import "ELBaseViewController.h"
-#import "ELCategory.h"
-#import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
-#import "ELGoalAction.h"
-#import "ELItemTableViewCell.h"
 
 @interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
 

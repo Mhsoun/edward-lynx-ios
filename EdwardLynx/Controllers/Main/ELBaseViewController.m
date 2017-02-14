@@ -8,12 +8,6 @@
 
 #import "ELBaseViewController.h"
 
-#pragma mark - Class Extension
-
-@interface ELBaseViewController ()
-
-@end
-
 @implementation ELBaseViewController
 
 #pragma mark - Lifecycle

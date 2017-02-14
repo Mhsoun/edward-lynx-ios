@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELMenuItem.h"
-
 @interface ELMenuTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 
 @end

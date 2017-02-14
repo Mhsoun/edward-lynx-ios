@@ -6,6 +6,8 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELAccountsViewManager.h"
 
 #pragma mark - Class Extension

@@ -6,8 +6,10 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELDataProvider.h"
 #import "ELListPopupViewController.h"
+#import "ELDataProvider.h"
+#import "ELFilterSortItem.h"
+#import "ELListTableViewCell.h"
 #import "ELTableDataSource.h"
 
 #pragma mark - Private Methods
@@ -18,6 +20,7 @@ static NSString * const kELCellIdentifier = @"ListCell";
 
 @interface ELListPopupViewController ()
 
+@property (nonatomic) BOOL isFilter;
 @property (nonatomic, strong) NSDictionary *detailsDict;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -69,21 +72,50 @@ static NSString * const kELCellIdentifier = @"ListCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    BOOL isFilter = [self.detailsDict[@"type"] isEqualToString:@"filter"];
+    self.isFilter = [self.detailsDict[@"type"] isEqualToString:@"filter"];
     
-    [self.titleLabel setText:isFilter ? @"FILTER BY" : @"SORT BY"];
-    [self.confirmButton setTitle:isFilter ? @"Filter" : @"Sort" forState:UIControlStateNormal];
+    [self.titleLabel setText:[NSLocalizedString(self.isFilter ? @"kELFilterByLabel" : @"kELSortByLabel", nil) uppercaseString]];
+    [self.confirmButton setTitle:NSLocalizedString(self.isFilter ? @"kELFilterLabel" : @"kELSortLabel", nil)
+                        forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions
 
+- (IBAction)onCancelButtonClick:(id)sender {
+    [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)onConfirmButtonClick:(id)sender {
+    NSMutableArray *mItems = [[NSMutableArray alloc] init];
+    NSMutableArray *mSelectedItems = [[NSMutableArray alloc] init];
+    
     if (!self.controller.popupViewController) {
         return;
     }
     
+    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+        ELListTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELListTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        [mItems addObject:cell.item];
+        
+        if (cell.item.selected) {
+            [mSelectedItems addObject:cell.item];
+        }
+    }
+    
     [self.controller dismissPopupViewControllerAnimated:YES completion:^{
-        // TODO Return list of selected filter(s)
+        if (self.isFilter) {
+            [self.delegate onFilterSelections:[mSelectedItems copy] allFilterItems:[mItems copy]];
+        } else {
+            [self.delegate onSortSelections:[mSelectedItems copy] allSortItems:[mItems copy]];
+        }
     }];
 }
 

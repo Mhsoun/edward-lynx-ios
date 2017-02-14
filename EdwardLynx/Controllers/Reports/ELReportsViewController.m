@@ -7,6 +7,8 @@
 //
 
 #import "ELReportsViewController.h"
+#import "ELListViewController.h"
+#import "ELReportDetailsViewController.h"
 
 #pragma mark - Private Constants
 

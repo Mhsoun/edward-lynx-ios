@@ -7,10 +7,7 @@
 //
 
 #import "ELBaseDetailViewController.h"
-#import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
-#import "ELDevelopmentPlanAPIClient.h"
-#import "ELGoalTableViewCell.h"
 
 @interface ELDevelopmentPlanDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 

@@ -7,6 +7,7 @@
 //
 
 #import "ELMenuTableViewCell.h"
+#import "ELMenuItem.h"
 
 @implementation ELMenuTableViewCell
 

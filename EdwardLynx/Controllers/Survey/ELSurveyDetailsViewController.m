@@ -7,6 +7,12 @@
 //
 
 #import "ELSurveyDetailsViewController.h"
+#import "ELDataProvider.h"
+#import "ELDetailViewManager.h"
+#import "ELQuestionCategory.h"
+#import "ELQuestionTableViewCell.h"
+#import "ELSurveyViewManager.h"
+#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 

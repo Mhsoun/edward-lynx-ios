@@ -6,9 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseQuestionTypeView.h"
-#import "ELQuestion.h"
-
 @interface ELQuestionTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @property (nonatomic) BOOL enableAnswerTypeControls;
