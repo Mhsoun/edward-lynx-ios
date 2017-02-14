@@ -111,6 +111,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
                                               @"details": @"You've got the right mix of dedication and enthusiasm. Keep it up!"};
                 
                 [ELUtils displayPopupForViewController:visibleController
+                                                  type:kELPopupTypeMessage
                                                details:detailsDict];
             } else {
                 [ELUtils presentToastAtView:visibleController.view

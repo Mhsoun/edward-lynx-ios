@@ -104,6 +104,11 @@
 		A9BF26811E2D3AA700F42859 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */; };
 		A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */; };
 		A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */; };
+		A9C1F3C31E52ACB300D07326 /* ListPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F3C21E52ACB300D07326 /* ListPopupView.xib */; };
+		A9C1F3C61E52ADCF00D07326 /* ELListPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3C51E52ADCF00D07326 /* ELListPopupViewController.m */; };
+		A9C1F3C91E52B18800D07326 /* ELBasePopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3C81E52B18800D07326 /* ELBasePopupViewController.m */; };
+		A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F3CA1E52B85E00D07326 /* ListCell.xib */; };
+		A9C1F3CE1E52BA3600D07326 /* ELListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */; };
 		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 		A9C929551E43281A00783952 /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C929541E43281A00783952 /* ELCategory.m */; };
 		A9C95A051E1F701A00184223 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C95A041E1F701A00184223 /* ELConfigurationViewController.m */; };
@@ -373,6 +378,14 @@
 		A9BF26831E2D3BFC00F42859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9BF26851E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9BF26861E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerInstantFeedbackViewController.m; sourceTree = "<group>"; };
+		A9C1F3C21E52ACB300D07326 /* ListPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListPopupView.xib; sourceTree = "<group>"; };
+		A9C1F3C41E52ADCF00D07326 /* ELListPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELListPopupViewController.h; sourceTree = "<group>"; };
+		A9C1F3C51E52ADCF00D07326 /* ELListPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListPopupViewController.m; sourceTree = "<group>"; };
+		A9C1F3C71E52B18800D07326 /* ELBasePopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBasePopupViewController.h; sourceTree = "<group>"; };
+		A9C1F3C81E52B18800D07326 /* ELBasePopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBasePopupViewController.m; sourceTree = "<group>"; };
+		A9C1F3CA1E52B85E00D07326 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		A9C1F3CC1E52BA3600D07326 /* ELListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELListTableViewCell.h; sourceTree = "<group>"; };
+		A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListTableViewCell.m; sourceTree = "<group>"; };
 		A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 		A9C929531E43281A00783952 /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
@@ -516,6 +529,8 @@
 				A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */,
 				A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */,
 				A96E6E5E1E2F74450056EDB1 /* ELItemTableViewCell.m */,
+				A9C1F3CC1E52BA3600D07326 /* ELListTableViewCell.h */,
+				A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */,
 				A9121AA61E07B88100ED9934 /* ELMenuTableViewCell.h */,
 				A9121AA71E07B88100ED9934 /* ELMenuTableViewCell.m */,
 				A94821A31E233885008B738A /* ELParticipantTableViewCell.h */,
@@ -710,12 +725,16 @@
 			children = (
 				A95BFE021E497A1D00023081 /* ELBaseDetailViewController.h */,
 				A95BFE031E497A1D00023081 /* ELBaseDetailViewController.m */,
+				A9C1F3C71E52B18800D07326 /* ELBasePopupViewController.h */,
+				A9C1F3C81E52B18800D07326 /* ELBasePopupViewController.m */,
 				A96F27621DFF9FCB00609E27 /* ELBaseViewController.h */,
 				A96F27631DFF9FCB00609E27 /* ELBaseViewController.m */,
 				A91B15851E03A6BB00CAEC43 /* ELDashboardViewController.h */,
 				A91B15861E03A6BB00CAEC43 /* ELDashboardViewController.m */,
 				A9121A9B1E07A9B900ED9934 /* ELLeftMenuViewController.h */,
 				A9121A9C1E07A9B900ED9934 /* ELLeftMenuViewController.m */,
+				A9C1F3C41E52ADCF00D07326 /* ELListPopupViewController.h */,
+				A9C1F3C51E52ADCF00D07326 /* ELListPopupViewController.m */,
 				A91DCD351E35C997006F2778 /* ELListViewController.h */,
 				A91DCD361E35C997006F2778 /* ELListViewController.m */,
 				A971CA581E48E0B800B14773 /* ELPopupViewController.h */,
@@ -842,6 +861,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */,
+				A9C1F3CA1E52B85E00D07326 /* ListCell.xib */,
 				A94821A11E23370B008B738A /* ParticipantCell.xib */,
 				A9195FAE1E19F28600F84272 /* QuestionCell.xib */,
 				A91DCD3B1E35E518006F2778 /* ReportCell.xib */,
@@ -854,6 +874,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A9C1F3C21E52ACB300D07326 /* ListPopupView.xib */,
 				A971CA5B1E48E10C00B14773 /* PopupView.xib */,
 				A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */,
 				A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */,
@@ -1057,9 +1078,11 @@
 				A97086761E1E36F300CDC2DF /* QuestionTypeScaleView.xib in Resources */,
 				A91B157D1E03983900CAEC43 /* Dashboard.storyboard in Resources */,
 				A96F275A1DFF8B2B00609E27 /* Authentication.storyboard in Resources */,
+				A9C1F3C31E52ACB300D07326 /* ListPopupView.xib in Resources */,
 				A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
+				A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
 				A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
@@ -1225,6 +1248,7 @@
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
+				A9C1F3C61E52ADCF00D07326 /* ELListPopupViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */,
 				A9BF26871E2D446F00F42859 /* ELAnswerInstantFeedbackViewController.m in Sources */,
@@ -1248,6 +1272,7 @@
 				A9121AA01E07AD9500ED9934 /* ELDataProvider.m in Sources */,
 				A9308BDF1DED74B6007B4F9F /* EdwardLynx.xcdatamodeld in Sources */,
 				A9996B441E3F4B0B00600891 /* ELCreateDevelopmentPlanViewController.m in Sources */,
+				A9C1F3C91E52B18800D07326 /* ELBasePopupViewController.m in Sources */,
 				A91DCD371E35C997006F2778 /* ELListViewController.m in Sources */,
 				A982B0981E442D0C000A12D0 /* ELGoalAction.m in Sources */,
 				A96F27731DFFDB0E00609E27 /* ELForgotPasswordViewController.m in Sources */,
@@ -1255,6 +1280,7 @@
 				A9B36AB01DFE749000599909 /* ELAPIClient.m in Sources */,
 				A90160081E1C99C6005A8E61 /* ELListViewManager.m in Sources */,
 				A90A584A1E0A8633003F9F8B /* ELUser.m in Sources */,
+				A9C1F3CE1E52BA3600D07326 /* ELListTableViewCell.m in Sources */,
 				A971CA5A1E48E0B800B14773 /* ELPopupViewController.m in Sources */,
 				A96F27791DFFF9E900609E27 /* ELAccountsViewManager.m in Sources */,
 				A91BF5991E2DFBEB00F203A2 /* ELReportsViewController.m in Sources */,

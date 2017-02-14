@@ -38,10 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.useBlurForPopup = NO;
-    
-    [self setupPopupDetails];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,9 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Private Methods
+#pragma mark - Protocol Methods (ELBaseViewController)
 
-- (void)setupPopupDetails {
+- (void)layoutPage {
     self.titleLabel.text = self.detailsDict[@"title"];
     self.headerLabel.text = self.detailsDict[@"header"];
     self.detailLabel.text = self.detailsDict[@"details"];
@@ -60,9 +56,11 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onButtonClick:(id)sender {
-    if (self.controller.popupViewController) {
-        [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
+    if (!self.controller.popupViewController) {
+        return;
     }
+    
+    [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
 }
 
 @end
