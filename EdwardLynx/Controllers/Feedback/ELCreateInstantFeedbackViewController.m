@@ -261,6 +261,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
     }
     
+    if (self.instantFeedback) {
+        [self.mInstantFeedbackDict setObject:self.instantFeedback.participants forKey:@"participants"];
+    }
+    
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];

@@ -58,6 +58,12 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                        iconSize:kELIconSize
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
+    // To display only the not yet invited participants
+    if (self.instantFeedbackDict[@"participants"]) {
+        self.mInitialParticipants = [[ELUtils removeDuplicateUsers:self.instantFeedbackDict[@"participants"]
+                                                          superset:[ELAppSingleton sharedInstance].participants] mutableCopy];
+    }
+    
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
     

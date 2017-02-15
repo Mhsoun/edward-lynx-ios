@@ -7,7 +7,10 @@
 //
 
 #import "ELModel.h"
+#import "ELParticipant.h"
 #import "ELQuestion.h"
+
+@protocol ELParticipant;
 
 @interface ELInstantFeedback : ELModel
 
@@ -17,6 +20,7 @@
 @property (nonatomic) NSString *lang;
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSArray<Optional> *shares;
+@property (nonatomic) NSArray<Optional, ELParticipant> *participants;
 @property (nonatomic) ELQuestion *question;
 
 @end
