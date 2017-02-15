@@ -70,6 +70,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         controller.inviteType = kELInviteUsersInstantFeedback;
         controller.instantFeedbackDict = self.mInstantFeedbackDict;
+        
+        if (self.instantFeedback) {
+            controller.instantFeedback = self.instantFeedback;
+        }
     }
 }
 
@@ -259,10 +263,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
         [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
-    }
-    
-    if (self.instantFeedback) {
-        [self.mInstantFeedbackDict setObject:self.instantFeedback.participants forKey:@"participants"];
     }
     
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];

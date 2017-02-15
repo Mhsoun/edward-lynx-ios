@@ -12,9 +12,9 @@
 
 - (void)createQuestionWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
-- (void)updateQuestionForId:(int64_t)questionId
-                     params:(NSDictionary *)params
-                 completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)updateQuestionWithId:(int64_t)questionId
+                      params:(NSDictionary *)params
+                  completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 
 @end
 

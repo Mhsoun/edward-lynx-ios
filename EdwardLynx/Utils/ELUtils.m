@@ -350,11 +350,17 @@
 + (NSArray *)removeDuplicateUsers:(NSArray *)subset superset:(NSArray *)superset {
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < superset.count; i++) {
-        ELParticipant *participant = superset[i];
-        
-        if (![subset containsObject:participant]) {
-            [mUsers addObject:participant];
+    for (ELParticipant *supersetParticipant in superset) {
+        for (int i = 0; i < subset.count; i++) {
+            ELParticipant *subsetParticipant = subset[i];
+            
+            if ([subsetParticipant isEqual:supersetParticipant]) {
+                break;
+            }
+            
+            if (i == subset.count - 1 && ![mUsers containsObject:supersetParticipant]) {
+                [mUsers addObject:supersetParticipant];
+            }
         }
     }
     

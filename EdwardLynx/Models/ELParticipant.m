@@ -18,9 +18,15 @@
     return [propertyName isEqualToString:@"isSelected"] || [propertyName isEqualToString:@"isAddedByEmail"];
 }
 
+- (BOOL)isEqual:(id)object {
+    ELParticipant *compareObject = (ELParticipant *)object;
+    
+    return (self.objectId == compareObject.objectId &&
+            [self.name isEqualToString:compareObject.name]);
+}
+
 - (NSDictionary *)addedByEmailDictionary {
-    return @{@"name": self.name,
-             @"email": self.email};
+    return @{@"name": self.name, @"email": self.email};
 }
 
 - (NSDictionary *)apiPostDictionary {

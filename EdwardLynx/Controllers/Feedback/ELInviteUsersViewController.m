@@ -59,8 +59,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     // To display only the not yet invited participants
-    if (self.instantFeedbackDict[@"participants"]) {
-        self.mInitialParticipants = [[ELUtils removeDuplicateUsers:self.instantFeedbackDict[@"participants"]
+    if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
+        self.mInitialParticipants = [[ELUtils removeDuplicateUsers:self.instantFeedback.participants
                                                           superset:[ELAppSingleton sharedInstance].participants] mutableCopy];
     }
     
@@ -71,6 +71,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
@@ -219,7 +220,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELInviteUsersRetrievalError", nil)
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
                      completion:^{}];
 }
 
@@ -366,6 +367,21 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         self.inviteButton.enabled = NO;
         
+        // Retrieve selected user(s)
+        for (ELParticipant *participant in self.mParticipants) {
+            [mUsers addObject:participant.isAddedByEmail ? [participant addedByEmailDictionary] :
+                                                           [participant apiPostDictionary]];
+        }
+        
+        // Add more participants
+        if (self.instantFeedback) {
+            [self.viewManager processInstantFeedbackAddParticipantsWithId:self.instantFeedback.objectId
+                                                                 formData:@{@"recipients": [mUsers copy]}];
+            
+            return;
+        }
+        
+        // Create new Instant Feedback
         answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
@@ -376,11 +392,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         questions = @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
                         @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
                         @"answer": [mAnswerDict copy]}];
-        
-        for (ELParticipant *participant in self.mParticipants) {
-            [mUsers addObject:participant.isAddedByEmail ? [participant addedByEmailDictionary] :
-                                                           [participant apiPostDictionary]];
-        }
         
         [self.viewManager processInstantFeedback:@{@"lang": @"en",
                                                    @"anonymous": self.instantFeedbackDict[@"anonymous"],
@@ -399,8 +410,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
-        [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
-                                                   atId:self.instantFeedback.objectId];
+        [self.viewManager processSharingOfReportToUsersWithId:self.instantFeedback.objectId
+                                                     formData:@{@"users": [mUsers copy]}];
     }
 }
 

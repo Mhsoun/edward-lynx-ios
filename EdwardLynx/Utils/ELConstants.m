@@ -60,6 +60,7 @@ NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
 NSString * const kELAPIInstantFeedbackAnswersEndpoint = @"%@/instant-feedbacks/%@/answers";
+NSString * const kELAPIInstantFeedbackAddMoreParticipantsEndpoint = @"%@/instant-feedbacks/%@/recipients";
 NSString * const kELAPIInstantFeedbackSharesEndpoint = @"%@/instant-feedbacks/%@/shares";
 
 NSString * const kELAPIQuestionCategoriesEndpoint = @"%@/categories";

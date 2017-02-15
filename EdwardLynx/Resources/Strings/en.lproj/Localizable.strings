@@ -30,6 +30,7 @@
 "kELSortByLabel" = "Sort By";
 
 "kELDetailsPageLoadError" = "Failed to load details.";
+"kELPostMethodError" = "Failed to process request.";
 
 "kELErrorDetailsMessage" = "Please try again later.";
 

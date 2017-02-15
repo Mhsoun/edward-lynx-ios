@@ -12,9 +12,26 @@
 
 #pragma mark - Instant Feedback
 
+- (void)addInstantFeedbackParticipantsWithId:(int64_t)instantFeedbackId
+                                      params:(NSDictionary *)params
+                                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAddMoreParticipantsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(instantFeedbackId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)answerInstantFeedbackWithId:(int64_t)instantFeedbackId
                              params:(NSDictionary *)params completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint,
+                          kELAPIVersionNamespace,
+                          @(instantFeedbackId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                          bodyParams:params];
@@ -50,7 +67,9 @@
 
 - (void)instantFeedbackReportDetailsWithId:(int64_t)instantFeedbackId
                                 completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackAnswersEndpoint,
+                          kELAPIVersionNamespace,
+                          @(instantFeedbackId)];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
@@ -59,7 +78,9 @@
 }
 
 - (void)instantFeedbackWithId:(int64_t)instantFeedbackId completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackEndpoint,
+                          kELAPIVersionNamespace,
+                          @(instantFeedbackId)];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
@@ -67,10 +88,12 @@
                         completion:completion];
 }
 
-- (void)shareInstantFeedback:(int64_t)instantFeedbackId
-                      params:(NSDictionary *)params
-                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackSharesEndpoint, kELAPIVersionNamespace, @(instantFeedbackId)];
+- (void)shareInstantFeedbackWithId:(int64_t)instantFeedbackId
+                            params:(NSDictionary *)params
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIInstantFeedbackSharesEndpoint,
+                          kELAPIVersionNamespace,
+                          @(instantFeedbackId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                          bodyParams:params];
@@ -97,7 +120,9 @@
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyAnswersEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyAnswersEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                          bodyParams:params];
@@ -121,7 +146,9 @@
 
 - (void)userSurveyWithId:(int64_t)surveyId
               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
     
@@ -132,7 +159,9 @@
 
 - (void)userSurveyQuestionsWithId:(int64_t)surveyId
                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyQuestionsEndpoint, kELAPIVersionNamespace, @(surveyId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyQuestionsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
     

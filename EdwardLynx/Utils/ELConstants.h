@@ -127,6 +127,7 @@ extern NSString * const kELAPIDevelopmentPlanEndpoint;
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;
 extern NSString * const kELAPIInstantFeedbackAnswersEndpoint;
+extern NSString * const kELAPIInstantFeedbackAddMoreParticipantsEndpoint;
 extern NSString * const kELAPIInstantFeedbackSharesEndpoint;
 
 extern NSString * const kELAPIQuestionCategoriesEndpoint;

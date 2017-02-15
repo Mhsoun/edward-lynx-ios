@@ -10,6 +10,9 @@
 
 @interface ELSurveysAPIClient : ELAPIClient
 
+- (void)addInstantFeedbackParticipantsWithId:(int64_t)instantFeedbackId
+                                      params:(NSDictionary *)params
+                                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)answerInstantFeedbackWithId:(int64_t)instantFeedbackId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
@@ -21,9 +24,9 @@
                                 completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)instantFeedbackWithId:(int64_t)instantFeedbackId
                    completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
-- (void)shareInstantFeedback:(int64_t)instantFeedbackId
-                      params:(NSDictionary *)params
-                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)shareInstantFeedbackWithId:(int64_t)instantFeedbackId
+                            params:(NSDictionary *)params
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 - (void)currentUserSurveysWithQueryParams:(NSDictionary *)params
                                completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
