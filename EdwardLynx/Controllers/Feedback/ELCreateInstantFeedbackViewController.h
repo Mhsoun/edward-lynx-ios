@@ -7,8 +7,11 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELInstantFeedback.h"
 
 @interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
+
+@property (strong, nonatomic) ELInstantFeedback *instantFeedback;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *radioGroupView;

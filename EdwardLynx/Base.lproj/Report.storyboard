@@ -54,6 +54,7 @@
                     <connections>
                         <outlet property="searchBar" destination="Dct-i4-rc6" id="iba-Mn-r4J"/>
                         <segue destination="lWz-hf-IaL" kind="show" identifier="ReportDetails" id="wav-zX-WHg"/>
+                        <segue destination="4P0-Lz-7qb" kind="show" identifier="InstantFeedbackDetails" id="rHV-1k-SMv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-ay-F4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,7 +67,7 @@
                 <viewControllerPlaceholder storyboardName="List" id="ySS-jx-kgb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xK-bm-fez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="985"/>
+            <point key="canvasLocation" x="818" y="993"/>
         </scene>
         <!--Report Details View Controller-->
         <scene sceneID="Jti-rr-qaS">
@@ -106,6 +107,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-0g-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="537"/>
+        </scene>
+        <!--CreateInstantFeedback-->
+        <scene sceneID="22D-vE-Ixh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateInstantFeedback" id="4P0-Lz-7qb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cao-sJ-PyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="993"/>
         </scene>
         <!--Invite-->
         <scene sceneID="6WY-Ic-vNb">

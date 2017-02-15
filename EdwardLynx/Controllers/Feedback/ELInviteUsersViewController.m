@@ -319,14 +319,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
+    BOOL isSelected;
+    NSString *title;
     UIButton *button = (UIButton *)sender;
-    NSString *title = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)] ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                                                                                                               NSLocalizedString(@"kELSelectAllButton", nil);
+    
+    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+    title = isSelected ? @"kELDeselectAllButton" : @"kELSelectAllButton";
     
     self.allCellsAction = YES;
     self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(title, nil) forState:UIControlStateNormal];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]

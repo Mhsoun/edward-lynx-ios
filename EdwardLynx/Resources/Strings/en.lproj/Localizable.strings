@@ -8,11 +8,15 @@
 
 /* General */
 
+"kELAddMoreParticipantsButton" = "Add Participants";
 "kELCancelButton" = "Cancel";
 "kELCompleteButton" = "Complete";
+"kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
+"kELInstantFeedbackTitle" = "Instant Feedback";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
 "kELSaveToDraftButton" = "Save to draft";
+"kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
