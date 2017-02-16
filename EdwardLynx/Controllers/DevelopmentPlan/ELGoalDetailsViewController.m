@@ -10,9 +10,9 @@
 #import "ELAddObjectTableViewCell.h"
 #import "ELCategory.h"
 #import "ELDevelopmentPlanViewManager.h"
+#import "ELGoal.h"
 #import "ELGoalAction.h"
 #import "ELItemTableViewCell.h"
-
 
 #pragma mark - Private Constants
 
@@ -43,7 +43,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Initialization
     self.hasCreatedGoal = NO;
-    self.categoryLabel.text = kELNoCategorySelected;
+    self.categoryLabel.text = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
     self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     
@@ -164,7 +164,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Category
     [self.categorySwitch setOn:self.goal.categoryChecked];
-    [self.categoryLabel setText:self.goal.category.length == 0 ? kELNoCategorySelected : self.goal.category];
+    [self.categoryLabel setText:self.goal.category.length == 0 ? NSLocalizedString(@"kELGoalCategoryValidationMessage", nil) :
+                                                                 self.goal.category];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
     // Actions

@@ -7,6 +7,7 @@
 //
 
 #import "ELUsersAPIClient.h"
+#import "ELOAuthInstance.h"
 
 @implementation ELUsersAPIClient
 

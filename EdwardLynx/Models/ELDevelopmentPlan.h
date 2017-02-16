@@ -6,9 +6,9 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELGoal.h"
-
 #import <JSONModel/JSONModel.h>
+
+#import "ELGoal.h"
 
 @protocol ELGoal;
 

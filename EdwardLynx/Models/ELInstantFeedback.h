@@ -7,8 +7,9 @@
 //
 
 #import "ELModel.h"
-#import "ELParticipant.h"
 #import "ELQuestion.h"
+
+@class ELParticipant;
 
 @protocol ELParticipant;
 

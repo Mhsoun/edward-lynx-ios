@@ -7,7 +7,8 @@
 //
 
 #import "ELBaseDetailViewController.h"
-#import "ELDevelopmentPlan.h"
+
+@class ELDevelopmentPlan;
 
 @interface ELDevelopmentPlanDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 

@@ -7,6 +7,7 @@
 //
 
 #import "ELListTableViewCell.h"
+#import "ELFilterSortItem.h"
 
 @implementation ELListTableViewCell
 

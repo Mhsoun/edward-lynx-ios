@@ -11,6 +11,7 @@
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELAddObjectTableViewCell.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELInviteUsersViewController.h"
 #import "ELItemTableViewCell.h"
 

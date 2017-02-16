@@ -9,6 +9,7 @@
 #import "ELReportDetailsViewController.h"
 #import "ELAnswerOption.h"
 #import "ELDetailViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELInviteUsersViewController.h"
 
 #pragma mark - Class Extension

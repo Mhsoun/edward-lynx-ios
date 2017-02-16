@@ -7,7 +7,7 @@
 //
 
 #import "ELInstantFeedback.h"
-#import "ELQuestion.h"
+#import "ELParticipant.h"
 
 @implementation ELInstantFeedback
 

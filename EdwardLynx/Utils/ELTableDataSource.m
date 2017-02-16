@@ -7,6 +7,7 @@
 //
 
 #import "ELTableDataSource.h"
+#import "ELDataProvider.h"
 
 @interface ELTableDataSource ()
 

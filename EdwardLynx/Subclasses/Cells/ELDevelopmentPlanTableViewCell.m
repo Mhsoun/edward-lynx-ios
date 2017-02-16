@@ -7,6 +7,7 @@
 //
 
 #import "ELDevelopmentPlanTableViewCell.h"
+#import "ELDevelopmentPlan.h"
 
 @implementation ELDevelopmentPlanTableViewCell
 

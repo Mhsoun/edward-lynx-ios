@@ -7,6 +7,7 @@
 //
 
 #import "ELParticipantTableViewCell.h"
+#import "ELParticipant.h"
 
 @implementation ELParticipantTableViewCell
 

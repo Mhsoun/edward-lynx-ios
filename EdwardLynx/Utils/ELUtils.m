@@ -18,6 +18,7 @@
 #import "ELBaseQuestionTypeView.h"
 #import "ELEmailValidator.h"
 #import "ELListPopupViewController.h"
+#import "ELOAuthInstance.h"
 #import "ELParticipant.h"
 #import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"

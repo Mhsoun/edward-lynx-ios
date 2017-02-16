@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveyViewManager.h"
+#import "ELSurvey.h"
 #import "ELSurveysAPIClient.h"
 
 #pragma mark - Class Extension

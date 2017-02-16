@@ -8,6 +8,9 @@
 
 #import "ELDashboardViewController.h"
 #import "AppDelegate.h"
+#import "ELActionView.h"
+#import "ELShortcutView.h"
+#import "ELStatusView.h"
 
 #pragma mark - Private Constants
 

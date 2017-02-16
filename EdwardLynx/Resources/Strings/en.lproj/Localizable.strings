@@ -29,8 +29,8 @@
 "kELSortLabel" = "Sort";
 "kELSortByLabel" = "Sort By";
 
-"kELDetailsPageLoadError" = "Failed to load details.";
-"kELPostMethodError" = "Failed to process request.";
+"kELDetailsPageLoadError" = "Failed to load details";
+"kELPostMethodError" = "Failed to process request";
 
 "kELErrorDetailsMessage" = "Please try again later.";
 
@@ -48,20 +48,20 @@
 
 "kELDevelopmentPlanEmptyMessage"  = "No Development Plans";
 
-"kELDevelopmentPlanCreateError" = "Failed creating Development Plan.";
-"kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan.";
+"kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
+"kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
-"kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated.";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated";
 
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
 /* Feedback */
 
-"kELFeedbacksRetrievalError" = "Failed retrieving Instant Feedbacks.";
-"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks.";
-"kELFeedbackAnswerError" = "Failed answering Instant Feedback.";
-"kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback.";
+"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+"kELFeedbackAnswerError" = "Failed answering Instant Feedback";
+"kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback";
 
 "kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
 "kELFeedbackAnswerTypeOneToTenScale" = "Numeric 1-10 Scale";
@@ -88,7 +88,7 @@
 "kELInviteUsersHeaderMessage" = "Invite people to participate";
 "kELInviteUsersEvaluationLabel" = "The person evaluated is: %@";
 
-"kELInviteUsersRetrievalError" = "Failed retrieving Users.";
+"kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users.";
 
 "kELInviteUsersAddEmailHeaderMessage" = "Add user";
@@ -103,8 +103,8 @@
 
 /* Profile */
 
-"kELProfileChangePasswordSuccess" = "Successfully updated password.";
-"kELProfileUpdateSuccess" = "Successfully updated profile.";
+"kELProfileChangePasswordSuccess" = "Successfully updated password";
+"kELProfileUpdateSuccess" = "Successfully updated profile";
 "kELProfileGenderMale" = "Male";
 "kELProfileGenderFemale" = "Female";
 "kELProfileGenderOther" = "Other";
@@ -116,21 +116,21 @@
 "kELSurveySubmitHeaderMessage" = "Submit Options";
 "kELSurveySubmitDetailsMessage" = "You have the option to save your answers partially or submit for completion.";
 
-"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details.";
-"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions.";
+"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
+"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
 
-"kELSurveySubmissionSuccess" = "Successfully submitted answers.";
-"kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts.";
-"kELSurveyPostError" = "Failed to post answers.";
+"kELSurveySubmissionSuccess" = "Successfully submitted answers";
+"kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts";
+"kELSurveyPostError" = "Failed to post answers";
 
 /* Validations */
 
-"kELAnswerTypeValidation" = "Answer type should be selected.";
-"kELGoalActionsValidationMessage" = "No Goal Actions added.";
-"kELGoalCategoryValidationMessage" = "No category selected.";
-"kELGoalsValidationMessage" = "No Goals added.";
-"kELGoalReminderValidationMessage" = "Reminder date should be on or after today.";
-"kELPasswordValidationMessage" = "New Password fields must be the same.";
-"kELREValidationEmailMessage" = "%@ can't be blank.";
-"kELREValidationPresenceMessage" = "%@ can't be blank.";
-"kELUsersSelectionValidationMessage" = "No users selected.";
+"kELAnswerTypeValidation" = "Answer type should be selected";
+"kELGoalActionsValidationMessage" = "No Goal Actions added";
+"kELGoalCategoryValidationMessage" = "No category selected";
+"kELGoalsValidationMessage" = "No Goals added";
+"kELGoalReminderValidationMessage" = "Reminder date should be on or after today";
+"kELPasswordValidationMessage" = "New Password fields must be the same";
+"kELREValidationEmailMessage" = "%@ can't be blank";
+"kELREValidationPresenceMessage" = "%@ can't be blank";
+"kELUsersSelectionValidationMessage" = "No users selected";

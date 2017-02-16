@@ -7,7 +7,8 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELInstantFeedback.h"
+
+@class ELInstantFeedback;
 
 @interface ELReportDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
 

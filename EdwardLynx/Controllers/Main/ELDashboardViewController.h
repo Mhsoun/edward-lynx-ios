@@ -7,9 +7,10 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELActionView.h"
-#import "ELShortcutView.h"
-#import "ELStatusView.h"
+
+@class ELActionView;
+@class ELShortcutView;
+@class ELStatusView;
 
 @interface ELDashboardViewController : ELBaseViewController<ELDashboardViewDelegate>
 

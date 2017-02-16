@@ -11,6 +11,7 @@
 #import "ELInviteUsersViewController.h"
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
