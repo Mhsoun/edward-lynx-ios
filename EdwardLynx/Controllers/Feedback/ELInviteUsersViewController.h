@@ -7,7 +7,8 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELInstantFeedback.h"
+
+@class ELInstantFeedback;
 
 @interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELAPIPostResponseDelegate>
 

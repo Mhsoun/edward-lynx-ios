@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELModel.h"
+@class ELModel;
 
 @interface ELDetailViewManager : NSObject
 

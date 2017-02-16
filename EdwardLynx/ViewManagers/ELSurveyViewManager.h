@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELSurvey.h"
+@class ELSurvey;
 
 @interface ELSurveyViewManager : NSObject
 

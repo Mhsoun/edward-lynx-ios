@@ -57,7 +57,7 @@
 
 - (void)processRetrievalOfInstantFeedbacks {
     [self.surveyClient currentUserInstantFeedbacksWithFilter:@"to_answer"
-                                            completion:self.requestCompletionBlock];
+                                                  completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfPaginatedSurveysAtPage:(NSInteger)page {
@@ -67,7 +67,7 @@
 
 - (void)processRetrievalOfReports {
     [self.surveyClient currentUserInstantFeedbacksWithFilter:@"mine"
-                                            completion:self.requestCompletionBlock];
+                                                  completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfSurveys {

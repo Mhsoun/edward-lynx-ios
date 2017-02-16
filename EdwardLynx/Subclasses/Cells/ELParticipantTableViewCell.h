@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELParticipant.h"
+@class ELParticipant;
 
 @interface ELParticipantTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 

@@ -7,7 +7,8 @@
 //
 
 #import "ELBaseViewController.h"
-#import "ELGoal.h"
+
+@class ELGoal;
 
 @interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
 

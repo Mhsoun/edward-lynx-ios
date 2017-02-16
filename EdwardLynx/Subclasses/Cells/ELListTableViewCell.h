@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELFilterSortItem.h"
+@class ELFilterSortItem;
 
 @interface ELListTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 

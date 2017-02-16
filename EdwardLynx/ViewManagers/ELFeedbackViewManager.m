@@ -59,17 +59,22 @@
                                       completion:self.requestCompletionBlock];
 }
 
-- (void)processInstantFeedbackAnswerSubmissionAtId:(int64_t)objId
-                                      withFormData:(NSDictionary *)formDict {
+- (void)processInstantFeedbackAddParticipantsWithId:(int64_t)objId formData:(NSDictionary *)formDict {
+    [self.client addInstantFeedbackParticipantsWithId:objId
+                                               params:formDict
+                                           completion:self.requestCompletionBlock];
+}
+
+- (void)processInstantFeedbackAnswerSubmissionWithId:(int64_t)objId formData:(NSDictionary *)formDict {
     [self.client answerInstantFeedbackWithId:objId
                                       params:formDict
                                   completion:self.requestCompletionBlock];
 }
 
-- (void)processSharingOfReportToUsers:(NSDictionary *)params atId:(int64_t)objId {
-    [self.client shareInstantFeedback:objId
-                               params:params
-                           completion:self.requestCompletionBlock];
+- (void)processSharingOfReportToUsersWithId:(int64_t)objId formData:(NSDictionary *)formDict {
+    [self.client shareInstantFeedbackWithId:objId
+                                     params:formDict
+                                 completion:self.requestCompletionBlock];
 }
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {

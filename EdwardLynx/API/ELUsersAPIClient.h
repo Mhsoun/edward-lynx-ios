@@ -7,7 +7,6 @@
 //
 
 #import "ELAPIClient.h"
-#import "ELOAuthInstance.h"
 
 @interface ELUsersAPIClient : ELAPIClient
 

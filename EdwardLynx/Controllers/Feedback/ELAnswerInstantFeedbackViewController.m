@@ -10,6 +10,7 @@
 #import "ELBaseQuestionTypeView.h"
 #import "ELDetailViewManager.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELQuestion.h"
 #import "ELSurveysAPIClient.h"
 
@@ -108,8 +109,8 @@
     NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
     
-    [self.feedbackViewManager processInstantFeedbackAnswerSubmissionAtId:self.instantFeedback.objectId
-                                                            withFormData:formDict];
+    [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
+                                                                  formData:formDict];
 }
 
 @end

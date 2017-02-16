@@ -19,12 +19,6 @@
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
 @property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 @property (nonatomic, strong) ELAccountsViewManager *viewManager;
-@property (nonatomic, strong) ELFormItemGroup *nameGroup,
-                                              *infoGroup,
-                                              *roleGroup,
-                                              *departmentGroup,
-                                              *countryGroup,
-                                              *cityGroup;
 
 @end
 

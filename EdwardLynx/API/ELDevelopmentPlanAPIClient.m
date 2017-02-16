@@ -33,7 +33,9 @@
 
 - (void)developmentPlanWithId:(int64_t)devPlanId
                withCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanEndpoint, kELAPIVersionNamespace, @(devPlanId)];
+    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanEndpoint,
+                          kELAPIVersionNamespace,
+                          @(devPlanId)];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES

@@ -21,9 +21,9 @@
                         completion:completion];
 }
 
-- (void)updateQuestionForId:(int64_t)questionId
-                     params:(NSDictionary *)params
-                 completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
+- (void)updateQuestionWithId:(int64_t)questionId
+                      params:(NSDictionary *)params
+                  completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
     NSMutableURLRequest *request = [self requestFor:[NSString stringWithFormat:kELAPIQuestionEndpoint, @(questionId)]
                                              method:kELAPIPutHTTPMethod
                                          bodyParams:params];

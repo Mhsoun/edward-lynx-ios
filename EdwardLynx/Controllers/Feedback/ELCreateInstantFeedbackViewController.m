@@ -11,6 +11,7 @@
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELAddObjectTableViewCell.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELInviteUsersViewController.h"
 #import "ELItemTableViewCell.h"
 
@@ -53,6 +54,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
+    
+    [self populatePage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +71,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         controller.inviteType = kELInviteUsersInstantFeedback;
         controller.instantFeedbackDict = self.mInstantFeedbackDict;
+        
+        if (self.instantFeedback) {
+            controller.instantFeedback = self.instantFeedback;
+        }
     }
 }
 
@@ -78,9 +85,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *option = self.mCustomScaleOptions[indexPath.row];
+    id option = self.mCustomScaleOptions[indexPath.row];
     
-    if (option.length == 0) {
+    if ([option isKindOfClass:[NSString class]] && [(NSString *)option length] == 0) {
         ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
         
         cell.textField.delegate = self;
@@ -91,7 +98,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = option;
+        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option :
+                                                                          [(ELAnswerOption *)option shortDescription];
         
         return cell;
     }
@@ -103,10 +111,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Add Option
     if (textField.text.length > 0) {
         [self.mCustomScaleOptions insertObject:textField.text atIndex:self.mCustomScaleOptions.count - 1];
-        [self.tableView reloadData];
         
         // Dynamically adjust scroll view based on table view content
-        [self adjustScrollViewContentSize];
+        [self updateOptionsTableView];
         [ELUtils scrollViewToBottom:self.scrollView];
     }
     
@@ -119,16 +126,26 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 - (void)layoutPage {
     NSMutableArray *mData = [[NSMutableArray alloc] init];
+    NSString *buttonLabel = self.instantFeedback ? @"kELAddMoreParticipantsButton" : @"kELSelectParticipantsButton";
+    NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
     NSArray *answerTypes = @[[ELUtils labelByAnswerType:kELAnswerTypeYesNoScale],
                              [ELUtils labelByAnswerType:kELAnswerTypeText],
                              [ELUtils labelByAnswerType:kELAnswerTypeOneToTenScale],
                              [ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
     
+    // Button
+    [self.inviteButton setTitle:[NSLocalizedString(buttonLabel, nil) uppercaseString]
+                       forState:UIControlStateNormal];
+    
+    // Title
+    self.title = [NSLocalizedString(titleLabel, nil) uppercaseString];
+    
     // Radio Group
     for (NSString *answerType in answerTypes) {
         TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
+        BOOL isEqual = [[ELUtils labelByAnswerType:self.instantFeedback.question.answer.type] isEqualToString:answerType];
         
-        data.selected = NO;
+        data.selected = !self.instantFeedback ? NO : isEqual;
         data.identifier = answerType;
         
         data.labelText = answerType;
@@ -163,10 +180,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 - (void)onDeletionAtRow:(NSInteger)row {
     [self.mCustomScaleOptions removeObjectAtIndex:row];
-    [self.tableView reloadData];
     
     // Dynamically adjust scroll view based on table view content
-    [self adjustScrollViewContentSize];
+    [self updateOptionsTableView];
 }
 
 #pragma mark - Private Methods
@@ -181,6 +197,53 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // table view + whatever else you have in the scroll view.
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
                                                (kELFormViewHeight + tableViewContentSizeHeight + 30))];
+}
+
+- (void)populatePage {
+    self.selectedAnswerType = [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
+    
+    // Content
+    [self.questionTextView setText:self.instantFeedback.question.text];
+    [self.isAnonymousSwitch setOn:self.instantFeedback.anonymous animated:YES];
+    [self.isNASwitch setOn:self.instantFeedback.question.isNA animated:YES];
+    
+    // Custom Scale option
+    [self toggleFormAccessibility];
+    [self toggleOptionsTable];
+    
+    if (self.instantFeedback.question.answer.type != kELAnswerTypeCustomScale) {
+        return;
+    }
+    
+    [self.mCustomScaleOptions removeAllObjects];
+    [self.mCustomScaleOptions addObjectsFromArray:self.instantFeedback.question.answer.options];
+    [self.mCustomScaleOptions addObject:@""];
+    
+    [self updateOptionsTableView];
+}
+
+- (void)toggleFormAccessibility {
+    BOOL editable = !self.instantFeedback;
+    
+    [self.questionTextView setEditable:editable];
+    [self.isNASwitch setEnabled:editable];
+    [self.isAnonymousSwitch setEnabled:editable];
+    [self.tableView setUserInteractionEnabled:editable];
+    [self.radioGroup setUserInteractionEnabled:editable];
+}
+
+- (void)toggleOptionsTable {
+    BOOL isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
+    
+    [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
+    [self.tableView updateConstraints];
+}
+
+- (void)updateOptionsTableView {
+    [self.tableView reloadData];
+    
+    // Dynamically adjust scroll view based on table view content
+    [self adjustScrollViewContentSize];
 }
 
 #pragma mark - Interface Builder Actions
@@ -217,14 +280,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Notifications
 
 - (void)onAnswerTypeGroupUpdate:(NSNotification *)notification {
-    BOOL isCustomScale;
-    
     self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
     
-    isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
-    
-    [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
-    [self.tableView updateConstraints];
+    [self toggleOptionsTable];
 }
 
 @end

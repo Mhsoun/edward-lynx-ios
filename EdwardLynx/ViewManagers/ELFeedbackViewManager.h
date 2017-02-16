@@ -15,11 +15,12 @@ static NSString * const kELNoQuestionType = @"No type selected";
 @property (strong, nonatomic) id<ELAPIPostResponseDelegate> delegate;
 
 - (void)processInstantFeedback:(NSDictionary *)formDict;
-- (void)processInstantFeedbackAnswerSubmissionAtId:(int64_t)objId
-                                      withFormData:(NSDictionary *)formDict;
-- (void)processSharingOfReportToUsers:(NSDictionary *)params
-                                 atId:(int64_t)objId;
-
+- (void)processInstantFeedbackAddParticipantsWithId:(int64_t)objId
+                                           formData:(NSDictionary *)formDict;
+- (void)processInstantFeedbackAnswerSubmissionWithId:(int64_t)objId
+                                            formData:(NSDictionary *)formDict;
+- (void)processSharingOfReportToUsersWithId:(int64_t)objId
+                                   formData:(NSDictionary *)formDict;
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ELCreateDevelopmentPlanViewController.h"
 #import "ELDevelopmentPlanViewManager.h"
+#import "ELGoal.h"
 #import "ELGoalDetailsViewController.h"
 #import "ELGoalTableViewCell.h"
 

@@ -8,6 +8,7 @@
 
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELModel.h"
 #import "ELSurveysAPIClient.h"
 
 #pragma mark - Class Extension

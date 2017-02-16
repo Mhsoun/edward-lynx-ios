@@ -129,6 +129,7 @@ static NSInteger const kELAPICallsNumber = 3;
                                                                                  error:nil];
                 
                 [participant setIsAddedByEmail:NO];
+                [participant setIsAlreadyInvited:NO];
                 [mParticipants addObject:participant];
             }
             

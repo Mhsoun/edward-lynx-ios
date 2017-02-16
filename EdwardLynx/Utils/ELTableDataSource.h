@@ -8,7 +8,7 @@
 
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-#import "ELDataProvider.h"
+@class ELDataProvider;
 
 @interface ELTableDataSource : NSObject<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 

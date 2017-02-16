@@ -11,6 +11,7 @@
 #import "ELDetailViewManager.h"
 #import "ELQuestionCategory.h"
 #import "ELQuestionTableViewCell.h"
+#import "ELSurvey.h"
 #import "ELSurveyViewManager.h"
 #import "ELTableDataSource.h"
 

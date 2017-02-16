@@ -18,6 +18,8 @@
 #import "ELBaseQuestionTypeView.h"
 #import "ELEmailValidator.h"
 #import "ELListPopupViewController.h"
+#import "ELOAuthInstance.h"
+#import "ELParticipant.h"
 #import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"
 #import "ELQuestionTypeScaleView.h"
@@ -344,6 +346,26 @@
     [REValidation registerDefaultValidators];
     [REValidation registerValidator:[ELEmailValidator class]];
     [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
+}
+
++ (NSArray *)removeDuplicateUsers:(NSArray *)subset superset:(NSArray *)superset {
+    NSMutableArray *mUsers = [[NSMutableArray alloc] init];
+    
+    for (ELParticipant *supersetParticipant in superset) {
+        for (int i = 0; i < subset.count; i++) {
+            ELParticipant *subsetParticipant = subset[i];
+            
+            if ([subsetParticipant isEqual:supersetParticipant]) {
+                break;
+            }
+            
+            if (i == subset.count - 1 && ![mUsers containsObject:supersetParticipant]) {
+                [mUsers addObject:supersetParticipant];
+            }
+        }
+    }
+    
+    return [mUsers copy];
 }
 
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {

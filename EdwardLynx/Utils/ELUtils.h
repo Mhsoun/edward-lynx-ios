@@ -59,6 +59,8 @@
                    message:(NSString *)message
                 completion:(void (^)())completion;
 + (void)registerValidators;
++ (NSArray *)removeDuplicateUsers:(NSArray *)subset
+                         superset:(NSArray *)superset;
 + (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;

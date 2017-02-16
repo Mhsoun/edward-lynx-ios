@@ -7,7 +7,8 @@
 //
 
 #import "ELBaseDetailViewController.h"
-#import "ELSurvey.h"
+
+@class ELSurvey;
 
 typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
     kELSurveyResponseTypeDetails,

@@ -9,6 +9,10 @@
 #import "ELModel.h"
 #import "ELQuestion.h"
 
+@class ELParticipant;
+
+@protocol ELParticipant;
+
 @interface ELInstantFeedback : ELModel
 
 @property (nonatomic) BOOL anonymous;
@@ -17,6 +21,7 @@
 @property (nonatomic) NSString *lang;
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSArray<Optional> *shares;
+@property (nonatomic) NSArray<Optional, ELParticipant> *participants;
 @property (nonatomic) ELQuestion *question;
 
 @end

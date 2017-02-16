@@ -7,13 +7,16 @@
 //
 
 #import "ELReportsViewController.h"
+#import "ELCreateInstantFeedbackViewController.h"
 #import "ELListViewController.h"
+#import "ELInstantFeedback.h"
 #import "ELReportDetailsViewController.h"
 
 #pragma mark - Private Constants
 
 static NSString * const kELListSegueIdentifier = @"ListContainer";
 static NSString * const kELReportSegueIdentifier = @"ReportDetails";
+static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDetails";
 
 #pragma mark - Class Extension
 
@@ -53,6 +56,10 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
         
         controller.delegate = self;
         controller.listType = kELListTypeReports;
+    } else if ([segue.identifier isEqualToString:kELInstantFeedbackSegueIdentifier]) {
+        ELCreateInstantFeedbackViewController *controller = (ELCreateInstantFeedbackViewController *)[segue destinationViewController];
+        
+        controller.instantFeedback = self.selectedInstantFeedback;
     }
 }
 
@@ -79,7 +86,8 @@ static NSString * const kELReportSegueIdentifier = @"ReportDetails";
 - (void)onRowSelection:(__kindof ELModel *)object {
     self.selectedInstantFeedback = (ELInstantFeedback *)object;
     
-    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
+//    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
+    [self performSegueWithIdentifier:kELInstantFeedbackSegueIdentifier sender:self];
 }
 
 @end

@@ -6,10 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#pragma mark - Public Constants
-
-static NSString * const kELNoCategorySelected = @"No category selected";
-
 @interface ELDevelopmentPlanViewManager : NSObject
 
 @property (nonatomic, strong) id<ELAPIPostResponseDelegate> delegate;

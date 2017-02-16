@@ -11,6 +11,7 @@
 #import "ELInviteUsersViewController.h"
 #import "ELDataProvider.h"
 #import "ELFeedbackViewManager.h"
+#import "ELInstantFeedback.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
@@ -58,6 +59,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                        iconSize:kELIconSize
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
+    // To display only the not yet invited participants
+    if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
+        NSMutableSet *mergedSet = [NSMutableSet setWithArray:self.instantFeedback.participants];
+        NSArray *descriptors = @[[[NSSortDescriptor alloc] initWithKey:@"isSelected" ascending:NO],
+                                 [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+        
+        [mergedSet unionSet:[NSSet setWithArray:[ELAppSingleton sharedInstance].participants]];
+        
+        self.mInitialParticipants = [[[mergedSet allObjects] sortedArrayUsingDescriptors:descriptors] mutableCopy];
+    }
+    
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -65,6 +77,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
@@ -146,8 +159,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELParticipant *participant = (ELParticipant *)[self.provider rowObjectAtIndexPath:indexPath];
     
-    [cell configure:[self.provider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell configure:participant atIndexPath:indexPath];
+    [cell setUserInteractionEnabled:!participant.isAlreadyInvited];
     [cell setAccessoryView:cell.participant.isSelected ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
     
     // Button state
@@ -160,6 +175,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     ELParticipantTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (!cell.isUserInteractionEnabled) {
+        return;
+    }
     
     if (self.allCellsAction) {
         cell.participant.isSelected = self.selected;
@@ -213,7 +232,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELInviteUsersRetrievalError", nil)
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
                      completion:^{}];
 }
 
@@ -285,10 +304,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
-    int selected = 0;
+    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];;
     
     // Traverse cells to get count of currently selected rows
-    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+    for (int i = 0; i < rowsCount; i++) {
         ELParticipantTableViewCell *cell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
@@ -298,14 +317,15 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         
-        if (cell.participant.isSelected) {
-            selected++;
+        if (cell.participant.isSelected && cell.isUserInteractionEnabled) {
+            selectedCount++;
         }
     }
     
-    if (selected == 0 || !selected) {
+    if (selectedCount == 0 || !selectedCount) {
         key = @"kELSelectAllButton";
-    } else if (selected >= [self.provider numberOfRows]) {
+    } else if ((selectedCount >= rowsCount) ||
+               (self.instantFeedback && selectedCount >= rowsCount - self.instantFeedback.participants.count)) {
         key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
     }
     
@@ -319,14 +339,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
+    BOOL isSelected;
+    NSString *title;
     UIButton *button = (UIButton *)sender;
-    NSString *title = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)] ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                                                                                                               NSLocalizedString(@"kELSelectAllButton", nil);
+    
+    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+    title = isSelected ? @"kELDeselectAllButton" : @"kELSelectAllButton";
     
     self.allCellsAction = YES;
     self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(title, nil) forState:UIControlStateNormal];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
@@ -357,6 +380,21 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         self.inviteButton.enabled = NO;
         
+        // Retrieve selected user(s)
+        for (ELParticipant *participant in self.mParticipants) {
+            [mUsers addObject:participant.isAddedByEmail ? [participant addedByEmailDictionary] :
+                                                           [participant apiPostDictionary]];
+        }
+        
+        // Add more participants
+        if (self.instantFeedback) {
+            [self.viewManager processInstantFeedbackAddParticipantsWithId:self.instantFeedback.objectId
+                                                                 formData:@{@"recipients": [mUsers copy]}];
+            
+            return;
+        }
+        
+        // Create new Instant Feedback
         answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
@@ -367,11 +405,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         questions = @[@{@"text": [self.instantFeedbackDict[@"question"] textValue],
                         @"isNA": @([self.instantFeedbackDict[@"isNA"] boolValue]),
                         @"answer": [mAnswerDict copy]}];
-        
-        for (ELParticipant *participant in self.mParticipants) {
-            [mUsers addObject:participant.isAddedByEmail ? [participant addedByEmailDictionary] :
-                                                           [participant apiPostDictionary]];
-        }
         
         [self.viewManager processInstantFeedback:@{@"lang": @"en",
                                                    @"anonymous": self.instantFeedbackDict[@"anonymous"],
@@ -390,8 +423,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
-        [self.viewManager processSharingOfReportToUsers:@{@"users": [mUsers copy]}
-                                                   atId:self.instantFeedback.objectId];
+        [self.viewManager processSharingOfReportToUsersWithId:self.instantFeedback.objectId
+                                                     formData:@{@"users": [mUsers copy]}];
     }
 }
 

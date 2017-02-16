@@ -9,6 +9,7 @@
 #import <REValidation/REValidation.h>
 
 #import "ELAccountsViewManager.h"
+#import "ELUsersAPIClient.h"
 
 #pragma mark - Class Extension
 

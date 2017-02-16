@@ -15,12 +15,23 @@
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"isSelected"] || [propertyName isEqualToString:@"isAddedByEmail"];
+    return ([propertyName isEqualToString:@"isSelected"] ||
+            [propertyName isEqualToString:@"isAddedByEmail"] ||
+            [propertyName isEqualToString:@"isAlreadyInvited"]);
+}
+
+- (BOOL)isEqual:(id)object {
+    ELParticipant *compareObject = (ELParticipant *)object;
+    
+    return (self.objectId == compareObject.objectId && [self.email isEqualToString:compareObject.email]);
+}
+
+- (NSUInteger)hash {
+    return [self.email hash] ^ self.objectId;
 }
 
 - (NSDictionary *)addedByEmailDictionary {
-    return @{@"name": self.name,
-             @"email": self.email};
+    return @{@"name": self.name, @"email": self.email};
 }
 
 - (NSDictionary *)apiPostDictionary {

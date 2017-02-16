@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELUsersAPIClient.h"
-
 @interface ELAccountsViewManager : NSObject
 
 @property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;

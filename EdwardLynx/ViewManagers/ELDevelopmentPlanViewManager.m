@@ -92,9 +92,10 @@
     key = @"category";
     
     if (formDict[key]) {
+        NSString *validationString = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
+        
         formFieldGroup = formDict[key];
-        categoryErrors = [[formFieldGroup textValue] isEqualToString:kELNoCategorySelected] ? @[NSLocalizedString(@"kELGoalCategoryValidationMessage", nil)] :
-                                                                                              nil;
+        categoryErrors = [[formFieldGroup textValue] isEqualToString:validationString] ? @[validationString] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:categoryErrors];
     }
