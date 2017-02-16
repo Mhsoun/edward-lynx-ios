@@ -60,8 +60,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // To display only the not yet invited participants
     if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
-        self.mInitialParticipants = [[ELUtils removeDuplicateUsers:self.instantFeedback.participants
-                                                          superset:[ELAppSingleton sharedInstance].participants] mutableCopy];
+        NSMutableSet *mergedSet = [NSMutableSet setWithArray:self.instantFeedback.participants];
+        NSArray *descriptors = @[[[NSSortDescriptor alloc] initWithKey:@"isSelected" ascending:NO],
+                                 [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+        
+        [mergedSet unionSet:[NSSet setWithArray:[ELAppSingleton sharedInstance].participants]];
+        
+        self.mInitialParticipants = [[[mergedSet allObjects] sortedArrayUsingDescriptors:descriptors] mutableCopy];
     }
     
     self.viewManager = [[ELFeedbackViewManager alloc] init];
@@ -153,8 +158,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELParticipant *participant = (ELParticipant *)[self.provider rowObjectAtIndexPath:indexPath];
     
-    [cell configure:[self.provider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
+    [cell configure:participant atIndexPath:indexPath];
+    [cell setUserInteractionEnabled:!participant.isAlreadyInvited];
     [cell setAccessoryView:cell.participant.isSelected ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
     
     // Button state
@@ -167,6 +174,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     ELParticipantTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (!cell.isUserInteractionEnabled) {
+        return;
+    }
     
     if (self.allCellsAction) {
         cell.participant.isSelected = self.selected;
@@ -292,10 +303,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
-    int selected = 0;
+    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];;
     
     // Traverse cells to get count of currently selected rows
-    for (int i = 0; i < [self.provider numberOfRows]; i++) {
+    for (int i = 0; i < rowsCount; i++) {
         ELParticipantTableViewCell *cell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
@@ -305,14 +316,15 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         
-        if (cell.participant.isSelected) {
-            selected++;
+        if (cell.participant.isSelected && cell.isUserInteractionEnabled) {
+            selectedCount++;
         }
     }
     
-    if (selected == 0 || !selected) {
+    if (selectedCount == 0 || !selectedCount) {
         key = @"kELSelectAllButton";
-    } else if (selected >= [self.provider numberOfRows]) {
+    } else if ((selectedCount >= rowsCount) ||
+               (self.instantFeedback && selectedCount >= rowsCount - self.instantFeedback.participants.count)) {
         key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
     }
     

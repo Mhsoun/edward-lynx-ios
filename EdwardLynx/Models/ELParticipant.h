@@ -14,6 +14,7 @@
 
 @property (nonatomic) BOOL isSelected;
 @property (nonatomic) BOOL isAddedByEmail;
+@property (nonatomic) BOOL isAlreadyInvited;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 

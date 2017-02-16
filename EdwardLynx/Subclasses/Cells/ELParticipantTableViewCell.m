@@ -21,6 +21,15 @@
     // Configure the view for the selected state
 }
 
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    NSString *key = userInteractionEnabled ? kELWhiteColor : kELDarkGrayColor;
+    
+    [super setUserInteractionEnabled:userInteractionEnabled];
+    
+    self.nameLabel.textColor = [[RNThemeManager sharedManager] colorForKey:key];
+    self.emailLabel.textColor = [[RNThemeManager sharedManager] colorForKey:key];
+}
+
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {

@@ -17,6 +17,20 @@
                                                                   @"question": @"questions"}];
 }
 
+- (void)setParticipantsWithNSArray:(NSArray<Optional,ELParticipant> *)participants {
+    NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *participantDict in participants) {
+        ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:participantDict error:nil];
+        
+        [participant setIsSelected:YES];
+        [participant setIsAlreadyInvited:YES];
+        [mParticipants addObject:participant];
+    }
+    
+    self.participants = [mParticipants copy];
+}
+
 - (void)setQuestionWithNSArray:(NSArray *)questions {
     if (questions.count == 0) {
         self.question = nil;
