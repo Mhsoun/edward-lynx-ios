@@ -44,7 +44,7 @@ static CGFloat const kELCornerRadius = 5.0f;
     [self triggerRegisterForNotifications];
     
     if (self.delegate.notification) {
-        [self.delegate displayViewControllerByNotification:self.delegate.notification];
+        [self.delegate displayViewControllerByData:self.delegate.notification];
         
         self.delegate.notification = nil;
     }

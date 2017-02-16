@@ -34,6 +34,7 @@
     // Initialization
     if (!self.instantFeedback) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        self.submitButton.hidden = YES;
         
         [self.detailViewManager processRetrievalOfInstantFeedbackDetails];
     } else {
@@ -64,6 +65,7 @@
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.instantFeedback = [[ELInstantFeedback alloc] initWithDictionary:responseDict error:nil];
     
+    [self.submitButton setHidden:NO];
     [self.indicatorView stopAnimating];
     [self populatePage];
 }
@@ -83,9 +85,11 @@
 #pragma mark - Private Methods
 
 - (void)populatePage {
+    BOOL toExpand;
     ELQuestion *question = self.instantFeedback.question;
-    BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
+    
+    toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
     // Content
     self.questionLabel.text = question.text;
