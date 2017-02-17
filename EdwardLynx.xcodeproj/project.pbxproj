@@ -89,6 +89,7 @@
 		A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF871DFEAC5000CC4FAA /* ELSurveysAPIClient.m */; };
 		A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4DF8A1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
+		A9AB4C851E56F93700D2DCA6 /* Edward Lynx.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */; };
 		A9AC0EA31E25AEC700137975 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AC0EA21E25AEC700137975 /* ELSearchBar.m */; };
 		A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9AD21AB1E49B92900624F99 /* Localizable.strings */; };
 		A9B36AA91DFE54A300599909 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B36AA81DFE54A300599909 /* ELUtils.m */; };
@@ -1032,6 +1033,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 					A9308BE91DED74B6007B4F9F = {
@@ -1074,6 +1078,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AB4C851E56F93700D2DCA6 /* Edward Lynx.entitlements in Resources */,
 				A96F27751DFFDFA000609E27 /* Lato-Bold.ttf in Resources */,
 				A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */,
 				A91DCD3A1E35D9D6006F2778 /* List.storyboard in Resources */,

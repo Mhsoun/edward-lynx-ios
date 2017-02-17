@@ -19,6 +19,7 @@ DerivedData
 *.DS_Store 
 *.dSYM.zip
 Notes.md
+apple-app-site-association
 
 # CocoaPods
 #

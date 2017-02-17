@@ -21,7 +21,7 @@
 @property (strong, readonly) NSPersistentContainer *persistentContainer;
 
 - (void)assignNewRootViewController:(__kindof UIViewController *)controller;
-- (void)displayViewControllerByNotification:(ELNotification *)notification;
+- (void)displayViewControllerByData:(id)object;
 - (void)registerDeviceToFirebaseAndAPI;
 - (void)registerForRemoteNotifications;
 - (void)saveContext;

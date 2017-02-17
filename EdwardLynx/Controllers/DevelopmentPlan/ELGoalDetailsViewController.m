@@ -125,12 +125,19 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    CGFloat iconSize = 15;
     NSString *buttonLabel = NSLocalizedString(self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" :
                                                               @"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
     [self.addGoalButton setTitle:[buttonLabel uppercaseString]
                         forState:UIControlStateNormal];
+    [self.categoryButton setImage:[FontAwesome imageWithIcon:fa_chevron_down
+                                                   iconColor:nil
+                                                    iconSize:iconSize
+                                                   imageSize:CGSizeMake(iconSize, iconSize)]
+                         forState:UIControlStateNormal];
+    [self.categoryButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldInputColor]];
     
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    

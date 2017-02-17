@@ -105,14 +105,41 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
     [ELUtils setUserDefaultsValue:[token copy] key:kELDeviceTokenUserDefaultsKey];
     
     // Register Device token to Firebase
-    [[FIRInstanceID instanceID] setAPNSToken:deviceToken
-                                        type:FIRInstanceIDAPNSTokenTypeUnknown];
+    [[FIRInstanceID instanceID] setAPNSToken:deviceToken type:FIRInstanceIDAPNSTokenTypeUnknown];
     
     [self registerDeviceToFirebaseAndAPI];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     DLog(@"%@: %@", [self class], error.localizedDescription);
+}
+
+#pragma mark - Deep Linking
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSNumber *objectId;
+    NSString *type;
+    NSArray *urlParts;
+    
+    if ([url.absoluteString containsString:@"survey"]) {
+        return YES;
+    }
+    
+    // For other types
+    urlParts = [url.absoluteString componentsSeparatedByString:@"/"];
+    objectId = urlParts[3];
+    type = [urlParts[2] componentsSeparatedByString:@":"][1];
+    type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
+                                                             kELNotificationTypeInstantFeedbackRequest;
+    
+    [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    
+    return YES;
 }
 
 #pragma mark - Notification Received Methods (iOS 9)
@@ -330,13 +357,26 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
     }];
 }
 
-- (void)displayViewControllerByNotification:(ELNotification *)notification {
-    NSString *identifier, *storyboardName;
+- (void)displayViewControllerByData:(id)object {
+    int64_t objectId;
+    NSString *identifier,
+             *storyboardName,
+             *type;
     __kindof ELBaseDetailViewController *controller;
     
-    if ([notification.type isEqualToString:kELNotificationTypeDevPlan]) {
+    if ([object isKindOfClass:[ELNotification class]]) {
+        objectId = [(ELNotification *)object objectId];
+        type = [(ELNotification *)object type];
+    } else {
+        NSDictionary *objectDict = (NSDictionary *)object;
+        
+        objectId = [objectDict[@"id"] integerValue];
+        type = objectDict[@"type"];
+    }
+    
+    if ([type isEqualToString:kELNotificationTypeDevPlan]) {
         storyboardName = @"DevelopmentPlan";
-    } else if ([notification.type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
+    } else if ([type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
         storyboardName = @"InstantFeedback";
     } else {
         storyboardName = @"Survey";
@@ -345,7 +385,7 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
     identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
     controller = [[UIStoryboard storyboardWithName:storyboardName bundle:nil]
                   instantiateViewControllerWithIdentifier:identifier];
-    controller.objectId = notification.objectId;
+    controller.objectId = objectId;
     
     [self.notificationRootViewController.navigationController pushViewController:controller
                                                                         animated:YES];
@@ -367,7 +407,7 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
             if ([ELAppSingleton sharedInstance].hasLoadedApplication) {
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-                    [self displayViewControllerByNotification:notification];
+                    [self displayViewControllerByData:notification];
                 });
             }
         }];

@@ -30,10 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
     // Initialization
     if (!self.instantFeedback) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        self.submitButton.hidden = YES;
         
         [self.detailViewManager processRetrievalOfInstantFeedbackDetails];
     } else {
@@ -56,6 +57,7 @@
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.indicatorView stopAnimating];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
                      completion:^{}];
@@ -64,6 +66,7 @@
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.instantFeedback = [[ELInstantFeedback alloc] initWithDictionary:responseDict error:nil];
     
+    [self.submitButton setHidden:NO];
     [self.indicatorView stopAnimating];
     [self populatePage];
 }
@@ -83,9 +86,12 @@
 #pragma mark - Private Methods
 
 - (void)populatePage {
+    BOOL toExpand;
+    CGRect frame = self.questionTypeView.frame;
     ELQuestion *question = self.instantFeedback.question;
-    BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
+    
+    toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
     
     // Content
     self.questionLabel.text = question.text;
@@ -96,7 +102,7 @@
     }
     
     questionView.question = question;
-    questionView.frame = self.questionTypeView.frame;
+    questionView.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
     
     [self.heightConstraint setConstant:toExpand ? 185 : 135];
     [self.questionTypeView updateConstraints];
