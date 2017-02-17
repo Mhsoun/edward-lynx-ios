@@ -23,6 +23,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    CGFloat iconSize = 15;
+    
+    [self.popupHelpButton setImage:[FontAwesome imageWithIcon:fa_info_circle
+                                                    iconColor:[UIColor whiteColor]
+                                                     iconSize:iconSize
+                                                    imageSize:CGSizeMake(iconSize, iconSize)]
+                          forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -37,7 +45,8 @@
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
     BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
-    CGFloat toExpandHeight = question.answer.type == kELAnswerTypeOneToTenWithExplanation ? 110 : kELQuestionTypeExpandedHeight;
+    CGFloat toExpandHeight = question.answer.type == kELAnswerTypeOneToTenWithExplanation ? 110 :
+                                                                                            kELQuestionTypeExpandedHeight;
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
     questionView.question = question;
@@ -52,12 +61,14 @@
     }
     
     // Check if subview as already been added
-    if (![self hasQuestionViewAsSubview]) {
-        self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
-        questionView.frame = self.questionContainerView.frame;
-        
-        [self.questionContainerView addSubview:questionView];
+    if ([self hasQuestionViewAsSubview]) {
+        return;
     }
+    
+    self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
+    questionView.frame = self.questionContainerView.frame;
+    
+    [self.questionContainerView addSubview:questionView];
 }
 
 #pragma mark - Private Methods

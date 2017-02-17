@@ -119,11 +119,18 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     NSNumber *objectId;
     NSString *type;
-    NSArray *urlParts = [url.absoluteString componentsSeparatedByString:@"/"];
+    NSArray *urlParts;
     
-    type = [urlParts[0] componentsSeparatedByString:@":"][1];
-    type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeSurvey : kELNotificationTypeInstantFeedbackRequest;
-    objectId = urlParts[1];
+    if ([url.absoluteString containsString:@"survey"]) {
+        return YES;
+    }
+    
+    // For other types
+    urlParts = [url.absoluteString componentsSeparatedByString:@"/"];
+    objectId = urlParts[3];
+    type = [urlParts[2] componentsSeparatedByString:@":"][1];
+    type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
+                                                             kELNotificationTypeInstantFeedbackRequest;
     
     [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
     

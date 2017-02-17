@@ -35,10 +35,12 @@
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6T-bb-pPX">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="F6T-bb-pPX" secondAttribute="height" multiplier="1:1" id="i0A-di-fMV"/>
+                                    <constraint firstAttribute="width" secondItem="F6T-bb-pPX" secondAttribute="height" multiplier="1:1" id="WdL-UB-0k5"/>
+                                    <constraint firstAttribute="height" constant="30" id="hmr-oI-jro"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <state key="normal" title="?">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -54,7 +56,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" id="BGa-iZ-bRT"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="trailing" constant="5" id="H5h-Vn-fwh"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="bottom" secondItem="wI5-O5-eCS" secondAttribute="bottom" id="NWP-Vf-G7Q"/>
@@ -62,8 +63,9 @@
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="leading" id="OOP-Pt-eVO"/>
                             <constraint firstAttribute="bottom" secondItem="9Vc-ws-lKI" secondAttribute="bottom" constant="10" id="Ymu-J0-qNp"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="25" id="bqp-7X-igO"/>
+                            <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="top" id="cLQ-s7-Ezd"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
-                            <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" id="jPV-Pr-1yb"/>
+                            <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" constant="10" id="jPV-Pr-1yb"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -77,6 +79,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="popupHelpButton" destination="F6T-bb-pPX" id="pWX-12-gRy"/>
                 <outlet property="questionContainerHeightConstraint" destination="fQr-Di-phy" id="oxg-bD-QZm"/>
                 <outlet property="questionContainerView" destination="9Vc-ws-lKI" id="K7V-ax-3Bw"/>
                 <outlet property="questionLabel" destination="wI5-O5-eCS" id="KB2-Bi-zWb"/>
