@@ -137,6 +137,11 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    
+    return YES;
+}
+
 #pragma mark - Notification Received Methods (iOS 9)
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
