@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
     // Initialization
     if (!self.instantFeedback) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
@@ -86,6 +86,7 @@
 
 - (void)populatePage {
     BOOL toExpand;
+    CGRect frame = self.questionTypeView.frame;
     ELQuestion *question = self.instantFeedback.question;
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
     
@@ -100,7 +101,7 @@
     }
     
     questionView.question = question;
-    questionView.frame = self.questionTypeView.frame;
+    questionView.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
     
     [self.heightConstraint setConstant:toExpand ? 185 : 135];
     [self.questionTypeView updateConstraints];

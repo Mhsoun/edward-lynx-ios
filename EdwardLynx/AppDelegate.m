@@ -117,13 +117,15 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
 #pragma mark - Deep Linking
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    DLog(@"URL: %@", url.absoluteString);
-    
+    NSNumber *objectId;
+    NSString *type;
     NSArray *urlParts = [url.absoluteString componentsSeparatedByString:@"/"];
     
-    DLog(@"%@", urlParts);
+    type = [urlParts[0] componentsSeparatedByString:@":"][1];
+    type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeSurvey : kELNotificationTypeInstantFeedbackRequest;
+    objectId = urlParts[1];
     
-    [self displayViewControllerByData:@{@"id": @81, @"type": @"instant-feedback-request"}];
+    [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
     
     return YES;
 }
