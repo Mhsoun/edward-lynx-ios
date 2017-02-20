@@ -10,18 +10,39 @@
 
 @implementation ELDevelopmentPlan
 
+@synthesize completed = _completed;
+@synthesize progress = _progress;
+@synthesize progressText = _progressText;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
-- (NSDictionary *)progressDetails {
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"progress"] || [propertyName isEqualToString:@"completed"];
+}
+
+- (BOOL)completed {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
     NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
     
-    return @{@"value": @(completedGoals / (CGFloat)self.goals.count),
-             @"text": [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
-                       @(completedGoals),
-                       @(self.goals.count)]};
+    return completedGoals == self.goals.count;
+}
+
+- (CGFloat)progress {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
+    
+    return completedGoals / (CGFloat)self.goals.count;
+}
+
+- (NSString<Ignore> *)progressText {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
+            @(completedGoals),
+            @(self.goals.count)];
 }
 
 @end

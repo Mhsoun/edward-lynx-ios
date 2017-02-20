@@ -26,17 +26,16 @@
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
-    CGFloat progress = [[devPlan progressDetails][@"value"] floatValue];
+    NSString *colorKey = devPlan.progress == 1 ? kELGreenColor : kELOrangeColor;
     
     // Content
     self.nameLabel.text = devPlan.name;
-    self.completedLabel.text = [devPlan progressDetails][@"text"];
+    self.completedLabel.text = devPlan.progressText;
     self.timestampLabel.text = [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:devPlan.createdAt];
     
     // UI
-    self.progressView.progress = progress;
-    self.progressView.progressTintColor = [[RNThemeManager sharedManager] colorForKey:progress == 1 ? kELGreenColor :
-                                                                                                      kELOrangeColor];
+    self.progressView.progress = devPlan.progress;
+    self.progressView.progressTintColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

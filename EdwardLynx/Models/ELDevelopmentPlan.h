@@ -20,6 +20,8 @@
 @property (nonatomic) NSDate *updatedAt;
 @property (nonatomic) NSArray<ELGoal> *goals;
 
-- (NSDictionary *)progressDetails;
+@property (nonatomic) BOOL completed;
+@property (nonatomic) CGFloat progress;
+@property (nonatomic) NSString<Ignore> *progressText;
 
 @end
