@@ -9,6 +9,7 @@
 #import "ELConfigurationViewController.h"
 #import "ELCategory.h"
 #import "ELInstantFeedback.h"
+#import "ELOAuthInstance.h"
 #import "ELParticipant.h"
 #import "ELQuestionsAPIClient.h"
 #import "ELSurveysAPIClient.h"
@@ -111,6 +112,20 @@ static NSInteger const kELAPICallsNumber = 3;
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
     [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (error || responseDict[@"error"]) {
+                [self reloginUserCredentialsWithCompletion:^(NSError *loginError) {
+                    if (loginError) {
+                        return;
+                    }
+                    
+                    DLog(@"%@: Re-login successful", [self class]);
+                    
+                    [self fetchUserProfileFromAPIWithCompletion:completion];
+                }];
+                
+                return;
+            }
+            
             [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
                                                                                   error:nil]];
             
@@ -137,6 +152,20 @@ static NSInteger const kELAPICallsNumber = 3;
             
             completion(error);
         });
+    }];
+}
+
+- (void)reloginUserCredentialsWithCompletion:(void (^)(NSError *))completion {
+    NSDictionary *credentials = [ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey];
+    
+    [[[ELUsersAPIClient alloc] init] loginWithUsername:credentials[@"username"]
+                                              password:credentials[@"password"]
+                                            completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        // Store authentication details in a custom object
+        [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
+                                         key:kELAuthInstanceUserDefaultsKey];
+        
+        completion(error);
     }];
 }
 
