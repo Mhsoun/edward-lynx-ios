@@ -161,9 +161,17 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 - (void)onSortSelections:(NSArray *)selections allSortItems:(NSArray *)items {
+    NSMutableArray *mDescriptors = [[NSMutableArray alloc] init];
+    
     self.sortItems = items;
     
-    // TODO Handle sorting
+    for (int i = 0; i < selections.count; i++) {
+        ELFilterSortItem *item = selections[i];
+        
+        [mDescriptors addObject:[NSSortDescriptor sortDescriptorWithKey:item.key ascending:item.selected]];
+    }
+    
+    [self.dataSource updateTableViewData:[self.defaultListItems sortedArrayUsingDescriptors:[mDescriptors copy]]];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -217,8 +225,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
                 
                 self.tableView.rowHeight = kELDefaultRowHeight;
-                self.initialFilterItems = @[];
-                self.initialSortItems = @[];
+                self.initialFilterItems = @[];  // TEMP Still needs to determine filter parameters
+                self.initialSortItems = @[];  // TEMP Still needs to determine sort parameters
                 
                 [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                 
@@ -318,7 +326,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     BOOL isFilterSelected = [self toggleTabButton:self.filterTabButton basedOnSelection:sender];
     BOOL isSortSelected = [self toggleTabButton:self.sortTabButton basedOnSelection:sender];
     
-    // Toggle tab button status
     if (isAllSelected) {
         // TODO
     } else if (isFilterSelected) {
