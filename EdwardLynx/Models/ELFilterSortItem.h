@@ -12,5 +12,6 @@
 
 @property (nonatomic) BOOL selected;
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString *key;
 
 @end
