@@ -26,6 +26,18 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
 
 #pragma mark - Public Methods
 
+- (void)getRequestAtLink:(NSString *)link
+             queryParams:(NSDictionary *)queryParams
+              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSMutableURLRequest *request = [self requestFor:link
+                                             method:kELAPIGetHTTPMethod
+                                        queryParams:queryParams];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
@@ -122,7 +134,9 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
     NSMutableURLRequest *request;
     ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     
-    endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
+    if (![endpoint containsString:[[self class] hostURL]]) {
+        endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
+    }    
     
     if (![method isEqualToString:kELAPIGetHTTPMethod]) {
         request = [[AFJSONRequestSerializer serializer] requestWithMethod:method

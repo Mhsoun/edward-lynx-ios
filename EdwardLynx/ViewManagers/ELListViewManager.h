@@ -12,7 +12,7 @@
 
 - (void)processRetrievalOfInstantFeedbacks;
 - (void)processRetrievalOfDevelopmentPlans;
-- (void)processRetrievalOfPaginatedSurveysAtPage:(NSInteger)page;
+- (void)processRetrievalOfPaginatedListAtLink:(NSString *)link page:(NSInteger)page;
 - (void)processRetrievalOfReports;
 - (void)processRetrievalOfSurveys;
 

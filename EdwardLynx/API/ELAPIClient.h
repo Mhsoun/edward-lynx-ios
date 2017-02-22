@@ -10,6 +10,9 @@
 
 + (NSString *)hostURL;
 
+- (void)getRequestAtLink:(NSString *)link
+             queryParams:(NSDictionary *)queryParams
+              completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;

@@ -39,7 +39,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                       *sortItems,
                                       *initialSortItems,
                                       *defaultListItems;
-@property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) NSString *cellIdentifier, *paginationLink;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
@@ -97,11 +97,13 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     }
     
     // TODO Add UI indicator for loading of new entries
+    // TODO Disabled first since not all list types have pagination support yet
     
-    self.isPaginated = YES;
-    
-    [scrollView setScrollEnabled:NO];
-    [self.viewManager processRetrievalOfPaginatedSurveysAtPage:self.page + 1];
+//    self.isPaginated = YES;
+//    
+//    [scrollView setScrollEnabled:NO];
+//    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink
+//                                                       page:self.page + 1];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -203,6 +205,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.countPerPage = [responseDict[@"num"] integerValue];
     self.page = [responseDict[@"pages"] integerValue];
     self.total = [responseDict[@"total"] integerValue];
+    self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
     
     for (NSDictionary *detailDict in responseDict[@"items"]) {
         switch (self.listType) {
