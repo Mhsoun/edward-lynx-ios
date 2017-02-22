@@ -30,6 +30,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 @interface ELListViewController ()
 
+@property (nonatomic) BOOL isPaginated;
 @property (nonatomic) NSInteger countPerPage,
                                 page,
                                 total;
@@ -56,6 +57,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.isPaginated = NO;
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -90,10 +92,16 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         return;
     }
     
+    if (self.total < self.countPerPage) {
+        return;
+    }
+    
     // TODO Add UI indicator for loading of new entries
     
-//    [scrollView setScrollEnabled:NO];
-//    [self.viewManager processRetrievalOfPaginatedSurveysAtPage:self.page + 1];
+    self.isPaginated = YES;
+    
+    [scrollView setScrollEnabled:NO];
+    [self.viewManager processRetrievalOfPaginatedSurveysAtPage:self.page + 1];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -182,6 +190,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:self.cellIdentifier];
     
+    [self.tableView setScrollEnabled:YES];
     [self.indicatorView stopAnimating];
 }
 
@@ -259,7 +268,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         
     }
     
-    self.defaultListItems = [mItems copy];
+    self.defaultListItems = self.isPaginated ? [self.defaultListItems arrayByAddingObjectsFromArray:[mItems copy]] : [mItems copy];
     self.provider = [[ELDataProvider alloc] initWithDataArray:self.defaultListItems];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
@@ -267,6 +276,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     [self.dataSource dataSetEmptyText:emptyMessage description:@""];
     [self.indicatorView stopAnimating];
+    [self.tableView setScrollEnabled:YES];
     [self.tableView setDelegate:self];
     [self.tableView setHidden:NO];
     [self.tableView reloadData];
@@ -322,22 +332,32 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onTabButtonClick:(id)sender {
-    BOOL isAllSelected = [self toggleTabButton:self.allTabButton basedOnSelection:sender];
-    BOOL isFilterSelected = [self toggleTabButton:self.filterTabButton basedOnSelection:sender];
-    BOOL isSortSelected = [self toggleTabButton:self.sortTabButton basedOnSelection:sender];
+    NSArray *items;
+    BOOL isAllSelected, isFilterSelected;
+    
+    if (self.popupViewController) {
+        return;
+    }
+    
+    isAllSelected = [self toggleTabButton:self.allTabButton basedOnSelection:sender];
+    isFilterSelected = [self toggleTabButton:self.filterTabButton basedOnSelection:sender];
+    
+    [self toggleTabButton:self.sortTabButton basedOnSelection:sender];
     
     if (isAllSelected) {
         // TODO
     } else if (isFilterSelected) {
+        items = isFilterSelected ? (self.filterItems ? self.filterItems : self.initialFilterItems) :
+                                   (self.sortItems ? self.sortItems : self.initialSortItems);
+        
+        self.allTabButton.enabled = NO;
+        self.filterTabButton.enabled = NO;
+        self.sortTabButton.enabled = NO;
+        
         [ELUtils displayPopupForViewController:self
                                           type:kELPopupTypeList
-                                       details:@{@"type": @"filter",
-                                                 @"items": self.filterItems ? self.filterItems : self.initialFilterItems}];
-    } else if (isSortSelected) {
-        [ELUtils displayPopupForViewController:self
-                                          type:kELPopupTypeList
-                                       details:@{@"type": @"sort",
-                                                 @"items": self.sortItems ? self.sortItems : self.initialSortItems}];
+                                       details:@{@"type": isFilterSelected ? @"filter" : @"sort",
+                                                 @"items": items}];
     }
 }
 
