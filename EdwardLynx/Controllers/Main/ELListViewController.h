@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <UIViewController+CWPopup.h>
+
 #import "ELBaseViewController.h"
 
 typedef NS_ENUM(NSInteger, kELListType) {

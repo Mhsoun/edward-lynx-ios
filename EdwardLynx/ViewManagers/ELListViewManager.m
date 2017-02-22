@@ -7,6 +7,7 @@
 //
 
 #import "ELListViewManager.h"
+#import "ELAPIClient.h"
 #import "ELDevelopmentPlanAPIClient.h"
 #import "ELSurveysAPIClient.h"
 
@@ -14,6 +15,7 @@
 
 @interface ELListViewManager ()
 
+@property (nonatomic, strong) ELAPIClient *client;
 @property (nonatomic, strong) ELDevelopmentPlanAPIClient *devPlanClient;
 @property (nonatomic, strong) ELSurveysAPIClient *surveyClient;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
@@ -31,6 +33,7 @@
         return nil;
     }
     
+    _client = [[ELAPIClient alloc] init];
     _surveyClient = [[ELSurveysAPIClient alloc] init];
     _devPlanClient = [[ELDevelopmentPlanAPIClient alloc] init];
     
@@ -60,9 +63,10 @@
                                                   completion:self.requestCompletionBlock];
 }
 
-- (void)processRetrievalOfPaginatedSurveysAtPage:(NSInteger)page {
-    [self.surveyClient currentUserSurveysWithQueryParams:@{@"page": @(page)}
-                                              completion:self.requestCompletionBlock];
+- (void)processRetrievalOfPaginatedListAtLink:(NSString *)link page:(NSInteger)page {
+    [self.client getRequestAtLink:link
+                      queryParams:@{@"page": @(page)}
+                       completion:self.requestCompletionBlock];
 }
 
 - (void)processRetrievalOfReports {
