@@ -214,15 +214,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 
                 self.tableView.rowHeight = kELSurveyRowHeight;
                 self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %ld", kELSurveyStatusComplete],
+                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusComplete)],
                                                                                            @"selected": @NO}
                                                                                    error:nil],
                                             [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Invited",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %ld", kELSurveyStatusNotInvited],
+                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusNotInvited)],
                                                                                            @"selected": @NO}
                                                                                    error:nil],
                                             [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Unfinished",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %ld", kELSurveyStatusPartial],
+                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusPartial)],
                                                                                            @"selected": @NO}
                                                                                    error:nil]];
                 self.initialSortItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Z-A/A-Z",
