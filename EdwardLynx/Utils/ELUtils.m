@@ -406,6 +406,9 @@
     
     // Search Bar
     [[UISearchBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    
+    // Table View cell
+    [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {

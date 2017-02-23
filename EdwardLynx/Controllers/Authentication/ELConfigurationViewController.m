@@ -102,7 +102,7 @@ static NSInteger const kELAPICallsNumber = 3;
                 [mCategories addObject:[[ELCategory alloc] initWithDictionary:categoryDict error:nil]];
             }
             
-            [ELAppSingleton sharedInstance].categories = [mCategories copy];
+            [ELAppSingleton sharedInstance].categories = [mCategories copy];   
             
             completion(error);
         });
