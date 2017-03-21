@@ -10,7 +10,6 @@ abstract_target 'BasePods' do
     pod 'HockeySDK'
     pod 'IQKeyboardManager'
     pod 'JSONModel'
-    pod 'KDNotification', '~> 0.1'
     pod 'MTDates', '~> 1.0'
     pod 'REValidation', '~> 0.1'
     pod 'RNThemeManager', '~> 0.1'

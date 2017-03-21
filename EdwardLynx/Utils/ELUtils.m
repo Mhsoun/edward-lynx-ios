@@ -10,8 +10,8 @@
 #import <Fabric/Fabric.h>
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
-#import <KDNotification/KDToastNotification.h>
 #import <REValidation/REValidation.h>
+#import <UIView+Toast.h>
 
 #import "ELUtils.h"
 #import "AppDelegate.h"
@@ -328,8 +328,7 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {
-    [KDToastNotification setNotificionStyle:UIBlurEffectStyleDark];
-    [KDToastNotification showWithText:message duration:1.5 tapped:nil];
+    [view makeToast:message duration:3.0 position:CSToastPositionBottom];
 }
 
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {

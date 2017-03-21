@@ -8,6 +8,10 @@
 
 #import <JSONModel/JSONModel.h>
 
+static NSString * const kELNotificationTypeDevPlan = @"dev-plan";
+static NSString * const kELNotificationTypeInstantFeedbackRequest = @"instant-feedback-request";
+static NSString * const kELNotificationTypeSurvey = @"survey";
+
 @interface ELNotification : JSONModel
 
 @property (nonatomic) int64_t objectId;

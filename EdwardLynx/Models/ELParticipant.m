@@ -27,7 +27,7 @@
 }
 
 - (NSUInteger)hash {
-    return [self.email hash] ^ self.objectId;
+    return [self.email hash] ^ (NSUInteger)self.objectId;
 }
 
 - (NSDictionary *)addedByEmailDictionary {
