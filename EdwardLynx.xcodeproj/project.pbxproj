@@ -123,7 +123,7 @@
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
 		A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */; };
 		A9E3A6AF1E80DD1C00A51D74 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */; };
-		A9E3A6B31E80E0FE00A51D74 /* ELNotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */; };
+		A9E3A6B31E80E0FE00A51D74 /* ELNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E3A6B21E80E0FE00A51D74 /* ELNotificationView.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */; };
 		A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */; };
 		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
@@ -414,8 +414,8 @@
 		A9D5C4871E3F99DA00AF183D /* ELGoalDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalDetailsViewController.h; sourceTree = "<group>"; };
 		A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalDetailsViewController.m; sourceTree = "<group>"; };
 		A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
-		A9E3A6B11E80E0FE00A51D74 /* ELNotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotificationsView.h; sourceTree = "<group>"; };
-		A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELNotificationsView.m; sourceTree = "<group>"; };
+		A9E3A6B11E80E0FE00A51D74 /* ELNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotificationView.h; sourceTree = "<group>"; };
+		A9E3A6B21E80E0FE00A51D74 /* ELNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELNotificationView.m; sourceTree = "<group>"; };
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateInstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateInstantFeedbackViewController.m; sourceTree = "<group>"; };
@@ -929,8 +929,8 @@
 		A9E3A6B01E80E0EA00A51D74 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A9E3A6B11E80E0FE00A51D74 /* ELNotificationsView.h */,
-				A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */,
+				A9E3A6B11E80E0FE00A51D74 /* ELNotificationView.h */,
+				A9E3A6B21E80E0FE00A51D74 /* ELNotificationView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1272,7 +1272,7 @@
 				A95BFE041E497A1D00023081 /* ELBaseDetailViewController.m in Sources */,
 				A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */,
 				A90313271E31DF950046A005 /* ELSurveyViewManager.m in Sources */,
-				A9E3A6B31E80E0FE00A51D74 /* ELNotificationsView.m in Sources */,
+				A9E3A6B31E80E0FE00A51D74 /* ELNotificationView.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,

@@ -12,6 +12,8 @@
 #import "ELShortcutView.h"
 #import "ELStatusView.h"
 
+#import "ELNotificationView.h"
+
 #pragma mark - Private Constants
 
 static CGFloat const kELCornerRadius = 5.0f;

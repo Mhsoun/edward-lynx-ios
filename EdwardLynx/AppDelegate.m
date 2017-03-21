@@ -13,13 +13,8 @@
 
 #import "AppDelegate.h"
 #import "ELBaseDetailViewController.h"
+#import "ELNotificationView.h"
 #import "ELUsersAPIClient.h"
-
-#pragma mark - Private Methods
-
-static NSString * const kELNotificationTypeDevPlan = @"dev-plan";
-static NSString * const kELNotificationTypeInstantFeedbackRequest = @"instant-feedback-request";
-static NSString * const kELNotificationTypeSurvey = @"survey";
 
 #pragma mark - Class Extension
 
@@ -399,10 +394,9 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
             return;
         }
         
-        [KDToastNotification setNotificionStyle:UIBlurEffectStyleLight];
-        [KDNotification showWithText:notification.body
-                            duration:3.5
-                              tapped:^{
+        [ELNotificationView showWithNotification:notification
+                                        duration:3.5
+                                          tapped:^{
             if ([ELAppSingleton sharedInstance].hasLoadedApplication) {
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
