@@ -12,13 +12,16 @@
 #pragma mark - Macros
 
 #ifdef DEBUG
-    #define DLog(...) NSLog(__VA_ARGS__)
+    #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
     #define DLog(...)
 #endif
 
+
+#define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0];
 #define IDIOM UI_USER_INTERFACE_IDIOM()
 #define IPAD UIUserInterfaceIdiomPad
+#define RGB(r, g, b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma mark - Enums
