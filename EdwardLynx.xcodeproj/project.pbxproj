@@ -122,6 +122,8 @@
 		A9CCA7101E1A180000ACA299 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */; };
 		A9CCA7131E1A31AE00ACA299 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */; };
 		A9D5C4891E3F99DA00AF183D /* ELGoalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */; };
+		A9E3A6AF1E80DD1C00A51D74 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */; };
+		A9E3A6B31E80E0FE00A51D74 /* ELNotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */; };
 		A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D561E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard */; };
 		A9E53D5C1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */; };
 		A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E53D5D1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard */; };
@@ -411,6 +413,9 @@
 		A9CCA7121E1A31AE00ACA299 /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
 		A9D5C4871E3F99DA00AF183D /* ELGoalDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalDetailsViewController.h; sourceTree = "<group>"; };
 		A9D5C4881E3F99DA00AF183D /* ELGoalDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalDetailsViewController.m; sourceTree = "<group>"; };
+		A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
+		A9E3A6B11E80E0FE00A51D74 /* ELNotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotificationsView.h; sourceTree = "<group>"; };
+		A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELNotificationsView.m; sourceTree = "<group>"; };
 		A9E53D571E1B6BCC00E9BB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateInstantFeedback.storyboard; sourceTree = "<group>"; };
 		A9E53D5A1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCreateInstantFeedbackViewController.h; sourceTree = "<group>"; };
 		A9E53D5B1E1B6C4D00E9BB3C /* ELCreateInstantFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCreateInstantFeedbackViewController.m; sourceTree = "<group>"; };
@@ -519,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CCA7071E1A0FEB00ACA299 /* Dashboard */,
+				A9E3A6B01E80E0EA00A51D74 /* Main */,
 				A9CCA7081E1A0FFE00ACA299 /* Questions */,
 			);
 			path = Views;
@@ -881,6 +887,7 @@
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
 				A9C1F3C21E52ACB300D07326 /* ListPopupView.xib */,
+				A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */,
 				A971CA5B1E48E10C00B14773 /* PopupView.xib */,
 				A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */,
 				A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */,
@@ -917,6 +924,15 @@
 				A9CCA70A1E1A111C00ACA299 /* ELQuestionTypeTextView.m */,
 			);
 			path = Questions;
+			sourceTree = "<group>";
+		};
+		A9E3A6B01E80E0EA00A51D74 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A9E3A6B11E80E0FE00A51D74 /* ELNotificationsView.h */,
+				A9E3A6B21E80E0FE00A51D74 /* ELNotificationsView.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		A9E53D591E1B6C3400E9BB3C /* Feedback */ = {
@@ -1117,6 +1133,7 @@
 				A971CA5C1E48E10C00B14773 /* PopupView.xib in Resources */,
 				A96F276E1DFFA28E00609E27 /* Lato-Light.ttf in Resources */,
 				A9E53D581E1B6BCC00E9BB3C /* CreateInstantFeedback.storyboard in Resources */,
+				A9E3A6AF1E80DD1C00A51D74 /* NotificationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1272,7 @@
 				A95BFE041E497A1D00023081 /* ELBaseDetailViewController.m in Sources */,
 				A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */,
 				A90313271E31DF950046A005 /* ELSurveyViewManager.m in Sources */,
+				A9E3A6B31E80E0FE00A51D74 /* ELNotificationsView.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
