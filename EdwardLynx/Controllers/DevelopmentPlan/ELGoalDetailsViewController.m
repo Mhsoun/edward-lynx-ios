@@ -103,6 +103,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if ([textField isEqual:self.nameTextField]) {
+        return YES;
+    }
+    
     // Add Option
     if (textField.text.length > 0) {
         NSInteger position = self.mActions.count - 1;

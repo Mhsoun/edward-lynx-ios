@@ -10,7 +10,6 @@
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELGoal.h"
 #import "ELGoalDetailsViewController.h"
-#import "ELGoalTableViewCell.h"
 
 #pragma mark - Private Constants
 
@@ -29,7 +28,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 @interface ELCreateDevelopmentPlanViewController ()
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
-@property (nonatomic, strong) NSMutableArray *mGoals;
+@property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
 @property (nonatomic, strong) ELGoal *selectedGoal;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 
@@ -44,10 +43,12 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.mGoals = [[NSMutableArray alloc] initWithArray:@[@""]];
+    self.mGoals = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
+    
+    self.nameTextField.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.estimatedRowHeight = kELCellHeight;
@@ -79,40 +80,59 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = self.mGoals[indexPath.row];
+    NSRange indexRange, goalTitleRange;
+    UIImage *image;
+    UITableViewCell *cell;
+    ELGoal *goal = self.mGoals[indexPath.row];
+    NSString *title = [NSString stringWithFormat:@"%@. %@", @(indexPath.row + 1), goal.title];
+    NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:16.0f]};
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:title
+                                                                                       attributes:attributesDict];
     
-    if ([value isKindOfClass:[NSString class]]) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddGoalCellIdentifier];
-        
-        cell.imageView.image = [FontAwesome imageWithIcon:fa_plus_square
-                                                iconColor:[UIColor whiteColor]
-                                                 iconSize:kELIconSize
-                                                imageSize:CGSizeMake(kELIconSize, kELIconSize)];
-        
-        return cell;
-    } else {
-        ELGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
-        
-        [cell configure:value atIndexPath:indexPath];
-        
-        return cell;
-    }
+    // Content
+    indexRange = [title rangeOfString:[NSString stringWithFormat:@"%@.", @(indexPath.row + 1)]];
+    goalTitleRange = [title rangeOfString:goal.title];
+    
+    [attributedText addAttribute:NSForegroundColorAttributeName
+                           value:[[RNThemeManager sharedManager] colorForKey:kELVioletColor]
+                           range:indexRange];
+    [attributedText addAttribute:NSForegroundColorAttributeName
+                           value:[UIColor whiteColor]
+                           range:goalTitleRange];
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
+    cell.textLabel.attributedText = attributedText;
+    
+    // UI
+    image = [FontAwesome imageWithIcon:fa_chevron_right
+                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                              iconSize:kELIconSize
+                             imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+    cell.accessoryView = [[UIImageView alloc] initWithImage:image];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = self.mGoals[indexPath.row];
+    ELGoal *goal = self.mGoals[indexPath.row];
     
     self.selectedIndexPath = indexPath;
     
-    [self setSelectedGoal:[value isKindOfClass:[NSString class]] ? nil : (ELGoal *)value];
-    [self performSegueWithIdentifier:[value isKindOfClass:[NSString class]] ? kELAddGoalSegueIdentifier : kELGoalSegueIdentifier
+    [self setSelectedGoal:goal];
+    [self performSegueWithIdentifier:kELGoalSegueIdentifier
                               sender:self];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = self.mGoals[indexPath.row];
+    return kELCellHeight;
+}
+
+#pragma mark - Protocol Methods (UITextField)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    return [value isKindOfClass:[NSString class]] ? kELCellHeight : UITableViewAutomaticDimension;
+    return YES;
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
@@ -140,8 +160,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
 
 - (void)onGoalAddition:(__kindof ELModel *)object {
-    ELGoal *goal = (ELGoal *)object;
-    NSInteger position = self.mGoals.count - 1;
+    NSInteger position = self.mGoals.count == 0 ? 0 : self.mGoals.count - 1;
+    ELGoal *goal = (ELGoal *)object;    
     
     goal.position = position;
     
@@ -162,18 +182,14 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Private Methods
 
 - (void)adjustScrollViewContentSize {
-    CGRect tableFrame = self.tableView.frame;
-    CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
+    CGFloat tableViewContentSizeHeight = self.mGoals.count * kELCellHeight;
     
     if (tableViewContentSizeHeight == 0) {
         return;
     }
     
-    tableFrame.size.height = tableViewContentSizeHeight;
-    
-    [self.tableView setFrame:tableFrame];
-    [self.tableView setContentSize:CGSizeMake(self.tableView.contentSize.width,
-                                              tableViewContentSizeHeight)];
+    [self.heightConstraint setConstant:tableViewContentSizeHeight];
+    [self.tableView updateConstraints];
     
     // Set the content size of your scroll view to be the content size of your
     // table view + whatever else you have in the scroll view.
@@ -212,6 +228,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [self.viewManager processCreateDevelopmentPlan:@{@"name": self.nameTextField.text,
                                                      @"target": @([ELAppSingleton sharedInstance].user.objectId),
                                                      @"goals": [mGoals copy]}];
+}
+
+- (IBAction)onAddGoalButtonClick:(id)sender {
+    [self setSelectedGoal:nil];
+    [self performSegueWithIdentifier:kELAddGoalSegueIdentifier sender:self];
 }
 
 @end

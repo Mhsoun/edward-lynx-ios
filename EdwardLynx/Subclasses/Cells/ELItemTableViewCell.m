@@ -8,6 +8,10 @@
 
 #import "ELItemTableViewCell.h"
 
+#pragma mark - Private Constants
+
+static CGFloat const kELIconSize = 15;
+
 @implementation ELItemTableViewCell
 
 #pragma mark - Lifecycle
@@ -15,6 +19,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    // UI
+    [self.deleteButton setImage:[FontAwesome imageWithIcon:fa_times
+                                                 iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                                                  iconSize:kELIconSize
+                                                 imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                       forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
