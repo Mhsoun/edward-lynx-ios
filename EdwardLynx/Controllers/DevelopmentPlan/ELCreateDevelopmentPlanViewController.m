@@ -51,7 +51,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.nameTextField.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.estimatedRowHeight = kELCellHeight;
+    self.tableView.rowHeight = kELCellHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
@@ -124,8 +124,17 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [self performSegueWithIdentifier:kELGoalSegueIdentifier sender:self];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kELCellHeight;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Remove the deleted object from your data source.
+        // If your data source is an NSMutableArray, do this
+        [self.mGoals removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
 }
 
 #pragma mark - Protocol Methods (UITextField)

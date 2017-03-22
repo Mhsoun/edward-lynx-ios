@@ -270,7 +270,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     hasSelection = YES;
     
-    if (self.mActions.count == 1) {
+    if (self.mActions.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:^{}];
@@ -297,8 +297,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     if (!(isValid && hasSelection)) {
         return;
     }
-    
-    [self.mActions removeObjectAtIndex:self.mActions.count - 1];
     
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
