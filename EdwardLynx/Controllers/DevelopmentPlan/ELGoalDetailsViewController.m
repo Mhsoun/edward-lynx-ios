@@ -46,10 +46,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Initialization
     self.hasCreatedGoal = NO;
-    self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
+    self.mActions = [[NSMutableArray alloc] init];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -88,7 +90,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     if ([value isKindOfClass:[NSString class]]) {
         ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier];
         
-        cell.textField.delegate = self;
+        [cell.textField setDelegate:self];
+        [cell.textField becomeFirstResponder];
         
         return cell;
     } else {
@@ -112,20 +115,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     }
     
     // Add Option
-    if (textField.text.length > 0) {
-        NSInteger position = self.mActions.count - 1;
-        ELGoalAction *action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
-                                                                          @"title": textField.text,
-                                                                          @"checked": @NO,
-                                                                          @"position": @(position)}
-                                                                  error:nil];
-        
-        [self.mActions insertObject:action atIndex:position];
-        [self.tableView reloadData];
-        [self adjustTableViewSize];
-    }
-    
-    textField.text = @"";
+    [self addNewActionFromTextField:textField];
     
     return YES;
 }
@@ -159,10 +149,38 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     [self adjustTableViewSize];
 }
 
+#pragma mark - Protocol Methods (DZNEmptyDataSet)
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    return [[NSAttributedString alloc] initWithString:@"No actions added"
+                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
+                                                        NSForegroundColorAttributeName: [UIColor whiteColor]}];
+}
+
 #pragma mark - Private Methods
 
+- (void)addNewActionFromTextField:(UITextField *)textField {
+    if (textField.text.length > 0) {
+        ELGoalAction *action;
+        
+        [self.mActions removeObject:@""];
+        
+        action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
+                                                            @"title": textField.text,
+                                                            @"checked": @NO,
+                                                            @"position": @(self.mActions.count)}
+                                                    error:nil];
+        
+        [self.mActions addObject:action];
+        [self.tableView reloadData];
+        [self adjustTableViewSize];
+    }
+    
+    textField.text = @"";
+}
+
 - (void)adjustTableViewSize {
-    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mActions.count) + kELCellHeight;
+    CGFloat tableViewContentSizeHeight = (kELCellHeight * (self.mActions.count == 0 ? 1: self.mActions.count)) + kELCellHeight;
     
     [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
     [self.tableView updateConstraints];
@@ -200,7 +218,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     [self.mActions removeAllObjects];
     [self.mActions addObjectsFromArray:self.goal.actions];
-    [self.mActions addObject:@""];
     [self.tableView reloadData];
     [self adjustTableViewSize];
 }
@@ -222,6 +239,24 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 
 - (IBAction)onSwitchValueChange:(id)sender {
     [self toggleBasedOnSwitchValue:(UISwitch *)sender];
+}
+
+- (IBAction)onAddActionButtonClick:(id)sender {
+    NSIndexPath *indexPath;
+    ELAddObjectTableViewCell *cell;
+    
+    if (self.mActions.count > 0) {
+        indexPath = [NSIndexPath indexPathForRow:self.mActions.count - 1 inSection:0];
+        cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        
+        if ([cell isKindOfClass:[ELAddObjectTableViewCell class]]) {
+            [self addNewActionFromTextField:cell.textField];
+        }
+    }
+    
+    [self.mActions addObject:@""];
+    [self.tableView reloadData];
+    [self adjustTableViewSize];
 }
 
 - (IBAction)onAddGoalButtonClick:(id)sender {

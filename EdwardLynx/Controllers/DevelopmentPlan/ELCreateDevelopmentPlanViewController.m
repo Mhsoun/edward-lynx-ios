@@ -14,7 +14,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 60;
-static CGFloat const kELFormViewHeight = 125;
+static CGFloat const kELFormViewHeight = 110;
 static CGFloat const kELIconSize = 15;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
@@ -55,6 +55,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,8 +121,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.selectedIndexPath = indexPath;
     
     [self setSelectedGoal:goal];
-    [self performSegueWithIdentifier:kELGoalSegueIdentifier
-                              sender:self];
+    [self performSegueWithIdentifier:kELGoalSegueIdentifier sender:self];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,10 +180,18 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [self.tableView reloadData];
 }
 
+#pragma mark - Protocol Methods (DZNEmptyDataSet)
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    return [[NSAttributedString alloc] initWithString:@"No goals added"
+                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
+                                                        NSForegroundColorAttributeName: [UIColor whiteColor]}];
+}
+
 #pragma mark - Private Methods
 
 - (void)adjustScrollViewContentSize {
-    CGFloat tableViewContentSizeHeight = self.mGoals.count * kELCellHeight;
+    CGFloat tableViewContentSizeHeight = self.mGoals.count == 0 ? kELCellHeight : self.mGoals.count * kELCellHeight;
     
     if (tableViewContentSizeHeight == 0) {
         return;

@@ -6,11 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 #import "ELBaseViewController.h"
 
 @class ELGoal;
 
-@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELDropdownDelegate, ELItemCellDelegate>
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic) BOOL toAddNew;
 
@@ -33,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropdownHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *addGoalButton;
 - (IBAction)onSwitchValueChange:(id)sender;
+- (IBAction)onAddActionButtonClick:(id)sender;
 - (IBAction)onAddGoalButtonClick:(id)sender;
 
 @end
