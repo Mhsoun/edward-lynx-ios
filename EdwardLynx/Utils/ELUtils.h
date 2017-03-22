@@ -10,6 +10,8 @@
 @class ELListPopupViewController;
 @class ELPopupViewController;
 
+#import "ELQuestion.h"
+
 @interface ELFormItemGroup : NSObject
 
 - (instancetype)initWithInput:(__kindof UIView<UITextInput> *)textField
@@ -58,6 +60,7 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion;
++ (ELQuestion *)questionTemplateForAnswerType:(kELAnswerType)answerType;
 + (void)registerValidators;
 + (NSArray *)removeDuplicateUsers:(NSArray *)subset
                          superset:(NSArray *)superset;

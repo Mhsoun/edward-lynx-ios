@@ -101,6 +101,8 @@
 		A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AD1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m */; };
 		A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */; };
 		A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */; };
+		A9BCA3BA1E83745200C33430 /* ELQuestionTypeRadioGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BCA3B91E83745200C33430 /* ELQuestionTypeRadioGroupView.m */; };
+		A9BCA3BC1E83747000C33430 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BCA3BB1E83747000C33430 /* QuestionTypeRadioGroupView.xib */; };
 		A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */; };
 		A9BF26811E2D3AA700F42859 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF26801E2D3AA700F42859 /* ELInstantFeedbacksViewController.m */; };
 		A9BF26841E2D3BFC00F42859 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BF26821E2D3BFC00F42859 /* InstantFeedback.storyboard */; };
@@ -377,6 +379,9 @@
 		A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanViewManager.m; sourceTree = "<group>"; };
 		A9B6A3201E4DC3D700089E61 /* ELEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELEmailValidator.h; sourceTree = "<group>"; };
 		A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELEmailValidator.m; sourceTree = "<group>"; };
+		A9BCA3B81E83745200C33430 /* ELQuestionTypeRadioGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeRadioGroupView.h; sourceTree = "<group>"; };
+		A9BCA3B91E83745200C33430 /* ELQuestionTypeRadioGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeRadioGroupView.m; sourceTree = "<group>"; };
+		A9BCA3BB1E83747000C33430 /* QuestionTypeRadioGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeRadioGroupView.xib; sourceTree = "<group>"; };
 		A9BF267B1E2D323000F42859 /* ELInstantFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedback.h; sourceTree = "<group>"; };
 		A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedback.m; sourceTree = "<group>"; };
 		A9BF267F1E2D3AA700F42859 /* ELInstantFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbacksViewController.h; sourceTree = "<group>"; };
@@ -896,6 +901,7 @@
 				A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */,
 				A971CA5B1E48E10C00B14773 /* PopupView.xib */,
 				A970867D1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib */,
+				A9BCA3BB1E83747000C33430 /* QuestionTypeRadioGroupView.xib */,
 				A97086751E1E36F300CDC2DF /* QuestionTypeScaleView.xib */,
 				A9CCA70F1E1A180000ACA299 /* QuestionTypeTextView.xib */,
 				A91B158F1E03B7BD00CAEC43 /* ShortcutView.xib */,
@@ -924,6 +930,8 @@
 				A9CCA70D1E1A11D300ACA299 /* ELBaseQuestionTypeView.m */,
 				A970867A1E1E504800CDC2DF /* ELQuestionTypeAgreementView.h */,
 				A970867B1E1E504800CDC2DF /* ELQuestionTypeAgreementView.m */,
+				A9BCA3B81E83745200C33430 /* ELQuestionTypeRadioGroupView.h */,
+				A9BCA3B91E83745200C33430 /* ELQuestionTypeRadioGroupView.m */,
 				A97086771E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.h */,
 				A97086781E1E3ACB00CDC2DF /* ELQuestionTypeScaleView.m */,
 				A9CCA7091E1A111C00ACA299 /* ELQuestionTypeTextView.h */,
@@ -1120,6 +1128,7 @@
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
 				A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */,
 				A9C36D271E812468009A7A35 /* DropdownView.xib in Resources */,
+				A9BCA3BC1E83747000C33430 /* QuestionTypeRadioGroupView.xib in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
@@ -1329,6 +1338,7 @@
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A96E6E5C1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
+				A9BCA3BA1E83745200C33430 /* ELQuestionTypeRadioGroupView.m in Sources */,
 				A9E53D681E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m in Sources */,
 				A9CCA7011E19F6D100ACA299 /* ELQuestionTableViewCell.m in Sources */,
 				A9195FAD1E19EEE800F84272 /* ELSurveyDetailsViewController.m in Sources */,

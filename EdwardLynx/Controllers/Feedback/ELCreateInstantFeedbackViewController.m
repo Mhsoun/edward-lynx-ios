@@ -6,10 +6,9 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
-
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELAddObjectTableViewCell.h"
+#import "ELBaseQuestionTypeView.h"
 #import "ELDropdownView.h"
 #import "ELFeedbackViewManager.h"
 #import "ELInstantFeedback.h"
@@ -18,8 +17,9 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCellHeight = 45;
-static CGFloat const kELFormViewHeight = 355;
+static CGFloat const kELCellHeight = 45,
+                     kELQuestionContainerHeight = 125,
+                     kELCustomScaleItemHeight = 30;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -50,6 +50,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.viewManager = [[ELFeedbackViewManager alloc] init];
     self.mCustomScaleOptions = [NSMutableArray arrayWithArray:@[@""]];
     self.mInstantFeedbackDict = [[NSMutableDictionary alloc] init];
+    
+    self.questionTextView.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
@@ -114,12 +116,20 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         // Dynamically adjust scroll view based on table view content
         [self updateOptionsTableView];
+        [self toggleQuestionTypePreview];
+        [self updateQuestionTypePreviewConstraintsByAnswerType:kELAnswerTypeCustomScale];
         [ELUtils scrollViewToBottom:self.scrollView];
     }
     
     textField.text = @"";
     
     return YES;
+}
+
+#pragma mark - Protocol Methods (UITextView)
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.questionPreviewLabel.text = textView.text;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -142,6 +152,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.selectedAnswerType = value;
     
     [self toggleOptionsTable];
+    [self toggleQuestionTypePreview];
+    [self updateQuestionTypePreviewConstraintsByAnswerType:[ELUtils answerTypeByLabel:self.selectedAnswerType]];
 }
 
 #pragma mark - Protocol Methods (ELItemTableViewCell)
@@ -156,7 +168,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Private Methods
 
 - (void)adjustScrollViewContentSize {
-    CGFloat tableViewContentSizeHeight = (kELCellHeight * self.mCustomScaleOptions.count) + kELCellHeight;
+    BOOL isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
+    CGFloat tableHeight = (kELCellHeight * self.mCustomScaleOptions.count) + kELCellHeight;
+    CGFloat tableViewContentSizeHeight = isCustomScale ? tableHeight : 0;
     
     [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
     [self.tableView updateConstraints];
@@ -164,7 +178,51 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Set the content size of your scroll view to be the content size of your
     // table view + whatever else you have in the scroll view.
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
-                                               (kELFormViewHeight + tableViewContentSizeHeight + 30))];
+                                               (self.heightConstraint.constant + tableViewContentSizeHeight + 30))];
+}
+
+- (void)drawDashedBorderAroundView:(UIView *)view {
+    CGFloat cornerRadius = 10, borderWidth = 2.5;
+    CGRect frame = view.bounds;
+    CGMutablePathRef path = CGPathCreateMutable();
+    NSInteger dashPattern1 = 8, dashPattern2 = 8;
+    UIColor *lineColor = [UIColor lightGrayColor];
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    
+    // Drawing a border around a view
+    CGPathMoveToPoint(path, NULL, 0, frame.size.height - cornerRadius);
+    CGPathAddLineToPoint(path, NULL, 0, cornerRadius);
+    CGPathAddArc(path, NULL, cornerRadius, cornerRadius, cornerRadius, M_PI, -M_PI_2, NO);
+    CGPathAddLineToPoint(path, NULL, frame.size.width - cornerRadius, 0);
+    CGPathAddArc(path, NULL, frame.size.width - cornerRadius, cornerRadius, cornerRadius, -M_PI_2, 0, NO);
+    CGPathAddLineToPoint(path, NULL, frame.size.width, frame.size.height - cornerRadius);
+    CGPathAddArc(path, NULL, frame.size.width - cornerRadius, frame.size.height - cornerRadius, cornerRadius, 0, M_PI_2, NO);
+    CGPathAddLineToPoint(path, NULL, cornerRadius, frame.size.height);
+    CGPathAddArc(path, NULL, cornerRadius, frame.size.height - cornerRadius, cornerRadius, M_PI_2, M_PI, NO);
+    
+    // Path is set as the shapeLayer object's path
+    shapeLayer.path = path;
+    CGPathRelease(path);
+    
+    shapeLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    shapeLayer.frame = frame;
+    shapeLayer.masksToBounds = NO;
+    
+    [shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@"isCircle"];
+    
+    shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+    shapeLayer.strokeColor = [lineColor CGColor];
+    shapeLayer.lineWidth = borderWidth;
+    shapeLayer.lineDashPattern = [NSArray arrayWithObjects:
+                                  [NSNumber numberWithInteger:dashPattern1],
+                                  [NSNumber numberWithInteger:dashPattern2],
+                                  nil];
+    shapeLayer.lineCap = kCALineCapRound;
+    
+    // shapeLayer is added as a sublayer of the view, the border is visible
+    view.layer.cornerRadius = cornerRadius;
+    
+    [view.layer addSublayer:shapeLayer];
 }
 
 - (void)populatePage {
@@ -177,7 +235,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                            baseController:self
                                          defaultSelection:nil];
     self.dropdown.delegate = self;
-    self.selectedAnswerType = [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
+    self.selectedAnswerType = !self.instantFeedback ? [ELUtils labelByAnswerType:kELAnswerTypeYesNoScale] :
+                                                      [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
     
     // Content
     [self.questionTextView setText:self.instantFeedback.question.text];
@@ -187,6 +246,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Dropdown
     [self.dropdown setFrame:self.dropdownView.bounds];
     [self.dropdownView addSubview:self.dropdown];
+    
+    // Question Preview
+    [self toggleQuestionTypePreview];
     
     // Custom Scale option
     [self toggleFormAccessibility];
@@ -218,6 +280,77 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
     [self.tableView updateConstraints];
+}
+
+- (void)toggleQuestionTypePreview {
+    kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
+    __kindof ELBaseQuestionTypeView *questionView;
+    ELQuestion *question = [ELUtils questionTemplateForAnswerType:answerType];
+    
+    if (answerType == kELAnswerTypeCustomScale) {
+        // Add Custom scale options to the question template for preview
+        NSMutableArray *mOptions = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < self.mCustomScaleOptions.count; i++) {
+            NSString *option = self.mCustomScaleOptions[i];
+            
+            if (option.length == 0) {
+                continue;
+            }
+            
+            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": option, @"value": @(i)}
+                                                                     error:nil]];
+        }
+        
+        question.answer.options = [mOptions copy];
+    }
+    
+    // Setup QuestionView
+    questionView = [ELUtils viewByAnswerType:[ELUtils answerTypeByLabel:self.selectedAnswerType]];
+    questionView.frame = self.questionPreview.bounds;
+    questionView.userInteractionEnabled = NO;
+    questionView.question = question;
+    
+    [self updateQuestionTypePreviewConstraintsByAnswerType:question.answer.type];
+    
+    [self.questionPreview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.questionPreview addSubview:questionView];
+    [self.questionPreview.subviews makeObjectsPerformSelector:@selector(setNeedsDisplay)];
+    
+    // TODO Draw dotted line
+//    for (CALayer *layer in [self.questionContainerView.layer.sublayers copy]) {
+//        if ([layer isKindOfClass:[CAShapeLayer class]]) {
+//            [layer removeFromSuperlayer];
+//            
+//            break;
+//        }
+//    }
+//    
+//    [self drawDashedBorderAroundView:self.questionContainerView];
+}
+
+- (void)updateQuestionTypePreviewConstraintsByAnswerType:(kELAnswerType)answerType {
+    CGFloat height;
+    
+    switch (answerType) {
+        case kELAnswerTypeOneToTenScale:
+            height = 300;
+            
+            break;
+        case kELAnswerTypeCustomScale:
+            height = self.mCustomScaleOptions.count == 1 ? kELQuestionContainerHeight :
+                                                           (self.mCustomScaleOptions.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight;
+            
+            break;
+        default:
+            height = kELQuestionContainerHeight;
+            
+            break;
+    }
+    
+    [self.heightConstraint setConstant:height];
+    [self.formView updateConstraints];
+    [self adjustScrollViewContentSize];
 }
 
 - (void)updateOptionsTableView {

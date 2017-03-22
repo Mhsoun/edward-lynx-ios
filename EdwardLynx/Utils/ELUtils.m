@@ -22,6 +22,7 @@
 #import "ELParticipant.h"
 #import "ELPopupViewController.h"
 #import "ELQuestionTypeAgreementView.h"
+#import "ELQuestionTypeRadioGroupView.h"
 #import "ELQuestionTypeScaleView.h"
 #import "ELQuestionTypeTextView.h"
 #import "ELUsersAPIClient.h"
@@ -331,6 +332,84 @@
     [view makeToast:message duration:3.0 position:CSToastPositionBottom];
 }
 
++ (ELQuestion *)questionTemplateForAnswerType:(kELAnswerType)answerType {
+    NSDictionary *answerDict;
+    
+    switch (answerType) {
+        case kELAnswerTypeYesNoScale:
+            answerDict = @{@"type": @(answerType),
+                           @"isText": @NO,
+                           @"isNumeric": @NO,
+                           @"help": @"",
+                           @"options": @[@{@"value": @0, @"description": @"No"},
+                                         @{@"value": @1, @"description": @"Yes"}]};
+            
+            return [[ELQuestion alloc] initWithDictionary:@{@"id": @(-1),
+                                                            @"optional": @NO,
+                                                            @"isNA": @NO,
+                                                            @"isFollowUpQuestion": @NO,
+                                                            @"text": @"Question Preview",
+                                                            @"answer": answerDict}
+                                                    error:nil];
+            break;
+        case kELAnswerTypeText:
+            answerDict = @{@"type": @(answerType),
+                           @"isText": @YES,
+                           @"isNumeric": @NO,
+                           @"help": @""};
+            
+            return [[ELQuestion alloc] initWithDictionary:@{@"id": @(-1),
+                                                            @"optional": @NO,
+                                                            @"isNA": @NO,
+                                                            @"isFollowUpQuestion": @NO,
+                                                            @"text": @"Question Preview",
+                                                            @"answer": answerDict}
+                                                    error:nil];
+            break;
+        case kELAnswerTypeOneToTenScale:
+            answerDict = @{@"type": @(answerType),
+                           @"isText": @NO,
+                           @"isNumeric": @YES,
+                           @"help": @"",
+                           @"options": @[@{@"value": @0, @"description": @"1"},
+                                         @{@"value": @1, @"description": @"2"},
+                                         @{@"value": @2, @"description": @"3"},
+                                         @{@"value": @3, @"description": @"4"},
+                                         @{@"value": @4, @"description": @"5"},
+                                         @{@"value": @5, @"description": @"6"},
+                                         @{@"value": @6, @"description": @"7"},
+                                         @{@"value": @7, @"description": @"8"},
+                                         @{@"value": @8, @"description": @"9"},
+                                         @{@"value": @9, @"description": @"10"}]};
+            
+            return [[ELQuestion alloc] initWithDictionary:@{@"id": @(-1),
+                                                            @"optional": @NO,
+                                                            @"isNA": @NO,
+                                                            @"isFollowUpQuestion": @NO,
+                                                            @"text": @"Question Preview",
+                                                            @"answer": answerDict}
+                                                    error:nil];
+            break;
+        case kELAnswerTypeCustomScale:
+            answerDict = @{@"type": @(answerType),
+                           @"isText": @NO,
+                           @"isNumeric": @NO,
+                           @"help": @""};
+            
+            return [[ELQuestion alloc] initWithDictionary:@{@"id": @(-1),
+                                                            @"optional": @NO,
+                                                            @"isNA": @NO,
+                                                            @"isFollowUpQuestion": @NO,
+                                                            @"text": @"Question Preview",
+                                                            @"answer": answerDict}
+                                                    error:nil];
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view {
     for (__kindof UIView *subview in view.subviews) {
         if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
@@ -423,13 +502,13 @@
                                                             [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeOneToTenScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenScale", nil) :
-                                                            [[ELQuestionTypeScaleView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeAgreementScale", nil) :
                                                             [[ELQuestionTypeAgreementView alloc] init];
         case kELAnswerTypeYesNoScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeYesNoScale", nil) :
-                                                            [[ELQuestionTypeScaleView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeStrongAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeStrongAgreementScale", nil) :
                                                             [[ELQuestionTypeAgreementView alloc] init];
@@ -444,7 +523,7 @@
                                                             [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeCustomScale", nil) :
-                                                            [[ELQuestionTypeAgreementView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         default:
             return nil;
     }
