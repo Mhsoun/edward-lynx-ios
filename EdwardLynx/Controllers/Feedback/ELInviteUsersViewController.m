@@ -395,7 +395,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         }
         
         // Create new Instant Feedback
-        answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
+        answerType = [ELUtils answerTypeByLabel:self.instantFeedbackDict[@"type"]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
         if (self.instantFeedbackDict[@"options"]) {
