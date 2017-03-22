@@ -175,7 +175,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     self.dropdown = [[ELDropdownView alloc] initWithItems:mTypes
                                            baseController:self
-                                         defaultSelection:NSLocalizedString(@"kELAnswerTypeValidationMessage", nil)];
+                                         defaultSelection:nil];
     self.dropdown.delegate = self;
     self.selectedAnswerType = [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
     

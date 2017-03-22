@@ -99,7 +99,7 @@
 
 "kELShareReportsHeaderMessage" = "Share report to users";
 
-"kELUsersNumberSelectedLabel" = "No. of people selected: %@";
+"kELUsersNumberSelectedLabel" = "People selected: %@";
 
 /* Profile */
 

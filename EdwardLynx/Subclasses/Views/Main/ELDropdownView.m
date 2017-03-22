@@ -16,6 +16,8 @@ static CGFloat const kELIconSize = 15;
 
 @interface ELDropdownView ()
 
+@property (nonatomic) BOOL hasValidation;
+
 @property (strong, nonatomic) NSArray *items;
 @property (strong, nonatomic) NSString *selectedItem;
 @property (strong, nonatomic) __kindof ELBaseViewController *baseController;
@@ -56,11 +58,18 @@ static CGFloat const kELIconSize = 15;
         }
     }
     
-    [items insertObject:defaultSelection atIndex:0];
+    self.hasValidation = NO;
+    
+    if (defaultSelection) {
+        self.hasValidation = YES;
+        
+        [items insertObject:defaultSelection atIndex:0];
+    }
     
     self.items = [items copy];
     self.baseController = controller;
-    self.hasSelection = NO;
+    
+    _hasSelection = !self.hasValidation;
     
     [self setupContent];
     
@@ -120,7 +129,7 @@ static CGFloat const kELIconSize = 15;
         self.titleLabel.text = action.title;
         self.selectedItem = action.title;
         
-        _hasSelection = ![self.selectedItem isEqualToString:self.items[0]];
+        _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
                 
         [self.delegate onDropdownSelectionValueChange:action.title];
     };
