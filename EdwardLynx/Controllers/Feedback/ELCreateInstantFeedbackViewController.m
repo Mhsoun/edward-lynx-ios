@@ -10,6 +10,7 @@
 
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELAddObjectTableViewCell.h"
+#import "ELDropdownView.h"
 #import "ELFeedbackViewManager.h"
 #import "ELInstantFeedback.h"
 #import "ELInviteUsersViewController.h"
@@ -18,7 +19,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 45;
-static CGFloat const kELFormViewHeight = 435;
+static CGFloat const kELFormViewHeight = 355;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -31,8 +32,9 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 @property (nonatomic, strong) NSString *selectedAnswerType;
 @property (nonatomic, strong) NSMutableArray *mCustomScaleOptions;
 @property (nonatomic, strong) NSMutableDictionary *mInstantFeedbackDict;
-@property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
+@property (nonatomic, strong) ELDropdownView *dropdown;
 @property (nonatomic, strong) ELFeedbackViewManager *viewManager;
+//@property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 
 @end
 
@@ -98,8 +100,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option :
-                                                                          [(ELAnswerOption *)option shortDescription];
+        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option : [(ELAnswerOption *)option shortDescription];
         
         return cell;
     }
@@ -125,13 +126,13 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSMutableArray *mData = [[NSMutableArray alloc] init];
+//    NSMutableArray *mData = [[NSMutableArray alloc] init];
     NSString *buttonLabel = self.instantFeedback ? @"kELAddMoreParticipantsButton" : @"kELSelectParticipantsButton";
     NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
-    NSArray *answerTypes = @[[ELUtils labelByAnswerType:kELAnswerTypeYesNoScale],
-                             [ELUtils labelByAnswerType:kELAnswerTypeText],
-                             [ELUtils labelByAnswerType:kELAnswerTypeOneToTenScale],
-                             [ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
+//    NSArray *answerTypes = @[[ELUtils labelByAnswerType:kELAnswerTypeYesNoScale],
+//                             [ELUtils labelByAnswerType:kELAnswerTypeText],
+//                             [ELUtils labelByAnswerType:kELAnswerTypeOneToTenScale],
+//                             [ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
     
     // Button
     [self.inviteButton setTitle:[NSLocalizedString(buttonLabel, nil) uppercaseString]
@@ -141,39 +142,47 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.title = [NSLocalizedString(titleLabel, nil) uppercaseString];
     
     // Radio Group
-    for (NSString *answerType in answerTypes) {
-        TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
-        BOOL isEqual = [[ELUtils labelByAnswerType:self.instantFeedback.question.answer.type] isEqualToString:answerType];
-        
-        data.selected = !self.instantFeedback ? NO : isEqual;
-        data.identifier = answerType;
-        
-        data.labelText = answerType;
-        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
-        data.labelColor = [UIColor whiteColor];
-        
-        data.borderColor = [UIColor whiteColor];
-        data.circleColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-        data.borderRadius = 15;
-        data.circleRadius = 10;
-        
-        [mData addObject:data];
-    }
-    
-    self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
-                                                                   layout:TNRadioButtonGroupLayoutVertical];
-    
-    [self.radioGroup setIdentifier:@"Answer Types group"];
-    [self.radioGroup setMarginBetweenItems:15];
-    
-    [self.radioGroup create];
-    [self.radioGroupView addSubview:self.radioGroup];
+//    for (NSString *answerType in answerTypes) {
+//        TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
+//        BOOL isEqual = [[ELUtils labelByAnswerType:self.instantFeedback.question.answer.type] isEqualToString:answerType];
+//        
+//        data.selected = !self.instantFeedback ? NO : isEqual;
+//        data.identifier = answerType;
+//        
+//        data.labelText = answerType;
+//        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+//        data.labelColor = [UIColor whiteColor];
+//        
+//        data.borderColor = [UIColor whiteColor];
+//        data.circleColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+//        data.borderRadius = 15;
+//        data.circleRadius = 10;
+//        
+//        [mData addObject:data];
+//    }
+//    
+//    self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
+//                                                                   layout:TNRadioButtonGroupLayoutVertical];
+//    
+//    [self.radioGroup setIdentifier:@"Answer Types group"];
+//    [self.radioGroup setMarginBetweenItems:15];
+//    
+//    [self.radioGroup create];
+//    [self.radioGroupView addSubview:self.radioGroup];
     
     // Notification to handle selection changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onAnswerTypeGroupUpdate:)
-                                                 name:SELECTED_RADIO_BUTTON_CHANGED
-                                               object:self.radioGroup];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(onAnswerTypeGroupUpdate:)
+//                                                 name:SELECTED_RADIO_BUTTON_CHANGED
+//                                               object:self.radioGroup];
+}
+
+#pragma mark - Protocol Methods (ELDropdown)
+
+- (void)onDropdownSelectionValueChange:(NSString *)value {
+    self.selectedAnswerType = value;
+    
+    [self toggleOptionsTable];
 }
 
 #pragma mark - Protocol Methods (ELItemTableViewCell)
@@ -200,12 +209,25 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 - (void)populatePage {
+    NSMutableArray *mTypes = [[NSMutableArray alloc] initWithArray:@[[ELUtils labelByAnswerType:kELAnswerTypeYesNoScale],
+                                                                     [ELUtils labelByAnswerType:kELAnswerTypeText],
+                                                                     [ELUtils labelByAnswerType:kELAnswerTypeOneToTenScale],
+                                                                     [ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]];
+    
+    self.dropdown = [[ELDropdownView alloc] initWithItems:mTypes
+                                           baseController:self
+                                         defaultSelection:@"No Answer type selected"];
+    self.dropdown.delegate = self;
     self.selectedAnswerType = [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
     
     // Content
     [self.questionTextView setText:self.instantFeedback.question.text];
     [self.isAnonymousSwitch setOn:self.instantFeedback.anonymous animated:YES];
     [self.isNASwitch setOn:self.instantFeedback.question.isNA animated:YES];
+    
+    // Dropdown
+    [self.dropdown setFrame:self.dropdownView.bounds];
+    [self.dropdownView addSubview:self.dropdown];
     
     // Custom Scale option
     [self toggleFormAccessibility];
@@ -229,7 +251,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     [self.isNASwitch setEnabled:editable];
     [self.isAnonymousSwitch setEnabled:editable];
     [self.tableView setUserInteractionEnabled:editable];
-    [self.radioGroup setUserInteractionEnabled:editable];
+    [self.dropdown setEnabled:editable];
+//    [self.radioGroup setUserInteractionEnabled:editable];
 }
 
 - (void)toggleOptionsTable {
@@ -249,16 +272,12 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onInviteButtonClick:(id)sender {
-    BOOL isValid;
-    ELFormItemGroup *typeGroup = [[ELFormItemGroup alloc] initWithText:self.selectedAnswerType
-                                                                  icon:nil
-                                                            errorLabel:self.questionTypeErrorLabel];
+    BOOL isValid, hasSelection;
     ELFormItemGroup *questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
                                                                       icon:nil
                                                                 errorLabel:self.questionErrorLabel];
     
-    self.mInstantFeedbackDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": typeGroup,
-                                                                                @"question": questionGroup,
+    self.mInstantFeedbackDict = [NSMutableDictionary dictionaryWithDictionary:@{@"question": questionGroup,
                                                                                 @"anonymous": @(self.isAnonymousSwitch.on),
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
@@ -266,23 +285,24 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
     }
     
+    hasSelection = self.dropdown.hasSelection;
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    if (!isValid) {
+    if (!(isValid && hasSelection)) {
         return;
     }
     
     [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
-#pragma mark - Notifications
-
-- (void)onAnswerTypeGroupUpdate:(NSNotification *)notification {
-    self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
-    
-    [self toggleOptionsTable];
-}
+//#pragma mark - Notifications
+//
+//- (void)onAnswerTypeGroupUpdate:(NSNotification *)notification {
+//    self.selectedAnswerType = self.radioGroup.selectedRadioButton.data.identifier;
+//    
+//    [self toggleOptionsTable];
+//}
 
 @end

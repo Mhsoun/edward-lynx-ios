@@ -68,6 +68,12 @@
 
 @end
 
+@protocol ELDropdownDelegate <NSObject>
+
+- (void)onDropdownSelectionValueChange:(NSString *)value;
+
+@end
+
 @protocol ELItemCellDelegate <NSObject>
 
 - (void)onDeletionAtRow:(NSInteger)row;

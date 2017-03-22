@@ -10,13 +10,12 @@
 
 @class ELInstantFeedback;
 
-@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
+@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELDropdownDelegate, ELItemCellDelegate>
 
 @property (strong, nonatomic) ELInstantFeedback *instantFeedback;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *radioGroupView;
-@property (weak, nonatomic) IBOutlet UILabel *questionTypeErrorLabel;
+@property (weak, nonatomic) IBOutlet UIView *dropdownView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *questionErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *isAnonymousSwitch;

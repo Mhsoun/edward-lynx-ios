@@ -78,32 +78,20 @@
 }
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {
-    NSString *key;
-    NSArray *typeErrors, *questionErrors;
+    NSArray *errors;
     ELFormItemGroup *formFieldGroup;
-    
-    key = @"type";
-    
-    if (formDict[key]) {
-        formFieldGroup = formDict[key];
-        typeErrors = [[formDict[key] textValue] isEqualToString:kELNoQuestionType] ? @[NSLocalizedString(@"kELAnswerTypeValidation", nil)] :
-                                                                                     nil;
-        
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:typeErrors];
-    }
-    
-    key = @"question";
+    NSString *key = @"question";
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        questionErrors = [REValidation validateObject:[formDict[key] textValue]
-                                                 name:NSLocalizedString(@"kELQuestionField", nil)
-                                           validators:@[@"presence"]];
+        errors = [REValidation validateObject:[formDict[key] textValue]
+                                         name:NSLocalizedString(@"kELQuestionField", nil)
+                                   validators:@[@"presence"]];
         
-        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:questionErrors];
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
     }
     
-    return questionErrors.count == 0 && typeErrors.count == 0;
+    return errors.count == 0;
 }
 
 @end
