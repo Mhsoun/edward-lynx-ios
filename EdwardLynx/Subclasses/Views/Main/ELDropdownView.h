@@ -12,12 +12,12 @@
 
 @interface ELDropdownView : UIView
 
-@property (nonatomic) BOOL enabled;
-@property (nonatomic) BOOL hasSelection;
+@property (nonatomic) BOOL enabled, hasSelection;
 @property (nonatomic, strong) id<ELDropdownDelegate> delegate;
 
 - (instancetype)initWithItems:(NSMutableArray *)items
                baseController:(__kindof ELBaseViewController *)controller
              defaultSelection:(NSString *)defaultSelection;
+- (void)setDefaultValue:(NSString *)value;
 
 @end

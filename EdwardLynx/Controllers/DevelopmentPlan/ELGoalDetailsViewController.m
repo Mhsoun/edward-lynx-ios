@@ -10,13 +10,14 @@
 #import "ELAddObjectTableViewCell.h"
 #import "ELCategory.h"
 #import "ELDevelopmentPlanViewManager.h"
+#import "ELDropdownView.h"
 #import "ELGoal.h"
 #import "ELGoalAction.h"
 #import "ELItemTableViewCell.h"
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCategoryViewInitialHeight = 35;
+static CGFloat const kELCategoryViewInitialHeight = 60;
 static CGFloat const kELCellHeight = 50;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
 
@@ -28,8 +29,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 @interface ELGoalDetailsViewController ()
 
 @property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic, strong) NSString *selectedCategory;
 @property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
+@property (nonatomic, strong) ELDropdownView *dropdown;
 
 @end
 
@@ -43,7 +46,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Initialization
     self.hasCreatedGoal = NO;
-    self.categoryLabel.text = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
     self.mActions = [[NSMutableArray alloc] initWithArray:@[@""]];
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     
@@ -131,23 +133,22 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat iconSize = 15;
     NSString *buttonLabel = NSLocalizedString(self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" :
                                                               @"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
     [self.addGoalButton setTitle:[buttonLabel uppercaseString]
                         forState:UIControlStateNormal];
-    [self.categoryButton setImage:[FontAwesome imageWithIcon:fa_chevron_down
-                                                   iconColor:nil
-                                                    iconSize:iconSize
-                                                   imageSize:CGSizeMake(iconSize, iconSize)]
-                         forState:UIControlStateNormal];
-    [self.categoryButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldInputColor]];
     
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    
     [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+}
+
+#pragma mark - Protocol Methods (ELDropdown)
+
+- (void)onDropdownSelectionValueChange:(NSString *)value {
+    self.selectedCategory = value;
 }
 
 #pragma mark - Protocol Methods (ELItemTableViewCell)
@@ -168,6 +169,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 }
 
 - (void)populatePage {
+    NSString *defaultSelection = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
+    NSMutableArray *mCategories = [[NSMutableArray alloc] init];
+    
+    for (ELCategory *category in [ELAppSingleton sharedInstance].categories) [mCategories addObject:category.title];
+    
+    self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
+                                           baseController:self
+                                         defaultSelection:defaultSelection];
+    self.dropdown.delegate = self;
+    self.selectedCategory = defaultSelection;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     
     // Date
@@ -177,8 +188,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Category
     [self.categorySwitch setOn:self.goal.categoryChecked];
-    [self.categoryLabel setText:self.goal.category.length == 0 ? NSLocalizedString(@"kELGoalCategoryValidationMessage", nil) :
-                                                                 self.goal.category];
+    [self.dropdown setFrame:self.dropdownView.bounds];
+    [self.dropdown setDefaultValue:self.goal ? self.goal.category : defaultSelection];
+    [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
     // Actions
@@ -200,9 +212,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         
         [self.datePickerView updateConstraints];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        self.categoryViewHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
+        self.dropdownHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
         
-        [self.categoryView updateConstraints];
+        [self.dropdownView updateConstraints];
     }
 }
 
@@ -212,37 +224,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     [self toggleBasedOnSwitchValue:(UISwitch *)sender];
 }
 
-- (IBAction)onCategoryButtonClick:(id)sender {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:nil
-                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
-    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        self.categoryLabel.text = action.title;
-    };
-    
-    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
-                                                   style:UIAlertActionStyleCancel
-                                                 handler:nil]];
-    
-    for (ELCategory *category in [ELAppSingleton sharedInstance].categories) {
-        [controller addAction:[UIAlertAction actionWithTitle:category.title
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:actionBlock]];
-    }
-    
-    [self presentViewController:controller
-                       animated:YES
-                     completion:nil];
-}
-
 - (IBAction)onAddGoalButtonClick:(id)sender {
-    BOOL isValid;
+    BOOL isValid, hasSelection;
     NSString *dateString;
     NSMutableDictionary *mFormItems;
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
+    
+    hasSelection = YES;
     
     if (self.mActions.count == 1) {
         [ELUtils presentToastAtView:self.view
@@ -261,17 +252,14 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     }
     
     if (self.categorySwitch.isOn) {
-        [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:self.categoryLabel.text
-                                                               icon:nil
-                                                         errorLabel:self.categoryErrorLabel]
-                       forKey:@"category"];
+        hasSelection = self.dropdown.hasSelection;
     }
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    if (!isValid) {
+    if (!(isValid && hasSelection)) {
         return;
     }
     
@@ -288,7 +276,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                                                      @"reminderSent": @NO,
                                                      @"actions": [mActions copy]}
                                              error:nil];
-    self.goal.category = self.categoryLabel.text;
+    self.goal.category = self.selectedCategory;
     self.goal.categoryChecked = self.categorySwitch.on;
     self.goal.dueDateChecked = self.remindSwitch.on;
     

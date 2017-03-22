@@ -91,6 +91,10 @@ static CGFloat const kELIconSize = 15;
 
 #pragma mark - Private Methods
 
+- (void)setDefaultValue:(NSString *)value {
+    self.titleLabel.text = value;
+}
+
 - (void)setupContent {
     // Content
     self.selectedItem = self.items[0];
