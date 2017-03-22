@@ -111,6 +111,8 @@
 		A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F3CA1E52B85E00D07326 /* ListCell.xib */; };
 		A9C1F3CE1E52BA3600D07326 /* ELListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */; };
 		A9C1F3D11E52D9FC00D07326 /* ELFilterSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F3D01E52D9FC00D07326 /* ELFilterSortItem.m */; };
+		A9C36D251E81242D009A7A35 /* ELDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C36D241E81242D009A7A35 /* ELDropdownView.m */; };
+		A9C36D271E812468009A7A35 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C36D261E812468009A7A35 /* DropdownView.xib */; };
 		A9C4F1DB1E0D055900AC0C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */; };
 		A9C929551E43281A00783952 /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C929541E43281A00783952 /* ELCategory.m */; };
 		A9C95A051E1F701A00184223 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C95A041E1F701A00184223 /* ELConfigurationViewController.m */; };
@@ -392,6 +394,9 @@
 		A9C1F3CD1E52BA3600D07326 /* ELListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELListTableViewCell.m; sourceTree = "<group>"; };
 		A9C1F3CF1E52D9FC00D07326 /* ELFilterSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFilterSortItem.h; sourceTree = "<group>"; };
 		A9C1F3D01E52D9FC00D07326 /* ELFilterSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFilterSortItem.m; sourceTree = "<group>"; };
+		A9C36D231E81242D009A7A35 /* ELDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDropdownView.h; sourceTree = "<group>"; };
+		A9C36D241E81242D009A7A35 /* ELDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDropdownView.m; sourceTree = "<group>"; };
+		A9C36D261E812468009A7A35 /* DropdownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownView.xib; sourceTree = "<group>"; };
 		A9C4F1DA1E0D055900AC0C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9C4F1DC1E0D09AD00AC0C0B /* Edward Lynx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Edward Lynx.entitlements"; sourceTree = "<group>"; };
 		A9C929531E43281A00783952 /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
@@ -886,6 +891,7 @@
 			isa = PBXGroup;
 			children = (
 				A91B15911E03C90500CAEC43 /* ActionView.xib */,
+				A9C36D261E812468009A7A35 /* DropdownView.xib */,
 				A9C1F3C21E52ACB300D07326 /* ListPopupView.xib */,
 				A9E3A6AE1E80DD1C00A51D74 /* NotificationView.xib */,
 				A971CA5B1E48E10C00B14773 /* PopupView.xib */,
@@ -929,6 +935,8 @@
 		A9E3A6B01E80E0EA00A51D74 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A9C36D231E81242D009A7A35 /* ELDropdownView.h */,
+				A9C36D241E81242D009A7A35 /* ELDropdownView.m */,
 				A9E3A6B11E80E0FE00A51D74 /* ELNotificationView.h */,
 				A9E3A6B21E80E0FE00A51D74 /* ELNotificationView.m */,
 			);
@@ -1111,6 +1119,7 @@
 				A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
 				A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */,
+				A9C36D271E812468009A7A35 /* DropdownView.xib in Resources */,
 				A96F276F1DFFA28E00609E27 /* Lato-Medium.ttf in Resources */,
 				A91B15921E03C90500CAEC43 /* ActionView.xib in Resources */,
 				A9308BE41DED74B6007B4F9F /* LaunchScreen.storyboard in Resources */,
@@ -1284,6 +1293,7 @@
 				A991AF951E4C6548008B79C3 /* ELNotification.m in Sources */,
 				A9E53D631E1B920F00E9BB3C /* ELDevelopmentPlansViewController.m in Sources */,
 				A96F27641DFF9FCB00609E27 /* ELBaseViewController.m in Sources */,
+				A9C36D251E81242D009A7A35 /* ELDropdownView.m in Sources */,
 				A9335A731E0B79E00019231E /* ELOAuthInstance.m in Sources */,
 				A97F9FFA1E1CF14A008F9EF4 /* ELQuestionCategory.m in Sources */,
 				A9A4DF881DFEAC5000CC4FAA /* ELSurveysAPIClient.m in Sources */,

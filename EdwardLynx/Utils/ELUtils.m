@@ -200,23 +200,23 @@
 }
 
 + (kELAnswerType)answerTypeByLabel:(NSString *)label {
-    if ([label isEqualToString:@"Numeric 1-5 Scale"]) {
+    if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeOneToFiveScale", nil)]) {
         return kELAnswerTypeOneToFiveScale;
-    } else if ([label isEqualToString:@"Numeric 1-10 Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenScale", nil)]) {
         return kELAnswerTypeOneToTenScale;
-    } else if ([label isEqualToString:@"Agreement Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeAgreementScale", nil)]) {
         return kELAnswerTypeAgreeementScale;
-    } else if ([label isEqualToString:@"Yes/No Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeYesNoScale", nil)]) {
         return kELAnswerTypeYesNoScale;
-    } else if ([label isEqualToString:@"Strong Agreement Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeStrongAgreementScale", nil)]) {
         return kELAnswerTypeStrongAgreeementScale;
-    } else if ([label isEqualToString:@"Text"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeText", nil)]) {
         return kELAnswerTypeText;
-    } else if ([label isEqualToString:@"Inverted Agreement Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeInvertedAgreementScale", nil)]) {
         return kELAnswerTypeInvertedAgreementScale;
-    } else if ([label isEqualToString:@"1-10 with explanation"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenWithExplanation", nil)]) {
         return kELAnswerTypeOneToTenWithExplanation;
-    } else if ([label isEqualToString:@"Custom Scale"]) {
+    } else if ([label isEqualToString:NSLocalizedString(@"kELFeedbackAnswerTypeCustomScale", nil)]) {
         return kELAnswerTypeCustomScale;
     } else {
         return -1;

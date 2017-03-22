@@ -87,7 +87,6 @@
 
 - (void)populatePage {
     BOOL toExpand;
-    CGRect frame = self.questionTypeView.frame;
     ELQuestion *question = self.instantFeedback.question;
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
     
@@ -102,7 +101,7 @@
     }
     
     questionView.question = question;
-    questionView.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+    questionView.frame = self.questionTypeView.bounds;
     
     [self.heightConstraint setConstant:toExpand ? 185 : 135];
     [self.questionTypeView updateConstraints];

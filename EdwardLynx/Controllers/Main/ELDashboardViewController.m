@@ -70,7 +70,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"segue": @"",
                                                          @"details": @"3/4 goals completed",
                                                          @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
-    statusView.frame = self.devPlanStatusView.frame;
+    statusView.frame = self.devPlanStatusView.bounds;
 //    statusView.delegate = self;
     
     [self.devPlanStatusView addSubview:statusView];
@@ -82,7 +82,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"permissions": @[@(kELRolePermissionParticipateInSurvey),
                                                                            @(kELRolePermissionSubmitSurvey),
                                                                            @(kELRolePermissionInstantFeedback)]}];
-    statusView.frame = self.feedbackStatusView.frame;
+    statusView.frame = self.feedbackStatusView.bounds;
 //    statusView.delegate = self;
     
     [self.feedbackStatusView addSubview:statusView];
@@ -93,7 +93,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                              @"segue": @"CreateInstantFeedback",
                                                              @"description": @"Description on creating instant feedback.",
                                                              @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
-    shortcutView.frame = self.createFeedbackView.frame;
+    shortcutView.frame = self.createFeedbackView.bounds;
     shortcutView.delegate = self;
     
     [self.createFeedbackView addSubview:shortcutView];
@@ -103,7 +103,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                              @"segue": @"CreateDevelopmentPlan",
                                                              @"description": @"Description on creating development plan.",
                                                              @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
-    shortcutView.frame = self.createDevPlanView.frame;
+    shortcutView.frame = self.createDevPlanView.bounds;
     shortcutView.delegate = self;
     
     [self.createDevPlanView addSubview:shortcutView];
@@ -114,7 +114,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                              @"description": @"Description on viewing reports.",
                                                              @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                                @(kELRolePermissionViewAnonymousTeamReports)]}];
-    shortcutView.frame = self.reportsView.frame;
+    shortcutView.frame = self.reportsView.bounds;
     shortcutView.delegate = self;
     
     [self.reportsView addSubview:shortcutView];
@@ -124,7 +124,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                              @"segue": @"Survey",
                                                              @"description": @"Description on viewing surveys.",
                                                              @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
-    shortcutView.frame = self.surveysView.frame;
+    shortcutView.frame = self.surveysView.bounds;
     shortcutView.delegate = self;
     
     [self.surveysView addSubview:shortcutView];
@@ -138,7 +138,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"color": kELGreenColor,
                                                          @"permissions": @[@(kELRolePermissionParticipateInSurvey),
                                                                            @(kELRolePermissionSubmitSurvey)]}];
-    actionView.frame = self.feedbackActionView.frame;
+    actionView.frame = self.feedbackActionView.bounds;
 //    actionView.delegate = self;
     
     [self.feedbackActionView addSubview:actionView];
@@ -151,7 +151,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"color": kELBlueColor,
                                                          @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
                                                                            @(kELRolePermissionViewAnonymousTeamReports)]}];
-    actionView.frame = self.reportsActionView.frame;
+    actionView.frame = self.reportsActionView.bounds;
 //    actionView.delegate = self;
     
     [self.reportsActionView addSubview:actionView];
@@ -163,7 +163,7 @@ static CGFloat const kELCornerRadius = 5.0f;
                                                          @"segue": @"InstantFeedback",
                                                          @"color": kELPinkColor,
                                                          @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
-    actionView.frame = self.instantFeedbackActionView.frame;
+    actionView.frame = self.instantFeedbackActionView.bounds;
     actionView.delegate = self;
     
     [self.instantFeedbackActionView addSubview:actionView];

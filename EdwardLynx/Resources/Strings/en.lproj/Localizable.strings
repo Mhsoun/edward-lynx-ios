@@ -125,9 +125,9 @@
 
 /* Validations */
 
-"kELAnswerTypeValidation" = "Answer type should be selected";
+"kELAnswerTypeValidationMessage" = "No Answer type selected";
 "kELGoalActionsValidationMessage" = "No Goal Actions added";
-"kELGoalCategoryValidationMessage" = "No category selected";
+"kELGoalCategoryValidationMessage" = "No Category selected";
 "kELGoalsValidationMessage" = "No Goals added";
 "kELGoalReminderValidationMessage" = "Reminder date should be on or after today";
 "kELPasswordValidationMessage" = "New Password fields must be the same";

@@ -6,11 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 #import "ELBaseViewController.h"
 
 @class ELGoal;
 
-@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELItemCellDelegate>
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic) BOOL toAddNew;
 
@@ -29,14 +31,11 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *categorySwitch;
-@property (weak, nonatomic) IBOutlet UIView *categoryView;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryErrorLabel;
-@property (weak, nonatomic) IBOutlet UIButton *categoryButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoryViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *dropdownView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropdownHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *addGoalButton;
 - (IBAction)onSwitchValueChange:(id)sender;
-- (IBAction)onCategoryButtonClick:(id)sender;
+- (IBAction)onAddActionButtonClick:(id)sender;
 - (IBAction)onAddGoalButtonClick:(id)sender;
 
 @end
