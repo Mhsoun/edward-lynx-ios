@@ -19,6 +19,7 @@ abstract_target 'BasePods' do
     pod 'PNChart', '~> 0.8'
     pod 'Toast', '~> 3.1'
     pod 'UITextView+Placeholder', '~> 1.2'
+    pod 'XLPagerTabStrip-AnthonyMDev', '~> 2.0'
 
     target 'EdwardLynx' do
     end
