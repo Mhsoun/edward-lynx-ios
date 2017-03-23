@@ -19,7 +19,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELEmailButtonHeight = 40;
-static CGFloat const kELFormViewHeight = 105;
+static CGFloat const kELFormViewHeight = 110;
 static CGFloat const kELIconSize = 17.5f;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 
@@ -54,10 +54,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
     self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
-    self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                      iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
-                                       iconSize:kELIconSize
-                                      imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     // To display only the not yet invited participants
     if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
@@ -100,6 +96,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         default:
             break;
     }
+    
+    // UI
+    self.infoLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
+                                      iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                       iconSize:kELIconSize
+                                      imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+    self.infoImageView.image = [FontAwesome imageWithIcon:fa_info_circle
+                                                iconColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor]
+                                                 iconSize:kELIconSize
+                                                imageSize:CGSizeMake(kELIconSize, kELIconSize)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -285,18 +292,12 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)layoutInstantFeedbackSharePage {
-    // Details
-    self.headerLabel.text = NSLocalizedString(@"kELInviteUsersHeaderMessage", nil);
-    
     // Button
     [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
     [self.emailButton updateConstraints];
 }
 
 - (void)layoutReportSharePage {
-    // Details
-    self.headerLabel.text = NSLocalizedString(@"kELShareReportsHeaderMessage", nil);
-    
     // Button
     [self.emailButtonHeightConstraint setConstant:0];
     [self.emailButton updateConstraints];
@@ -395,7 +396,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         }
         
         // Create new Instant Feedback
-        answerType = [ELUtils answerTypeByLabel:[self.instantFeedbackDict[@"type"] textValue]];
+        answerType = [ELUtils answerTypeByLabel:self.instantFeedbackDict[@"type"]];
         mAnswerDict = [NSMutableDictionary dictionaryWithDictionary:@{@"type": @(answerType)}];
         
         if (self.instantFeedbackDict[@"options"]) {
