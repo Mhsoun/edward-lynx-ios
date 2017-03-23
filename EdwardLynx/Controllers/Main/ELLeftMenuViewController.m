@@ -14,7 +14,7 @@
 
 #pragma mark - Private Constants
 
-static int const kELDefaultRowIndex = 0;
+static int const kELDefaultRowIndex = 1;
 static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 #pragma mark - Class Extension

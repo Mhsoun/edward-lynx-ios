@@ -248,7 +248,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
                 devPlan.urlLink = detailDict[@"_links"][@"self"][@"href"];
                 
-                self.tableView.rowHeight = kELDefaultRowHeight;
+                self.tableView.rowHeight = 225;
                 self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
                                                                                            @"key": @"SELF.completed == YES",
                                                                                            @"selected": @NO}
