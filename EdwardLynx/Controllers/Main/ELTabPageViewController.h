@@ -1,5 +1,5 @@
 //
-//  ELTabPagViewController.h
+//  ELTabPageViewController.h
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 23/03/2017.
@@ -8,7 +8,11 @@
 
 #import <XLPagerTabStrip-AnthonyMDev/XLButtonBarPagerTabStripViewController.h>
 
-@interface ELTabPagViewController : XLButtonBarPagerTabStripViewController
+@interface ELTabPageViewController : XLButtonBarPagerTabStripViewController
+
+@property (nonatomic) kELListType type;
+
+@property (nonatomic, strong) NSArray *tabs;
 
 @property (weak, nonatomic) IBOutlet UIView *tabView;
 

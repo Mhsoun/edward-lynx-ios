@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <searchBar contentMode="scaleToFill" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-vi-zh3" customClass="ELSearchBar">
+                            <searchBar hidden="YES" contentMode="scaleToFill" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-vi-zh3" customClass="ELSearchBar">
                                 <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </searchBar>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Td-pFX">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="52T-gI-Slo" kind="embed" identifier="ListContainer" id="Zbt-We-0Iz"/>
@@ -58,9 +58,9 @@
                             <constraint firstItem="gyz-hb-emz" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="17X-7V-ZXe"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="1tc-dU-JF2"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="2QL-Cc-gxd"/>
-                            <constraint firstItem="3ah-Td-pFX" firstAttribute="top" secondItem="Knh-vi-zh3" secondAttribute="bottom" id="6Ym-k4-bx6"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="IX0-GB-yR1"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="IsW-qS-BWS"/>
+                            <constraint firstItem="3ah-Td-pFX" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="KTs-VJ-eNW"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Kuo-Xn-Kce"/>
                             <constraint firstItem="Knh-vi-zh3" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Pbf-pl-Ml2"/>
                             <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="3ah-Td-pFX" secondAttribute="bottom" id="dbg-md-d9H"/>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtu-s9-bba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="-170"/>
+            <point key="canvasLocation" x="728.79999999999995" y="-170.46476761619192"/>
         </scene>
         <!--List-->
         <scene sceneID="ahX-hK-G6T">
@@ -151,14 +151,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C5b-oJ-ooc">
-                                                            <rect key="frame" x="10" y="30" width="325" height="14.5"/>
+                                                            <rect key="frame" x="10" y="30" width="325" height="14"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4 Completed" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JaT-Uz-Dfj">
-                                                            <rect key="frame" x="10" y="44.5" width="100" height="20"/>
+                                                            <rect key="frame" x="10" y="44" width="100" height="20"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Quq-U9-zBo"/>
@@ -169,7 +169,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YUX-J5-sdP">
-                                                            <rect key="frame" x="110" y="44.5" width="225" height="20"/>
+                                                            <rect key="frame" x="110" y="44" width="225" height="20"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="PLf-4J-pLr"/>
@@ -179,7 +179,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-14-QoF">
-                                                            <rect key="frame" x="25" y="74.5" width="310" height="5.5"/>
+                                                            <rect key="frame" x="25" y="74" width="310" height="6"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

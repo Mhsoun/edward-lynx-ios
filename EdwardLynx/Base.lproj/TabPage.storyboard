@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Pag View Controller-->
+        <!--Tab Page View Controller-->
         <scene sceneID="i6l-lx-e0Y">
             <objects>
-                <viewController id="qWn-Eu-b1X" customClass="ELTabPagViewController" sceneMemberID="viewController">
+                <viewController id="qWn-Eu-b1X" customClass="ELTabPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZG4-oF-ue8"/>
                         <viewControllerLayoutGuide type="bottom" id="BaX-Pt-sP9"/>
@@ -74,14 +74,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nd-rh-FMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="147.97601199400302"/>
+            <point key="canvasLocation" x="594" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1VR-H2-ujA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qPh-Ep-WFA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Tp-bv-LxD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Tp-bv-LxD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

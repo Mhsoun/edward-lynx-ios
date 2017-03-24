@@ -45,8 +45,15 @@ typedef NS_ENUM(NSInteger, kELInviteUsers) {
 
 typedef NS_ENUM(NSInteger, kELListFilter) {
     kELListFilterAll = 5,
-    kELListFilterUnfinished = 1,
-    kELListFilterComplete = 2
+    kELListFilterInProgress = 1,
+    kELListFilterCompleted = 2,
+    kELListFilterExpired = -1
+};
+
+typedef NS_ENUM(NSInteger, kELListType) {
+    kELListTypeDevPlan,
+    kELListTypeReports,
+    kELListTypeSurveys
 };
 
 typedef NS_ENUM(NSInteger, kELPopupType) {
@@ -74,7 +81,7 @@ typedef NS_ENUM(NSInteger, kELRolePermission) {
 typedef NS_ENUM(NSInteger, kELSurveyStatus) {
     kELSurveyStatusOpen = 0,
     kELSurveyStatusPartial = 1,
-    kELSurveyStatusComplete = 2,
+    kELSurveyStatusCompleted = 2,
     kELSurveyStatusNotInvited = 3
 };
 

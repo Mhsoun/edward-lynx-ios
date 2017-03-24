@@ -8,9 +8,9 @@
 
 #import <XLPagerTabStrip-AnthonyMDev/XLBarPagerTabStripViewController.h>
 
-#import "ELBaseViewController.h"
+#import "ELBasePageChildViewController.h"
 
-@interface ELDevelopmentPlansViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
+@interface ELDevelopmentPlansViewController : ELBasePageChildViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

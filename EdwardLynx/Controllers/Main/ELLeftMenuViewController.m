@@ -11,6 +11,7 @@
 #import "ELDataProvider.h"
 #import "ELMenuItem.h"
 #import "ELTableDataSource.h"
+#import "ELTabPageViewController.h"
 
 #pragma mark - Private Constants
 
@@ -122,6 +123,19 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 - (Boolean)disablePanGestureForIndexPath:(NSIndexPath *)indexPath {
     return YES;
+}
+
+- (void)prepareForSwitchToContentViewController:(UINavigationController *)content {
+    ELTabPageViewController *controller;
+    
+    if (self.selectedIndexPath.row == 1) {  // TEMP Condition (Dev Plan)
+        controller = content.viewControllers[0];
+        controller.type = kELListTypeDevPlan;
+        controller.tabs = @[@(kELListFilterAll),
+                            @(kELListFilterInProgress),
+                            @(kELListFilterCompleted),
+                            @(kELListFilterExpired)];
+    }
 }
 
 - (NSString *)segueIdForIndexPath:(NSIndexPath *)indexPath {

@@ -214,7 +214,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                 
                 self.tableView.rowHeight = kELSurveyRowHeight;
                 self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusComplete)],
+                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusCompleted)],
                                                                                            @"selected": @NO}
                                                                                    error:nil],
                                             [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Invited",
@@ -231,7 +231,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                                                  error:nil]];
                 
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
-                
+                                
                 break;
             case kELListTypeReports:
                 emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
@@ -268,7 +268,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             default:
                 break;
         }
-        
     }
     
     self.defaultListItems = self.isPaginated ? [self.defaultListItems arrayByAddingObjectsFromArray:[mItems copy]] : [mItems copy];

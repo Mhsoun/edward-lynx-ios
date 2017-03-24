@@ -271,15 +271,21 @@
             return @"All";
             
             break;
-        case kELListFilterUnfinished:
-            return @"Unfinished";
+        case kELListFilterInProgress:
+            return @"In Progress";
             
             break;
-        case kELListFilterComplete:
+        case kELListFilterCompleted:
             return @"Completed";
             
             break;
+        case kELListFilterExpired:
+            return @"Expired";
+            
+            break;
         default:
+            return @"";
+            
             break;
     }
 }
@@ -311,7 +317,7 @@
             return @"Partial";
             
             break;
-        case kELSurveyStatusComplete:
+        case kELSurveyStatusCompleted:
             return @"Completed";
             
             break;

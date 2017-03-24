@@ -89,7 +89,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     ELQuestion *question = [(ELQuestionCategory *)[self.provider sectionObjectAtIndexPath:indexPath] questions][indexPath.row];
     
     [cell configure:question atIndexPath:indexPath];
-    [cell setUserInteractionEnabled:self.survey.status != kELSurveyStatusComplete];
+    [cell setUserInteractionEnabled:self.survey.status != kELSurveyStatusCompleted];
     
     return cell;
 }

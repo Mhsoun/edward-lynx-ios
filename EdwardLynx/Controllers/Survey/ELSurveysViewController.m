@@ -34,10 +34,11 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.tabs = @[@(kELListFilterAll),
-                  @(kELListFilterUnfinished),
-                  @(kELListFilterComplete)];
     self.searchBar.delegate = self;
+    self.tabs = @[@(kELListFilterAll),
+                  @(kELListFilterInProgress),
+                  @(kELListFilterCompleted),
+                  @(kELListFilterExpired)];
 }
 
 - (void)didReceiveMemoryWarning {

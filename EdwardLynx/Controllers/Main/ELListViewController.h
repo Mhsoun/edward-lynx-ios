@@ -10,15 +10,10 @@
 
 #import "ELBaseViewController.h"
 
-typedef NS_ENUM(NSInteger, kELListType) {
-    kELListTypeDevPlan,
-    kELListTypeReports,
-    kELListTypeSurveys
-};
-
 @interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELListPopupDelegate>
 
 @property (nonatomic) kELListType listType;
+@property (nonatomic) kELListFilter listFilter;
 
 @property (strong, nonatomic) id<ELListViewControllerDelegate> delegate;
 
