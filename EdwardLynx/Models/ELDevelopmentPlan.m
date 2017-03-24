@@ -30,10 +30,13 @@
 }
 
 - (CGFloat)progress {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
-    NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
+    CGFloat averageProgress = 0;
     
-    return completedGoals / (CGFloat)self.goals.count;
+    for (ELGoal *goal in self.goals) {
+        averageProgress += goal.progress;
+    }
+    
+    return averageProgress / (CGFloat)self.goals.count;
 }
 
 - (NSString<Ignore> *)progressText {

@@ -82,7 +82,7 @@
     
     for (int i = 0; i < devPlan.goals.count; i++) {
         ELGoal *goal = devPlan.goals[i];
-        NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELGreenColor;
+        NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELBlueColor;
         
         [mColors addObject:[[RNThemeManager sharedManager] colorForKey:colorKey]];
         [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
