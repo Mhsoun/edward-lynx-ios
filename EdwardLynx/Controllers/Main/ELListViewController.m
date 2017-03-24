@@ -301,7 +301,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                     listType:(kELListType)listType
                   filterType:(kELListFilter)filterType {
     NSString *predicateString;
-        
+    
     switch (listType) {
         case kELListTypeDevPlan:
             switch (filterType) {

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ELDevelopmentPlanAPIClient.h"
 #import "ELGoal.h"
+#import "ELGoalActionTableViewCell.h"
 
 #pragma mark - Private Constants
 
@@ -31,10 +32,15 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     // Initialization code
     
     self.tintColor = [[RNThemeManager sharedManager] colorForKey:kELGreenColor];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = kELActionCellHeight;
     self.tableView.scrollEnabled = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -57,20 +63,19 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELGoalActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELGoalAction *action = self.goal.actions[indexPath.row];
-    UIImage *checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                          iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+    UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
+                                          iconColor:[[RNThemeManager sharedManager] colorForKey:action.checked ? kELGreenColor : kELWhiteColor]
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     action.urlLink = [NSString stringWithFormat:@"%@/actions/%@", self.goal.urlLink, @(action.objectId)];
     
-    cell.textLabel.text = action.title;
+    cell.accessoryView = [[UIImageView alloc] initWithImage:checkIcon];
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
-    
-    [cell setAccessoryView:action.checked ? [[UIImageView alloc] initWithImage:checkIcon] : nil];
+    cell.titleLabel.text = action.title;
     
     return cell;
 }
@@ -150,10 +155,23 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 #pragma mark - Private Methods
 
 - (void)updateContent {
+    NSString *colorKey = self.goal.progress == 1 ? kELOrangeColor : kELBlueColor;
+    UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    
+    // Content
     self.goalLabel.text = self.goal.title;
     self.completedLabel.text = [self.goal progressDetails][@"text"];
+    self.completedLabel.textColor = color;
     self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
                                                                           self.goal.shortDescription;
+    
+    // Progress
+    self.leftView.backgroundColor = color;
+    self.progressView.layer.cornerRadius = 2.5;
+    self.progressView.layer.masksToBounds = YES;
+    self.progressView.progress = self.goal.progress;
+    self.progressView.progressTintColor = color;
+    self.progressView.progressViewStyle = UIProgressViewStyleBar;
     
     [self.tableView reloadData];
 }

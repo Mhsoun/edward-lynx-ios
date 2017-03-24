@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <PNChart/PNCircleChart.h>
+
 #import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
@@ -14,8 +16,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELActionCellHeight = 60;
-static CGFloat const kELGoalCellHeight = 85;
+static CGFloat const kELGoalCellHeight = 105;
 
 static NSString * const kELCellIdentifier = @"GoalCell";
 
@@ -25,6 +26,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
 
@@ -37,6 +39,17 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
+                                                      total:[NSNumber numberWithInt:100]
+                                                    current:[NSNumber numberWithInt:0]
+                                                  clockwise:YES
+                                                     shadow:YES
+                                                shadowColor:[UIColor blackColor]
+                                       displayCountingLabel:YES
+                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+    
+    [self.circleChartView addSubview:self.circleChart];
+    
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
                 
@@ -45,14 +58,19 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         self.title = [self.devPlan.name uppercaseString];
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         
+        [self updateHeaderView];
         [self.indicatorView stopAnimating];
     }
 
     self.selectedIndex = -1;
     self.detailViewManager.delegate = self;
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,17 +81,18 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.devPlan.goals.count;
+    return self.devPlan.sortedGoals.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELGoal *goal = self.devPlan.goals[indexPath.row];
+    ELGoal *goal = self.devPlan.sortedGoals[indexPath.row];
     ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     goal.urlLink = [NSString stringWithFormat:@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId)];
-    cell.devPlanName = self.devPlan.name;
     
+    [cell setDevPlanName:self.devPlan.name];
     [cell configure:goal atIndexPath:indexPath];
+    [cell.tableView setHidden:self.selectedIndex != indexPath.row];
     
     return cell;
 }
@@ -121,8 +140,19 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
     self.title = [self.devPlan.name uppercaseString];
     
+    [self updateHeaderView];
     [self.indicatorView stopAnimating];
     [self.tableView reloadData];
+}
+
+#pragma mark - Private Methods
+
+- (void)updateHeaderView {
+    self.chartLabel.attributedText = self.devPlan.attributedProgressText;
+    
+    // Chart
+    [ELUtils circleChart:self.circleChart developmentPlan:self.devPlan];
+    [self.circleChart strokeChart];
 }
 
 @end

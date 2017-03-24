@@ -52,7 +52,8 @@
     // Content
     self.nameLabel.text = devPlan.name;
     self.completedLabel.text = devPlan.progressText;
-    self.timestampLabel.text = [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:devPlan.createdAt];
+    self.timestampLabel.text = [NSString stringWithFormat:@"Due date: %@",
+                                [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:devPlan.createdAt]];
     
     [self setupBarChartForDevelopmentPlan:devPlan];
     [self setupCircleChartForDevelopmentPlan:devPlan];
@@ -98,13 +99,7 @@
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
-    self.circleChart.backgroundColor = [UIColor clearColor];
-    self.circleChart.strokeColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-    self.circleChart.current = [NSNumber numberWithFloat:(devPlan.progress * 100)];
-
-    self.circleChart.countingLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20.0f];
-    self.circleChart.countingLabel.textColor = [UIColor whiteColor];
-    
+    [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
     [self.circleChart strokeChart];
 }
 
