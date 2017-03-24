@@ -10,12 +10,14 @@
 #import <Fabric/Fabric.h>
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
+#import <PNChart/PNCircleChart.h>
 #import <REValidation/REValidation.h>
 #import <UIView+Toast.h>
 
 #import "ELUtils.h"
 #import "AppDelegate.h"
 #import "ELBaseQuestionTypeView.h"
+#import "ELDevelopmentPlan.h"
 #import "ELEmailValidator.h"
 #import "ELListPopupViewController.h"
 #import "ELOAuthInstance.h"
@@ -224,6 +226,15 @@
     }
 }
 
++ (void)circleChart:(PNCircleChart *)chart developmentPlan:(ELDevelopmentPlan *)developmentPlan {
+    chart.backgroundColor = [UIColor clearColor];
+    chart.strokeColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    chart.current = [NSNumber numberWithFloat:(developmentPlan.progress * 100)];
+    
+    chart.countingLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20.0f];
+    chart.countingLabel.textColor = [UIColor whiteColor];
+}
+
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict {
@@ -271,15 +282,21 @@
             return @"All";
             
             break;
-        case kELListFilterUnfinished:
-            return @"Unfinished";
+        case kELListFilterInProgress:
+            return @"In Progress";
             
             break;
-        case kELListFilterComplete:
+        case kELListFilterCompleted:
             return @"Completed";
             
             break;
+        case kELListFilterExpired:
+            return @"Expired";
+            
+            break;
         default:
+            return @"";
+            
             break;
     }
 }
@@ -311,7 +328,7 @@
             return @"Partial";
             
             break;
-        case kELSurveyStatusComplete:
+        case kELSurveyStatusCompleted:
             return @"Completed";
             
             break;

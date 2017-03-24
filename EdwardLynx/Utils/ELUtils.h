@@ -7,8 +7,10 @@
 //
 
 @class ELBaseQuestionTypeView;
+@class ELDevelopmentPlan;
 @class ELListPopupViewController;
 @class ELPopupViewController;
+@class PNCircleChart;
 
 #import "ELQuestion.h"
 
@@ -49,6 +51,7 @@
 
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
++ (void)circleChart:(PNCircleChart *)chart developmentPlan:(ELDevelopmentPlan *)developmentPlan;
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict;

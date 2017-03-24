@@ -83,11 +83,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "FontAwesomeTools/FontAwesomeTools/FontAwesome.otf"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/XLPagerTabStrip-AnthonyMDev/XLPagerTabStrip.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FontAwesomeTools/FontAwesomeTools/FontAwesome.otf"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/XLPagerTabStrip-AnthonyMDev/XLPagerTabStrip.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

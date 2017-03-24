@@ -28,7 +28,7 @@
     ELSurvey *survey = (ELSurvey *)object;
     NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
     NSString *dateString = [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:survey.endDate];
-    NSString *colorString = survey.status == kELSurveyStatusComplete ? kELGreenColor : kELDarkGrayColor;
+    NSString *colorString = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
     
     // Content
     self.surveyLabel.text = survey.name;

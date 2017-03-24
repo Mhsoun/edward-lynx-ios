@@ -101,6 +101,10 @@
 		A9B5D2AE1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2AD1E4065C300D5A0EA /* ELDevelopmentPlanAPIClient.m */; };
 		A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */; };
 		A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */; };
+		A9BA24701E84DDFD00700FD7 /* ELBasePageChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BA246F1E84DDFD00700FD7 /* ELBasePageChildViewController.m */; };
+		A9BA24721E8517E700700FD7 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BA24711E8517E700700FD7 /* GoalCell.xib */; };
+		A9BA24741E851A4600700FD7 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BA24731E851A4600700FD7 /* ActionCell.xib */; };
+		A9BA24771E851EF600700FD7 /* ELGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BA24761E851EF600700FD7 /* ELGoalActionTableViewCell.m */; };
 		A9BCA3BA1E83745200C33430 /* ELQuestionTypeRadioGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BCA3B91E83745200C33430 /* ELQuestionTypeRadioGroupView.m */; };
 		A9BCA3BC1E83747000C33430 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9BCA3BB1E83747000C33430 /* QuestionTypeRadioGroupView.xib */; };
 		A9BF267D1E2D323000F42859 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF267C1E2D323000F42859 /* ELInstantFeedback.m */; };
@@ -138,6 +142,8 @@
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
+		A9F93CBE1E83E3B0009EAE80 /* TabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */; };
+		A9F93CC11E83E3F1009EAE80 /* ELTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F93CC01E83E3F1009EAE80 /* ELTabPageViewController.m */; };
 		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -379,6 +385,12 @@
 		A9B5D2B01E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanViewManager.m; sourceTree = "<group>"; };
 		A9B6A3201E4DC3D700089E61 /* ELEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELEmailValidator.h; sourceTree = "<group>"; };
 		A9B6A3211E4DC3D700089E61 /* ELEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELEmailValidator.m; sourceTree = "<group>"; };
+		A9BA246E1E84DDFD00700FD7 /* ELBasePageChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBasePageChildViewController.h; sourceTree = "<group>"; };
+		A9BA246F1E84DDFD00700FD7 /* ELBasePageChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBasePageChildViewController.m; sourceTree = "<group>"; };
+		A9BA24711E8517E700700FD7 /* GoalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
+		A9BA24731E851A4600700FD7 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		A9BA24751E851EF600700FD7 /* ELGoalActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalActionTableViewCell.h; sourceTree = "<group>"; };
+		A9BA24761E851EF600700FD7 /* ELGoalActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalActionTableViewCell.m; sourceTree = "<group>"; };
 		A9BCA3B81E83745200C33430 /* ELQuestionTypeRadioGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionTypeRadioGroupView.h; sourceTree = "<group>"; };
 		A9BCA3B91E83745200C33430 /* ELQuestionTypeRadioGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionTypeRadioGroupView.m; sourceTree = "<group>"; };
 		A9BCA3BB1E83747000C33430 /* QuestionTypeRadioGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeRadioGroupView.xib; sourceTree = "<group>"; };
@@ -440,6 +452,9 @@
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
+		A9F93CBD1E83E3B0009EAE80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabPage.storyboard; sourceTree = "<group>"; };
+		A9F93CBF1E83E3F1009EAE80 /* ELTabPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTabPageViewController.h; sourceTree = "<group>"; };
+		A9F93CC01E83E3F1009EAE80 /* ELTabPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTabPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +562,8 @@
 				A96E6E5B1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m */,
 				A9E53D661E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.h */,
 				A9E53D671E1B9D9D00E9BB3C /* ELDevelopmentPlanTableViewCell.m */,
+				A9BA24751E851EF600700FD7 /* ELGoalActionTableViewCell.h */,
+				A9BA24761E851EF600700FD7 /* ELGoalActionTableViewCell.m */,
 				A9B3953D1E418E7D00D878BE /* ELGoalTableViewCell.h */,
 				A9B3953E1E418E7D00D878BE /* ELGoalTableViewCell.m */,
 				A96E6E5D1E2F74450056EDB1 /* ELItemTableViewCell.h */,
@@ -705,6 +722,7 @@
 				A91BF5931E2DFBA200F203A2 /* Report.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
 				A96AE03A1E0F773600AD56BE /* Survey.storyboard */,
+				A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */,
 				A91B157E1E03A44500CAEC43 /* XIBs */,
 			);
 			name = Layouts;
@@ -747,6 +765,8 @@
 			children = (
 				A95BFE021E497A1D00023081 /* ELBaseDetailViewController.h */,
 				A95BFE031E497A1D00023081 /* ELBaseDetailViewController.m */,
+				A9BA246E1E84DDFD00700FD7 /* ELBasePageChildViewController.h */,
+				A9BA246F1E84DDFD00700FD7 /* ELBasePageChildViewController.m */,
 				A9C1F3C71E52B18800D07326 /* ELBasePopupViewController.h */,
 				A9C1F3C81E52B18800D07326 /* ELBasePopupViewController.m */,
 				A96F27621DFF9FCB00609E27 /* ELBaseViewController.h */,
@@ -761,6 +781,8 @@
 				A91DCD361E35C997006F2778 /* ELListViewController.m */,
 				A971CA581E48E0B800B14773 /* ELPopupViewController.h */,
 				A971CA591E48E0B800B14773 /* ELPopupViewController.m */,
+				A9F93CBF1E83E3F1009EAE80 /* ELTabPageViewController.h */,
+				A9F93CC01E83E3F1009EAE80 /* ELTabPageViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -882,7 +904,9 @@
 		A9CCA7051E1A0E6C00ACA299 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A9BA24731E851A4600700FD7 /* ActionCell.xib */,
 				A9E53D641E1B9D6E00E9BB3C /* DevelopmentPlanCell.xib */,
+				A9BA24711E8517E700700FD7 /* GoalCell.xib */,
 				A9C1F3CA1E52B85E00D07326 /* ListCell.xib */,
 				A94821A11E23370B008B738A /* ParticipantCell.xib */,
 				A9195FAE1E19F28600F84272 /* QuestionCell.xib */,
@@ -1123,9 +1147,11 @@
 				A9C1F3C31E52ACB300D07326 /* ListPopupView.xib in Resources */,
 				A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
+				A9F93CBE1E83E3B0009EAE80 /* TabPage.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
+				A9BA24741E851A4600700FD7 /* ActionCell.xib in Resources */,
 				A9AD21A91E49B92900624F99 /* Localizable.strings in Resources */,
 				A9C36D271E812468009A7A35 /* DropdownView.xib in Resources */,
 				A9BCA3BC1E83747000C33430 /* QuestionTypeRadioGroupView.xib in Resources */,
@@ -1141,6 +1167,7 @@
 				A94821A21E23370B008B738A /* ParticipantCell.xib in Resources */,
 				A970867E1E1E509D00CDC2DF /* QuestionTypeAgreementView.xib in Resources */,
 				A9E53D5F1E1B8BB200E9BB3C /* DevelopmentPlan.storyboard in Resources */,
+				A9BA24721E8517E700700FD7 /* GoalCell.xib in Resources */,
 				A91DCD3C1E35E518006F2778 /* ReportCell.xib in Resources */,
 				A96AE03C1E0F773600AD56BE /* Survey.storyboard in Resources */,
 				A91B15801E03A45900CAEC43 /* StatusView.xib in Resources */,
@@ -1292,8 +1319,10 @@
 				A90313271E31DF950046A005 /* ELSurveyViewManager.m in Sources */,
 				A9E3A6B31E80E0FE00A51D74 /* ELNotificationView.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
+				A9F93CC11E83E3F1009EAE80 /* ELTabPageViewController.m in Sources */,
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
+				A9BA24701E84DDFD00700FD7 /* ELBasePageChildViewController.m in Sources */,
 				A9C1F3C61E52ADCF00D07326 /* ELListPopupViewController.m in Sources */,
 				A9A4DF8B1DFEB45F00CC4FAA /* ELQuestionsAPIClient.m in Sources */,
 				A9B6A3221E4DC3D700089E61 /* ELEmailValidator.m in Sources */,
@@ -1335,6 +1364,7 @@
 				A9214DCE1E092AAE0021EA5E /* ELEditProfileViewController.m in Sources */,
 				A9B5D2B11E4095F500D5A0EA /* ELDevelopmentPlanViewManager.m in Sources */,
 				A99EC8B91E24BB5900F47D61 /* ELModel.m in Sources */,
+				A9BA24771E851EF600700FD7 /* ELGoalActionTableViewCell.m in Sources */,
 				A9308BD61DED74B6007B4F9F /* AppDelegate.m in Sources */,
 				A96E6E5C1E2F743A0056EDB1 /* ELAddObjectTableViewCell.m in Sources */,
 				A9B36AAC1DFE5E4F00599909 /* ELLoginViewController.m in Sources */,
@@ -1577,6 +1607,14 @@
 				A9AD21911E49B28600624F99 /* ru */,
 			);
 			name = DevelopmentPlan.storyboard;
+			sourceTree = "<group>";
+		};
+		A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9F93CBD1E83E3B0009EAE80 /* Base */,
+			);
+			name = TabPage.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

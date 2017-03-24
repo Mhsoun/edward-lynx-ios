@@ -20,7 +20,6 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
 
 @interface ELDevelopmentPlansViewController ()
 
-@property (nonatomic, strong) NSArray *tabs;
 @property (nonatomic, strong) ELDevelopmentPlan *selectedDevPlan;
 
 @end
@@ -34,9 +33,6 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.tabs = @[@(kELListFilterAll),
-                  @(kELListFilterUnfinished),
-                  @(kELListFilterComplete)];
     self.searchBar.delegate = self;
 }
 
@@ -57,6 +53,7 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
         
         controller.delegate = self;
         controller.listType = kELListTypeDevPlan;
+        controller.listFilter = [self.tabs[self.index] integerValue];
     }
 }
 
@@ -84,6 +81,12 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
     self.selectedDevPlan = (ELDevelopmentPlan *)object;
     
     [self performSegueWithIdentifier:kELSDetailegueIdentifier sender:self];
+}
+
+#pragma mark - Protocol Methods (XLPagerTabStrip)
+
+- (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
+    return [[ELUtils labelByListFilter:[self.tabs[self.index] integerValue]] uppercaseString];
 }
 
 @end

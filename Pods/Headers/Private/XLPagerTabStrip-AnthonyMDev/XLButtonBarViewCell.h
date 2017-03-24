@@ -1,0 +1,1 @@
+../../../XLPagerTabStrip-AnthonyMDev/XLPagerTabStrip/XL/Views/XLButtonBarViewCell.h

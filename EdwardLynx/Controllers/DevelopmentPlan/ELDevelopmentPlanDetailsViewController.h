@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) ELDevelopmentPlan *devPlan;
 
+@property (weak, nonatomic) IBOutlet UIView *circleChartView;
+@property (weak, nonatomic) IBOutlet UILabel *chartLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 

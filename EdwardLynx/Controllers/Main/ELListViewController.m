@@ -207,72 +207,78 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.total = [responseDict[@"total"] integerValue];
     self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
     
-    for (NSDictionary *detailDict in responseDict[@"items"]) {
-        switch (self.listType) {
-            case kELListTypeSurveys:
-                emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
-                
-                self.tableView.rowHeight = kELSurveyRowHeight;
-                self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusComplete)],
-                                                                                           @"selected": @NO}
-                                                                                   error:nil],
-                                            [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Invited",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusNotInvited)],
-                                                                                           @"selected": @NO}
-                                                                                   error:nil],
-                                            [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Unfinished",
-                                                                                           @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusPartial)],
-                                                                                           @"selected": @NO}
-                                                                                   error:nil]];
-                self.initialSortItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Z-A/A-Z",
-                                                                                         @"key": @"name",
-                                                                                         @"selected": @NO}
-                                                                                 error:nil]];
-                
+    switch (self.listType) {
+        case kELListTypeSurveys:
+            emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
+            
+            self.tableView.rowHeight = kELSurveyRowHeight;
+            self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
+                                                                                       @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusCompleted)],
+                                                                                       @"selected": @NO}
+                                                                               error:nil],
+                                        [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Invited",
+                                                                                       @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusNotInvited)],
+                                                                                       @"selected": @NO}
+                                                                               error:nil],
+                                        [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Unfinished",
+                                                                                       @"key": [NSString stringWithFormat:@"SELF.status == %@", @(kELSurveyStatusPartial)],
+                                                                                       @"selected": @NO}
+                                                                               error:nil]];
+            self.initialSortItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Z-A/A-Z",
+                                                                                     @"key": @"name",
+                                                                                     @"selected": @NO}
+                                                                             error:nil]];
+            
+            for (NSDictionary *detailDict in responseDict[@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
-                
-                break;
-            case kELListTypeReports:
-                emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
-                
-                self.tableView.rowHeight = kELDefaultRowHeight;
-                self.initialFilterItems = @[];  // TEMP Still needs to determine filter parameters
-                self.initialSortItems = @[];  // TEMP Still needs to determine sort parameters
-                
+            }
+            
+            break;
+        case kELListTypeReports:
+            emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
+            
+            self.tableView.rowHeight = kELDefaultRowHeight;
+            self.initialFilterItems = @[];  // TEMP Still needs to determine filter parameters
+            self.initialSortItems = @[];  // TEMP Still needs to determine sort parameters
+            
+            for (NSDictionary *detailDict in responseDict[@"items"]) {
                 [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
-                
-                break;
-            case kELListTypeDevPlan:
-                emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
+            }
+            
+            break;
+        case kELListTypeDevPlan:
+            emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
+            
+            self.tableView.rowHeight = 225;
+            self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
+                                                                                       @"key": @"SELF.completed == YES",
+                                                                                       @"selected": @NO}
+                                                                               error:nil],
+                                        [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Completed",
+                                                                                       @"key": @"SELF.completed == NO",
+                                                                                       @"selected": @NO}
+                                                                               error:nil]];
+            self.initialSortItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Z-A/A-Z",
+                                                                                     @"key": @"name",
+                                                                                     @"selected": @NO}
+                                                                             error:nil]];
+            
+            for (NSDictionary *detailDict in responseDict[@"items"]) {
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
                 devPlan.urlLink = detailDict[@"_links"][@"self"][@"href"];
                 
-                self.tableView.rowHeight = kELDefaultRowHeight;
-                self.initialFilterItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Completed",
-                                                                                           @"key": @"SELF.completed == YES",
-                                                                                           @"selected": @NO}
-                                                                                   error:nil],
-                                            [[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Not Completed",
-                                                                                           @"key": @"SELF.completed == NO",
-                                                                                           @"selected": @NO}
-                                                                                   error:nil]];
-                self.initialSortItems = @[[[ELFilterSortItem alloc] initWithDictionary:@{@"title": @"Z-A/A-Z",
-                                                                                         @"key": @"name",
-                                                                                         @"selected": @NO}
-                                                                                 error:nil]];
-                
                 [mItems addObject:devPlan];
-                
-                break;
-            default:
-                break;
-        }
-        
+            }
+            
+            break;
+        default:
+            break;
     }
     
     self.defaultListItems = self.isPaginated ? [self.defaultListItems arrayByAddingObjectsFromArray:[mItems copy]] : [mItems copy];
-    self.provider = [[ELDataProvider alloc] initWithDataArray:self.defaultListItems];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self filteredDataSet:self.defaultListItems
+                                                                           listType:self.listType
+                                                                         filterType:self.listFilter]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:self.cellIdentifier];
@@ -290,6 +296,38 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 #pragma mark - Private Methods
+
+- (NSArray *)filteredDataSet:(NSArray *)items
+                    listType:(kELListType)listType
+                  filterType:(kELListFilter)filterType {
+    NSString *predicateString;
+    
+    switch (listType) {
+        case kELListTypeDevPlan:
+            switch (filterType) {
+                case kELListFilterAll:
+                    return items;
+                    
+                    break;
+                case kELListFilterInProgress:
+                    predicateString = @"SELF.progress > 0 && SELF.progress < 1";
+                    
+                    break;
+                case kELListFilterCompleted:
+                    predicateString = @"SELF.progress == 1";
+                    
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        default:
+            break;
+    }
+    
+    return [items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicateString]];
+}
 
 - (void)loadListByType {
     switch (self.listType) {

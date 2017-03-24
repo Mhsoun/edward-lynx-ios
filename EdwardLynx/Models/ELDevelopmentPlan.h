@@ -22,6 +22,8 @@
 
 @property (nonatomic) BOOL completed;
 @property (nonatomic) CGFloat progress;
+@property (nonatomic) NSAttributedString<Ignore> *attributedProgressText;
 @property (nonatomic) NSString<Ignore> *progressText;
+@property (nonatomic) NSArray<Ignore> *sortedGoals;
 
 @end

@@ -12,7 +12,9 @@
 
 @synthesize completed = _completed;
 @synthesize progress = _progress;
+@synthesize attributedProgressText = _attributedProgressText;
 @synthesize progressText = _progressText;
+@synthesize sortedGoals = _sortedGoals;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
@@ -30,10 +32,34 @@
 }
 
 - (CGFloat)progress {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
-    NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
+    CGFloat averageProgress = 0;
     
-    return completedGoals / (CGFloat)self.goals.count;
+    for (ELGoal *goal in self.goals) {
+        averageProgress += goal.progress;
+    }
+    
+    return averageProgress / (CGFloat)self.goals.count;
+}
+
+- (NSAttributedString<Ignore> *)attributedProgressText {
+    NSInteger completedGoals;
+    NSString *format;
+    NSMutableAttributedString *infoString;
+    NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:12.0f],
+                                     NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELOrangeColor]};
+    
+    completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.checked == YES"]] count];
+    format = [NSString stringWithFormat:@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count)];
+    infoString = [[NSMutableAttributedString alloc] initWithString:format attributes:attributesDict];
+    
+    [infoString addAttribute:NSForegroundColorAttributeName
+                       value:[UIColor whiteColor]
+                       range:[format rangeOfString:@"completed"]];
+    [infoString addAttribute:NSFontAttributeName
+                       value:[UIFont fontWithName:@"Lato-Regular" size:12.0f]
+                       range:[format rangeOfString:@"completed"]];
+    
+    return infoString;
 }
 
 - (NSString<Ignore> *)progressText {
@@ -43,6 +69,12 @@
     return [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
             @(completedGoals),
             @(self.goals.count)];
+}
+
+- (NSArray<Ignore> *)sortedGoals {
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"progress" ascending:YES];
+    
+    return [self.goals sortedArrayUsingDescriptors:@[descriptor]];
 }
 
 @end
