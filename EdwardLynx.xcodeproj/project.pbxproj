@@ -138,6 +138,8 @@
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
+		A9F93CBE1E83E3B0009EAE80 /* TabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */; };
+		A9F93CC11E83E3F1009EAE80 /* ELTabPagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F93CC01E83E3F1009EAE80 /* ELTabPagViewController.m */; };
 		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -440,6 +442,9 @@
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
+		A9F93CBD1E83E3B0009EAE80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabPage.storyboard; sourceTree = "<group>"; };
+		A9F93CBF1E83E3F1009EAE80 /* ELTabPagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTabPagViewController.h; sourceTree = "<group>"; };
+		A9F93CC01E83E3F1009EAE80 /* ELTabPagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTabPagViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -705,6 +710,7 @@
 				A91BF5931E2DFBA200F203A2 /* Report.storyboard */,
 				A9685D0E1E014E1D0079FA84 /* Settings.storyboard */,
 				A96AE03A1E0F773600AD56BE /* Survey.storyboard */,
+				A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */,
 				A91B157E1E03A44500CAEC43 /* XIBs */,
 			);
 			name = Layouts;
@@ -761,6 +767,8 @@
 				A91DCD361E35C997006F2778 /* ELListViewController.m */,
 				A971CA581E48E0B800B14773 /* ELPopupViewController.h */,
 				A971CA591E48E0B800B14773 /* ELPopupViewController.m */,
+				A9F93CBF1E83E3F1009EAE80 /* ELTabPagViewController.h */,
+				A9F93CC01E83E3F1009EAE80 /* ELTabPagViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1123,6 +1131,7 @@
 				A9C1F3C31E52ACB300D07326 /* ListPopupView.xib in Resources */,
 				A96E6E591E2F13F30056EDB1 /* Invite.storyboard in Resources */,
 				A9214DC81E08D80B0021EA5E /* Profile.storyboard in Resources */,
+				A9F93CBE1E83E3B0009EAE80 /* TabPage.storyboard in Resources */,
 				A96F275D1DFF981E00609E27 /* default.plist in Resources */,
 				A9C1F3CB1E52B85E00D07326 /* ListCell.xib in Resources */,
 				A96AE0411E0F844300AD56BE /* SurveyCell.xib in Resources */,
@@ -1292,6 +1301,7 @@
 				A90313271E31DF950046A005 /* ELSurveyViewManager.m in Sources */,
 				A9E3A6B31E80E0FE00A51D74 /* ELNotificationView.m in Sources */,
 				A94821A81E2355FC008B738A /* ELParticipant.m in Sources */,
+				A9F93CC11E83E3F1009EAE80 /* ELTabPagViewController.m in Sources */,
 				A91BF59C1E2E1F2400F203A2 /* ELReportDetailsViewController.m in Sources */,
 				A9685D131E0153420079FA84 /* ELChangePassViewController.m in Sources */,
 				A9C1F3C61E52ADCF00D07326 /* ELListPopupViewController.m in Sources */,
@@ -1577,6 +1587,14 @@
 				A9AD21911E49B28600624F99 /* ru */,
 			);
 			name = DevelopmentPlan.storyboard;
+			sourceTree = "<group>";
+		};
+		A9F93CBC1E83E3B0009EAE80 /* TabPage.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9F93CBD1E83E3B0009EAE80 /* Base */,
+			);
+			name = TabPage.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

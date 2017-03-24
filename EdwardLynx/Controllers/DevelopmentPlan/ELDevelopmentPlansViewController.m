@@ -86,4 +86,10 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
     [self performSegueWithIdentifier:kELSDetailegueIdentifier sender:self];
 }
 
+#pragma mark - Protocol Methods (XLPagerTabStrip)
+
+- (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
+    return @"Development Plan";
+}
+
 @end
