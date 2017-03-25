@@ -61,13 +61,13 @@
 - (void)setupWithDetails:(NSDictionary *)contentDict {
     self.icon.image = contentDict[@"icon"];
     self.titleLabel.text = contentDict[@"title"];
-    self.descriptionLabel.text = contentDict[@"description"];
+    self.backgroundColor = [[RNThemeManager sharedManager] colorForKey:contentDict[@"color"]];
     
-    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
+//    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
 
 - (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
-    ELUser *user = [ELAppSingleton sharedInstance].user;
+    ELUser *user = AppSingleton.user;
     
     if (![permissions intersectsSet:[user permissionsByRole]]) {
         [self setAlpha:0.5];

@@ -109,6 +109,7 @@ NSString * const kELLightGrayColor = @"lightGrayColor";
 NSString * const kELLightVioletColor = @"lightVioletColor";
 NSString * const kELPinkColor = @"pinkColor";
 NSString * const kELOrangeColor = @"orangeColor";
+NSString * const kELRedColor = @"redColor";
 NSString * const kELVioletColor = @"violetColor";
 NSString * const kELWhiteColor = @"whiteColor";
 

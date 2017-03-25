@@ -53,7 +53,7 @@
     self.nameLabel.text = devPlan.name;
     self.completedLabel.text = devPlan.progressText;
     self.timestampLabel.text = [NSString stringWithFormat:@"Due date: %@",
-                                [[ELAppSingleton sharedInstance].printDateFormatter stringFromDate:devPlan.createdAt]];
+                                [AppSingleton.printDateFormatter stringFromDate:devPlan.createdAt]];
     
     [self setupBarChartForDevelopmentPlan:devPlan];
     [self setupCircleChartForDevelopmentPlan:devPlan];

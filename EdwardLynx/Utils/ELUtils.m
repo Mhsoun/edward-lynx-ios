@@ -440,7 +440,7 @@
 + (void)registerValidators {
     [REValidation registerDefaultValidators];
     [REValidation registerValidator:[ELEmailValidator class]];
-    [REValidation setErrorMessages:[ELAppSingleton sharedInstance].validationDict];
+    [REValidation setErrorMessages:AppSingleton.validationDict];
 }
 
 + (NSArray *)removeDuplicateUsers:(NSArray *)subset superset:(NSArray *)superset {

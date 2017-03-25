@@ -232,7 +232,7 @@
                           [UIDevice currentDevice].model,
                           [UIDevice currentDevice].systemName,
                           [UIDevice currentDevice].systemVersion,
-                          [ELAppSingleton sharedInstance].user.objectId,
+                          AppSingleton.user.objectId,
                           deviceToken];
     
     if (!self.firebaseToken) {
@@ -296,12 +296,10 @@
 }
 
 - (void)triggerRegisterForNotifications {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
-        [delegate registerDeviceToFirebaseAndAPI];
+        [ApplicationDelegate registerDeviceToFirebaseAndAPI];
     } else {
-        [delegate registerForRemoteNotifications];
+        [ApplicationDelegate registerForRemoteNotifications];
     }
 }
 
@@ -395,7 +393,7 @@
         [ELNotificationView showWithNotification:notification
                                         duration:3.5
                                           tapped:^{
-            if ([ELAppSingleton sharedInstance].hasLoadedApplication) {
+            if (AppSingleton.hasLoadedApplication) {
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
                     [self displayViewControllerByData:notification];

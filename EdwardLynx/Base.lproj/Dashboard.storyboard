@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qbD-09-USD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qbD-09-USD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,24 +22,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-k5-PUd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-ti-0lx">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-ti-0lx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-a3-NpI" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS1-Wn-Tz6" userLabel="Shortcuts Section View">
+                                                <rect key="frame" x="15" y="10" width="345" height="275"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Rf-hE-lA6" customClass="ELShortcutView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="65"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpC-Lj-K8E" customClass="ELShortcutView">
+                                                        <rect key="frame" x="0.0" y="70" width="345" height="65"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-Ae-bKj" customClass="ELShortcutView">
+                                                        <rect key="frame" x="0.0" y="140" width="345" height="65"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kwu-hI-SfP" customClass="ELShortcutView">
+                                                        <rect key="frame" x="0.0" y="210" width="345" height="65"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -62,14 +73,18 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6U-HV-xgk" userLabel="Actions Required Section View">
+                                                <rect key="frame" x="15" y="320" width="345" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSt-XI-tKq" customClass="ELActionView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlh-oj-hfM" customClass="ELActionView">
+                                                        <rect key="frame" x="118.5" y="0.0" width="108" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91G-hA-10E" customClass="ELActionView">
+                                                        <rect key="frame" x="236.5" y="0.0" width="108.5" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -91,11 +106,14 @@
                                                 </constraints>
                                             </view>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-eo-zaZ" userLabel="Status Section View">
+                                                <rect key="frame" x="15" y="430" width="345" height="120"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-Cw-G4X" customClass="ELStatusView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-Sa-zsg" customClass="ELStatusView">
+                                                        <rect key="frame" x="0.0" y="60" width="345" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -138,17 +156,25 @@
                                     <constraint firstAttribute="trailing" secondItem="nG8-a3-NpI" secondAttribute="trailing" id="tMk-ue-6l1"/>
                                 </constraints>
                             </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jak-j1-P2T">
+                                <rect key="frame" x="5" y="64" width="365" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="width" secondItem="j8u-U5-0mq" secondAttribute="width" id="6GY-pw-wMU"/>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="centerX" secondItem="j8u-U5-0mq" secondAttribute="centerX" id="AdC-aj-RyS"/>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="centerY" secondItem="j8u-U5-0mq" secondAttribute="centerY" id="DHA-hl-hym"/>
+                            <constraint firstItem="T7T-Dc-jYF" firstAttribute="top" secondItem="jak-j1-P2T" secondAttribute="bottom" id="Nsb-Wk-Fhl"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerY" secondItem="j8u-U5-0mq" secondAttribute="centerY" id="QNY-lZ-OCD"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerX" secondItem="j8u-U5-0mq" secondAttribute="centerX" id="QOO-cN-rjv"/>
+                            <constraint firstAttribute="trailing" secondItem="jak-j1-P2T" secondAttribute="trailing" constant="5" id="YrX-3W-7eW"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="height" secondItem="j8u-U5-0mq" secondAttribute="height" id="ZeM-zF-Vhg"/>
+                            <constraint firstItem="jak-j1-P2T" firstAttribute="leading" secondItem="j8u-U5-0mq" secondAttribute="leading" constant="5" id="azE-rc-8i5"/>
                             <constraint firstItem="VEi-ti-0lx" firstAttribute="height" secondItem="j8u-U5-0mq" secondAttribute="height" id="elh-0p-lfd"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="width" secondItem="j8u-U5-0mq" secondAttribute="width" id="eye-ck-nkr"/>
+                            <constraint firstItem="jak-j1-P2T" firstAttribute="top" secondItem="PHU-zc-u1l" secondAttribute="bottom" id="thn-QJ-cm8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DASHBOARD" id="Ta0-tH-txy"/>
@@ -163,6 +189,7 @@
                         <outlet property="reportsView" destination="6Um-Ae-bKj" id="C27-qL-BxE"/>
                         <outlet property="scrollView" destination="VEi-ti-0lx" id="O6t-H9-6fN"/>
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
+                        <outlet property="tableView" destination="jak-j1-P2T" id="vNA-G4-lDT"/>
                         <segue destination="RpM-p2-AU4" kind="show" identifier="CreateInstantFeedback" id="5Fl-OE-4wS"/>
                         <segue destination="w5L-eZ-idj" kind="show" identifier="InstantFeedback" id="GyE-BV-OFn"/>
                         <segue destination="3Fr-eJ-sc1" kind="show" identifier="Report" id="nPw-dG-srp"/>

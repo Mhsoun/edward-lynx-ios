@@ -190,7 +190,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     NSString *defaultSelection = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
     NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
-    for (ELCategory *category in [ELAppSingleton sharedInstance].categories) [mCategories addObject:category.title];
+    for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
     
     self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
                                            baseController:self
@@ -276,7 +276,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                          completion:^{}];
     }
     
-    dateString = [[ELAppSingleton sharedInstance].apiDateFormatter stringFromDate:self.datePicker.date];
+    dateString = [AppSingleton.apiDateFormatter stringFromDate:self.datePicker.date];
     mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": nameGroup}];
     
     if (self.remindSwitch.isOn) {

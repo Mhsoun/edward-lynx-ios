@@ -102,7 +102,7 @@ static NSInteger const kELAPICallsNumber = 3;
                 [mCategories addObject:[[ELCategory alloc] initWithDictionary:categoryDict error:nil]];
             }
             
-            [ELAppSingleton sharedInstance].categories = [mCategories copy];   
+            AppSingleton.categories = [mCategories copy];
             
             completion(error);
         });
@@ -126,8 +126,7 @@ static NSInteger const kELAPICallsNumber = 3;
                 return;
             }
             
-            [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
-                                                                                  error:nil]];
+            [AppSingleton setUser:[[ELUser alloc] initWithDictionary:responseDict error:nil]];
             
             completion(error);
         });
@@ -148,7 +147,7 @@ static NSInteger const kELAPICallsNumber = 3;
                 [mParticipants addObject:participant];
             }
             
-            [ELAppSingleton sharedInstance].participants = [mParticipants copy];
+            AppSingleton.participants = [mParticipants copy];
             
             completion(error);
         });

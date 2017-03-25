@@ -100,15 +100,15 @@
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELProfileUpdateSuccess", nil)
                      completion:^{
-        [[ELAppSingleton sharedInstance] setUser:[[ELUser alloc] initWithDictionary:responseDict
-                                                                              error:nil]];
+        [AppSingleton setUser:[[ELUser alloc] initWithDictionary:responseDict
+                                                           error:nil]];
     }];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    ELUser *user = [ELAppSingleton sharedInstance].user;
+    ELUser *user = AppSingleton.user;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     NSArray *genders = @[NSLocalizedString(@"kELProfileGenderMale", nil),
                          NSLocalizedString(@"kELProfileGenderFemale", nil),
@@ -155,7 +155,7 @@
 #pragma mark - Private Methods
 
 - (void)populatePage {
-    ELUser *user = [ELAppSingleton sharedInstance].user;
+    ELUser *user = AppSingleton.user;
     
     self.nameTextField.text = user.name;
     self.emailTextField.text = user.email;
