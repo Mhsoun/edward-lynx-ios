@@ -19,9 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
-@property (weak, nonatomic) IBOutlet UIButton *allTabButton;
-@property (weak, nonatomic) IBOutlet UIButton *filterTabButton;
-@property (weak, nonatomic) IBOutlet UIButton *sortTabButton;
-- (IBAction)onTabButtonClick:(id)sender;
+- (IBAction)onAddButtonClick:(id)sender;
 
 @end
