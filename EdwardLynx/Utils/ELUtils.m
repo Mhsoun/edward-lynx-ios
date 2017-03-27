@@ -294,6 +294,14 @@
             return @"Expired";
             
             break;
+        case kELListFilterInstantFeedback:
+            return @"Instant Feedback";
+            
+            break;
+        case kELListFilterLynxManagement:
+            return @"Lynx Management";
+            
+            break;
         default:
             return @"";
             
@@ -312,7 +320,7 @@
             
             break;
         default:
-            return nil;
+            return @"";
             
             break;
     }
@@ -337,7 +345,36 @@
             
             break;
         default:
-            return nil;
+            return @"";
+            
+            break;
+    }
+}
+
++ (NSString *)labelBySurveyType:(kELSurveyType)type {
+    switch (type) {
+        case kELSurveyType360Individual:
+            return @"Lynx 360";
+            
+            break;
+        case kELSurveyTypeLMTT:
+            return @"LMTT";
+            
+            break;
+        case kELSurveyTypeProgress:
+            return @"Lynx Progress";
+            
+            break;
+        case kELSurveyTypeSurvey:
+            return @"Lynx Survey";
+            
+            break;
+        case kELSurveyTypeLTT:
+            return @"LTT";
+            
+            break;
+        default:
+            return @"";
             
             break;
     }

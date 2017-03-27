@@ -52,7 +52,9 @@ typedef NS_ENUM(NSInteger, kELListFilter) {
     kELListFilterAll = 5,
     kELListFilterInProgress = 1,
     kELListFilterCompleted = 2,
-    kELListFilterExpired = -1
+    kELListFilterExpired = -1,
+    kELListFilterInstantFeedback = 3,
+    kELListFilterLynxManagement = 4
 };
 
 typedef NS_ENUM(NSInteger, kELListType) {
@@ -88,6 +90,14 @@ typedef NS_ENUM(NSInteger, kELSurveyStatus) {
     kELSurveyStatusPartial = 1,
     kELSurveyStatusCompleted = 2,
     kELSurveyStatusNotInvited = 3
+};
+
+typedef NS_ENUM(NSInteger, kELSurveyType) {
+    kELSurveyType360Individual = 0,
+    kELSurveyTypeLMTT = 1,
+    kELSurveyTypeProgress = 2,
+    kELSurveyTypeSurvey = 3,
+    kELSurveyTypeLTT = 4
 };
 
 #pragma mark - .plist Keys (Root)

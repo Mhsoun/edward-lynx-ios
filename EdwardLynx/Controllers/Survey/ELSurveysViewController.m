@@ -20,7 +20,6 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 @interface ELSurveysViewController ()
 
-@property (nonatomic, strong) NSArray *tabs;
 @property (nonatomic, strong) ELSurvey *selectedSurvey;
 
 @end
@@ -32,13 +31,6 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Initialization
-    self.searchBar.delegate = self;
-    self.tabs = @[@(kELListFilterAll),
-                  @(kELListFilterInProgress),
-                  @(kELListFilterCompleted),
-                  @(kELListFilterExpired)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,30 +53,18 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     }
 }
 
-#pragma mark - Protocol Methods (UISearchBar)
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    // TODO Filtering implementation
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
-    
-    [searchBar setText:@""];
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar endEditing:YES];
-}
-
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
     self.selectedSurvey = (ELSurvey *)object;
     
     [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
+}
+
+#pragma mark - Protocol Methods (XLPagerTabStrip)
+
+- (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
+    return [[ELUtils labelByListFilter:[self.tabs[self.index] integerValue]] uppercaseString];
 }
 
 @end

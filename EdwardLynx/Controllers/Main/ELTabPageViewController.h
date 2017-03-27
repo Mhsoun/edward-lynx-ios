@@ -8,12 +8,10 @@
 
 #import <XLPagerTabStrip-AnthonyMDev/XLButtonBarPagerTabStripViewController.h>
 
-@interface ELTabPageViewController : XLButtonBarPagerTabStripViewController
+@interface ELTabPageViewController : XLButtonBarPagerTabStripViewController<UISearchBarDelegate>
 
 @property (nonatomic) kELListType type;
 
 @property (nonatomic, strong) NSArray *tabs;
-
-@property (weak, nonatomic) IBOutlet UIView *tabView;
 
 @end

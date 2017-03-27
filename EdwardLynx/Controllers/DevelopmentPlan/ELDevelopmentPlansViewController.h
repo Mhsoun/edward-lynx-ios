@@ -12,6 +12,4 @@
 
 @interface ELDevelopmentPlansViewController : ELBasePageChildViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 @end

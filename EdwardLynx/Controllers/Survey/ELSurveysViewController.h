@@ -6,10 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseViewController.h"
+#import <XLPagerTabStrip-AnthonyMDev/XLBarPagerTabStripViewController.h>
 
-@interface ELSurveysViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
+#import "ELBasePageChildViewController.h"
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface ELSurveysViewController : ELBasePageChildViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
 
 @end

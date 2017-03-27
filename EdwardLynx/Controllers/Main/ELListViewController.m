@@ -305,10 +305,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     switch (listType) {
         case kELListTypeDevPlan:
             switch (filterType) {
-                case kELListFilterAll:
-                    return items;
-                    
-                    break;
                 case kELListFilterInProgress:
                     predicateString = @"SELF.progress > 0 && SELF.progress < 1";
                     
@@ -318,11 +314,36 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                     
                     break;
                 default:
+                    return items;
+                    
                     break;
             }
+        case kELListTypeReports:  // TODO
+            return items;
             
             break;
+        case kELListTypeSurveys:
+            switch (filterType) {  // TODO
+                case kELListFilterAll:
+                    return items;
+                    
+                    break;
+                case kELListFilterInstantFeedback:
+                    return items;
+                    
+                    break;
+                case kELListFilterLynxManagement:
+                    return items;
+                    
+                    break;
+                default:
+                    return items;
+                    
+                    break;
+            }
         default:
+            return nil;
+            
             break;
     }
     
