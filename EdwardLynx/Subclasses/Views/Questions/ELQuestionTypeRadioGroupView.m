@@ -37,8 +37,6 @@
 - (void)setupRadioGroup {
     NSMutableArray *mRadioButtons;
     TNRadioButtonGroup *group;
-    TNRadioButtonGroupLayout layout = _question.answer.type == kELAnswerTypeYesNoScale ? TNRadioButtonGroupLayoutHorizontal :
-                                                                                         TNRadioButtonGroupLayoutVertical;
     
     mRadioButtons = [[NSMutableArray alloc] init];
     
@@ -47,7 +45,10 @@
         TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
         
         data.identifier = [NSString stringWithFormat:@"%@", @(option.value)];
-        data.selected = i == 0;
+        
+        if (!_question.optional) {
+            data.selected = i == 0;
+        }
         
         data.labelText = option.shortDescription;
         data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
@@ -55,15 +56,15 @@
         
         data.borderColor = [UIColor whiteColor];
         data.circleColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-        data.borderRadius = 15;
-        data.circleRadius = 10;
+        data.borderRadius = 20;
+        data.circleRadius = 15;
         
         [mRadioButtons addObject:data];
     }
     
-    group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy] layout:layout];
-    group.identifier = @"Choices";
+    group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy] layout:TNRadioButtonGroupLayoutVertical];
     group.frame = self.radioGroupView.bounds;
+    group.identifier = @"Choices";
     group.marginBetweenItems = 10;
     
     [group create];

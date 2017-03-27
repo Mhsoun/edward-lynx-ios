@@ -553,28 +553,28 @@
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToFiveScale", nil) :
-                                                            [[ELQuestionTypeScaleView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeOneToTenScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeAgreementScale", nil) :
-                                                            [[ELQuestionTypeAgreementView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeYesNoScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeYesNoScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeStrongAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeStrongAgreementScale", nil) :
-                                                            [[ELQuestionTypeAgreementView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeText:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeText", nil) :
                                                             [[ELQuestionTypeTextView alloc] init];
         case kELAnswerTypeInvertedAgreementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeInvertedAgreementScale", nil) :
-                                                            [[ELQuestionTypeAgreementView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeOneToTenWithExplanation:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenWithExplanation", nil) :
-                                                            [[ELQuestionTypeScaleView alloc] init];
+                                                            [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeCustomScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
