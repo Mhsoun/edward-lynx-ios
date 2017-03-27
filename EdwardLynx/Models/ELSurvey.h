@@ -12,7 +12,7 @@
 
 @interface ELSurvey : ELModel
 
-@property (nonatomic) int64_t type;
+@property (nonatomic) kELSurveyType type;
 @property (nonatomic) kELSurveyStatus status;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *lang;

@@ -18,7 +18,7 @@
         <!--DEVELOPMENT PLANS-->
         <scene sceneID="SXH-FB-3pK">
             <objects>
-                <viewController storyboardIdentifier="DevPlan" automaticallyAdjustsScrollViewInsets="NO" id="OKY-to-Fl0" customClass="ELDevelopmentPlansViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DevelopmentPlan" automaticallyAdjustsScrollViewInsets="NO" id="OKY-to-Fl0" customClass="ELDevelopmentPlansViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bm3-XA-YF7"/>
                         <viewControllerLayoutGuide type="bottom" id="xrl-lO-vif"/>
@@ -31,14 +31,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <searchBar hidden="YES" contentMode="scaleToFill" placeholder="Search Development Plans" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-vi-zh3" customClass="ELSearchBar">
-                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Q8W-sx-wdH"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </searchBar>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Td-pFX">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -51,12 +43,9 @@
                         <constraints>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="17X-7V-ZXe"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="1tc-dU-JF2"/>
-                            <constraint firstItem="Knh-vi-zh3" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="2QL-Cc-gxd"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="IX0-GB-yR1"/>
-                            <constraint firstItem="Knh-vi-zh3" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="IsW-qS-BWS"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="KTs-VJ-eNW"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Kuo-Xn-Kce"/>
-                            <constraint firstItem="Knh-vi-zh3" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Pbf-pl-Ml2"/>
                             <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="3ah-Td-pFX" secondAttribute="bottom" id="dbg-md-d9H"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="height" secondItem="T6L-h1-8Z0" secondAttribute="height" id="hV7-E8-JcL"/>
                             <constraint firstItem="gyz-hb-emz" firstAttribute="centerY" secondItem="T6L-h1-8Z0" secondAttribute="centerY" id="mC6-7Z-hNx"/>
@@ -64,7 +53,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="DEVELOPMENT PLANS" id="AZJ-jF-NaL"/>
                     <connections>
-                        <outlet property="searchBar" destination="Knh-vi-zh3" id="q2n-uW-mAq"/>
                         <segue destination="fHP-1B-U5H" kind="show" identifier="DevelopmentPlanDetail" id="BlV-fo-hfp"/>
                     </connections>
                 </viewController>
@@ -172,7 +160,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HvR-hs-l4j" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BSS-xL-0B4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BSS-xL-0B4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

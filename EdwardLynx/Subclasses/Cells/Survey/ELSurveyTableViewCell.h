@@ -8,10 +8,15 @@
 
 @interface ELSurveyTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *surveyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expiryLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reactivateLabelWidthConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *reactivateLabel;
 
 @end

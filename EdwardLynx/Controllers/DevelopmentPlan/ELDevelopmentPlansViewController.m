@@ -31,9 +31,6 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Initialization
-    self.searchBar.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,24 +52,6 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
         controller.listType = kELListTypeDevPlan;
         controller.listFilter = [self.tabs[self.index] integerValue];
     }
-}
-
-#pragma mark - Protocol Methods (UISearchBar)
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    // TODO Filtering implementation
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
-    
-    [searchBar setText:@""];
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar endEditing:YES];
 }
 
 #pragma mark - Protocol Methods (ELListViewController)

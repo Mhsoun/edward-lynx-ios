@@ -135,6 +135,12 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
                             @(kELListFilterInProgress),
                             @(kELListFilterCompleted),
                             @(kELListFilterExpired)];
+        
+//        controller = content.viewControllers[0];
+//        controller.type = kELListTypeSurveys;
+//        controller.tabs = @[@(kELListFilterAll),
+//                            @(kELListFilterInstantFeedback),
+//                            @(kELListFilterLynxManagement)];
     }
 }
 

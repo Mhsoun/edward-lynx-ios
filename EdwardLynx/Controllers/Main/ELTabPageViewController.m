@@ -8,10 +8,14 @@
 
 #import "ELTabPageViewController.h"
 #import "ELDevelopmentPlansViewController.h"
+#import "ELSearchBar.h"
 
 #pragma mark - Class Extension
 
 @interface ELTabPageViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *tabView;
+@property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
 
 @end
 
@@ -24,6 +28,8 @@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.searchBar.delegate = self;
+    
     [self setupButtonBarView];
     [self setupPageByType:self.type];
 }
@@ -34,6 +40,27 @@
 }
 
 #pragma mark - Private Methods
+
+- (NSString *)identifierByType:(kELListType)type {
+    switch (type) {
+        case kELListTypeDevPlan:
+            return @"DevelopmentPlan";
+            
+            break;
+        case kELListTypeReports:
+            return @"Report";
+            
+            break;
+        case kELListTypeSurveys:
+            return @"Survey";
+            
+            break;
+        default:
+            return nil;
+            
+            break;
+    }
+}
 
 - (void)setupButtonBarView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -70,17 +97,29 @@
 }
 
 - (void)setupPageByType:(kELListType)type {
+    NSString *identifier;
+    NSString *format = @"Search %@";
+    
     switch (type) {
         case kELListTypeDevPlan:
-            self.title = @"DEVELOPMENT PLANS";
+            identifier = @"Development Plans";
+            
+            self.title = [identifier uppercaseString];
+            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
             
             break;
         case kELListTypeReports:
-            self.title = @"REPORTS";
+            identifier = @"Reports";
+            
+            self.title = [identifier uppercaseString];
+            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
             
             break;
         case kELListTypeSurveys:
-            self.title = @"SURVEYS";
+            identifier = @"Surveys";
+            
+            self.title = [identifier uppercaseString];
+            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
             
             break;
         default:
@@ -88,15 +127,34 @@
     }
 }
 
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    // TODO Filtering implementation
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
+}
+
 #pragma mark - Protocol Methods (XLButtonBarPagerTabStripViewController)
 
 - (NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
-    ELDevelopmentPlansViewController *controller;
+    __kindof ELBasePageChildViewController *controller;
+    NSString *identifier = [self identifierByType:self.type];
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < self.tabs.count; i++) {  // TODO Temp condition;
-        controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
-                      instantiateViewControllerWithIdentifier:@"DevPlan"];
+    for (int i = 0; i < self.tabs.count; i++) {
+        controller = [[UIStoryboard storyboardWithName:identifier bundle:nil]
+                      instantiateViewControllerWithIdentifier:identifier];
         
         controller.index = i;
         controller.tabs = self.tabs;

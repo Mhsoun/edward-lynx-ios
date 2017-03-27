@@ -93,7 +93,6 @@
 		A913126B1E8642D30042C91F /* Survey.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311621E8642D20042C91F /* Survey.strings */; };
 		A913126C1E8642D30042C91F /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A91311651E8642D20042C91F /* EdwardLynx.xcdatamodeld */; };
 		A913126D1E8642D30042C91F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311671E8642D20042C91F /* GoogleService-Info.plist */; };
-		A913126E1E8642D30042C91F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311681E8642D20042C91F /* Info.plist */; };
 		A913126F1E8642D30042C91F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311691E8642D20042C91F /* main.m */; };
 		A91312701E8642D30042C91F /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A913116C1E8642D20042C91F /* ELAnswer.m */; };
 		A91312711E8642D30042C91F /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A913116E1E8642D20042C91F /* ELAnswerOption.m */; };
@@ -1167,7 +1166,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EL;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Ingenuity Global Consulting";
 				TargetAttributes = {
 					A9308BCD1DED74B5007B4F9F = {
@@ -1243,7 +1242,6 @@
 				A91312211E8642D30042C91F /* CreateDevelopmentPlan.storyboard in Resources */,
 				A913126A1E8642D30042C91F /* Settings.strings in Resources */,
 				A91312611E8642D30042C91F /* Dashboard.strings in Resources */,
-				A913126E1E8642D30042C91F /* Info.plist in Resources */,
 				A91312871E8642D30042C91F /* Localizable.strings in Resources */,
 				A91312381E8642D30042C91F /* ActionView.xib in Resources */,
 				A91312831E8642D30042C91F /* Lato-Italic.ttf in Resources */,

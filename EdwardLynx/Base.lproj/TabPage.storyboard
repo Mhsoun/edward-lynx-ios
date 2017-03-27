@@ -69,19 +69,20 @@
                     <navigationItem key="navigationItem" id="2f2-DE-AgV"/>
                     <connections>
                         <outlet property="containerView" destination="o3F-QB-qb2" id="13V-HE-skv"/>
+                        <outlet property="searchBar" destination="sTS-mi-xzv" id="3bP-M1-as5"/>
                         <outlet property="tabView" destination="AG0-H9-iU1" id="93A-7d-RQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nd-rh-FMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="148"/>
+            <point key="canvasLocation" x="842" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1VR-H2-ujA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qPh-Ep-WFA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Tp-bv-LxD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Tp-bv-LxD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
