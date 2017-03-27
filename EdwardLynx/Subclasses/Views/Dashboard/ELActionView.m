@@ -59,25 +59,21 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
-    UIColor *color = [[RNThemeManager sharedManager] colorForKey:contentDict[@"color"]];
-    
     // Content
-    self.valueLabel.text = contentDict[@"value"];
-    self.titleLabel.text = contentDict[@"title"];
+    self.titleLabel.text = [contentDict[@"title"] uppercaseString];
     self.countLabel.text = [contentDict[@"count"] stringValue];
     
     // UI
     self.bgView.layer.cornerRadius = 5.0f;
-    self.countLabel.layer.cornerRadius = 12.5f;
-    self.valueLabel.textColor = color;
-    self.countLabel.backgroundColor = color;
+    self.countLabel.layer.cornerRadius = 10.0f;
+    self.countLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELRedColor];
     self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
     
-    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
+//    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }
 
 - (void)toggleAccessiblityByUserPermissions:(NSSet *)permissions {
-    ELUser *user = [ELAppSingleton sharedInstance].user;
+    ELUser *user = AppSingleton.user;
     
     if (![permissions intersectsSet:[user permissionsByRole]]) {
         [self setAlpha:0.5];

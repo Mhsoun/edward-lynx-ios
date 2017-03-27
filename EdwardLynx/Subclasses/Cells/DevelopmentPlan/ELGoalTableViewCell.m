@@ -82,10 +82,9 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIAlertController *controller;
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     ELGoalAction *goalAction = mActions[indexPath.row];
-    __kindof UIViewController *visibleController = [delegate visibleViewController:self.window.rootViewController];
+    __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         

@@ -244,7 +244,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     for (ELGoal *goal in self.mGoals) [mGoals addObject:[goal toDictionary]];
     
     [self.viewManager processCreateDevelopmentPlan:@{@"name": self.nameTextField.text,
-                                                     @"target": @([ELAppSingleton sharedInstance].user.objectId),
+                                                     @"target": @(AppSingleton.user.objectId),
                                                      @"goals": [mGoals copy]}];
 }
 

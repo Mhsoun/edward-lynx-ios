@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,9 +16,6 @@
         <array key="Lato-Heavy.ttf">
             <string>Lato-Heavy</string>
         </array>
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -25,51 +25,42 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7y-Eg-skO" customClass="RNThemeView">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-xe-AJ3">
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wjj-ab-rVT">
+                    <rect key="frame" x="10" y="10" width="230" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="Ht5-2e-iX7"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-1l-dS5">
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.60392156860000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-1l-dS5">
+                    <rect key="frame" x="240" y="-5" width="20" height="20"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="A9o-cd-oqJ"/>
+                        <constraint firstAttribute="width" constant="20" id="A9o-cd-oqJ"/>
                         <constraint firstAttribute="width" secondItem="PDT-1l-dS5" secondAttribute="height" multiplier="1:1" id="Nha-YU-y5O"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="JQr-xe-AJ3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8U7-XH-trW"/>
                 <constraint firstItem="s7y-Eg-skO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="D5g-4Y-1rM"/>
                 <constraint firstAttribute="bottom" secondItem="wjj-ab-rVT" secondAttribute="bottom" constant="10" id="G5r-4o-y5G"/>
-                <constraint firstItem="PDT-1l-dS5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-10" id="HRV-dU-v68"/>
-                <constraint firstAttribute="trailing" secondItem="JQr-xe-AJ3" secondAttribute="trailing" constant="10" id="ReU-57-3I5"/>
+                <constraint firstItem="PDT-1l-dS5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-5" id="HRV-dU-v68"/>
+                <constraint firstItem="wjj-ab-rVT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="I2G-EE-YTH"/>
                 <constraint firstItem="s7y-Eg-skO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="WtD-4R-BYa"/>
                 <constraint firstItem="s7y-Eg-skO" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="aaP-LF-KOr"/>
-                <constraint firstItem="JQr-xe-AJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="fnc-fr-hE7"/>
                 <constraint firstItem="wjj-ab-rVT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="g4F-dn-7Ue"/>
                 <constraint firstItem="s7y-Eg-skO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gKg-Q7-ugu"/>
                 <constraint firstAttribute="trailing" secondItem="wjj-ab-rVT" secondAttribute="trailing" constant="10" id="pRo-CR-Bbx"/>
-                <constraint firstItem="wjj-ab-rVT" firstAttribute="top" secondItem="JQr-xe-AJ3" secondAttribute="bottom" id="tgp-vN-mZD"/>
                 <constraint firstAttribute="trailing" secondItem="PDT-1l-dS5" secondAttribute="trailing" constant="-10" id="v7n-x0-BE5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -77,7 +68,6 @@
                 <outlet property="bgView" destination="s7y-Eg-skO" id="ZkE-4x-dCS"/>
                 <outlet property="countLabel" destination="PDT-1l-dS5" id="8CZ-rz-Dih"/>
                 <outlet property="titleLabel" destination="wjj-ab-rVT" id="1lX-5V-1ud"/>
-                <outlet property="valueLabel" destination="JQr-xe-AJ3" id="p17-V1-cFz"/>
             </connections>
         </view>
     </objects>

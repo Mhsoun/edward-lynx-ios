@@ -82,7 +82,7 @@
         NSDate *date;
         
         formFieldGroup = formDict[key];
-        date = [[ELAppSingleton sharedInstance].apiDateFormatter dateFromString:[formFieldGroup textValue]];
+        date = [AppSingleton.apiDateFormatter dateFromString:[formFieldGroup textValue]];
         dateErrors = [date mt_isBefore:[NSDate date]] ? @[NSLocalizedString(@"kELGoalReminderValidationMessage", nil)] :
                                                         nil;
         

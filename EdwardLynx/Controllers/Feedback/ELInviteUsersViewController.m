@@ -52,7 +52,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.allCellsAction = NO;
     self.searchBar.delegate = self;
     self.mParticipants = [[NSMutableArray alloc] init];
-    self.mInitialParticipants = [[ELAppSingleton sharedInstance].participants mutableCopy];
+    self.mInitialParticipants = [AppSingleton.participants mutableCopy];
     self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
     
     // To display only the not yet invited participants
@@ -61,7 +61,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         NSArray *descriptors = @[[[NSSortDescriptor alloc] initWithKey:@"isSelected" ascending:NO],
                                  [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
         
-        [mergedSet unionSet:[NSSet setWithArray:[ELAppSingleton sharedInstance].participants]];
+        [mergedSet unionSet:[NSSet setWithArray:AppSingleton.participants]];
         
         self.mInitialParticipants = [[[mergedSet allObjects] sortedArrayUsingDescriptors:descriptors] mutableCopy];
     }

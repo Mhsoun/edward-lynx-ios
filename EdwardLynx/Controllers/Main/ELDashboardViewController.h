@@ -12,9 +12,10 @@
 @class ELShortcutView;
 @class ELStatusView;
 
-@interface ELDashboardViewController : ELBaseViewController<ELDashboardViewDelegate>
+@interface ELDashboardViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELDashboardViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet ELStatusView *devPlanStatusView;
 @property (weak, nonatomic) IBOutlet ELStatusView *feedbackStatusView;
 

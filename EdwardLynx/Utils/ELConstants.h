@@ -17,6 +17,11 @@
     #define DLog(...)
 #endif
 
+#define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define AppSingleton [ELAppSingleton sharedInstance]
+#define UserDefaults [NSUserDefaults standardUserDefaults]
+#define NotificationCenter [NSNotificationCenter defaultCenter]
+#define SharedApplication [UIApplication sharedApplication]
 
 #define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0];
 #define IDIOM UI_USER_INTERFACE_IDIOM()
@@ -186,6 +191,7 @@ extern NSString * const kELLightGrayColor;
 extern NSString * const kELLightVioletColor;
 extern NSString * const kELPinkColor;
 extern NSString * const kELOrangeColor;
+extern NSString * const kELRedColor;
 extern NSString * const kELVioletColor;
 extern NSString * const kELWhiteColor;
 

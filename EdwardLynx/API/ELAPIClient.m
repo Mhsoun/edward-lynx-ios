@@ -41,9 +41,8 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSURLSessionDataTask *dataTask = [[ELAppSingleton sharedInstance].manager dataTaskWithRequest:request
-                                                                                completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        AppDelegate *delegate;
+    NSURLSessionDataTask *dataTask = [AppSingleton.manager dataTaskWithRequest:request
+                                                             completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSString *errorMessage;
         UIAlertController *alertController;
         __kindof UIViewController *visibleViewController;
@@ -81,9 +80,8 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];
         } else if (error) {
-            delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             errorMessage = [NSString stringWithFormat:kELDefaultAlertMessage, error.localizedDescription];
-            visibleViewController = [delegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+            visibleViewController = [ApplicationDelegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:@"Error"
                                                                   message:errorMessage
                                                            preferredStyle:UIAlertControllerStyleAlert];
