@@ -8,15 +8,14 @@
 
 #import "ELBaseDetailViewController.h"
 
+@class ELQuestionCategory;
 @class ELSurvey;
 
-typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
-    kELSurveyResponseTypeDetails,
-    kELSurveyResponseTypeQuestions
-};
+@interface ELSurveyDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate>
 
-@interface ELSurveyDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, ELAPIPostResponseDelegate>
+@property (nonatomic) NSInteger index;
 
+@property (strong, nonatomic) ELQuestionCategory *category;
 @property (strong, nonatomic) ELSurvey *survey;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

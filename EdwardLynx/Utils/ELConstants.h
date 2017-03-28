@@ -131,6 +131,7 @@ extern NSString * const kELLanguageCodeEnglish;
 extern NSString * const kELLanguageCodeFinnish;
 extern NSString * const kELLanguageCodeSwedish;
 
+extern CGFloat const kELCustomScaleItemHeight;
 extern CGFloat const kELQuestionTypeDefaultHeight;
 extern CGFloat const kELQuestionTypeExpandedHeight;
 

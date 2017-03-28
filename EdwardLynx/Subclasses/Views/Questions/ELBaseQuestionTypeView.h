@@ -8,8 +8,6 @@
 
 #import "ELQuestion.h"
 
-static CGFloat const kELCustomScaleItemHeight = 35;
-
 @interface ELBaseQuestionTypeView : UIView<ELQuestionTypeDelegate>
 
 @property (nonatomic, strong) ELQuestion *question;

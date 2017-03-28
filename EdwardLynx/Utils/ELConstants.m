@@ -39,6 +39,7 @@ NSString * const kELLanguageCodeEnglish = @"en";
 NSString * const kELLanguageCodeFinnish = @"fn";
 NSString * const kELLanguageCodeSwedish = @"sv";
 
+CGFloat const kELCustomScaleItemHeight = 35;
 CGFloat const kELQuestionTypeDefaultHeight = 40;
 CGFloat const kELQuestionTypeExpandedHeight = 80;
 

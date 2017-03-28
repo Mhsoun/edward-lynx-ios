@@ -22,4 +22,6 @@
 @property (nonatomic) NSString<Optional> *value;
 @property (nonatomic) ELAnswer *answer;
 
+@property (nonatomic) CGFloat heightForQuestionView;
+
 @end

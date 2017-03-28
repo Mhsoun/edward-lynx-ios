@@ -501,7 +501,12 @@
 }
 
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
-    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
+//    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
+//                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
+//                             @(kELAnswerTypeInvertedAgreementScale)];
+
+    NSArray *answerTypes = @[@(kELAnswerTypeYesNoScale), @(kELAnswerTypeCustomScale),
+                             @(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale),
                              @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
                              @(kELAnswerTypeInvertedAgreementScale)];
     
