@@ -160,6 +160,7 @@
 		A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
+		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
@@ -480,6 +481,8 @@
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
+		A9D4C15D1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyCategoryPageViewController.h; sourceTree = "<group>"; };
+		A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyCategoryPageViewController.m; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
@@ -734,6 +737,8 @@
 		A91311431E8642D20042C91F /* Survey */ = {
 			isa = PBXGroup;
 			children = (
+				A9D4C15D1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.h */,
+				A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */,
 				A91311441E8642D20042C91F /* ELSurveyDetailsViewController.h */,
 				A91311451E8642D20042C91F /* ELSurveyDetailsViewController.m */,
 				A91311461E8642D20042C91F /* ELSurveysViewController.h */,
@@ -1437,6 +1442,7 @@
 				A91312491E8642D30042C91F /* ELGoalDetailsViewController.m in Sources */,
 				A913124B1E8642D30042C91F /* ELCreateInstantFeedbackViewController.m in Sources */,
 				A91312591E8642D30042C91F /* ELEditProfileViewController.m in Sources */,
+				A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */,
 				A91312991E8642D30042C91F /* ELDropdownView.m in Sources */,
 				A913124E1E8642D30042C91F /* ELBaseDetailViewController.m in Sources */,
 				A91312A51E8642D30042C91F /* ELUtils.m in Sources */,

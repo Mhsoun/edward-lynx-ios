@@ -87,10 +87,12 @@
 
 - (void)populatePage {
     BOOL toExpand;
+    CGFloat height;
     ELQuestion *question = self.instantFeedback.question;
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
     
-    toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
+    toExpand = question.answer.type != kELAnswerTypeText;
+    height = toExpand ? (question.answer.options.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight : 135;
     
     // Content
     self.questionLabel.text = question.text;
@@ -103,7 +105,7 @@
     questionView.question = question;
     questionView.frame = self.questionTypeView.bounds;
     
-    [self.heightConstraint setConstant:toExpand ? 185 : 135];
+    [self.heightConstraint setConstant:height];
     [self.questionTypeView updateConstraints];
     [self.questionTypeView addSubview:questionView];
 }

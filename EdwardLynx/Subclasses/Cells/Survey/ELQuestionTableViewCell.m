@@ -9,6 +9,7 @@
 #import "ELQuestionTableViewCell.h"
 #import "ELBaseQuestionTypeView.h"
 #import "ELQuestion.h"
+#import "ELQuestionTypeRadioGroupView.h"
 
 #pragma mark - Class Extension
 
@@ -44,12 +45,8 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     __kindof ELBaseQuestionTypeView *questionView;
     ELQuestion *question = (ELQuestion *)object;
-    BOOL toExpand = [ELUtils toggleQuestionTypeViewExpansionByType:question.answer.type];
-    CGFloat toExpandHeight = question.answer.type == kELAnswerTypeOneToTenWithExplanation ? 110 :
-                                                                                            kELQuestionTypeExpandedHeight;
     
     questionView = [ELUtils viewByAnswerType:question.answer.type];
-    questionView.question = question;
     
     // Content
     self.questionLabel.text = question.text;
@@ -65,9 +62,10 @@
         return;
     }
     
-    self.questionContainerHeightConstraint.constant = toExpand ? toExpandHeight : kELQuestionTypeDefaultHeight;
-    questionView.frame = self.questionContainerView.frame;
+    questionView.frame = self.questionContainerView.bounds;
+    questionView.question = question;
     
+    [self.questionContainerHeightConstraint setConstant:question.heightForQuestionView];
     [self.questionContainerView addSubview:questionView];
 }
 

@@ -10,8 +10,21 @@
 
 @implementation ELQuestion
 
+@synthesize heightForQuestionView = _heightForQuestionView;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"heightForQuestionView"];
+}
+
+- (CGFloat)heightForQuestionView {
+    // TODO Add another condition for One to Ten w/explanation
+    return self.answer.type != kELAnswerTypeText ? ((self.answer.options.count * kELCustomScaleItemHeight) +
+                                                    (self.isNA ? kELCustomScaleItemHeight : 0) +
+                                                    kELCustomScaleItemHeight) : 110;
 }
 
 @end
