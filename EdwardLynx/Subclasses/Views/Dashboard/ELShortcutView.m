@@ -59,7 +59,12 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
-    self.icon.image = contentDict[@"icon"];
+    CGFloat iconHeight = 100;
+    
+    self.icon.image = [FontAwesome imageWithIcon:contentDict[@"icon"]
+                                       iconColor:[UIColor whiteColor]
+                                        iconSize:iconHeight
+                                       imageSize:CGSizeMake(iconHeight, iconHeight)];
     self.titleLabel.text = contentDict[@"title"];
     self.backgroundColor = [[RNThemeManager sharedManager] colorForKey:contentDict[@"color"]];
     

@@ -94,6 +94,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ELDashboardHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELHeaderCellIdentifier
                                                                                forIndexPath:indexPath];
         
+        [cell setDelegate:self];
         [cell setupHeaderContent];
         
         return cell;
