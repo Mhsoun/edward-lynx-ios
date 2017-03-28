@@ -42,7 +42,7 @@
                 <viewControllerPlaceholder storyboardName="TabPage" id="pGB-X5-9qR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYw-Pc-3Fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="34"/>
+            <point key="canvasLocation" x="1802" y="245"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="XSQ-R4-qMb">
@@ -50,27 +50,27 @@
                 <viewControllerPlaceholder storyboardName="Dashboard" id="9kA-0g-ytD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dX2-oK-wMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="105"/>
+            <point key="canvasLocation" x="1813" y="94"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="JrU-Md-7rp">
             <objects>
-                <tableViewController id="wYo-vN-kZj" customClass="ELLeftMenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="bhS-LT-ZmD">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="wYo-vN-kZj" customClass="ELLeftMenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="bhS-LT-ZmD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemCell" textLabel="pdE-jQ-kVu" style="IBUITableViewCellStyleDefault" id="9Yf-Wd-DhD" customClass="ELMenuTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Yf-Wd-DhD" id="u9x-My-Nif">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pdE-jQ-kVu">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="49"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,8 +87,8 @@
                         <segue destination="9kA-0g-ytD" kind="custom" identifier="Dashboard" customClass="SASlideMenuContentSegue" id="LdH-li-jKi"/>
                         <segue destination="SJ3-c6-UFM" kind="custom" identifier="Profile" customClass="SASlideMenuContentSegue" id="viH-X4-FH7"/>
                         <segue destination="ebx-6g-TEt" kind="custom" identifier="Settings" customClass="SASlideMenuContentSegue" id="IdI-FE-K7J"/>
-                        <segue destination="p1Z-dt-uDT" kind="custom" identifier="" customClass="SASlideMenuContentSegue" id="IXw-3D-rEt"/>
                         <segue destination="pGB-X5-9qR" kind="custom" identifier="DevelopmentPlan" customClass="SASlideMenuContentSegue" id="B79-Uu-bP1"/>
+                        <segue destination="Z5Y-8p-RLZ" kind="custom" identifier="Survey" customClass="SASlideMenuContentSegue" id="KIl-zl-CkF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgs-oc-ffC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" id="SJ3-c6-UFM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3w-FR-4C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792" y="207"/>
+            <point key="canvasLocation" x="1792" y="146"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VZh-Ny-j6n">
@@ -109,15 +109,15 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="ebx-6g-TEt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmI-9N-bWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1801" y="256"/>
+            <point key="canvasLocation" x="1801" y="296"/>
         </scene>
-        <!--DevelopmentPlan-->
-        <scene sceneID="JOK-Ui-5eG">
+        <!--TabPage-->
+        <scene sceneID="1h9-9N-MlA">
             <objects>
-                <viewControllerPlaceholder storyboardName="DevelopmentPlan" id="p1Z-dt-uDT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0My-Ft-wXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="TabPage" id="Z5Y-8p-RLZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkp-WE-lBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="157"/>
+            <point key="canvasLocation" x="1802" y="196"/>
         </scene>
     </scenes>
 </document>

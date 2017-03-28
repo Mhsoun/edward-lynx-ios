@@ -12,5 +12,6 @@
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *segueIdentifier;
+@property (nonatomic) NSString *iconIdentifier;
 
 @end

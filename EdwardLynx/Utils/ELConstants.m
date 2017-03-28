@@ -96,6 +96,10 @@ NSString * const kELDeviceTokenUserDefaultsKey = @"DeviceTokenUserDefaultsKey";
 
 #pragma mark - RNThemeManager .plist Keys
 
+NSString * const kELDevPlanColor = @"devPlanColor";
+NSString * const kELFeedbackColor = @"feedbackColor";
+NSString * const kELLynxColor = @"lynxColor";
+
 NSString * const kELContainerColor = @"containerColor";
 NSString * const kELHeaderColor = @"headerColor";
 NSString * const kELTextFieldBGColor = @"textFieldBGColor";

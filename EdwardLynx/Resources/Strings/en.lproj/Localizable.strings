@@ -37,9 +37,10 @@
 /* Dashboard */
 
 "kELDashboardItemDashboard" = "Dashboard";
-"kELDashboardItemDevelopmentPlan" = "Development Plan";
+"kELDashboardItemDevelopmentPlan" = "Development Plans";
 "kELDashboardItemProfile" = "Profile";
 "kELDashboardItemSettings" = "Settings";
+"kELDashboardItemSurveys" = "Surveys";
 
 /* Development Plans */
 

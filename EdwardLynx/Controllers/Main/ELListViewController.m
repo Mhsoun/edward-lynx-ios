@@ -339,10 +339,4 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     }
 }
 
-#pragma mark - Interface Builder Actions
-
-- (IBAction)onAddButtonClick:(id)sender {
-    
-}
-
 @end

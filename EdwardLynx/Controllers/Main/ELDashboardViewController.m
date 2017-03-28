@@ -55,7 +55,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     [self triggerRegisterForNotifications];
     
     if (ApplicationDelegate.notification) {
-        [ApplicationDelegate displayViewControllerByData:self.delegate.notification];
+        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
         
         ApplicationDelegate.notification = nil;
     }
@@ -86,7 +86,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.itemsDict[[self.itemsDict allKeys][section]] count];
+    NSString *key = [self.itemsDict allKeys][section];
+    NSArray *items = self.itemsDict[key];
+    
+    return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

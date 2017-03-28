@@ -23,17 +23,22 @@
     // Change selected cell background color
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.selectedBackgroundView.frame];
     
-    [backgroundView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    [backgroundView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]];
     [self setSelectedBackgroundView:backgroundView];
 }
 
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    CGFloat iconHeight = 20;
     ELMenuItem *menuItem = (ELMenuItem *)object;
     
     // Content
-    self.textLabel.text = [menuItem.name uppercaseString];
+    self.textLabel.text = menuItem.name;
+    self.imageView.image = [FontAwesome imageWithIcon:menuItem.iconIdentifier
+                                            iconColor:[[RNThemeManager sharedManager] colorForKey:kELVioletColor]
+                                             iconSize:iconHeight
+                                            imageSize:CGSizeMake(iconHeight, iconHeight)];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

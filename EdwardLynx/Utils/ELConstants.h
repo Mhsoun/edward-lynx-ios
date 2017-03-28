@@ -29,6 +29,12 @@
 #define RGB(r, g, b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
+#pragma mark - FontAwesome
+
+#define fa_paper_plane @"\uf1d8"
+#define fa_paper_plane_o @"\uf1d9"
+#define fa_user_circle_o @"\uf2be"
+
 #pragma mark - Enums
 
 typedef NS_ENUM(NSInteger, kELAnswerType) {
@@ -188,6 +194,10 @@ extern NSString * const kELDeviceTokenUserDefaultsKey;
 
 #pragma mark - RNThemeManager .plist Keys
 
+extern NSString * const kELDevPlanColor;
+extern NSString * const kELFeedbackColor;
+extern NSString * const kELLynxColor;
+
 extern NSString * const kELContainerColor;
 extern NSString * const kELHeaderColor;
 extern NSString * const kELTextFieldBGColor;
@@ -205,6 +215,8 @@ extern NSString * const kELOrangeColor;
 extern NSString * const kELRedColor;
 extern NSString * const kELVioletColor;
 extern NSString * const kELWhiteColor;
+
+
 
 #pragma mark - Status Codes
 

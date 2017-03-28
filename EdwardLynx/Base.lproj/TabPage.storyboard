@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,6 +48,27 @@
                                 <rect key="frame" x="0.0" y="158" width="375" height="509"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Z-nc-iPA">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9oB-f3-CqA"/>
+                                    <constraint firstAttribute="width" secondItem="Y1Z-nc-iPA" secondAttribute="height" multiplier="1:1" id="Def-bN-ey3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onAddButtonClick:" destination="qWn-Eu-b1X" eventType="touchUpInside" id="vYw-gk-xO8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,11 +85,14 @@
                             <constraint firstItem="BaX-Pt-sP9" firstAttribute="top" secondItem="o3F-QB-qb2" secondAttribute="bottom" id="g1W-3b-1aJ"/>
                             <constraint firstItem="sTS-mi-xzv" firstAttribute="width" secondItem="GkT-mS-Lyb" secondAttribute="width" id="nwC-7R-WIA"/>
                             <constraint firstItem="o3F-QB-qb2" firstAttribute="leading" secondItem="GkT-mS-Lyb" secondAttribute="leading" id="qlM-eE-bfE"/>
+                            <constraint firstItem="BaX-Pt-sP9" firstAttribute="top" secondItem="Y1Z-nc-iPA" secondAttribute="bottom" constant="20" id="qqo-sH-nW3"/>
                             <constraint firstItem="elN-lb-Wyw" firstAttribute="width" secondItem="GkT-mS-Lyb" secondAttribute="width" id="rOO-yB-dd3"/>
+                            <constraint firstAttribute="trailing" secondItem="Y1Z-nc-iPA" secondAttribute="trailing" constant="20" id="sMf-LV-b35"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2f2-DE-AgV"/>
                     <connections>
+                        <outlet property="addButton" destination="Y1Z-nc-iPA" id="fQf-KN-awT"/>
                         <outlet property="containerView" destination="o3F-QB-qb2" id="13V-HE-skv"/>
                         <outlet property="searchBar" destination="sTS-mi-xzv" id="3bP-M1-as5"/>
                         <outlet property="tabView" destination="AG0-H9-iU1" id="93A-7d-RQD"/>

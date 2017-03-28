@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-ix-hKB">
-                    <rect key="frame" x="32.5" y="10" width="135" height="135"/>
+                    <rect key="frame" x="38" y="20" width="125" height="125"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="D1T-ix-hKB" secondAttribute="height" multiplier="1:1" id="XEr-hS-9Fa"/>
@@ -44,7 +44,7 @@
                 <constraint firstItem="xG3-FT-Cz7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="AVP-SB-0fd"/>
                 <constraint firstItem="D1T-ix-hKB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P5k-ZW-ooy"/>
                 <constraint firstItem="xG3-FT-Cz7" firstAttribute="top" secondItem="D1T-ix-hKB" secondAttribute="bottom" constant="10" id="ZId-Et-jXc"/>
-                <constraint firstItem="D1T-ix-hKB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="qz5-oS-5ac"/>
+                <constraint firstItem="D1T-ix-hKB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="qz5-oS-5ac"/>
                 <constraint firstAttribute="trailing" secondItem="xG3-FT-Cz7" secondAttribute="trailing" constant="5" id="vEX-ox-sQE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
