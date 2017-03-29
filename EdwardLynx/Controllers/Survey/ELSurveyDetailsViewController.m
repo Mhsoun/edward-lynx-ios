@@ -8,13 +8,10 @@
 
 #import "ELSurveyDetailsViewController.h"
 #import "ELBaseQuestionTypeView.h"
-#import "ELDataProvider.h"
-#import "ELDetailViewManager.h"
 #import "ELQuestionCategory.h"
 #import "ELQuestionTableViewCell.h"
 #import "ELSurvey.h"
 #import "ELSurveyViewManager.h"
-#import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 
@@ -25,11 +22,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 @interface ELSurveyDetailsViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal;
-@property (nonatomic, strong) NSIndexPath *prevIndexPath;
-@property (nonatomic, strong) ELTableDataSource *dataSource;
-@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
-@property (nonatomic, strong) ELDataProvider<ELQuestion *> *provider;
 
 @end
 
@@ -42,11 +35,6 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-//    self.provider = [[ELDataProvider alloc] initWithDataArray:self.category.questions];
-//    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-//                                                      dataProvider:self.provider
-//                                                    cellIdentifier:kELCellIdentifier];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -94,7 +82,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
     
-    label.font = [UIFont fontWithName:@"Lato-Bold" size:18];
+    label.font = [UIFont fontWithName:@"Lato-Regular" size:18];
     label.text = self.category.title;
     label.textColor = [UIColor whiteColor];
     label.lineBreakMode = NSLineBreakByClipping;
@@ -107,24 +95,34 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     return view;
 }
 
-#pragma mark - Protocol Methods (ELSurveyViewManager)
+#pragma mark - Public Methods
 
-- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELSurveyPostError", nil)
-                     completion:^{}];
-}
-
-- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
-                                                                      @"kELSurveySaveToDraftSuccess", nil);
+- (NSArray *)formValues {
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    // Back to the Surveys list
-    [ELUtils presentToastAtView:self.view
-                        message:successMessage
-                     completion:^{
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    // Retrieve answer from question views
+    for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
+        NSDictionary *formValues;
+        ELQuestionTableViewCell *cell;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+        
+        cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        formValues = [[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues];
+        
+        if (!formValues) {
+            [ELUtils animateCell:cell];
+            
+            continue;
+        }
+        
+        [mAnswers addObject:formValues];
+    }
+    
+    return [mAnswers copy];
 }
 
 #pragma mark - Interface Builder Actions

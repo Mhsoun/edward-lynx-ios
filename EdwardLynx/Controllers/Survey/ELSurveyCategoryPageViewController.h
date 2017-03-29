@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 - (IBAction)onPrevButtonClick:(id)sender;
 - (IBAction)onNextButtonClick:(id)sender;
 - (IBAction)onSubmitButtonClick:(id)sender;

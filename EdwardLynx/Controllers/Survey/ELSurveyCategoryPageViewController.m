@@ -13,25 +13,33 @@
 #import "ELSurveyDetailsViewController.h"
 #import "ELSurveyViewManager.h"
 
+#pragma mark - Class Extension
+
 @interface ELSurveyCategoryPageViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal;
+@property (nonatomic) NSInteger pageIndex;
 @property (nonatomic) kELSurveyResponseType responseType;
 @property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) NSMutableArray<ELSurveyDetailsViewController *> *mControllers;
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
 
 @end
 
 @implementation ELSurveyCategoryPageViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.pageIndex = 0;
+    self.isSurveyFinal = NO;
     self.mControllers = [[NSMutableArray alloc] init];
     
     if (!self.survey) {
@@ -44,6 +52,7 @@
         self.title = [self.survey.name uppercaseString];
         self.responseType = kELSurveyResponseTypeQuestions;
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
+        self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
         
         // Retrieve surveys questions
         [self.detailViewManager processRetrievalOfSurveyQuestions];
@@ -69,6 +78,8 @@
     
     index--;
     
+    self.pageIndex = index;
+    
     return [self viewControllerAtIndex:index];
 }
 
@@ -81,6 +92,8 @@
     if (index == self.items.count) {
         return nil;
     }
+    
+    self.pageIndex = index;
     
     return [self viewControllerAtIndex:index];
 }
@@ -118,6 +131,7 @@
     switch (self.responseType) {
         case kELSurveyResponseTypeDetails:
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
+            self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
             self.responseType = kELSurveyResponseTypeQuestions;
             
             // Retrieve surveys questions
@@ -139,13 +153,35 @@
             [self addChildViewController:self.pageController];
             [self.pageView addSubview:self.pageController.view];
             [self setupPageController:self.pageController atView:self.pageView];
+            
             [self setupNavigators];
+            [self toggleSubmitButtonState];
             [self.indicatorView stopAnimating];
             
             break;
         default:
             break;
     }
+}
+
+#pragma mark - Protocol Methods (ELSurveyViewManager)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELSurveyPostError", nil)
+                     completion:^{}];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
+                                                                      @"kELSurveySaveToDraftSuccess", nil);
+    
+    // Back to the Surveys list
+    [ELUtils presentToastAtView:self.view
+                        message:successMessage
+                     completion:^{
+                         [self.navigationController popViewControllerAnimated:YES];
+                     }];
 }
 
 #pragma mark - Public Methods
@@ -184,26 +220,86 @@
 
 #pragma mark - Private Methods
 
+- (void)changePage:(UIPageViewControllerNavigationDirection)direction {
+    ELSurveyDetailsViewController *controller;
+    
+    if (self.pageIndex < 0 || self.pageIndex == self.self.mControllers.count) {
+        return;
+    }
+    
+    controller = [self viewControllerAtIndex:self.pageIndex];
+    
+    [self.pageController setViewControllers:@[controller]
+                                  direction:direction
+                                   animated:YES
+                                 completion:nil];
+}
+
 - (void)setupNavigators {
-    self.pageControl.numberOfPages = self.items.count;
-    self.pageControl.currentPage = 0;
+    if (self.items.count > 1) {
+        self.pageControl.numberOfPages = self.items.count;
+        self.pageControl.currentPage = 0;
+        
+    }
     
     self.prevButton.hidden = self.items.count <= 1;
     self.nextButton.hidden = self.items.count <= 1;
 }
 
+- (void)toggleSubmitButtonState {
+    NSString *bgColorKey = self.isSurveyFinal ? kELOrangeColor : kELGrayColor;
+    NSString *textColorKey = self.isSurveyFinal ? kELWhiteColor : kELDarkVioletColor;
+    NSString *titleIdentifier = self.isSurveyFinal ? @"kELSubmitButton" : @"kELSaveToDraftButton";
+    
+    [self.submitButton setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:bgColorKey]];
+    [self.submitButton setTitle:[NSLocalizedString(titleIdentifier, nil) uppercaseString]
+                       forState:UIControlStateNormal];
+    [self.submitButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:textColorKey]
+                            forState:UIControlStateNormal];
+    
+    self.submitButton.hidden = NO;
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onPrevButtonClick:(id)sender {
+    self.pageIndex--;
     
+    self.prevButton.hidden = self.pageIndex == 0;
+    self.nextButton.hidden = NO;
+    
+    [self changePage:UIPageViewControllerNavigationDirectionReverse];
 }
 
 - (IBAction)onNextButtonClick:(id)sender {
+    self.pageIndex++;
     
+    self.prevButton.hidden = NO;
+    self.nextButton.hidden = self.pageIndex == self.mControllers.count - 1;
+    
+    [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
+    NSDictionary *formDict;
+    NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
+    for (ELSurveyDetailsViewController *controller in self.mControllers) {
+        [mItems addObject:[controller formValues]];
+    }
+    
+    formDict = @{@"key": self.survey.key,
+                 @"final": @(self.isSurveyFinal),
+                 @"answers": [mItems copy]};
+    
+    if (!self.isSurveyFinal) {
+        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+    } else {
+        // TODO Validate first before submission
+//        if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
+//            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+//        }
+    }
 }
 
 @end

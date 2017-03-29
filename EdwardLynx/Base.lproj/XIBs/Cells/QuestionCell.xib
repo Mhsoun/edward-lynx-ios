@@ -31,13 +31,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wI5-O5-eCS">
-                                <rect key="frame" x="25" y="5" width="305" height="30"/>
+                                <rect key="frame" x="25" y="5" width="325" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6T-bb-pPX">
+                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6T-bb-pPX">
                                 <rect key="frame" x="335" y="5" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -64,13 +64,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="top" secondItem="MVg-zw-L5O" secondAttribute="top" constant="5" id="GRZ-db-5Ef"/>
-                            <constraint firstItem="F6T-bb-pPX" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="trailing" constant="5" id="H5h-Vn-fwh"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="bottom" secondItem="wI5-O5-eCS" secondAttribute="bottom" id="NWP-Vf-G7Q"/>
                             <constraint firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" constant="25" id="OJl-JM-MYF"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="leading" secondItem="wI5-O5-eCS" secondAttribute="leading" id="OOP-Pt-eVO"/>
                             <constraint firstAttribute="bottom" secondItem="9Vc-ws-lKI" secondAttribute="bottom" constant="10" id="Ymu-J0-qNp"/>
                             <constraint firstItem="wI5-O5-eCS" firstAttribute="leading" secondItem="MVg-zw-L5O" secondAttribute="leading" constant="25" id="bqp-7X-igO"/>
                             <constraint firstItem="F6T-bb-pPX" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="top" id="cLQ-s7-Ezd"/>
+                            <constraint firstItem="wI5-O5-eCS" firstAttribute="trailing" secondItem="9Vc-ws-lKI" secondAttribute="trailing" id="cQO-rm-UGo"/>
                             <constraint firstItem="9Vc-ws-lKI" firstAttribute="top" secondItem="wI5-O5-eCS" secondAttribute="bottom" constant="5" id="eQh-kz-kOg"/>
                             <constraint firstAttribute="trailing" secondItem="F6T-bb-pPX" secondAttribute="trailing" constant="10" id="jPV-Pr-1yb"/>
                         </constraints>
