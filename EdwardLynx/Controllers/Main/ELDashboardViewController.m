@@ -12,9 +12,11 @@
 #import "ELDashboardHeaderTableViewCell.h"
 #import "ELDashboardReminderTableViewCell.h"
 #import "ELDevelopmentPlanTableViewCell.h"
+#import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELSectionView.h"
 #import "ELShortcutView.h"
 #import "ELStatusView.h"
+#import "ELTabPageViewController.h"
 
 #import "ELNotificationView.h"
 
@@ -29,6 +31,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 @interface ELDashboardViewController ()
 
+@property (nonatomic, strong) id selectedObject;
 @property (nonatomic, strong) NSDictionary *itemsDict;
 
 @end
@@ -125,6 +128,28 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value;
+    ELDevelopmentPlanDetailsViewController *controller;
+    NSString *key = [self.itemsDict allKeys][indexPath.section];
+    NSArray *items = self.itemsDict[key];
+    
+    value = items[indexPath.row];
+    
+    if ([value isKindOfClass:[ELReminder class]]) {
+        //
+    } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
+        controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
+                      instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
+        
+        controller.devPlan = (ELDevelopmentPlan *)value;
+        
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        return;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
@@ -144,14 +169,17 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ELSectionView *sectionView;
+    NSMutableDictionary *mSectionDict = [NSMutableDictionary dictionaryWithDictionary:@{@"title": [self.itemsDict allKeys][section]}];
     
     if (section == 0) {
         return nil;
+    } else if (section == 2) {
+        [mSectionDict setObject:@"DevPlan" forKey:@"segue"];
     }
     
-    sectionView = [[ELSectionView alloc] initWithTitle:[self.itemsDict allKeys][section]
-                                                 frame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 30)
-                                         accessSeeMore:section == 2];
+    sectionView = [[ELSectionView alloc] initWithDetails:[mSectionDict copy]
+                                                   frame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 30)];
+    sectionView.delegate = self;
     
     return sectionView;
 }
@@ -268,17 +296,40 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 //    [self.instantFeedbackActionView.layer setCornerRadius:kELCornerRadius];
     
     // Navigation Bar
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                  forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.translucent = YES;
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+//                                                  forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma mark - Protocol Methods (ELDashboardViewDelegate)
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
-    [self performSegueWithIdentifier:identifier sender:self];
+    UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
+                                             instantiateInitialViewController];
+    ELTabPageViewController *controller = navController.viewControllers[0];
+    
+    controller.type = kELListTypeSurveys;
+    controller.tabs = @[@(kELListFilterAll),
+                        @(kELListFilterInstantFeedback),
+                        @(kELListFilterLynxManagement)];
+    
+    if ([identifier isEqualToString:@"DevPlan"]) {
+        controller.type = kELListTypeDevPlan;
+        controller.tabs = @[@(kELListFilterAll),
+                            @(kELListFilterInProgress),
+                            @(kELListFilterCompleted),
+                            @(kELListFilterExpired)];
+    } else if ([identifier isEqualToString:@"Feedback"]) {
+        controller.initialIndex = 1;
+    } else if ([identifier isEqualToString:@"Lynx"]) {
+        controller.initialIndex = 2;
+    } else {
+        return;
+    }
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Private Methods

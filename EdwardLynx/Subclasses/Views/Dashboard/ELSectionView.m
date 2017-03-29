@@ -10,6 +10,8 @@
 
 @interface ELSectionView ()
 
+@property (strong, nonatomic) NSString *segueIdentifier;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 - (IBAction)onButtonClick:(id)sender;
@@ -18,7 +20,7 @@
 
 @implementation ELSectionView
 
-- (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame accessSeeMore:(BOOL)seeMore {
+- (instancetype)initWithDetails:(NSDictionary *)detailsDict frame:(CGRect)frame {
     NSArray *elements;
     
     self = [super init];
@@ -39,9 +41,10 @@
         }
     }
     
-    self.titleLabel.text = title;
     self.frame = frame;
-    self.button.hidden = !seeMore;
+    self.titleLabel.text = detailsDict[@"title"];
+    self.segueIdentifier = detailsDict[@"segue"];
+    self.button.hidden = !self.segueIdentifier;
     
     // UI
     self.button.tintColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
@@ -50,7 +53,7 @@
 }
 
 - (IBAction)onButtonClick:(id)sender {
-
+    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
 }
 
 @end

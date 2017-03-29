@@ -42,24 +42,27 @@
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Development Plan",
                                                              @"color": kELDevPlanColor,
-                                                             @"icon": fa_bar_chart_o}];
-//    shortcutView.delegate = self;
+                                                             @"icon": fa_bar_chart_o,
+                                                             @"segue": @"DevPlan"}];
+    shortcutView.delegate = self;
     shortcutView.frame = self.devPlanView.bounds;
     
     [self.devPlanView addSubview:shortcutView];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Instant Feedback",
                                                              @"color": kELFeedbackColor,
-                                                             @"icon": fa_paper_plane_o}];
-//    shortcutView.delegate = self;
+                                                             @"icon": fa_paper_plane_o,
+                                                             @"segue": @"Feedback"}];
+    shortcutView.delegate = self;
     shortcutView.frame = self.feedbackView.bounds;
     
     [self.feedbackView addSubview:shortcutView];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Lynx Management",
                                                              @"color": kELLynxColor,
-                                                             @"icon": fa_edit}];
-//    shortcutView.delegate = self;
+                                                             @"icon": fa_edit,
+                                                             @"segue": @"Lynx"}];
+    shortcutView.delegate = self;
     shortcutView.frame = self.surveyView.bounds;
     
     [self.surveyView addSubview:shortcutView];

@@ -221,7 +221,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     detailDict = @{@"name": NSLocalizedString(@"kELLogoutButton", nil),
                    @"segueIdentifier": @"Logout",
-                   @"iconIdentifier": fa_bullseye};
+                   @"iconIdentifier": fa_sign_out};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     

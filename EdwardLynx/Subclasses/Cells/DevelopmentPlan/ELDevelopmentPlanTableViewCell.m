@@ -13,6 +13,7 @@
 
 @interface ELDevelopmentPlanTableViewCell ()
 
+@property (nonatomic) BOOL isBarChartAnimated, isCircleChartAnimated;
 @property (nonatomic, strong) PNBarChart *barChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
@@ -97,12 +98,21 @@
     self.barChart.xLabels = [mLabels copy];
     self.barChart.yValues = [mValues copy];
     
-    [self.barChart strokeChart];
+    if (!self.isBarChartAnimated) {
+        [self.barChart strokeChart];
+        
+        self.isBarChartAnimated = YES;
+    }
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
-    [self.circleChart strokeChart];
+    
+    if (!self.isCircleChartAnimated) {
+        [self.circleChart strokeChart];
+        
+        self.isCircleChartAnimated = YES;
+    }
 }
 
 @end
