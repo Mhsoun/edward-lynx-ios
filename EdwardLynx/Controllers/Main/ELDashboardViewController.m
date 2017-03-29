@@ -42,9 +42,8 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.itemsDict = @{@"": @[@""],
-                       @"REMINDERS": @[@"", @"", @""],
-                       @"DEVELOPMENT PLAN": @[@"", @""]};
+    [self sampleData];
+    
     AppSingleton.hasLoadedApplication = YES;
     
     // Assign the dashboard as the new root controller
@@ -93,6 +92,12 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value;
+    NSString *key = [self.itemsDict allKeys][indexPath.section];
+    NSArray *items = self.itemsDict[key];
+    
+    value = items[indexPath.row];
+    
     if (indexPath.section == 0) {
         ELDashboardHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELHeaderCellIdentifier
                                                                                forIndexPath:indexPath];
@@ -105,10 +110,14 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ELDashboardReminderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELReminderCellIdentifier
                                                                                  forIndexPath:indexPath];
         
+        [cell configure:value atIndexPath:indexPath];
+        
         return cell;
     } else {
         ELDevelopmentPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELDevPlanCellIdentifier
                                                                                forIndexPath:indexPath];
+        
+        [cell configure:value atIndexPath:indexPath];
         
         return cell;
     }
@@ -273,6 +282,42 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 #pragma mark - Private Methods
+
+- (void)sampleData {
+    ELReminder *reminder1 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
+                                                                    @"title": @"Goal",
+                                                                    @"description": @"Read book",
+                                                                    @"dueDate": @"2017-01-31T06:54:33+01:00",
+                                                                    @"type": @(kELReminderTypeGoal)}
+                                                            error:nil];
+    ELReminder *reminder2 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
+                                                                     @"title": @"Invite Feedback",
+                                                                     @"description": @"Providers to your Instant Feedback",
+                                                                     @"dueDate": @"2017-01-31T06:54:33+01:00",
+                                                                     @"type": @(kELReminderTypeFeedback)}
+                                                             error:nil];
+    ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @1,
+                                                                                 @"name": @"My first development plan",
+                                                                                 @"createdAt": @"2017-01-31T06:54:33+01:00",
+                                                                                 @"updatedAt": @"2017-01-31T06:54:33+01:00",
+                                                                                 @"goals": @[@{@"id": @1,
+                                                                                               @"title": @"Wash the dishes",
+                                                                                               @"description": @"",
+                                                                                               @"checked": @0,
+                                                                                               @"position": @0,
+                                                                                               @"dueDate": @"",
+                                                                                               @"reminderSent": @0,
+                                                                                               @"categoryId": @(-1),
+                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @1,
+                                                                                                               @"position": @0}]}]}
+                                                                         error:nil];
+    
+    self.itemsDict = @{@"": @[@""],
+                       @"REMINDERS": @[reminder1, reminder2, reminder2, reminder1],
+                       @"DEVELOPMENT PLAN": @[devPlan, devPlan]};
+}
 
 - (void)triggerRegisterForNotifications {
     if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {

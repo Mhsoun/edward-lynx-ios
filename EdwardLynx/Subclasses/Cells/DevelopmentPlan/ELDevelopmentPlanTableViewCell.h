@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import "ELDevelopmentPlan.h"
+
 @interface ELDevelopmentPlanTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
