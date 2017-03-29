@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ELDashboardHeaderTableViewCell : UITableViewCell
+@interface ELDashboardHeaderTableViewCell : UITableViewCell<ELDashboardViewDelegate>
+
+@property (nonatomic, strong) id<ELDashboardViewDelegate> delegate;
 
 - (void)setupHeaderContent;
 

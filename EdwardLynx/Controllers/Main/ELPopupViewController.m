@@ -48,7 +48,8 @@
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    self.titleLabel.text = self.detailsDict[@"title"];
+    // Content
+    self.titleLabel.text = [self.detailsDict[@"title"] uppercaseString];
     self.headerLabel.text = self.detailsDict[@"header"];
     self.detailLabel.text = self.detailsDict[@"details"];
 }

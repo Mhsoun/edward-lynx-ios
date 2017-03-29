@@ -40,40 +40,57 @@
     ELActionView *actionView;
     ELShortcutView *shortcutView;
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Development Plan", @"color": kELBlueColor}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Development Plan",
+                                                             @"color": kELDevPlanColor,
+                                                             @"icon": fa_bar_chart_o}];
+//    shortcutView.delegate = self;
     shortcutView.frame = self.devPlanView.bounds;
     
     [self.devPlanView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Instant Feedback", @"color": kELGreenColor}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Instant Feedback",
+                                                             @"color": kELFeedbackColor,
+                                                             @"icon": fa_paper_plane_o}];
+//    shortcutView.delegate = self;
     shortcutView.frame = self.feedbackView.bounds;
     
     [self.feedbackView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Lynx Management", @"color": kELPinkColor}];
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Lynx Management",
+                                                             @"color": kELLynxColor,
+                                                             @"icon": fa_edit}];
+//    shortcutView.delegate = self;
     shortcutView.frame = self.surveyView.bounds;
     
     [self.surveyView addSubview:shortcutView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Answer", @"count": @0}];
+//    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.answerActionView addSubview:actionView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results", @"count": @0}];
+//    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.resultsActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Invite", @"count": @3}];
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Invite", @"count": @0}];
+//    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.inviteActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Create", @"count": @2}];
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Create", @"count": @0}];
+//    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.createActionView addSubview:actionView];
+}
+
+- (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
+    [self.delegate viewTapToPerformSegueWithIdentifier:identifier];
 }
 
 @end

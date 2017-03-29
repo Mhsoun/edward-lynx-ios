@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *tabView;
 @property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+- (IBAction)onAddButtonClick:(id)sender;
 
 @end
 
@@ -98,7 +100,15 @@
 
 - (void)setupPageByType:(kELListType)type {
     NSString *identifier;
+    CGFloat iconHeight = 15;
     NSString *format = @"Search %@";
+    
+    // Button
+    [self.addButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                              iconColor:[UIColor blackColor]
+                                               iconSize:iconHeight
+                                              imageSize:CGSizeMake(iconHeight, iconHeight)]
+                    forState:UIControlStateNormal];
     
     switch (type) {
         case kELListTypeDevPlan:
@@ -106,6 +116,7 @@
             
             self.title = [identifier uppercaseString];
             self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
+            self.addButton.hidden = NO;
             
             break;
         case kELListTypeReports:
@@ -113,6 +124,7 @@
             
             self.title = [identifier uppercaseString];
             self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
+            self.addButton.hidden = YES;
             
             break;
         case kELListTypeSurveys:
@@ -120,6 +132,7 @@
             
             self.title = [identifier uppercaseString];
             self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
+            self.addButton.hidden = NO;
             
             break;
         default:
@@ -163,6 +176,12 @@
     }
     
     return [mControllers copy];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onAddButtonClick:(id)sender {
+    
 }
 
 @end

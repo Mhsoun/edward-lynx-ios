@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,26 +27,6 @@
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QV1-8V-aQn">
-                                <rect key="frame" x="305" y="597" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QV1-8V-aQn" secondAttribute="height" multiplier="1:1" id="1Dm-rf-JBT"/>
-                                    <constraint firstAttribute="width" constant="50" id="XmD-LR-ccl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onAddButtonClick:" destination="dd8-ZQ-h9l" eventType="touchUpInside" id="Wpa-ac-Wzs"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="G6c-VP-x68">
                                 <rect key="frame" x="178" y="324" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,14 +34,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Es-dE-JLJ" firstAttribute="top" secondItem="QV1-8V-aQn" secondAttribute="bottom" constant="20" id="97v-uL-hwj"/>
                             <constraint firstItem="9Es-dE-JLJ" firstAttribute="top" secondItem="0hm-zv-B9X" secondAttribute="bottom" id="DeY-ee-YrK"/>
                             <constraint firstItem="G6c-VP-x68" firstAttribute="centerY" secondItem="8Dz-5G-Te2" secondAttribute="centerY" id="SuU-HO-B7a"/>
                             <constraint firstItem="0hm-zv-B9X" firstAttribute="width" secondItem="8Dz-5G-Te2" secondAttribute="width" id="T9k-zT-vln"/>
                             <constraint firstItem="0hm-zv-B9X" firstAttribute="centerX" secondItem="8Dz-5G-Te2" secondAttribute="centerX" id="VSA-W8-r99"/>
                             <constraint firstItem="0hm-zv-B9X" firstAttribute="top" secondItem="8Dz-5G-Te2" secondAttribute="top" id="cnq-qe-yHt"/>
                             <constraint firstItem="G6c-VP-x68" firstAttribute="centerX" secondItem="8Dz-5G-Te2" secondAttribute="centerX" id="tDh-nk-gKk"/>
-                            <constraint firstAttribute="trailing" secondItem="QV1-8V-aQn" secondAttribute="trailing" constant="20" id="xLv-mR-nhp"/>
                         </constraints>
                     </view>
                     <connections>

@@ -68,11 +68,23 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    self.tableView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor];
-    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELVioletColor];
+    CGFloat imageWidth = CGRectGetWidth(self.tableView.frame) / 1.2;
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, imageWidth, 60)];
+    
+    imageView.backgroundColor = [UIColor clearColor];
+    imageView.clipsToBounds = YES;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.image = [UIImage imageNamed:@"Logo2"];
+    
+    [self.tableView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    [self.tableView.tableHeaderView addSubview:imageView];
 }
 
 #pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *segueIdentifier = [(ELMenuItem *)[self.provider rowObjectAtIndexPath:indexPath] segueIdentifier];
@@ -111,6 +123,18 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     [super tableView:tableView didSelectRowAtIndexPath:self.prevIndexPath];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 80;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    
+    view.backgroundColor = [UIColor clearColor];
+    
+    return view;
+}
+
 #pragma mark - Protocol Methods (SASlideMenu)
 
 - (void)configureMenuButton:(UIButton *)menuButton {
@@ -128,19 +152,26 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 - (void)prepareForSwitchToContentViewController:(UINavigationController *)content {
     ELTabPageViewController *controller;
     
-    if (self.selectedIndexPath.row == 1) {  // TEMP Condition (Dev Plan)
-        controller = content.viewControllers[0];
-        controller.type = kELListTypeDevPlan;
-        controller.tabs = @[@(kELListFilterAll),
-                            @(kELListFilterInProgress),
-                            @(kELListFilterCompleted),
-                            @(kELListFilterExpired)];
-        
-//        controller = content.viewControllers[0];
-//        controller.type = kELListTypeSurveys;
-//        controller.tabs = @[@(kELListFilterAll),
-//                            @(kELListFilterInstantFeedback),
-//                            @(kELListFilterLynxManagement)];
+    switch (self.selectedIndexPath.row) {
+        case 2:
+            controller = content.viewControllers[0];
+            controller.type = kELListTypeSurveys;
+            controller.tabs = @[@(kELListFilterAll),
+                                @(kELListFilterInstantFeedback),
+                                @(kELListFilterLynxManagement)];
+            
+            break;
+        case 3:
+            controller = content.viewControllers[0];
+            controller.type = kELListTypeDevPlan;
+            controller.tabs = @[@(kELListFilterAll),
+                                @(kELListFilterInProgress),
+                                @(kELListFilterCompleted),
+                                @(kELListFilterExpired)];
+            
+            break;
+        default:
+            break;
     }
 }
 
@@ -159,27 +190,38 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
     detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDashboard", nil),
-                   @"segueIdentifier": @"Dashboard"};
-    
-    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
-    
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
-                   @"segueIdentifier": @"DevelopmentPlan"};
+                   @"segueIdentifier": @"Dashboard",
+                   @"iconIdentifier": fa_bullseye};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
     detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemProfile", nil),
-                   @"segueIdentifier": @"Profile"};
+                   @"segueIdentifier": @"Profile",
+                   @"iconIdentifier": fa_user_circle_o};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemSurveys", nil),
+                   @"segueIdentifier": @"Survey",
+                   @"iconIdentifier": fa_paper_plane};
+    
+    [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
+    
+    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
+                   @"segueIdentifier": @"DevelopmentPlan",
+                   @"iconIdentifier": fa_briefcase};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
     detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemSettings", nil),
-                   @"segueIdentifier": @"Settings"};
+                   @"segueIdentifier": @"Settings",
+                   @"iconIdentifier": fa_gear};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
     detailDict = @{@"name": NSLocalizedString(@"kELLogoutButton", nil),
-                   @"segueIdentifier": @"Logout"};
+                   @"segueIdentifier": @"Logout",
+                   @"iconIdentifier": fa_bullseye};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
