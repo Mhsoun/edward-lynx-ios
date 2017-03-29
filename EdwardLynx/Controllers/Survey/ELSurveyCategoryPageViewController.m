@@ -13,9 +13,19 @@
 #import "ELSurveyDetailsViewController.h"
 #import "ELSurveyViewManager.h"
 
+#pragma mark - Private Constants
+
+typedef NS_ENUM(NSInteger, kELSurveyState) {
+    kELSurveyStateSaveToDraft,
+    kELSurveyStateFinalize
+};
+
+#pragma mark - Class Extension
+
 @interface ELSurveyCategoryPageViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal;
+@property (nonatomic) NSInteger pageIndex;
 @property (nonatomic) kELSurveyResponseType responseType;
 @property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
@@ -28,11 +38,14 @@
 
 @implementation ELSurveyCategoryPageViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.pageIndex = 0;
     self.mControllers = [[NSMutableArray alloc] init];
     
     if (!self.survey) {
@@ -71,6 +84,8 @@
     
     index--;
     
+    self.pageIndex = index;
+    
     return [self viewControllerAtIndex:index];
 }
 
@@ -83,6 +98,8 @@
     if (index == self.items.count) {
         return nil;
     }
+    
+    self.pageIndex = index;
     
     return [self viewControllerAtIndex:index];
 }
@@ -207,6 +224,27 @@
 
 #pragma mark - Private Methods
 
+- (void)changePage:(UIPageViewControllerNavigationDirection)direction {
+    ELSurveyDetailsViewController *controller;
+    
+    if (direction == UIPageViewControllerNavigationDirectionForward) {
+        self.pageIndex++;
+    } else {
+        self.pageIndex--;
+    }
+    
+    if (self.pageIndex == 0 || self.pageIndex == self.self.mControllers.count) {
+        return;
+    }
+    
+    controller = [self viewControllerAtIndex:self.pageIndex];
+    
+    [self.pageController setViewControllers:@[controller]
+                                  direction:direction
+                                   animated:YES
+                                 completion:nil];
+}
+
 - (void)setupNavigators {
     if (self.items.count > 1) {
         self.pageControl.numberOfPages = self.items.count;
@@ -222,11 +260,11 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onPrevButtonClick:(id)sender {
-    
+    [self changePage:UIPageViewControllerNavigationDirectionReverse];
 }
 
 - (IBAction)onNextButtonClick:(id)sender {
-    
+    [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
