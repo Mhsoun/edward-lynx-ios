@@ -143,7 +143,7 @@
                                     <action selector="onNextButtonClick:" destination="Oe3-tM-qcI" eventType="touchUpInside" id="7om-7L-T95"/>
                                 </connections>
                             </button>
-                            <pageControl hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2RB-P0-3fm">
+                            <pageControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2RB-P0-3fm">
                                 <rect key="frame" x="66" y="567" width="243" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,7 +160,7 @@
                                     <action selector="onPrevButtonClick:" destination="Oe3-tM-qcI" eventType="touchUpInside" id="YYP-ex-5KA"/>
                                 </connections>
                             </button>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
+                            <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
                                 <rect key="frame" x="16" y="617" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -215,6 +215,7 @@
                         <outlet property="pageControl" destination="2RB-P0-3fm" id="Wkk-oZ-RfH"/>
                         <outlet property="pageView" destination="7V3-ui-vgo" id="S3d-I1-ubb"/>
                         <outlet property="prevButton" destination="C7C-H1-C7k" id="GTn-Ha-0os"/>
+                        <outlet property="submitButton" destination="Y7d-Ki-W5I" id="Y7T-mr-kzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lna-HN-p5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

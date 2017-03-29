@@ -13,13 +13,6 @@
 #import "ELSurveyDetailsViewController.h"
 #import "ELSurveyViewManager.h"
 
-#pragma mark - Private Constants
-
-typedef NS_ENUM(NSInteger, kELSurveyState) {
-    kELSurveyStateSaveToDraft,
-    kELSurveyStateFinalize
-};
-
 #pragma mark - Class Extension
 
 @interface ELSurveyCategoryPageViewController ()
@@ -46,6 +39,7 @@ typedef NS_ENUM(NSInteger, kELSurveyState) {
     
     // Initialization
     self.pageIndex = 0;
+    self.isSurveyFinal = NO;
     self.mControllers = [[NSMutableArray alloc] init];
     
     if (!self.survey) {
@@ -159,7 +153,9 @@ typedef NS_ENUM(NSInteger, kELSurveyState) {
             [self addChildViewController:self.pageController];
             [self.pageView addSubview:self.pageController.view];
             [self setupPageController:self.pageController atView:self.pageView];
+            
             [self setupNavigators];
+            [self toggleSubmitButtonState];
             [self.indicatorView stopAnimating];
             
             break;
@@ -227,13 +223,7 @@ typedef NS_ENUM(NSInteger, kELSurveyState) {
 - (void)changePage:(UIPageViewControllerNavigationDirection)direction {
     ELSurveyDetailsViewController *controller;
     
-    if (direction == UIPageViewControllerNavigationDirectionForward) {
-        self.pageIndex++;
-    } else {
-        self.pageIndex--;
-    }
-    
-    if (self.pageIndex == 0 || self.pageIndex == self.self.mControllers.count) {
+    if (self.pageIndex < 0 || self.pageIndex == self.self.mControllers.count) {
         return;
     }
     
@@ -253,17 +243,40 @@ typedef NS_ENUM(NSInteger, kELSurveyState) {
     }
     
     self.prevButton.hidden = self.items.count <= 1;
-    self.pageControl.hidden = self.items.count <= 1;
     self.nextButton.hidden = self.items.count <= 1;
+}
+
+- (void)toggleSubmitButtonState {
+    NSString *bgColorKey = self.isSurveyFinal ? kELOrangeColor : kELGrayColor;
+    NSString *textColorKey = self.isSurveyFinal ? kELWhiteColor : kELDarkVioletColor;
+    NSString *titleIdentifier = self.isSurveyFinal ? @"kELSubmitButton" : @"kELSaveToDraftButton";
+    
+    [self.submitButton setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:bgColorKey]];
+    [self.submitButton setTitle:[NSLocalizedString(titleIdentifier, nil) uppercaseString]
+                       forState:UIControlStateNormal];
+    [self.submitButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:textColorKey]
+                            forState:UIControlStateNormal];
+    
+    self.submitButton.hidden = NO;
 }
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onPrevButtonClick:(id)sender {
+    self.pageIndex--;
+    
+    self.prevButton.hidden = self.pageIndex == 0;
+    self.nextButton.hidden = NO;
+    
     [self changePage:UIPageViewControllerNavigationDirectionReverse];
 }
 
 - (IBAction)onNextButtonClick:(id)sender {
+    self.pageIndex++;
+    
+    self.prevButton.hidden = NO;
+    self.nextButton.hidden = self.pageIndex == self.mControllers.count - 1;
+    
     [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
