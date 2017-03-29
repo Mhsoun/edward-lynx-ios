@@ -13,6 +13,7 @@
 @interface ELQuestionTypeRadioGroupView ()
 
 @property (nonatomic, strong) NSMutableArray *mOptions;
+@property (nonatomic, strong) TNRadioButtonGroup *group;
 
 @end
 
@@ -35,10 +36,7 @@
 #pragma mark - Private Methods
 
 - (void)setupRadioGroup {
-    NSMutableArray *mRadioButtons;
-    TNRadioButtonGroup *group;
-    
-    mRadioButtons = [[NSMutableArray alloc] init];
+    NSMutableArray *mRadioButtons = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.mOptions.count; i++) {
         ELAnswerOption *option = self.mOptions[i];
@@ -62,19 +60,24 @@
         [mRadioButtons addObject:data];
     }
     
-    group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy] layout:TNRadioButtonGroupLayoutVertical];
-    group.frame = self.radioGroupView.bounds;
-    group.identifier = @"Choices";
-    group.marginBetweenItems = 10;
+    self.group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy] layout:TNRadioButtonGroupLayoutVertical];
+    self.group.frame = self.radioGroupView.bounds;
+    self.group.identifier = @"Choices";
+    self.group.marginBetweenItems = 10;
     
-    [group create];
-    [self.radioGroupView addSubview:group];
+    [self.group create];
+    [self.radioGroupView addSubview:self.group];
 }
 
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    return @{};
+    if (!_question.optional && !self.group.selectedRadioButton) {
+        return nil;
+    }
+    
+    return @{@"question": @(_question.objectId),
+             @"answer": @([self.group.selectedRadioButton.data.identifier integerValue])};
 }
 
 #pragma mark - Getter/Setter Methods

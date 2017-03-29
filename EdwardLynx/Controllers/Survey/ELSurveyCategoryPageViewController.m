@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray<ELSurveyDetailsViewController *> *mControllers;
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
 
 @end
 
@@ -44,6 +45,7 @@
         self.title = [self.survey.name uppercaseString];
         self.responseType = kELSurveyResponseTypeQuestions;
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
+        self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
         
         // Retrieve surveys questions
         [self.detailViewManager processRetrievalOfSurveyQuestions];
@@ -118,6 +120,7 @@
     switch (self.responseType) {
         case kELSurveyResponseTypeDetails:
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
+            self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
             self.responseType = kELSurveyResponseTypeQuestions;
             
             // Retrieve surveys questions
@@ -146,6 +149,26 @@
         default:
             break;
     }
+}
+
+#pragma mark - Protocol Methods (ELSurveyViewManager)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELSurveyPostError", nil)
+                     completion:^{}];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
+                                                                      @"kELSurveySaveToDraftSuccess", nil);
+    
+    // Back to the Surveys list
+    [ELUtils presentToastAtView:self.view
+                        message:successMessage
+                     completion:^{
+                         [self.navigationController popViewControllerAnimated:YES];
+                     }];
 }
 
 #pragma mark - Public Methods
@@ -185,10 +208,14 @@
 #pragma mark - Private Methods
 
 - (void)setupNavigators {
-    self.pageControl.numberOfPages = self.items.count;
-    self.pageControl.currentPage = 0;
+    if (self.items.count > 1) {
+        self.pageControl.numberOfPages = self.items.count;
+        self.pageControl.currentPage = 0;
+        
+    }
     
     self.prevButton.hidden = self.items.count <= 1;
+    self.pageControl.hidden = self.items.count <= 1;
     self.nextButton.hidden = self.items.count <= 1;
 }
 
@@ -203,7 +230,25 @@
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
+    NSDictionary *formDict;
+    NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
+    for (ELSurveyDetailsViewController *controller in self.mControllers) {
+        [mItems addObject:[controller formValues]];
+    }
+    
+    formDict = @{@"key": self.survey.key,
+                 @"final": @(self.isSurveyFinal),
+                 @"answers": [mItems copy]};
+    
+    if (!self.isSurveyFinal) {
+        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+    } else {
+        // TODO Validate first before submission
+//        if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
+//            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+//        }
+    }
 }
 
 @end
