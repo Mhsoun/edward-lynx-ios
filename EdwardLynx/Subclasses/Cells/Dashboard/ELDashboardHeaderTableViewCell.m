@@ -8,6 +8,7 @@
 
 #import "ELDashboardHeaderTableViewCell.h"
 #import "ELActionView.h"
+#import "ELBaseViewController.h"
 #import "ELShortcutView.h"
 
 @interface ELDashboardHeaderTableViewCell ()
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIView *resultsActionView;
 @property (weak, nonatomic) IBOutlet UIView *inviteActionView;
 @property (weak, nonatomic) IBOutlet UIView *createActionView;
+
+@property (strong, nonatomic) __kindof ELBaseViewController *controller;
 
 @end
 
@@ -36,14 +39,16 @@
     // Configure the view for the selected state
 }
 
-- (void)setupHeaderContent {
+- (void)setupHeaderContentForController:(__kindof ELBaseViewController *)controller {
     ELActionView *actionView;
     ELShortcutView *shortcutView;
+    
+    self.controller = controller;
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Development Plan",
                                                              @"color": kELDevPlanColor,
                                                              @"icon": fa_bar_chart_o,
-                                                             @"segue": @"DevPlan"}];
+                                                             @"segue": kELDashboardActionTypeDevPlan}];
     shortcutView.delegate = self;
     shortcutView.frame = self.devPlanView.bounds;
     
@@ -52,7 +57,7 @@
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Instant Feedback",
                                                              @"color": kELFeedbackColor,
                                                              @"icon": fa_paper_plane_o,
-                                                             @"segue": @"Feedback"}];
+                                                             @"segue": kELDashboardActionTypeFeedback}];
     shortcutView.delegate = self;
     shortcutView.frame = self.feedbackView.bounds;
     
@@ -61,7 +66,7 @@
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Lynx Management",
                                                              @"color": kELLynxColor,
                                                              @"icon": fa_edit,
-                                                             @"segue": @"Lynx"}];
+                                                             @"segue": kELDashboardActionTypeLynx}];
     shortcutView.delegate = self;
     shortcutView.frame = self.surveyView.bounds;
     
@@ -85,15 +90,45 @@
     
     [self.inviteActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Create", @"count": @0}];
-//    actionView.delegate = self;
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Create",
+                                                         @"count": @0,
+                                                         @"segue": @"Create"}];
+    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.createActionView addSubview:actionView];
 }
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
-    [self.delegate viewTapToPerformSegueWithIdentifier:identifier];
+    UIAlertController *controller;
+    
+    if (![identifier isEqualToString:@"Create"]) {
+        [self.delegate viewTapToPerformSegueWithIdentifier:identifier];
+        
+        return;
+    }
+    
+    controller = [UIAlertController alertControllerWithTitle:@"Create New"
+                                                     message:@""
+                                              preferredStyle:UIAlertControllerStyleAlert];
+    
+    [controller addAction:[UIAlertAction actionWithTitle:@"Goals"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
+                                                 }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Instant Feedback"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
+                                                 }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    [self.controller presentViewController:controller
+                                  animated:YES
+                                completion:nil];
 }
 
 @end

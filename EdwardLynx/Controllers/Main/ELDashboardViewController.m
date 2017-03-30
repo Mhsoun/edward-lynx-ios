@@ -106,7 +106,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                forIndexPath:indexPath];
         
         [cell setDelegate:self];
-        [cell setupHeaderContent];
+        [cell setupHeaderContentForController:self];
         
         return cell;
     } else if (indexPath.section == 1) {
@@ -306,30 +306,34 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 #pragma mark - Protocol Methods (ELDashboardViewDelegate)
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
-    UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
-                                             instantiateInitialViewController];
-    ELTabPageViewController *controller = navController.viewControllers[0];
-    
-    controller.type = kELListTypeSurveys;
-    controller.tabs = @[@(kELListFilterAll),
-                        @(kELListFilterInstantFeedback),
-                        @(kELListFilterLynxManagement)];
-    
-    if ([identifier isEqualToString:@"DevPlan"]) {
-        controller.type = kELListTypeDevPlan;
-        controller.tabs = @[@(kELListFilterAll),
-                            @(kELListFilterInProgress),
-                            @(kELListFilterCompleted),
-                            @(kELListFilterExpired)];
-    } else if ([identifier isEqualToString:@"Feedback"]) {
-        controller.initialIndex = 1;
-    } else if ([identifier isEqualToString:@"Lynx"]) {
-        controller.initialIndex = 2;
+    if ([@[kELDashboardActionTypeCreateDevPlan, kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
+        [self performSegueWithIdentifier:identifier sender:self];
     } else {
-        return;
+        UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
+                                                 instantiateInitialViewController];
+        ELTabPageViewController *controller = navController.viewControllers[0];
+        
+        controller.type = kELListTypeSurveys;
+        controller.tabs = @[@(kELListFilterAll),
+                            @(kELListFilterInstantFeedback),
+                            @(kELListFilterLynxManagement)];
+        
+        if ([identifier isEqualToString:kELDashboardActionTypeDevPlan]) {
+            controller.type = kELListTypeDevPlan;
+            controller.tabs = @[@(kELListFilterAll),
+                                @(kELListFilterInProgress),
+                                @(kELListFilterCompleted),
+                                @(kELListFilterExpired)];
+        } else if ([identifier isEqualToString:kELDashboardActionTypeFeedback]) {
+            controller.initialIndex = 1;
+        } else if ([identifier isEqualToString:kELDashboardActionTypeLynx]) {
+            controller.initialIndex = 2;
+        } else {
+            return;
+        }
+        
+        [self.navigationController pushViewController:controller animated:YES];
     }
-    
-    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Private Methods
@@ -344,7 +348,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     ELReminder *reminder2 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
                                                                      @"title": @"Invite Feedback",
                                                                      @"description": @"Providers to your Instant Feedback",
-                                                                     @"dueDate": @"2017-01-31T06:54:33+01:00",
+                                                                     @"dueDate": @"2017-03-30T06:54:33+01:00",
                                                                      @"type": @(kELReminderTypeFeedback)}
                                                              error:nil];
     ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @1,

@@ -191,11 +191,7 @@
                         <outlet property="surveysView" destination="Kwu-hI-SfP" id="JP7-mO-Fj0"/>
                         <outlet property="tableView" destination="jak-j1-P2T" id="vNA-G4-lDT"/>
                         <segue destination="RpM-p2-AU4" kind="show" identifier="CreateInstantFeedback" id="5Fl-OE-4wS"/>
-                        <segue destination="w5L-eZ-idj" kind="show" identifier="InstantFeedback" id="GyE-BV-OFn"/>
-                        <segue destination="3Fr-eJ-sc1" kind="show" identifier="Report" id="nPw-dG-srp"/>
-                        <segue destination="4iW-fL-E7B" kind="show" identifier="Survey" id="XI9-4j-iwp"/>
                         <segue destination="cE8-ig-1ah" kind="show" identifier="CreateDevelopmentPlan" id="c98-mo-DOi"/>
-                        <segue destination="07X-XJ-p2S" kind="show" identifier="DevelopmentPlan" id="XNV-ct-gdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPm-HC-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,31 +204,7 @@
                 <viewControllerPlaceholder storyboardName="CreateInstantFeedback" id="RpM-p2-AU4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sl-Fc-esW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="52"/>
-        </scene>
-        <!--InstantFeedback-->
-        <scene sceneID="wce-Ep-cXG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="InstantFeedback" id="w5L-eZ-idj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YVO-SW-PWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="851" y="105"/>
-        </scene>
-        <!--Report-->
-        <scene sceneID="soG-8O-SC9">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Report" id="3Fr-eJ-sc1" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D5I-iu-LZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="802" y="157"/>
-        </scene>
-        <!--Survey-->
-        <scene sceneID="7lt-Ph-scx">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Survey" id="4iW-fL-E7B" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wu9-YP-anr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="803" y="205"/>
+            <point key="canvasLocation" x="885" y="97"/>
         </scene>
         <!--CreateDevelopmentPlan-->
         <scene sceneID="d1A-B9-gw1">
@@ -240,15 +212,7 @@
                 <viewControllerPlaceholder storyboardName="CreateDevelopmentPlan" id="cE8-ig-1ah" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwY-lh-Bsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="256"/>
-        </scene>
-        <!--DevelopmentPlan-->
-        <scene sceneID="sDR-zQ-pjh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DevelopmentPlan" id="07X-XJ-p2S" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-bj-yCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="853" y="308"/>
+            <point key="canvasLocation" x="886" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FIh-XW-KD8">
