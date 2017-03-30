@@ -14,6 +14,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    // UI
+    self.invitedIcon.image = [FontAwesome imageWithIcon:fa_user
+                                              iconColor:[UIColor whiteColor]
+                                               iconSize:50];
+    self.nextIcon.image = [FontAwesome imageWithIcon:fa_chevron_right
+                                              iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                                               iconSize:50];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,8 +34,15 @@
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     ELInstantFeedback *instantFeedback = (ELInstantFeedback *)object;
-        
-    self.reportLabel.text = instantFeedback.question.text;
+    
+    // Content
+    self.titleLabel.text = instantFeedback.question.text;
+    self.typeLabel.text = [NSString stringWithFormat:@" %@ ", @"INSTANT FEEDBACK"];  // TEMP
+    
+    // UI
+    self.timestampLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    self.typeLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELFeedbackColor];
+    self.typeLabel.layer.cornerRadius = 2.0f;
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

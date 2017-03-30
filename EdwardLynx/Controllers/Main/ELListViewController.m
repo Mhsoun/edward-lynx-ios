@@ -18,8 +18,8 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELDefaultRowHeight = 100;
-static CGFloat const kELSurveyRowHeight = 105;
+static CGFloat const kELDefaultRowHeight = 105;
+static CGFloat const kELDevPlanRowHeight = 225;
 
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReportCellIdentifier = @"ReportCell";
@@ -61,6 +61,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    if (self.listType == kELListTypeReports) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -195,7 +199,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         case kELListTypeSurveys:
             emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
             
-            self.tableView.rowHeight = kELSurveyRowHeight;
+            self.tableView.rowHeight = kELDefaultRowHeight;
             
             for (NSDictionary *detailDict in responseDict[@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
@@ -215,7 +219,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         case kELListTypeDevPlan:
             emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
             
-            self.tableView.rowHeight = 225;
+            self.tableView.rowHeight = kELDevPlanRowHeight;
             
             for (NSDictionary *detailDict in responseDict[@"items"]) {
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];

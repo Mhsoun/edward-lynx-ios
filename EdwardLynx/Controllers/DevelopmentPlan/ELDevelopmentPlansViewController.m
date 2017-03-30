@@ -14,7 +14,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELListSegueIdentifier = @"ListContainer";
-static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
+static NSString * const kELDetailsSegueIdentifier = @"DevelopmentPlanDetail";
 
 #pragma mark - Class Extension
 
@@ -41,7 +41,7 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:kELSDetailegueIdentifier]) {
+    if ([segue.identifier isEqualToString:kELDetailsSegueIdentifier]) {
         ELDevelopmentPlanDetailsViewController *controller = (ELDevelopmentPlanDetailsViewController *)[segue destinationViewController];
         
         controller.devPlan = self.selectedDevPlan;
@@ -59,7 +59,7 @@ static NSString * const kELSDetailegueIdentifier = @"DevelopmentPlanDetail";
 - (void)onRowSelection:(__kindof ELModel *)object {
     self.selectedDevPlan = (ELDevelopmentPlan *)object;
     
-    [self performSegueWithIdentifier:kELSDetailegueIdentifier sender:self];
+    [self performSegueWithIdentifier:kELDetailsSegueIdentifier sender:self];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

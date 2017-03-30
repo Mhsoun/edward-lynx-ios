@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--REPORTS-->
         <scene sceneID="WVS-UR-LJn">
             <objects>
-                <viewController storyboardIdentifier="InstantFeedbacks" id="vJQ-t1-0zN" customClass="ELReportsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Report" id="vJQ-t1-0zN" customClass="ELReportsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qyc-Fx-Ved"/>
                         <viewControllerLayoutGuide type="bottom" id="qPU-YK-kM5"/>
@@ -19,16 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qGm-JT-xDh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <searchBar contentMode="scaleToFill" text="" placeholder="Search Reports" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-i4-rc6" customClass="ELSearchBar">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QFr-Jy-jst"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </searchBar>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-b1-q6b">
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ySS-jx-kgb" kind="embed" identifier="ListContainer" id="T5Y-58-9yA"/>
@@ -37,22 +35,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6hD-b1-q6b" firstAttribute="top" secondItem="Dct-i4-rc6" secondAttribute="bottom" id="0dH-tW-1IX"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="centerY" secondItem="CP3-W7-7Kf" secondAttribute="centerY" id="9Qs-Cd-cbE"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="HIh-AZ-jlJ"/>
-                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="6hD-b1-q6b" secondAttribute="bottom" id="HVB-ER-EIK"/>
-                            <constraint firstItem="6hD-b1-q6b" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="MG7-9c-deg"/>
+                            <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="6hD-b1-q6b" secondAttribute="bottom" id="MVb-Yr-060"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="SVJ-u0-ov9"/>
-                            <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XJa-pj-454"/>
-                            <constraint firstItem="Dct-i4-rc6" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="XQ8-Ji-lIp"/>
-                            <constraint firstItem="Dct-i4-rc6" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="jCr-f7-54S"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="XV6-pD-jG3"/>
                             <constraint firstItem="qGm-JT-xDh" firstAttribute="height" secondItem="CP3-W7-7Kf" secondAttribute="height" id="jOZ-mW-UYf"/>
-                            <constraint firstItem="Dct-i4-rc6" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" id="qGH-JX-jRm"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" constant="10" id="miz-xn-qxP"/>
+                            <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="ubc-TN-ace"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
                     <connections>
-                        <outlet property="searchBar" destination="Dct-i4-rc6" id="iba-Mn-r4J"/>
                         <segue destination="lWz-hf-IaL" kind="show" identifier="ReportDetails" id="wav-zX-WHg"/>
                         <segue destination="4P0-Lz-7qb" kind="show" identifier="InstantFeedbackDetails" id="rHV-1k-SMv"/>
                     </connections>
@@ -82,6 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-g1-jiS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>

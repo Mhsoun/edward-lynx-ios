@@ -22,7 +22,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 
 @interface ELReportsViewController ()
 
-@property (nonatomic, strong) NSArray *tabs;
+@property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
 
 @end
 
@@ -31,12 +31,6 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Initialization
-    self.tabs = @[@(kELListFilterAll),
-                  @(kELReportType360),
-                  @(kELReportTypeInstant)];
-    self.searchBar.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,24 +57,6 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
     }
 }
 
-#pragma mark - Protocol Methods (UISearchBar)
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    // TODO Filtering implementation
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
-    
-    [searchBar setText:@""];
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar endEditing:YES];
-}
-
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
@@ -88,6 +64,12 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
     
 //    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
     [self performSegueWithIdentifier:kELInstantFeedbackSegueIdentifier sender:self];
+}
+
+#pragma mark - Protocol Methods (XLPagerTabStrip)
+
+- (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
+    return [[ELUtils labelByListFilter:[self.tabs[self.index] integerValue]] uppercaseString];
 }
 
 @end

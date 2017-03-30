@@ -8,10 +8,13 @@
 
 @interface ELReportTableViewCell : UITableViewCell<ELConfigurableCellDelegate, ELRowHandlerDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *reportLabel;
-@property (weak, nonatomic) IBOutlet UILabel *shortDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *nextIcon;
+
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *invitedIcon;
 @property (weak, nonatomic) IBOutlet UILabel *invitedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *answeredLabel;
 
 @end
