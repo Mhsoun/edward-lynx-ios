@@ -160,6 +160,8 @@
 		A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */; };
 		A97C29911E8B8CC300EBC5CE /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */; };
 		A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
+		A99FBBBA1E8D09B6008DAB5F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99FBBB91E8D09B6008DAB5F /* Charts.framework */; };
+		A99FBBBB1E8D09B6008DAB5F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99FBBB91E8D09B6008DAB5F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
@@ -184,6 +186,20 @@
 			remoteInfo = EdwardLynx;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A99FBBBC1E8D09B6008DAB5F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A99FBBBB1E8D09B6008DAB5F /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasePods-EdwardLynxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +499,7 @@
 		A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
 		A97C297F1E8B8CC300EBC5CE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A97C29801E8B8CC300EBC5CE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
+		A99FBBB91E8D09B6008DAB5F /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9D4C15D1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyCategoryPageViewController.h; sourceTree = "<group>"; };
 		A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyCategoryPageViewController.m; sourceTree = "<group>"; };
@@ -497,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+				A99FBBBA1E8D09B6008DAB5F /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1041,7 @@
 		A9308BC51DED74B5007B4F9F = {
 			isa = PBXGroup;
 			children = (
+				A99FBBB91E8D09B6008DAB5F /* Charts.framework */,
 				A91310C51E8642D20042C91F /* EdwardLynx */,
 				A9308BED1DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF81DED74B6007B4F9F /* EdwardLynxUITests */,
@@ -1144,6 +1163,7 @@
 				38697E15D1992B26C294B016 /* [CP] Embed Pods Frameworks */,
 				6A8DD73BD404DC873EDC16B2 /* [CP] Copy Pods Resources */,
 				A968F1871DF7A4FF0091997D /* ShellScript */,
+				A99FBBBC1E8D09B6008DAB5F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1967,10 +1987,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1984,10 +2006,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

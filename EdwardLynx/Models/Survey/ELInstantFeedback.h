@@ -24,4 +24,7 @@
 @property (nonatomic) NSArray<Optional> *shares;
 @property (nonatomic) NSArray<Optional, ELParticipant> *participants;
 
+@property (nonatomic) NSInteger noOfParticipantsAnswered;
+@property (nonatomic) NSString<Ignore> *dateString;
+
 @end

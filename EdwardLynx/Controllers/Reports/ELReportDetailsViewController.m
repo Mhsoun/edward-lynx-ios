@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+@import Charts;
+
 #import <PNChart/PNBarChart.h>
 
 #import "ELReportDetailsViewController.h"
@@ -19,7 +21,7 @@
 @interface ELReportDetailsViewController ()
 
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
-@property (nonatomic, strong) PNBarChart *averageBarChart, *indexBarChart;
+@property (nonatomic, strong) HorizontalBarChartView *averageBarChart, *indexBarChart;
 
 @end
 
@@ -33,20 +35,13 @@
     
     // Initialization
     self.title = [self.instantFeedback.question.text uppercaseString];
+    self.dateLabel.text = self.instantFeedback.dateString;
+    self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                           @(self.instantFeedback.participants.count),
+                           @(self.instantFeedback.noOfParticipantsAnswered)];
     
-    // TEMP Values
-    self.dateLabel.text = @"January 3, 2015";
-    self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil), @31, @31];
-    
-    self.averageBarChart = [[PNBarChart alloc] initWithFrame:self.averageBarChartView.bounds];
-    self.averageBarChart.backgroundColor = [UIColor clearColor];
-    self.averageBarChart.barBackgroundColor = [UIColor clearColor];
-    
-    self.indexBarChart = [[PNBarChart alloc] initWithFrame:self.indexBarChartView.bounds];
-    self.indexBarChart.backgroundColor = [UIColor clearColor];
-    self.indexBarChart.barBackgroundColor = [UIColor clearColor];
-
-//    self.averageBarChart.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+    self.averageBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.averageBarChartView.bounds];
+    self.indexBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.indexBarChartView.bounds];
     
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.instantFeedback];
     self.viewManager.delegate = self;
@@ -55,6 +50,7 @@
     [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_download
                                                    iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                                                     iconSize:25]];
+    
     
     [self.averageBarChartView addSubview:self.averageBarChart];
     [self.indexBarChartView addSubview:self.indexBarChart];
@@ -94,62 +90,145 @@
     }
     
     [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
-    [self setupIndexBarChar:self.indexBarChart answers:[mAnswers copy]];
-    [self.averageBarChart strokeChart];
-    [self.indexBarChart strokeChart];
+    [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
 }
 
 #pragma mark - Private Methods
 
-- (void)setupAverageBarChart:(PNBarChart *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-//    NSMutableArray *mColors = [[NSMutableArray alloc] init];
-    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray *mValues = [[NSMutableArray alloc] init];
+- (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
+    BarChartDataSet *chartDataSet;
+    ChartLimitLine *limitLine70, *limitLine100;
+    NSMutableArray<NSString *> *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
     
-    barChart.barRadius = 0;
-    barChart.barWidth = 20;
-    barChart.chartMarginBottom = 0;
-    barChart.chartMarginTop = 0;
-    barChart.isGradientShow = NO;
-    barChart.isShowNumbers = YES;
-    barChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
-    barChart.labelMarginTop = 0;
-    barChart.labelTextColor = [UIColor whiteColor];
-    barChart.yChartLabelWidth = 0;
-    
-    for (ELAnswerOption *option in answers) {
-        [mLabels addObject:option.shortDescription];
-        [mValues addObject:@(option.count)];
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            continue;
+        }
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:i y:answers[i].value]];
+        [mLabels addObject:answers[i].shortDescription];
     }
     
-    barChart.xLabels = [mLabels copy];
-    barChart.yValues = [mValues copy];
+    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
+    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    chartDataSet.valueTextColor = [UIColor whiteColor];
+    
+    barChart.data = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    barChart.drawBordersEnabled = NO;
+    barChart.drawGridBackgroundEnabled = NO;
+    barChart.descriptionText = @"";
+    
+    barChart.leftAxis.drawAxisLineEnabled = NO;
+    barChart.leftAxis.drawGridLinesEnabled = NO;
+    barChart.leftAxis.drawLabelsEnabled = NO;
+    
+    limitLine70 = [[ChartLimitLine alloc] initWithLimit:70.0 label:@"70%"];
+    limitLine70.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine70.valueFont = labelFont;
+    limitLine70.valueTextColor = [UIColor whiteColor];
+    
+    [barChart.leftAxis addLimitLine:limitLine70];
+    
+    limitLine100 = [[ChartLimitLine alloc] initWithLimit:100.0 label:@"100%"];
+    limitLine100.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine100.valueFont = labelFont;
+    limitLine100.valueTextColor = [UIColor whiteColor];
+    
+    [barChart.leftAxis addLimitLine:limitLine100];
+    
+    barChart.legend.enabled = NO;
+    
+    barChart.rightAxis.drawAxisLineEnabled = NO;
+    barChart.rightAxis.drawGridLinesEnabled = NO;
+    barChart.rightAxis.drawLabelsEnabled = NO;
+    
+    barChart.userInteractionEnabled = NO;
+    
+    barChart.xAxis.drawGridLinesEnabled = NO;
+    barChart.xAxis.granularity = 1;
+    barChart.xAxis.labelFont = labelFont;
+    barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
+    barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    barChart.xAxis.labelWidth = 100;
+    barChart.xAxis.wordWrapEnabled = YES;
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
+        
+    [barChart animateWithYAxisDuration:0.5];
 }
 
-- (void)setupIndexBarChar:(PNBarChart *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-    //    NSMutableArray *mColors = [[NSMutableArray alloc] init];
-    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray *mValues = [[NSMutableArray alloc] init];
+- (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
+    BarChartDataSet *chartDataSet;
+    ChartLimitLine *limitLine70, *limitLine100;
+    NSMutableArray<NSString *> *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
     
-    barChart.barRadius = 0;
-    barChart.barWidth = 20;
-    barChart.chartMarginBottom = 0;
-    barChart.chartMarginTop = 0;
-    barChart.isGradientShow = NO;
-    barChart.isShowNumbers = YES;
-    barChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
-    barChart.labelMarginTop = 0;
-    barChart.labelTextColor = [UIColor whiteColor];
-    barChart.xLabelSkip = 2;
-    barChart.yChartLabelWidth = 0;
-    
-    for (ELAnswerOption *option in answers) {
-        [mLabels addObject:option.shortDescription];
-        [mValues addObject:@(option.count)];
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            continue;
+        }
+
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:i y:answers[i].value]];
+        [mLabels addObject:answers[i].shortDescription];
     }
     
-    barChart.xLabels = [mLabels copy];
-    barChart.yValues = [mValues copy];
+    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
+    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    chartDataSet.valueTextColor = [UIColor whiteColor];
+    
+    barChart.data = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    barChart.drawBordersEnabled = NO;
+    barChart.drawGridBackgroundEnabled = NO;
+    barChart.descriptionText = @"";
+    
+    barChart.leftAxis.drawAxisLineEnabled = NO;
+    barChart.leftAxis.drawGridLinesEnabled = NO;
+    barChart.leftAxis.drawLabelsEnabled = NO;
+    barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    
+    limitLine70 = [[ChartLimitLine alloc] initWithLimit:70.0 label:@"70%"];
+    limitLine70.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine70.valueFont = labelFont;
+    limitLine70.valueTextColor = [UIColor whiteColor];
+    
+    [barChart.leftAxis addLimitLine:limitLine70];
+    
+    limitLine100 = [[ChartLimitLine alloc] initWithLimit:100.0 label:@"100%"];
+    limitLine100.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine100.valueFont = labelFont;
+    limitLine100.valueTextColor = [UIColor whiteColor];
+    
+    [barChart.leftAxis addLimitLine:limitLine100];
+    
+    barChart.legend.font = labelFont;
+    barChart.legend.textColor = [UIColor whiteColor];
+    
+    barChart.rightAxis.drawAxisLineEnabled = NO;
+    barChart.rightAxis.drawGridLinesEnabled = NO;
+    barChart.rightAxis.drawLabelsEnabled = NO;
+    
+    barChart.userInteractionEnabled = NO;
+    
+    barChart.xAxis.drawGridLinesEnabled = NO;
+    barChart.xAxis.granularityEnabled = YES;
+    barChart.xAxis.granularity = 1;
+    barChart.xAxis.labelCount = mLabels.count;
+    barChart.xAxis.labelFont = labelFont;
+    barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
+    barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    barChart.xAxis.labelWidth = 100;
+    barChart.xAxis.wordWrapEnabled = YES;
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
+    
+    [barChart animateWithYAxisDuration:0.5];
 }
 
 #pragma mark - Interface Builder Actions
