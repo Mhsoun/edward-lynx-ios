@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ELDashboardReminderTableViewCell : UITableViewCell
+#import "ELReminder.h"
+
+@interface ELDashboardReminderTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
 @end

@@ -10,6 +10,8 @@
 
 @interface ELSectionView : UIView
 
-- (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame accessSeeMore:(BOOL)seeMore;
+@property (nonatomic, strong) id<ELDashboardViewDelegate> delegate;
+
+- (instancetype)initWithDetails:(NSDictionary *)detailsDict frame:(CGRect)frame;
 
 @end

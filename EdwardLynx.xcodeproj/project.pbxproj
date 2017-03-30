@@ -94,23 +94,6 @@
 		A913126C1E8642D30042C91F /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A91311651E8642D20042C91F /* EdwardLynx.xcdatamodeld */; };
 		A913126D1E8642D30042C91F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311671E8642D20042C91F /* GoogleService-Info.plist */; };
 		A913126F1E8642D30042C91F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311691E8642D20042C91F /* main.m */; };
-		A91312701E8642D30042C91F /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A913116C1E8642D20042C91F /* ELAnswer.m */; };
-		A91312711E8642D30042C91F /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A913116E1E8642D20042C91F /* ELAnswerOption.m */; };
-		A91312721E8642D30042C91F /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311701E8642D20042C91F /* ELCategory.m */; };
-		A91312731E8642D30042C91F /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311721E8642D20042C91F /* ELDevelopmentPlan.m */; };
-		A91312741E8642D30042C91F /* ELFilterSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311741E8642D20042C91F /* ELFilterSortItem.m */; };
-		A91312751E8642D30042C91F /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311761E8642D20042C91F /* ELGoal.m */; };
-		A91312761E8642D30042C91F /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311781E8642D20042C91F /* ELGoalAction.m */; };
-		A91312771E8642D30042C91F /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A913117A1E8642D20042C91F /* ELInstantFeedback.m */; };
-		A91312781E8642D30042C91F /* ELMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A913117C1E8642D20042C91F /* ELMenuItem.m */; };
-		A91312791E8642D30042C91F /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A913117E1E8642D20042C91F /* ELModel.m */; };
-		A913127A1E8642D30042C91F /* ELNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311801E8642D20042C91F /* ELNotification.m */; };
-		A913127B1E8642D30042C91F /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311821E8642D20042C91F /* ELOAuthInstance.m */; };
-		A913127C1E8642D30042C91F /* ELParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311841E8642D20042C91F /* ELParticipant.m */; };
-		A913127D1E8642D30042C91F /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311861E8642D20042C91F /* ELQuestion.m */; };
-		A913127E1E8642D30042C91F /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311881E8642D20042C91F /* ELQuestionCategory.m */; };
-		A913127F1E8642D30042C91F /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A913118A1E8642D20042C91F /* ELSurvey.m */; };
-		A91312801E8642D30042C91F /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A913118C1E8642D20042C91F /* ELUser.m */; };
 		A91312811E8642D30042C91F /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311901E8642D20042C91F /* Lato-Bold.ttf */; };
 		A91312821E8642D30042C91F /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311911E8642D20042C91F /* Lato-Heavy.ttf */; };
 		A91312831E8642D30042C91F /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311921E8642D20042C91F /* Lato-Italic.ttf */; };
@@ -159,6 +142,24 @@
 		A91312B51E8657320042C91F /* DashboardReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91312B41E8657320042C91F /* DashboardReminderCell.xib */; };
 		A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
+		A97C29811E8B8CC300EBC5CE /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */; };
+		A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295E1E8B8CC300EBC5CE /* ELGoal.m */; };
+		A97C29831E8B8CC300EBC5CE /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */; };
+		A97C29841E8B8CC300EBC5CE /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29631E8B8CC300EBC5CE /* ELCategory.m */; };
+		A97C29851E8B8CC300EBC5CE /* ELFilterSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */; };
+		A97C29861E8B8CC300EBC5CE /* ELMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */; };
+		A97C29871E8B8CC300EBC5CE /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29691E8B8CC300EBC5CE /* ELModel.m */; };
+		A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296B1E8B8CC300EBC5CE /* ELNotification.m */; };
+		A97C29891E8B8CC300EBC5CE /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296D1E8B8CC300EBC5CE /* ELOAuthInstance.m */; };
+		A97C298A1E8B8CC300EBC5CE /* ELParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */; };
+		A97C298B1E8B8CC300EBC5CE /* ELReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29711E8B8CC300EBC5CE /* ELReminder.m */; };
+		A97C298C1E8B8CC300EBC5CE /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29731E8B8CC300EBC5CE /* ELUser.m */; };
+		A97C298D1E8B8CC300EBC5CE /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29761E8B8CC300EBC5CE /* ELAnswer.m */; };
+		A97C298E1E8B8CC300EBC5CE /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29781E8B8CC300EBC5CE /* ELAnswerOption.m */; };
+		A97C298F1E8B8CC300EBC5CE /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297A1E8B8CC300EBC5CE /* ELInstantFeedback.m */; };
+		A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */; };
+		A97C29911E8B8CC300EBC5CE /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */; };
+		A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
@@ -312,40 +313,6 @@
 		A91311671E8642D20042C91F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A91311681E8642D20042C91F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A91311691E8642D20042C91F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A913116B1E8642D20042C91F /* ELAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswer.h; sourceTree = "<group>"; };
-		A913116C1E8642D20042C91F /* ELAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswer.m; sourceTree = "<group>"; };
-		A913116D1E8642D20042C91F /* ELAnswerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerOption.h; sourceTree = "<group>"; };
-		A913116E1E8642D20042C91F /* ELAnswerOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerOption.m; sourceTree = "<group>"; };
-		A913116F1E8642D20042C91F /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
-		A91311701E8642D20042C91F /* ELCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCategory.m; sourceTree = "<group>"; };
-		A91311711E8642D20042C91F /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
-		A91311721E8642D20042C91F /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
-		A91311731E8642D20042C91F /* ELFilterSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFilterSortItem.h; sourceTree = "<group>"; };
-		A91311741E8642D20042C91F /* ELFilterSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFilterSortItem.m; sourceTree = "<group>"; };
-		A91311751E8642D20042C91F /* ELGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoal.h; sourceTree = "<group>"; };
-		A91311761E8642D20042C91F /* ELGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoal.m; sourceTree = "<group>"; };
-		A91311771E8642D20042C91F /* ELGoalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalAction.h; sourceTree = "<group>"; };
-		A91311781E8642D20042C91F /* ELGoalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalAction.m; sourceTree = "<group>"; };
-		A91311791E8642D20042C91F /* ELInstantFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedback.h; sourceTree = "<group>"; };
-		A913117A1E8642D20042C91F /* ELInstantFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedback.m; sourceTree = "<group>"; };
-		A913117B1E8642D20042C91F /* ELMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMenuItem.h; sourceTree = "<group>"; };
-		A913117C1E8642D20042C91F /* ELMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELMenuItem.m; sourceTree = "<group>"; };
-		A913117D1E8642D20042C91F /* ELModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELModel.h; sourceTree = "<group>"; };
-		A913117E1E8642D20042C91F /* ELModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELModel.m; sourceTree = "<group>"; };
-		A913117F1E8642D20042C91F /* ELNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotification.h; sourceTree = "<group>"; };
-		A91311801E8642D20042C91F /* ELNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELNotification.m; sourceTree = "<group>"; };
-		A91311811E8642D20042C91F /* ELOAuthInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELOAuthInstance.h; sourceTree = "<group>"; };
-		A91311821E8642D20042C91F /* ELOAuthInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELOAuthInstance.m; sourceTree = "<group>"; };
-		A91311831E8642D20042C91F /* ELParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELParticipant.h; sourceTree = "<group>"; };
-		A91311841E8642D20042C91F /* ELParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELParticipant.m; sourceTree = "<group>"; };
-		A91311851E8642D20042C91F /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
-		A91311861E8642D20042C91F /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
-		A91311871E8642D20042C91F /* ELQuestionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionCategory.h; sourceTree = "<group>"; };
-		A91311881E8642D20042C91F /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
-		A91311891E8642D20042C91F /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
-		A913118A1E8642D20042C91F /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
-		A913118B1E8642D20042C91F /* ELUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUser.h; sourceTree = "<group>"; };
-		A913118C1E8642D20042C91F /* ELUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUser.m; sourceTree = "<group>"; };
 		A913118D1E8642D20042C91F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A91311901E8642D20042C91F /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		A91311911E8642D20042C91F /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
@@ -480,6 +447,42 @@
 		A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97C295B1E8B8CC300EBC5CE /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
+		A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
+		A97C295D1E8B8CC300EBC5CE /* ELGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoal.h; sourceTree = "<group>"; };
+		A97C295E1E8B8CC300EBC5CE /* ELGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoal.m; sourceTree = "<group>"; };
+		A97C295F1E8B8CC300EBC5CE /* ELGoalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoalAction.h; sourceTree = "<group>"; };
+		A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalAction.m; sourceTree = "<group>"; };
+		A97C29621E8B8CC300EBC5CE /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
+		A97C29631E8B8CC300EBC5CE /* ELCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCategory.m; sourceTree = "<group>"; };
+		A97C29641E8B8CC300EBC5CE /* ELFilterSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFilterSortItem.h; sourceTree = "<group>"; };
+		A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFilterSortItem.m; sourceTree = "<group>"; };
+		A97C29661E8B8CC300EBC5CE /* ELMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMenuItem.h; sourceTree = "<group>"; };
+		A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELMenuItem.m; sourceTree = "<group>"; };
+		A97C29681E8B8CC300EBC5CE /* ELModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELModel.h; sourceTree = "<group>"; };
+		A97C29691E8B8CC300EBC5CE /* ELModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELModel.m; sourceTree = "<group>"; };
+		A97C296A1E8B8CC300EBC5CE /* ELNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotification.h; sourceTree = "<group>"; };
+		A97C296B1E8B8CC300EBC5CE /* ELNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELNotification.m; sourceTree = "<group>"; };
+		A97C296C1E8B8CC300EBC5CE /* ELOAuthInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELOAuthInstance.h; sourceTree = "<group>"; };
+		A97C296D1E8B8CC300EBC5CE /* ELOAuthInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELOAuthInstance.m; sourceTree = "<group>"; };
+		A97C296E1E8B8CC300EBC5CE /* ELParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELParticipant.h; sourceTree = "<group>"; };
+		A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELParticipant.m; sourceTree = "<group>"; };
+		A97C29701E8B8CC300EBC5CE /* ELReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReminder.h; sourceTree = "<group>"; };
+		A97C29711E8B8CC300EBC5CE /* ELReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReminder.m; sourceTree = "<group>"; };
+		A97C29721E8B8CC300EBC5CE /* ELUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUser.h; sourceTree = "<group>"; };
+		A97C29731E8B8CC300EBC5CE /* ELUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELUser.m; sourceTree = "<group>"; };
+		A97C29751E8B8CC300EBC5CE /* ELAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswer.h; sourceTree = "<group>"; };
+		A97C29761E8B8CC300EBC5CE /* ELAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswer.m; sourceTree = "<group>"; };
+		A97C29771E8B8CC300EBC5CE /* ELAnswerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAnswerOption.h; sourceTree = "<group>"; };
+		A97C29781E8B8CC300EBC5CE /* ELAnswerOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerOption.m; sourceTree = "<group>"; };
+		A97C29791E8B8CC300EBC5CE /* ELInstantFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedback.h; sourceTree = "<group>"; };
+		A97C297A1E8B8CC300EBC5CE /* ELInstantFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedback.m; sourceTree = "<group>"; };
+		A97C297B1E8B8CC300EBC5CE /* ELQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestion.h; sourceTree = "<group>"; };
+		A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestion.m; sourceTree = "<group>"; };
+		A97C297D1E8B8CC300EBC5CE /* ELQuestionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionCategory.h; sourceTree = "<group>"; };
+		A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
+		A97C297F1E8B8CC300EBC5CE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
+		A97C29801E8B8CC300EBC5CE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9D4C15D1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyCategoryPageViewController.h; sourceTree = "<group>"; };
 		A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyCategoryPageViewController.m; sourceTree = "<group>"; };
@@ -545,7 +548,7 @@
 				A91311091E8642D20042C91F /* Categories */,
 				A913110A1E8642D20042C91F /* Controllers */,
 				A91312AE1E86432B0042C91F /* Layouts */,
-				A913116A1E8642D20042C91F /* Models */,
+				A97C29591E8B8CC300EBC5CE /* Models */,
 				A913118E1E8642D20042C91F /* Resources */,
 				A91312AC1E8642F40042C91F /* Strings */,
 				A91311A71E8642D20042C91F /* Subclasses */,
@@ -745,47 +748,6 @@
 				A91311471E8642D20042C91F /* ELSurveysViewController.m */,
 			);
 			path = Survey;
-			sourceTree = "<group>";
-		};
-		A913116A1E8642D20042C91F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A913116B1E8642D20042C91F /* ELAnswer.h */,
-				A913116C1E8642D20042C91F /* ELAnswer.m */,
-				A913116D1E8642D20042C91F /* ELAnswerOption.h */,
-				A913116E1E8642D20042C91F /* ELAnswerOption.m */,
-				A913116F1E8642D20042C91F /* ELCategory.h */,
-				A91311701E8642D20042C91F /* ELCategory.m */,
-				A91311711E8642D20042C91F /* ELDevelopmentPlan.h */,
-				A91311721E8642D20042C91F /* ELDevelopmentPlan.m */,
-				A91311731E8642D20042C91F /* ELFilterSortItem.h */,
-				A91311741E8642D20042C91F /* ELFilterSortItem.m */,
-				A91311751E8642D20042C91F /* ELGoal.h */,
-				A91311761E8642D20042C91F /* ELGoal.m */,
-				A91311771E8642D20042C91F /* ELGoalAction.h */,
-				A91311781E8642D20042C91F /* ELGoalAction.m */,
-				A91311791E8642D20042C91F /* ELInstantFeedback.h */,
-				A913117A1E8642D20042C91F /* ELInstantFeedback.m */,
-				A913117B1E8642D20042C91F /* ELMenuItem.h */,
-				A913117C1E8642D20042C91F /* ELMenuItem.m */,
-				A913117D1E8642D20042C91F /* ELModel.h */,
-				A913117E1E8642D20042C91F /* ELModel.m */,
-				A913117F1E8642D20042C91F /* ELNotification.h */,
-				A91311801E8642D20042C91F /* ELNotification.m */,
-				A91311811E8642D20042C91F /* ELOAuthInstance.h */,
-				A91311821E8642D20042C91F /* ELOAuthInstance.m */,
-				A91311831E8642D20042C91F /* ELParticipant.h */,
-				A91311841E8642D20042C91F /* ELParticipant.m */,
-				A91311851E8642D20042C91F /* ELQuestion.h */,
-				A91311861E8642D20042C91F /* ELQuestion.m */,
-				A91311871E8642D20042C91F /* ELQuestionCategory.h */,
-				A91311881E8642D20042C91F /* ELQuestionCategory.m */,
-				A91311891E8642D20042C91F /* ELSurvey.h */,
-				A913118A1E8642D20042C91F /* ELSurvey.m */,
-				A913118B1E8642D20042C91F /* ELUser.h */,
-				A913118C1E8642D20042C91F /* ELUser.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A913118E1E8642D20042C91F /* Resources */ = {
@@ -1099,6 +1061,73 @@
 				A9308BFB1DED74B6007B4F9F /* Info.plist */,
 			);
 			path = EdwardLynxUITests;
+			sourceTree = "<group>";
+		};
+		A97C29591E8B8CC300EBC5CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A97C295A1E8B8CC300EBC5CE /* DevelopmentPlan */,
+				A97C29611E8B8CC300EBC5CE /* Main */,
+				A97C29741E8B8CC300EBC5CE /* Survey */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A97C295A1E8B8CC300EBC5CE /* DevelopmentPlan */ = {
+			isa = PBXGroup;
+			children = (
+				A97C295B1E8B8CC300EBC5CE /* ELDevelopmentPlan.h */,
+				A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */,
+				A97C295D1E8B8CC300EBC5CE /* ELGoal.h */,
+				A97C295E1E8B8CC300EBC5CE /* ELGoal.m */,
+				A97C295F1E8B8CC300EBC5CE /* ELGoalAction.h */,
+				A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */,
+			);
+			path = DevelopmentPlan;
+			sourceTree = "<group>";
+		};
+		A97C29611E8B8CC300EBC5CE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A97C29621E8B8CC300EBC5CE /* ELCategory.h */,
+				A97C29631E8B8CC300EBC5CE /* ELCategory.m */,
+				A97C29641E8B8CC300EBC5CE /* ELFilterSortItem.h */,
+				A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */,
+				A97C29661E8B8CC300EBC5CE /* ELMenuItem.h */,
+				A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */,
+				A97C29681E8B8CC300EBC5CE /* ELModel.h */,
+				A97C29691E8B8CC300EBC5CE /* ELModel.m */,
+				A97C296A1E8B8CC300EBC5CE /* ELNotification.h */,
+				A97C296B1E8B8CC300EBC5CE /* ELNotification.m */,
+				A97C296C1E8B8CC300EBC5CE /* ELOAuthInstance.h */,
+				A97C296D1E8B8CC300EBC5CE /* ELOAuthInstance.m */,
+				A97C296E1E8B8CC300EBC5CE /* ELParticipant.h */,
+				A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */,
+				A97C29701E8B8CC300EBC5CE /* ELReminder.h */,
+				A97C29711E8B8CC300EBC5CE /* ELReminder.m */,
+				A97C29721E8B8CC300EBC5CE /* ELUser.h */,
+				A97C29731E8B8CC300EBC5CE /* ELUser.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A97C29741E8B8CC300EBC5CE /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				A97C29751E8B8CC300EBC5CE /* ELAnswer.h */,
+				A97C29761E8B8CC300EBC5CE /* ELAnswer.m */,
+				A97C29771E8B8CC300EBC5CE /* ELAnswerOption.h */,
+				A97C29781E8B8CC300EBC5CE /* ELAnswerOption.m */,
+				A97C29791E8B8CC300EBC5CE /* ELInstantFeedback.h */,
+				A97C297A1E8B8CC300EBC5CE /* ELInstantFeedback.m */,
+				A97C297B1E8B8CC300EBC5CE /* ELQuestion.h */,
+				A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */,
+				A97C297D1E8B8CC300EBC5CE /* ELQuestionCategory.h */,
+				A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */,
+				A97C297F1E8B8CC300EBC5CE /* ELSurvey.h */,
+				A97C29801E8B8CC300EBC5CE /* ELSurvey.m */,
+			);
+			path = Survey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1424,26 +1453,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A913127D1E8642D30042C91F /* ELQuestion.m in Sources */,
 				A91312581E8642D30042C91F /* ELChangePassViewController.m in Sources */,
 				A913126C1E8642D30042C91F /* EdwardLynx.xcdatamodeld in Sources */,
 				A91312B31E8644380042C91F /* ELSectionView.m in Sources */,
-				A91312801E8642D30042C91F /* ELUser.m in Sources */,
 				A91312911E8642D30042C91F /* ELQuestionTableViewCell.m in Sources */,
 				A91312551E8642D30042C91F /* ELListViewController.m in Sources */,
-				A91312761E8642D30042C91F /* ELGoalAction.m in Sources */,
-				A91312741E8642D30042C91F /* ELFilterSortItem.m in Sources */,
 				A913128D1E8642D30042C91F /* ELItemTableViewCell.m in Sources */,
 				A91312521E8642D30042C91F /* ELDashboardViewController.m in Sources */,
 				A913124D1E8642D30042C91F /* ELInviteUsersViewController.m in Sources */,
 				A913126F1E8642D30042C91F /* main.m in Sources */,
+				A97C29851E8B8CC300EBC5CE /* ELFilterSortItem.m in Sources */,
 				A91312A21E8642D30042C91F /* ELConstants.m in Sources */,
 				A91312881E8642D30042C91F /* ELDashboardHeaderTableViewCell.m in Sources */,
 				A91312491E8642D30042C91F /* ELGoalDetailsViewController.m in Sources */,
 				A913124B1E8642D30042C91F /* ELCreateInstantFeedbackViewController.m in Sources */,
 				A91312591E8642D30042C91F /* ELEditProfileViewController.m in Sources */,
 				A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */,
+				A97C29811E8B8CC300EBC5CE /* ELDevelopmentPlan.m in Sources */,
+				A97C298A1E8B8CC300EBC5CE /* ELParticipant.m in Sources */,
 				A91312991E8642D30042C91F /* ELDropdownView.m in Sources */,
+				A97C29861E8B8CC300EBC5CE /* ELMenuItem.m in Sources */,
 				A913124E1E8642D30042C91F /* ELBaseDetailViewController.m in Sources */,
 				A91312A51E8642D30042C91F /* ELUtils.m in Sources */,
 				A913128B1E8642D30042C91F /* ELGoalTableViewCell.m in Sources */,
@@ -1451,67 +1480,68 @@
 				A91312191E8642D30042C91F /* ELAPIClient.m in Sources */,
 				A91312931E8642D30042C91F /* ELSurveyTableViewCell.m in Sources */,
 				A913128A1E8642D30042C91F /* ELGoalActionTableViewCell.m in Sources */,
+				A97C298E1E8B8CC300EBC5CE /* ELAnswerOption.m in Sources */,
 				A91312431E8642D30042C91F /* ELConfigurationViewController.m in Sources */,
 				A913121D1E8642D30042C91F /* ELUsersAPIClient.m in Sources */,
 				A91312951E8642D30042C91F /* ELSearchBar.m in Sources */,
 				A913129F1E8642D30042C91F /* ELQuestionTypeTextView.m in Sources */,
 				A913124F1E8642D30042C91F /* ELBasePageChildViewController.m in Sources */,
 				A91312A81E8642D30042C91F /* ELDevelopmentPlanViewManager.m in Sources */,
+				A97C29841E8B8CC300EBC5CE /* ELCategory.m in Sources */,
 				A91312451E8642D30042C91F /* ELLoginViewController.m in Sources */,
-				A91312771E8642D30042C91F /* ELInstantFeedback.m in Sources */,
 				A91312A31E8642D30042C91F /* ELDataProvider.m in Sources */,
 				A913129D1E8642D30042C91F /* ELQuestionTypeRadioGroupView.m in Sources */,
 				A913121E1E8642D30042C91F /* AppDelegate.m in Sources */,
 				A91312891E8642D30042C91F /* ELDevelopmentPlanTableViewCell.m in Sources */,
+				A97C29871E8B8CC300EBC5CE /* ELModel.m in Sources */,
 				A91312AA1E8642D30042C91F /* ELListViewManager.m in Sources */,
 				A913125D1E8642D30042C91F /* ELSurveysViewController.m in Sources */,
+				A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */,
+				A97C298B1E8B8CC300EBC5CE /* ELReminder.m in Sources */,
 				A913121B1E8642D30042C91F /* ELQuestionsAPIClient.m in Sources */,
+				A97C298C1E8B8CC300EBC5CE /* ELUser.m in Sources */,
 				A913129E1E8642D30042C91F /* ELQuestionTypeScaleView.m in Sources */,
 				A91312941E8642D30042C91F /* ELEmailValidator.m in Sources */,
 				A91312481E8642D30042C91F /* ELDevelopmentPlansViewController.m in Sources */,
 				A913129C1E8642D30042C91F /* ELQuestionTypeAgreementView.m in Sources */,
 				A913124A1E8642D30042C91F /* ELAnswerInstantFeedbackViewController.m in Sources */,
-				A913127F1E8642D30042C91F /* ELSurvey.m in Sources */,
 				A913121C1E8642D30042C91F /* ELSurveysAPIClient.m in Sources */,
 				A91312A11E8642D30042C91F /* ELAppSingleton.m in Sources */,
 				A913125B1E8642D30042C91F /* ELReportsViewController.m in Sources */,
 				A913128F1E8642D30042C91F /* ELMenuTableViewCell.m in Sources */,
-				A913127E1E8642D30042C91F /* ELQuestionCategory.m in Sources */,
-				A91312721E8642D30042C91F /* ELCategory.m in Sources */,
 				A91312901E8642D30042C91F /* ELParticipantTableViewCell.m in Sources */,
-				A91312711E8642D30042C91F /* ELAnswerOption.m in Sources */,
+				A97C29911E8B8CC300EBC5CE /* ELQuestionCategory.m in Sources */,
 				A913129B1E8642D30042C91F /* ELBaseQuestionTypeView.m in Sources */,
 				A91312971E8642D30042C91F /* ELShortcutView.m in Sources */,
 				A91312961E8642D30042C91F /* ELActionView.m in Sources */,
 				A91312511E8642D30042C91F /* ELBaseViewController.m in Sources */,
-				A913127B1E8642D30042C91F /* ELOAuthInstance.m in Sources */,
 				A913128E1E8642D30042C91F /* ELListTableViewCell.m in Sources */,
-				A91312791E8642D30042C91F /* ELModel.m in Sources */,
 				A91312A61E8642D30042C91F /* ELAccountsViewManager.m in Sources */,
 				A91312A71E8642D30042C91F /* ELDetailViewManager.m in Sources */,
-				A91312781E8642D30042C91F /* ELMenuItem.m in Sources */,
-				A91312751E8642D30042C91F /* ELGoal.m in Sources */,
 				A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */,
 				A91312A91E8642D30042C91F /* ELFeedbackViewManager.m in Sources */,
+				A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */,
 				A91312461E8642D30042C91F /* ELCreateDevelopmentPlanViewController.m in Sources */,
+				A97C29831E8B8CC300EBC5CE /* ELGoalAction.m in Sources */,
 				A913121A1E8642D30042C91F /* ELDevelopmentPlanAPIClient.m in Sources */,
 				A913128C1E8642D30042C91F /* ELAddObjectTableViewCell.m in Sources */,
-				A91312701E8642D30042C91F /* ELAnswer.m in Sources */,
 				A913125A1E8642D30042C91F /* ELReportDetailsViewController.m in Sources */,
 				A91312A41E8642D30042C91F /* ELTableDataSource.m in Sources */,
 				A91312531E8642D30042C91F /* ELLeftMenuViewController.m in Sources */,
 				A91312571E8642D30042C91F /* ELTabPageViewController.m in Sources */,
-				A91312731E8642D30042C91F /* ELDevelopmentPlan.m in Sources */,
+				A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */,
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,
+				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,
 				A91312AB1E8642D30042C91F /* ELSurveyViewManager.m in Sources */,
-				A913127A1E8642D30042C91F /* ELNotification.m in Sources */,
 				A91312501E8642D30042C91F /* ELBasePopupViewController.m in Sources */,
-				A913127C1E8642D30042C91F /* ELParticipant.m in Sources */,
 				A913124C1E8642D30042C91F /* ELInstantFeedbacksViewController.m in Sources */,
 				A91312541E8642D30042C91F /* ELListPopupViewController.m in Sources */,
 				A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */,
+				A97C298D1E8B8CC300EBC5CE /* ELAnswer.m in Sources */,
+				A97C29891E8B8CC300EBC5CE /* ELOAuthInstance.m in Sources */,
 				A91312561E8642D30042C91F /* ELPopupViewController.m in Sources */,
 				A91312981E8642D30042C91F /* ELStatusView.m in Sources */,
+				A97C298F1E8B8CC300EBC5CE /* ELInstantFeedback.m in Sources */,
 				A913125C1E8642D30042C91F /* ELSurveyDetailsViewController.m in Sources */,
 				A91312471E8642D30042C91F /* ELDevelopmentPlanDetailsViewController.m in Sources */,
 			);

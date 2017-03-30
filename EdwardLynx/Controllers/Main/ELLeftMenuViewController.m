@@ -68,7 +68,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat imageWidth = CGRectGetWidth(self.tableView.frame) / 1.2;
+    CGFloat imageWidth = CGRectGetWidth(self.tableView.frame) / 1.5;
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, imageWidth, 60)];
     
     imageView.backgroundColor = [UIColor clearColor];
@@ -221,7 +221,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     
     detailDict = @{@"name": NSLocalizedString(@"kELLogoutButton", nil),
                    @"segueIdentifier": @"Logout",
-                   @"iconIdentifier": fa_bullseye};
+                   @"iconIdentifier": fa_sign_out};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     

@@ -10,6 +10,7 @@
 
 @interface ELTabPageViewController : XLButtonBarPagerTabStripViewController<UISearchBarDelegate>
 
+@property (nonatomic) NSInteger initialIndex;
 @property (nonatomic) kELListType type;
 
 @property (nonatomic, strong) NSArray *tabs;

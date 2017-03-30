@@ -13,6 +13,7 @@
 
 @interface ELDevelopmentPlanTableViewCell ()
 
+@property (nonatomic) BOOL isBarChartAnimated, isCircleChartAnimated;
 @property (nonatomic, strong) PNBarChart *barChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
@@ -22,9 +23,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
     
-    self.barChart = [[PNBarChart alloc] initWithFrame:self.barChartView.bounds];
+    // Initialization code
+    self.barChart = [[PNBarChart alloc] init];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
@@ -36,6 +37,12 @@
     
     [self.barChartView addSubview:self.barChart];
     [self.circleChartView addSubview:self.circleChart];
+    
+    [self.moreBarChartButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELWhiteColor]];
+    [self.moreBarChartButton setImage:[FontAwesome imageWithIcon:fa_angle_right
+                                                       iconColor:nil
+                                                        iconSize:20]
+                             forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -57,6 +64,9 @@
     
     [self setupBarChartForDevelopmentPlan:devPlan];
     [self setupCircleChartForDevelopmentPlan:devPlan];
+    
+    // UI
+    self.moreBarChartButton.hidden = CGRectGetWidth(self.scrollView.frame) >= CGRectGetWidth(self.barChartView.frame);
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,6 +76,8 @@
 #pragma mark - Private Methods
 
 - (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
+    CGFloat width;
+    CGRect frame;
     NSMutableArray *mColors = [[NSMutableArray alloc] init];
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray *mValues = [[NSMutableArray alloc] init];
@@ -83,6 +95,15 @@
     self.barChart.labelTextColor = [UIColor whiteColor];
     self.barChart.yChartLabelWidth = 0;
     
+    width = (self.barChart.barWidth * devPlan.goals.count) * 2;
+    
+    [self.barChartWidthConstraint setConstant:width];
+    [self.barChartView layoutIfNeeded];
+    
+    frame = CGRectGetWidth(self.scrollView.bounds) > width ? self.scrollView.bounds : self.barChartView.bounds;
+    
+    self.barChart.frame = frame;
+    
     for (int i = 0; i < devPlan.goals.count; i++) {
         ELGoal *goal = devPlan.goals[i];
         NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELBlueColor;
@@ -97,12 +118,29 @@
     self.barChart.xLabels = [mLabels copy];
     self.barChart.yValues = [mValues copy];
     
-    [self.barChart strokeChart];
+    if (!self.isBarChartAnimated) {
+        [self.barChart strokeChart];
+        
+        self.isBarChartAnimated = YES;
+    }
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
-    [self.circleChart strokeChart];
+    
+    if (!self.isCircleChartAnimated) {
+        [self.circleChart strokeChart];
+        
+        self.isCircleChartAnimated = YES;
+    }
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onMoreBarChartButtonClick:(id)sender {
+    CGPoint rightOffset = CGPointMake(self.scrollView.contentSize.width - self.scrollView.bounds.size.width, 0);
+    
+    [self.scrollView setContentOffset:rightOffset animated:YES];
 }
 
 @end
