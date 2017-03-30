@@ -14,6 +14,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *completedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIView *circleChartView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *barChartView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barChartWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *moreBarChartButton;
+- (IBAction)onMoreBarChartButtonClick:(id)sender;
 
 @end
