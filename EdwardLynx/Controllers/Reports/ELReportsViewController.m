@@ -62,8 +62,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 - (void)onRowSelection:(__kindof ELModel *)object {
     self.selectedInstantFeedback = (ELInstantFeedback *)object;
     
-//    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
-    [self performSegueWithIdentifier:kELInstantFeedbackSegueIdentifier sender:self];
+    [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

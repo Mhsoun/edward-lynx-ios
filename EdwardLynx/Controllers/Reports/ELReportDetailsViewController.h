@@ -13,6 +13,12 @@
 @interface ELReportDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
 
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
-- (IBAction)onShareButtonClick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButton;
+@property (weak, nonatomic) IBOutlet UIView *averageBarChartView;
+@property (weak, nonatomic) IBOutlet UIView *indexBarChartView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+- (IBAction)onShareBarButtonClick:(id)sender;
 
 @end
