@@ -103,8 +103,10 @@
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
     
     for (int i = 0; i < answers.count; i++) {
+//        double value = ((double)answers[i].count / self.instantFeedback.participants.count) * 100;
+        
         if (answers[i].value < 0) {
-            continue;
+            answers[i].value = 0;
         }
         
         [mEntries addObject:[[BarChartDataEntry alloc] initWithX:i y:answers[i].value]];
@@ -112,7 +114,7 @@
     }
     
     chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
-    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
     chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     chartDataSet.valueTextColor = [UIColor whiteColor];
     
@@ -149,43 +151,68 @@
     
     barChart.userInteractionEnabled = NO;
     
+    barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
     barChart.xAxis.granularity = 1;
+    barChart.xAxis.granularityEnabled = YES;
     barChart.xAxis.labelFont = labelFont;
     barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     barChart.xAxis.labelTextColor = [UIColor whiteColor];
     barChart.xAxis.labelWidth = 100;
     barChart.xAxis.wordWrapEnabled = YES;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
-        
+    
     [barChart animateWithYAxisDuration:0.5];
 }
 
 - (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-    BarChartDataSet *chartDataSet;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet1, *chartDataSet2;
     ChartLimitLine *limitLine70, *limitLine100;
     NSMutableArray<NSString *> *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
     for (int i = 0; i < answers.count; i++) {
         if (answers[i].value < 0) {
-            continue;
+            answers[i].value = 0;
         }
 
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:i y:answers[i].value]];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
         [mLabels addObject:answers[i].shortDescription];
     }
     
-    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
-    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
-    chartDataSet.valueTextColor = [UIColor whiteColor];
+    chartDataSet1 = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
+    chartDataSet1.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    chartDataSet1.valueFont = labelFont;
+    chartDataSet1.valueTextColor = [UIColor whiteColor];
     
-    barChart.data = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    [mEntries removeAllObjects];
+    
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            answers[i].value = 0;
+        }
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:50.1f]];
+        [mLabels addObject:answers[i].shortDescription];
+    }
+    
+    chartDataSet2 = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Others Combined"];
+    chartDataSet2.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
+    chartDataSet2.valueFont = labelFont;
+    chartDataSet2.valueTextColor = [UIColor whiteColor];
+    
+    chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
+    chartData.barWidth = 0.45f;
+    
+    [chartData groupBarsFromX:0.0f groupSpace:0.06f barSpace:0.02f];
+    
+    barChart.data = chartData;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
     barChart.descriptionText = @"";
+    barChart.fitBars = YES;
     
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
@@ -210,6 +237,7 @@
     
     barChart.legend.font = labelFont;
     barChart.legend.textColor = [UIColor whiteColor];
+    barChart.legend.position = ChartLegendPositionBelowChartCenter;
     
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
@@ -217,9 +245,10 @@
     
     barChart.userInteractionEnabled = NO;
     
+    barChart.xAxis.centerAxisLabelsEnabled = YES;
     barChart.xAxis.drawGridLinesEnabled = NO;
-    barChart.xAxis.granularityEnabled = YES;
     barChart.xAxis.granularity = 1;
+    barChart.xAxis.granularityEnabled = YES;
     barChart.xAxis.labelCount = mLabels.count;
     barChart.xAxis.labelFont = labelFont;
     barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
