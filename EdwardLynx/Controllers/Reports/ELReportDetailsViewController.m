@@ -95,124 +95,26 @@
 
 #pragma mark - Private Methods
 
-- (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-    BarChartDataSet *chartDataSet;
-    ChartLimitLine *limitLine70, *limitLine100;
-    NSMutableArray<NSString *> *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+- (BarChartDataSet *)chartDataSetWithTitle:(NSString *)title
+                                     items:(NSArray *)items
+                                  colorKey:(NSString *)colorKey {
+    BarChartDataSet *dataSet;
     
-    for (int i = 0; i < answers.count; i++) {
-//        double value = ((double)answers[i].count / self.instantFeedback.participants.count) * 100;
-        
-        if (answers[i].value < 0) {
-            answers[i].value = 0;
-        }
-        
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:i y:answers[i].value]];
-        [mLabels addObject:answers[i].shortDescription];
-    }
+    dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
+    dataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:colorKey]];
+    dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    dataSet.valueTextColor = [UIColor whiteColor];
     
-    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
-    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
-    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
-    chartDataSet.valueTextColor = [UIColor whiteColor];
-    
-    barChart.data = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    barChart.drawBordersEnabled = NO;
-    barChart.drawGridBackgroundEnabled = NO;
-    barChart.descriptionText = @"";
-    
-    barChart.leftAxis.drawAxisLineEnabled = NO;
-    barChart.leftAxis.drawGridLinesEnabled = NO;
-    barChart.leftAxis.drawLabelsEnabled = NO;
-    
-    limitLine70 = [[ChartLimitLine alloc] initWithLimit:70.0 label:@"70%"];
-    limitLine70.labelPosition = ChartLimitLabelPositionRightBottom;
-    limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    limitLine70.valueFont = labelFont;
-    limitLine70.valueTextColor = [UIColor whiteColor];
-    
-    [barChart.leftAxis addLimitLine:limitLine70];
-    
-    limitLine100 = [[ChartLimitLine alloc] initWithLimit:100.0 label:@"100%"];
-    limitLine100.labelPosition = ChartLimitLabelPositionRightBottom;
-    limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    limitLine100.valueFont = labelFont;
-    limitLine100.valueTextColor = [UIColor whiteColor];
-    
-    [barChart.leftAxis addLimitLine:limitLine100];
-    
-    barChart.legend.enabled = NO;
-    
-    barChart.rightAxis.drawAxisLineEnabled = NO;
-    barChart.rightAxis.drawGridLinesEnabled = NO;
-    barChart.rightAxis.drawLabelsEnabled = NO;
-    
-    barChart.userInteractionEnabled = NO;
-    
-    barChart.xAxis.centerAxisLabelsEnabled = NO;
-    barChart.xAxis.drawGridLinesEnabled = NO;
-    barChart.xAxis.granularity = 1;
-    barChart.xAxis.granularityEnabled = YES;
-    barChart.xAxis.labelFont = labelFont;
-    barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
-    barChart.xAxis.labelTextColor = [UIColor whiteColor];
-    barChart.xAxis.labelWidth = 100;
-    barChart.xAxis.wordWrapEnabled = YES;
-    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
-    
-    [barChart animateWithYAxisDuration:0.5];
+    return dataSet;
 }
 
-- (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-    BarChartData *chartData;
-    BarChartDataSet *chartDataSet1, *chartDataSet2;
+- (HorizontalBarChartView *)configureBarChart:(HorizontalBarChartView *)barChart {
     ChartLimitLine *limitLine70, *limitLine100;
-    NSMutableArray<NSString *> *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
-    for (int i = 0; i < answers.count; i++) {
-        if (answers[i].value < 0) {
-            answers[i].value = 0;
-        }
-
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
-        [mLabels addObject:answers[i].shortDescription];
-    }
-    
-    chartDataSet1 = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Self"];
-    chartDataSet1.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    chartDataSet1.valueFont = labelFont;
-    chartDataSet1.valueTextColor = [UIColor whiteColor];
-    
-    [mEntries removeAllObjects];
-    
-    for (int i = 0; i < answers.count; i++) {
-        if (answers[i].value < 0) {
-            answers[i].value = 0;
-        }
-        
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:50.1f]];
-        [mLabels addObject:answers[i].shortDescription];
-    }
-    
-    chartDataSet2 = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Others Combined"];
-    chartDataSet2.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
-    chartDataSet2.valueFont = labelFont;
-    chartDataSet2.valueTextColor = [UIColor whiteColor];
-    
-    chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
-    chartData.barWidth = 0.45f;
-    
-    [chartData groupBarsFromX:0.0f groupSpace:0.06f barSpace:0.02f];
-    
-    barChart.data = chartData;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
     barChart.descriptionText = @"";
-    barChart.fitBars = YES;
     
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
@@ -235,9 +137,10 @@
     
     [barChart.leftAxis addLimitLine:limitLine100];
     
+    barChart.legend.enabled = YES;
     barChart.legend.font = labelFont;
-    barChart.legend.textColor = [UIColor whiteColor];
     barChart.legend.position = ChartLegendPositionBelowChartCenter;
+    barChart.legend.textColor = [UIColor whiteColor];
     
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
@@ -245,16 +148,86 @@
     
     barChart.userInteractionEnabled = NO;
     
-    barChart.xAxis.centerAxisLabelsEnabled = YES;
+    barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
     barChart.xAxis.granularity = 1;
     barChart.xAxis.granularityEnabled = YES;
-    barChart.xAxis.labelCount = mLabels.count;
     barChart.xAxis.labelFont = labelFont;
     barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     barChart.xAxis.labelTextColor = [UIColor whiteColor];
     barChart.xAxis.labelWidth = 100;
     barChart.xAxis.wordWrapEnabled = YES;
+    
+    return barChart;
+}
+
+- (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
+    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            answers[i].value = 0;
+        }
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
+        [mLabels addObject:answers[i].shortDescription];
+    }
+    
+    barChart = [self configureBarChart:barChart];
+    barChart.data = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:@"Self"
+                                                                                items:[mEntries copy]
+                                                                             colorKey:kELGreenColor]];
+    barChart.legend.enabled = NO;
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
+    
+    [barChart animateWithYAxisDuration:0.5];
+}
+
+- (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet1, *chartDataSet2;
+    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            answers[i].value = 0;
+        }
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
+        [mLabels addObject:answers[i].shortDescription];
+    }
+    
+    chartDataSet1 = [self chartDataSetWithTitle:@"Self"
+                                          items:[mEntries copy]
+                                       colorKey:kELOrangeColor];
+    
+    [mEntries removeAllObjects];
+    
+    // TODO Dummy data
+    
+    for (int i = 0; i < answers.count; i++) {
+        if (answers[i].value < 0) {
+            answers[i].value = 0;
+        }
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:50.1f]];
+        [mLabels addObject:answers[i].shortDescription];
+    }
+    
+    chartDataSet2 = [self chartDataSetWithTitle:@"Others Combined"
+                                          items:[mEntries copy]
+                                       colorKey:kELGreenColor];
+    
+    chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
+    chartData.barWidth = 0.45f;
+    
+    [chartData groupBarsFromX:0.0f groupSpace:0.06f barSpace:0.02f];
+    
+    barChart = [self configureBarChart:barChart];
+    barChart.data = chartData;
+    barChart.xAxis.centerAxisLabelsEnabled = YES;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
     
     [barChart animateWithYAxisDuration:0.5];
