@@ -64,9 +64,6 @@
 - (void)toggleCalendarState {
     NSString *colorString;
     
-    NSLog(@"%@", [NSDate date]);
-    NSLog(@"%@", self.survey.endDate);
-    
     if (self.survey.status == kELSurveyStatusCompleted) {
         colorString = kELGreenColor;
     } else if ([[NSDate date] mt_weekOfYear] - [self.survey.endDate mt_weekOfYear] <= 2) {
