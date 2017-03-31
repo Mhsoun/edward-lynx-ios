@@ -72,14 +72,18 @@
     
     [self.surveyView addSubview:shortcutView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Answer", @"count": @0}];
-//    actionView.delegate = self;
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Answer",
+                                                         @"count": @0,
+                                                         @"segue": @"Answer"}];
+    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.answerActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results", @"count": @0}];
-//    actionView.delegate = self;
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results",
+                                                         @"count": @0,
+                                                         @"segue": kELDashboardActionTypeReport}];
+    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.resultsActionView addSubview:actionView];
@@ -100,28 +104,42 @@
 }
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
+    BOOL isAnswer;
     UIAlertController *controller;
+    UIAlertAction *answerFeedbackAction = [UIAlertAction actionWithTitle:@"Instant Feedback"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeFeedback];
+                                                                 }];
+    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:@"Survey"
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * _Nonnull action) {
+                                                                   [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeLynx];
+                                                               }];
+    UIAlertAction *devPlanAction = [UIAlertAction actionWithTitle:@"Development Plan"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                              [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
+                                                          }];
+    UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:@"Instant Feedback"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
+                                                                 }];
     
-    if (![identifier isEqualToString:@"Create"]) {
+    if (![@[@"Answer", @"Create"] containsObject:identifier]) {
         [self.delegate viewTapToPerformSegueWithIdentifier:identifier];
         
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:@"Create New"
+    isAnswer = [identifier isEqualToString:@"Answer"];
+    controller = [UIAlertController alertControllerWithTitle:isAnswer ? @"Answer New" : @"Create New"
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     
-    [controller addAction:[UIAlertAction actionWithTitle:@"Goals"
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
-                                                 }]];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Instant Feedback"
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
-                                                 }]];
+    [controller addAction:isAnswer ? answerSurveyAction : devPlanAction];
+    [controller addAction:isAnswer ? answerFeedbackAction : createFeedbackAction];
     [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];

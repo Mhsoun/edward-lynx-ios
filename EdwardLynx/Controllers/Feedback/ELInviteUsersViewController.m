@@ -98,6 +98,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     }
     
     // UI
+    self.infoLabel.text = NSLocalizedString(@"kELInviteUsersInfoMessage", nil);
     self.infoLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
                                       iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
@@ -371,10 +372,18 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         NSArray *questions;
         NSMutableDictionary *mAnswerDict;
         
-        if (!self.mParticipants.count) {
-            [ELUtils presentToastAtView:self.view
-                                message:NSLocalizedString(@"kELUsersSelectionValidationMessage", nil)
-                             completion:^{}];
+        if (!self.mParticipants.count || self.mParticipants.count <= 3) {
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
+                                                                                message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCloseButton", nil)
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil]];
+            
+            [self presentViewController:controller
+                               animated:YES
+                             completion:nil];
             
             return;
         }

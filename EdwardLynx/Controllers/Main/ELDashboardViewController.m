@@ -309,11 +309,12 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     if ([@[kELDashboardActionTypeCreateDevPlan, kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
         [self performSegueWithIdentifier:identifier sender:self];
     } else {
+        ELTabPageViewController *controller;
         UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
                                                  instantiateInitialViewController];
-        ELTabPageViewController *controller = navController.viewControllers[0];
         
-        controller.type = kELListTypeSurveys;
+        controller = navController.viewControllers[0];
+        controller.type = [identifier isEqualToString:kELDashboardActionTypeLynx] ? kELListTypeSurveys : kELListTypeReports;
         controller.tabs = @[@(kELListFilterAll),
                             @(kELListFilterInstantFeedback),
                             @(kELListFilterLynxManagement)];
@@ -329,7 +330,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         } else if ([identifier isEqualToString:kELDashboardActionTypeLynx]) {
             controller.initialIndex = 2;
         } else {
-            return;
+            // NOTE No further action needed
         }
         
         [self.navigationController pushViewController:controller animated:YES];

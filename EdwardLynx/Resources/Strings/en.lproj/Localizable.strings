@@ -10,6 +10,7 @@
 
 "kELAddMoreParticipantsButton" = "Add Participants";
 "kELCancelButton" = "Cancel";
+"kELCloseButton" = "Close";
 "kELCompleteButton" = "Complete";
 "kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
 "kELInstantFeedbackTitle" = "Instant Feedback";
@@ -86,8 +87,7 @@
 "kELDeselectAllButton" = "Deselect all";
 "kELSelectAllButton" = "Select all";
 
-"kELInviteUsersHeaderMessage" = "Invite people to participate";
-"kELInviteUsersEvaluationLabel" = "The person evaluated is: %@";
+"kELInviteUsersInfoMessage" = "You have to invite more than 3 people and more than 3 people have to answer before result can be viewed.";
 
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users.";
