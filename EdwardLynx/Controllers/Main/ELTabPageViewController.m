@@ -34,7 +34,6 @@
     
     [self setupButtonBarView];
     [self setupPageByType:self.type];
-    
     [self moveToViewControllerAtIndex:self.initialIndex];
 }
 

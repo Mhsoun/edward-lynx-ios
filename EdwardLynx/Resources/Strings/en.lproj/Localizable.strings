@@ -110,6 +110,10 @@
 "kELProfileGenderFemale" = "Female";
 "kELProfileGenderOther" = "Other";
 
+/* Reports */
+
+"kELReportInfoLabel" = "Invited: %@ | Answered: %@";
+
 /* Surveys */
 
 "kELSurveyEmptyMessage"  = "No Surveys";

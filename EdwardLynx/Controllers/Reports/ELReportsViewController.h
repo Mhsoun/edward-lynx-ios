@@ -6,14 +6,12 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseViewController.h"
+#import <XLPagerTabStrip-AnthonyMDev/XLBarPagerTabStripViewController.h>
+
+#import "ELBasePageChildViewController.h"
 
 @class ELInstantFeedback;
 
-@interface ELReportsViewController : ELBaseViewController<UISearchBarDelegate, ELListViewControllerDelegate>
-
-@property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
-
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface ELReportsViewController : ELBasePageChildViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
 
 @end

@@ -11,10 +11,17 @@
 
 @implementation ELInstantFeedback
 
+@synthesize dateString = _dateString;
+@synthesize noOfParticipantsAnswered = _noOfParticipantsAnswered;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
                                                                   @"participants": @"recipients",
                                                                   @"question": @"questions"}];
+}
+
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"noOfParticipantsAnswered"];
 }
 
 - (void)setParticipantsWithNSArray:(NSArray<Optional,ELParticipant> *)participants {
@@ -39,6 +46,16 @@
     }
     
     self.question = [[ELQuestion alloc] initWithDictionary:questions[0] error:nil];
+}
+
+- (NSString<Ignore> *)dateString {
+    return [AppSingleton.printDateFormatter stringFromDate:self.createdAt];
+}
+
+- (NSInteger)noOfParticipantsAnswered {
+    // TODO Way to determine participants who already answered the feedback
+        
+    return 0;
 }
 
 @end

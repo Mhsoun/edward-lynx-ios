@@ -1,0 +1,6 @@
+framework module RNThemeManager {
+  umbrella header "RNThemeManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
