@@ -50,6 +50,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
         
         controller.delegate = self;
         controller.listType = kELListTypeReports;
+        controller.listFilter = [self.tabs[self.index] integerValue];
     } else if ([segue.identifier isEqualToString:kELInstantFeedbackSegueIdentifier]) {
         ELCreateInstantFeedbackViewController *controller = (ELCreateInstantFeedbackViewController *)[segue destinationViewController];
         
