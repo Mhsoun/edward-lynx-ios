@@ -198,8 +198,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             self.tableView.rowHeight = 105;
             
-            for (NSDictionary *detailDict in responseDict[@"items"]) {
+            for (NSDictionary *detailDict in responseDict[@"surveys"][@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+            }
+            
+            for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
+                [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
             }
             
             break;
@@ -316,7 +320,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
             
-            [self.viewManager processRetrievalOfSurveys];
+            [self.viewManager processRetrievalOfInstantFeedbacksAndSurveys];
             
             break;
         case kELListTypeReports:
