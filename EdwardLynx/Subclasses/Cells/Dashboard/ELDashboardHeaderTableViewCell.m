@@ -78,8 +78,10 @@
     
     [self.answerActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results", @"count": @0}];
-//    actionView.delegate = self;
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results",
+                                                         @"count": @0,
+                                                         @"segue": kELDashboardActionTypeReport}];
+    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.resultsActionView addSubview:actionView];

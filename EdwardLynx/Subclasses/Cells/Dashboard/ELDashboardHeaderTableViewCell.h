@@ -10,6 +10,7 @@
 
 static NSString * const kELDashboardActionTypeDevPlan = @"DevPlan";
 static NSString * const kELDashboardActionTypeFeedback = @"Feedback";
+static NSString * const kELDashboardActionTypeReport = @"Report";
 static NSString * const kELDashboardActionTypeLynx = @"Lynx";
 static NSString * const kELDashboardActionTypeCreateDevPlan = @"CreateDevelopmentPlan";
 static NSString * const kELDashboardActionTypeCreateFeedback = @"CreateInstantFeedback";
