@@ -9,6 +9,12 @@
 #import "ELSurveyTableViewCell.h"
 #import "ELSurvey.h"
 
+@interface ELSurveyTableViewCell ()
+
+@property (nonatomic, strong) ELSurvey *survey;
+
+@end
+
 @implementation ELSurveyTableViewCell
 
 - (void)awakeFromNib {
@@ -29,6 +35,8 @@
     NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
     NSString *colorString = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
     
+    self.survey = survey;
+    
     // Content
     self.surveyLabel.text = survey.name;
     self.typeLabel.text = [[ELUtils labelBySurveyType:survey.type] uppercaseString];
@@ -36,10 +44,11 @@
     self.statusLabel.text = status;
     
     // UI
-    self.monthLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][survey.endDate.mt_monthOfYear - 1] uppercaseString];
     self.dayLabel.text = [[NSNumber numberWithInteger:survey.endDate.mt_dayOfYear] stringValue];
     self.yearLabel.text = [[NSNumber numberWithInteger:survey.endDate.mt_year] stringValue];
+    
+    [self toggleCalendarState];
     
     self.statusLabel.layer.cornerRadius = 2.0f;
     self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
@@ -48,6 +57,27 @@
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
     //
+}
+
+#pragma mark - Private Methods
+
+- (void)toggleCalendarState {
+    NSString *colorString;
+    
+    NSLog(@"%@", [NSDate date]);
+    NSLog(@"%@", self.survey.endDate);
+    
+    if (self.survey.status == kELSurveyStatusCompleted) {
+        colorString = kELGreenColor;
+    } else if ([[NSDate date] mt_weekOfYear] - [self.survey.endDate mt_weekOfYear] <= 2) {
+        colorString = kELRedColor;
+    } else if ([self.survey.endDate mt_isOnOrBefore:[NSDate date]]) {
+        colorString = kELDarkGrayColor;
+    } else {
+        colorString = kELOrangeColor;
+    }
+    
+    self.monthLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
 }
 
 @end
