@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveyTableViewCell.h"
+#import "ELInstantFeedback.h"
 #import "ELSurvey.h"
 
 @interface ELSurveyTableViewCell ()
@@ -31,7 +32,41 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    ELSurvey *survey = (ELSurvey *)object;
+    if ([object isKindOfClass:[ELSurvey class]]) {
+        [self configureSurvey:(ELSurvey *)object];
+    } else {
+        [self configureInstantFeedback:(ELInstantFeedback *)object];
+    }
+}
+
+- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
+    //
+}
+
+#pragma mark - Private Methods
+
+- (void)configureInstantFeedback:(ELInstantFeedback *)instantFeedback {
+    kELSurveyStatus status = instantFeedback.noOfParticipantsAnswered == 0 ? kELSurveyStatusOpen : kELSurveyStatusPartial;
+    
+    // Content
+    self.surveyLabel.text = instantFeedback.question.text;
+    self.typeLabel.text = @"INSTANT FEEDBACK";
+    self.descriptionLabel.text  = @"";
+    self.statusLabel.text = [[ELUtils labelBySurveyStatus:status] uppercaseString];
+    
+    // UI
+    self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][instantFeedback.createdAt.mt_monthOfYear - 1] uppercaseString];
+    self.dayLabel.text = [[NSNumber numberWithInteger:instantFeedback.createdAt.mt_dayOfYear] stringValue];
+    self.yearLabel.text = [[NSNumber numberWithInteger:instantFeedback.createdAt.mt_year] stringValue];
+    
+    [self toggleCalendarState];
+    
+    self.statusLabel.layer.cornerRadius = 2.0f;
+    self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkGrayColor];
+    self.reactivateLabel.hidden = YES;
+}
+
+- (void)configureSurvey:(ELSurvey *)survey {
     NSString *status = [[ELUtils labelBySurveyStatus:survey.status] uppercaseString];
     NSString *colorString = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
     
@@ -54,12 +89,6 @@
     self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     self.reactivateLabel.hidden = ![survey.endDate mt_isBefore:[NSDate date]];
 }
-
-- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    //
-}
-
-#pragma mark - Private Methods
 
 - (void)toggleCalendarState {
     NSString *colorString;

@@ -79,4 +79,31 @@
                                               completion:self.requestCompletionBlock];
 }
 
+- (void)processRetrievalOfInstantFeedbacksAndSurveys {
+    __block NSMutableDictionary *mItems = [[NSMutableDictionary alloc] init];
+    __weak typeof(self) weakSelf = self;
+    
+    [self.surveyClient currentUserSurveysWithQueryParams:nil
+                                              completion:^(NSURLResponse *response, NSDictionary *surveyResponseDict, NSError *surveyError) {
+        if (surveyError) {
+            [weakSelf.delegate onAPIResponseError:surveyError.userInfo];
+            
+            return;
+        }
+        
+        [mItems setObject:surveyResponseDict forKey:@"surveys"];
+        [weakSelf.surveyClient currentUserInstantFeedbacksWithFilter:@"to_answer"
+                                                          completion:^(NSURLResponse *response, NSDictionary *feedbackResponseError, NSError *feedbackError) {
+            if (feedbackError) {
+                [weakSelf.delegate onAPIResponseError:feedbackError.userInfo];
+                
+                return;
+            }
+            
+            [mItems setObject:feedbackResponseError forKey:@"feedbacks"];
+            [weakSelf.delegate onAPIResponseSuccess:[mItems copy]];
+        }];
+    }];
+}
+
 @end

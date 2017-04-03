@@ -15,5 +15,6 @@
 - (void)processRetrievalOfPaginatedListAtLink:(NSString *)link page:(NSInteger)page;
 - (void)processRetrievalOfReports;
 - (void)processRetrievalOfSurveys;
+- (void)processRetrievalOfInstantFeedbacksAndSurveys;
 
 @end

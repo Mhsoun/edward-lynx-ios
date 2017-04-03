@@ -198,8 +198,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             self.tableView.rowHeight = 105;
             
-            for (NSDictionary *detailDict in responseDict[@"items"]) {
+            for (NSDictionary *detailDict in responseDict[@"surveys"][@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+            }
+            
+            for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
+                [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
             }
             
             break;
@@ -255,6 +259,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (NSArray *)filteredDataSet:(NSArray *)items
                     listType:(kELListType)listType
                   filterType:(kELListFilter)filterType {
+    NSPredicate *predicate;
     NSString *predicateString;
     
     switch (listType) {
@@ -280,17 +285,21 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             break;
         case kELListTypeSurveys:
-            switch (filterType) {  // TODO
+            switch (filterType) {
                 case kELListFilterAll:
                     return items;
                     
                     break;
                 case kELListFilterInstantFeedback:
-                    return items;
+                    predicate = [NSPredicate predicateWithFormat:@"SELF isKindOfClass: %@", [ELInstantFeedback class]];
+                    
+                    return [items filteredArrayUsingPredicate:predicate];
                     
                     break;
                 case kELListFilterLynxManagement:
-                    return items;
+                    predicate = [NSPredicate predicateWithFormat:@"SELF isKindOfClass: %@", [ELSurvey class]];
+                    
+                    return [items filteredArrayUsingPredicate:predicate];
                     
                     break;
                 default:
@@ -306,7 +315,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             break;
     }
     
-    return [items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicateString]];
+    return [items filteredArrayUsingPredicate:!predicate ? [NSPredicate predicateWithFormat:predicateString] :
+                                                           predicate];
 }
 
 - (void)loadListByType {
@@ -316,7 +326,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
             
-            [self.viewManager processRetrievalOfSurveys];
+            [self.viewManager processRetrievalOfInstantFeedbacksAndSurveys];
             
             break;
         case kELListTypeReports:

@@ -50,6 +50,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         
         controller.delegate = self;
         controller.listType = kELListTypeSurveys;
+        controller.listFilter = [self.tabs[self.index] integerValue];
     }
 }
 
