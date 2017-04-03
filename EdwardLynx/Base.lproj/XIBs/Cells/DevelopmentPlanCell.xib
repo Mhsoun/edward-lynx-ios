@@ -87,13 +87,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-E1-yi5">
-                        <rect key="frame" x="147" y="95" width="205" height="129.5"/>
+                        <rect key="frame" x="147" y="95" width="205" height="129"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaw-Dx-V7b" userLabel="Content View">
-                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="129"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-c9-G8Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="Rmx-t5-UVu"/>
@@ -120,7 +120,7 @@
                         </constraints>
                     </scrollView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-ek-8or">
-                        <rect key="frame" x="352" y="95" width="15" height="129.5"/>
+                        <rect key="frame" x="352" y="95" width="15" height="129"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="dyl-r2-AMK"/>
                         </constraints>
