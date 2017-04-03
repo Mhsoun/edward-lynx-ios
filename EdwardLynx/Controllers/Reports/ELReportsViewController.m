@@ -44,7 +44,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
     if ([segue.identifier isEqualToString:kELReportSegueIdentifier]) {
         ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
         
-        controller.instantFeedback = self.selectedInstantFeedback;
+        controller.selectedObject = self.selectedInstantFeedback;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         
