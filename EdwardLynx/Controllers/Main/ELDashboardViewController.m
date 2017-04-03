@@ -190,7 +190,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                  instantiateInitialViewController];
         
         controller = navController.viewControllers[0];
-        controller.type = [identifier isEqualToString:kELDashboardActionTypeLynx] ? kELListTypeSurveys : kELListTypeReports;
+        controller.type = [identifier isEqualToString:kELDashboardActionTypeReport] ? kELListTypeReports : kELListTypeSurveys;
         controller.tabs = @[@(kELListFilterAll),
                             @(kELListFilterInstantFeedback),
                             @(kELListFilterLynxManagement)];

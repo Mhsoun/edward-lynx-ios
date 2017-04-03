@@ -279,44 +279,27 @@
 + (NSString *)labelByListFilter:(kELListFilter)filter {
     switch (filter) {
         case kELListFilterAll:
-            return @"All";
+            return NSLocalizedString(@"kELListFilterAll", nil);
             
             break;
         case kELListFilterInProgress:
-            return @"In Progress";
+            return NSLocalizedString(@"kELListFilterInProgress", nil);
             
             break;
         case kELListFilterCompleted:
-            return @"Completed";
+            return NSLocalizedString(@"kELListFilterCompleted", nil);
             
             break;
         case kELListFilterExpired:
-            return @"Expired";
+            return NSLocalizedString(@"kELListFilterExpired", nil);
             
             break;
         case kELListFilterInstantFeedback:
-            return @"Instant Feedback";
+            return NSLocalizedString(@"kELListFilterInstantFeedback", nil);
             
             break;
         case kELListFilterLynxManagement:
-            return @"Lynx Management";
-            
-            break;
-        default:
-            return @"";
-            
-            break;
-    }
-}
-
-+ (NSString *)labelByReportType:(kELReportType)type {
-    switch (type) {
-        case kELReportType360:
-            return @"360 Reports";
-            
-            break;
-        case kELReportTypeInstant:
-            return @"Instant";
+            return NSLocalizedString(@"kELListFilterLynxManagement", nil);
             
             break;
         default:
@@ -329,19 +312,19 @@
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status {
     switch (status) {
         case kELSurveyStatusOpen:
-            return @"Open";
+            return NSLocalizedString(@"kELSurveyStatusOpen", nil);
             
             break;
         case kELSurveyStatusPartial:
-            return @"Partial";
+            return NSLocalizedString(@"kELSurveyStatusPartial", nil);
             
             break;
         case kELSurveyStatusCompleted:
-            return @"Completed";
+            return NSLocalizedString(@"kELSurveyStatusCompleted", nil);
             
             break;
         case kELSurveyStatusNotInvited:
-            return @"Not Invited";
+            return NSLocalizedString(@"kELSurveyStatusNotInvited", nil);
             
             break;
         default:
@@ -354,23 +337,23 @@
 + (NSString *)labelBySurveyType:(kELSurveyType)type {
     switch (type) {
         case kELSurveyType360Individual:
-            return @"Lynx 360";
+            return NSLocalizedString(@"kELSurveyType360Individual", nil);
             
             break;
         case kELSurveyTypeLMTT:
-            return @"LMTT";
+            return NSLocalizedString(@"kELSurveyTypeLMTT", nil);
             
             break;
         case kELSurveyTypeProgress:
-            return @"Lynx Progress";
+            return NSLocalizedString(@"kELSurveyTypeProgress", nil);
             
             break;
         case kELSurveyTypeSurvey:
-            return @"Lynx Survey";
+            return NSLocalizedString(@"kELSurveyTypeSurvey", nil);
             
             break;
         case kELSurveyTypeLTT:
-            return @"LTT";
+            return NSLocalizedString(@"kELSurveyTypeLTT", nil);
             
             break;
         default:
@@ -501,10 +484,6 @@
 }
 
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
-//    NSArray *answerTypes = @[@(kELAnswerTypeOneToTenWithExplanation), @(kELAnswerTypeText),
-//                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
-//                             @(kELAnswerTypeInvertedAgreementScale)];
-
     NSArray *answerTypes = @[@(kELAnswerTypeYesNoScale), @(kELAnswerTypeCustomScale),
                              @(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale),
                              @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),

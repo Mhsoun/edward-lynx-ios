@@ -128,6 +128,26 @@
 "kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts";
 "kELSurveyPostError" = "Failed to post answers";
 
+"kELSurveyStatusOpen" = "Open";
+"kELSurveyStatusPartial" = "Partial";
+"kELSurveyStatusCompleted" = "Completed";
+"kELSurveyStatusNotInvited" = "Not Invited";
+
+"kELSurveyType360Individual" = "Lynx 360";
+"kELSurveyTypeLMTT" = "LMTT";
+"kELSurveyTypeProgress" = "Lynx Progress";
+"kELSurveyTypeSurvey" = "Lynx Survey";
+"kELSurveyTypeLTT" = "LTT";
+
+/* Tabs */
+
+"kELListFilterAll" = "All";
+"kELListFilterInProgress" = "In Progress";
+"kELListFilterCompleted" = "Completed";
+"kELListFilterExpired" = "Expired";
+"kELListFilterInstantFeedback" = "Instant Feedback";
+"kELListFilterLynxManagement" = "Lynx Management";
+
 /* Validations */
 
 "kELAnswerTypeValidationMessage" = "No Answer type selected";

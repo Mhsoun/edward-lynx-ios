@@ -74,11 +74,6 @@ typedef NS_ENUM(NSInteger, kELPopupType) {
     kELPopupTypeMessage
 };
 
-typedef NS_ENUM(NSInteger, kELReportType) {
-    kELReportType360,
-    kELReportTypeInstant
-};
-
 typedef NS_ENUM(NSInteger, kELRolePermission) {
     kELRolePermissionParticipateInSurvey,
     kELRolePermissionSelectFeedbackProviders,
