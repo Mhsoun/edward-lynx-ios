@@ -99,10 +99,15 @@
                                      items:(NSArray *)items
                                   colorKey:(NSString *)colorKey {
     BarChartDataSet *dataSet;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    formatter.minimumFractionDigits = 2;
+    formatter.numberStyle = NSNumberFormatterPercentStyle;
     
     dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
     dataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:colorKey]];
     dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
     dataSet.valueTextColor = [UIColor whiteColor];
     
     return dataSet;
@@ -116,22 +121,26 @@
     barChart.drawGridBackgroundEnabled = NO;
     barChart.descriptionText = @"";
     
+    barChart.leftAxis.axisMaximum = 1.0f;
+    barChart.leftAxis.axisMinimum = 0.0f;
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
     barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     
-    limitLine70 = [[ChartLimitLine alloc] initWithLimit:70.0 label:@"70%"];
-    limitLine70.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f label:@"70%"];
+    limitLine70.labelPosition = ChartLimitLabelPositionLeftBottom;
     limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine70.lineWidth = 0.5f;
     limitLine70.valueFont = labelFont;
     limitLine70.valueTextColor = [UIColor whiteColor];
     
     [barChart.leftAxis addLimitLine:limitLine70];
     
-    limitLine100 = [[ChartLimitLine alloc] initWithLimit:100.0 label:@"100%"];
-    limitLine100.labelPosition = ChartLimitLabelPositionRightBottom;
+    limitLine100 = [[ChartLimitLine alloc] initWithLimit:1.0f label:@"100%"];
+    limitLine100.labelPosition = ChartLimitLabelPositionLeftBottom;
     limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    limitLine100.lineWidth = 0.5f;
     limitLine100.valueFont = labelFont;
     limitLine100.valueTextColor = [UIColor whiteColor];
     
@@ -157,7 +166,7 @@
     barChart.xAxis.labelTextColor = [UIColor whiteColor];
     barChart.xAxis.labelWidth = 100;
     barChart.xAxis.wordWrapEnabled = YES;
-        
+    
     return barChart;
 }
 
@@ -170,8 +179,9 @@
             answers[i].value = 0;
         }
         
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
         [mLabels addObject:answers[i].shortDescription];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i
+                                                               y:(double)answers[i].count / self.instantFeedback.participants.count]];
     }
     
     barChart = [self configureBarChart:barChart];
@@ -195,8 +205,9 @@
             answers[i].value = 0;
         }
         
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:answers[i].value]];
         [mLabels addObject:answers[i].shortDescription];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i
+                                                               y:(double)answers[i].count / self.instantFeedback.participants.count]];
     }
     
     chartDataSet1 = [self chartDataSetWithTitle:@"Self"
@@ -212,8 +223,9 @@
             answers[i].value = 0;
         }
         
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:50.1f]];
         [mLabels addObject:answers[i].shortDescription];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i
+                                                               y:(double)arc4random() / UINT32_MAX]];
     }
     
     chartDataSet2 = [self chartDataSetWithTitle:@"Others Combined"

@@ -15,10 +15,13 @@
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButton;
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UIView *averageBarChartView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *averageHeightConstraint;
-@property (weak, nonatomic) IBOutlet UIView *indexBarChartView;
+@property (weak, nonatomic) IBOutlet UIView *indexContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *indexHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *indexBarChartView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 - (IBAction)onShareBarButtonClick:(id)sender;
