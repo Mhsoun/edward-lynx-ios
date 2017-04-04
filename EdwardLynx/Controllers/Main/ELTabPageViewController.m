@@ -182,7 +182,26 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onAddButtonClick:(id)sender {
+    NSString *storyboard;
+    __kindof ELBaseViewController *controller;
     
+    switch (self.type) {
+        case kELListTypeDevPlan:
+            storyboard = @"CreateDevelopmentPlan";
+            
+            break;
+        case kELListTypeSurveys:
+            storyboard = @"CreateInstantFeedback";
+            
+            break;
+        default:
+            return;
+            break;
+    }
+    
+    controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil] instantiateInitialViewController];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
