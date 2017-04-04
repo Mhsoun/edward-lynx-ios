@@ -205,7 +205,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    return [[NSAttributedString alloc] initWithString:@"No goals added"
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELGoalsValidationMessage", nil)
                                            attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
                                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }

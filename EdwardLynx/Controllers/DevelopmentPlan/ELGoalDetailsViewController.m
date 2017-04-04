@@ -158,7 +158,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    return [[NSAttributedString alloc] initWithString:@"No actions added"
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                                            attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
                                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
