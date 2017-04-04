@@ -287,10 +287,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             }
             
             break;
-        case kELListTypeReports:  // TODO
-            return items;
-            
-            break;
+        case kELListTypeReports:
         case kELListTypeSurveys:
             switch (filterType) {
                 case kELListFilterAll:
