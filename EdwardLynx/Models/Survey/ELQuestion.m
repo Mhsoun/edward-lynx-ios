@@ -21,10 +21,23 @@
 }
 
 - (CGFloat)heightForQuestionView {
-    // TODO Add another condition for One to Ten w/explanation
-    return self.answer.type != kELAnswerTypeText ? ((self.answer.options.count * kELCustomScaleItemHeight) +
-                                                    (self.isNA ? kELCustomScaleItemHeight : 0) +
-                                                    kELCustomScaleItemHeight) : 110;
+    switch (self.answer.type) {
+        case kELAnswerTypeText:
+            return 100;
+            break;
+        case kELAnswerTypeOneToTenWithExplanation:
+            return ((self.answer.options.count * kELCustomScaleItemHeight) +
+                    (self.isNA ? kELCustomScaleItemHeight : 0) +
+                    kELCustomScaleItemHeight) + 100;
+            
+            break;
+        default:
+            return ((self.answer.options.count * kELCustomScaleItemHeight) +
+                    (self.isNA ? kELCustomScaleItemHeight : 0) +
+                    kELCustomScaleItemHeight);
+            
+            break;
+    }
 }
 
 @end

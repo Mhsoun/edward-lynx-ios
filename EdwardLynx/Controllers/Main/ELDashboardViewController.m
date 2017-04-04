@@ -219,13 +219,13 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     ELReminder *reminder1 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
                                                                      @"title": @"Goal",
                                                                      @"description": @"Read book",
-                                                                     @"dueDate": @"2017-01-31T06:54:33+01:00",
+                                                                     @"dueDate": @"2017-05-31T06:54:33+01:00",
                                                                      @"type": @(kELReminderTypeGoal)}
                                                             error:nil];
     ELReminder *reminder2 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
                                                                      @"title": @"Invite Feedback",
                                                                      @"description": @"Providers to your Instant Feedback",
-                                                                     @"dueDate": @"2017-03-30T06:54:33+01:00",
+                                                                     @"dueDate": @"2017-04-10T06:54:33+01:00",
                                                                      @"type": @(kELReminderTypeFeedback)}
                                                              error:nil];
     ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @1,

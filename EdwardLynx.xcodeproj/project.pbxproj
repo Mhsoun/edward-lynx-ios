@@ -563,7 +563,6 @@
 				A91310D21E8642D20042C91F /* AppDelegate.m */,
 				A91310D31E8642D20042C91F /* Assets.xcassets */,
 				A91310C61E8642D20042C91F /* API */,
-				A91311091E8642D20042C91F /* Categories */,
 				A913110A1E8642D20042C91F /* Controllers */,
 				A91312AE1E86432B0042C91F /* Layouts */,
 				A97C29591E8B8CC300EBC5CE /* Models */,
@@ -640,13 +639,6 @@
 				A91312AF1E86437C0042C91F /* SectionView.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A91311091E8642D20042C91F /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		A913110A1E8642D20042C91F /* Controllers */ = {

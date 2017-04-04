@@ -10,12 +10,6 @@
 #import "ELInstantFeedback.h"
 #import "ELSurvey.h"
 
-@interface ELSurveyTableViewCell ()
-
-@property (nonatomic, strong) ELSurvey *survey;
-
-@end
-
 @implementation ELSurveyTableViewCell
 
 - (void)awakeFromNib {
@@ -39,10 +33,10 @@
         [self configureWithDetails:@{@"title": survey.name,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"description": survey.evaluationText,
-                                     @"status": [ELUtils labelBySurveyStatus:survey.status],
+                                     @"status": @(survey.status),
                                      @"date": survey.endDate}];
         
-        self.reactivateLabel.hidden = ![survey.endDate mt_isBefore:[NSDate date]];
+        self.reactivateLabel.hidden = ![[NSDate date] mt_isAfter:survey.endDate];
         self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     } else {
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
@@ -52,7 +46,7 @@
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": @"Instant Feedback",
                                      @"description": @"",
-                                     @"status": [ELUtils labelBySurveyStatus:status],
+                                     @"status": @(status),
                                      @"date": feedback.createdAt}];
     }
 }
@@ -70,7 +64,7 @@
     self.surveyLabel.text = detailsDict[@"title"];
     self.typeLabel.text = [detailsDict[@"type"] uppercaseString];
     self.descriptionLabel.text = detailsDict[@"description"];
-    self.statusLabel.text = [detailsDict[@"status"] uppercaseString];
+    self.statusLabel.text = [[ELUtils labelBySurveyStatus:[detailsDict[@"status"] integerValue]] uppercaseString];
     
     // UI
     self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][date.mt_monthOfYear - 1] uppercaseString];
@@ -78,20 +72,24 @@
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
     self.reactivateLabel.hidden = YES;
-    self.statusLabel.layer.cornerRadius = 2.0f;
     self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkGrayColor];
+    self.statusLabel.layer.cornerRadius = 2.0f;
     
-    [self toggleCalendarState];
+    [self toggleCalendarStateForEndDate:date status:[detailsDict[@"status"] integerValue]];
 }
 
-- (void)toggleCalendarState {
+- (void)toggleCalendarStateForEndDate:(NSDate *)endDate status:(kELSurveyStatus)status {
+    BOOL beforeExpiration;
     NSString *colorString;
+    NSDate *currentDate = [NSDate date];
     
-    if (self.survey.status == kELSurveyStatusCompleted) {
+    beforeExpiration = [currentDate mt_isOnOrBefore:endDate];
+    
+    if (status == kELSurveyStatusCompleted) {
         colorString = kELGreenColor;
-    } else if ([[NSDate date] mt_weekOfYear] - [self.survey.endDate mt_weekOfYear] <= 2) {
+    } else if (beforeExpiration && ([currentDate mt_weekOfYear] - [endDate mt_weekOfYear] <= 2)) {
         colorString = kELRedColor;
-    } else if ([self.survey.endDate mt_isOnOrBefore:[NSDate date]]) {
+    } else if (!beforeExpiration) {
         colorString = kELDarkGrayColor;
     } else {
         colorString = kELOrangeColor;
