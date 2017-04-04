@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *addGoalButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 - (IBAction)onDoneButtonClick:(id)sender;
 - (IBAction)onAddGoalButtonClick:(id)sender;

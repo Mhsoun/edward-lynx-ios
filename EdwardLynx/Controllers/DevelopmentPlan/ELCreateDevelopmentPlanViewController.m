@@ -145,6 +145,19 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     return YES;
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    CGFloat iconHeight = 15;
+    
+    // Button
+    [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                                  iconColor:[UIColor blackColor]
+                                                   iconSize:iconHeight
+                                                  imageSize:CGSizeMake(iconHeight, iconHeight)]
+                        forState:UIControlStateNormal];
+}
+
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
