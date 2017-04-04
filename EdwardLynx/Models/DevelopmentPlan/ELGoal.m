@@ -10,6 +10,7 @@
 
 @implementation ELGoal
 
+@synthesize checked = _checked;
 @synthesize progress = _progress;
 
 + (JSONKeyMapper *)keyMapper {
@@ -37,6 +38,18 @@
              @"description": self.shortDescription,
              @"dueDate": [AppSingleton.apiDateFormatter stringFromDate:self.dueDate],
              @"actions": [mActions copy]};
+}
+
+- (BOOL)checked {
+    if (_checked) {
+        return _checked;
+    }
+    
+    return _progress == 1.0f;
+}
+
+- (void)setChecked:(BOOL)checked {
+    _checked = checked;
 }
 
 - (CGFloat)progress {

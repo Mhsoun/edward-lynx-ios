@@ -54,6 +54,7 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    NSString *colorKey;
     ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
     
     // Content
@@ -66,6 +67,9 @@
     [self setupCircleChartForDevelopmentPlan:devPlan];
     
     // UI
+    colorKey = devPlan.completed ? kELOrangeColor : kELBlueColor;
+    
+    self.completedLabel.textColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
     self.moreBarChartButton.hidden = CGRectGetWidth(self.scrollView.frame) >= CGRectGetWidth(self.barChartView.frame);
 }
 
