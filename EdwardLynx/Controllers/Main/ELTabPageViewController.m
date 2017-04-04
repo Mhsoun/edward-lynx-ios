@@ -79,7 +79,7 @@
             
             [oldCell.label setFont:font];
             [newCell.label setFont:font];
-            [oldCell.label setTextColor:[[RNThemeManager sharedManager] colorForKey:kELVioletColor]];
+            [oldCell.label setTextColor:[[RNThemeManager sharedManager] colorForKey:kELInactiveColor]];
             [newCell.label setTextColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
         }
     };

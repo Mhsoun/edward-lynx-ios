@@ -194,9 +194,14 @@ extern NSString * const kELFeedbackColor;
 extern NSString * const kELLynxColor;
 
 extern NSString * const kELContainerColor;
+extern NSString * const kELDevPlanSeparatorColor;
 extern NSString * const kELHeaderColor;
+extern NSString * const kELInactiveColor;
+extern NSString * const kELSubtextColor;
+extern NSString * const kELSurveySeparatorColor;
 extern NSString * const kELTextFieldBGColor;
 extern NSString * const kELTextFieldInputColor;
+
 extern NSString * const kELBlackColor;
 extern NSString * const kELBlueColor;
 extern NSString * const kELDarkGrayColor;
@@ -210,8 +215,6 @@ extern NSString * const kELOrangeColor;
 extern NSString * const kELRedColor;
 extern NSString * const kELVioletColor;
 extern NSString * const kELWhiteColor;
-
-
 
 #pragma mark - Status Codes
 
