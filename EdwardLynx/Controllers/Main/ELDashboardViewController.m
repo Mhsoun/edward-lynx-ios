@@ -8,21 +8,17 @@
 
 #import "ELDashboardViewController.h"
 #import "AppDelegate.h"
-#import "ELActionView.h"
 #import "ELDashboardHeaderTableViewCell.h"
 #import "ELDashboardReminderTableViewCell.h"
 #import "ELDevelopmentPlanTableViewCell.h"
 #import "ELDevelopmentPlanDetailsViewController.h"
-#import "ELSectionView.h"
-#import "ELShortcutView.h"
-#import "ELStatusView.h"
-#import "ELTabPageViewController.h"
-
 #import "ELNotificationView.h"
+#import "ELSectionView.h"
+#import "ELTabPageViewController.h"
 
 #pragma mark - Private Constants
 
-//static CGFloat const kELCornerRadius = 5.0f;
+static CGFloat const kELAdsViewHeight = 100;
 static NSString * const kELHeaderCellIdentifier = @"DashboardHeaderCell";
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
@@ -66,7 +62,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Table view
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELHeaderCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELHeaderCellIdentifier];
@@ -163,8 +158,34 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return section != self.itemsDict.count - 1 ? 0 : kELAdsViewHeight;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return section == 0 ? CGFLOAT_MIN : 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UILabel *label;
+    
+    if (section != self.itemsDict.count - 1) {
+        return nil;
+    }
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0,
+                                                      0,
+                                                      CGRectGetWidth(self.tableView.frame),
+                                                      kELAdsViewHeight)];
+    
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Lato-Regular" size:12.0];
+    label.opaque = YES;
+    label.text = @"Space for Ads";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    
+    return label;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -184,125 +205,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     return sectionView;
 }
 
-#pragma mark - Protocol Methods (ELBaseViewController)
-
-- (void)layoutPage {
-//    ELActionView *actionView;
-//    ELStatusView *statusView;
-//    ELShortcutView *shortcutView;
-//    
-//    // Status section
-//    statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Development Plan Status",
-//                                                         @"segue": @"",
-//                                                         @"details": @"3/4 goals completed",
-//                                                         @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
-//    statusView.frame = self.devPlanStatusView.bounds;
-////    statusView.delegate = self;
-//    
-//    [self.devPlanStatusView addSubview:statusView];
-//    [self.devPlanStatusView.layer setCornerRadius:kELCornerRadius];
-//    
-//    statusView = [[ELStatusView alloc] initWithDetails:@{@"title": @"Feedback request status",
-//                                                         @"segue": @"",
-//                                                         @"details": @"3/4 submitted results",
-//                                                         @"permissions": @[@(kELRolePermissionParticipateInSurvey),
-//                                                                           @(kELRolePermissionSubmitSurvey),
-//                                                                           @(kELRolePermissionInstantFeedback)]}];
-//    statusView.frame = self.feedbackStatusView.bounds;
-////    statusView.delegate = self;
-//    
-//    [self.feedbackStatusView addSubview:statusView];
-//    [self.feedbackStatusView.layer setCornerRadius:kELCornerRadius];
-//    
-//    // Shortcuts section
-//    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Instant Feedback",
-//                                                             @"segue": @"CreateInstantFeedback",
-//                                                             @"description": @"Description on creating instant feedback.",
-//                                                             @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
-//    shortcutView.frame = self.createFeedbackView.bounds;
-//    shortcutView.delegate = self;
-//    
-//    [self.createFeedbackView addSubview:shortcutView];
-//    [self.createFeedbackView.layer setCornerRadius:kELCornerRadius];
-//    
-//    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Create Development Plan",
-//                                                             @"segue": @"CreateDevelopmentPlan",
-//                                                             @"description": @"Description on creating development plan.",
-//                                                             @"permissions": @[@(kELRolePermissionCreateDevelopmentPlan)]}];
-//    shortcutView.frame = self.createDevPlanView.bounds;
-//    shortcutView.delegate = self;
-//    
-//    [self.createDevPlanView addSubview:shortcutView];
-//    [self.createDevPlanView.layer setCornerRadius:kELCornerRadius];
-//    
-//    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Reports",
-//                                                             @"segue": @"Report",
-//                                                             @"description": @"Description on viewing reports.",
-//                                                             @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
-//                                                                               @(kELRolePermissionViewAnonymousTeamReports)]}];
-//    shortcutView.frame = self.reportsView.bounds;
-//    shortcutView.delegate = self;
-//    
-//    [self.reportsView addSubview:shortcutView];
-//    [self.reportsView.layer setCornerRadius:kELCornerRadius];
-//    
-//    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"View Surveys",
-//                                                             @"segue": @"Survey",
-//                                                             @"description": @"Description on viewing surveys.",
-//                                                             @"permissions": @[@(kELRolePermissionParticipateInSurvey)]}];
-//    shortcutView.frame = self.surveysView.bounds;
-//    shortcutView.delegate = self;
-//    
-//    [self.surveysView addSubview:shortcutView];
-//    [self.surveysView.layer setCornerRadius:kELCornerRadius];
-//    
-//    // Action Required section
-//    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"360",
-//                                                         @"title": @"Feedback Requests",
-//                                                         @"count": @(0),
-//                                                         @"segue": @"",
-//                                                         @"color": kELGreenColor,
-//                                                         @"permissions": @[@(kELRolePermissionParticipateInSurvey),
-//                                                                           @(kELRolePermissionSubmitSurvey)]}];
-//    actionView.frame = self.feedbackActionView.bounds;
-////    actionView.delegate = self;
-//    
-//    [self.feedbackActionView addSubview:actionView];
-//    [self.feedbackActionView.layer setCornerRadius:kELCornerRadius];
-//    
-//    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"New",
-//                                                         @"title": @"Reports",
-//                                                         @"count": @(0),
-//                                                         @"segue": @"",
-//                                                         @"color": kELBlueColor,
-//                                                         @"permissions": @[@(kELRolePermissionViewAnonymousIndividualReports),
-//                                                                           @(kELRolePermissionViewAnonymousTeamReports)]}];
-//    actionView.frame = self.reportsActionView.bounds;
-////    actionView.delegate = self;
-//    
-//    [self.reportsActionView addSubview:actionView];
-//    [self.reportsActionView.layer setCornerRadius:kELCornerRadius];
-//    
-//    actionView = [[ELActionView alloc] initWithDetails:@{@"value": @"Instant",
-//                                                         @"title": @"Feedback Requests",
-//                                                         @"count": @(0),
-//                                                         @"segue": @"InstantFeedback",
-//                                                         @"color": kELPinkColor,
-//                                                         @"permissions": @[@(kELRolePermissionInstantFeedback)]}];
-//    actionView.frame = self.instantFeedbackActionView.bounds;
-//    actionView.delegate = self;
-//    
-//    [self.instantFeedbackActionView addSubview:actionView];
-//    [self.instantFeedbackActionView.layer setCornerRadius:kELCornerRadius];
-    
-    // Navigation Bar
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];
-//    self.navigationController.navigationBar.translucent = YES;
-//    
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-//                                                  forBarMetrics:UIBarMetricsDefault];
-}
-
 #pragma mark - Protocol Methods (ELDashboardViewDelegate)
 
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
@@ -314,7 +216,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                  instantiateInitialViewController];
         
         controller = navController.viewControllers[0];
-        controller.type = [identifier isEqualToString:kELDashboardActionTypeLynx] ? kELListTypeSurveys : kELListTypeReports;
+        controller.type = [identifier isEqualToString:kELDashboardActionTypeReport] ? kELListTypeReports : kELListTypeSurveys;
         controller.tabs = @[@(kELListFilterAll),
                             @(kELListFilterInstantFeedback),
                             @(kELListFilterLynxManagement)];
@@ -341,15 +243,15 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (void)sampleData {
     ELReminder *reminder1 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
-                                                                    @"title": @"Goal",
-                                                                    @"description": @"Read book",
-                                                                    @"dueDate": @"2017-01-31T06:54:33+01:00",
-                                                                    @"type": @(kELReminderTypeGoal)}
+                                                                     @"title": @"Goal",
+                                                                     @"description": @"Read book",
+                                                                     @"dueDate": @"2017-05-31T06:54:33+01:00",
+                                                                     @"type": @(kELReminderTypeGoal)}
                                                             error:nil];
     ELReminder *reminder2 = [[ELReminder alloc] initWithDictionary:@{@"id": @(-1),
                                                                      @"title": @"Invite Feedback",
                                                                      @"description": @"Providers to your Instant Feedback",
-                                                                     @"dueDate": @"2017-03-30T06:54:33+01:00",
+                                                                     @"dueDate": @"2017-04-10T06:54:33+01:00",
                                                                      @"type": @(kELReminderTypeFeedback)}
                                                              error:nil];
     ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @1,
@@ -367,11 +269,35 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
                                                                                                                @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
                                                                                                @"description": @"",
                                                                                                @"checked": @0,
+                                                                                               @"position": @0,
+                                                                                               @"dueDate": @"",
+                                                                                               @"reminderSent": @0,
+                                                                                               @"categoryId": @(-1),
+                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0}]},
+                                                                                             @{@"id": @1,
+                                                                                               @"title": @"Wash the dishes",
+                                                                                               @"description": @"",
+                                                                                               @"checked": @1,
                                                                                                @"position": @0,
                                                                                                @"dueDate": @"",
                                                                                                @"reminderSent": @0,
@@ -390,7 +316,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"categoryId": @(-1),
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
-                                                                                                               @"checked": @1,
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
@@ -403,11 +329,23 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
                                                                                                                @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
                                                                                                @"description": @"",
-                                                                                               @"checked": @0,
+                                                                                               @"checked": @1,
                                                                                                @"position": @0,
                                                                                                @"dueDate": @"",
                                                                                                @"reminderSent": @0,
@@ -419,55 +357,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
                                                                                                @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
+                                                                                               @"checked": @1,
                                                                                                @"position": @0,
                                                                                                @"dueDate": @"",
                                                                                                @"reminderSent": @0,
@@ -484,12 +374,48 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                   @"goals": @[@{@"id": @1,
                                                                                                 @"title": @"Wash the dishes",
                                                                                                 @"description": @"",
+                                                                                                @"checked": @1,
+                                                                                                @"position": @0,
+                                                                                                @"dueDate": @"",
+                                                                                                @"reminderSent": @0,
+                                                                                                @"categoryId": @(-1),
+                                                                                                @"actions": @[@{@"id": @33,
+                                                                                                                @"title": @"asdasd",
+                                                                                                                @"checked": @1,
+                                                                                                                @"position": @0}]},
+                                                                                              @{@"id": @1,
+                                                                                                @"title": @"Wash the dishes",
+                                                                                                @"description": @"",
                                                                                                 @"checked": @0,
                                                                                                 @"position": @0,
                                                                                                 @"dueDate": @"",
                                                                                                 @"reminderSent": @0,
                                                                                                 @"categoryId": @(-1),
                                                                                                 @"actions": @[@{@"id": @33,
+                                                                                                                @"title": @"asdasd",
+                                                                                                                @"checked": @1,
+                                                                                                                @"position": @0},
+                                                                                                              @{@"id": @33,
+                                                                                                                @"title": @"asdasd",
+                                                                                                                @"checked": @1,
+                                                                                                                @"position": @0},
+                                                                                                              @{@"id": @33,
+                                                                                                                @"title": @"asdasd",
+                                                                                                                @"checked": @0,
+                                                                                                                @"position": @0}]},
+                                                                                              @{@"id": @1,
+                                                                                                @"title": @"Wash the dishes",
+                                                                                                @"description": @"",
+                                                                                                @"checked": @1,
+                                                                                                @"position": @0,
+                                                                                                @"dueDate": @"",
+                                                                                                @"reminderSent": @0,
+                                                                                                @"categoryId": @(-1),
+                                                                                                @"actions": @[@{@"id": @33,
+                                                                                                                @"title": @"asdasd",
+                                                                                                                @"checked": @1,
+                                                                                                                @"position": @0},
+                                                                                                              @{@"id": @33,
                                                                                                                 @"title": @"asdasd",
                                                                                                                 @"checked": @1,
                                                                                                                 @"position": @0}]}]}

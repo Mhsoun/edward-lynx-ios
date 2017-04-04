@@ -41,8 +41,8 @@
 - (NSString<Ignore> *)dueDateInfo {
     NSDate *currentDate = [NSDate date];
     
-    if ([self.dueDate mt_isBefore:currentDate]) {
-        return [NSString stringWithFormat:@"Due in \n%@ Days", @([self.dueDate mt_daysUntilDate:currentDate])];
+    if ([currentDate mt_isBefore:self.dueDate]) {
+        return [NSString stringWithFormat:@"Due in \n%@ Days", @([currentDate mt_daysUntilDate:self.dueDate])];
     } else {
         return @"Now";
     }

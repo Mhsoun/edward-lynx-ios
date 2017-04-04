@@ -127,7 +127,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Protocol Methods (UITextView)
 
 - (void)textViewDidChange:(UITextView *)textView {
-    self.questionPreviewLabel.text = textView.text;
+    self.questionPreviewLabel.text = textView.text.length == 0 ? @"Question" : textView.text;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -332,7 +332,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     switch (answerType) {
         case kELAnswerTypeOneToTenScale:
-            height = 300;
+            height = 360;
             
             break;
         case kELAnswerTypeCustomScale:

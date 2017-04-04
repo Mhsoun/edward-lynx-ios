@@ -10,16 +10,24 @@
 	<string>c845dc</string>
 	<key>containerColor</key>
 	<string>462063</string>
+	<key>devPlanSeparatorColor</key>
+	<string>7d648f</string>
 	<key>headerColor</key>
 	<string>331548</string>
+	<key>inactiveColor</key>
+	<string>675078</string>
+	<key>subtextColor</key>
+	<string>9786a6</string>
+	<key>surveySeparatorColor</key>
+	<string>2f1344</string>
 	<key>textFieldBGColor</key>
 	<string>72508a</string>
 	<key>textFieldInputColor</key>
-	<string>2b133d</string>
+	<string>401d5a</string>
 	<key>blackColor</key>
 	<string>3c3c3c</string>
 	<key>blueColor</key>
-	<string>18b3c9</string>
+	<string>1995db</string>
 	<key>darkGrayColor</key>
 	<string>636363</string>
 	<key>darkVioletColor</key>
@@ -41,6 +49,6 @@
 	<key>violetColor</key>
 	<string>663593</string>
 	<key>whiteColor</key>
-	<string>fff</string>
+	<string>ffffff</string>
 </dict>
 </plist>

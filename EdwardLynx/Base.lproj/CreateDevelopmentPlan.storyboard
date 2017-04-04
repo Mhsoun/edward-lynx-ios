@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -147,7 +147,8 @@
                                                     <constraint firstAttribute="width" secondItem="dx1-DV-cEc" secondAttribute="height" multiplier="1:1" id="o70-to-FGT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                                                <state key="normal" title="+">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -191,10 +192,9 @@
                                     <constraint firstAttribute="height" constant="40" id="qk5-Kb-B7x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="DONE">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="PROCESSING..."/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
@@ -220,6 +220,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="CREATE DEVELOPMENT PLAN" id="Vv2-Q3-oR2"/>
                     <connections>
+                        <outlet property="addGoalButton" destination="dx1-DV-cEc" id="am9-U5-g8M"/>
                         <outlet property="doneButton" destination="9wj-up-hY1" id="p4Q-ft-hHq"/>
                         <outlet property="heightConstraint" destination="n2L-Yf-MTO" id="Qk5-gY-4UW"/>
                         <outlet property="nameErrorLabel" destination="lAR-bs-z6I" id="ltB-Rb-c4s"/>
@@ -435,7 +436,8 @@
                                                     <constraint firstAttribute="width" constant="50" id="LOs-U8-kB3"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                                                <state key="normal" title="+">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -545,7 +547,6 @@
                                             <constraint firstItem="qjQ-Yg-Nwr" firstAttribute="trailing" secondItem="sWe-B6-y8S" secondAttribute="trailing" id="P96-uQ-ZTQ"/>
                                             <constraint firstItem="Gx7-vv-8G7" firstAttribute="top" secondItem="op1-b8-ilF" secondAttribute="bottom" constant="10" id="Q9q-c7-vNE"/>
                                             <constraint firstItem="k8P-kX-1PH" firstAttribute="height" secondItem="ztL-yD-R2W" secondAttribute="height" id="Qg1-K8-oA7"/>
-                                            <constraint firstItem="PGd-0n-bXu" firstAttribute="width" secondItem="PGd-0n-bXu" secondAttribute="height" multiplier="1:1" id="SCy-Ul-PS7"/>
                                             <constraint firstItem="G2u-XK-xRk" firstAttribute="top" secondItem="Gx7-vv-8G7" secondAttribute="bottom" constant="20" id="TYs-ve-qpS"/>
                                             <constraint firstItem="qjQ-Yg-Nwr" firstAttribute="top" secondItem="sWe-B6-y8S" secondAttribute="bottom" constant="5" id="bec-tE-32A"/>
                                             <constraint firstItem="PGd-0n-bXu" firstAttribute="top" secondItem="G2u-XK-xRk" secondAttribute="bottom" constant="20" id="bmg-NF-3t8"/>
@@ -585,7 +586,7 @@
                                     <constraint firstAttribute="height" constant="40" id="MsK-6r-MR2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="ADD GOAL">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -614,6 +615,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="GOAL DETAILS" id="O5J-gr-nQK"/>
                     <connections>
+                        <outlet property="addActionButton" destination="PGd-0n-bXu" id="oae-5v-2JY"/>
                         <outlet property="addGoalButton" destination="0mI-Vz-p3Z" id="ISL-yb-DbS"/>
                         <outlet property="categorySwitch" destination="r19-J0-Bx3" id="Bbb-yK-r9q"/>
                         <outlet property="dateErrorLabel" destination="qjQ-Yg-Nwr" id="pcz-H3-6F4"/>

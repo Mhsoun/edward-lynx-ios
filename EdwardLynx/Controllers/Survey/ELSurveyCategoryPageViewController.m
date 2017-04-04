@@ -239,11 +239,13 @@
     if (self.items.count > 1) {
         self.pageControl.numberOfPages = self.items.count;
         self.pageControl.currentPage = 0;
-        
     }
     
     self.prevButton.hidden = self.items.count <= 1;
     self.nextButton.hidden = self.items.count <= 1;
+    
+    [self.heightConstraint setConstant:self.items.count <= 1 ? 0 : 40];
+    [self.navigatorView updateConstraints];
 }
 
 - (void)toggleSubmitButtonState {
@@ -252,7 +254,7 @@
     NSString *titleIdentifier = self.isSurveyFinal ? @"kELSubmitButton" : @"kELSaveToDraftButton";
     
     [self.submitButton setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:bgColorKey]];
-    [self.submitButton setTitle:[NSLocalizedString(titleIdentifier, nil) uppercaseString]
+    [self.submitButton setTitle:NSLocalizedString(titleIdentifier, nil)
                        forState:UIControlStateNormal];
     [self.submitButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:textColorKey]
                             forState:UIControlStateNormal];

@@ -123,10 +123,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    CGFloat iconHeight = 15;
     NSString *buttonLabel = NSLocalizedString(self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" :
                                                               @"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
+    [self.addActionButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                                    iconColor:[UIColor blackColor]
+                                                     iconSize:iconHeight
+                                                    imageSize:CGSizeMake(iconHeight, iconHeight)]
+                          forState:UIControlStateNormal];
     [self.addGoalButton setTitle:[buttonLabel uppercaseString]
                         forState:UIControlStateNormal];
     

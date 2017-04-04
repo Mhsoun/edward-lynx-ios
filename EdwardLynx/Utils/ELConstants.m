@@ -101,9 +101,14 @@ NSString * const kELFeedbackColor = @"feedbackColor";
 NSString * const kELLynxColor = @"lynxColor";
 
 NSString * const kELContainerColor = @"containerColor";
+NSString * const kELDevPlanSeparatorColor = @"devPlanSeparatorColor";
 NSString * const kELHeaderColor = @"headerColor";
+NSString * const kELInactiveColor = @"inactiveColor";
+NSString * const kELSubtextColor = @"subtextColor";
+NSString * const kELSurveySeparatorColor = @"surveySeparatorColor";
 NSString * const kELTextFieldBGColor = @"textFieldBGColor";
 NSString * const kELTextFieldInputColor = @"textFieldInputColor";
+
 NSString * const kELBlackColor = @"blackColor";
 NSString * const kELBlueColor = @"blueColor";
 NSString * const kELDarkGrayColor = @"darkGrayColor";

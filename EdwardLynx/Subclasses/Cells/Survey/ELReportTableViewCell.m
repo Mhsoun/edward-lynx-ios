@@ -8,6 +8,7 @@
 
 #import "ELReportTableViewCell.h"
 #import "ELInstantFeedback.h"
+#import "ELSurvey.h"
 
 @implementation ELReportTableViewCell
 
@@ -30,21 +31,43 @@
 #pragma mark - Protocol Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSString *colorKey;
-    ELInstantFeedback *instantFeedback = (ELInstantFeedback *)object;
+    if ([object isKindOfClass:[ELInstantFeedback class]]) {
+        ELInstantFeedback *feedback = (ELInstantFeedback *)object;
+        
+        [self configureWithDetails:@{@"title": feedback.question.text ? feedback.question.text : @"",
+                                     @"timestamp": feedback.dateString,
+                                     @"type": @"Instant Feedback",
+                                     @"invited": [NSString stringWithFormat:@"%@/%@",
+                                                  @(feedback.noOfParticipantsAnswered),
+                                                  @(feedback.participants.count)]}];
+    } else {
+        ELSurvey *survey = (ELSurvey *)object;
+        
+        [self configureWithDetails:@{@"title": survey.name ? survey.name : @"",
+                                     @"timestamp": survey.endDateString,
+                                     @"type": [ELUtils labelBySurveyType:survey.type],
+                                     @"invited": [NSString stringWithFormat:@"%@/%@",
+                                                  @(0),
+                                                  @(42)]}];
+    }
+}
+
+- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
+    //
+}
+
+#pragma mark - Private Methods
+
+- (void)configureWithDetails:(NSDictionary *)detailsDict {
+    NSString *colorKey = kELWhiteColor;
     
     // Content
-    self.titleLabel.text = instantFeedback.question.text;
-    self.timestampLabel.text = instantFeedback.dateString;
-    self.typeLabel.text = [NSString stringWithFormat:@" %@ ", @"INSTANT FEEDBACK"];  // TEMP
-    self.invitedLabel.text = [NSString stringWithFormat:@"%@/%@",
-                              @(instantFeedback.noOfParticipantsAnswered),
-                              @(instantFeedback.participants.count)];
+    self.titleLabel.text = detailsDict[@"title"];
+    self.timestampLabel.text = detailsDict[@"timestamp"];
+    self.typeLabel.text = [detailsDict[@"type"] uppercaseString];
+    self.invitedLabel.text = detailsDict[@"invited"];
     
     // UI
-//    colorKey = instantFeedback.noOfParticipantsAnswered == 0 ? kELTextFieldBGColor : kELWhiteColor;
-    colorKey = kELWhiteColor;
-    
     self.invitedIcon.image = [FontAwesome imageWithIcon:fa_user
                                               iconColor:[[RNThemeManager sharedManager] colorForKey:colorKey]
                                                iconSize:50];
@@ -52,10 +75,6 @@
     self.timestampLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     self.typeLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELFeedbackColor];
     self.typeLabel.layer.cornerRadius = 2.0f;
-}
-
-- (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    //
 }
 
 @end

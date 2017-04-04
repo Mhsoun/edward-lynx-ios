@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveysViewController.h"
+#import "ELAnswerInstantFeedbackViewController.h"
 #import "ELListViewController.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
@@ -57,9 +58,21 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
-    self.selectedSurvey = (ELSurvey *)object;
+    ELAnswerInstantFeedbackViewController *controller;
     
-    [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
+    if ([object isKindOfClass:[ELSurvey class]]) {
+        self.selectedSurvey = (ELSurvey *)object;
+        
+        [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
+        
+        return;
+    }
+    
+    controller = [[UIStoryboard storyboardWithName:@"InstantFeedback" bundle:nil]
+                  instantiateViewControllerWithIdentifier:@"InstantFeedbackDetails"];
+    controller.instantFeedback = (ELInstantFeedback *)object;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

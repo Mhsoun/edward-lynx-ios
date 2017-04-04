@@ -10,10 +10,21 @@
 
 @implementation ELSurvey
 
+@synthesize startDateString = _startDateString;
+@synthesize endDateString = _endDateString;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
                                                                   @"shortDescription": @"description",
                                                                   @"evaluationText": @"personsEvaluatedText"}];
+}
+
+- (NSString<Ignore> *)startDateString {
+    return [AppSingleton.printDateFormatter stringFromDate:self.startDate];
+}
+
+- (NSString<Ignore> *)endDateString {
+    return [AppSingleton.printDateFormatter stringFromDate:self.startDate];
 }
 
 @end

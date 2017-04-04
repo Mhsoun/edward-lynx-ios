@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RPK-Zk-nOa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RPK-Zk-nOa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -256,18 +256,18 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-RP-8ah">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-RP-8ah">
                                                 <rect key="frame" x="15" y="410" width="345" height="125"/>
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wGZ-76-ehq">
-                                                        <rect key="frame" x="10" y="10" width="325" height="14"/>
+                                                        <rect key="frame" x="10" y="10" width="325" height="15"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1n-AU-P1Y">
-                                                        <rect key="frame" x="10" y="29" width="325" height="86"/>
+                                                        <rect key="frame" x="10" y="30" width="325" height="85"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -282,6 +282,9 @@
                                                     <constraint firstItem="wGZ-76-ehq" firstAttribute="leading" secondItem="hGV-RP-8ah" secondAttribute="leading" constant="10" id="ke4-Vn-KLp"/>
                                                     <constraint firstAttribute="trailing" secondItem="wGZ-76-ehq" secondAttribute="trailing" constant="10" id="nM3-R9-4j4"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="2"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-w3-2iZ">
                                                 <rect key="frame" x="15" y="555" width="345" height="40"/>
@@ -290,10 +293,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="Wvt-79-2DY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                                <state key="normal" title="SELECT PARTICIPANTS">
+                                                <state key="normal" title="Invite">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="disabled" title="Processing..."/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>

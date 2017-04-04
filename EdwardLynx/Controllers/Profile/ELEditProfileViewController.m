@@ -130,8 +130,8 @@
         
         data.borderColor = [UIColor whiteColor];
         data.circleColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
-        data.borderRadius = 15;
-        data.circleRadius = 10;
+        data.borderRadius = 20;
+        data.circleRadius = 15;
         
         [mData addObject:data];
     }

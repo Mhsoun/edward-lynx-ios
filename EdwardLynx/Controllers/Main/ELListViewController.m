@@ -192,6 +192,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.total = [responseDict[@"total"] integerValue];
     self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
     
+    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELSurveySeparatorColor];
+    
     switch (self.listType) {
         case kELListTypeSurveys:
             emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
@@ -221,6 +223,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
             
             self.tableView.rowHeight = 225;
+            self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDevPlanSeparatorColor];
             
             for (NSDictionary *detailDict in responseDict[@"items"]) {
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];
@@ -273,6 +276,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                     predicateString = @"SELF.progress == 1";
                     
                     break;
+                case kELListFilterExpired:  // TODO
+                    return @[];
+                    
+                    break;
                 default:
                     return items;
                     
@@ -280,10 +287,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             }
             
             break;
-        case kELListTypeReports:  // TODO
-            return items;
-            
-            break;
+        case kELListTypeReports:
         case kELListTypeSurveys:
             switch (filterType) {
                 case kELListFilterAll:
