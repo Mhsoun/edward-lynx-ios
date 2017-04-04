@@ -18,6 +18,7 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELAdsViewHeight = 100;
 static NSString * const kELHeaderCellIdentifier = @"DashboardHeaderCell";
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
@@ -61,7 +62,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Table view
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView registerNib:[UINib nibWithNibName:kELHeaderCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELHeaderCellIdentifier];
@@ -158,8 +158,34 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return section != self.itemsDict.count - 1 ? 0 : kELAdsViewHeight;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return section == 0 ? CGFLOAT_MIN : 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UILabel *label;
+    
+    if (section != self.itemsDict.count - 1) {
+        return nil;
+    }
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0,
+                                                      0,
+                                                      CGRectGetWidth(self.tableView.frame),
+                                                      kELAdsViewHeight)];
+    
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Lato-Regular" size:12.0];
+    label.opaque = YES;
+    label.text = @"Space for Ads";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    
+    return label;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -243,6 +269,30 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
                                                                                                                @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0}]},
+                                                                                             @{@"id": @1,
+                                                                                               @"title": @"Wash the dishes",
+                                                                                               @"description": @"",
+                                                                                               @"checked": @0,
+                                                                                               @"position": @0,
+                                                                                               @"dueDate": @"",
+                                                                                               @"reminderSent": @0,
+                                                                                               @"categoryId": @(-1),
+                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @1,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
+                                                                                                               @"title": @"asdasd",
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
@@ -266,7 +316,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"categoryId": @(-1),
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
-                                                                                                               @"checked": @1,
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
@@ -279,66 +329,18 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                                @"actions": @[@{@"id": @33,
                                                                                                                @"title": @"asdasd",
                                                                                                                @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
                                                                                                                @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
                                                                                                                @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
+                                                                                                               @"checked": @0,
+                                                                                                               @"position": @0},
+                                                                                                             @{@"id": @33,
                                                                                                                @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
-                                                                                                               @"position": @0}]},
-                                                                                             @{@"id": @1,
-                                                                                               @"title": @"Wash the dishes",
-                                                                                               @"description": @"",
-                                                                                               @"checked": @0,
-                                                                                               @"position": @0,
-                                                                                               @"dueDate": @"",
-                                                                                               @"reminderSent": @0,
-                                                                                               @"categoryId": @(-1),
-                                                                                               @"actions": @[@{@"id": @33,
-                                                                                                               @"title": @"asdasd",
-                                                                                                               @"checked": @1,
+                                                                                                               @"checked": @0,
                                                                                                                @"position": @0}]},
                                                                                              @{@"id": @1,
                                                                                                @"title": @"Wash the dishes",
