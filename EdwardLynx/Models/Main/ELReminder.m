@@ -25,7 +25,7 @@
     NSMutableAttributedString *info = [[NSMutableAttributedString alloc] initWithString:self.dueDateInfo
                                                                             attributes:attributes];
     
-    if ([[info string] isEqualToString:@"Now"]) {
+    if ([[info string] isEqualToString:NSLocalizedString(@"kELDashboardDueDateNow", nil)]) {
         [info addAttribute:NSForegroundColorAttributeName
                      value:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                      range:NSMakeRange(0, info.length)];
@@ -42,9 +42,10 @@
     NSDate *currentDate = [NSDate date];
     
     if ([currentDate mt_isBefore:self.dueDate]) {
-        return [NSString stringWithFormat:@"Due in \n%@ Days", @([currentDate mt_daysUntilDate:self.dueDate])];
+        return [NSString stringWithFormat:NSLocalizedString(@"kELDashboardDueDateMessage", nil),
+                @([currentDate mt_daysUntilDate:self.dueDate])];
     } else {
-        return @"Now";
+        return NSLocalizedString(@"kELDashboardDueDateNow", nil);
     }
 }
 

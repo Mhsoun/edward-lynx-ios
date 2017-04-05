@@ -106,22 +106,22 @@
 - (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
     BOOL isAnswer;
     UIAlertController *controller;
-    UIAlertAction *answerFeedbackAction = [UIAlertAction actionWithTitle:@"Instant Feedback"
+    UIAlertAction *answerFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
                                                                      [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeFeedback];
                                                                  }];
-    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:@"Survey"
+    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDashboardItemSurveys", nil)
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
                                                                    [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeLynx];
                                                                }];
-    UIAlertAction *devPlanAction = [UIAlertAction actionWithTitle:@"Development Plan"
+    UIAlertAction *devPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * _Nonnull action) {
                                                               [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
                                                           }];
-    UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:@"Instant Feedback"
+    UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDashboardItemSurveys", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
                                                                      [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
@@ -134,13 +134,13 @@
     }
     
     isAnswer = [identifier isEqualToString:@"Answer"];
-    controller = [UIAlertController alertControllerWithTitle:isAnswer ? @"Answer New" : @"Create New"
+    controller = [UIAlertController alertControllerWithTitle:isAnswer ? NSLocalizedString(@"kELDashboardAddNew", nil) : NSLocalizedString(@"kELDashboardCreateNew", nil)
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     
     [controller addAction:isAnswer ? answerSurveyAction : devPlanAction];
     [controller addAction:isAnswer ? answerFeedbackAction : createFeedbackAction];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     

@@ -37,6 +37,11 @@
 
 /* Dashboard */
 
+"kELDashboardAddNew" = "Answer New";
+"kELDashboardCreateNew" = "Create New";
+"kELDashboardDueDateMessage" = "Due in \n%@ Days";
+"kELDashboardDueDateNow" = "Now";
+
 "kELDashboardItemDashboard" = "Dashboard";
 "kELDashboardItemDevelopmentPlan" = "Development Plans";
 "kELDashboardItemProfile" = "Profile";
@@ -57,6 +62,8 @@
 
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
+
+"kELDevelopmentPlanTitle" = "Development Plan";
 
 /* Feedback */
 
