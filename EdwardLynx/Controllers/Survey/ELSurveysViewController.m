@@ -8,6 +8,7 @@
 
 #import "ELSurveysViewController.h"
 #import "ELAnswerInstantFeedbackViewController.h"
+#import "ELInstantFeedback.h"
 #import "ELListViewController.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
@@ -58,6 +59,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
+    ELInstantFeedback *instantFeedback;
     ELAnswerInstantFeedbackViewController *controller;
     
     if ([object isKindOfClass:[ELSurvey class]]) {
@@ -68,9 +70,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         return;
     }
     
+    instantFeedback = (ELInstantFeedback *)object;
     controller = [[UIStoryboard storyboardWithName:@"InstantFeedback" bundle:nil]
                   instantiateViewControllerWithIdentifier:@"InstantFeedbackDetails"];
-    controller.instantFeedback = (ELInstantFeedback *)object;
+    controller.objectId = instantFeedback.objectId;
     
     [self.navigationController pushViewController:controller animated:YES];
 }

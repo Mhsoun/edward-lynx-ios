@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9j-OR-anh" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="605"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
                                         <subviews>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Type" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-Tr-b41">
                                                 <rect key="frame" x="15" y="20" width="345" height="25"/>
@@ -290,7 +290,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-w3-2iZ">
-                                                <rect key="frame" x="15" y="555" width="345" height="40"/>
+                                                <rect key="frame" x="15" y="545" width="345" height="40"/>
                                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Wvt-79-2DY"/>
@@ -331,7 +331,7 @@
                                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="trailing" secondItem="Jt1-nM-ccJ" secondAttribute="trailing" id="qhJ-fM-YoZ"/>
                                             <constraint firstItem="Tex-aE-SUX" firstAttribute="top" secondItem="Jt1-nM-ccJ" secondAttribute="bottom" id="rzs-EB-l6N"/>
                                             <constraint firstItem="hGV-RP-8ah" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="t0l-En-qc1"/>
-                                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="bottom" constant="20" id="tjM-Dg-Wp7"/>
+                                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="bottom" constant="10" id="tjM-Dg-Wp7"/>
                                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="zHI-eo-dgW"/>
                                         </constraints>
                                     </view>
