@@ -74,12 +74,16 @@
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.submitButton.enabled = YES;
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
                      completion:^{}];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    self.submitButton.enabled = YES;
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -115,6 +119,8 @@
 - (IBAction)onSubmitButtonClick:(id)sender {
     NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
+    
+    self.submitButton.enabled = NO;
     
     [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
                                                                   formData:formDict];

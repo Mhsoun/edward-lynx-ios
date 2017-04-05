@@ -124,16 +124,13 @@ static CGFloat const kELCornerRadius = 2.0f;
     isValid = [self.viewManager validateLoginFormValues:@{@"username": self.usernameGroup,
                                                           @"password": passwordGroup}];
     
-    self.loginButton.enabled = NO;
-    
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
-        self.loginButton.enabled = YES;
-        
         return;
     }
     
+    [self.loginButton setEnabled:NO];
     [self.viewManager processAuthentication];
 }
 

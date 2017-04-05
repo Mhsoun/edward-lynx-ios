@@ -161,6 +161,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.doneButton.enabled = YES;
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
                      completion:^{}];

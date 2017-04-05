@@ -239,6 +239,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.inviteButton.enabled = YES;
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELPostMethodError", nil)
                      completion:^{}];
