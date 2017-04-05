@@ -223,7 +223,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             emptyMessage = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
             
             self.tableView.rowHeight = 225;
-            self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDevPlanSeparatorColor];
+            self.tableView.separatorColor = [UIColor clearColor];
             
             for (NSDictionary *detailDict in responseDict[@"items"]) {
                 devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:detailDict error:nil];

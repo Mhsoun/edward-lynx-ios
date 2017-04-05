@@ -128,6 +128,16 @@
                             <action selector="onMoreBarChartButtonClick:" destination="wbj-9K-DZU" eventType="touchUpInside" id="yY2-cF-9xM"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wH3-KX-9gl" userLabel="Separator View" customClass="RNThemeView">
+                        <rect key="frame" x="-0.5" y="223.5" width="375" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="UvP-hH-AQw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="devPlanSeparatorColor"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -143,11 +153,13 @@
                     <constraint firstItem="0Bl-LL-2gc" firstAttribute="leading" secondItem="c2o-TC-82i" secondAttribute="leadingMargin" constant="10" id="XEA-Ng-d3t"/>
                     <constraint firstItem="ROn-8k-piz" firstAttribute="leading" secondItem="0Bl-LL-2gc" secondAttribute="leading" id="XNx-3S-A1w"/>
                     <constraint firstItem="7Zd-ek-8or" firstAttribute="height" secondItem="dEu-E1-yi5" secondAttribute="height" id="YWX-Jd-ahS"/>
+                    <constraint firstAttribute="bottom" secondItem="wH3-KX-9gl" secondAttribute="bottom" id="aG8-7K-73w"/>
                     <constraint firstItem="jtd-PM-3y0" firstAttribute="centerY" secondItem="SzG-0l-ZT5" secondAttribute="centerY" id="bwN-Qw-hY5"/>
                     <constraint firstItem="dEu-E1-yi5" firstAttribute="leading" secondItem="jtd-PM-3y0" secondAttribute="leading" id="byU-Rj-SGb"/>
                     <constraint firstItem="SzG-0l-ZT5" firstAttribute="width" secondItem="ROn-8k-piz" secondAttribute="width" id="cfa-N6-h2e"/>
                     <constraint firstAttribute="bottom" secondItem="dEu-E1-yi5" secondAttribute="bottom" constant="15" id="cfl-9d-KSl"/>
                     <constraint firstItem="cw7-Ji-d0N" firstAttribute="top" secondItem="0Bl-LL-2gc" secondAttribute="bottom" id="ckj-6B-v3f"/>
+                    <constraint firstItem="wH3-KX-9gl" firstAttribute="centerX" secondItem="c2o-TC-82i" secondAttribute="centerX" id="kpO-Bj-MNC"/>
                     <constraint firstItem="0Bl-LL-2gc" firstAttribute="top" secondItem="c2o-TC-82i" secondAttribute="topMargin" constant="5" id="lMU-xn-kLV"/>
                     <constraint firstItem="cw7-Ji-d0N" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="lXT-aQ-RzF"/>
                     <constraint firstItem="jtd-PM-3y0" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="oKX-fG-GbH"/>
@@ -158,6 +170,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wH3-KX-9gl" firstAttribute="width" secondItem="wbj-9K-DZU" secondAttribute="width" id="h2y-BD-Es6"/>
+            </constraints>
             <connections>
                 <outlet property="barChartView" destination="Wih-c9-G8Q" id="5P3-I8-Xg6"/>
                 <outlet property="barChartWidthConstraint" destination="Rmx-t5-UVu" id="qAq-pm-o1B"/>
