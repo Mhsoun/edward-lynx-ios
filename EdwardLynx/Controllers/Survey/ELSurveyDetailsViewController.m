@@ -71,7 +71,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = self.category.questions[indexPath.row];
     
-    return question.heightForQuestionView;
+    return question.heightForQuestionView + kELCustomScaleItemHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

@@ -24,6 +24,7 @@
     switch (self.answer.type) {
         case kELAnswerTypeText:
             return 110;
+            
             break;
         case kELAnswerTypeOneToTenWithExplanation:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
@@ -32,7 +33,7 @@
             break;
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
-                    (self.isNA ? kELCustomScaleItemHeight : 0));
+                    (self.isNA ? kELCustomScaleItemHeight : 0) + kELCustomScaleItemHeight);
             
             break;
     }

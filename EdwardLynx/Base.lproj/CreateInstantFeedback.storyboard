@@ -221,6 +221,9 @@
                                                             <constraint firstAttribute="height" constant="30" id="bMx-tA-VwP"/>
                                                         </constraints>
                                                         <color key="onTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="onNAOptionSwitchValueChange:" destination="RPK-Zk-nOa" eventType="valueChanged" id="hAh-Uf-6to"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -267,7 +270,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1n-AU-P1Y">
-                                                        <rect key="frame" x="10" y="30" width="325" height="85"/>
+                                                        <rect key="frame" x="10" y="30" width="325" height="95"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -275,7 +278,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="125" id="3ov-1l-BtE"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="top" secondItem="wGZ-76-ehq" secondAttribute="bottom" constant="5" id="77Q-uQ-sXT"/>
-                                                    <constraint firstAttribute="bottom" secondItem="k1n-AU-P1Y" secondAttribute="bottom" constant="10" id="FT3-Bx-ubP"/>
+                                                    <constraint firstAttribute="bottom" secondItem="k1n-AU-P1Y" secondAttribute="bottom" id="FT3-Bx-ubP"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="leading" secondItem="wGZ-76-ehq" secondAttribute="leading" id="OFf-bs-TAJ"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="trailing" secondItem="wGZ-76-ehq" secondAttribute="trailing" id="QWw-md-iW5"/>
                                                     <constraint firstItem="wGZ-76-ehq" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="top" constant="10" id="dxz-ez-IZe"/>

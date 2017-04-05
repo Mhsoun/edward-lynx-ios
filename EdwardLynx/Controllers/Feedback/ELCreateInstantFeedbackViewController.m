@@ -17,7 +17,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCellHeight = 45, kELQuestionContainerHeight = 125;
+static CGFloat const kELCellHeight = 45;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -285,18 +285,25 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
     ELQuestion *question = [ELUtils questionTemplateForAnswerType:answerType];
     
-    if (answerType == kELAnswerTypeCustomScale) {
-        // Add Custom scale options to the question template for preview
-        NSMutableArray *mOptions = [[NSMutableArray alloc] init];
+    if (answerType != kELAnswerTypeText) {
+        NSMutableArray *mOptions = [[NSMutableArray alloc] initWithArray:question.answer.options];
         
-        for (int i = 0; i < self.mCustomScaleOptions.count; i++) {
-            NSString *option = self.mCustomScaleOptions[i];
-            
-            if (option.length == 0) {
-                continue;
+        // Add Custom scale options to the question template for preview
+        if (answerType == kELAnswerTypeCustomScale) {
+            for (int i = 0; i < self.mCustomScaleOptions.count; i++) {
+                NSString *option = self.mCustomScaleOptions[i];
+                
+                if (option.length == 0) {
+                    continue;
+                }
+                
+                [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": option, @"value": @(i)}
+                                                                         error:nil]];
             }
-            
-            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": option, @"value": @(i)}
+        }
+        
+        if (self.isNASwitch.isOn) {
+            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
                                                                      error:nil]];
         }
         
@@ -311,7 +318,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     height = question.answer.options.count == 0 ? kELCellHeight : question.heightForQuestionView;
     
-    [self.heightConstraint setConstant:height + (CGRectGetHeight(self.questionPreviewLabel.frame) * 3)];
+    [self.heightConstraint setConstant:height + (CGRectGetHeight(self.questionPreviewLabel.frame) * 1.5)];
     [self.formView updateConstraints];
     [self adjustScrollViewContentSize];
     
@@ -339,6 +346,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onNAOptionSwitchValueChange:(id)sender {
+    [self toggleQuestionTypePreview];
+}
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid, hasSelection;
