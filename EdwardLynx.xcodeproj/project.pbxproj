@@ -163,6 +163,7 @@
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
+		A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
@@ -501,6 +502,8 @@
 		A97C29801E8B8CC300EBC5CE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
+		A9BF28321E94FA6F00BE54BC /* ELLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLabel.h; sourceTree = "<group>"; };
+		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
 		A9D4C15D1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyCategoryPageViewController.h; sourceTree = "<group>"; };
 		A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyCategoryPageViewController.m; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
@@ -870,6 +873,8 @@
 			children = (
 				A91311C61E8642D30042C91F /* ELEmailValidator.h */,
 				A91311C71E8642D30042C91F /* ELEmailValidator.m */,
+				A9BF28321E94FA6F00BE54BC /* ELLabel.h */,
+				A9BF28331E94FA6F00BE54BC /* ELLabel.m */,
 				A91311C81E8642D30042C91F /* ELSearchBar.h */,
 				A91311C91E8642D30042C91F /* ELSearchBar.m */,
 			);
@@ -1518,6 +1523,7 @@
 				A913129C1E8642D30042C91F /* ELQuestionTypeAgreementView.m in Sources */,
 				A913124A1E8642D30042C91F /* ELAnswerInstantFeedbackViewController.m in Sources */,
 				A913121C1E8642D30042C91F /* ELSurveysAPIClient.m in Sources */,
+				A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */,
 				A91312A11E8642D30042C91F /* ELAppSingleton.m in Sources */,
 				A913125B1E8642D30042C91F /* ELReportsViewController.m in Sources */,
 				A913128F1E8642D30042C91F /* ELMenuTableViewCell.m in Sources */,
