@@ -33,6 +33,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     
     self.tintColor = [[RNThemeManager sharedManager] colorForKey:kELGreenColor];
     
+    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDevPlanSeparatorColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELActionCellHeight;
     self.tableView.scrollEnabled = NO;
@@ -154,6 +155,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 #pragma mark - Private Methods
 
 - (void)updateContent {
+    NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.createdAt];
     NSString *colorKey = self.goal.progress == 1 ? kELOrangeColor : kELBlueColor;
     UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
     
@@ -161,6 +163,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     self.goalLabel.text = self.goal.title;
     self.completedLabel.text = [self.goal progressDetails][@"text"];
     self.completedLabel.textColor = color;
+    self.timestampLabel.text = [NSString stringWithFormat:@"%@ %@ ago", @(days), days == 1 ? @"day" : @"days"];
     self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
                                                                           self.goal.shortDescription;
     
