@@ -116,12 +116,12 @@
                                                                handler:^(UIAlertAction * _Nonnull action) {
                                                                    [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeLynx];
                                                                }];
-    UIAlertAction *devPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * _Nonnull action) {
-                                                              [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
-                                                          }];
-    UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDashboardItemSurveys", nil)
+    UIAlertAction *createDevPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
+                                                                }];
+    UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
                                                                      [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
@@ -138,7 +138,7 @@
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     
-    [controller addAction:isAnswer ? answerSurveyAction : devPlanAction];
+    [controller addAction:isAnswer ? answerSurveyAction : createDevPlanAction];
     [controller addAction:isAnswer ? answerFeedbackAction : createFeedbackAction];
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
