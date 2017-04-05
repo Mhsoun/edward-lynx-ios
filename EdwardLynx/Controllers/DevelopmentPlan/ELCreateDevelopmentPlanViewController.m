@@ -14,7 +14,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 60;
-static CGFloat const kELFormViewHeight = 110;
+static CGFloat const kELFormViewHeight = 100;
 static CGFloat const kELIconSize = 15;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
