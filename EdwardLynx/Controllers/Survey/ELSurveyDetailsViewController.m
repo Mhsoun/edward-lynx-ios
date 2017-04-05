@@ -8,6 +8,7 @@
 
 #import "ELSurveyDetailsViewController.h"
 #import "ELBaseQuestionTypeView.h"
+#import "ELDetailViewManager.h"
 #import "ELQuestionCategory.h"
 #import "ELQuestionTableViewCell.h"
 #import "ELSurvey.h"
@@ -22,6 +23,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 @interface ELSurveyDetailsViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal;
+@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
 
 @end
@@ -35,6 +37,12 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    if (!self.survey) {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        
+        [self.detailViewManager processRetrievalOfSurveyDetails];
+    }
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -93,6 +101,21 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     [view setBackgroundColor:[UIColor clearColor]];
     
     return view;
+}
+
+#pragma mark - Protocol Methods (ELDetailViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:^{}];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
+    
+    [self.indicatorView stopAnimating];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Public Methods

@@ -46,7 +46,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     if ([segue.identifier isEqualToString:kELSurveySegueIdentifier]) {
         ELSurveyDetailsViewController *controller = (ELSurveyDetailsViewController *)[segue destinationViewController];
         
-        controller.survey = self.selectedSurvey;
+        controller.objectId = self.selectedSurvey.objectId;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         
