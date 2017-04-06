@@ -33,6 +33,8 @@
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)surveyReportDetailsWithId:(int64_t)surveyId
+                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)userSurveyWithId:(int64_t)surveyId

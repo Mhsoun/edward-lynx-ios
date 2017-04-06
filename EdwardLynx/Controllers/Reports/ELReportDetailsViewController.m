@@ -122,10 +122,16 @@ static CGFloat const kELBarHeight = 40;
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    NSMutableArray<ELAnswerOption *> *mAnswers = [[NSMutableArray alloc] init];
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
-        [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+        for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
+            [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
+        }
+    } else {
+        for (NSDictionary *countDict in responseDict[@"frequencies"]) {
+            [mAnswers addObject:countDict];
+        }
     }
     
     [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
@@ -160,7 +166,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
     barChart.descriptionText = @"";
-    
+        
     barChart.leftAxis.axisMaximum = 1.0f;
     barChart.leftAxis.axisMinimum = 0.0f;
     barChart.leftAxis.drawAxisLineEnabled = NO;
@@ -209,71 +215,68 @@ static CGFloat const kELBarHeight = 40;
     return barChart;
 }
 
-- (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
+- (NSDictionary *)chartInfoFromData:(NSArray *)answers {
     NSInteger count;
-    BarChartData *chartData;
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     
-    count = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] ? self.instantFeedback.participants.count : 42;  // TEMP
-    
-    for (int i = 0; i < answers.count; i++) {
-//        double y = answers[i].count / count;
-        double y = (double)arc4random() / UINT32_MAX;
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+        count = self.instantFeedback.participants.count;
         
-        [mLabels addObject:answers[i].shortDescription];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+        for (int i = 0; i < answers.count; i++) {
+//            double y = answers[i].count / count;
+            double y = (double)arc4random() / UINT32_MAX;
+            ELAnswerOption *answer = answers[i];
+            
+            [mLabels addObject:answer.shortDescription];
+            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+        }
+    } else {
+        count = 42;  // TODO Should be no. of invited participants
+        
+        for (int i = 0; i < answers.count; i++) {
+//            double y = answers[i].count / count;
+            double y = (double)arc4random() / UINT32_MAX;
+            
+            [mLabels addObject:[NSString stringWithFormat:@"C%@", @(i + 1)]];  // TODO Should be the actual category name
+            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+        }
     }
     
+    return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
+}
+
+- (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
+    BarChartData *chartData;
+    NSDictionary *infoDict = [self chartInfoFromData:answers];
+    
     chartData = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:@"Self"
-                                                                            items:[mEntries copy]
+                                                                            items:infoDict[@"entries"]
                                                                          colorKey:self.typeColorKey]];
     chartData.barWidth = 0.75f;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
     barChart.legend.enabled = NO;
-    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
     
     [self.averageIndicatorView stopAnimating];
     [barChart animateWithYAxisDuration:0.5];
 }
 
-- (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
-    NSInteger count;
+- (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
     BarChartData *chartData;
     BarChartDataSet *chartDataSet1, *chartDataSet2;
-    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
-    
-    count = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] ? self.instantFeedback.participants.count : 42;  // TEMP
-    
-    for (int i = 0; i < answers.count; i++) {
-//        double y = answers[i].count / count;
-        double y = (double)arc4random() / UINT32_MAX;
-        
-        [mLabels addObject:answers[i].shortDescription];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
-    }
+    NSDictionary *infoDict = [self chartInfoFromData:answers];
     
     chartDataSet1 = [self chartDataSetWithTitle:@"Self"
-                                          items:[mEntries copy]
+                                          items:infoDict[@"entries"]
                                        colorKey:self.typeColorKey];
     
-    [mEntries removeAllObjects];
-    
-    // TODO Dummy data
-    
-    for (int i = 0; i < answers.count; i++) {
-//        double y = answers[i].count / count;
-        double y = (double)arc4random() / UINT32_MAX;
-        
-        [mLabels addObject:answers[i].shortDescription];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
-    }
+    infoDict = [self chartInfoFromData:answers];  // TODO Dummy data
     
     chartDataSet2 = [self chartDataSetWithTitle:@"Others Combined"
-                                          items:[mEntries copy]
+                                          items:infoDict[@"entries"]
                                        colorKey:kELOrangeColor];
     
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
@@ -284,7 +287,7 @@ static CGFloat const kELBarHeight = 40;
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
     barChart.xAxis.centerAxisLabelsEnabled = YES;
-    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
     
     [self.indexIndicatorView stopAnimating];
     [barChart animateWithYAxisDuration:0.5];
