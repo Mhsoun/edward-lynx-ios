@@ -214,7 +214,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             self.tableView.rowHeight = 115;
             
-            for (NSDictionary *detailDict in responseDict[@"items"]) {
+            for (NSDictionary *detailDict in responseDict[@"surveys"][@"items"]) {
+                [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+            }
+            
+            for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
                 [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
             }
             
