@@ -13,6 +13,8 @@
 
 @interface ELDevelopmentPlanTableViewCell ()
 
+@property (nonatomic, weak) NSIndexPath *indexPath;
+
 @property (nonatomic, strong) PNBarChart *barChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
@@ -22,6 +24,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    UITapGestureRecognizer *tap;
     
     // Initialization code
     self.barChart = [[PNBarChart alloc] init];
@@ -42,6 +46,14 @@
                                                        iconColor:nil
                                                         iconSize:20]
                              forState:UIControlStateNormal];
+    
+    // Scroll View
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScrollViewTap:)];
+    tap.numberOfTapsRequired = 1;
+    tap.enabled = YES;
+    tap.cancelsTouchesInView = NO;
+    
+    [self.scrollView addGestureRecognizer:tap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -55,6 +67,8 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     NSString *colorKey;
     ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
+    
+    self.indexPath = indexPath;
     
     // Content
     self.nameLabel.text = devPlan.name;
@@ -77,6 +91,10 @@
 }
 
 #pragma mark - Private Methods
+
+- (void)onScrollViewTap:(UIGestureRecognizer *)recognizer {
+    [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:self.indexPath];
+}
 
 - (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     CGFloat width;
