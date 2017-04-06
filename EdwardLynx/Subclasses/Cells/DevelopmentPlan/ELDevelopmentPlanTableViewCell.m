@@ -89,6 +89,7 @@
     self.barChart.barBackgroundColor = [UIColor clearColor];
     self.barChart.barRadius = 0;
     self.barChart.barWidth = 20;
+    self.barChart.chartBorderColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
     self.barChart.chartMarginBottom = 0;
     self.barChart.chartMarginTop = 0;
     self.barChart.isGradientShow = NO;
@@ -96,6 +97,7 @@
     self.barChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
     self.barChart.labelMarginTop = 0;
     self.barChart.labelTextColor = [UIColor whiteColor];
+    self.barChart.showChartBorder = YES;
     self.barChart.yChartLabelWidth = 0;
     
     width = (self.barChart.barWidth * devPlan.goals.count) * 2;
