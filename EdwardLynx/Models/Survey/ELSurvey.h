@@ -8,9 +8,9 @@
 
 #import <JSONModel/JSONModel.h>
 
-#import "ELModel.h"
+#import "ELSearcheableModel.h"
 
-@interface ELSurvey : ELModel
+@interface ELSurvey : ELSearcheableModel
 
 @property (nonatomic) kELSurveyType type;
 @property (nonatomic) kELSurveyStatus status;

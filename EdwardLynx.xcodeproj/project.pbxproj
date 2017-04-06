@@ -162,6 +162,7 @@
 		A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
@@ -501,6 +502,8 @@
 		A97C297F1E8B8CC300EBC5CE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A97C29801E8B8CC300EBC5CE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearcheableModel.h; sourceTree = "<group>"; };
+		A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearcheableModel.m; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9BF28321E94FA6F00BE54BC /* ELLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLabel.h; sourceTree = "<group>"; };
 		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
@@ -1121,6 +1124,8 @@
 				A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */,
 				A97C29701E8B8CC300EBC5CE /* ELReminder.h */,
 				A97C29711E8B8CC300EBC5CE /* ELReminder.m */,
+				A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */,
+				A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */,
 				A97C29721E8B8CC300EBC5CE /* ELUser.h */,
 				A97C29731E8B8CC300EBC5CE /* ELUser.m */,
 			);
@@ -1497,6 +1502,7 @@
 				A91312191E8642D30042C91F /* ELAPIClient.m in Sources */,
 				A91312931E8642D30042C91F /* ELSurveyTableViewCell.m in Sources */,
 				A913128A1E8642D30042C91F /* ELGoalActionTableViewCell.m in Sources */,
+				A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */,
 				A97C298E1E8B8CC300EBC5CE /* ELAnswerOption.m in Sources */,
 				A91312431E8642D30042C91F /* ELConfigurationViewController.m in Sources */,
 				A913121D1E8642D30042C91F /* ELUsersAPIClient.m in Sources */,

@@ -10,10 +10,11 @@
 
 @implementation ELDevelopmentPlan
 
+@synthesize attributedProgressText = _attributedProgressText;
 @synthesize completed = _completed;
 @synthesize progress = _progress;
-@synthesize attributedProgressText = _attributedProgressText;
 @synthesize progressText = _progressText;
+@synthesize searchTitle = _searchTitle;
 @synthesize sortedGoals = _sortedGoals;
 
 + (JSONKeyMapper *)keyMapper {
@@ -21,7 +22,9 @@
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"progress"] || [propertyName isEqualToString:@"completed"];
+    return ([propertyName isEqualToString:@"progress"] ||
+            [propertyName isEqualToString:@"completed"] ||
+            [propertyName isEqualToString:@"searchTitle"]);
 }
 
 - (BOOL)completed {
@@ -39,6 +42,10 @@
     }
     
     return averageProgress / (CGFloat)self.goals.count;
+}
+
+- (NSString *)searchTitle {
+    return self.name;
 }
 
 - (NSAttributedString<Ignore> *)attributedProgressText {

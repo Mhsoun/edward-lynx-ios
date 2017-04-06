@@ -10,13 +10,22 @@
 
 @implementation ELSurvey
 
-@synthesize startDateString = _startDateString;
 @synthesize endDateString = _endDateString;
+@synthesize searchTitle = _searchTitle;
+@synthesize startDateString = _startDateString;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
                                                                   @"shortDescription": @"description",
                                                                   @"evaluationText": @"personsEvaluatedText"}];
+}
+
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"searchTitle"];
+}
+
+- (NSString *)searchTitle {
+    return self.name;
 }
 
 - (NSString<Ignore> *)startDateString {

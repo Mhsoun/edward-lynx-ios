@@ -13,6 +13,7 @@
 
 @synthesize dateString = _dateString;
 @synthesize noOfParticipantsAnswered = _noOfParticipantsAnswered;
+@synthesize searchTitle = _searchTitle;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
@@ -21,7 +22,8 @@
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"noOfParticipantsAnswered"];
+    return ([propertyName isEqualToString:@"noOfParticipantsAnswered"] ||
+            [propertyName isEqualToString:@"searchTitle"]);
 }
 
 - (void)setParticipantsWithNSArray:(NSArray<Optional,ELParticipant> *)participants {
@@ -36,6 +38,10 @@
     }
     
     self.participants = [mParticipants copy];
+}
+
+- (NSString *)searchTitle {
+    return self.question.text;
 }
 
 - (void)setQuestionWithNSArray:(NSArray *)questions {
