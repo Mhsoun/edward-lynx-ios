@@ -17,6 +17,10 @@
 #import "ELInviteUsersViewController.h"
 #import "ELSurvey.h"
 
+#pragma mark - Private Constants
+
+static CGFloat const kELBarHeight = 40;
+
 #pragma mark - Class Extension
 
 @interface ELReportDetailsViewController ()
@@ -38,8 +42,8 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.averageBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.averageBarChartView.bounds];
-    self.indexBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.indexBarChartView.bounds];
+    self.averageBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.averageChartView.bounds];
+    self.indexBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.indexChartView.bounds];
     self.averageBarChart.noDataText = @"";
     self.indexBarChart.noDataText = @"";
     
@@ -51,8 +55,8 @@
                                                    iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                                                     iconSize:25]];
     
-    [self.averageBarChartView addSubview:self.averageBarChart];
-    [self.indexBarChartView addSubview:self.indexBarChart];
+    [self.averageChartView addSubview:self.averageBarChart];
+    [self.indexChartView addSubview:self.indexBarChart];
     
     [self.viewManager processRetrievalOfReportDetails];
 }
@@ -76,6 +80,8 @@
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    CGFloat height;
+    
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
         self.instantFeedback = (ELInstantFeedback *)self.selectedObject;
         
@@ -87,6 +93,11 @@
                                @(self.instantFeedback.participants.count),
                                @(self.instantFeedback.noOfParticipantsAnswered)];
         
+        height = (kELBarHeight * self.instantFeedback.question.answer.options.count) + kELBarHeight;
+        
+        [self.averageIndicatorView startAnimating];
+        [self.averageHeightConstraint setConstant:height];
+        [self.averageChartView updateConstraints];
         [self.indexHeightConstraint setConstant:0];
         [self.indexContainerView updateConstraints];
     } else {
@@ -95,6 +106,8 @@
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
         
+        [self.averageIndicatorView startAnimating];
+        [self.indexIndicatorView startAnimating];
         [self.indexHeightConstraint setConstant:450];
         [self.indexContainerView updateConstraints];
     }
@@ -198,6 +211,7 @@
 
 - (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray<ELAnswerOption *> *)answers {
     NSInteger count;
+    BarChartData *chartData;
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     
@@ -211,10 +225,13 @@
         [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
     }
     
+    chartData = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:@"Self"
+                                                                            items:[mEntries copy]
+                                                                         colorKey:self.typeColorKey]];
+    chartData.barWidth = 0.75f;
+    
     barChart = [self configureBarChart:barChart];
-    barChart.data = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:@"Self"
-                                                                                items:[mEntries copy]
-                                                                             colorKey:self.typeColorKey]];
+    barChart.data = chartData;
     barChart.legend.enabled = NO;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
     
