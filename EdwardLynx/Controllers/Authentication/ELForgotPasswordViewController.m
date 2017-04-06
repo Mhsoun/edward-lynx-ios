@@ -81,6 +81,7 @@ static CGFloat const kELCornerRadius = 2.0f;
         return;
     }
     
+    [self.recoverButton setEnabled:NO];
     [self.viewManager processPasswordRecovery];
 }
 

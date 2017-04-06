@@ -53,12 +53,13 @@ platform :ios do
   end
 
   desc "Submit a new Beta Build to HockeyApp"
-  lane :hockeyapp do |options|
-    build_for_hockeyapp(options[:scheme])
+  lane :hockeyapp do
+    build_for_hockeyapp()
   end
 
   lane :ipa do
     gym(
+      scheme: "EdwardLynx"
       export_method: "development",
       include_bitcode: false,
       include_symbols: true
@@ -139,14 +140,9 @@ platform :ios do
   end
   
   desc "Method to upload to HockeyApp"
-  def build_for_hockeyapp(scheme)
+  def build_for_hockeyapp()
     # increment_build_number
-    gym(
-      scheme: scheme,
-      export_method: "development",
-      include_bitcode: false,
-      include_symbols: true
-    )
+    ipa
     hockey(
       api_token: ENV["HOCKEYAPP_API_TOKEN"],
       notify: "1",

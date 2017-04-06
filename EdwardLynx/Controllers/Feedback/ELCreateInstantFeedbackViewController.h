@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
+- (IBAction)onNAOptionSwitchValueChange:(id)sender;
 - (IBAction)onInviteButtonClick:(id)sender;
 
 @end

@@ -115,6 +115,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ELDevelopmentPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELDevPlanCellIdentifier
                                                                                forIndexPath:indexPath];
         
+        [cell setTableView:self.tableView];
         [cell configure:value atIndexPath:indexPath];
         
         return cell;
@@ -138,7 +139,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                       instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
         
         controller.devPlan = (ELDevelopmentPlan *)value;
-        
+                
         [self.navigationController pushViewController:controller animated:YES];
     } else {
         return;

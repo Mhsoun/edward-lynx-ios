@@ -96,7 +96,6 @@
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     [self.saveButton setEnabled:YES];
-    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELProfileUpdateSuccess", nil)
                      completion:^{

@@ -68,7 +68,7 @@
     
     // UI
     self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][date.mt_monthOfYear - 1] uppercaseString];
-    self.dayLabel.text = [[NSNumber numberWithInteger:date.mt_dayOfYear] stringValue];
+    self.dayLabel.text = [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
     self.reactivateLabel.hidden = YES;

@@ -23,18 +23,17 @@
 - (CGFloat)heightForQuestionView {
     switch (self.answer.type) {
         case kELAnswerTypeText:
-            return 100;
+            return 110;
+            
             break;
         case kELAnswerTypeOneToTenWithExplanation:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
-                    (self.isNA ? kELCustomScaleItemHeight : 0) +
-                    kELCustomScaleItemHeight) + 100;
+                    (self.isNA ? kELCustomScaleItemHeight : 0) + 100);
             
             break;
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
-                    (self.isNA ? kELCustomScaleItemHeight : 0) +
-                    kELCustomScaleItemHeight);
+                    (self.isNA ? kELCustomScaleItemHeight : 0) + kELCustomScaleItemHeight);
             
             break;
     }

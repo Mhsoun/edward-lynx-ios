@@ -27,6 +27,7 @@
 
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) NSArray<ELGoalAction, Optional> *actions;
+@property (nonatomic) NSDate<Ignore> *createdAt;
 
 - (NSDictionary *)progressDetails;
 

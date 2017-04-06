@@ -14,7 +14,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELCellHeight = 60;
-static CGFloat const kELFormViewHeight = 110;
+static CGFloat const kELFormViewHeight = 100;
 static CGFloat const kELIconSize = 15;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
@@ -161,6 +161,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.doneButton.enabled = YES;
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
                      completion:^{}];

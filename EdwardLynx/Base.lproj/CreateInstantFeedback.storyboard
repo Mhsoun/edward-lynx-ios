@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9j-OR-anh" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="605"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="585"/>
                                         <subviews>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Type" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-Tr-b41">
                                                 <rect key="frame" x="15" y="20" width="345" height="25"/>
@@ -153,7 +153,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jt1-nM-ccJ" userLabel="Form View">
-                                                <rect key="frame" x="15" y="130" width="345" height="240"/>
+                                                <rect key="frame" x="15" y="120" width="345" height="240"/>
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-pq-nP3">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="17"/>
@@ -221,6 +221,9 @@
                                                             <constraint firstAttribute="height" constant="30" id="bMx-tA-VwP"/>
                                                         </constraints>
                                                         <color key="onTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="onNAOptionSwitchValueChange:" destination="RPK-Zk-nOa" eventType="valueChanged" id="hAh-Uf-6to"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -250,14 +253,14 @@
                                                 </constraints>
                                             </view>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question Type Preview" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-aE-SUX">
-                                                <rect key="frame" x="15" y="370" width="345" height="30"/>
+                                                <rect key="frame" x="15" y="360" width="345" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-RP-8ah">
-                                                <rect key="frame" x="15" y="410" width="345" height="125"/>
+                                                <rect key="frame" x="15" y="400" width="345" height="125"/>
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wGZ-76-ehq">
                                                         <rect key="frame" x="10" y="10" width="325" height="15"/>
@@ -267,7 +270,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1n-AU-P1Y">
-                                                        <rect key="frame" x="10" y="30" width="325" height="85"/>
+                                                        <rect key="frame" x="10" y="30" width="325" height="95"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -275,7 +278,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="125" id="3ov-1l-BtE"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="top" secondItem="wGZ-76-ehq" secondAttribute="bottom" constant="5" id="77Q-uQ-sXT"/>
-                                                    <constraint firstAttribute="bottom" secondItem="k1n-AU-P1Y" secondAttribute="bottom" constant="10" id="FT3-Bx-ubP"/>
+                                                    <constraint firstAttribute="bottom" secondItem="k1n-AU-P1Y" secondAttribute="bottom" id="FT3-Bx-ubP"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="leading" secondItem="wGZ-76-ehq" secondAttribute="leading" id="OFf-bs-TAJ"/>
                                                     <constraint firstItem="k1n-AU-P1Y" firstAttribute="trailing" secondItem="wGZ-76-ehq" secondAttribute="trailing" id="QWw-md-iW5"/>
                                                     <constraint firstItem="wGZ-76-ehq" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="top" constant="10" id="dxz-ez-IZe"/>
@@ -287,7 +290,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-w3-2iZ">
-                                                <rect key="frame" x="15" y="555" width="345" height="40"/>
+                                                <rect key="frame" x="15" y="535" width="345" height="40"/>
                                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Wvt-79-2DY"/>
@@ -321,14 +324,14 @@
                                             <constraint firstItem="Tex-aE-SUX" firstAttribute="trailing" secondItem="Jt1-nM-ccJ" secondAttribute="trailing" id="Srf-1T-NOS"/>
                                             <constraint firstItem="Tex-aE-SUX" firstAttribute="height" secondItem="tgA-52-d0c" secondAttribute="height" id="TJ7-Cf-p1c"/>
                                             <constraint firstItem="8H8-DZ-h6i" firstAttribute="top" secondItem="UF7-8U-W7m" secondAttribute="bottom" id="a1a-np-GXJ"/>
-                                            <constraint firstItem="Jt1-nM-ccJ" firstAttribute="top" secondItem="8H8-DZ-h6i" secondAttribute="bottom" constant="20" id="dSA-Iv-Sz2"/>
+                                            <constraint firstItem="Jt1-nM-ccJ" firstAttribute="top" secondItem="8H8-DZ-h6i" secondAttribute="bottom" constant="10" id="dSA-Iv-Sz2"/>
                                             <constraint firstItem="BvV-Tr-b41" firstAttribute="top" secondItem="G9j-OR-anh" secondAttribute="top" constant="20" id="jHL-JY-BQh"/>
                                             <constraint firstItem="8H8-DZ-h6i" firstAttribute="leading" secondItem="UF7-8U-W7m" secondAttribute="leading" id="nh8-Ze-P9u"/>
                                             <constraint firstItem="UF7-8U-W7m" firstAttribute="leading" secondItem="BvV-Tr-b41" secondAttribute="leading" id="ovB-g6-Rst"/>
                                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="trailing" secondItem="Jt1-nM-ccJ" secondAttribute="trailing" id="qhJ-fM-YoZ"/>
                                             <constraint firstItem="Tex-aE-SUX" firstAttribute="top" secondItem="Jt1-nM-ccJ" secondAttribute="bottom" id="rzs-EB-l6N"/>
                                             <constraint firstItem="hGV-RP-8ah" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="t0l-En-qc1"/>
-                                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="bottom" constant="20" id="tjM-Dg-Wp7"/>
+                                            <constraint firstItem="vhu-w3-2iZ" firstAttribute="top" secondItem="hGV-RP-8ah" secondAttribute="bottom" constant="10" id="tjM-Dg-Wp7"/>
                                             <constraint firstItem="vhu-w3-2iZ" firstAttribute="leading" secondItem="Jt1-nM-ccJ" secondAttribute="leading" id="zHI-eo-dgW"/>
                                         </constraints>
                                     </view>

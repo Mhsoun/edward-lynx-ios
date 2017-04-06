@@ -10,6 +10,8 @@
 
 @interface ELDevelopmentPlanTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *completedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;

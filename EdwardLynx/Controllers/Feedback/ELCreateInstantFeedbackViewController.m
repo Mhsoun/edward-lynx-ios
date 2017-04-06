@@ -17,7 +17,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCellHeight = 45, kELQuestionContainerHeight = 125;
+static CGFloat const kELCellHeight = 45;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -115,7 +115,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         // Dynamically adjust scroll view based on table view content
         [self updateOptionsTableView];
         [self toggleQuestionTypePreview];
-        [self updateQuestionTypePreviewConstraintsByAnswerType:kELAnswerTypeCustomScale];
         [ELUtils scrollViewToBottom:self.scrollView];
     }
     
@@ -151,7 +150,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     [self toggleOptionsTable];
     [self toggleQuestionTypePreview];
-    [self updateQuestionTypePreviewConstraintsByAnswerType:[ELUtils answerTypeByLabel:self.selectedAnswerType]];
 }
 
 #pragma mark - Protocol Methods (ELItemTableViewCell)
@@ -161,6 +159,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     // Dynamically adjust scroll view based on table view content
     [self updateOptionsTableView];
+    [self toggleQuestionTypePreview];
 }
 
 #pragma mark - Private Methods
@@ -281,22 +280,30 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 - (void)toggleQuestionTypePreview {
-    kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
+    CGFloat height;
     __kindof ELBaseQuestionTypeView *questionView;
+    kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
     ELQuestion *question = [ELUtils questionTemplateForAnswerType:answerType];
     
-    if (answerType == kELAnswerTypeCustomScale) {
-        // Add Custom scale options to the question template for preview
-        NSMutableArray *mOptions = [[NSMutableArray alloc] init];
+    if (answerType != kELAnswerTypeText) {
+        NSMutableArray *mOptions = [[NSMutableArray alloc] initWithArray:question.answer.options];
         
-        for (int i = 0; i < self.mCustomScaleOptions.count; i++) {
-            NSString *option = self.mCustomScaleOptions[i];
-            
-            if (option.length == 0) {
-                continue;
+        // Add Custom scale options to the question template for preview
+        if (answerType == kELAnswerTypeCustomScale) {
+            for (int i = 0; i < self.mCustomScaleOptions.count; i++) {
+                NSString *option = self.mCustomScaleOptions[i];
+                
+                if (option.length == 0) {
+                    continue;
+                }
+                
+                [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": option, @"value": @(i)}
+                                                                         error:nil]];
             }
-            
-            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": option, @"value": @(i)}
+        }
+        
+        if (self.isNASwitch.isOn) {
+            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
                                                                      error:nil]];
         }
         
@@ -309,7 +316,11 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     questionView.userInteractionEnabled = NO;
     questionView.question = question;
     
-    [self updateQuestionTypePreviewConstraintsByAnswerType:question.answer.type];
+    height = question.answer.options.count == 0 ? kELCellHeight : question.heightForQuestionView;
+    
+    [self.heightConstraint setConstant:height + (CGRectGetHeight(self.questionPreviewLabel.frame) * 1.5)];
+    [self.formView updateConstraints];
+    [self adjustScrollViewContentSize];
     
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.questionPreview addSubview:questionView];
@@ -327,30 +338,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 //    [self drawDashedBorderAroundView:self.questionContainerView];
 }
 
-- (void)updateQuestionTypePreviewConstraintsByAnswerType:(kELAnswerType)answerType {
-    CGFloat height;
-    
-    switch (answerType) {
-        case kELAnswerTypeOneToTenScale:
-            height = 360;
-            
-            break;
-        case kELAnswerTypeCustomScale:
-            height = self.mCustomScaleOptions.count == 1 ? kELQuestionContainerHeight :
-                                                           (self.mCustomScaleOptions.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight;
-            
-            break;
-        default:
-            height = kELQuestionContainerHeight;
-            
-            break;
-    }
-    
-    [self.heightConstraint setConstant:height];
-    [self.formView updateConstraints];
-    [self adjustScrollViewContentSize];
-}
-
 - (void)updateOptionsTableView {
     [self.tableView reloadData];
     
@@ -359,6 +346,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onNAOptionSwitchValueChange:(id)sender {
+    [self toggleQuestionTypePreview];
+}
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid, hasSelection;

@@ -88,6 +88,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     ELGoal *goal = self.devPlan.sortedGoals[indexPath.row];
     ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
+    goal.createdAt = self.devPlan.createdAt;
     goal.urlLink = [NSString stringWithFormat:@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId)];
     
     [cell setDevPlanName:self.devPlan.name];

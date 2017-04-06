@@ -167,6 +167,8 @@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.submitButton.enabled = YES;
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELSurveyPostError", nil)
                      completion:^{}];
@@ -175,6 +177,8 @@
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
                                                                       @"kELSurveySaveToDraftSuccess", nil);
+    
+    self.submitButton.enabled = YES;
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
@@ -285,6 +289,8 @@
 - (IBAction)onSubmitButtonClick:(id)sender {
     NSDictionary *formDict;
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
+    
+    self.submitButton.enabled = NO;
     
     for (ELSurveyDetailsViewController *controller in self.mControllers) {
         [mItems addObject:[controller formValues]];

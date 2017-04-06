@@ -13,7 +13,8 @@
 
 @interface ELDevelopmentPlanTableViewCell ()
 
-@property (nonatomic) BOOL isBarChartAnimated, isCircleChartAnimated;
+@property (nonatomic, weak) NSIndexPath *indexPath;
+
 @property (nonatomic, strong) PNBarChart *barChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
@@ -23,6 +24,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    UITapGestureRecognizer *tap;
     
     // Initialization code
     self.barChart = [[PNBarChart alloc] init];
@@ -43,6 +46,14 @@
                                                        iconColor:nil
                                                         iconSize:20]
                              forState:UIControlStateNormal];
+    
+    // Scroll View
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScrollViewTap:)];
+    tap.numberOfTapsRequired = 1;
+    tap.enabled = YES;
+    tap.cancelsTouchesInView = NO;
+    
+    [self.scrollView addGestureRecognizer:tap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -56,6 +67,8 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     NSString *colorKey;
     ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
+    
+    self.indexPath = indexPath;
     
     // Content
     self.nameLabel.text = devPlan.name;
@@ -79,6 +92,10 @@
 
 #pragma mark - Private Methods
 
+- (void)onScrollViewTap:(UIGestureRecognizer *)recognizer {
+    [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:self.indexPath];
+}
+
 - (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     CGFloat width;
     CGRect frame;
@@ -90,6 +107,7 @@
     self.barChart.barBackgroundColor = [UIColor clearColor];
     self.barChart.barRadius = 0;
     self.barChart.barWidth = 20;
+    self.barChart.chartBorderColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
     self.barChart.chartMarginBottom = 0;
     self.barChart.chartMarginTop = 0;
     self.barChart.isGradientShow = NO;
@@ -97,6 +115,7 @@
     self.barChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
     self.barChart.labelMarginTop = 0;
     self.barChart.labelTextColor = [UIColor whiteColor];
+    self.barChart.showChartBorder = YES;
     self.barChart.yChartLabelWidth = 0;
     
     width = (self.barChart.barWidth * devPlan.goals.count) * 2;
@@ -122,21 +141,12 @@
     self.barChart.xLabels = [mLabels copy];
     self.barChart.yValues = [mValues copy];
     
-    if (!self.isBarChartAnimated) {
-        [self.barChart strokeChart];
-        
-        self.isBarChartAnimated = YES;
-    }
+    [self.barChart strokeChart];
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
-    
-    if (!self.isCircleChartAnimated) {
-        [self.circleChart strokeChart];
-        
-        self.isCircleChartAnimated = YES;
-    }
+    [self.circleChart strokeChart];
 }
 
 #pragma mark - Interface Builder Actions

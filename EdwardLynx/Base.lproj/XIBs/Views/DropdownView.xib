@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,7 +72,7 @@
                     </constraints>
                 </view>
                 <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-BF-4I6">
-                    <rect key="frame" x="0.0" y="135" width="500" height="15"/>
+                    <rect key="frame" x="0.0" y="132.5" width="500" height="15"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="15S-u1-pxJ"/>
@@ -88,8 +88,8 @@
                 <constraint firstItem="CHD-JY-qBG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Psw-zb-6TX"/>
                 <constraint firstItem="CHD-JY-qBG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QAv-Te-6VI"/>
                 <constraint firstItem="b6l-BF-4I6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j8G-Lt-z24"/>
-                <constraint firstItem="b6l-BF-4I6" firstAttribute="top" secondItem="CHD-JY-qBG" secondAttribute="bottom" constant="5" id="qbB-fc-4ac"/>
-                <constraint firstAttribute="bottom" secondItem="b6l-BF-4I6" secondAttribute="bottom" id="vcK-ei-lmz"/>
+                <constraint firstItem="b6l-BF-4I6" firstAttribute="top" secondItem="CHD-JY-qBG" secondAttribute="bottom" constant="2.5" id="qbB-fc-4ac"/>
+                <constraint firstAttribute="bottom" secondItem="b6l-BF-4I6" secondAttribute="bottom" constant="2.5" id="vcK-ei-lmz"/>
                 <constraint firstAttribute="trailing" secondItem="CHD-JY-qBG" secondAttribute="trailing" id="xzj-fu-nVH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

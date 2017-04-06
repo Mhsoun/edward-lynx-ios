@@ -34,7 +34,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQJ-JB-a9M" customClass="RNThemeView">
-                        <rect key="frame" x="15" y="5" width="345" height="104.5"/>
+                        <rect key="frame" x="15" y="5" width="345" height="105"/>
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-Ug-dZN">
                                 <rect key="frame" x="10" y="10" width="305" height="22"/>
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="January 3, 2014" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v6m-Qn-8lG">
-                                <rect key="frame" x="10" y="55" width="305" height="14.5"/>
+                                <rect key="frame" x="10" y="55" width="305" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="xZW-Wr-mcl"/>
@@ -64,14 +64,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQs-rW-MmQ">
-                                <rect key="frame" x="315" y="9.5" width="20" height="84"/>
+                                <rect key="frame" x="315" y="10" width="20" height="85"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Yic-G8-it0"/>
                                 </constraints>
                             </imageView>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTANT FEEDBACK" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-S7-aP2">
-                                <rect key="frame" x="10" y="74.5" width="96" height="20"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTANT FEEDBACK" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-S7-aP2" customClass="ELLabel">
+                                <rect key="frame" x="10" y="75" width="97" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="DQ2-qw-OdE"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="meo-hB-JvB">
-                                <rect key="frame" x="116" y="77" width="15" height="15.5"/>
+                                <rect key="frame" x="117" y="77.5" width="15" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="meo-hB-JvB" secondAttribute="height" multiplier="1:1" id="e82-Gc-f9L"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </imageView>
                             <label userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31/31" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-Hb-diq">
-                                <rect key="frame" x="136" y="74" width="179" height="20"/>
+                                <rect key="frame" x="137" y="75" width="178" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +143,7 @@
                 <outlet property="titleLabel" destination="VnG-Ug-dZN" id="HqQ-t2-ArT"/>
                 <outlet property="typeLabel" destination="Nww-S7-aP2" id="o12-sZ-wVz"/>
             </connections>
-            <point key="canvasLocation" x="69.5" y="-12"/>
+            <point key="canvasLocation" x="69.5" y="-12.5"/>
         </tableViewCell>
     </objects>
 </document>
