@@ -16,6 +16,7 @@
 @property (nonatomic, strong) ELUser *user;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSArray *participants;
+@property (nonatomic, strong) NSString *searchText;
 @property (nonatomic, strong) NSDictionary *validationDict;
 @property (nonatomic, strong) NSDateFormatter *apiDateFormatter;
 @property (nonatomic, strong) NSDateFormatter *printDateFormatter;

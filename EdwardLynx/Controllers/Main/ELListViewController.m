@@ -30,15 +30,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 @property (nonatomic) NSInteger countPerPage,
                                 page,
                                 total;
-@property (nonatomic, strong) NSArray *filterItems,
-                                      *initialFilterItems,
-                                      *sortItems,
-                                      *initialSortItems,
-                                      *defaultListItems;
+
+@property (nonatomic, strong) NSArray *defaultListItems;
 @property (nonatomic, strong) NSString *cellIdentifier, *paginationLink;
+
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
-@property (nonatomic, strong) __kindof ELModel *selectedModelInstance;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
 @property (nonatomic, strong) ELListViewManager *viewManager;
 
@@ -62,6 +59,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     if (self.listType == kELListTypeReports) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
+    
+    // Search Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onSearchTextUpdate:)
+                                                 name:kELTabPageSearchNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +84,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     // Load list type's corresponding data set
     [self loadListByType];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Remove Search Notification
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kELTabPageSearchNotification
+                                                  object:nil];
 }
 
 #pragma mark - Protocol Methods (UIScrollView)
@@ -124,49 +136,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                             action:@selector(loadListByType)
                   forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
-}
-
-#pragma mark - Protocol Methods (ELListPopup)
-
-- (void)onFilterSelections:(NSArray *)selections allFilterItems:(NSArray *)items {
-    NSPredicate *predicate;
-    NSString *filterString = @"";
-    
-    self.filterItems = items;
-    
-    for (int i = 0; i < selections.count; i++) {
-        ELFilterSortItem *item = selections[i];
-        
-        filterString = [filterString stringByAppendingString:item.key];
-        
-        if (i < selections.count - 1) {
-            filterString = [filterString stringByAppendingString:@"||"];
-        }
-    }
-    
-    if (selections.count == 0) {
-        [self.dataSource updateTableViewData:self.defaultListItems];
-        
-        return;
-    }
-    
-    predicate = [NSPredicate predicateWithFormat:filterString];
-    
-    [self.dataSource updateTableViewData:[self.defaultListItems filteredArrayUsingPredicate:predicate]];
-}
-
-- (void)onSortSelections:(NSArray *)selections allSortItems:(NSArray *)items {
-    NSMutableArray *mDescriptors = [[NSMutableArray alloc] init];
-    
-    self.sortItems = items;
-    
-    for (int i = 0; i < selections.count; i++) {
-        ELFilterSortItem *item = selections[i];
-        
-        [mDescriptors addObject:[NSSortDescriptor sortDescriptorWithKey:item.key ascending:item.selected]];
-    }
-    
-    [self.dataSource updateTableViewData:[self.defaultListItems sortedArrayUsingDescriptors:[mDescriptors copy]]];
 }
 
 #pragma mark - Protocol Methods (ELListViewManager)
@@ -242,9 +211,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     }
     
     self.defaultListItems = self.isPaginated ? [self.defaultListItems arrayByAddingObjectsFromArray:[mItems copy]] : [mItems copy];
-    self.provider = [[ELDataProvider alloc] initWithDataArray:[self filteredDataSet:self.defaultListItems
-                                                                           listType:self.listType
-                                                                         filterType:self.listFilter]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self filterBySearchText:AppSingleton.searchText]];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:self.cellIdentifier];
@@ -261,11 +228,17 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     }
 }
 
+#pragma mark - Notifications
+
+- (void)onSearchTextUpdate:(NSNotification *)notification {
+    [self.dataSource updateTableViewData:[self filterBySearchText:AppSingleton.searchText]];
+}
+
 #pragma mark - Private Methods
 
-- (NSArray *)filteredDataSet:(NSArray *)items
-                    listType:(kELListType)listType
-                  filterType:(kELListFilter)filterType {
+- (NSArray *)filterDataSet:(NSArray *)items
+                  listType:(kELListType)listType
+                filterType:(kELListFilter)filterType {
     NSPredicate *predicate;
     NSString *predicateString;
     
@@ -325,6 +298,21 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     return [items filteredArrayUsingPredicate:!predicate ? [NSPredicate predicateWithFormat:predicateString] :
                                                            predicate];
+}
+
+- (NSArray *)filterBySearchText:(NSString *)searchText {
+    NSPredicate *predicate;
+    NSArray *filteredArray = [self filterDataSet:self.defaultListItems
+                                        listType:self.listType
+                                      filterType:self.listFilter];
+    
+    if (searchText.length == 0) {
+        return filteredArray;
+    }
+    
+    predicate = [NSPredicate predicateWithFormat:@"SELF.searchTitle CONTAINS [cd]%@", searchText];
+    
+    return [filteredArray filteredArrayUsingPredicate:predicate];
 }
 
 - (void)loadListByType {
