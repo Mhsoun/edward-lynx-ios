@@ -45,7 +45,7 @@
     
     self.controller = controller;
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Development Plan",
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
                                                              @"color": kELDevPlanColor,
                                                              @"icon": fa_bar_chart_o,
                                                              @"segue": kELDashboardActionTypeDevPlan}];
@@ -54,7 +54,7 @@
     
     [self.devPlanView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Instant Feedback",
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemInstantFeedback", nil),
                                                              @"color": kELFeedbackColor,
                                                              @"icon": fa_paper_plane_o,
                                                              @"segue": kELDashboardActionTypeFeedback}];
@@ -63,7 +63,7 @@
     
     [self.feedbackView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": @"Lynx Management",
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemLynxManagement", nil),
                                                              @"color": kELLynxColor,
                                                              @"icon": fa_edit,
                                                              @"segue": kELDashboardActionTypeLynx}];
@@ -72,7 +72,7 @@
     
     [self.surveyView addSubview:shortcutView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Answer",
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemAnswer", nil),
                                                          @"count": @0,
                                                          @"segue": @"Answer"}];
     actionView.delegate = self;
@@ -80,7 +80,7 @@
     
     [self.answerActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Results",
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemResults", nil),
                                                          @"count": @0,
                                                          @"segue": kELDashboardActionTypeReport}];
     actionView.delegate = self;
@@ -88,13 +88,14 @@
     
     [self.resultsActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Invite", @"count": @0}];
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemInvite", nil),
+                                                         @"count": @0}];
 //    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.inviteActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": @"Create",
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemCreate", nil),
                                                          @"count": @0,
                                                          @"segue": @"Create"}];
     actionView.delegate = self;

@@ -316,7 +316,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     questionView.userInteractionEnabled = NO;
     questionView.question = question;
     
-    height = question.answer.options.count == 0 ? kELCellHeight : question.heightForQuestionView;
+    height = question.answer.options.count == 0 && answerType != kELAnswerTypeText ? kELCellHeight :
+                                                                                     question.heightForQuestionView;
     
     [self.heightConstraint setConstant:height + (CGRectGetHeight(self.questionPreviewLabel.frame) * 1.5)];
     [self.formView updateConstraints];
@@ -348,6 +349,12 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onNAOptionSwitchValueChange:(id)sender {
+    kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
+    
+    if (answerType == kELAnswerTypeText) {
+        return;
+    }
+    
     [self toggleQuestionTypePreview];
 }
 
