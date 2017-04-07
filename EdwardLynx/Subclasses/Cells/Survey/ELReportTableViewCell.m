@@ -37,6 +37,7 @@
         [self configureWithDetails:@{@"title": feedback.question.text ? feedback.question.text : @"",
                                      @"timestamp": feedback.dateString,
                                      @"type": @"Instant Feedback",
+                                     @"color": kELFeedbackColor,
                                      @"invited": [NSString stringWithFormat:@"%@/%@",
                                                   @(feedback.noOfParticipantsAnswered),
                                                   @(feedback.participants.count)]}];
@@ -46,6 +47,7 @@
         [self configureWithDetails:@{@"title": survey.name ? survey.name : @"",
                                      @"timestamp": survey.endDateString,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
+                                     @"color": kELLynxColor,
                                      @"invited": [NSString stringWithFormat:@"%@/%@",
                                                   @(0),
                                                   @(42)]}];
@@ -59,7 +61,7 @@
 #pragma mark - Private Methods
 
 - (void)configureWithDetails:(NSDictionary *)detailsDict {
-    NSString *colorKey = kELWhiteColor;
+    NSString *colorKey = kELWhiteColor;  // TODO
     
     // Content
     self.titleLabel.text = detailsDict[@"title"];
@@ -73,7 +75,7 @@
                                                iconSize:50];
     self.invitedLabel.textColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
     self.timestampLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    self.typeLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELFeedbackColor];
+    self.typeLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:detailsDict[@"color"]];
     self.typeLabel.layer.cornerRadius = 2.0f;
 }
 

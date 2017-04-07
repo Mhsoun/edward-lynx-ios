@@ -127,6 +127,8 @@
 /* Reports */
 
 "kELReportInfoLabel" = "Invited: %@ | Answered: %@";
+"kELReportInfoOthers" = "Others combined";
+"kELReportInfoSelf" = "Self";
 
 /* Surveys */
 

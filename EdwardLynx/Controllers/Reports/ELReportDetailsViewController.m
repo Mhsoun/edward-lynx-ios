@@ -19,6 +19,7 @@
 
 #pragma mark - Private Constants
 
+static NSTimeInterval const kELAnimateInterval = 0.5;
 static CGFloat const kELBarHeight = 40;
 
 #pragma mark - Class Extension
@@ -42,8 +43,8 @@ static CGFloat const kELBarHeight = 40;
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.averageBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.averageChartView.bounds];
-    self.indexBarChart = [[HorizontalBarChartView alloc] initWithFrame:self.indexChartView.bounds];
+    self.averageBarChart = [[HorizontalBarChartView alloc] init];
+    self.indexBarChart = [[HorizontalBarChartView alloc] init];
     self.averageBarChart.noDataText = @"";
     self.indexBarChart.noDataText = @"";
     
@@ -58,6 +59,7 @@ static CGFloat const kELBarHeight = 40;
     [self.averageChartView addSubview:self.averageBarChart];
     [self.indexChartView addSubview:self.indexBarChart];
     
+    [self.indicatorView startAnimating];
     [self.viewManager processRetrievalOfReportDetails];
 }
 
@@ -80,8 +82,6 @@ static CGFloat const kELBarHeight = 40;
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat height;
-    
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
         self.instantFeedback = (ELInstantFeedback *)self.selectedObject;
         
@@ -92,39 +92,30 @@ static CGFloat const kELBarHeight = 40;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.instantFeedback.participants.count),
                                @(self.instantFeedback.noOfParticipantsAnswered)];
-        
-        height = (kELBarHeight * self.instantFeedback.question.answer.options.count) + kELBarHeight;
-        
-        [self.averageIndicatorView startAnimating];
-        [self.averageHeightConstraint setConstant:height];
-        [self.averageChartView updateConstraints];
-        [self.indexHeightConstraint setConstant:0];
-        [self.indexContainerView updateConstraints];
     } else {
         self.survey = (ELSurvey *)self.selectedObject;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
-        
-        [self.averageIndicatorView startAnimating];
-        [self.indexIndicatorView startAnimating];
-        [self.indexHeightConstraint setConstant:450];
-        [self.indexContainerView updateConstraints];
+        self.dateLabel.text = self.survey.startDateString;
     }
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.indicatorView stopAnimating];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
                      completion:^{}];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    CGFloat height;
+    BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]];
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+    if (isFeedback) {
         for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
             [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
         }
@@ -134,6 +125,18 @@ static CGFloat const kELBarHeight = 40;
         }
     }
     
+    height = (kELBarHeight * mAnswers.count) + kELBarHeight;
+    
+    [self.averageHeightConstraint setConstant:height];
+    [self.averageContainerView layoutIfNeeded];
+    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 2)];
+    [self.indexContainerView layoutIfNeeded];
+    
+    self.averageBarChart.frame = self.averageChartView.bounds;
+    self.indexBarChart.frame = self.indexChartView.bounds;
+    
+    [self.indicatorView stopAnimating];
+    [self.scrollView setHidden:NO];
     [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
     [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
 }
@@ -152,6 +155,7 @@ static CGFloat const kELBarHeight = 40;
     
     dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
     dataSet.colors = @[color];
+    dataSet.highlightEnabled = NO;
     dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
     dataSet.valueTextColor = color;
@@ -159,20 +163,57 @@ static CGFloat const kELBarHeight = 40;
     return dataSet;
 }
 
+- (NSDictionary *)chartInfoFromData:(NSArray *)answers {
+    NSInteger count;
+    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+        count = self.instantFeedback.participants.count;
+        
+        for (int i = 0; i < answers.count; i++) {
+            //            double y = answers[i].count / count;
+            double y = (double)arc4random() / UINT32_MAX;
+            ELAnswerOption *answer = answers[i];
+            
+            [mLabels addObject:answer.shortDescription];
+            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+        }
+    } else {
+        count = 42;  // TODO Should be no. of invited participants
+        
+        for (int i = 0; i < answers.count; i++) {
+            //            double y = answers[i].count / count;
+            double y = (double)arc4random() / UINT32_MAX;
+            
+            [mLabels addObject:[NSString stringWithFormat:@"Category %@", @(i + 1)]];  // TODO Should be the actual category name
+            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+        }
+    }
+    
+    return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
+}
+
 - (HorizontalBarChartView *)configureBarChart:(HorizontalBarChartView *)barChart {
     ChartLimitLine *limitLine70, *limitLine100;
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
+    barChart.chartDescription.enabled = NO;
+    barChart.doubleTapToZoomEnabled = NO;
+    barChart.drawBarShadowEnabled = NO;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
-    barChart.descriptionText = @"";
-        
-    barChart.leftAxis.axisMaximum = 1.0f;
+    barChart.highlightPerDragEnabled = NO;
+    barChart.highlightPerTapEnabled = NO;
+    barChart.maxVisibleCount = 15;
+    barChart.pinchZoomEnabled = NO;
+    
+    barChart.leftAxis.axisMaximum = 1.1f;
     barChart.leftAxis.axisMinimum = 0.0f;
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
-    barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
     
     limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f label:@"70%"];
     limitLine70.labelPosition = ChartLimitLabelPositionLeftBottom;
@@ -194,14 +235,13 @@ static CGFloat const kELBarHeight = 40;
     
     barChart.legend.enabled = YES;
     barChart.legend.font = labelFont;
-    barChart.legend.position = ChartLegendPositionBelowChartCenter;
+    barChart.legend.position = ChartLegendPositionBelowChartLeft;
     barChart.legend.textColor = [UIColor whiteColor];
+    barChart.legend.yEntrySpace = 0.0f;
     
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = NO;
-    
-    barChart.userInteractionEnabled = NO;
     
     barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
@@ -215,82 +255,65 @@ static CGFloat const kELBarHeight = 40;
     return barChart;
 }
 
-- (NSDictionary *)chartInfoFromData:(NSArray *)answers {
-    NSInteger count;
-    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
-    
-    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
-        count = self.instantFeedback.participants.count;
-        
-        for (int i = 0; i < answers.count; i++) {
-//            double y = answers[i].count / count;
-            double y = (double)arc4random() / UINT32_MAX;
-            ELAnswerOption *answer = answers[i];
-            
-            [mLabels addObject:answer.shortDescription];
-            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
-        }
-    } else {
-        count = 42;  // TODO Should be no. of invited participants
-        
-        for (int i = 0; i < answers.count; i++) {
-//            double y = answers[i].count / count;
-            double y = (double)arc4random() / UINT32_MAX;
-            
-            [mLabels addObject:[NSString stringWithFormat:@"C%@", @(i + 1)]];  // TODO Should be the actual category name
-            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
-        }
-    }
-    
-    return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
-}
-
 - (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
     BarChartData *chartData;
     NSDictionary *infoDict = [self chartInfoFromData:answers];
     
-    chartData = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:@"Self"
+    chartData = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
                                                                             items:infoDict[@"entries"]
                                                                          colorKey:self.typeColorKey]];
-    chartData.barWidth = 0.75f;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
+    
     barChart.legend.enabled = NO;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
     
-    [self.averageIndicatorView stopAnimating];
-    [barChart animateWithYAxisDuration:0.5];
+    [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 
 - (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
+    double barSpace,
+           groupSpace,
+           groupWidth;
+    NSInteger count;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet1, *chartDataSet2;
     NSDictionary *infoDict = [self chartInfoFromData:answers];
     
-    chartDataSet1 = [self chartDataSetWithTitle:@"Self"
+    barSpace = 0.0f, groupSpace = 0.15f;
+    
+    chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
                                           items:infoDict[@"entries"]
                                        colorKey:self.typeColorKey];
     
     infoDict = [self chartInfoFromData:answers];  // TODO Dummy data
     
-    chartDataSet2 = [self chartDataSetWithTitle:@"Others Combined"
+    chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
                                           items:infoDict[@"entries"]
                                        colorKey:kELOrangeColor];
     
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
-    chartData.barWidth = 0.45f;
+    chartData.barWidth = 0.4f;
     
-    [chartData groupBarsFromX:0.0f groupSpace:0.06f barSpace:0.02f];
+    count = [infoDict[@"labels"] count];
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
+    
+    [barChart setVisibleXRangeMaximum:(double)count];
+    [barChart setVisibleXRangeMinimum:(double)count];
+    
+    groupWidth = [chartData groupWidthWithGroupSpace:groupSpace barSpace:barSpace];
+    
+    barChart.xAxis.axisMaximum = groupWidth * (double)count;
+    barChart.xAxis.axisMinimum = 0.0f;
     barChart.xAxis.centerAxisLabelsEnabled = YES;
+    barChart.xAxis.labelCount = count;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
     
-    [self.indexIndicatorView stopAnimating];
-    [barChart animateWithYAxisDuration:0.5];
+    [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
+    [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 
 #pragma mark - Interface Builder Actions
