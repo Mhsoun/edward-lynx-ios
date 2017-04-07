@@ -10,7 +10,7 @@
 
 @class ELInstantFeedback;
 
-@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELAPIPostResponseDelegate>
+@interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate>
 
 @property (nonatomic) kELInviteUsers inviteType;
 
