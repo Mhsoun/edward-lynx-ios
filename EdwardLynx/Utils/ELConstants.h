@@ -136,6 +136,8 @@ extern CGFloat const kELCustomScaleItemHeight;
 extern CGFloat const kELQuestionTypeDefaultHeight;
 extern CGFloat const kELQuestionTypeExpandedHeight;
 
+extern NSString * const kELTabPageSearchNotification;
+
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;
 extern NSString * const kELUserRoleFeedbackProvider;
@@ -166,6 +168,7 @@ extern NSString * const kELAPISurveysEndpoint;
 extern NSString * const kELAPISurveyEndpoint;
 extern NSString * const kELAPISurveyAnswersEndpoint;
 extern NSString * const kELAPISurveyQuestionsEndpoint;
+extern NSString * const kELAPISurveyResultsEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;
 extern NSString * const kELAPIUserDeviceEndpoint;

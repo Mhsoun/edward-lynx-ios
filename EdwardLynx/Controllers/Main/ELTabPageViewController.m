@@ -7,7 +7,7 @@
 //
 
 #import "ELTabPageViewController.h"
-#import "ELDevelopmentPlansViewController.h"
+#import "ELBasePageChildViewController.h"
 #import "ELSearchBar.h"
 
 #pragma mark - Class Extension
@@ -144,7 +144,11 @@
 #pragma mark - Protocol Methods (UISearchBar)
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    // TODO Filtering implementation
+    AppSingleton.searchText = searchText;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kELTabPageSearchNotification
+                                                        object:self
+                                                      userInfo:@{@"search": searchText}];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {

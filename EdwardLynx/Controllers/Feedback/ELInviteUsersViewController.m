@@ -216,26 +216,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                  @(self.mParticipants.count)];
 }
 
-#pragma mark - Protocol Methods (UITextField)
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSArray *emailErrors, *nameErrors;
-    NSArray<UITextField *> *textFields = self.alertController.textFields;
-    
-    [ELUtils registerValidators];
-    
-    emailErrors = [REValidation validateObject:textFields.lastObject.text
-                                          name:@"Email"
-                                    validators:@[@"presence", @"email"]];
-    nameErrors = [REValidation validateObject:textFields.firstObject.text
-                                         name:@"Email"
-                                   validators:@[@"presence"]];
-    
-    [self.inviteAction setEnabled:(nameErrors.count == 0 && emailErrors.count == 0)];
-    
-    return YES;
-}
-
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
@@ -444,8 +424,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     __weak typeof(self) weakSelf = self;
     self.alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil)
                                                                message:NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil)
-                                                        preferredStyle:UIAlertControllerStyleAlert];
-    
+                                                        preferredStyle:UIAlertControllerStyleAlert];    
     self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailButtonAdd", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {
@@ -475,27 +454,48 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.inviteAction.enabled = NO;
     
     [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.delegate = weakSelf;
         textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
         textField.keyboardType = UIKeyboardTypeDefault;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
     }];
     [self.alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.delegate = weakSelf;
         textField.placeholder = NSLocalizedString(@"kELEmailLabel", nil);
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
     }];
     [self.alertController addAction:self.inviteAction];
     [self.alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
     
+    [ELUtils registerValidators];
     [self presentViewController:self.alertController
                        animated:YES
                      completion:nil];
+}
+
+- (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    NSArray *emailErrors, *nameErrors;
+    NSArray<UITextField *> *textFields = self.alertController.textFields;
+    
+    emailErrors = [REValidation validateObject:textFields.lastObject.text
+                                          name:@"Email"
+                                    validators:@[@"presence", @"email"]];
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
+                                         name:@"Name"
+                                   validators:@[@"presence"]];
+    
+    [self.inviteAction setEnabled:(emailErrors.count == 0 && nameErrors.count == 0)];
 }
 
 @end

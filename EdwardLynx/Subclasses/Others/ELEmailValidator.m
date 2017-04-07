@@ -19,8 +19,7 @@
                  parameters:(NSDictionary *)parameters {
     NSError *error;
     NSString *expression;
-    NSRegularExpression *regex;
-    NSTextCheckingResult *match;
+    NSPredicate *predicate;
     NSString *string = object ? object : @"";
     
     if (string.length == 0) {
@@ -28,15 +27,10 @@
     }
     
     error = nil;
-    expression = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,63}";
-    regex = [NSRegularExpression regularExpressionWithPattern:expression
-                                                      options:NSRegularExpressionCaseInsensitive
-                                                        error:&error];
-    match = [regex firstMatchInString:string
-                              options:0
-                                range:NSMakeRange(0, string.length)];
+    expression = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", expression];
     
-    if (!match) {
+    if (![predicate evaluateWithObject:string]) {
         return [NSError re_validationErrorForDomain:@"com.REValidation.email", name];
     }
     

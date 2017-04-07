@@ -22,7 +22,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 
 @interface ELReportsViewController ()
 
-@property (strong, nonatomic) ELInstantFeedback *selectedInstantFeedback;
+@property (strong, nonatomic) __kindof ELModel *selectedObject;
 
 @end
 
@@ -44,7 +44,7 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
     if ([segue.identifier isEqualToString:kELReportSegueIdentifier]) {
         ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
         
-        controller.selectedObject = self.selectedInstantFeedback;
+        controller.selectedObject = self.selectedObject;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         
@@ -54,14 +54,14 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
     } else if ([segue.identifier isEqualToString:kELInstantFeedbackSegueIdentifier]) {
         ELCreateInstantFeedbackViewController *controller = (ELCreateInstantFeedbackViewController *)[segue destinationViewController];
         
-        controller.instantFeedback = self.selectedInstantFeedback;
+        controller.instantFeedback = self.selectedObject;
     }
 }
 
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
-    self.selectedInstantFeedback = (ELInstantFeedback *)object;
+    self.selectedObject = (ELInstantFeedback *)object;
     
     [self performSegueWithIdentifier:kELReportSegueIdentifier sender:self];
 }

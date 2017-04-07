@@ -132,6 +132,18 @@
                         completion:completion];
 }
 
+- (void)surveyReportDetailsWithId:(int64_t)surveyId
+                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyResultsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPISurveysEndpoint, kELAPIVersionNamespace];

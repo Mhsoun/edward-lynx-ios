@@ -43,6 +43,8 @@ CGFloat const kELCustomScaleItemHeight = 35;
 CGFloat const kELQuestionTypeDefaultHeight = 40;
 CGFloat const kELQuestionTypeExpandedHeight = 80;
 
+NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
+
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";
 NSString * const kELUserRoleFeedbackProvider = @"feedback-provider";
@@ -73,6 +75,7 @@ NSString * const kELAPISurveysEndpoint = @"%@/surveys";
 NSString * const kELAPISurveyEndpoint = @"%@/surveys/%@";
 NSString * const kELAPISurveyAnswersEndpoint = @"%@/surveys/%@/answers";
 NSString * const kELAPISurveyQuestionsEndpoint = @"%@/surveys/%@/questions";
+NSString * const kELAPISurveyResultsEndpoint = @"%@/surveys/%@/results";
 
 NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPIUserDeviceEndpoint = @"%@/user/devices";

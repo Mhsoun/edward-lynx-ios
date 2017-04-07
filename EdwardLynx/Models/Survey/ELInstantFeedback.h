@@ -6,14 +6,14 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELModel.h"
 #import "ELQuestion.h"
+#import "ELSearcheableModel.h"
 
 @class ELParticipant;
 
 @protocol ELParticipant;
 
-@interface ELInstantFeedback : ELModel
+@interface ELInstantFeedback : ELSearcheableModel
 
 @property (nonatomic) BOOL anonymous;
 @property (nonatomic) BOOL closed;

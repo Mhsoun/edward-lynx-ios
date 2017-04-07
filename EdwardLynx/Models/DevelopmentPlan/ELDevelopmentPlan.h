@@ -9,10 +9,11 @@
 #import <JSONModel/JSONModel.h>
 
 #import "ELGoal.h"
+#import "ELSearcheableModel.h"
 
 @protocol ELGoal;
 
-@interface ELDevelopmentPlan : ELModel
+@interface ELDevelopmentPlan : ELSearcheableModel
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString<Ignore> *urlLink;

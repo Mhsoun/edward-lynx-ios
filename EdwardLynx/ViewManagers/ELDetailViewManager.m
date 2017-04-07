@@ -8,6 +8,7 @@
 
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELInstantFeedback.h"
 #import "ELModel.h"
 #import "ELSurveysAPIClient.h"
 
@@ -96,8 +97,13 @@
 }
 
 - (void)processRetrievalOfReportDetails {
-    [self.surveyClient instantFeedbackReportDetailsWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
-                                               completion:self.requestCompletionBlock];
+    if ([self.detailObject isKindOfClass:[ELInstantFeedback class]]) {
+        [self.surveyClient instantFeedbackReportDetailsWithId:self.detailObject.objectId
+                                                   completion:self.requestCompletionBlock];
+    } else {
+        [self.surveyClient surveyReportDetailsWithId:self.detailObject.objectId
+                                          completion:self.requestCompletionBlock];
+    }
 }
 
 - (void)processRetrievalOfSurveyDetails {

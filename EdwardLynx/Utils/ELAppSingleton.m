@@ -35,6 +35,7 @@
     self.user = nil;
     self.participants = nil;
     self.hasLoadedApplication = NO;
+    self.searchText = @"";
     self.validationDict = @{@"com.REValidation.presence": @"%@ can't be blank.",
                             @"com.REValidation.email": @"%@ is not a valid email."};
     

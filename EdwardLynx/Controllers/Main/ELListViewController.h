@@ -10,7 +10,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate, ELListPopupDelegate>
+@interface ELListViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (nonatomic) kELListType listType;
 @property (nonatomic) kELListFilter listFilter;

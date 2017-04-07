@@ -70,8 +70,30 @@
 }
 
 - (void)processRetrievalOfReports {
-    [self.surveyClient currentUserInstantFeedbacksWithFilter:@"mine"
-                                                  completion:self.requestCompletionBlock];
+    __block NSMutableDictionary *mItems = [[NSMutableDictionary alloc] init];
+    __weak typeof(self) weakSelf = self;
+    
+    [self.surveyClient currentUserSurveysWithQueryParams:nil
+                                              completion:^(NSURLResponse *response, NSDictionary *surveyResponseDict, NSError *surveyError) {
+        if (surveyError) {
+            [weakSelf.delegate onAPIResponseError:surveyError.userInfo];
+            
+            return;
+        }
+        
+        [mItems setObject:surveyResponseDict forKey:@"surveys"];
+        [self.surveyClient currentUserInstantFeedbacksWithFilter:@"mine"
+                                                      completion:^(NSURLResponse *response, NSDictionary *feedbackResponseDict, NSError *feedbackError) {
+            if (feedbackError) {
+                [weakSelf.delegate onAPIResponseError:feedbackError.userInfo];
+                
+                return;
+            }
+            
+            [mItems setObject:feedbackResponseDict forKey:@"feedbacks"];
+            [weakSelf.delegate onAPIResponseSuccess:[mItems copy]];
+        }];
+    }];
 }
 
 - (void)processRetrievalOfSurveys {
@@ -93,14 +115,14 @@
         
         [mItems setObject:surveyResponseDict forKey:@"surveys"];
         [weakSelf.surveyClient currentUserInstantFeedbacksWithFilter:@"to_answer"
-                                                          completion:^(NSURLResponse *response, NSDictionary *feedbackResponseError, NSError *feedbackError) {
+                                                          completion:^(NSURLResponse *response, NSDictionary *feedbackResponseDict, NSError *feedbackError) {
             if (feedbackError) {
                 [weakSelf.delegate onAPIResponseError:feedbackError.userInfo];
                 
                 return;
             }
             
-            [mItems setObject:feedbackResponseError forKey:@"feedbacks"];
+            [mItems setObject:feedbackResponseDict forKey:@"feedbacks"];
             [weakSelf.delegate onAPIResponseSuccess:[mItems copy]];
         }];
     }];
