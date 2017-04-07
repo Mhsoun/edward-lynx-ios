@@ -167,7 +167,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
             
             [self.tableView scrollToRowAtIndexPath:indexPath
-                                  atScrollPosition:UITableViewScrollPositionTop
+                                  atScrollPosition:UITableViewScrollPositionNone
                                           animated:NO];
             
             cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];

@@ -130,9 +130,10 @@
     
     switch (self.responseType) {
         case kELSurveyResponseTypeDetails:
+            self.responseType = kELSurveyResponseTypeQuestions;
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
             self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
-            self.responseType = kELSurveyResponseTypeQuestions;
+            self.surveyViewManager.delegate = self;
             
             // Retrieve surveys questions
             [self.detailViewManager processRetrievalOfSurveyQuestions];
@@ -293,7 +294,9 @@
     self.submitButton.enabled = NO;
     
     for (ELSurveyDetailsViewController *controller in self.mControllers) {
-        [mItems addObject:[controller formValues]];
+        for (NSDictionary *answerDict in [controller formValues]) {
+            [mItems addObject:answerDict];
+        }
     }
     
     formDict = @{@"key": self.survey.key,
@@ -303,10 +306,9 @@
     if (!self.isSurveyFinal) {
         [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
     } else {
-        // TODO Validate first before submission
-//        if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
-//            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
-//        }
+        if (mItems.count == self.items.count && self.survey.key) {
+            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
+        }
     }
 }
 

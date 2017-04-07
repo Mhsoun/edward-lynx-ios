@@ -45,7 +45,7 @@
         data.identifier = [NSString stringWithFormat:@"%@", @(option.value)];
         
         if (!_question.optional) {
-            data.selected = i == 0;
+            data.selected = !_question.value ? i == 0 : [_question.value isEqualToString:data.identifier];
         }
         
         data.labelText = option.shortDescription;

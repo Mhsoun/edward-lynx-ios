@@ -134,3 +134,4 @@ NSInteger const kELAPINoContentStatusCode = 204;
 NSInteger const kELAPIBadRequestStatusCode = 400;
 NSInteger const kELAPIUnauthorizedStatusCode = 401;
 NSInteger const kELAPINotFoundStatusCode = 404;
+NSInteger const kELAPIServerError = 500;
