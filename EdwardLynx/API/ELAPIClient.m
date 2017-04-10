@@ -80,6 +80,12 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];
         } else if (error) {
+            if (httpResponse.statusCode == kELAPIServerError) {
+                completion(response, responseDict, error);
+                
+                return;
+            }
+            
             errorMessage = [NSString stringWithFormat:kELDefaultAlertMessage, error.localizedDescription];
             visibleViewController = [ApplicationDelegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:@"Error"

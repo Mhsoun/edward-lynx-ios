@@ -15,7 +15,7 @@
 
 #pragma mark - Private Constants
 
-static int const kELDefaultRowIndex = 2;
+static int const kELDefaultRowIndex = 0;
 static NSString * const kELCellIdentifier = @"MenuItemCell";
 
 #pragma mark - Class Extension
@@ -155,8 +155,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     switch (self.selectedIndexPath.row) {
         case 2:
             controller = content.viewControllers[0];
-//            controller.type = kELListTypeSurveys;
-            controller.type = kELListTypeReports;
+            controller.type = kELListTypeSurveys;
             controller.tabs = @[@(kELListFilterAll),
                                 @(kELListFilterInstantFeedback),
                                 @(kELListFilterLynxManagement)];

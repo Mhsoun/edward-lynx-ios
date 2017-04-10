@@ -20,14 +20,23 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.textView.delegate = self;
+}
+
+#pragma mark - Protocol Methods (UITextView)
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [AppSingleton.mSurveyFormDict setObject:[self formValues]
+                                     forKey:@(_question.objectId)];
 }
 
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-    if (!_question.optional && self.textView.text.length == 0) {
-        return nil;
-    }
+//    if (!_question.optional && self.textView.text.length == 0) {
+//        return nil;
+//    }
     
     return @{@"question": @(self.question.objectId),
              @"answer": self.textView.text};

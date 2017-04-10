@@ -132,24 +132,6 @@
                                 <rect key="frame" x="16" y="30" width="343" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
-                                <rect key="frame" x="16" y="617" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7DQ-0F-HSS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Processing..."/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onSubmitButtonClick:" destination="Oe3-tM-qcI" eventType="touchUpInside" id="5cu-j6-hci"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYu-hV-dci">
                                 <rect key="frame" x="16" y="607" width="343" height="0.0"/>
                                 <subviews>
@@ -166,7 +148,7 @@
                                         <rect key="frame" x="10" y="0.0" width="323" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-yK-667">
                                         <rect key="frame" x="343" y="0.0" width="0.0" height="0.0"/>
@@ -195,33 +177,73 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-jk-UgG">
-                                <rect key="frame" x="16" y="30" width="343" height="577"/>
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
+                                <rect key="frame" x="16" y="617" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7DQ-0F-HSS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Processing..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSubmitButtonClick:" destination="Oe3-tM-qcI" eventType="touchUpInside" id="5cu-j6-hci"/>
+                                </connections>
+                            </button>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajk-Vm-b8j">
+                                <rect key="frame" x="16" y="617" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BYn-o3-Qse"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <state key="normal" title="Save to Drafts">
+                                    <color key="titleColor" red="0.26666666666666666" green="0.12549019607843137" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled" title="Processing..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSubmitButtonClick:" destination="Oe3-tM-qcI" eventType="touchUpInside" id="Iav-Yl-gZ9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7V3-ui-vgo" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="0fB-Bs-Jew"/>
+                            <constraint firstItem="8Po-jk-UgG" firstAttribute="top" secondItem="3K2-7N-VBZ" secondAttribute="bottom" id="9dx-Zl-m5Z"/>
                             <constraint firstItem="OYu-hV-dci" firstAttribute="trailing" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="9gh-eH-4tR"/>
                             <constraint firstItem="W51-jZ-i0H" firstAttribute="top" secondItem="Y7d-Ki-W5I" secondAttribute="bottom" constant="10" id="AjZ-gk-4YC"/>
                             <constraint firstItem="OYu-hV-dci" firstAttribute="top" secondItem="7V3-ui-vgo" secondAttribute="bottom" id="Ca2-8S-8qg"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="centerX" secondItem="7V3-ui-vgo" secondAttribute="centerX" id="FrU-rN-XyC"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerY" secondItem="DCb-8E-7PX" secondAttribute="centerY" id="JnG-uq-8p7"/>
                             <constraint firstItem="OYu-hV-dci" firstAttribute="leading" secondItem="7V3-ui-vgo" secondAttribute="leading" id="K4g-Yr-MwD"/>
                             <constraint firstItem="Y7d-Ki-W5I" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="LOE-Zh-IDR"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="height" secondItem="DCb-8E-7PX" secondAttribute="height" id="Lqf-wH-3U3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="NqD-fd-wYL"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="height" secondItem="7V3-ui-vgo" secondAttribute="height" id="Qe6-R3-ziW"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="width" secondItem="7V3-ui-vgo" secondAttribute="width" id="aZc-Db-fJ6"/>
+                            <constraint firstItem="8Po-jk-UgG" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="SqJ-Ko-ERJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y7d-Ki-W5I" secondAttribute="trailing" id="ayq-BC-UXl"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="width" secondItem="DCb-8E-7PX" secondAttribute="width" id="ckG-Z3-Uv3"/>
-                            <constraint firstItem="Y7d-Ki-W5I" firstAttribute="top" secondItem="OYu-hV-dci" secondAttribute="bottom" constant="10" id="eak-Zi-QXs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ajk-Vm-b8j" secondAttribute="bottom" constant="10" id="dmg-tP-tty"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerX" secondItem="DCb-8E-7PX" secondAttribute="centerX" id="jWY-KG-75U"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="centerY" secondItem="7V3-ui-vgo" secondAttribute="centerY" id="qgB-b9-9F5"/>
+                            <constraint firstItem="ajk-Vm-b8j" firstAttribute="top" secondItem="OYu-hV-dci" secondAttribute="bottom" constant="10" id="lAr-bV-PtE"/>
+                            <constraint firstItem="ajk-Vm-b8j" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="m2J-nD-EEj"/>
+                            <constraint firstItem="8Po-jk-UgG" firstAttribute="trailing" secondItem="DCb-8E-7PX" secondAttribute="trailingMargin" id="ncf-a0-4Gt"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="8Po-jk-UgG" secondAttribute="bottom" id="pSj-Dc-bGf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ajk-Vm-b8j" secondAttribute="trailing" id="rIO-zS-P2p"/>
                             <constraint firstItem="7V3-ui-vgo" firstAttribute="top" secondItem="3K2-7N-VBZ" secondAttribute="bottom" constant="10" id="s7B-UQ-x5N"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="draftsButton" destination="ajk-Vm-b8j" id="H9y-ob-TNb"/>
                         <outlet property="heightConstraint" destination="ORe-16-zOf" id="KAx-xM-ufE"/>
                         <outlet property="indicatorView" destination="8Po-jk-UgG" id="m8c-OV-0JC"/>
                         <outlet property="navigatorView" destination="OYu-hV-dci" id="aw8-gK-W2h"/>
@@ -230,6 +252,7 @@
                         <outlet property="pageView" destination="7V3-ui-vgo" id="S3d-I1-ubb"/>
                         <outlet property="prevButton" destination="C7C-H1-C7k" id="GTn-Ha-0os"/>
                         <outlet property="submitButton" destination="Y7d-Ki-W5I" id="Y7T-mr-kzH"/>
+                        <outlet property="viewBottomConstraint" destination="dmg-tP-tty" id="Eo1-Tp-t4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lna-HN-p5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

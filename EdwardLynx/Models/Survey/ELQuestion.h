@@ -19,8 +19,8 @@
 @property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isFollowUpQuestion;
 @property (nonatomic) NSString *text;
-@property (nonatomic) NSString<Optional> *value;
 @property (nonatomic) ELAnswer *answer;
+@property (nonatomic) NSString<Optional> *value;
 
 @property (nonatomic) CGFloat heightForQuestionView;
 

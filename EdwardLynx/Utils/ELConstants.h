@@ -227,5 +227,6 @@ extern NSInteger const kELAPINoContentStatusCode;
 extern NSInteger const kELAPIBadRequestStatusCode;
 extern NSInteger const kELAPIUnauthorizedStatusCode;
 extern NSInteger const kELAPINotFoundStatusCode;
+extern NSInteger const kELAPIServerError;
 
 #endif /* ELConstants_h */
