@@ -17,7 +17,7 @@
 
 @interface ELSurveyCategoryPageViewController ()
 
-@property (nonatomic) BOOL isSurveyFinal;
+@property (nonatomic) BOOL isSurveyFinal, saved;
 @property (nonatomic) NSInteger pageIndex;
 @property (nonatomic) kELSurveyResponseType responseType;
 @property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
@@ -39,7 +39,7 @@
     
     // Initialization
     self.pageIndex = 0;
-    self.isSurveyFinal = NO;
+    self.isSurveyFinal = NO, self.saved = NO;
     self.mControllers = [[NSMutableArray alloc] init];
     
     if (!self.survey) {
@@ -64,6 +64,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (!self.saved) {
+        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
+                                                                            @"final": @(NO),
+                                                                            @"answers": [self formItems]}];
+    }
 }
 
 #pragma mark - Protocol Methods (UIPageControl)
@@ -105,6 +115,9 @@
     UIColor *color = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
     // Buttons
+    self.draftsButton.hidden = YES;
+    self.submitButton.hidden = YES;
+    
     [self.prevButton setTintColor:color];
     [self.prevButton setImage:[FontAwesome imageWithIcon:fa_chevron_left
                                                iconColor:color
@@ -144,6 +157,8 @@
             break;
         case kELSurveyResponseTypeQuestions:
             self.title = [self.survey.name uppercaseString];
+            self.draftsButton.hidden = NO;
+            self.submitButton.hidden = NO;
             
             for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
                 ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil];
@@ -151,13 +166,11 @@
                 [mCategories addObject:category];
                 
                 for (ELQuestion *question in category.questions) {
-                    [AppSingleton.mSurveyFormDict setObject:@{@"question": question.text,  // @(question.objectId)
+                    [AppSingleton.mSurveyFormDict setObject:@{@"question": @(question.objectId),
                                                               @"answer": !question.value ? @"" : question.value}
                                                      forKey:@(question.objectId)];
                 }
             }
-            
-            NSLog(@"%@", AppSingleton.mSurveyFormDict);
             
             self.items = [mCategories copy];
             self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
@@ -169,7 +182,6 @@
             [self setupPageController:self.pageController atView:self.pageView];
             
             [self setupNavigators];
-            [self toggleSubmitButtonState];
             [self.indicatorView stopAnimating];
             
             break;
@@ -181,6 +193,7 @@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    self.draftsButton.enabled = YES;
     self.submitButton.enabled = YES;
     
     [ELUtils presentToastAtView:self.view
@@ -192,6 +205,8 @@
     NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
+    self.saved = YES;
+    self.draftsButton.enabled = YES;
     self.submitButton.enabled = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
@@ -250,36 +265,42 @@
     
     self.pageControl.currentPage = self.pageIndex;
     
+    [self toggleViewSubmitButton:self.pageIndex == self.items.count - 1];
     [self.pageController setViewControllers:@[controller]
                                   direction:direction
                                    animated:YES
                                  completion:nil];
 }
 
+- (NSArray *)formItems {
+    NSMutableArray *mItems = [[NSMutableArray alloc] init];
+    
+    for (NSString *key in [AppSingleton.mSurveyFormDict allKeys]) {
+        [mItems addObject:AppSingleton.mSurveyFormDict[key]];
+    }
+    
+    return [mItems copy];
+}
+
 - (void)setupNavigators {
-    if (self.items.count > 1) {
+    BOOL isSinglePage = self.items.count <= 1;
+    
+    if (!isSinglePage) {
         self.pageControl.numberOfPages = self.items.count;
         self.pageControl.currentPage = 0;
     }
     
-    self.prevButton.hidden = self.items.count <= 1;
-    self.nextButton.hidden = self.items.count <= 1;
+    self.prevButton.hidden = isSinglePage;
+    self.nextButton.hidden = isSinglePage;
     
+    [self toggleViewSubmitButton:isSinglePage];
     [self.heightConstraint setConstant:self.items.count <= 1 ? 0 : 40];
     [self.navigatorView updateConstraints];
 }
 
-- (void)toggleSubmitButtonState {
-    NSString *bgColorKey = self.isSurveyFinal ? kELOrangeColor : kELGrayColor;
-    NSString *textColorKey = self.isSurveyFinal ? kELWhiteColor : kELDarkVioletColor;
-    NSString *titleIdentifier = self.isSurveyFinal ? @"kELSubmitButton" : @"kELSaveToDraftButton";
-    
-    [self.submitButton setHidden:NO];
-    [self.submitButton setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:bgColorKey]];
-    [self.submitButton setTitle:NSLocalizedString(titleIdentifier, nil)
-                       forState:UIControlStateNormal];
-    [self.submitButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:textColorKey]
-                            forState:UIControlStateNormal];
+- (void)toggleViewSubmitButton:(BOOL)toDisplay {
+    [self.viewBottomConstraint setConstant:toDisplay ? 60 : 10];
+    [self.draftsButton updateConstraints];
 }
 
 #pragma mark - Interface Builder Actions
@@ -302,14 +323,13 @@
     [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
-- (IBAction)onSubmitButtonClick:(id)sender {
-    NSMutableArray *mItems = [[NSMutableArray alloc] init];
-    
-    self.submitButton.enabled = NO;
+- (IBAction)onSubmitButtonClick:(UIButton *)sender {
+    sender.enabled = NO;
+    self.isSurveyFinal = [sender isEqual:self.submitButton];
     
     [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                         @"final": @(self.isSurveyFinal),
-                                                                        @"answers": [mItems copy]}];
+                                                                        @"answers": [self formItems]}];
 }
 
 @end
