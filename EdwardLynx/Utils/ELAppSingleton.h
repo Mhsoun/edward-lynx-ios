@@ -14,12 +14,11 @@
 
 @property (nonatomic) BOOL hasLoadedApplication;
 @property (nonatomic, strong) ELUser *user;
-@property (nonatomic, strong) NSArray *categories;
-@property (nonatomic, strong) NSArray *participants;
+@property (nonatomic, strong) NSArray *categories, *participants;
 @property (nonatomic, strong) NSString *searchText;
 @property (nonatomic, strong) NSDictionary *validationDict;
-@property (nonatomic, strong) NSDateFormatter *apiDateFormatter;
-@property (nonatomic, strong) NSDateFormatter *printDateFormatter;
+@property (nonatomic, strong) NSMutableDictionary *mSurveyFormDict;
+@property (nonatomic, strong) NSDateFormatter *apiDateFormatter, *printDateFormatter;
 @property (nonatomic, strong) AFURLSessionManager *manager;
 
 + (instancetype)sharedInstance;

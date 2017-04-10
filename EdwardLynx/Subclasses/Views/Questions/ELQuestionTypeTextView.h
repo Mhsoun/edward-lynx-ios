@@ -8,7 +8,7 @@
 
 #import "ELBaseQuestionTypeView.h"
 
-@interface ELQuestionTypeTextView : ELBaseQuestionTypeView
+@interface ELQuestionTypeTextView : ELBaseQuestionTypeView<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 

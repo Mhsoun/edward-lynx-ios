@@ -46,6 +46,8 @@
         
         if (!_question.optional) {
             data.selected = !_question.value ? i == 0 : [_question.value isEqualToString:data.identifier];
+        } else {
+            data.selected = NO;
         }
         
         data.labelText = option.shortDescription;
@@ -67,6 +69,12 @@
     
     [self.group create];
     [self.radioGroupView addSubview:self.group];
+    
+    // Notification to handle selection changes
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onSelectionUpdate:)
+                                                 name:SELECTED_RADIO_BUTTON_CHANGED
+                                               object:self.group];
 }
 
 #pragma mark - Public Methods
@@ -96,6 +104,13 @@
     }
     
     [self setupRadioGroup];
+}
+
+#pragma mark - Notifications
+
+- (void)onSelectionUpdate:(NSNotification *)notification {
+    [AppSingleton.mSurveyFormDict setObject:[self formValues]
+                                     forKey:@(_question.objectId)];
 }
 
 @end

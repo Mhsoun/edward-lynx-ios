@@ -17,7 +17,7 @@
 
 @property (nonatomic) int64_t order;
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSArray<ELQuestion> *questions;
+@property (nonatomic) NSString<Optional> *shortDescription;
 
 @end

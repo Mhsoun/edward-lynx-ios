@@ -146,8 +146,18 @@
             self.title = [self.survey.name uppercaseString];
             
             for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
-                [mCategories addObject:[[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil]];
+                ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil];
+                
+                [mCategories addObject:category];
+                
+                for (ELQuestion *question in category.questions) {
+                    [AppSingleton.mSurveyFormDict setObject:@{@"question": question.text,  // @(question.objectId)
+                                                              @"answer": !question.value ? @"" : question.value}
+                                                     forKey:@(question.objectId)];
+                }
             }
+            
+            NSLog(@"%@", AppSingleton.mSurveyFormDict);
             
             self.items = [mCategories copy];
             self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
@@ -183,6 +193,7 @@
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
     self.submitButton.enabled = YES;
+    AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
@@ -263,13 +274,12 @@
     NSString *textColorKey = self.isSurveyFinal ? kELWhiteColor : kELDarkVioletColor;
     NSString *titleIdentifier = self.isSurveyFinal ? @"kELSubmitButton" : @"kELSaveToDraftButton";
     
+    [self.submitButton setHidden:NO];
     [self.submitButton setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:bgColorKey]];
     [self.submitButton setTitle:NSLocalizedString(titleIdentifier, nil)
                        forState:UIControlStateNormal];
     [self.submitButton setTitleColor:[[RNThemeManager sharedManager] colorForKey:textColorKey]
                             forState:UIControlStateNormal];
-    
-    self.submitButton.hidden = NO;
 }
 
 #pragma mark - Interface Builder Actions
@@ -293,28 +303,13 @@
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
-    NSDictionary *formDict;
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
     self.submitButton.enabled = NO;
     
-    for (ELSurveyDetailsViewController *controller in self.mControllers) {
-        for (NSDictionary *answerDict in [controller formValues]) {
-            [mItems addObject:answerDict];
-        }
-    }
-    
-    formDict = @{@"key": self.survey.key,
-                 @"final": @(self.isSurveyFinal),
-                 @"answers": [mItems copy]};
-    
-    if (!self.isSurveyFinal) {
-        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
-    } else {
-        if (mItems.count == self.items.count && self.survey.key) {
-            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
-        }
-    }
+    [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
+                                                                        @"final": @(self.isSurveyFinal),
+                                                                        @"answers": [mItems copy]}];
 }
 
 @end
