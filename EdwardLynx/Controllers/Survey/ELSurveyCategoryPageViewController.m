@@ -117,6 +117,9 @@
                                                 iconSize:iconSize
                                                imageSize:CGSizeMake(iconSize, iconSize)]
                      forState:UIControlStateNormal];
+    
+    // Page Control
+    self.pageControl.currentPageIndicatorTintColor = color;
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -212,7 +215,7 @@
     pageController.view.frame = view.bounds;
     pageController.view.backgroundColor = [UIColor clearColor];
     
-    [pageController setViewControllers:[self.mControllers copy]
+    [pageController setViewControllers:@[self.mControllers[0]]
                              direction:UIPageViewControllerNavigationDirectionForward
                               animated:NO
                             completion:nil];
@@ -233,6 +236,8 @@
     }
     
     controller = [self viewControllerAtIndex:self.pageIndex];
+    
+    self.pageControl.currentPage = self.pageIndex;
     
     [self.pageController setViewControllers:@[controller]
                                   direction:direction

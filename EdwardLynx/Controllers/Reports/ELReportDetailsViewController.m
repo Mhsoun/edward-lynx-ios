@@ -256,19 +256,33 @@ static CGFloat const kELBarHeight = 40;
 }
 
 - (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
+    double barSpace,
+           groupSpace,
+           groupWidth;
+    NSInteger count;
     BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
     NSDictionary *infoDict = [self chartInfoFromData:answers];
     
-    chartData = [[BarChartData alloc] initWithDataSet:[self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
-                                                                            items:infoDict[@"entries"]
-                                                                         colorKey:self.typeColorKey]];
+    barSpace = 0.0f, groupSpace = 0.15f;
+    count = [infoDict[@"labels"] count];
+    
+    chartDataSet = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
+                                         items:infoDict[@"entries"]
+                                      colorKey:self.typeColorKey];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
     
+    groupWidth = [chartData groupWidthWithGroupSpace:groupSpace barSpace:barSpace];
+    
     barChart.legend.enabled = NO;
+    barChart.xAxis.labelCount = count;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
     
+    [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 

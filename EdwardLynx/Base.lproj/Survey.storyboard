@@ -130,7 +130,19 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7V3-ui-vgo">
                                 <rect key="frame" x="16" y="30" width="343" height="577"/>
+                                <subviews>
+                                    <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-jk-UgG">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="577"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8Po-jk-UgG" firstAttribute="width" secondItem="7V3-ui-vgo" secondAttribute="width" id="BLs-Xm-Hod"/>
+                                    <constraint firstItem="8Po-jk-UgG" firstAttribute="centerY" secondItem="7V3-ui-vgo" secondAttribute="centerY" id="MXR-M1-9EA"/>
+                                    <constraint firstItem="8Po-jk-UgG" firstAttribute="centerX" secondItem="7V3-ui-vgo" secondAttribute="centerX" id="YF3-ey-7Zp"/>
+                                    <constraint firstItem="8Po-jk-UgG" firstAttribute="height" secondItem="7V3-ui-vgo" secondAttribute="height" id="t5A-cZ-ECU"/>
+                                </constraints>
                             </view>
                             <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
                                 <rect key="frame" x="16" y="617" width="343" height="40"/>
@@ -166,7 +178,7 @@
                                         <rect key="frame" x="10" y="0.0" width="323" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-yK-667">
                                         <rect key="frame" x="343" y="0.0" width="0.0" height="0.0"/>
@@ -194,10 +206,6 @@
                                     <constraint firstAttribute="bottom" secondItem="C7C-H1-C7k" secondAttribute="bottom" id="zbq-Ld-Y2Y"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-jk-UgG">
-                                <rect key="frame" x="16" y="30" width="343" height="577"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -205,19 +213,15 @@
                             <constraint firstItem="OYu-hV-dci" firstAttribute="trailing" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="9gh-eH-4tR"/>
                             <constraint firstItem="W51-jZ-i0H" firstAttribute="top" secondItem="Y7d-Ki-W5I" secondAttribute="bottom" constant="10" id="AjZ-gk-4YC"/>
                             <constraint firstItem="OYu-hV-dci" firstAttribute="top" secondItem="7V3-ui-vgo" secondAttribute="bottom" id="Ca2-8S-8qg"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="centerX" secondItem="7V3-ui-vgo" secondAttribute="centerX" id="FrU-rN-XyC"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerY" secondItem="DCb-8E-7PX" secondAttribute="centerY" id="JnG-uq-8p7"/>
                             <constraint firstItem="OYu-hV-dci" firstAttribute="leading" secondItem="7V3-ui-vgo" secondAttribute="leading" id="K4g-Yr-MwD"/>
                             <constraint firstItem="Y7d-Ki-W5I" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="LOE-Zh-IDR"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="height" secondItem="DCb-8E-7PX" secondAttribute="height" id="Lqf-wH-3U3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="NqD-fd-wYL"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="height" secondItem="7V3-ui-vgo" secondAttribute="height" id="Qe6-R3-ziW"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="width" secondItem="7V3-ui-vgo" secondAttribute="width" id="aZc-Db-fJ6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y7d-Ki-W5I" secondAttribute="trailing" id="ayq-BC-UXl"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="width" secondItem="DCb-8E-7PX" secondAttribute="width" id="ckG-Z3-Uv3"/>
                             <constraint firstItem="Y7d-Ki-W5I" firstAttribute="top" secondItem="OYu-hV-dci" secondAttribute="bottom" constant="10" id="eak-Zi-QXs"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerX" secondItem="DCb-8E-7PX" secondAttribute="centerX" id="jWY-KG-75U"/>
-                            <constraint firstItem="8Po-jk-UgG" firstAttribute="centerY" secondItem="7V3-ui-vgo" secondAttribute="centerY" id="qgB-b9-9F5"/>
                             <constraint firstItem="7V3-ui-vgo" firstAttribute="top" secondItem="3K2-7N-VBZ" secondAttribute="bottom" constant="10" id="s7B-UQ-x5N"/>
                         </constraints>
                     </view>
