@@ -366,7 +366,14 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {
-    [view makeToast:message duration:2.0 position:CSToastPositionBottom];
+    NSTimeInterval duration = 1.5;
+    
+    [view makeToast:message duration:duration position:CSToastPositionBottom];
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)((duration + 0.5) * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        completion();
+    });
 }
 
 + (ELQuestion *)questionTemplateForAnswerType:(kELAnswerType)answerType {
