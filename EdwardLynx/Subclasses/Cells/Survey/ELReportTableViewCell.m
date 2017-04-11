@@ -49,8 +49,8 @@
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"color": kELLynxColor,
                                      @"invited": [NSString stringWithFormat:@"%@/%@",
-                                                  @(0),
-                                                  @(42)]}];
+                                                  @(survey.answered),
+                                                  @(survey.invited)]}];
     }
 }
 

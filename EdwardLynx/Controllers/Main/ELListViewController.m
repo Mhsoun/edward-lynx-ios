@@ -260,7 +260,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Notifications
 
 - (void)onSearchTextUpdate:(NSNotification *)notification {
-    [self.dataSource updateTableViewData:[self filterBySearchText:AppSingleton.searchText]];
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[self filterBySearchText:AppSingleton.searchText]];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Private Methods
