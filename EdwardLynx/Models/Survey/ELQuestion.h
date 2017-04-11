@@ -18,10 +18,10 @@
 @property (nonatomic) BOOL isNA;
 @property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isFollowUpQuestion;
-@property (nonatomic) NSString *text;
 @property (nonatomic) ELAnswer *answer;
 @property (nonatomic) NSString<Optional> *value;
 
+@property (nonatomic) NSString *text;
 @property (nonatomic) CGFloat heightForQuestionView;
 
 @end

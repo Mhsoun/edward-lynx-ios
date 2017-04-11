@@ -22,6 +22,6 @@ static NSString * const kELDashboardActionTypeCreateFeedback = @"CreateInstantFe
 
 @property (nonatomic, strong) id<ELDashboardViewDelegate> delegate;
 
-- (void)setupHeaderContentForController:(__kindof ELBaseViewController *)controller;
+- (void)setupHeaderContent:(NSArray *)contents controller:(__kindof ELBaseViewController *)controller;
 
 @end

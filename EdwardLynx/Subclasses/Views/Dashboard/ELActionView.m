@@ -59,9 +59,11 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
+    NSNumber *count = contentDict[@"count"];
+    
     // Content
     self.titleLabel.text = [contentDict[@"title"] uppercaseString];
-    self.countLabel.text = [contentDict[@"count"] stringValue];
+    self.countLabel.text = [count integerValue] > 99 ? @"99+" : [count stringValue];
     
     // UI
     self.bgView.layer.cornerRadius = 5.0f;

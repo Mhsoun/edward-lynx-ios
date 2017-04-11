@@ -11,7 +11,7 @@
 @implementation ELDashboardData
 
 - (NSDictionary *)toDictionary {
-    return @{@"": @[@""],
+    return @{@"": @[self.answerableCount, @(0), @(0), @(0)],
              @"REMINDERS": self.reminders,
              @"DEVELOPMENT PLAN": self.developmentPlans};
 }

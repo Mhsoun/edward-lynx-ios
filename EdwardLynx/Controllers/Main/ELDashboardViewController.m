@@ -90,7 +90,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     NSString *key = [[self.dashboardData toDictionary] allKeys][section];
     NSArray *items = [self.dashboardData toDictionary][key];
     
-    return items.count;
+    return section == 0 ? 1 : items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,7 +105,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                                                forIndexPath:indexPath];
         
         [cell setDelegate:self];
-        [cell setupHeaderContentForController:self];
+        [cell setupHeaderContent:items controller:self];
         
         return cell;
     } else if (indexPath.section == 1) {

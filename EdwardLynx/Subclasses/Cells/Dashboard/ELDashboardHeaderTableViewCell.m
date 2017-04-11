@@ -39,7 +39,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setupHeaderContentForController:(__kindof ELBaseViewController *)controller {
+- (void)setupHeaderContent:(NSArray *)contents controller:(__kindof ELBaseViewController *)controller {
     ELActionView *actionView;
     ELShortcutView *shortcutView;
     
@@ -73,7 +73,7 @@
     [self.surveyView addSubview:shortcutView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemAnswer", nil),
-                                                         @"count": @0,
+                                                         @"count": contents[0],
                                                          @"segue": @"Answer"}];
     actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
@@ -81,7 +81,7 @@
     [self.answerActionView addSubview:actionView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemResults", nil),
-                                                         @"count": @0,
+                                                         @"count": contents[1],
                                                          @"segue": kELDashboardActionTypeReport}];
     actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
@@ -89,14 +89,14 @@
     [self.resultsActionView addSubview:actionView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemInvite", nil),
-                                                         @"count": @0}];
+                                                         @"count": contents[2]}];
 //    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.inviteActionView addSubview:actionView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemCreate", nil),
-                                                         @"count": @0,
+                                                         @"count": contents[3],
                                                          @"segue": @"Create"}];
     actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;

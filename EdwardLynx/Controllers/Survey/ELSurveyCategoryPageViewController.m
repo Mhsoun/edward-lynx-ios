@@ -74,6 +74,8 @@
                                                                             @"final": @(NO),
                                                                             @"answers": [self formItems]}];
     }
+    
+    AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
 }
 
 #pragma mark - Protocol Methods (UIPageControl)
