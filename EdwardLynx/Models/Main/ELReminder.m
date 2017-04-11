@@ -15,9 +15,19 @@
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"dueDate": @"due",
                                                                   @"shortDescription": @"description"}];
 }
 
+- (kELReminderType)kELReminderTypeFromNSString:(NSString *)type {
+    if ([type isEqualToString:@"instant-feedback"]) {
+        return kELReminderTypeFeedback;
+    } else if ([type isEqualToString:@"survey"]) {
+        return kELReminderTypeSurvey;
+    } else {
+        return kELReminderTypeGoal;
+    }
+}
 
 - (NSMutableAttributedString<Ignore> *)attributedDueDateInfo {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:14],

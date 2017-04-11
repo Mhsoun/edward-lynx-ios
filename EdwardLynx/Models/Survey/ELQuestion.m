@@ -10,6 +10,7 @@
 
 @implementation ELQuestion
 
+@synthesize text = _text;
 @synthesize heightForQuestionView = _heightForQuestionView;
 
 + (JSONKeyMapper *)keyMapper {
@@ -18,6 +19,14 @@
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
     return [propertyName isEqualToString:@"heightForQuestionView"];
+}
+
+- (NSString *)text {
+    return self.optional ? [NSString stringWithFormat:@"%@ (Optional)", _text] : _text;
+}
+
+- (void)setText:(NSString *)text {
+    _text = text;
 }
 
 - (CGFloat)heightForQuestionView {

@@ -10,6 +10,7 @@
 
 @interface ELUsersAPIClient : ELAPIClient
 
+- (void)dashboardDataWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)loginWithUsername:(NSString *)username
                  password:(NSString *)password
                completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;

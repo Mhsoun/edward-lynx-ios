@@ -11,6 +11,8 @@
 
 @implementation ELUsersAPIClient
 
+#pragma mark - Private Methods
+
 - (void)authenticateWithBodyParams:(NSDictionary *)bodyParams
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSMutableURLRequest *request;
@@ -29,6 +31,18 @@
                     bodyParams:mBodyParamsDict];
     
     [self performAuthenticatedTask:NO
+                       withRequest:request
+                        completion:completion];
+}
+
+#pragma mark - Public Methods
+
+- (void)dashboardDataWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIUserDashboardEndpoint, kELAPIVersionNamespace];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
                        withRequest:request
                         completion:completion];
 }

@@ -11,5 +11,6 @@
 @interface ELDashboardViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELDashboardViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end

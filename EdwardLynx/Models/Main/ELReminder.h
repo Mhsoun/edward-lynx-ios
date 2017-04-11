@@ -10,15 +10,16 @@
 
 typedef NS_ENUM(NSInteger, kELReminderType) {
     kELReminderTypeFeedback,
-    kELReminderTypeGoal
+    kELReminderTypeGoal,
+    kELReminderTypeSurvey
 };
 
 @interface ELReminder : ELModel
 
 @property (nonatomic) kELReminderType type;
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *shortDescription;
-@property (nonatomic) NSDate *dueDate;
+@property (nonatomic) NSString<Optional> *name;
+@property (nonatomic) NSString<Optional> *shortDescription;
+@property (nonatomic) NSDate<Optional> *dueDate;
 
 @property (nonatomic) NSMutableAttributedString<Ignore> *attributedDueDateInfo;
 @property (nonatomic) NSString<Ignore> *dueDateInfo;

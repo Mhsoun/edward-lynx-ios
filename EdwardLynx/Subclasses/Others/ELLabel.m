@@ -16,7 +16,7 @@
     [super drawTextInRect:UIEdgeInsetsInsetRect(uiLabelRect, myLabelInsets)];
 }
 
-- (CGSize) intrinsicContentSize {
+- (CGSize)intrinsicContentSize {
     CGSize intrinsicSuperViewContentSize = [super intrinsicContentSize];
     
     intrinsicSuperViewContentSize.width += 10;

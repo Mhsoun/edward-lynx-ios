@@ -171,6 +171,7 @@ extern NSString * const kELAPISurveyQuestionsEndpoint;
 extern NSString * const kELAPISurveyResultsEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;
+extern NSString * const kELAPIUserDashboardEndpoint;
 extern NSString * const kELAPIUserDeviceEndpoint;
 extern NSString * const kELAPIUsersEndpoint;
 
