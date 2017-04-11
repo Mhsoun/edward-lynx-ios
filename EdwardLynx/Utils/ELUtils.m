@@ -366,7 +366,7 @@
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {
-    [view makeToast:message duration:3.0 position:CSToastPositionBottom];
+    [view makeToast:message duration:2.0 position:CSToastPositionBottom];
 }
 
 + (ELQuestion *)questionTemplateForAnswerType:(kELAnswerType)answerType {

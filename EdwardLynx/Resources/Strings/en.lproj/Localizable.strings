@@ -35,7 +35,7 @@
 
 "kELErrorDetailsMessage" = "Please try again later.";
 
-/* Dashboard */
+/* Dashboard/Menu */
 
 "kELDashboardAddNew" = "Answer New";
 "kELDashboardCreateNew" = "Create New";
@@ -50,10 +50,11 @@
 "kELDashboardItemInvite" = "Invite";
 "kELDashboardItemCreate" = "Create";
 
-"kELDashboardItemDashboard" = "Dashboard";
-"kELDashboardItemProfile" = "Profile";
-"kELDashboardItemSettings" = "Settings";
-"kELDashboardItemSurveys" = "Surveys";
+"kELMenuItemDashboard" = "Dashboard";
+"kELMenuItemDevelopmentPlan" = "Development Plans";
+"kELMenuItemProfile" = "Profile";
+"kELMenuItemSettings" = "Settings";
+"kELMenuItemSurveys" = "Surveys";
 
 /* Development Plans */
 
@@ -67,8 +68,15 @@
 
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated";
 
+"kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";
+"kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";
+
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
+
+"kELDevelopmentPlanGoalTimestampPlural" = "%@ days ago";
+"kELDevelopmentPlanGoalTimestampSingular" = "%@ day ago";
+"kELDevelopmentPlanGoalTimestampToday" = "Today";
 
 "kELDevelopmentPlanTitle" = "Development Plan";
 

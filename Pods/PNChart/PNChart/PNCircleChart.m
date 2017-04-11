@@ -215,6 +215,11 @@ displayCountingLabel:(BOOL)displayCountingLabel
         self.gradientMask.strokeEnd = _circle.strokeEnd;
     }
     
+    // FIX Animation issue
+    // https://github.com/kevinzhow/PNChart/issues/321
+    
+    _circle.strokeEnd = [current floatValue] / [total floatValue];
+    
     // Add animation
     if (self.displayAnimated) {
         CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -237,7 +242,6 @@ displayCountingLabel:(BOOL)displayCountingLabel
         [self.countingLabel countFrom:totalPercentageValue to:totalPercentageValue withDuration:self.duration];
     }
     
-    _circle.strokeEnd   = [current floatValue] / [total floatValue];
     _current = current;
     _total = total;
 }

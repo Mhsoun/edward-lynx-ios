@@ -189,31 +189,31 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     NSDictionary *detailDict;
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDashboard", nil),
+    detailDict = @{@"name": NSLocalizedString(@"kELMenuItemDashboard", nil),
                    @"segueIdentifier": @"Dashboard",
                    @"iconIdentifier": fa_bullseye};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemProfile", nil),
+    detailDict = @{@"name": NSLocalizedString(@"kELMenuItemProfile", nil),
                    @"segueIdentifier": @"Profile",
                    @"iconIdentifier": fa_user_circle_o};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemSurveys", nil),
+    detailDict = @{@"name": NSLocalizedString(@"kELMenuItemSurveys", nil),
                    @"segueIdentifier": @"Survey",
                    @"iconIdentifier": fa_paper_plane};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
+    detailDict = @{@"name": NSLocalizedString(@"kELMenuItemDevelopmentPlan", nil),
                    @"segueIdentifier": @"DevelopmentPlan",
                    @"iconIdentifier": fa_briefcase};
     
     [mItems addObject:[[ELMenuItem alloc] initWithDictionary:detailDict error:nil]];
     
-    detailDict = @{@"name": NSLocalizedString(@"kELDashboardItemSettings", nil),
+    detailDict = @{@"name": NSLocalizedString(@"kELMenuItemSettings", nil),
                    @"segueIdentifier": @"Settings",
                    @"iconIdentifier": fa_gear};
     
