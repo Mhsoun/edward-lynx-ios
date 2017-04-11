@@ -30,7 +30,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 @interface ELDashboardViewController ()
 
 @property (nonatomic, strong) id selectedObject;
-@property (nonatomic, strong) NSDictionary *itemsDict;
 @property (nonatomic, strong) ELDashboardData *dashboardData;
 
 @end
@@ -131,8 +130,8 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
     ELDevelopmentPlanDetailsViewController *controller;
-    NSString *key = [self.itemsDict allKeys][indexPath.section];
-    NSArray *items = self.itemsDict[key];
+    NSString *key = [[self.dashboardData toDictionary] allKeys][indexPath.section];
+    NSArray *items = [self.dashboardData toDictionary][key];
     
     value = items[indexPath.row];
     
@@ -164,7 +163,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section != self.itemsDict.count - 1 ? 0 : kELAdsViewHeight;
+    return section != [self.dashboardData toDictionary].count - 1 ? 0 : kELAdsViewHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -174,7 +173,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UILabel *label;
     
-    if (section != self.itemsDict.count - 1) {
+    if (section != [self.dashboardData toDictionary].count - 1) {
         return nil;
     }
     

@@ -9,6 +9,7 @@
 #import "ELListViewController.h"
 #import "ELDataProvider.h"
 #import "ELDevelopmentPlan.h"
+#import "ELDevelopmentPlanTableViewCell.h"
 #import "ELFilterSortItem.h"
 #import "ELInstantFeedback.h"
 #import "ELListViewManager.h"
@@ -120,6 +121,31 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 #pragma mark - Protocol Methods (UITableView)
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.provider numberOfRows];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value;
+    __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    
+    value = [self.provider rowObjectAtIndexPath:indexPath];
+    
+    if ([self.cellIdentifier isEqualToString:kELDevPlanCellIdentifier]) {
+        ELDevelopmentPlanTableViewCell *devPlanCell = (ELDevelopmentPlanTableViewCell *)cell;
+        
+        devPlanCell.tableView = self.tableView;
+        
+        [devPlanCell configure:value atIndexPath:indexPath];
+        
+        return devPlanCell;
+    }
+    
+    [cell configure:value atIndexPath:indexPath];
+    
+    return cell;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.delegate onRowSelection:[self.provider rowObjectAtIndexPath:indexPath]];
 }
@@ -218,9 +244,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     [self.dataSource dataSetEmptyText:emptyMessage description:@""];
     [self.indicatorView stopAnimating];
-    [self.tableView setScrollEnabled:YES];
-    [self.tableView setDelegate:self];
-    [self.tableView setHidden:NO];
+    
+    self.tableView.hidden = NO;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.scrollEnabled = YES;
+    
     [self.tableView reloadData];
     
     if (self.refreshControl) {
@@ -318,7 +347,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)loadListByType {
     switch (self.listType) {
         case kELListTypeSurveys:
-            [self setCellIdentifier:kELSurveyCellIdentifier];
+            self.cellIdentifier = kELSurveyCellIdentifier;
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
             
@@ -326,18 +355,18 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             break;
         case kELListTypeReports:
-            [self setCellIdentifier:kELReportCellIdentifier];
+            self.cellIdentifier = kELReportCellIdentifier;
+            
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
-            
             [self.viewManager processRetrievalOfReports];
             
             break;
         case kELListTypeDevPlan:
-            [self setCellIdentifier:kELDevPlanCellIdentifier];
+            self.cellIdentifier = kELDevPlanCellIdentifier;
+            
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
-            
             [self.viewManager processRetrievalOfDevelopmentPlans];
             
             break;

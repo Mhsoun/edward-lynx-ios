@@ -66,8 +66,9 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoalActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELGoalAction *action = self.goal.actions[indexPath.row];
+    NSString *colorKey = action.checked ? kELGreenColor : kELWhiteColor;
     UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
-                                          iconColor:[[RNThemeManager sharedManager] colorForKey:action.checked ? kELGreenColor : kELWhiteColor]
+                                          iconColor:[[RNThemeManager sharedManager] colorForKey:colorKey]
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
@@ -117,7 +118,8 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             if ([[self.goal progressDetails][@"value"] floatValue] == 1.0f) {
                 NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
                                               @"header": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteHeader", nil),
-                                              @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil)};
+                                              @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
+                                              @"image": @"Ribbon"};
                 
                 // Display popup
                 [ELUtils displayPopupForViewController:visibleController

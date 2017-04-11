@@ -52,6 +52,7 @@
     self.titleLabel.text = [self.detailsDict[@"title"] uppercaseString];
     self.headerLabel.text = self.detailsDict[@"header"];
     self.detailLabel.text = self.detailsDict[@"details"];
+    self.iconImageView.image = [UIImage imageNamed:self.detailsDict[@"image"]];
 }
 
 #pragma mark - Interface Builder Actions

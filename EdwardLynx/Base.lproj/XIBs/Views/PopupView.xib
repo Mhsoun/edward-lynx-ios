@@ -23,6 +23,7 @@
             <connections>
                 <outlet property="detailLabel" destination="twP-gh-Qe5" id="AYt-8r-ycc"/>
                 <outlet property="headerLabel" destination="4ZE-Lf-Xwh" id="4bh-im-06M"/>
+                <outlet property="iconImageView" destination="2jo-MS-n1I" id="8nq-FR-1T0"/>
                 <outlet property="titleLabel" destination="6C0-WM-ye4" id="DQ1-a7-KQs"/>
                 <outlet property="view" destination="iN0-l3-epB" id="y7d-tu-yxW"/>
             </connections>
