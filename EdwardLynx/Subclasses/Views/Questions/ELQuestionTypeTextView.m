@@ -34,12 +34,9 @@
 #pragma mark - Public Methods
 
 - (NSDictionary *)formValues {
-//    if (!_question.optional && self.textView.text.length == 0) {
-//        return nil;
-//    }
-    
     return @{@"question": @(self.question.objectId),
-             @"answer": self.textView.text};
+             @"type": @(self.question.answer.type),
+             @"value": self.textView.text};
 }
 
 #pragma mark - Getter/Setter Methods

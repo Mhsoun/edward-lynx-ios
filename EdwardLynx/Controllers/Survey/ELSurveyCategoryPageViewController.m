@@ -169,7 +169,8 @@
                 
                 for (ELQuestion *question in category.questions) {
                     [AppSingleton.mSurveyFormDict setObject:@{@"question": @(question.objectId),
-                                                              @"answer": !question.value ? @"" : question.value}
+                                                              @"value": !question.value ? @"" : question.value,
+                                                              @"type": @(question.answer.type)}
                                                      forKey:@(question.objectId)];
                 }
             }
