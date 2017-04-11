@@ -66,8 +66,9 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoalActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELGoalAction *action = self.goal.actions[indexPath.row];
+    NSString *colorKey = action.checked ? kELGreenColor : kELWhiteColor;
     UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
-                                          iconColor:[[RNThemeManager sharedManager] colorForKey:action.checked ? kELGreenColor : kELWhiteColor]
+                                          iconColor:[[RNThemeManager sharedManager] colorForKey:colorKey]
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
@@ -89,12 +90,12 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         
-        
         goalAction.checked = YES;
         
         [client updateGoalActionWithParams:[goalAction apiPatchDictionary]
                                       link:goalAction.urlLink
                                 completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+            UIImage *checkIcon;
             UITableViewCell *cell;
             
             if (error) {
@@ -103,21 +104,24 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             
             cell = [tableView cellForRowAtIndexPath:indexPath];
             goalAction.checked = YES;
+            checkIcon = [FontAwesome imageWithIcon:fa_check_circle
+                                         iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                          iconSize:kELIconSize
+                                         imageSize:CGSizeMake(kELIconSize, kELIconSize)];
             
-            [cell setAccessoryView:[[UIImageView alloc] initWithImage:[FontAwesome imageWithIcon:fa_check_circle
-                                                                                       iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
-                                                                                        iconSize:kELIconSize
-                                                                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)]]];
+            [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
             [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
             
             [self.goal setActions:[mActions copy]];
-            [self updateContent];
+            [self.delegate onGoalUpdate:self.goal];
             
             if ([[self.goal progressDetails][@"value"] floatValue] == 1.0f) {
                 NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
-                                              @"header": @"Goal Completed!",
-                                              @"details": @"You've got the right mix of dedication and enthusiasm. Keep it up!"};
+                                              @"header": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteHeader", nil),
+                                              @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
+                                              @"image": @"Ribbon"};
                 
+                // Display popup
                 [ELUtils displayPopupForViewController:visibleController
                                                   type:kELPopupTypeMessage
                                                details:detailsDict];
@@ -157,13 +161,16 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (void)updateContent {
     NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.createdAt];
     NSString *colorKey = self.goal.progress == 1 ? kELOrangeColor : kELBlueColor;
+    NSString *stringKey = days == 1 ? @"kELDevelopmentPlanGoalTimestampSingular" : @"kELDevelopmentPlanGoalTimestampPlural";
     UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    
+    stringKey = days == 0 ? @"kELDevelopmentPlanGoalTimestampToday" : stringKey;
     
     // Content
     self.goalLabel.text = self.goal.title;
     self.completedLabel.text = [self.goal progressDetails][@"text"];
     self.completedLabel.textColor = color;
-    self.timestampLabel.text = [NSString stringWithFormat:@"%@ %@ ago", @(days), days == 1 ? @"day" : @"days"];
+    self.timestampLabel.text = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), @(days)];
     self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
                                                                           self.goal.shortDescription;
     

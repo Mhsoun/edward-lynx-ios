@@ -25,6 +25,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 @interface ELDevelopmentPlanDetailsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
@@ -39,6 +40,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.mGoals = [[NSMutableArray alloc] init];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
@@ -56,15 +58,17 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
     } else {
         self.title = [self.devPlan.name uppercaseString];
+        self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         
-        [self updateHeaderView];
+        [self setupChart];
         [self.indicatorView stopAnimating];
     }
 
     self.selectedIndex = -1;
     self.detailViewManager.delegate = self;
     
+    // Table View
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -91,7 +95,9 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     goal.createdAt = self.devPlan.createdAt;
     goal.urlLink = [NSString stringWithFormat:@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId)];
     
-    [cell setDevPlanName:self.devPlan.name];
+    cell.delegate = self;
+    cell.devPlanName = self.devPlan.name;
+    
     [cell configure:goal atIndexPath:indexPath];
     [cell.tableView setHidden:self.selectedIndex != indexPath.row];
     
@@ -139,16 +145,30 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
+    self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
     self.title = [self.devPlan.name uppercaseString];
     
-    [self updateHeaderView];
+    [self setupChart];
     [self.indicatorView stopAnimating];
     [self.tableView reloadData];
 }
 
+#pragma mark - Protocol Methods (ELDevelopmentPlan)
+
+- (void)onGoalUpdate:(__kindof ELModel *)object {
+    ELGoal *goal = (ELGoal *)object;
+    
+    [self.mGoals replaceObjectAtIndex:self.selectedIndex withObject:goal];
+    [self.devPlan setGoals:[self.mGoals copy]];
+    [self.tableView reloadData];
+    
+    [self.chartLabel setAttributedText:self.devPlan.attributedProgressText];
+    [self.circleChart updateChartByCurrent:[NSNumber numberWithDouble:(self.devPlan.progress * 100)]];
+}
+
 #pragma mark - Private Methods
 
-- (void)updateHeaderView {
+- (void)setupChart {
     self.chartLabel.attributedText = self.devPlan.attributedProgressText;
     
     // Chart

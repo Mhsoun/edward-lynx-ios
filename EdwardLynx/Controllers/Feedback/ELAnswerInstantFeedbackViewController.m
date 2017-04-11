@@ -82,9 +82,14 @@
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    self.submitButton.enabled = YES;
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    // Back to the Feedbacks list
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELFeedbackAnswerSuccess", nil)
+                     completion:^{
+        self.submitButton.enabled = YES;
+                         
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Private Methods

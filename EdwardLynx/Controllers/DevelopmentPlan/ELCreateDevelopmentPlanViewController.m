@@ -44,11 +44,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // Initialization
     self.mGoals = [[NSMutableArray alloc] init];
+    self.nameTextField.delegate = self;
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
-    
-    self.nameTextField.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELCellHeight;
@@ -169,28 +168,19 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    self.doneButton.enabled = YES;
-    
-    // Back to the Dashboard
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                     instantiateInitialViewController]
-                           animated:YES
-                         completion:nil];
+        self.doneButton.enabled = YES;
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)
 
 - (void)onGoalAddition:(__kindof ELModel *)object {
-    NSInteger position = self.mGoals.count == 0 ? 0 : self.mGoals.count - 1;
-    ELGoal *goal = (ELGoal *)object;    
-    
-    goal.position = position;
-    
-    [self.mGoals insertObject:goal atIndex:position];
+    [self.mGoals addObject:(ELGoal *)object];
     [self.tableView reloadData];
     [self adjustScrollViewContentSize];
     
@@ -239,10 +229,14 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    if (self.mGoals.count == 1) {
+    self.doneButton.enabled = NO;
+    
+    if (self.mGoals.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
-                         completion:^{}];
+                         completion:^{
+                             self.doneButton.enabled = YES;
+                         }];
     }
     
     isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": nameGroup}];
@@ -250,11 +244,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
+        self.doneButton.enabled = YES;
+        
         return;
     }
-    
-    [self.doneButton setEnabled:NO];
-    [self.mGoals removeObjectAtIndex:self.mGoals.count - 1];
     
     for (ELGoal *goal in self.mGoals) [mGoals addObject:[goal toDictionary]];
     

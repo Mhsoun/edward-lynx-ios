@@ -69,7 +69,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if (!self.saved) {
+    if (!self.saved && self.survey.status != kELSurveyStatusCompleted) {
         [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                             @"final": @(NO),
                                                                             @"answers": [self formItems]}];
@@ -78,7 +78,24 @@
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
 }
 
-#pragma mark - Protocol Methods (UIPageControl)
+#pragma mark - Protocol Methods (UIPageViewController)
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    self.pageIndex = [(ELSurveyDetailsViewController *)[pendingViewControllers lastObject] index];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    BOOL isLastPage = self.pageIndex == self.items.count - 1;
+    
+    self.pageControl.currentPage = self.pageIndex;
+    self.prevButton.hidden = self.pageIndex == 0;
+    self.nextButton.hidden = isLastPage;
+    
+    [self toggleViewSubmitButton:isLastPage];
+}
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -169,7 +186,8 @@
                 
                 for (ELQuestion *question in category.questions) {
                     [AppSingleton.mSurveyFormDict setObject:@{@"question": @(question.objectId),
-                                                              @"answer": !question.value ? @"" : question.value}
+                                                              @"value": !question.value ? @"" : question.value,
+                                                              @"type": @(question.answer.type)}
                                                      forKey:@(question.objectId)];
                 }
             }
@@ -178,6 +196,7 @@
             self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                                   navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                                 options:nil];
+            self.pageController.delegate = self;
             
             [self addChildViewController:self.pageController];
             [self.pageView addSubview:self.pageController.view];
@@ -208,16 +227,17 @@
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
     self.saved = YES;
-    self.draftsButton.enabled = YES;
-    self.submitButton.enabled = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-                         [self.navigationController popViewControllerAnimated:YES];
-                     }];
+        self.draftsButton.enabled = YES;
+        self.submitButton.enabled = YES;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Public Methods
@@ -292,10 +312,22 @@
         self.pageControl.currentPage = 0;
     }
     
-    self.prevButton.hidden = isSinglePage;
+    self.prevButton.hidden = YES;
     self.nextButton.hidden = isSinglePage;
     
-    [self toggleViewSubmitButton:isSinglePage];
+    // Toggle constraints
+    if (self.survey.status == kELSurveyStatusCompleted) {
+        self.draftsButton.hidden = YES;
+        self.submitButton.hidden = YES;
+        self.superviewBottomConstraint.active = YES;
+    } else {
+        self.draftsButton.hidden = NO;
+        self.submitButton.hidden = NO;
+        self.superviewBottomConstraint.active = NO;
+        
+        [self toggleViewSubmitButton:isSinglePage];
+    }
+    
     [self.heightConstraint setConstant:self.items.count <= 1 ? 0 : 40];
     [self.navigatorView updateConstraints];
 }

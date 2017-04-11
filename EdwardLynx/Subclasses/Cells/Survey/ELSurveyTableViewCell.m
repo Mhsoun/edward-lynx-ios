@@ -40,8 +40,7 @@
         self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     } else {
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
-        kELSurveyStatus status = feedback.noOfParticipantsAnswered == 0 ? kELSurveyStatusOpen :
-                                                                          kELSurveyStatusPartial;
+        kELSurveyStatus status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusPartial;
         
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": @"Instant Feedback",

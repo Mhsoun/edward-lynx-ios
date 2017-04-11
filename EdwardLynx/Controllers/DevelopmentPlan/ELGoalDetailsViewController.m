@@ -128,13 +128,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                                                               @"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
+    [self.addGoalButton setTitle:buttonLabel forState:UIControlStateNormal];
     [self.addActionButton setImage:[FontAwesome imageWithIcon:fa_plus
                                                     iconColor:[UIColor blackColor]
                                                      iconSize:iconHeight
                                                     imageSize:CGSizeMake(iconHeight, iconHeight)]
                           forState:UIControlStateNormal];
-    [self.addGoalButton setTitle:[buttonLabel uppercaseString]
-                        forState:UIControlStateNormal];
     
     // Date Picker
     [self.datePicker setBackgroundColor:[UIColor clearColor]];    
@@ -275,6 +274,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                                                              errorLabel:self.nameErrorLabel];
     
     hasSelection = YES;
+    
+    [self.mActions removeObject:@""];
     
     if (self.mActions.count == 0) {
         [ELUtils presentToastAtView:self.view

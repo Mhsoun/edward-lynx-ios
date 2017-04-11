@@ -17,7 +17,9 @@
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
                                                                   @"shortDescription": @"description",
-                                                                  @"evaluationText": @"personsEvaluatedText"}];
+                                                                  @"evaluationText": @"personsEvaluatedText",
+                                                                  @"answered": @"stats.answered",
+                                                                  @"invited": @"stats.invited"}];
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {

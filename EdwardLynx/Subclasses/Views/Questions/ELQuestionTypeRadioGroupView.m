@@ -70,6 +70,9 @@
     [self.group create];
     [self.radioGroupView addSubview:self.group];
     
+    // Update global form values for corresponding question
+    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
+    
     // Notification to handle selection changes
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onSelectionUpdate:)
@@ -85,7 +88,8 @@
     }
     
     return @{@"question": @(_question.objectId),
-             @"answer": @([self.group.selectedRadioButton.data.identifier integerValue])};
+             @"type": @(_question.answer.type),
+             @"value": @([self.group.selectedRadioButton.data.identifier integerValue])};
 }
 
 #pragma mark - Getter/Setter Methods

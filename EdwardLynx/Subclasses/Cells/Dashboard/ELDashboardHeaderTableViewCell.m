@@ -112,7 +112,7 @@
                                                                  handler:^(UIAlertAction * _Nonnull action) {
                                                                      [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeFeedback];
                                                                  }];
-    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDashboardItemSurveys", nil)
+    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELMenuItemSurveys", nil)
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
                                                                    [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeLynx];

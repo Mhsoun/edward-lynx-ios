@@ -12,6 +12,8 @@
 
 @interface ELSurvey : ELSearcheableModel
 
+@property (nonatomic) NSInteger invited;
+@property (nonatomic) NSInteger answered;
 @property (nonatomic) kELSurveyType type;
 @property (nonatomic) kELSurveyStatus status;
 @property (nonatomic) NSString *name;

@@ -63,7 +63,9 @@
 
 @protocol ELDevelopmentPlanGoalDelegate <NSObject>
 
+@optional
 - (void)onGoalAddition:(__kindof ELModel *)object;
+
 - (void)onGoalUpdate:(__kindof ELModel *)object;
 
 @end

@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
     kELSurveyResponseTypeQuestions
 };
 
-@interface ELSurveyCategoryPageViewController : ELBaseDetailViewController<UIPageViewControllerDataSource, ELAPIPostResponseDelegate, ELAPIResponseDelegate>
+@interface ELSurveyCategoryPageViewController : ELBaseDetailViewController<UIPageViewControllerDataSource, UIPageViewControllerDelegate, ELAPIPostResponseDelegate, ELAPIResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 
@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
 @property (weak, nonatomic) IBOutlet UIView *navigatorView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *superviewBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *draftsButton;

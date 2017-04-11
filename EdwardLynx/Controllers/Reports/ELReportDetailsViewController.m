@@ -90,14 +90,17 @@ static CGFloat const kELBarHeight = 40;
         self.headerLabel.text = self.instantFeedback.question.text;
         self.dateLabel.text = self.instantFeedback.dateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(self.instantFeedback.participants.count),
-                               @(self.instantFeedback.noOfParticipantsAnswered)];
+                               @(self.instantFeedback.invited),
+                               @(self.instantFeedback.answered)];
     } else {
         self.survey = (ELSurvey *)self.selectedObject;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
         self.dateLabel.text = self.survey.startDateString;
+        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                               @(self.survey.invited),
+                               @(self.survey.answered)];
     }
 }
 

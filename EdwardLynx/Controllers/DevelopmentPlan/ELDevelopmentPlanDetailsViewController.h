@@ -10,7 +10,7 @@
 
 @class ELDevelopmentPlan;
 
-@interface ELDevelopmentPlanDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELDevelopmentPlanDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, ELDevelopmentPlanGoalDelegate>
 
 @property (strong, nonatomic) ELDevelopmentPlan *devPlan;
 

@@ -90,7 +90,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
     
-    label.font = [UIFont fontWithName:@"Lato-Regular" size:18];
+    label.font = [UIFont fontWithName:@"Lato-Medium" size:18];
     label.text = self.category.title;
     label.textColor = [UIColor whiteColor];
     label.lineBreakMode = NSLineBreakByClipping;
@@ -146,69 +146,6 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     }
     
     return [mAnswers copy];
-}
-
-#pragma mark - Interface Builder Actions
-
-- (IBAction)onSubmitButtonClick:(id)sender {
-    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELSurveySubmitHeaderMessage", nil)
-                                                                        message:NSLocalizedString(@"kELSurveySubmitDetailsMessage", nil)
-                                                                 preferredStyle:UIAlertControllerStyleAlert];
-    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        NSDictionary *formDict;
-        
-        self.isSurveyFinal = [action.title isEqualToString:NSLocalizedString(@"kELSubmitButton", nil)];
-        
-        // Retrieve answer from question views
-        for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
-            NSDictionary *formValues;
-            ELQuestionTableViewCell *cell;
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            
-            [self.tableView scrollToRowAtIndexPath:indexPath
-                                  atScrollPosition:UITableViewScrollPositionNone
-                                          animated:NO];
-            
-            cell = (ELQuestionTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-            formValues = [[ELUtils questionViewFromSuperview:cell.questionContainerView] formValues];
-            
-            if (!formValues) {
-                [ELUtils animateCell:cell];
-                
-                continue;
-            }
-            
-            [mAnswers addObject:formValues];
-        }
-        
-        formDict = @{@"key": self.survey.key,
-                     @"final": @(self.isSurveyFinal),
-                     @"answers": [mAnswers copy]};
-        
-        if (!self.isSurveyFinal) {
-            [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
-        } else {
-            // Validate first before submission
-            if (mAnswers.count == [self.tableView numberOfRowsInSection:0] && self.survey.key) {
-                [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:formDict];
-            }
-        }
-    };
-    
-    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELSaveToDraftButton", nil)
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:actionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELSubmitButton", nil)
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:actionBlock]];
-    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
-                                                   style:UIAlertActionStyleCancel
-                                                 handler:nil]];
-    
-    [self presentViewController:controller
-                       animated:YES
-                     completion:nil];
 }
 
 @end
