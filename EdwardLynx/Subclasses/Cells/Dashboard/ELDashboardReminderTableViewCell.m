@@ -37,7 +37,7 @@
     ELReminder *reminder = (ELReminder *)object;
     
     // Content
-    self.typeLabel.text = [reminder.title uppercaseString];
+    self.typeLabel.text = [reminder.name uppercaseString];
     self.detailLabel.text = reminder.shortDescription;
     self.dueLabel.attributedText = reminder.attributedDueDateInfo;
     
