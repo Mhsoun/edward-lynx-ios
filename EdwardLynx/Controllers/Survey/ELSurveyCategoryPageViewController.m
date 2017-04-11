@@ -69,7 +69,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if (!self.saved) {
+    if (!self.saved && self.survey.status != kELSurveyStatusCompleted) {
         [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                             @"final": @(NO),
                                                                             @"answers": [self formItems]}];
@@ -78,7 +78,20 @@
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
 }
 
-#pragma mark - Protocol Methods (UIPageControl)
+#pragma mark - Protocol Methods (UIPageViewController)
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    BOOL isLastPage;
+    NSInteger index = [(ELSurveyDetailsViewController *)[pendingViewControllers lastObject] index];
+    
+    isLastPage = index == self.items.count - 1;
+    
+    self.pageControl.currentPage = index;
+    self.prevButton.hidden = index == 0;
+    self.nextButton.hidden = isLastPage;
+    
+    [self toggleViewSubmitButton:isLastPage];
+}
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -179,6 +192,7 @@
             self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                                   navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                                 options:nil];
+            self.pageController.delegate = self;
             
             [self addChildViewController:self.pageController];
             [self.pageView addSubview:self.pageController.view];
@@ -293,7 +307,7 @@
         self.pageControl.currentPage = 0;
     }
     
-    self.prevButton.hidden = isSinglePage;
+    self.prevButton.hidden = YES;
     self.nextButton.hidden = isSinglePage;
     
     [self toggleViewSubmitButton:isSinglePage];

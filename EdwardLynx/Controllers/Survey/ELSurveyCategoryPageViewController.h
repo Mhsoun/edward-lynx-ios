@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
     kELSurveyResponseTypeQuestions
 };
 
-@interface ELSurveyCategoryPageViewController : ELBaseDetailViewController<UIPageViewControllerDataSource, ELAPIPostResponseDelegate, ELAPIResponseDelegate>
+@interface ELSurveyCategoryPageViewController : ELBaseDetailViewController<UIPageViewControllerDataSource, UIPageViewControllerDelegate, ELAPIPostResponseDelegate, ELAPIResponseDelegate>
 
 @property (strong, nonatomic) ELSurvey *survey;
 
