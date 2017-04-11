@@ -259,16 +259,15 @@ static CGFloat const kELBarHeight = 40;
 }
 
 - (void)setupAverageBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
-    double barSpace,
-           groupSpace,
-           groupWidth;
+    double barSpace, groupSpace;
     NSInteger count;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     NSDictionary *infoDict = [self chartInfoFromData:answers];
+    NSArray *labels = infoDict[@"labels"];
     
     barSpace = 0.0f, groupSpace = 0.15f;
-    count = [infoDict[@"labels"] count];
+    count = labels.count;
     
     chartDataSet = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
                                          items:infoDict[@"entries"]
@@ -278,12 +277,9 @@ static CGFloat const kELBarHeight = 40;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
-    
-    groupWidth = [chartData groupWidthWithGroupSpace:groupSpace barSpace:barSpace];
-    
     barChart.legend.enabled = NO;
     barChart.xAxis.labelCount = count;
-    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
     
     [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     [barChart animateWithYAxisDuration:kELAnimateInterval];
@@ -297,6 +293,7 @@ static CGFloat const kELBarHeight = 40;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet1, *chartDataSet2;
     NSDictionary *infoDict = [self chartInfoFromData:answers];
+    NSArray *labels = infoDict[@"labels"];
     
     barSpace = 0.0f, groupSpace = 0.15f;
     
@@ -313,7 +310,7 @@ static CGFloat const kELBarHeight = 40;
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
     chartData.barWidth = 0.4f;
     
-    count = [infoDict[@"labels"] count];
+    count = labels.count;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
@@ -327,7 +324,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.xAxis.axisMinimum = 0.0f;
     barChart.xAxis.centerAxisLabelsEnabled = YES;
     barChart.xAxis.labelCount = count;
-    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:infoDict[@"labels"]];
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
     
     [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     [barChart animateWithYAxisDuration:kELAnimateInterval];

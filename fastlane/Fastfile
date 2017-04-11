@@ -114,7 +114,7 @@ platform :ios do
     ) # Should this distribution notify your testers via email?
 
     # Clean directory
-    # clean_build_artifacts
+    clean_build_artifacts
 
     # for all available options run `fastlane action crashlytics`
 
@@ -157,7 +157,7 @@ platform :ios do
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
 
     # Clean directory
-    clean_build_artifacts
+    # clean_build_artifacts
 
     # Push version changes to repository
     # push_version_bump_to_repo(version_string(version, build))
