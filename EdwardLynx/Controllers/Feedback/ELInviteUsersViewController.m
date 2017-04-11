@@ -233,10 +233,14 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self clearSelection];
     
     // Back to the Dashboard
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                 instantiateInitialViewController]
-                       animated:YES
-                     completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELInviteUsersSuccess", nil)
+                     completion:^{
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                     instantiateInitialViewController]
+                           animated:YES
+                         completion:nil];
+    }];
 }
 
 #pragma mark - Private Methods

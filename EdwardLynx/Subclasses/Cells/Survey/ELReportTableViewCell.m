@@ -39,8 +39,8 @@
                                      @"type": @"Instant Feedback",
                                      @"color": kELFeedbackColor,
                                      @"invited": [NSString stringWithFormat:@"%@/%@",
-                                                  @(feedback.noOfParticipantsAnswered),
-                                                  @(feedback.participants.count)]}];
+                                                  @(feedback.answered),
+                                                  @(feedback.invited)]}];
     } else {
         ELSurvey *survey = (ELSurvey *)object;
         

@@ -17,6 +17,8 @@
 
 @property (nonatomic) BOOL anonymous;
 @property (nonatomic) BOOL closed;
+@property (nonatomic) NSInteger invited;
+@property (nonatomic) NSInteger answered;
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSString *lang;
 @property (nonatomic) ELQuestion *question;
@@ -24,7 +26,6 @@
 @property (nonatomic) NSArray<Optional> *shares;
 @property (nonatomic) NSArray<Optional, ELParticipant> *participants;
 
-@property (nonatomic) NSInteger noOfParticipantsAnswered;
 @property (nonatomic) NSString<Ignore> *dateString;
 
 @end

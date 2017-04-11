@@ -171,10 +171,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
-                         self.doneButton.enabled = YES;
-                         
-                         [self.navigationController popViewControllerAnimated:YES];
-                     }];
+        self.doneButton.enabled = YES;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlanGoal)

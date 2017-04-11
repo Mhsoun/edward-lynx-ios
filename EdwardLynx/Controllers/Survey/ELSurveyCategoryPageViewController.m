@@ -81,13 +81,17 @@
 #pragma mark - Protocol Methods (UIPageViewController)
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
-    BOOL isLastPage;
-    NSInteger index = [(ELSurveyDetailsViewController *)[pendingViewControllers lastObject] index];
+    self.pageIndex = [(ELSurveyDetailsViewController *)[pendingViewControllers lastObject] index];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    BOOL isLastPage = self.pageIndex == self.items.count - 1;
     
-    isLastPage = index == self.items.count - 1;
-    
-    self.pageControl.currentPage = index;
-    self.prevButton.hidden = index == 0;
+    self.pageControl.currentPage = self.pageIndex;
+    self.prevButton.hidden = self.pageIndex == 0;
     self.nextButton.hidden = isLastPage;
     
     [self toggleViewSubmitButton:isLastPage];
@@ -223,16 +227,17 @@
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
     self.saved = YES;
-    self.draftsButton.enabled = YES;
-    self.submitButton.enabled = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-                         [self.navigationController popViewControllerAnimated:YES];
-                     }];
+        self.draftsButton.enabled = YES;
+        self.submitButton.enabled = YES;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Public Methods
@@ -310,7 +315,19 @@
     self.prevButton.hidden = YES;
     self.nextButton.hidden = isSinglePage;
     
-    [self toggleViewSubmitButton:isSinglePage];
+    // Toggle constraints
+    if (self.survey.status == kELSurveyStatusCompleted) {
+        self.draftsButton.hidden = YES;
+        self.submitButton.hidden = YES;
+        self.superviewBottomConstraint.active = YES;
+    } else {
+        self.draftsButton.hidden = NO;
+        self.submitButton.hidden = NO;
+        self.superviewBottomConstraint.active = NO;
+        
+        [self toggleViewSubmitButton:isSinglePage];
+    }
+    
     [self.heightConstraint setConstant:self.items.count <= 1 ? 0 : 40];
     [self.navigatorView updateConstraints];
 }

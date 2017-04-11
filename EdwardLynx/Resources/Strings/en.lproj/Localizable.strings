@@ -33,7 +33,7 @@
 "kELDetailsPageLoadError" = "Failed to load details";
 "kELPostMethodError" = "Failed to process request";
 
-"kELErrorDetailsMessage" = "Please try again later.";
+"kELErrorDetailsMessage" = "Please try again later";
 
 /* Dashboard/Menu */
 
@@ -112,11 +112,13 @@
 "kELInviteUsersInfoMessage" = "You have to invite more than 3 people and more than 3 people have to answer before result can be viewed.";
 
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
-"kELInviteUsersRetrievalEmpty" = "No users.";
+"kELInviteUsersRetrievalEmpty" = "No users";
 
 "kELInviteUsersAddEmailHeaderMessage" = "Add user";
 "kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
+
+"kELInviteUsersSuccess" = "Successfully invited participants";
 
 "kELReportEmptyMessage" = "No Reports";
 
@@ -141,9 +143,6 @@
 /* Surveys */
 
 "kELSurveyEmptyMessage"  = "No Surveys";
-
-"kELSurveySubmitHeaderMessage" = "Submit Options";
-"kELSurveySubmitDetailsMessage" = "You have the option to save your answers partially or submit for completion.";
 
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
 "kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
