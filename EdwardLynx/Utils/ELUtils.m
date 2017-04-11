@@ -240,7 +240,7 @@
                               details:(NSDictionary *)detailsDict {
     ELPopupViewController *popup;
     ELListPopupViewController *listPopup;
-    CGPoint offset = CGPointMake(0, -100);
+    CGPoint offset = CGPointMake(0, -50);
     
     if (controller.popupViewController) {
         return;

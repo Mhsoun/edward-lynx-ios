@@ -28,7 +28,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RNThemeView">
             <rect key="frame" x="0.0" y="0.0" width="275" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -97,6 +97,9 @@
                 <constraint firstItem="pOw-HF-Gun" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xrw-is-wyh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="devPlanColor"/>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
     <resources>
