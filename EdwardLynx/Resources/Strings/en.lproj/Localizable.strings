@@ -144,6 +144,7 @@
 
 "kELSurveyEmptyMessage"  = "No Surveys";
 
+"kELSurveyCompleteHeader" = "Survey Completed!";
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
 "kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
 
