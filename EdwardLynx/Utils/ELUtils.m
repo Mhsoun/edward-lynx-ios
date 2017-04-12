@@ -258,8 +258,13 @@
             break;
         case kELPopupTypeList:
             listPopup = [[ELListPopupViewController alloc] initWithPreviousController:controller details:detailsDict];
-            listPopup.delegate = controller;
             listPopup.popupViewOffset = offset;
+            
+            if (detailsDict[@"delegate"]) {
+                listPopup.delegate = detailsDict[@"delegate"];
+            } else {
+                listPopup.delegate = controller;
+            }
             
             [controller presentPopupViewController:listPopup
                                           animated:YES

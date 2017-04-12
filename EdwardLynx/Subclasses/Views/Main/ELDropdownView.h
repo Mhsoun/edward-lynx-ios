@@ -10,7 +10,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELDropdownView : UIView
+@interface ELDropdownView : UIView<ELListPopupDelegate>
 
 @property (nonatomic) BOOL enabled, hasSelection;
 @property (nonatomic, strong) id<ELDropdownDelegate> delegate;
