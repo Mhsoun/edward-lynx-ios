@@ -57,9 +57,9 @@ platform :ios do
     build_for_hockeyapp()
   end
 
-  lane :ipa do
+  lane :ipabuild do
     gym(
-      scheme: "EdwardLynx"
+      scheme: "EdwardLynx",
       export_method: "development",
       include_bitcode: false,
       include_symbols: true
@@ -142,7 +142,7 @@ platform :ios do
   desc "Method to upload to HockeyApp"
   def build_for_hockeyapp()
     # increment_build_number
-    ipa
+    ipabuild
     hockey(
       api_token: ENV["HOCKEYAPP_API_TOKEN"],
       notify: "1",
@@ -157,7 +157,7 @@ platform :ios do
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
 
     # Clean directory
-    clean_build_artifacts
+    # clean_build_artifacts
 
     # Push version changes to repository
     # push_version_bump_to_repo(version_string(version, build))
