@@ -8,7 +8,6 @@
 
 #import "ELListPopupViewController.h"
 #import "ELDataProvider.h"
-#import "ELFilterSortItem.h"
 #import "ELListTableViewCell.h"
 #import "ELTableDataSource.h"
 

@@ -146,7 +146,6 @@
 		A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295E1E8B8CC300EBC5CE /* ELGoal.m */; };
 		A97C29831E8B8CC300EBC5CE /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */; };
 		A97C29841E8B8CC300EBC5CE /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29631E8B8CC300EBC5CE /* ELCategory.m */; };
-		A97C29851E8B8CC300EBC5CE /* ELFilterSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */; };
 		A97C29861E8B8CC300EBC5CE /* ELMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */; };
 		A97C29871E8B8CC300EBC5CE /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29691E8B8CC300EBC5CE /* ELModel.m */; };
 		A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296B1E8B8CC300EBC5CE /* ELNotification.m */; };
@@ -474,8 +473,6 @@
 		A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELGoalAction.m; sourceTree = "<group>"; };
 		A97C29621E8B8CC300EBC5CE /* ELCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCategory.h; sourceTree = "<group>"; };
 		A97C29631E8B8CC300EBC5CE /* ELCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCategory.m; sourceTree = "<group>"; };
-		A97C29641E8B8CC300EBC5CE /* ELFilterSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFilterSortItem.h; sourceTree = "<group>"; };
-		A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELFilterSortItem.m; sourceTree = "<group>"; };
 		A97C29661E8B8CC300EBC5CE /* ELMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMenuItem.h; sourceTree = "<group>"; };
 		A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELMenuItem.m; sourceTree = "<group>"; };
 		A97C29681E8B8CC300EBC5CE /* ELModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELModel.h; sourceTree = "<group>"; };
@@ -1115,8 +1112,6 @@
 				A97C29631E8B8CC300EBC5CE /* ELCategory.m */,
 				A9C4035F1E9B8D3F008DD7C8 /* ELDashboardData.h */,
 				A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */,
-				A97C29641E8B8CC300EBC5CE /* ELFilterSortItem.h */,
-				A97C29651E8B8CC300EBC5CE /* ELFilterSortItem.m */,
 				A97C29661E8B8CC300EBC5CE /* ELMenuItem.h */,
 				A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */,
 				A97C29681E8B8CC300EBC5CE /* ELModel.h */,
@@ -1489,7 +1484,6 @@
 				A91312521E8642D30042C91F /* ELDashboardViewController.m in Sources */,
 				A913124D1E8642D30042C91F /* ELInviteUsersViewController.m in Sources */,
 				A913126F1E8642D30042C91F /* main.m in Sources */,
-				A97C29851E8B8CC300EBC5CE /* ELFilterSortItem.m in Sources */,
 				A91312A21E8642D30042C91F /* ELConstants.m in Sources */,
 				A91312881E8642D30042C91F /* ELDashboardHeaderTableViewCell.m in Sources */,
 				A91312491E8642D30042C91F /* ELGoalDetailsViewController.m in Sources */,
