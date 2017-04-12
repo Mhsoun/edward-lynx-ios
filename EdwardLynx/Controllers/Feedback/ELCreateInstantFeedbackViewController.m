@@ -370,6 +370,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
+        [self.mCustomScaleOptions removeObject:@""];
         [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
     }
     
