@@ -85,11 +85,11 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.devPlan.sortedGoals.count;
+    return self.devPlan.goals.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELGoal *goal = self.devPlan.sortedGoals[indexPath.row];
+    ELGoal *goal = self.devPlan.goals[indexPath.row];
     ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     goal.createdAt = self.devPlan.createdAt;

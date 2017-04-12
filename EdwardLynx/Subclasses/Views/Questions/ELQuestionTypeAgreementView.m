@@ -53,7 +53,7 @@
     ELAnswerOption *option = _question.answer.options[[self.pickerView selectedRowInComponent:0]];
     
     return @{@"question": @(_question.objectId),
-             @"answer": @(option.value)};
+             @"answer": (NSNumber *)option.value};
 }
 
 #pragma mark - Getter/Setter Methods

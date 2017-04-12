@@ -59,6 +59,12 @@
     }
     
     self.detailViewManager.delegate = self;
+    
+    // Register observer for notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onClosePopup:)
+                                                 name:kELPopupCloseNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +82,11 @@
     }
     
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
+    
+    // Remove observer
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kELPopupCloseNotification
+                                                  object:nil];
 }
 
 #pragma mark - Protocol Methods (UIPageViewController)
@@ -229,6 +240,23 @@
     self.saved = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
+    if (self.isSurveyFinal) {
+        NSDictionary *detailsDict = @{@"title": [self.survey.name uppercaseString],
+                                      @"header": NSLocalizedString(@"kELSurveyCompleteHeader", nil),
+                                      @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
+                                      @"image": @"Complete"};
+        
+        self.draftsButton.enabled = YES;
+        self.submitButton.enabled = YES;
+        
+        // Display popup
+        [ELUtils displayPopupForViewController:self
+                                          type:kELPopupTypeMessage
+                                       details:detailsDict];
+        
+        return;
+    }
+    
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
                         message:successMessage
@@ -364,6 +392,12 @@
     [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                         @"final": @(self.isSurveyFinal),
                                                                         @"answers": [self formItems]}];
+}
+
+#pragma mark - Notification
+
+- (void)onClosePopup:(NSNotification *)notification {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

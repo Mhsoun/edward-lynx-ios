@@ -18,6 +18,7 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELCellHeight = 70;
 static CGFloat const kELEmailButtonHeight = 40;
 static CGFloat const kELFormViewHeight = 110;
 static CGFloat const kELIconSize = 17.5f;
@@ -108,6 +109,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                 iconColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor]
                                                  iconSize:kELIconSize
                                                 imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+    
+    [self updateTableViewHeight];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,7 +177,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [cell setAccessoryView:cell.participant.isSelected ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
     
     // Button state
-    [self updateSelectAllButtonForIndexPath:indexPath];
+//    [self updateSelectAllButtonForIndexPath:indexPath];
     
     return cell;
 }
@@ -246,18 +249,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Private Methods
 
 - (void)adjustScrollViewContentSize {
-    CGRect tableFrame = self.tableView.frame;
-    CGFloat tableViewContentSizeHeight = self.tableView.contentSize.height;
+    CGFloat tableViewContentSizeHeight = kELCellHeight * self.mInitialParticipants.count;
     
     if (tableViewContentSizeHeight == 0) {
         return;
     }
     
-    tableFrame.size.height = tableViewContentSizeHeight;
-    
-    [self.tableView setFrame:tableFrame];
-    [self.tableView setContentSize:CGSizeMake(self.tableView.contentSize.width,
-                                              tableViewContentSizeHeight)];
+    [self updateTableViewHeight];
     
     // Set the content size of your scroll view to be the content size of your
     // table view + whatever else you have in the scroll view.
@@ -322,6 +320,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     }
     
     [self.selectAllButton setTitle:NSLocalizedString(key, nil) forState:UIControlStateNormal];
+}
+
+- (void)updateTableViewHeight {
+    CGFloat tableViewContentSizeHeight = kELCellHeight * self.mInitialParticipants.count;
+    
+    [self.tableHeightConstraint setConstant:tableViewContentSizeHeight];
+    [self.tableView updateConstraints];
 }
 
 #pragma mark - Interface Builder Actions

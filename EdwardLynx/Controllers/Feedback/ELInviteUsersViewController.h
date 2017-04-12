@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailButtonHeightConstraint;
 - (IBAction)onSelectAllButtonClick:(id)sender;
 - (IBAction)onInviteButtonClick:(id)sender;

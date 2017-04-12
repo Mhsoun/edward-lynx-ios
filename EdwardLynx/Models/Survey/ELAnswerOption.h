@@ -11,7 +11,7 @@
 @interface ELAnswerOption : JSONModel
 
 @property (nonatomic) int64_t count;
-@property (nonatomic) int64_t value;
+@property (nonatomic) NSObject *value;
 @property (nonatomic) NSString<Optional> *shortDescription;
 
 @end
