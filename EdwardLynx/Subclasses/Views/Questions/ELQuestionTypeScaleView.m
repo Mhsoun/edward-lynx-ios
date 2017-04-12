@@ -72,7 +72,7 @@
     option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
     
     return @{@"question": @(_question.objectId),
-             @"answer": @(option.value)};
+             @"answer": (NSNumber *)option.value};
 }
 
 #pragma mark - Getter/Setter Methods

@@ -52,7 +52,7 @@ static CGFloat const kELBarHeight = 40;
     self.viewManager.delegate = self;
     
     [self.shareBarButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_download
+    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_share
                                                    iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                                                     iconSize:25]];
     
@@ -127,7 +127,7 @@ static CGFloat const kELBarHeight = 40;
         [mAnswers addObject:responseDict[@"ioc"]];
     }
     
-    height = (kELBarHeight * mAnswers.count) + kELBarHeight;
+    height = (kELBarHeight * mAnswers.count) + kELBarHeight + (kELBarHeight / 2);
     
     [self.averageHeightConstraint setConstant:height];
     [self.averageContainerView layoutIfNeeded];
@@ -182,7 +182,7 @@ static CGFloat const kELBarHeight = 40;
             
             y = answer.count / count;
             
-            [mLabels addObject:answer.shortDescription];
+            [mLabels addObject:answer.shortDescription ? answer.shortDescription : (NSString *)answer.value];
             [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
         }
     } else if (self.survey) {
@@ -284,6 +284,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.xAxis.labelFont = labelFont;
     barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    barChart.xAxis.labelWidth = 100;
     barChart.xAxis.wordWrapEnabled = YES;
     
     return barChart;
