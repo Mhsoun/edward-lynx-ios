@@ -115,7 +115,7 @@ static CGFloat const kELBarHeight = 40;
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     CGFloat height;
-    BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]];
+    BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     if (isFeedback) {
@@ -123,9 +123,8 @@ static CGFloat const kELBarHeight = 40;
             [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
         }
     } else {
-        for (NSDictionary *countDict in responseDict[@"frequencies"]) {
-            [mAnswers addObject:countDict];
-        }
+        [mAnswers addObject:responseDict[@"average"]];
+        [mAnswers addObject:responseDict[@"ioc"]];
     }
     
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
@@ -141,7 +140,10 @@ static CGFloat const kELBarHeight = 40;
     [self.indicatorView stopAnimating];
     [self.scrollView setHidden:NO];
     [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
-    [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
+    
+    if (!isFeedback) {
+        [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
+    }
 }
 
 #pragma mark - Private Methods
@@ -166,31 +168,60 @@ static CGFloat const kELBarHeight = 40;
     return dataSet;
 }
 
-- (NSDictionary *)chartInfoFromData:(NSArray *)answers {
+- (NSDictionary *)chartInfoFromData:(NSArray *)answers grouping:(BOOL)forGrouping {
+    double y;
     NSInteger count;
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
-    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    NSMutableArray *mEntries = [[NSMutableArray alloc] init];
     
-    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
-        count = self.instantFeedback.participants.count;
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback) {
+        count = self.instantFeedback.invited;
         
         for (int i = 0; i < answers.count; i++) {
-            //            double y = answers[i].count / count;
-            double y = (double)arc4random() / UINT32_MAX;
             ELAnswerOption *answer = answers[i];
+            
+            y = answer.count / count;
             
             [mLabels addObject:answer.shortDescription];
             [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
         }
-    } else {
-        count = 42;  // TODO Should be no. of invited participants
-        
-        for (int i = 0; i < answers.count; i++) {
-            //            double y = answers[i].count / count;
-            double y = (double)arc4random() / UINT32_MAX;
+    } else if (self.survey) {
+        if (forGrouping) {
+            NSMutableArray<BarChartDataEntry *> *mGroup = [[NSMutableArray alloc] init];
+            NSMutableArray<BarChartDataEntry *> *mGroup2 = [[NSMutableArray alloc] init];
             
-            [mLabels addObject:[NSString stringWithFormat:@"Category %@", @(i + 1)]];  // TODO Should be the actual category name
-            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+            for (int i = 0; i < answers.count; i++) {
+                NSDictionary *answerDict = answers[i];
+                NSArray *roles = answerDict[@"roles"];
+                
+                [mLabels addObject:answerDict[@"name"]];
+                
+                for (int j = 0; j < roles.count; j++) {
+                    NSDictionary *averageDict = roles[j];
+                    
+                    y = [averageDict[@"average"] doubleValue];
+                    
+                    if ([averageDict[@"name"] isEqualToString:@"Others combined"]) {
+                        [mGroup2 addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+                    } else {
+                        [mGroup addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+                    }
+                }
+            }
+            
+            [mEntries addObject:mGroup];
+            [mEntries addObject:mGroup2];
+        } else {
+            count = self.survey.invited;
+            
+            for (int i = 0; i < answers.count; i++) {
+                NSDictionary *answerDict = answers[i];
+                
+                y = [answerDict[@"average"] doubleValue];
+                
+                [mLabels addObject:answerDict[@"name"]];
+                [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+            }
         }
     }
     
@@ -263,7 +294,7 @@ static CGFloat const kELBarHeight = 40;
     NSInteger count;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
-    NSDictionary *infoDict = [self chartInfoFromData:answers];
+    NSDictionary *infoDict = [self chartInfoFromData:self.instantFeedback ? answers : answers[0] grouping:NO];
     NSArray *labels = infoDict[@"labels"];
     
     barSpace = 0.0f, groupSpace = 0.15f;
@@ -292,25 +323,21 @@ static CGFloat const kELBarHeight = 40;
     NSInteger count;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet1, *chartDataSet2;
-    NSDictionary *infoDict = [self chartInfoFromData:answers];
+    NSDictionary *infoDict = [self chartInfoFromData:answers[1] grouping:YES];
     NSArray *labels = infoDict[@"labels"];
     
+    count = labels.count;
     barSpace = 0.0f, groupSpace = 0.15f;
     
     chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
-                                          items:infoDict[@"entries"]
+                                          items:infoDict[@"entries"][0]
                                        colorKey:self.typeColorKey];
-    
-    infoDict = [self chartInfoFromData:answers];  // TODO Dummy data
-    
     chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
-                                          items:infoDict[@"entries"]
+                                          items:infoDict[@"entries"][1]
                                        colorKey:kELOrangeColor];
     
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
     chartData.barWidth = 0.4f;
-    
-    count = labels.count;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;
