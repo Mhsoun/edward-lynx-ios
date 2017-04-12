@@ -60,7 +60,7 @@ platform :ios do
   lane :ipabuild do
     gym(
       scheme: "EdwardLynx",
-      export_method: "development",
+      export_method: "ad-hoc",
       include_bitcode: false,
       include_symbols: true
     )
