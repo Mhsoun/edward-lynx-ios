@@ -84,8 +84,7 @@
 
 @protocol ELListPopupDelegate <NSObject>
 
-- (void)onFilterSelections:(NSArray *)selections allFilterItems:(NSArray *)items;
-- (void)onSortSelections:(NSArray *)selections allSortItems:(NSArray *)items;
+- (void)onItemSelection:(NSString *)item;
 
 @end
 

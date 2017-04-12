@@ -71,7 +71,9 @@
     [self.radioGroupView addSubview:self.group];
     
     // Update global form values for corresponding question
-    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
+    if ([self formValues]) {
+        [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
+    }
     
     // Notification to handle selection changes
     [[NSNotificationCenter defaultCenter] addObserver:self

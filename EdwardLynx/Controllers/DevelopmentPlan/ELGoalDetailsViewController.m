@@ -91,7 +91,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier];
         
         [cell.textField setDelegate:self];
-        [cell.textField becomeFirstResponder];
         
         return cell;
     } else {
@@ -102,6 +101,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         cell.optionLabel.text = [(ELGoalAction *)value title];
         
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[ELAddObjectTableViewCell class]]) {
+        ELAddObjectTableViewCell *addCell = (ELAddObjectTableViewCell *)cell;
+        
+        if ([addCell canBecomeFirstResponder]) {
+            [addCell becomeFirstResponder];
+        }
     }
 }
 
@@ -165,23 +174,26 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 #pragma mark - Private Methods
 
 - (void)addNewActionFromTextField:(UITextField *)textField {
-    if (textField.text.length > 0) {
-        ELGoalAction *action;
-        
-        [self.mActions removeObject:@""];
-        
-        action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
-                                                            @"title": textField.text,
-                                                            @"checked": @NO,
-                                                            @"position": @(self.mActions.count)}
-                                                    error:nil];
-        
-        [self.mActions addObject:action];
-        [self.tableView reloadData];
-        [self adjustTableViewSize];
+    ELGoalAction *action;
+    
+    if (textField.text.length == 0) {
+        return;
     }
     
+    [self.mActions removeObject:@""];
+    
+    action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
+                                                        @"title": textField.text,
+                                                        @"checked": @NO,
+                                                        @"position": @(self.mActions.count)}
+                                                error:nil];
+    
+    self.addActionButton.enabled = YES;
     textField.text = @"";
+    
+    [self.mActions addObject:action];
+    [self.tableView reloadData];
+    [self adjustTableViewSize];
 }
 
 - (void)adjustTableViewSize {
@@ -249,6 +261,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 - (IBAction)onAddActionButtonClick:(id)sender {
     NSIndexPath *indexPath;
     ELAddObjectTableViewCell *cell;
+    
+    self.addActionButton.enabled = NO;
     
     if (self.mActions.count > 0) {
         indexPath = [NSIndexPath indexPathForRow:self.mActions.count - 1 inSection:0];

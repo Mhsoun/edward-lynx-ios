@@ -13,8 +13,7 @@
 
 @interface ELDevelopmentPlanTableViewCell ()
 
-@property (nonatomic, weak) NSIndexPath *indexPath;
-
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) PNBarChart *barChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 

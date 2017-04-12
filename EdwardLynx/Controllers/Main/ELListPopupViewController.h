@@ -8,14 +8,11 @@
 
 #import "ELBasePopupViewController.h"
 
-@interface ELListPopupViewController : ELBasePopupViewController
+@interface ELListPopupViewController : ELBasePopupViewController<UITableViewDelegate>
 
 @property (strong, nonatomic) id<ELListPopupDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
-- (IBAction)onCancelButtonClick:(id)sender;
-- (IBAction)onConfirmButtonClick:(id)sender;
 
 @end

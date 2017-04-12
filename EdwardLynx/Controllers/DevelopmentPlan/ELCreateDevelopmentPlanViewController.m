@@ -257,6 +257,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
+    [self.nameTextField resignFirstResponder];
     [self setSelectedGoal:nil];
     [self performSegueWithIdentifier:kELAddGoalSegueIdentifier sender:self];
 }

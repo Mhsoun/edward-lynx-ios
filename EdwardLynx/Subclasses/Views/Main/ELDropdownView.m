@@ -7,6 +7,7 @@
 //
 
 #import "ELDropdownView.h"
+#import "ELListPopupViewController.h"
 
 #pragma mark - Private Constants
 
@@ -98,7 +99,44 @@ static CGFloat const kELIconSize = 15;
     _hasSelection = hasSelection;
 }
 
+#pragma mark - Protocol Methods (ELListPopup)
+
+- (void)onItemSelection:(NSString *)item {
+    self.titleLabel.text = item;
+    self.selectedItem = item;
+    
+    _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
+    
+    [self.delegate onDropdownSelectionValueChange:self.selectedItem];
+}
+
 #pragma mark - Private Methods
+
+- (UIAlertController *)itemsAlertController {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:nil
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
+        self.titleLabel.text = action.title;
+        self.selectedItem = action.title;
+        
+        _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
+        
+        [self.delegate onDropdownSelectionValueChange:self.selectedItem];
+    };
+    
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    for (NSString *title in self.items) {
+        [controller addAction:[UIAlertAction actionWithTitle:title
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:actionBlock]];
+    }
+    
+    return controller;
+}
 
 - (void)setDefaultValue:(NSString *)value {
     self.titleLabel.text = value;
@@ -122,31 +160,11 @@ static CGFloat const kELIconSize = 15;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDropdownButtonClick:(id)sender {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:nil
-                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
-    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        self.titleLabel.text = action.title;
-        self.selectedItem = action.title;
-        
-        _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
-                
-        [self.delegate onDropdownSelectionValueChange:action.title];
-    };
-    
-    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
-                                                   style:UIAlertActionStyleCancel
-                                                 handler:nil]];
-    
-    for (NSString *title in self.items) {
-        [controller addAction:[UIAlertAction actionWithTitle:title
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:actionBlock]];
-    }
-    
-    [self.baseController presentViewController:controller
-                                      animated:YES
-                                    completion:nil];
+    [ELUtils displayPopupForViewController:self.baseController
+                                      type:kELPopupTypeList
+                                   details:@{@"title": @"",
+                                             @"items": self.items,
+                                             @"delegate": self}];
 }
 
 @end
