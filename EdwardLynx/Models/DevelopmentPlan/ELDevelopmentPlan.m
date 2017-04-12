@@ -28,7 +28,7 @@
 }
 
 - (BOOL)completed {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.progress == 1"];
     NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
     
     return completedGoals == self.goals.count;
@@ -55,7 +55,7 @@
     NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:12.0f],
                                      NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELOrangeColor]};
     
-    completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.checked == YES"]] count];
+    completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.progress == 1"]] count];
     format = [NSString stringWithFormat:@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count)];
     infoString = [[NSMutableAttributedString alloc] initWithString:format attributes:attributesDict];
     
@@ -70,7 +70,7 @@
 }
 
 - (NSString<Ignore> *)progressText {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.progress == 1"];
     NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
     
     return [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
