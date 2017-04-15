@@ -88,21 +88,31 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     ELGoalAction *goalAction = mActions[indexPath.row];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
+        UITableViewCell *cell;
+        UIActivityIndicatorView *indicatorView;
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         
         goalAction.checked = YES;
         
+        // Action indicator
+        cell = [tableView cellForRowAtIndexPath:indexPath];
+        indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kELIconSize, kELIconSize)];
+        indicatorView.backgroundColor = [UIColor clearColor];
+        indicatorView.tintColor = [UIColor whiteColor];
+        
+        [cell setAccessoryView:indicatorView];
+        [indicatorView startAnimating];
+        
+        // API Call to update action
         [client updateGoalActionWithParams:[goalAction apiPatchDictionary]
                                       link:goalAction.urlLink
                                 completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
             UIImage *checkIcon;
-            UITableViewCell *cell;
             
             if (error) {
                 return;
             }
             
-            cell = [tableView cellForRowAtIndexPath:indexPath];
             goalAction.checked = YES;
             checkIcon = [FontAwesome imageWithIcon:fa_check_circle
                                          iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
