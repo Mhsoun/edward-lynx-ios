@@ -180,7 +180,7 @@ static CGFloat const kELBarHeight = 40;
         for (int i = 0; i < answers.count; i++) {
             ELAnswerOption *answer = answers[i];
             
-            y = answer.count / count;
+            y = (double)answer.count / count;
             
             [mLabels addObject:answer.shortDescription ? answer.shortDescription : (NSString *)answer.value];
             [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
