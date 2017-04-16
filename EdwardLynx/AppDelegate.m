@@ -138,10 +138,6 @@
 #pragma mark - Notification Received Methods (iOS 9)
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
-        return;
-    }
-    
     [self processReceivedNotification:userInfo
                        forApplication:application];
     
@@ -149,10 +145,6 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
-        return;
-    }
-    
     [self processReceivedNotification:userInfo
                        forApplication:application];
 }
@@ -383,7 +375,13 @@
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
-    ELNotification *notification = [[ELNotification alloc] initWithDictionary:userInfo error:nil];
+    ELNotification *notification;
+    
+    if (userInfo && [userInfo objectForKey:@"collapse_key"]) {
+        return;
+    }
+    
+    notification = [[ELNotification alloc] initWithDictionary:userInfo error:nil];
     
     if (application.applicationState == UIApplicationStateActive ||
         application.applicationState == UIApplicationStateInactive) {
