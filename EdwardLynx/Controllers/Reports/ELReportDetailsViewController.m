@@ -52,7 +52,7 @@ static CGFloat const kELBarHeight = 40;
     self.viewManager.delegate = self;
     
     [self.shareBarButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_share
+    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_download
                                                    iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                                                     iconSize:25]];
     
