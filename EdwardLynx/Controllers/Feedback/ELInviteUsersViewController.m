@@ -277,13 +277,23 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)layoutInstantFeedbackSharePage {
+    self.title = [NSLocalizedString(@"kELInviteTitleFeedback", nil) uppercaseString];
+    
     // Button
+    [self.inviteButton setTitle:NSLocalizedString(@"kELShareButtonFeedback", nil)
+                       forState:UIControlStateNormal];
+    
     [self.emailButtonHeightConstraint setConstant:kELEmailButtonHeight];
     [self.emailButton updateConstraints];
 }
 
 - (void)layoutReportSharePage {
+    self.title = [NSLocalizedString(@"kELInviteTitleReport", nil) uppercaseString];
+    
     // Button
+    [self.inviteButton setTitle:NSLocalizedString(@"kELShareButtonReport", nil)
+                       forState:UIControlStateNormal];
+    
     [self.emailButtonHeightConstraint setConstant:0];
     [self.emailButton updateConstraints];
 }

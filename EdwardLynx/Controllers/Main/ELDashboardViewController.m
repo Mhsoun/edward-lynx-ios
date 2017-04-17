@@ -224,7 +224,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         controller.type = [identifier isEqualToString:kELDashboardActionTypeReport] ? kELListTypeReports : kELListTypeSurveys;
         controller.tabs = @[@(kELListFilterAll),
                             @(kELListFilterInstantFeedback),
-                            @(kELListFilterLynxManagement)];
+                            @(kELListFilterLynxMeasurement)];
         
         if ([identifier isEqualToString:kELDashboardActionTypeDevPlan]) {
             controller.type = kELListTypeDevPlan;

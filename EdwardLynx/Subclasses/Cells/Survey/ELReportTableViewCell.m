@@ -35,6 +35,7 @@
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
         
         [self configureWithDetails:@{@"title": feedback.question.text ? feedback.question.text : @"",
+                                     @"detail": @"",
                                      @"timestamp": feedback.dateString,
                                      @"type": @"Instant Feedback",
                                      @"color": kELFeedbackColor,
@@ -45,6 +46,7 @@
         ELSurvey *survey = (ELSurvey *)object;
         
         [self configureWithDetails:@{@"title": survey.name ? survey.name : @"",
+                                     @"detail": survey.shortDescription,
                                      @"timestamp": survey.endDateString,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"color": kELLynxColor,
@@ -65,6 +67,7 @@
     
     // Content
     self.titleLabel.text = detailsDict[@"title"];
+    self.detailLabel.text = detailsDict[@"detail"];
     self.timestampLabel.text = detailsDict[@"timestamp"];
     self.typeLabel.text = [detailsDict[@"type"] uppercaseString];
     self.invitedLabel.text = detailsDict[@"invited"];

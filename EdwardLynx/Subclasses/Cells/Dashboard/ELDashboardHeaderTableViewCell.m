@@ -63,7 +63,7 @@
     
     [self.feedbackView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemLynxManagement", nil),
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemLynxMeasurement", nil),
                                                              @"color": kELLynxColor,
                                                              @"icon": fa_edit,
                                                              @"segue": kELDashboardActionTypeLynx}];

@@ -52,7 +52,7 @@ static CGFloat const kELBarHeight = 40;
     self.viewManager.delegate = self;
     
     [self.shareBarButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_share
+    [self.shareBarButton setImage:[FontAwesome imageWithIcon:fa_download
                                                    iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
                                                     iconSize:25]];
     
@@ -127,11 +127,11 @@ static CGFloat const kELBarHeight = 40;
         [mAnswers addObject:responseDict[@"ioc"]];
     }
     
-    height = (kELBarHeight * mAnswers.count) + kELBarHeight + (kELBarHeight / 2);
+    height = (kELBarHeight * mAnswers.count) + kELBarHeight;
     
-    [self.averageHeightConstraint setConstant:height];
+    [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
     [self.averageContainerView layoutIfNeeded];
-    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 2)];
+    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 1.8)];
     [self.indexContainerView layoutIfNeeded];
     
     self.averageBarChart.frame = self.averageChartView.bounds;
@@ -306,6 +306,7 @@ static CGFloat const kELBarHeight = 40;
                                       colorKey:self.typeColorKey];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
     
     barChart = [self configureBarChart:barChart];
     barChart.data = chartData;

@@ -44,7 +44,7 @@
 
 "kELDashboardItemDevelopmentPlan" = "Development \nPlans";
 "kELDashboardItemInstantFeedback" = "Instant \nFeedback";
-"kELDashboardItemLynxManagement" = "Lynx \nManagement";
+"kELDashboardItemLynxMeasurement" = "Lynx \nMeasurement";
 "kELDashboardItemAnswer" = "Answer";
 "kELDashboardItemResults" = "Results";
 "kELDashboardItemInvite" = "Invite";
@@ -118,9 +118,15 @@
 "kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
 
+"kELInviteTitleFeedback" = "Invite People";
+"kELInviteTitleReport" = "Share Report";
+
 "kELInviteUsersSuccess" = "Successfully invited participants";
 
 "kELReportEmptyMessage" = "No Reports";
+
+"kELShareButtonFeedback" = "Send Invites";
+"kELShareButtonReport" = "Share";
 
 "kELShareReportsHeaderMessage" = "Share report to users";
 
@@ -170,7 +176,7 @@
 "kELListFilterCompleted" = "Completed";
 "kELListFilterExpired" = "Expired";
 "kELListFilterInstantFeedback" = "Instant Feedback";
-"kELListFilterLynxManagement" = "Lynx Management";
+"kELListFilterLynxMeasurement" = "Lynx Measurement";
 
 /* Validations */
 
