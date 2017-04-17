@@ -384,11 +384,17 @@
     notification = [[ELNotification alloc] initWithDictionary:userInfo error:nil];
     
     if (application.applicationState == UIApplicationStateActive ||
+        application.applicationState == UIApplicationStateBackground ||
         application.applicationState == UIApplicationStateInactive) {
         if (self.notification) {
             return;
         }
         
+        if (application.applicationState != UIApplicationStateActive) {
+            return;
+        }
+        
+        // Only display in-app notification when app is active
         [ELNotificationView showWithNotification:notification
                                         duration:3.5
                                           tapped:^{
