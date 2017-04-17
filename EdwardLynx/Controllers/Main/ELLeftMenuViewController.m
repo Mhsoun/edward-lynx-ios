@@ -158,7 +158,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
             controller.type = kELListTypeSurveys;
             controller.tabs = @[@(kELListFilterAll),
                                 @(kELListFilterInstantFeedback),
-                                @(kELListFilterLynxManagement)];
+                                @(kELListFilterLynxMeasurement)];
             
             break;
         case 3:

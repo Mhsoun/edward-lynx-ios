@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, kELListFilter) {
     kELListFilterCompleted = 2,
     kELListFilterExpired = -1,
     kELListFilterInstantFeedback = 3,
-    kELListFilterLynxManagement = 4
+    kELListFilterLynxMeasurement = 4
 };
 
 typedef NS_ENUM(NSInteger, kELListType) {

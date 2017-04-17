@@ -303,8 +303,8 @@
             return NSLocalizedString(@"kELListFilterInstantFeedback", nil);
             
             break;
-        case kELListFilterLynxManagement:
-            return NSLocalizedString(@"kELListFilterLynxManagement", nil);
+        case kELListFilterLynxMeasurement:
+            return NSLocalizedString(@"kELListFilterLynxMeasurement", nil);
             
             break;
         default:

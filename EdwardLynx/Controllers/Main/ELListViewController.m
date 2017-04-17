@@ -307,7 +307,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                     return [items filteredArrayUsingPredicate:predicate];
                     
                     break;
-                case kELListFilterLynxManagement:
+                case kELListFilterLynxMeasurement:
                     predicate = [NSPredicate predicateWithFormat:@"SELF isKindOfClass: %@", [ELSurvey class]];
                     
                     return [items filteredArrayUsingPredicate:predicate];

@@ -44,7 +44,7 @@
 
 "kELDashboardItemDevelopmentPlan" = "Development \nPlans";
 "kELDashboardItemInstantFeedback" = "Instant \nFeedback";
-"kELDashboardItemLynxManagement" = "Lynx \nManagement";
+"kELDashboardItemLynxMeasurement" = "Lynx \nMeasurement";
 "kELDashboardItemAnswer" = "Answer";
 "kELDashboardItemResults" = "Results";
 "kELDashboardItemInvite" = "Invite";
@@ -170,7 +170,7 @@
 "kELListFilterCompleted" = "Completed";
 "kELListFilterExpired" = "Expired";
 "kELListFilterInstantFeedback" = "Instant Feedback";
-"kELListFilterLynxManagement" = "Lynx Management";
+"kELListFilterLynxMeasurement" = "Lynx Measurement";
 
 /* Validations */
 
