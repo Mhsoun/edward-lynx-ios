@@ -71,7 +71,7 @@
                                 </constraints>
                             </imageView>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTANT FEEDBACK" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-S7-aP2" customClass="ELLabel">
-                                <rect key="frame" x="10" y="74" width="97" height="20"/>
+                                <rect key="frame" x="10" y="74" width="96" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="DQ2-qw-OdE"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="meo-hB-JvB">
-                                <rect key="frame" x="117" y="77" width="15" height="15"/>
+                                <rect key="frame" x="116" y="77" width="15" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="meo-hB-JvB" secondAttribute="height" multiplier="1:1" id="e82-Gc-f9L"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </imageView>
                             <label userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31/31" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-Hb-diq">
-                                <rect key="frame" x="137" y="74" width="178" height="20"/>
+                                <rect key="frame" x="136" y="74" width="179" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
