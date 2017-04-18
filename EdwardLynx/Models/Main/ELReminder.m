@@ -19,13 +19,13 @@
                                                                   @"shortDescription": @"description"}];
 }
 
-- (kELReminderType)kELReminderTypeFromNSString:(NSString *)type {
+- (void)setTypeWithNSString:(NSString *)type {
     if ([type isEqualToString:@"instant-feedback"]) {
-        return kELReminderTypeFeedback;
+        self.type = kELReminderTypeFeedback;
     } else if ([type isEqualToString:@"survey"]) {
-        return kELReminderTypeSurvey;
+        self.type = kELReminderTypeSurvey;
     } else {
-        return kELReminderTypeGoal;
+        self.type = kELReminderTypeGoal;
     }
 }
 
@@ -49,14 +49,24 @@
 }
 
 - (NSString<Ignore> *)dueDateInfo {
+    NSInteger days;
     NSDate *currentDate = [NSDate date];
     
-    if ([currentDate mt_isBefore:self.dueDate]) {
-        return [NSString stringWithFormat:NSLocalizedString(@"kELDashboardDueDateMessage", nil),
-                @([currentDate mt_daysUntilDate:self.dueDate])];
-    } else {
-        return NSLocalizedString(@"kELDashboardDueDateNow", nil);
+    days = [currentDate mt_daysUntilDate:self.dueDate];
+    
+    if ([currentDate mt_isOnOrBefore:self.dueDate]) {
+        NSString *key;
+        
+        if (days == 0) {
+            return NSLocalizedString(@"kELDashboardDueDateNow", nil);
+        }
+        
+        key = days == 1 ? @"kELDashboardDueDateMessageSingular" : @"kELDashboardDueDateMessagePlural";
+        
+        return [NSString stringWithFormat:NSLocalizedString(key, nil), @(days)];
     }
+    
+    return @"";
 }
 
 @end

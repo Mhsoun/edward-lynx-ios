@@ -8,6 +8,7 @@
 
 #import "ELDashboardViewController.h"
 #import "AppDelegate.h"
+#import "ELAnswerInstantFeedbackViewController.h"
 #import "ELDashboardData.h"
 #import "ELDashboardHeaderTableViewCell.h"
 #import "ELDashboardReminderTableViewCell.h"
@@ -15,6 +16,7 @@
 #import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELNotificationView.h"
 #import "ELSectionView.h"
+#import "ELSurveyCategoryPageViewController.h"
 #import "ELTabPageViewController.h"
 #import "ELUsersAPIClient.h"
 
@@ -136,7 +138,33 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     value = items[indexPath.row];
     
     if ([value isKindOfClass:[ELReminder class]]) {
-        //
+        ELAnswerInstantFeedbackViewController *aifController;
+        ELSurveyCategoryPageViewController *scpController;
+        ELReminder *reminder = (ELReminder *)value;
+        
+        switch (reminder.type) {
+            case kELReminderTypeFeedback:
+                aifController = [[UIStoryboard storyboardWithName:@"InstantFeedback" bundle:nil]
+                                 instantiateViewControllerWithIdentifier:@"InstantFeedbackDetails"];
+                aifController.objectId = reminder.objectId;
+                
+                [self.navigationController pushViewController:scpController animated:YES];
+                
+                break;
+            case kELReminderTypeGoal:
+                // TODO
+                break;
+            case kELReminderTypeSurvey:
+                scpController = [[UIStoryboard storyboardWithName:@"Survey" bundle:nil]
+                                 instantiateViewControllerWithIdentifier:@"SurveyCategoryPage"];
+                scpController.objectId = reminder.objectId;
+                
+                [self.navigationController pushViewController:scpController animated:YES];
+                
+                break;
+            default:
+                break;
+        }
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
         controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
                       instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
