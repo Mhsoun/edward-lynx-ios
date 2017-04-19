@@ -8,6 +8,8 @@
 
 #import "ELDashboardReminderTableViewCell.h"
 
+#pragma mark - Class Extension
+
 @interface ELDashboardReminderTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *statusView;
@@ -18,6 +20,8 @@
 @end
 
 @implementation ELDashboardReminderTableViewCell
+
+#pragma mark - Lifecycle
 
 - (void)awakeFromNib {
     [super awakeFromNib];

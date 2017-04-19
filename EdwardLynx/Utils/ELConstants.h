@@ -88,7 +88,7 @@ typedef NS_ENUM(NSInteger, kELRolePermission) {
 
 typedef NS_ENUM(NSInteger, kELSurveyStatus) {
     kELSurveyStatusOpen = 0,
-    kELSurveyStatusPartial = 1,
+    kELSurveyStatusUnfinished = 1,
     kELSurveyStatusCompleted = 2,
     kELSurveyStatusNotInvited = 3
 };

@@ -115,7 +115,7 @@
         <!--Survey Category Page View Controller-->
         <scene sceneID="4Bg-Va-I4B">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Oe3-tM-qcI" customClass="ELSurveyCategoryPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyCategoryPage" automaticallyAdjustsScrollViewInsets="NO" id="Oe3-tM-qcI" customClass="ELSurveyCategoryPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3K2-7N-VBZ"/>
                         <viewControllerLayoutGuide type="bottom" id="W51-jZ-i0H"/>

@@ -39,7 +39,8 @@
 
 "kELDashboardAddNew" = "Answer New";
 "kELDashboardCreateNew" = "Create New";
-"kELDashboardDueDateMessage" = "Due in \n%@ Days";
+"kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
+"kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
 "kELDashboardDueDateNow" = "Now";
 
 "kELDashboardItemDevelopmentPlan" = "Development \nPlans";
@@ -159,7 +160,7 @@
 "kELSurveyPostError" = "Failed to post answers";
 
 "kELSurveyStatusOpen" = "Open";
-"kELSurveyStatusPartial" = "Partial";
+"kELSurveyStatusUnfinished" = "Unfinished";
 "kELSurveyStatusCompleted" = "Completed";
 "kELSurveyStatusNotInvited" = "Not Invited";
 

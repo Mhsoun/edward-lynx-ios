@@ -320,8 +320,8 @@
             return NSLocalizedString(@"kELSurveyStatusOpen", nil);
             
             break;
-        case kELSurveyStatusPartial:
-            return NSLocalizedString(@"kELSurveyStatusPartial", nil);
+        case kELSurveyStatusUnfinished:
+            return NSLocalizedString(@"kELSurveyStatusUnfinished", nil);
             
             break;
         case kELSurveyStatusCompleted:

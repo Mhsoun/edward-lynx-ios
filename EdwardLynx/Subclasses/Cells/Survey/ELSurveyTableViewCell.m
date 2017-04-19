@@ -40,13 +40,15 @@
         self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     } else {
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
-        kELSurveyStatus status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusPartial;
+        kELSurveyStatus status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusUnfinished;
         
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": @"Instant Feedback",
                                      @"description": @"",
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];
+        
+        self.monthLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     }
 }
 

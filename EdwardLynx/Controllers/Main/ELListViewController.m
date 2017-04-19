@@ -29,11 +29,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 @property (nonatomic) BOOL isPaginated;
 @property (nonatomic) NSInteger countPerPage,
                                 page,
+                                pages,
                                 total;
 
 @property (nonatomic, strong) NSArray *defaultListItems;
 @property (nonatomic, strong) NSString *cellIdentifier, *paginationLink;
-
+@property (nonatomic, strong) UIActivityIndicatorView *tableIndicatorView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ELDataProvider *provider;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -53,8 +54,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.isPaginated = NO;
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                                        CGRectGetWidth(self.tableView.frame),
+                                                                                        50)];
     
     if (self.listType == kELListTypeReports) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -82,6 +84,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self.page = 1;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // Load list type's corresponding data set
     [self loadListByType];
 }
@@ -98,24 +103,38 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (UIScrollView)
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (self.listFilter != kELListFilterLynxMeasurement) {
+        return;
+    }
+    
+    self.page++;
+    
+    if (!self.tableView.tableFooterView || self.page > self.pages) {
+        self.tableView.tableFooterView = nil;
+        self.page--;
+        
+        return;
+    }
+    
+    // Proceed to reloading
+    self.isPaginated = YES;
+    
+    [scrollView setScrollEnabled:NO];
+    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
     
-    if (endScrolling < scrollView.contentSize.height) {
+    if (self.listFilter != kELListFilterLynxMeasurement) {
         return;
     }
     
-    if (self.total < self.countPerPage) {
-        return;
+    if (endScrolling >= scrollView.contentSize.height - CGRectGetHeight(self.tableIndicatorView.frame)) {
+        self.tableView.tableFooterView = self.tableIndicatorView;
+        
+        [self.tableIndicatorView startAnimating];
     }
-    
-    // TODO Add UI indicator for loading of new entries
-    // TODO Disabled first since not all list types have pagination support yet
-    
-//    self.isPaginated = YES;
-//    
-//    [scrollView setScrollEnabled:NO];
-//    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink
-//                                                       page:self.page + 1];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -177,30 +196,46 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     NSString *emptyMessage;
+    NSDictionary *surveyDict;
     ELDevelopmentPlan *devPlan;
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
-    
-    // Store values
-    self.countPerPage = [responseDict[@"num"] integerValue];
-    self.page = [responseDict[@"pages"] integerValue];
-    self.total = [responseDict[@"total"] integerValue];
-    self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
     
     self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELSurveySeparatorColor];
     
     switch (self.listType) {
         case kELListTypeSurveys:
+            surveyDict = responseDict[@"surveys"];
             emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
             
             self.tableView.rowHeight = 105;
             
-            for (NSDictionary *detailDict in responseDict[@"surveys"][@"items"]) {
+            if (!surveyDict) {
+                for (NSDictionary *detailDict in responseDict[@"items"]) {
+                    [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                }
+                
+                // Store values
+                self.countPerPage = [responseDict[@"num"] integerValue];
+                self.pages = [responseDict[@"pages"] integerValue];
+                self.total = [responseDict[@"total"] integerValue];
+                self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
+                
+                break;
+            }
+            
+            for (NSDictionary *detailDict in surveyDict[@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
             }
             
             for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
                 [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
             }
+            
+            // Store values
+            self.countPerPage = [surveyDict[@"num"] integerValue];
+            self.pages = [surveyDict[@"pages"] integerValue];
+            self.total = [surveyDict[@"total"] integerValue];
+            self.paginationLink = surveyDict[@"_links"][@"self"][@"href"];
             
             break;
         case kELListTypeReports:
@@ -253,6 +288,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     if (self.refreshControl) {
         [self.refreshControl endRefreshing];
+    }
+    
+    if (self.isPaginated) {
+        self.tableView.tableFooterView = nil;
+        self.isPaginated = NO;
     }
 }
 
