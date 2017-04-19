@@ -248,7 +248,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
-    
+        
     limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f label:@"70%"];
     limitLine70.labelPosition = ChartLimitLabelPositionLeftBottom;
     limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];

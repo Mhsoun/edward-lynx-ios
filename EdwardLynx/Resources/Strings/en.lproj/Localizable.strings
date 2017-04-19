@@ -160,7 +160,7 @@
 "kELSurveyPostError" = "Failed to post answers";
 
 "kELSurveyStatusOpen" = "Open";
-"kELSurveyStatusPartial" = "Partial";
+"kELSurveyStatusUnfinished" = "Unfinished";
 "kELSurveyStatusCompleted" = "Completed";
 "kELSurveyStatusNotInvited" = "Not Invited";
 
