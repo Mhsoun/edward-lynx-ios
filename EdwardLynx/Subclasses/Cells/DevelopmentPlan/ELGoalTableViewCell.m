@@ -83,6 +83,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *detailMessage;
     UIAlertController *controller;
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     ELGoalAction *goalAction = mActions[indexPath.row];
@@ -150,8 +151,10 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         return;
     }
     
+    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil),
+                     goalAction.title];    
     controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
-                                                     message:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil)
+                                                     message:detailMessage
                                               preferredStyle:UIAlertControllerStyleAlert];
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCompleteButton", nil)
