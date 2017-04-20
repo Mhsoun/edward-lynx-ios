@@ -8,8 +8,6 @@
 
 @import Charts;
 
-#import <PNChart/PNBarChart.h>
-
 #import "ELReportDetailsViewController.h"
 #import "ELAnswerOption.h"
 #import "ELDetailViewManager.h"

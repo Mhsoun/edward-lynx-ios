@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+@import Charts;
+
 #import <PNChart/PNChart.h>
 
 #import "ELDevelopmentPlanTableViewCell.h"
@@ -14,7 +16,8 @@
 @interface ELDevelopmentPlanTableViewCell ()
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, strong) PNBarChart *barChart;
+@property (nonatomic, strong) BarChartView *barChart;
+@property (nonatomic, strong) PNBarChart *pnBarChart;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
@@ -22,12 +25,13 @@
 @implementation ELDevelopmentPlanTableViewCell
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
-    
     UITapGestureRecognizer *tap;
     
+    [super awakeFromNib];
+    
     // Initialization code
-    self.barChart = [[PNBarChart alloc] init];
+    self.pnBarChart = [[PNBarChart alloc] init];
+    self.barChart = [[BarChartView alloc] initWithFrame:self.scrollView.bounds];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
@@ -74,7 +78,7 @@
     self.completedLabel.text = devPlan.progressText;
     self.timestampLabel.text = [AppSingleton.printDateFormatter stringFromDate:devPlan.createdAt];
     
-    [self setupBarChartForDevelopmentPlan:devPlan];
+    [self setupBarChartTestForDevelopmentPlan:devPlan];
     [self setupCircleChartForDevelopmentPlan:devPlan];
     
     // UI
@@ -94,6 +98,67 @@
     [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:self.indexPath];
 }
 
+- (void)setupBarChartTestForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
+    NSInteger visibleCount;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    NSMutableArray *mColors = [[NSMutableArray alloc] init];
+    NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
+    
+    visibleCount = 10;
+    
+    for (int i = 0; i < devPlan.goals.count; i++) {
+        double progress;
+        NSString *colorKey;
+        ELGoal *goal = devPlan.goals[i];
+
+        progress = [[goal progressDetails][@"value"] doubleValue];
+        colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
+        
+        [mColors addObject:[[RNThemeManager sharedManager] colorForKey:colorKey]];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
+    }
+    
+    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
+    chartDataSet.colors = [mColors copy];
+    chartDataSet.drawValuesEnabled = NO;
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.9f;
+    
+    self.barChart.chartDescription.enabled = NO;
+    self.barChart.doubleTapToZoomEnabled = NO;
+    self.barChart.drawBarShadowEnabled = NO;
+    self.barChart.drawGridBackgroundEnabled = NO;
+    self.barChart.highlightPerTapEnabled = NO;
+    self.barChart.maxVisibleCount = visibleCount;
+    self.barChart.pinchZoomEnabled = NO;
+    
+    self.barChart.leftAxis.axisLineColor = [UIColor blackColor];
+    self.barChart.leftAxis.axisMaximum = 1.0f;
+    self.barChart.leftAxis.axisMinimum = 0.0f;
+    self.barChart.leftAxis.drawGridLinesEnabled = NO;
+    self.barChart.leftAxis.drawLabelsEnabled = NO;
+    
+    self.barChart.legend.enabled = NO;
+    self.barChart.rightAxis.drawAxisLineEnabled = NO;
+    self.barChart.rightAxis.drawGridLinesEnabled = NO;
+    self.barChart.rightAxis.drawLabelsEnabled = NO;
+    
+    self.barChart.xAxis.axisLineColor = [UIColor blackColor];
+    self.barChart.xAxis.drawGridLinesEnabled = NO;
+    self.barChart.xAxis.granularity = 1;
+    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
+    self.barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    
+    self.barChart.data = chartData;
+    
+    [self.barChart setVisibleXRangeMaximum:visibleCount];
+    [self.barChart setVisibleXRangeMinimum:visibleCount];
+    [self.barChart animateWithYAxisDuration:0.5];
+}
+
 - (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     CGFloat width;
     CGRect frame;
@@ -101,29 +166,29 @@
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray *mValues = [[NSMutableArray alloc] init];
     
-    self.barChart.backgroundColor = [UIColor clearColor];
-    self.barChart.barBackgroundColor = [UIColor clearColor];
-    self.barChart.barRadius = 0;
-    self.barChart.barWidth = 20;
-    self.barChart.chartBorderColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
-    self.barChart.chartMarginBottom = 0;
-    self.barChart.chartMarginTop = 0;
-    self.barChart.isGradientShow = NO;
-    self.barChart.isShowNumbers = NO;
-    self.barChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
-    self.barChart.labelMarginTop = 0;
-    self.barChart.labelTextColor = [UIColor whiteColor];
-    self.barChart.showChartBorder = YES;
-    self.barChart.yChartLabelWidth = 0;
+    self.pnBarChart.backgroundColor = [UIColor clearColor];
+    self.pnBarChart.barBackgroundColor = [UIColor clearColor];
+    self.pnBarChart.barRadius = 0;
+    self.pnBarChart.barWidth = 20;
+    self.pnBarChart.chartBorderColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
+    self.pnBarChart.chartMarginBottom = 0;
+    self.pnBarChart.chartMarginTop = 0;
+    self.pnBarChart.isGradientShow = NO;
+    self.pnBarChart.isShowNumbers = NO;
+    self.pnBarChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.pnBarChart.labelMarginTop = 0;
+    self.pnBarChart.labelTextColor = [UIColor whiteColor];
+    self.pnBarChart.showChartBorder = YES;
+    self.pnBarChart.yChartLabelWidth = 0;
     
-    width = (self.barChart.barWidth * devPlan.goals.count) * 2;
+    width = (self.pnBarChart.barWidth * devPlan.goals.count) * 2;
     
     [self.barChartWidthConstraint setConstant:width];
     [self.barChartView layoutIfNeeded];
     
     frame = CGRectGetWidth(self.scrollView.bounds) > width ? self.scrollView.bounds : self.barChartView.bounds;
     
-    self.barChart.frame = frame;
+    self.pnBarChart.frame = frame;
     
     for (int i = 0; i < devPlan.goals.count; i++) {
         ELGoal *goal = devPlan.goals[i];
@@ -134,12 +199,12 @@
         [mValues addObject:@([[goal progressDetails][@"value"] floatValue])];
     }
     
-    self.barChart.yMaxValue = 1.0f;
-    self.barChart.strokeColors = [mColors copy];
-    self.barChart.xLabels = [mLabels copy];
-    self.barChart.yValues = [mValues copy];
+    self.pnBarChart.yMaxValue = 1.0f;
+    self.pnBarChart.strokeColors = [mColors copy];
+    self.pnBarChart.xLabels = [mLabels copy];
+    self.pnBarChart.yValues = [mValues copy];
     
-    [self.barChart strokeChart];
+    [self.pnBarChart strokeChart];
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
