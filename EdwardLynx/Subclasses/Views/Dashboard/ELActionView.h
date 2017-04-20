@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict;
 

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -43,7 +42,7 @@
                     <color key="backgroundColor" red="0.8666666666666667" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="A9o-cd-oqJ"/>
-                        <constraint firstAttribute="width" secondItem="PDT-1l-dS5" secondAttribute="height" multiplier="1:1" id="Nha-YU-y5O"/>
+                        <constraint firstAttribute="height" constant="20" id="ewE-p1-6X7"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,6 +67,7 @@
                 <outlet property="bgView" destination="s7y-Eg-skO" id="ZkE-4x-dCS"/>
                 <outlet property="countLabel" destination="PDT-1l-dS5" id="8CZ-rz-Dih"/>
                 <outlet property="titleLabel" destination="wjj-ab-rVT" id="1lX-5V-1ud"/>
+                <outlet property="widthConstraint" destination="A9o-cd-oqJ" id="Bs2-l4-VYv"/>
             </connections>
         </view>
     </objects>
