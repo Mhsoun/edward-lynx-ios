@@ -12,6 +12,7 @@
 
 @synthesize checked = _checked;
 @synthesize progress = _progress;
+@synthesize dueDateString = _dueDateString;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
@@ -52,10 +53,18 @@
     _checked = checked;
 }
 
+- (NSString<Ignore> *)dueDateString {
+    return [AppSingleton.printDateFormatter stringFromDate:self.dueDate];
+}
+
+- (void)setDueDateString:(NSString<Ignore> *)dueDateString {
+    _dueDateString = dueDateString;
+}
+
 - (CGFloat)progress {
     NSInteger checked = 0;
     
-    if (!self.actions) {
+    if (!self.actions || self.actions.count == 0) {
         return checked;
     }
     
@@ -94,7 +103,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
     NSInteger completedActions = [[self.actions filteredArrayUsingPredicate:predicate] count];
     
-    return @{@"value": @(completedActions / (CGFloat)self.actions.count),
+    return @{@"value": @(self.progress),
              @"text": [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
                        @(completedActions),
                        @(self.actions.count)]};

@@ -282,12 +282,11 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
             [self.indicatorView stopAnimating];
             
             if (error) {
-                // TODO
-                
                 return;
             }
             
-            self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict error:&error];
+            self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict
+                                                                       error:&error];
             
             [self.tableView reloadData];
         });

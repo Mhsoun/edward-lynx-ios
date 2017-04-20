@@ -75,6 +75,7 @@
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
+"kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
 "kELDevelopmentPlanGoalTimestampPlural" = "%@ days ago";
 "kELDevelopmentPlanGoalTimestampSingular" = "%@ day ago";
 "kELDevelopmentPlanGoalTimestampToday" = "Today";

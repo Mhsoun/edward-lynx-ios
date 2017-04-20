@@ -169,18 +169,29 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 #pragma mark - Private Methods
 
 - (void)updateContent {
+    NSString *timestamp;
+    UIColor *color;
+    BOOL completed = self.goal.progress == 1;
     NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.createdAt];
-    NSString *colorKey = self.goal.progress == 1 ? kELOrangeColor : kELBlueColor;
-    NSString *stringKey = days == 1 ? @"kELDevelopmentPlanGoalTimestampSingular" : @"kELDevelopmentPlanGoalTimestampPlural";
-    UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
+    NSString *stringKey = days == 1 ? @"kELDevelopmentPlanGoalTimestampSingular" :
+                                      @"kELDevelopmentPlanGoalTimestampPlural";
     
-    stringKey = days == 0 ? @"kELDevelopmentPlanGoalTimestampToday" : stringKey;
+    color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    
+    if (days == 0) {
+        timestamp = NSLocalizedString(stringKey, nil);
+    } else  {
+        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : stringKey;
+        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil),
+                     !completed ? self.goal.dueDateString : @(days)];
+    }
     
     // Content
     self.goalLabel.text = self.goal.title;
     self.completedLabel.text = [self.goal progressDetails][@"text"];
     self.completedLabel.textColor = color;
-    self.timestampLabel.text = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), @(days)];
+    self.timestampLabel.text = timestamp;
     self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
                                                                           self.goal.shortDescription;
     

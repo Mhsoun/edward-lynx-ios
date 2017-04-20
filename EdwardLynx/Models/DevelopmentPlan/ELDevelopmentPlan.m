@@ -37,6 +37,10 @@
 - (CGFloat)progress {
     CGFloat averageProgress = 0;
     
+    if (!self.goals || self.goals.count == 0) {
+        return averageProgress;
+    }
+    
     for (ELGoal *goal in self.goals) {
         averageProgress += goal.progress;
     }

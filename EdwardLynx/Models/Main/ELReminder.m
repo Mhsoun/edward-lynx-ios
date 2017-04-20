@@ -52,6 +52,10 @@
     NSInteger days;
     NSDate *currentDate = [NSDate date];
     
+    if (!self.dueDate) {
+        return @"";
+    }
+    
     days = [currentDate mt_daysUntilDate:self.dueDate];
     
     if ([currentDate mt_isOnOrBefore:self.dueDate]) {
