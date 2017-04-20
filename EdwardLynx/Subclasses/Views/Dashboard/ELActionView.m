@@ -59,17 +59,22 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
-    NSNumber *count = contentDict[@"count"];
+    NSString *countString = @"1";
     
     // Content
     self.titleLabel.text = [contentDict[@"title"] uppercaseString];
-    self.countLabel.text = [count integerValue] > 99 ? @"99+" : [count stringValue];
+    self.countLabel.text = countString;
     
     // UI
     self.bgView.layer.cornerRadius = 5.0f;
     self.countLabel.layer.cornerRadius = 10.0f;
     self.countLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELRedColor];
     self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
+    
+    if (countString.length > 2) {
+        [self.widthConstraint setConstant:10 * countString.length];
+        [self.countLabel updateConstraints];
+    }
     
 //    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }

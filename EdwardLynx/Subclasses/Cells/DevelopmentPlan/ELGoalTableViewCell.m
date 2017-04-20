@@ -83,6 +83,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *detailMessage;
     UIAlertController *controller;
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     ELGoalAction *goalAction = mActions[indexPath.row];
@@ -150,8 +151,10 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         return;
     }
     
+    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil),
+                     goalAction.title];    
     controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
-                                                     message:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil)
+                                                     message:detailMessage
                                               preferredStyle:UIAlertControllerStyleAlert];
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCompleteButton", nil)
@@ -169,22 +172,19 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 #pragma mark - Private Methods
 
 - (void)updateContent {
-    NSString *timestamp;
+    NSString *stringKey, *timestamp;
     UIColor *color;
     BOOL completed = self.goal.progress == 1;
     NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.createdAt];
     NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
-    NSString *stringKey = days == 1 ? @"kELDevelopmentPlanGoalTimestampSingular" :
-                                      @"kELDevelopmentPlanGoalTimestampPlural";
     
     color = [[RNThemeManager sharedManager] colorForKey:colorKey];
     
     if (days == 0) {
-        timestamp = NSLocalizedString(stringKey, nil);
+        timestamp = NSLocalizedString(@"kELDevelopmentPlanGoalTimestampToday", nil);
     } else  {
-        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : stringKey;
-        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil),
-                     !completed ? self.goal.dueDateString : @(days)];
+        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : @"kELListFilterCompleted";
+        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), self.goal.dueDateString];
     }
     
     // Content

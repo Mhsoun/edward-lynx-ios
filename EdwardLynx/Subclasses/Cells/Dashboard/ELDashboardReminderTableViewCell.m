@@ -41,21 +41,26 @@
     ELReminder *reminder = (ELReminder *)object;
     
     // Content
-    self.typeLabel.text = [reminder.name uppercaseString];
-    self.detailLabel.text = reminder.shortDescription;
+    self.detailLabel.text = reminder.name;
     self.dueLabel.attributedText = reminder.attributedDueDateInfo;
     
     // UI
     switch (reminder.type) {
-        case kELReminderTypeGoal:
-            colorKey = kELDevPlanColor;
-            
-            break;
         case kELReminderTypeFeedback:
+            self.typeLabel.text = [NSLocalizedString(@"kELDashboardReminderFeedback", nil) uppercaseString];
+            
             colorKey = kELFeedbackColor;
             
             break;
+        case kELReminderTypeGoal:
+            self.typeLabel.text = [NSLocalizedString(@"kELDashboardReminderGoal", nil) uppercaseString];
+            
+            colorKey = kELDevPlanColor;
+            
+            break;
         default:
+            self.typeLabel.text = [NSLocalizedString(@"kELDashboardReminderSurvey", nil) uppercaseString];
+            
             colorKey = kELOrangeColor;
             
             break;

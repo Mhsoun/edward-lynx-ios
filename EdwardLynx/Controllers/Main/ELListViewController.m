@@ -61,12 +61,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     if (self.listType == kELListTypeReports) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
-    
-    // Search Notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onSearchTextUpdate:)
-                                                 name:kELTabPageSearchNotification
-                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +71,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Load
     [self.tableView setHidden:YES];
     [self.indicatorView startAnimating];
 }
@@ -86,6 +81,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     self.page = 1;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    // Search Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onSearchTextUpdate:)
+                                                 name:kELTabPageSearchNotification
+                                               object:nil];
     
     // Load list type's corresponding data set
     [self loadListByType];

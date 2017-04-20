@@ -39,6 +39,7 @@
 
 "kELDashboardAddNew" = "Answer New";
 "kELDashboardCreateNew" = "Create New";
+
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
 "kELDashboardDueDateNow" = "Now";
@@ -51,6 +52,10 @@
 "kELDashboardItemInvite" = "Invite";
 "kELDashboardItemCreate" = "Create";
 
+"kELDashboardReminderFeedback" = "Instant Feedback";
+"kELDashboardReminderGoal" = "Goal";
+"kELDashboardReminderSurvey" = "Survey";
+
 "kELMenuItemDashboard" = "Dashboard";
 "kELMenuItemDevelopmentPlan" = "Development Plans";
 "kELMenuItemProfile" = "Profile";
@@ -59,10 +64,10 @@
 
 /* Development Plans */
 
-"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Complete Action";
-"kELDevelopmentPlanGoalActionCompleteDetaislMessage" = "Is this action completed?";
+"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
+"kELDevelopmentPlanGoalActionCompleteDetaislMessage" = "Complete the action, %@?";
 
-"kELDevelopmentPlanEmptyMessage"  = "No Development Plans";
+"kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
@@ -76,8 +81,6 @@
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
-"kELDevelopmentPlanGoalTimestampPlural" = "%@ days ago";
-"kELDevelopmentPlanGoalTimestampSingular" = "%@ day ago";
 "kELDevelopmentPlanGoalTimestampToday" = "Today";
 
 "kELDevelopmentPlanTitle" = "Development Plan";
