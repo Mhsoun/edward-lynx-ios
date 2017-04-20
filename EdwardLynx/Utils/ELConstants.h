@@ -33,6 +33,7 @@
 
 #define fa_paper_plane @"\uf1d8"
 #define fa_paper_plane_o @"\uf1d9"
+#define fa_share_alt @"\uf1e0"
 #define fa_user_circle_o @"\uf2be"
 
 #pragma mark - Enums
