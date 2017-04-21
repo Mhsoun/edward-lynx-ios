@@ -59,7 +59,7 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
-    NSString *countString = @"1";
+    NSString *countString = [contentDict[@"count"] stringValue];
     
     // Content
     self.titleLabel.text = [contentDict[@"title"] uppercaseString];
