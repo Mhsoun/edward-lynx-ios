@@ -360,6 +360,10 @@ static CGFloat const kELBarHeight = 40;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onShareBarButtonClick:(id)sender {
+    if ([self.selectedObject isKindOfClass:[ELSurvey class]]) {
+        return;
+    }
+    
     [self performSegueWithIdentifier:@"ShareReport" sender:self];
 }
 
