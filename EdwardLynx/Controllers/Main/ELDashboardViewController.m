@@ -45,20 +45,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Initialization
     AppSingleton.hasLoadedApplication = YES;
     
-    // Assign the dashboard as the new root controller
-    [ApplicationDelegate assignNewRootViewController:self];
-    
-    // Register for Remote Notifications
-#if !(TARGET_OS_SIMULATOR)
-    [self triggerRegisterForNotifications];
-    
-    if (ApplicationDelegate.notification) {
-        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
-        
-        ApplicationDelegate.notification = nil;
-    }
-#endif
-    
     // Table view
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -72,6 +58,20 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     
     // Load Dashboard details
     [self loadDashboardData];
+    
+    // Register for Remote Notifications
+#if !(TARGET_OS_SIMULATOR)
+    [self triggerRegisterForNotifications];
+    
+    // Assign the dashboard as the new root controller
+    [ApplicationDelegate assignNewRootViewController:self];
+    
+    if (ApplicationDelegate.notification) {
+        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
+        
+        ApplicationDelegate.notification = nil;
+    }
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
