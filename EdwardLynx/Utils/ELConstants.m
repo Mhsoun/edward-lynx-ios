@@ -43,6 +43,8 @@ CGFloat const kELCustomScaleItemHeight = 35;
 CGFloat const kELQuestionTypeDefaultHeight = 40;
 CGFloat const kELQuestionTypeExpandedHeight = 80;
 
+NSInteger const kELParticipantsMinimumCount = 3;
+
 NSString * const kELPopupCloseNotification = @"ELPopupClosehNotification";
 NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
 

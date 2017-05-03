@@ -373,7 +373,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         NSArray *questions;
         NSMutableDictionary *mAnswerDict;
         
-        if (!self.mParticipants.count || self.mParticipants.count <= 3) {
+        if (!self.mParticipants.count || self.mParticipants.count <= kELParticipantsMinimumCount) {
             UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
                                                                                 message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
                                                                          preferredStyle:UIAlertControllerStyleAlert];

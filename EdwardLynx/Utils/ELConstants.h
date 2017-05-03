@@ -137,6 +137,8 @@ extern CGFloat const kELCustomScaleItemHeight;
 extern CGFloat const kELQuestionTypeDefaultHeight;
 extern CGFloat const kELQuestionTypeExpandedHeight;
 
+extern NSInteger const kELParticipantsMinimumCount;
+
 extern NSString * const kELPopupCloseNotification;
 extern NSString * const kELTabPageSearchNotification;
 

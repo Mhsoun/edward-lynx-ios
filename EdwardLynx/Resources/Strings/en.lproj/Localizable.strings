@@ -150,6 +150,7 @@
 "kELReportInfoLabel" = "Invited: %@ | Answered: %@";
 "kELReportInfoOthers" = "Others combined";
 "kELReportInfoSelf" = "Self";
+"kELReportNoData" = "No chart data available";
 
 /* Surveys */
 
