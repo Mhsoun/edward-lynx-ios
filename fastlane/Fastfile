@@ -52,6 +52,14 @@ platform :ios do
     build_for_crashlytics()
   end
 
+  desc "Registers devices to Apple Developer Account"
+  lane :devices do
+    register_devices(
+      devices_file: "devices.txt",
+      team_id: ENV["DEV_TEAM_ID"]
+    )
+  end
+
   desc "Submit a new Beta Build to HockeyApp"
   lane :hockeyapp do
     build_for_hockeyapp()
