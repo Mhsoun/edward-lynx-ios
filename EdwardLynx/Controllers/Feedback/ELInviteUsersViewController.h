@@ -18,11 +18,15 @@
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIImageView *infoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *noOfPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectAllButton;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
