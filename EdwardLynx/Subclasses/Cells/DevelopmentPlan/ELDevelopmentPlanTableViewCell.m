@@ -78,7 +78,7 @@
     self.completedLabel.text = devPlan.progressText;
     self.timestampLabel.text = [AppSingleton.printDateFormatter stringFromDate:devPlan.createdAt];
     
-    [self setupBarChartTestForDevelopmentPlan:devPlan];
+    [self setupBarChartForDevelopmentPlan:devPlan];
     [self setupCircleChartForDevelopmentPlan:devPlan];
     
     // UI
@@ -98,7 +98,7 @@
     [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:self.indexPath];
 }
 
-- (void)setupBarChartTestForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
+- (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     NSInteger visibleCount;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
@@ -116,7 +116,7 @@
         colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
         
         [mColors addObject:[[RNThemeManager sharedManager] colorForKey:colorKey]];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)(i + 1) y:progress]];
     }
     
     chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
@@ -159,7 +159,7 @@
     [self.barChart animateWithYAxisDuration:0.5];
 }
 
-- (void)setupBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
+- (void)setupPNBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     CGFloat width;
     CGRect frame;
     NSMutableArray *mColors = [[NSMutableArray alloc] init];

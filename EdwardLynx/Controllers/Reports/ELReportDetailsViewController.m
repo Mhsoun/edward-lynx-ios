@@ -38,8 +38,16 @@ static CGFloat const kELBarHeight = 40;
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    BOOL isSurvey;
+    UIImage *image;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    isSurvey = [self.selectedObject isKindOfClass:[ELSurvey class]];
+    image = [FontAwesome imageWithIcon:fa_share_alt
+                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                              iconSize:25];
     
     // Initialization
     self.toDisplayData = YES;
@@ -51,10 +59,9 @@ static CGFloat const kELBarHeight = 40;
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
     
+    [self.shareBarButton setEnabled:!isSurvey];
+    [self.shareBarButton setImage:isSurvey ? nil : image];
     [self.shareBarButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    [self.shareBarButton setImage:[FontAwesome imageWithIcon:[self.selectedObject isKindOfClass:[ELSurvey class]] ? fa_download : fa_share_alt
-                                                   iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
-                                                    iconSize:25]];
     
     [self.averageChartView addSubview:self.averageBarChart];
     [self.indexChartView addSubview:self.indexBarChart];
