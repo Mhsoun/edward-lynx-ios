@@ -233,8 +233,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 #pragma mark - Protocol Methods (ELDashboardViewDelegate)
 
-- (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
-    if ([@[kELDashboardActionTypeCreateDevPlan, kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
+- (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
+    if ([@[kELDashboardActionTypeAnswer,
+           kELDashboardActionTypeCreateDevPlan,
+           kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
         [self performSegueWithIdentifier:identifier sender:self];
     } else {
         ELTabPageViewController *controller;

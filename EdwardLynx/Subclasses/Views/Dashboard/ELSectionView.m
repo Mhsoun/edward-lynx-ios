@@ -53,7 +53,7 @@
 }
 
 - (IBAction)onButtonClick:(id)sender {
-    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
+    [self.delegate viewTapToPerformControllerPushWithIdentifier:self.segueIdentifier];
 }
 
 @end

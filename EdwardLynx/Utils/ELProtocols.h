@@ -40,7 +40,7 @@
 
 @protocol ELDashboardViewDelegate <NSObject>
 
-- (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier;
+- (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier;
 
 @end
 

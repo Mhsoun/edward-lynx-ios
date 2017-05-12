@@ -78,7 +78,7 @@
 #pragma mark - Selectors
 
 - (void)onViewTap:(UIGestureRecognizer *)recognizer {
-    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
+    [self.delegate viewTapToPerformControllerPushWithIdentifier:self.segueIdentifier];
 }
 
 @end
