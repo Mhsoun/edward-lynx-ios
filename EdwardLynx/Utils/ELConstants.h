@@ -6,6 +6,10 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+
+#import "AppDelegate.h"
+#import "ELAppSingleton.h"
+
 #ifndef ELConstants_h
 #define ELConstants_h
 
@@ -27,7 +31,7 @@
 #define IDIOM UI_USER_INTERFACE_IDIOM()
 #define IPAD UIUserInterfaceIdiomPad
 #define RGB(r, g, b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
-#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma mark - FontAwesome
 

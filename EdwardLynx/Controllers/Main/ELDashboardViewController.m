@@ -56,15 +56,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     [self.tableView registerNib:[UINib nibWithNibName:kELDevPlanCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELDevPlanCellIdentifier];
     
-    // Load Dashboard details
-    [self loadDashboardData];
-    
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
-    
-    // Assign the dashboard as the new root controller
-    [ApplicationDelegate assignNewRootViewController:self];
     
     if (ApplicationDelegate.notification) {
         [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
@@ -72,6 +66,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ApplicationDelegate.notification = nil;
     }
 #endif
+    
+    // Load Dashboard details
+    [self loadDashboardData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,20 +79,20 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.dashboardData toDictionary] allKeys].count;
+    return [self.dashboardData sections].count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *key = [[self.dashboardData toDictionary] allKeys][section];
-    NSArray *items = [self.dashboardData toDictionary][key];
+    NSString *key = [self.dashboardData sections][section];
+    NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     
     return section == 0 ? 1 : items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
-    NSString *key = [[self.dashboardData toDictionary] allKeys][indexPath.section];
-    NSArray *items = [self.dashboardData toDictionary][key];
+    NSString *key = [self.dashboardData sections][indexPath.section];
+    NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     
     value = items[indexPath.row];
     
@@ -107,7 +104,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         [cell setupHeaderContent:items controller:self];
         
         return cell;
-    } else if (indexPath.section == 1) {
+    } else if ([value isKindOfClass:[ELReminder class]]) {
         ELDashboardReminderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELReminderCellIdentifier
                                                                                  forIndexPath:indexPath];
         
@@ -130,8 +127,8 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
     ELDevelopmentPlanDetailsViewController *controller;
-    NSString *key = [[self.dashboardData toDictionary] allKeys][indexPath.section];
-    NSArray *items = [self.dashboardData toDictionary][key];
+    NSString *key = [self.dashboardData sections][indexPath.section];
+    NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     
     value = items[indexPath.row];
     
@@ -173,20 +170,21 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case 0:
-            return 175;
-            break;
-        case 1:
-            return 55;
-        default:
-            return 225;
-            break;
+    id value;
+    NSString *key = [self.dashboardData sections][indexPath.section];
+    NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
+    
+    value = items[indexPath.row];
+    
+    if (indexPath.section == 0) {
+        return 175;
     }
+    
+    return [value isKindOfClass:[ELReminder class]] ? 55 : 225;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section != [self.dashboardData toDictionary].count - 1 ? 0 : kELAdsViewHeight;
+    return section != [self.dashboardData sections].count - 1 ? 0 : kELAdsViewHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -196,7 +194,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UILabel *label;
     
-    if (section != [self.dashboardData toDictionary].count - 1) {
+    if (section != [self.dashboardData sections].count - 1) {
         return nil;
     }
     
@@ -208,7 +206,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Lato-Regular" size:12.0];
     label.opaque = YES;
-    label.text = @"Space for Ads";
+    label.text = @"";
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
     
@@ -217,12 +215,12 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ELSectionView *sectionView;
-    NSDictionary *dashboardDict = [self.dashboardData toDictionary];
-    NSMutableDictionary *mSectionDict = [NSMutableDictionary dictionaryWithDictionary:@{@"title": [dashboardDict allKeys][section]}];
+    NSString *key = [self.dashboardData sections][section];
+    NSMutableDictionary *mSectionDict = [NSMutableDictionary dictionaryWithDictionary:@{@"title": key}];
     
     if (section == 0) {
         return nil;
-    } else if (section == 2) {
+    } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
         [mSectionDict setObject:@"DevPlan" forKey:@"segue"];
     }
     

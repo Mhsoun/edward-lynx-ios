@@ -17,7 +17,10 @@
 @interface ELDashboardData : JSONModel
 
 @property (nonatomic) NSNumber<Optional> *answerableCount;
-@property (nonatomic) NSArray<Optional, ELReminder> *reminders;
-@property (nonatomic) NSArray<Optional, ELDevelopmentPlan> *developmentPlans;
+@property (nonatomic, strong) NSArray<Optional, ELReminder> *reminders;
+@property (nonatomic, strong) NSArray<Optional, ELDevelopmentPlan> *developmentPlans;
+
+- (NSArray *)sections;
+- (NSArray *)itemsForSection:(NSString *)section;
 
 @end

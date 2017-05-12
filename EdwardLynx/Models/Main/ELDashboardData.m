@@ -10,10 +10,30 @@
 
 @implementation ELDashboardData
 
-- (NSDictionary *)toDictionary {
-    return @{@"": @[self.answerableCount, @(0), @(0), @(0)],
-             @"REMINDERS": self.reminders,
-             @"DEVELOPMENT PLAN": self.developmentPlans};
+- (NSArray *)sections {
+    NSMutableArray *mSections = [[NSMutableArray alloc] init];
+    
+    [mSections addObject:@""];
+    
+    if (self.reminders && self.reminders.count > 0) {
+        [mSections addObject:NSLocalizedString(@"kELDashboardSectionReminder", nil)];
+    }
+    
+    if (self.developmentPlans && self.developmentPlans.count > 0) {
+        [mSections addObject:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)];
+    }
+    
+    return [mSections copy];
+}
+
+- (NSArray *)itemsForSection:(NSString *)section {
+    if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionReminder", nil)]) {
+        return self.reminders;
+    } else if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
+        return self.developmentPlans;
+    } else {
+        return @[self.answerableCount, @0, @0, @0];
+    }
 }
 
 @end
