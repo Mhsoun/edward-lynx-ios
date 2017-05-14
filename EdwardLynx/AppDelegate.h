@@ -17,10 +17,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ELNotification *notification;
-@property (strong, nonatomic) __kindof UIViewController *notificationRootViewController;
 @property (strong, readonly) NSPersistentContainer *persistentContainer;
 
-- (void)assignNewRootViewController:(__kindof UIViewController *)controller;
+- (void)assignRootNavController:(__kindof UINavigationController *)controller;
 - (void)displayViewControllerByData:(id)object;
 - (void)registerDeviceToFirebaseAndAPI;
 - (void)registerForRemoteNotifications;

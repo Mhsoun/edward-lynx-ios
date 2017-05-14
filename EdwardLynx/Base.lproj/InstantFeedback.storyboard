@@ -140,11 +140,10 @@
                                 </connections>
                             </button>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="i9I-P9-NBu">
-                                <rect key="frame" x="178" y="324" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dxb-eD-2MV" firstAttribute="width" secondItem="Nhc-Ql-6OT" secondAttribute="width" id="4bu-Z7-n9d"/>
                             <constraint firstItem="69q-dy-cpv" firstAttribute="leading" secondItem="Nhc-Ql-6OT" secondAttribute="leadingMargin" id="7uj-Hi-VG1"/>

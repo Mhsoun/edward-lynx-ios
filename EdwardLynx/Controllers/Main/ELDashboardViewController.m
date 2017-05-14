@@ -133,29 +133,29 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     value = items[indexPath.row];
     
     if ([value isKindOfClass:[ELReminder class]]) {
+        NSString *identifier, *storyboard;
         __kindof ELBaseDetailViewController *controller;
         ELReminder *reminder = (ELReminder *)value;
         
         switch (reminder.type) {
             case kELReminderTypeFeedback:
-                controller = [[UIStoryboard storyboardWithName:@"InstantFeedback" bundle:nil]
-                              instantiateViewControllerWithIdentifier:@"InstantFeedbackDetails"];
-                controller.objectId = reminder.objectId;
+                storyboard = @"InstantFeedback";
                 
                 break;
             case kELReminderTypeGoal:
-                controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
-                              instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
-                controller.objectId = reminder.objectId;
+                storyboard = @"DevelopmentPlan";
                 
                 break;
             default:
-                controller = [[UIStoryboard storyboardWithName:@"Survey" bundle:nil]
-                              instantiateViewControllerWithIdentifier:@"SurveyCategoryPage"];
-                controller.objectId = reminder.objectId;
+                storyboard = @"Survey";
                 
                 break;
         }
+        
+        identifier = [NSString stringWithFormat:@"%@Details", storyboard];
+        controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
+                      instantiateViewControllerWithIdentifier:identifier];
+        controller.objectId = reminder.objectId;
         
         [self.navigationController pushViewController:controller animated:YES];
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {

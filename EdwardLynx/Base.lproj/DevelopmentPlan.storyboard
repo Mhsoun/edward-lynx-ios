@@ -130,7 +130,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p5v-jx-qA0" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="2HH-hE-UQG"/>
                             <constraint firstItem="mde-e0-Zaa" firstAttribute="centerX" secondItem="fkh-Vt-Trz" secondAttribute="centerX" id="4TV-xg-IbV"/>
