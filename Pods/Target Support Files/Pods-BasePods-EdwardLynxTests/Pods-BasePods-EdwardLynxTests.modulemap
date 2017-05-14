@@ -1,6 +1,0 @@
-framework module Pods_BasePods_EdwardLynxTests {
-  umbrella header "Pods-BasePods-EdwardLynxTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
