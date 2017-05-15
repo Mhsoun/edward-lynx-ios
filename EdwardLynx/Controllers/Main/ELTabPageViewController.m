@@ -42,6 +42,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onInstantFeedbackTab:)
+                                                 name:kELInstantFeedbackTabNotification
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kELInstantFeedbackTabNotification
+                                                  object:nil];
+}
+
+- (void)onInstantFeedbackTab:(NSNotification *)notification {
+    BOOL hidden = [notification.userInfo[@"hidden"] boolValue];
+    
+    self.addButton.hidden = NO;
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        self.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
+    }];
+}
+
 #pragma mark - Private Methods
 
 - (NSString *)identifierByType:(kELListType)type {

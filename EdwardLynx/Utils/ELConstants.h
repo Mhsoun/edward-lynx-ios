@@ -143,6 +143,7 @@ extern CGFloat const kELQuestionTypeExpandedHeight;
 
 extern NSInteger const kELParticipantsMinimumCount;
 
+extern NSString * const kELInstantFeedbackTabNotification;
 extern NSString * const kELPopupCloseNotification;
 extern NSString * const kELTabPageSearchNotification;
 

@@ -88,6 +88,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                  name:kELTabPageSearchNotification
                                                object:nil];
     
+    // Toggle Add Button Notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:kELInstantFeedbackTabNotification
+                                                        object:nil
+                                                      userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
+    
     // Load list type's corresponding data set
     [self loadListByType];
 }

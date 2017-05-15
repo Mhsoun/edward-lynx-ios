@@ -45,6 +45,7 @@ CGFloat const kELQuestionTypeExpandedHeight = 80;
 
 NSInteger const kELParticipantsMinimumCount = 3;
 
+NSString * const kELInstantFeedbackTabNotification = @"ELInstantFeedbackTabNotification";
 NSString * const kELPopupCloseNotification = @"ELPopupClosehNotification";
 NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
 
