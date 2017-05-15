@@ -117,7 +117,7 @@
 "kELDeselectAllButton" = "Deselect all";
 "kELSelectAllButton" = "Select all";
 
-"kELInviteUsersInfoMessage" = "You have to invite more than 3 people and more than 3 people have to answer before result can be viewed.";
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed.";
 
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users";
