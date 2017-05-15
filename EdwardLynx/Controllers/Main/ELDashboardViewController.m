@@ -66,14 +66,26 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ApplicationDelegate.notification = nil;
     }
 #endif
-    
-    // Load Dashboard details
-    [self loadDashboardData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Load Dashboard details
+    [self loadDashboardData];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -283,6 +295,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
             self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict
                                                                        error:&error];
             
+            [self.tableView setHidden:NO];
             [self.tableView reloadData];
         });
     }];

@@ -156,7 +156,6 @@
     
     [self.barChart setVisibleXRangeMaximum:visibleCount];
     [self.barChart setVisibleXRangeMinimum:visibleCount];
-    [self.barChart animateWithYAxisDuration:0.5];
 }
 
 - (void)setupPNBarChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
@@ -209,6 +208,8 @@
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
     [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
+    
+    [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
 }
 

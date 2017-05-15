@@ -258,22 +258,18 @@ static CGFloat const kELBarHeight = 40;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
-        
-    limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f label:@"70%"];
+    
+    limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f];
     limitLine70.labelPosition = ChartLimitLabelPositionLeftBottom;
     limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     limitLine70.lineWidth = 0.5f;
-    limitLine70.valueFont = labelFont;
-    limitLine70.valueTextColor = [UIColor whiteColor];
     
     [barChart.leftAxis addLimitLine:limitLine70];
     
-    limitLine100 = [[ChartLimitLine alloc] initWithLimit:1.0f label:@"100%"];
+    limitLine100 = [[ChartLimitLine alloc] initWithLimit:1.0f];
     limitLine100.labelPosition = ChartLimitLabelPositionLeftBottom;
     limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     limitLine100.lineWidth = 0.5f;
-    limitLine100.valueFont = labelFont;
-    limitLine100.valueTextColor = [UIColor whiteColor];
     
     [barChart.leftAxis addLimitLine:limitLine100];
     
@@ -287,9 +283,27 @@ static CGFloat const kELBarHeight = 40;
     barChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
+    barChart.rightAxis.axisMaximum = 1.1f;
+    barChart.rightAxis.axisMinimum = 0.0f;
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
-    barChart.rightAxis.drawLabelsEnabled = NO;
+    barChart.rightAxis.drawLabelsEnabled = YES;
+    barChart.rightAxis.yOffset = 1;
+    barChart.rightAxis.labelCount = 10;
+    barChart.rightAxis.labelFont = labelFont;
+    barChart.rightAxis.labelPosition = YAxisLabelPositionOutsideChart;
+    barChart.rightAxis.labelTextColor = [UIColor whiteColor];
+    barChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        if (percentage == 70) {
+            return @"70%";
+        } else if (percentage == 100) {
+            return @"100%";
+        } else {
+            return @"";
+        }
+    }];
     
     barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;

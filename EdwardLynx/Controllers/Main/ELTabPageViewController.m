@@ -115,30 +115,27 @@
         case kELListTypeDevPlan:
             identifier = @"Development Plans";
             
-            self.title = [identifier uppercaseString];
-            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
             self.addButton.hidden = NO;
             
             break;
         case kELListTypeReports:
             identifier = @"Reports";
             
-            self.title = [identifier uppercaseString];
-            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
             self.addButton.hidden = YES;
             
             break;
         case kELListTypeSurveys:
             identifier = @"Surveys";
             
-            self.title = [identifier uppercaseString];
-            self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
-            self.addButton.hidden = NO;
+            self.addButton.hidden = YES;
             
             break;
         default:
             break;
     }
+    
+    self.title = [identifier uppercaseString];
+    self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
@@ -173,7 +170,6 @@
     for (int i = 0; i < self.tabs.count; i++) {
         controller = [[UIStoryboard storyboardWithName:identifier bundle:nil]
                       instantiateViewControllerWithIdentifier:identifier];
-        
         controller.index = i;
         controller.tabs = self.tabs;
         
@@ -203,7 +199,8 @@
             break;
     }
     
-    controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil] instantiateInitialViewController];
+    controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
+                  instantiateInitialViewController];
     
     [self.navigationController pushViewController:controller animated:YES];
 }
