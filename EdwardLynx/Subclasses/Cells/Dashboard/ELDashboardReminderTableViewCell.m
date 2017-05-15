@@ -61,7 +61,7 @@
         default:
             self.typeLabel.text = [NSLocalizedString(@"kELDashboardReminderSurvey", nil) uppercaseString];
             
-            colorKey = kELOrangeColor;
+            colorKey = kELLynxColor;
             
             break;
     }

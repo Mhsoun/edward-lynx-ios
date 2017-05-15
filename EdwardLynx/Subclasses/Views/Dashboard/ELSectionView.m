@@ -42,7 +42,7 @@
     }
     
     self.frame = frame;
-    self.titleLabel.text = detailsDict[@"title"];
+    self.titleLabel.text = [detailsDict[@"title"] uppercaseString];
     self.segueIdentifier = detailsDict[@"segue"];
     self.button.hidden = !self.segueIdentifier;
     
@@ -53,7 +53,7 @@
 }
 
 - (IBAction)onButtonClick:(id)sender {
-    [self.delegate viewTapToPerformSegueWithIdentifier:self.segueIdentifier];
+    [self.delegate viewTapToPerformControllerPushWithIdentifier:self.segueIdentifier];
 }
 
 @end

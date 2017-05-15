@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString * const kELDashboardActionTypeDevPlan = @"DevPlan";
-static NSString * const kELDashboardActionTypeFeedback = @"Feedback";
-static NSString * const kELDashboardActionTypeLynx = @"Lynx";
+static NSString * const kELDashboardActionTypeDevPlan = @"TabDevPlan";
+static NSString * const kELDashboardActionTypeFeedback = @"TabFeedback";
+static NSString * const kELDashboardActionTypeLynx = @"TabLynx";
 
+static NSString * const kELDashboardActionTypeAnswer = @"Feedback";
 static NSString * const kELDashboardActionTypeReport = @"Report";
+static NSString * const kELDashboardActionTypeCreate = @"Create";
 static NSString * const kELDashboardActionTypeCreateDevPlan = @"CreateDevelopmentPlan";
 static NSString * const kELDashboardActionTypeCreateFeedback = @"CreateInstantFeedback";
 

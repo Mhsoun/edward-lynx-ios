@@ -146,7 +146,7 @@ static ELNotificationView *currentNotificationView = nil;
         imageName = @"Survey";
     }
     
-    self.iconImageView.image = nil;  // TODO Image based on type
+    self.iconImageView.image = [UIImage imageNamed:@"AppIcon40x40"];  // TODO Image based on type
     self.titleLabel.text = notification.title;
     self.detailLabel.text = notification.body;
 }

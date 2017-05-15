@@ -278,6 +278,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)layoutInstantFeedbackSharePage {
     self.title = [NSLocalizedString(@"kELInviteTitleFeedback", nil) uppercaseString];
+    self.infoView.hidden = NO;
     
     // Button
     [self.inviteButton setTitle:NSLocalizedString(@"kELShareButtonFeedback", nil)
@@ -289,6 +290,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)layoutReportSharePage {
     self.title = [NSLocalizedString(@"kELInviteTitleReport", nil) uppercaseString];
+    self.infoView.hidden = YES;
     
     // Button
     [self.inviteButton setTitle:NSLocalizedString(@"kELShareButtonReport", nil)
@@ -373,7 +375,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         NSArray *questions;
         NSMutableDictionary *mAnswerDict;
         
-        if (!self.mParticipants.count || self.mParticipants.count <= kELParticipantsMinimumCount) {
+        if (!self.mParticipants.count || self.mParticipants.count < kELParticipantsMinimumCount) {
             UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
                                                                                 message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
                                                                          preferredStyle:UIAlertControllerStyleAlert];

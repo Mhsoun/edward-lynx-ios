@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omf-Pf-luc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omf-Pf-luc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-y2-fTE" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2n-ay-hRY" userLabel="Form View" customClass="RNThemeView">
+                                            <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pnh-1G-WgI">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                 <subviews>
                                                     <searchBar contentMode="scaleToFill" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPk-wm-Q6F" customClass="ELSearchBar">
@@ -52,38 +52,41 @@
                                                         </constraints>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </searchBar>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-hN-4PN">
-                                                        <rect key="frame" x="15" y="62.5" width="15" height="15"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOb-wX-I6w" userLabel="Info View" customClass="RNThemeView">
+                                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-hN-4PN">
+                                                                <rect key="frame" x="20" y="12.5" width="15" height="15"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="H3z-hN-4PN" secondAttribute="height" multiplier="1:1" id="M7n-wW-Uqr"/>
+                                                                    <constraint firstAttribute="width" constant="15" id="PXM-xg-7Mj"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MHp-l9-crO">
+                                                                <rect key="frame" x="40" y="0.0" width="315" height="50"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="H3z-hN-4PN" secondAttribute="height" multiplier="1:1" id="M7n-wW-Uqr"/>
-                                                            <constraint firstAttribute="width" constant="15" id="PXM-xg-7Mj"/>
+                                                            <constraint firstAttribute="bottom" secondItem="MHp-l9-crO" secondAttribute="bottom" id="9Ar-tF-beh"/>
+                                                            <constraint firstItem="MHp-l9-crO" firstAttribute="top" secondItem="UOb-wX-I6w" secondAttribute="top" id="9es-FF-px1"/>
+                                                            <constraint firstItem="MHp-l9-crO" firstAttribute="leading" secondItem="H3z-hN-4PN" secondAttribute="trailing" constant="5" id="VPv-BI-PHM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="MHp-l9-crO" secondAttribute="trailing" constant="20" id="bWx-1j-h59"/>
+                                                            <constraint firstItem="H3z-hN-4PN" firstAttribute="leading" secondItem="UOb-wX-I6w" secondAttribute="leading" constant="20" id="f3G-ms-eus"/>
+                                                            <constraint firstItem="H3z-hN-4PN" firstAttribute="centerY" secondItem="MHp-l9-crO" secondAttribute="centerY" constant="-5" id="s2r-Bn-9GH"/>
                                                         </constraints>
-                                                    </imageView>
-                                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have to invite more than 3 people and more than 3 people have to answer before result can be viewed." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MHp-l9-crO">
-                                                        <rect key="frame" x="35" y="50" width="325" height="50"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="MHp-l9-crO" secondAttribute="trailing" constant="15" id="4A2-DT-QkT"/>
-                                                    <constraint firstAttribute="height" constant="100" id="Atn-qS-zWA"/>
-                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" id="Bdg-LV-Edg"/>
-                                                    <constraint firstItem="H3z-hN-4PN" firstAttribute="leading" secondItem="d2n-ay-hRY" secondAttribute="leading" constant="15" id="LCN-sD-xlu"/>
-                                                    <constraint firstItem="H3z-hN-4PN" firstAttribute="centerY" secondItem="MHp-l9-crO" secondAttribute="centerY" constant="-5" id="LfF-jy-Hsd"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IPk-wm-Q6F" secondAttribute="trailing" id="NYH-Ev-Ec8"/>
-                                                    <constraint firstItem="MHp-l9-crO" firstAttribute="top" secondItem="IPk-wm-Q6F" secondAttribute="bottom" id="TCb-n1-pDG"/>
-                                                    <constraint firstItem="MHp-l9-crO" firstAttribute="leading" secondItem="H3z-hN-4PN" secondAttribute="trailing" constant="5" id="a4f-Ss-x0Y"/>
-                                                    <constraint firstAttribute="bottom" secondItem="MHp-l9-crO" secondAttribute="bottom" id="d4F-y2-ubz"/>
-                                                    <constraint firstItem="IPk-wm-Q6F" firstAttribute="top" secondItem="d2n-ay-hRY" secondAttribute="top" id="dOC-RB-FFU"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Dd-bUV" userLabel="Selected View">
                                                 <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                                 <subviews>
@@ -133,14 +136,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="3dC-Dd-bUV" firstAttribute="top" secondItem="d2n-ay-hRY" secondAttribute="bottom" id="1HK-XN-9bA"/>
                                             <constraint firstAttribute="bottom" secondItem="ivZ-tA-rX1" secondAttribute="bottom" id="6um-2B-Zmw"/>
                                             <constraint firstItem="ivZ-tA-rX1" firstAttribute="leading" secondItem="HJp-y2-fTE" secondAttribute="leading" id="88M-pq-jre"/>
+                                            <constraint firstItem="pnh-1G-WgI" firstAttribute="width" secondItem="HJp-y2-fTE" secondAttribute="width" id="DNs-g2-Lwq"/>
+                                            <constraint firstItem="3dC-Dd-bUV" firstAttribute="top" secondItem="pnh-1G-WgI" secondAttribute="bottom" id="MTm-Vi-YZq"/>
                                             <constraint firstAttribute="trailing" secondItem="ivZ-tA-rX1" secondAttribute="trailing" id="N3F-bi-fB8"/>
-                                            <constraint firstItem="d2n-ay-hRY" firstAttribute="width" secondItem="HJp-y2-fTE" secondAttribute="width" id="T4J-3C-utd"/>
-                                            <constraint firstItem="d2n-ay-hRY" firstAttribute="top" secondItem="HJp-y2-fTE" secondAttribute="top" id="fzh-A0-dsp"/>
+                                            <constraint firstItem="pnh-1G-WgI" firstAttribute="top" secondItem="HJp-y2-fTE" secondAttribute="top" id="PPL-I6-TSI"/>
+                                            <constraint firstItem="pnh-1G-WgI" firstAttribute="centerX" secondItem="HJp-y2-fTE" secondAttribute="centerX" id="d0V-U1-dkS"/>
                                             <constraint firstItem="ivZ-tA-rX1" firstAttribute="top" secondItem="3dC-Dd-bUV" secondAttribute="bottom" id="joj-tw-82M"/>
-                                            <constraint firstItem="d2n-ay-hRY" firstAttribute="centerX" secondItem="HJp-y2-fTE" secondAttribute="centerX" id="m8r-Fs-4RO"/>
                                             <constraint firstItem="3dC-Dd-bUV" firstAttribute="leading" secondItem="HJp-y2-fTE" secondAttribute="leading" id="sGv-3i-xyq"/>
                                             <constraint firstAttribute="trailing" secondItem="3dC-Dd-bUV" secondAttribute="trailing" id="tJB-Y4-Rlg"/>
                                         </constraints>
@@ -181,7 +184,7 @@
                                     <constraint firstAttribute="height" constant="40" id="hFI-Yb-VCS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="Invite people by email">
+                                <state key="normal" title="Invite people by email address">
                                     <color key="titleColor" red="0.96862745098039216" green="0.58823529411764708" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -217,6 +220,7 @@
                         <outlet property="emailButtonHeightConstraint" destination="hFI-Yb-VCS" id="S9i-yN-bKo"/>
                         <outlet property="infoImageView" destination="H3z-hN-4PN" id="D4n-Od-r5R"/>
                         <outlet property="infoLabel" destination="MHp-l9-crO" id="hog-sc-cID"/>
+                        <outlet property="infoView" destination="UOb-wX-I6w" id="fbB-sw-bzL"/>
                         <outlet property="inviteButton" destination="vah-jb-Lki" id="xDP-RF-nWG"/>
                         <outlet property="noOfPeopleLabel" destination="VRi-ls-lhD" id="4YZ-NM-Hwb"/>
                         <outlet property="scrollView" destination="Qvq-og-F06" id="yAW-LA-4di"/>

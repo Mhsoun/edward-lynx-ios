@@ -12,11 +12,12 @@
 #import "ELInstantFeedback.h"
 #import "ELListViewManager.h"
 #import "ELQuestion.h"
+#import "ELSurveyTableViewCell.h"
 #import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
 
-static NSString * const kELCellIdentifier = @"InstantFeedbackCell";
+static NSString * const kELCellIdentifier = @"SurveyCell";
 static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 #pragma mark - Class Extension
@@ -39,10 +40,14 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
+    
+    self.tableView.rowHeight = 105;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,21 +76,6 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 #pragma mark - Protocol Methods (UITableView)
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.provider numberOfRows];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELInstantFeedback *feedback;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
-    
-    feedback = [self.provider rowObjectAtIndexPath:indexPath];
-    cell.textLabel.text = feedback.question.text;
-    cell.detailTextLabel.text = [ELUtils labelByAnswerType:feedback.question.answer.type];
-    
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedInstantFeedback = (ELInstantFeedback *)[self.provider rowObjectAtIndexPath:indexPath];
     
@@ -110,7 +100,8 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     NSMutableArray *mInstantFeedbacks = [[NSMutableArray alloc] init];
     
     for (NSDictionary *instantFeedbackDict in responseDict[@"items"]) {
-        [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict error:nil]];
+        [mInstantFeedbacks addObject:[[ELInstantFeedback alloc] initWithDictionary:instantFeedbackDict
+                                                                             error:nil]];
     }
     
     self.provider = [[ELDataProvider alloc] initWithDataArray:[mInstantFeedbacks copy]];
@@ -122,7 +113,6 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELFeedbacksRetrievalEmpty", nil) description:@""];
     [self.tableView setHidden:NO];
     [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
     [self.tableView reloadData];
 }
 

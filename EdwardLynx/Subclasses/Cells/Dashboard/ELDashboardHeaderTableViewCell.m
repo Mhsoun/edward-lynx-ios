@@ -45,7 +45,7 @@
     
     self.controller = controller;
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemDevelopmentPlan", nil),
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionDevelopmentPlan", nil),
                                                              @"color": kELDevPlanColor,
                                                              @"icon": fa_bar_chart_o,
                                                              @"segue": kELDashboardActionTypeDevPlan}];
@@ -54,7 +54,7 @@
     
     [self.devPlanView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemInstantFeedback", nil),
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionInstantFeedback", nil),
                                                              @"color": kELFeedbackColor,
                                                              @"icon": fa_paper_plane_o,
                                                              @"segue": kELDashboardActionTypeFeedback}];
@@ -63,7 +63,7 @@
     
     [self.feedbackView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemLynxMeasurement", nil),
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionLynxMeasurement", nil),
                                                              @"color": kELLynxColor,
                                                              @"icon": fa_edit,
                                                              @"segue": kELDashboardActionTypeLynx}];
@@ -72,15 +72,15 @@
     
     [self.surveyView addSubview:shortcutView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemAnswer", nil),
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionAnswer", nil),
                                                          @"count": contents[0],
-                                                         @"segue": @"Answer"}];
+                                                         @"segue": kELDashboardActionTypeAnswer}];
     actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.answerActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemResults", nil),
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionResults", nil),
                                                          @"count": contents[1],
                                                          @"segue": kELDashboardActionTypeReport}];
     actionView.delegate = self;
@@ -88,54 +88,55 @@
     
     [self.resultsActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemInvite", nil),
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionInvite", nil),
                                                          @"count": contents[2]}];
 //    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.inviteActionView addSubview:actionView];
     
-    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardItemCreate", nil),
+    actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionCreate", nil),
                                                          @"count": contents[3],
-                                                         @"segue": @"Create"}];
+                                                         @"segue": kELDashboardActionTypeCreate}];
     actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.createActionView addSubview:actionView];
 }
 
-- (void)viewTapToPerformSegueWithIdentifier:(NSString *)identifier {
+- (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
     BOOL isAnswer;
     UIAlertController *controller;
     UIAlertAction *answerFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
-                                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeFeedback];
+                                                                     [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeFeedback];
                                                                  }];
     UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELMenuItemSurveys", nil)
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                   [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeLynx];
+                                                                   [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeLynx];
                                                                }];
     UIAlertAction *createDevPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                    [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateDevPlan];
+                                                                    [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateDevPlan];
                                                                 }];
     UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
-                                                                     [self.delegate viewTapToPerformSegueWithIdentifier:kELDashboardActionTypeCreateFeedback];
+                                                                     [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateFeedback];
                                                                  }];
     
-    if (![@[@"Answer", @"Create"] containsObject:identifier]) {
-        [self.delegate viewTapToPerformSegueWithIdentifier:identifier];
+    if (![identifier isEqualToString:kELDashboardActionTypeCreate]) {
+        [self.delegate viewTapToPerformControllerPushWithIdentifier:identifier];
         
         return;
     }
     
     isAnswer = [identifier isEqualToString:@"Answer"];
-    controller = [UIAlertController alertControllerWithTitle:isAnswer ? NSLocalizedString(@"kELDashboardAddNew", nil) : NSLocalizedString(@"kELDashboardCreateNew", nil)
+    controller = [UIAlertController alertControllerWithTitle:isAnswer ? NSLocalizedString(@"kELDashboardAddNew", nil) :
+                                                                        NSLocalizedString(@"kELDashboardCreateNew", nil)
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     

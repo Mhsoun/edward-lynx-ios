@@ -173,6 +173,9 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
         default:
             break;
     }
+    
+    // Assign nav controller as root for Push Notifications
+    [ApplicationDelegate assignRootNavController:content];
 }
 
 - (NSString *)segueIdForIndexPath:(NSIndexPath *)indexPath {

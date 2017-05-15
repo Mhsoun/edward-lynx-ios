@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VWd-5R-vaB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VWd-5R-vaB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -72,7 +72,7 @@
         <!--Survey Details View Controller-->
         <scene sceneID="9FL-RF-ejk">
             <objects>
-                <viewController storyboardIdentifier="SurveyDetails" automaticallyAdjustsScrollViewInsets="NO" id="Zf1-Y0-xAe" customClass="ELSurveyDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyPage" automaticallyAdjustsScrollViewInsets="NO" id="Zf1-Y0-xAe" customClass="ELSurveyDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7yV-gT-lKP"/>
                         <viewControllerLayoutGuide type="bottom" id="avk-8k-Fbh"/>
@@ -93,7 +93,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pcV-ai-2E6" secondAttribute="bottom" id="1h2-6x-gHn"/>
                             <constraint firstAttribute="trailing" secondItem="pcV-ai-2E6" secondAttribute="trailing" id="Igz-Wo-oOx"/>
@@ -115,7 +114,7 @@
         <!--Survey Category Page View Controller-->
         <scene sceneID="4Bg-Va-I4B">
             <objects>
-                <viewController storyboardIdentifier="SurveyCategoryPage" automaticallyAdjustsScrollViewInsets="NO" id="Oe3-tM-qcI" customClass="ELSurveyCategoryPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyDetails" automaticallyAdjustsScrollViewInsets="NO" id="Oe3-tM-qcI" customClass="ELSurveyCategoryPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3K2-7N-VBZ"/>
                         <viewControllerLayoutGuide type="bottom" id="W51-jZ-i0H"/>

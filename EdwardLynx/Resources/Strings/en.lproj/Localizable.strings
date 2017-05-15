@@ -40,21 +40,24 @@
 "kELDashboardAddNew" = "Answer New";
 "kELDashboardCreateNew" = "Create New";
 
+"kELDashboardActionDevelopmentPlan" = "Development \nPlans";
+"kELDashboardActionInstantFeedback" = "Instant \nFeedback";
+"kELDashboardActionLynxMeasurement" = "Lynx \nMeasurement";
+"kELDashboardActionAnswer" = "Answer";
+"kELDashboardActionResults" = "Results";
+"kELDashboardActionInvite" = "Invite";
+"kELDashboardActionCreate" = "Create";
+
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
 "kELDashboardDueDateNow" = "Now";
 
-"kELDashboardItemDevelopmentPlan" = "Development \nPlans";
-"kELDashboardItemInstantFeedback" = "Instant \nFeedback";
-"kELDashboardItemLynxMeasurement" = "Lynx \nMeasurement";
-"kELDashboardItemAnswer" = "Answer";
-"kELDashboardItemResults" = "Results";
-"kELDashboardItemInvite" = "Invite";
-"kELDashboardItemCreate" = "Create";
-
 "kELDashboardReminderFeedback" = "Instant Feedback";
 "kELDashboardReminderGoal" = "Goal";
 "kELDashboardReminderSurvey" = "Survey";
+
+"kELDashboardSectionDevelopmentPlan" = "Development Plan";
+"kELDashboardSectionReminder" = "Reminder";
 
 "kELMenuItemDashboard" = "Dashboard";
 "kELMenuItemDevelopmentPlan" = "Development Plans";
@@ -114,7 +117,7 @@
 "kELDeselectAllButton" = "Deselect all";
 "kELSelectAllButton" = "Select all";
 
-"kELInviteUsersInfoMessage" = "You have to invite more than 3 people and more than 3 people have to answer before result can be viewed.";
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed.";
 
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users";

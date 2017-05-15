@@ -19,6 +19,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic, strong) NSString *firebaseToken;
+@property (nonatomic, strong) __kindof UINavigationController *notificationRootNavController;
 
 @end
 
@@ -36,7 +37,15 @@
     [ELUtils setupFabric];
     
     // Setup Firebase and Push Notifications
+#if !(TARGET_OS_SIMULATOR)
     [self setupFirebase];
+    
+    if (SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(@"10.0")) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        center.delegate = self;
+    }
+#endif
     
     // Setup IQKeyboardManager
     [ELUtils setupIQKeyboardManager];
@@ -135,34 +144,32 @@
     return YES;
 }
 
-#pragma mark - Notification Received Methods (iOS 9)
+#pragma mark - Notification Received Methods
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-    [self processReceivedNotification:userInfo
-                       forApplication:application];
+    if (SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(@"10.0")) {
+        return;
+    }
+    
+    [self processReceivedNotification:userInfo forApplication:application];
     
     completionHandler(UIBackgroundFetchResultNoData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [self processReceivedNotification:userInfo
-                       forApplication:application];
+    [self processReceivedNotification:userInfo forApplication:application];
 }
 
 #pragma mark - Notification Received Methods (iOS 10)
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
     // Called when a notification is delivered to a foreground app.
-    [self processReceivedNotification:notification.request.content.userInfo
-                       forApplication:[UIApplication sharedApplication]];
-    
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler {
     // Called to let your app know which action was selected by the user for a given notification.
-    [self processReceivedNotification:response.notification.request.content.userInfo
-                       forApplication:[UIApplication sharedApplication]];
+    [self displayViewControllerByData:response.notification.request.content.userInfo];
     
     completionHandler();
 }
@@ -214,8 +221,8 @@
 
 #pragma mark - Public Methods
 
-- (void)assignNewRootViewController:(__kindof UIViewController *)controller {
-    self.notificationRootViewController = controller;
+- (void)assignRootNavController:(__kindof UINavigationController *)controller {
+    self.notificationRootNavController = controller;
 }
 
 - (void)registerDeviceToFirebaseAndAPI {
@@ -262,7 +269,7 @@
 }
 
 - (void)registerForRemoteNotifications {
-    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
+    if (SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(@"10.0")) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         UNAuthorizationOptions authorizationOptions = (UNAuthorizationOptionSound |
                                                        UNAuthorizationOptionAlert |
@@ -370,8 +377,7 @@
                   instantiateViewControllerWithIdentifier:identifier];
     controller.objectId = objectId;
     
-    [self.notificationRootViewController.navigationController pushViewController:controller
-                                                                        animated:YES];
+    [self.notificationRootNavController pushViewController:controller animated:YES];
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
@@ -390,21 +396,29 @@
             return;
         }
         
-        if (application.applicationState != UIApplicationStateActive) {
-            return;
-        }
-        
-        // Only display in-app notification when app is active
-        [ELNotificationView showWithNotification:notification
-                                        duration:3.5
-                                          tapped:^{
-            if (AppSingleton.hasLoadedApplication) {
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-                    [self displayViewControllerByData:notification];
-                });
+        switch (application.applicationState) {
+            case UIApplicationStateInactive:
+                [self displayViewControllerByData:notification];
+                
+                break;
+            case UIApplicationStateActive: {
+                // Only display in-app notification when app is active
+                [ELNotificationView showWithNotification:notification
+                                                duration:3.5
+                                                  tapped:^{
+                    if (AppSingleton.hasLoadedApplication) {
+                        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+                        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+                            [self displayViewControllerByData:notification];
+                        });
+                    }
+                }];
+                
+                break;
             }
-        }];
+            default:
+                break;
+        }
     }
 }
 

@@ -75,7 +75,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if (!self.saved && self.survey.status != kELSurveyStatusCompleted) {
+    if (self.survey &&
+        (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
         [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                             @"final": @(NO),
                                                                             @"answers": [self formItems]}];
@@ -279,7 +280,7 @@
     
     for (int i = 0; i < self.items.count; i++) {
         controller = [[UIStoryboard storyboardWithName:@"Survey" bundle:nil]
-                      instantiateViewControllerWithIdentifier:@"SurveyDetails"];
+                      instantiateViewControllerWithIdentifier:@"SurveyPage"];
         controller.index = i;
         controller.survey = self.survey;
         controller.category = self.items[i];

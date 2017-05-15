@@ -8,7 +8,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELInstantFeedbacksViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
+@interface ELInstantFeedbacksViewController : ELBaseViewController<UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
