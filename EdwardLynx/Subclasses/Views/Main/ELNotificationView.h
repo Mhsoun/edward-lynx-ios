@@ -17,6 +17,7 @@ typedef void (^ELNotificationTapped)(void);
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
 
 + (instancetype)showWithNotification:(ELNotification *)notification tapped:(ELNotificationTapped)tapped;
 + (instancetype)showWithNotification:(ELNotification *)notification

@@ -160,7 +160,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Protocol Methods (ELDevelopmentPlanViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    self.doneButton.enabled = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
@@ -168,11 +168,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
-        self.doneButton.enabled = YES;
-        
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }
@@ -229,13 +229,16 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    self.doneButton.enabled = NO;
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
     
     if (self.mGoals.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
                          completion:^{
-                             self.doneButton.enabled = YES;
+                             [self dismissViewControllerAnimated:YES completion:nil];
                          }];
     }
     
@@ -244,7 +247,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
-        self.doneButton.enabled = YES;
+        [self dismissViewControllerAnimated:YES completion:nil];
         
         return;
     }

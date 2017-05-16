@@ -368,6 +368,10 @@
     }
 }
 
++ (UIAlertController *)loadingAlert {
+    return AppSingleton.loadingAlert;
+}
+
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {

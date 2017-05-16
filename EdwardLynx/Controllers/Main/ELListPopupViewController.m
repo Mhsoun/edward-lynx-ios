@@ -54,6 +54,7 @@ static NSString * const kELCellIdentifier = @"ListCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.delegate = self;
     self.tableView.rowHeight = 40;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

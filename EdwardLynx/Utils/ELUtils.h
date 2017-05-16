@@ -59,6 +59,7 @@
 + (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;
 + (NSString *)labelBySurveyType:(kELSurveyType)type;
++ (UIAlertController *)loadingAlert;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message

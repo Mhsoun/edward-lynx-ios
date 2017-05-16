@@ -32,6 +32,6 @@ typedef NS_ENUM(NSInteger, kELSurveyResponseType) {
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 - (IBAction)onPrevButtonClick:(id)sender;
 - (IBAction)onNextButtonClick:(id)sender;
-- (IBAction)onSubmitButtonClick:(UIButton *)sender;
+- (IBAction)onSubmitButtonClick:(id)sender;
 
 @end

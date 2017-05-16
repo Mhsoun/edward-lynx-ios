@@ -222,7 +222,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    self.inviteButton.enabled = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELPostMethodError", nil)
@@ -230,7 +230,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
-    self.inviteButton.enabled = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     // Clear selections
     [self clearSelection];
@@ -391,7 +391,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
             return;
         }
         
-        self.inviteButton.enabled = NO;
+        // Loading alert
+        [self presentViewController:[ELUtils loadingAlert]
+                           animated:YES
+                         completion:nil];
         
         // Retrieve selected user(s)
         for (ELParticipant *participant in self.mParticipants) {
@@ -432,7 +435,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
             return;
         }
         
-        self.inviteButton.enabled = NO;
+        // Loading alert
+        [self presentViewController:[ELUtils loadingAlert]
+                           animated:YES
+                         completion:nil];
         
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
