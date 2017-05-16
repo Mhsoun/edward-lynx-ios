@@ -104,7 +104,7 @@ static CGFloat const kELBarHeight = 40;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
-        self.dateLabel.text = self.survey.startDateString;
+        self.dateLabel.text = self.survey.endDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.survey.invited),
                                @(self.survey.answered)];

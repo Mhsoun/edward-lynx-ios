@@ -229,7 +229,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     if (section == 0) {
         return nil;
     } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
-        [mSectionDict setObject:@"DevPlan" forKey:@"segue"];
+        [mSectionDict setObject:kELDashboardActionTypeDevPlan forKey:@"segue"];
     }
     
     sectionView = [[ELSectionView alloc] initWithDetails:[mSectionDict copy]
@@ -252,7 +252,15 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                  instantiateInitialViewController];
         
         controller = navController.viewControllers[0];
-        controller.type = [identifier isEqualToString:kELDashboardActionTypeReport] ? kELListTypeReports : kELListTypeSurveys;
+        
+        if ([identifier isEqualToString:kELDashboardActionTypeDevPlan]) {
+            controller.type = kELListTypeDevPlan;
+        } else if ([identifier isEqualToString:kELDashboardActionTypeReport]) {
+            controller.type = kELListTypeReports;
+        } else {
+            controller.type = kELListTypeSurveys;
+        }
+        
         controller.tabs = @[@(kELListFilterAll),
                             @(kELListFilterInstantFeedback),
                             @(kELListFilterLynxMeasurement)];
@@ -267,8 +275,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
             controller.initialIndex = 1;
         } else if ([identifier isEqualToString:kELDashboardActionTypeLynx]) {
             controller.initialIndex = 2;
-        } else {
-            // NOTE No further action needed
         }
         
         [self.navigationController pushViewController:controller animated:YES];

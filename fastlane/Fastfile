@@ -165,7 +165,7 @@ platform :ios do
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
 
     # Clean directory
-    # clean_build_artifacts
+    clean_build_artifacts
 
     # Push version changes to repository
     # push_version_bump_to_repo(version_string(version, build))
