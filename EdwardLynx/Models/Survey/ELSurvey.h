@@ -24,7 +24,9 @@
 @property (nonatomic) NSString<Optional> *evaluationText;
 @property (nonatomic) NSString<Optional> *shortDescription;
 
-@property (nonatomic) NSString<Ignore> *startDateString;
 @property (nonatomic) NSString<Ignore> *endDateString;
+@property (nonatomic) NSString<Ignore> *startDateString;
+@property (nonatomic) NSString<Ignore> *longEndDateString;
+@property (nonatomic) NSString<Ignore> *longStartDateString;
 
 @end

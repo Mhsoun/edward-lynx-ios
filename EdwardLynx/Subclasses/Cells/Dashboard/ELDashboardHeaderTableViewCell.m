@@ -105,7 +105,6 @@
 }
 
 - (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
-    BOOL isAnswer;
     UIAlertController *controller;
     UIAlertAction *createDevPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
                                                                   style:UIAlertActionStyleDefault
@@ -124,8 +123,7 @@
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:isAnswer ? NSLocalizedString(@"kELDashboardAddNew", nil) :
-                                                                        NSLocalizedString(@"kELDashboardCreateNew", nil)
+    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDashboardCreateNew", nil)
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     
