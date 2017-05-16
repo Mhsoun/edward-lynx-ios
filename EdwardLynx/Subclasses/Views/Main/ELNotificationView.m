@@ -137,6 +137,7 @@ static ELNotificationView *currentNotificationView = nil;
 
 - (void)setupContent:(ELNotification *)notification {
     NSString *imageName;
+    CGFloat dimension = 15;
     
     if ([notification.type isEqualToString:kELNotificationTypeDevPlan]) {
         imageName = @"DevelopmentPlan";
@@ -149,6 +150,10 @@ static ELNotificationView *currentNotificationView = nil;
     self.iconImageView.image = [UIImage imageNamed:@"AppIcon40x40"];  // TODO Image based on type
     self.titleLabel.text = notification.title;
     self.detailLabel.text = notification.body;
+    self.rightImageView.image = [FontAwesome imageWithIcon:fa_chevron_right
+                                                 iconColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]
+                                                  iconSize:dimension
+                                                 imageSize:CGSizeMake(dimension, dimension)];
 }
      
 - (void)showNotificationAnimation {

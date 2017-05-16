@@ -46,9 +46,11 @@
     self.apiDateFormatter.timeZone = [NSTimeZone systemTimeZone];
     self.apiDateFormatter.locale = [NSLocale systemLocale];
     
-    self.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    
+    self.loadingAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELProcessingLabel", nil)
+                                                            message:nil
+                                                     preferredStyle:UIAlertControllerStyleAlert];
     self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    self.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
     
     return self;
 }

@@ -28,6 +28,7 @@
 "kELExpiresOnLabel" = "Expires on %@";
 "kELNameLabel" = "Name";
 "kELNoDescriptionLabel" = "No description";
+"kELProcessingLabel" = "Processing...";
 "kELSortLabel" = "Sort";
 "kELSortByLabel" = "Sort By";
 

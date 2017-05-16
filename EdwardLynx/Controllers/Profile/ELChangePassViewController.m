@@ -70,7 +70,7 @@
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     NSString *errorKey = @"validation_errors";
     
-    self.saveButton.enabled = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     if (!errorDict[errorKey]) {
         return;
@@ -92,7 +92,7 @@
                                key:kELAuthCredentialsUserDefaultsKey];
     
     // Exit
-    [self.saveButton setEnabled:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELProfileChangePasswordSuccess", nil)
                      completion:^{
@@ -111,7 +111,11 @@
         return;
     }
     
-    [self.saveButton setEnabled:NO];
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    
     [self.viewManager processChangePassword];
 }
 

@@ -226,8 +226,7 @@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    self.draftsButton.enabled = YES;
-    self.submitButton.enabled = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELSurveyPostError", nil)
@@ -241,14 +240,13 @@
     self.saved = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     if (self.isSurveyFinal) {
         NSDictionary *detailsDict = @{@"title": [self.survey.name uppercaseString],
                                       @"header": NSLocalizedString(@"kELSurveyCompleteHeader", nil),
                                       @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
                                       @"image": @"Complete"};
-        
-        self.draftsButton.enabled = YES;
-        self.submitButton.enabled = YES;
         
         // Display popup
         [ELUtils displayPopupForViewController:self
@@ -262,9 +260,6 @@
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-        self.draftsButton.enabled = YES;
-        self.submitButton.enabled = YES;
-        
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }
@@ -386,9 +381,13 @@
     [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
-- (IBAction)onSubmitButtonClick:(UIButton *)sender {
-    sender.enabled = NO;
+- (IBAction)onSubmitButtonClick:(id)sender {
     self.isSurveyFinal = [sender isEqual:self.submitButton];
+    
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
     
     [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                         @"final": @(self.isSurveyFinal),

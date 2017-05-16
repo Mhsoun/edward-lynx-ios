@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSDictionary *validationDict;
 @property (nonatomic, strong) NSMutableDictionary *mSurveyFormDict;
 @property (nonatomic, strong) NSDateFormatter *apiDateFormatter, *printDateFormatter;
+@property (nonatomic, strong) UIAlertController *loadingAlert;
 @property (nonatomic, strong) AFURLSessionManager *manager;
 
 + (instancetype)sharedInstance;
