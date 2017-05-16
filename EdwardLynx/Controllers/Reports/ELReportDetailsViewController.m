@@ -360,49 +360,6 @@ static CGFloat const kELBarHeight = 40;
 }
 
 - (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
-//    double barSpace,
-//           groupSpace,
-//           groupWidth;
-//    NSInteger count;
-//    BarChartData *chartData;
-//    BarChartDataSet *chartDataSet1, *chartDataSet2;
-//    NSDictionary *infoDict = [self chartInfoFromData:answers[1] grouping:YES];
-//    NSArray *labels = infoDict[@"labels"];
-//    
-//    count = labels.count;
-//    barSpace = 0.0f, groupSpace = 0.15f;
-//    
-//    barChart = [self configureBarChart:barChart];
-//    
-//    [barChart setVisibleXRangeMaximum:(double)count];
-//    [barChart setVisibleXRangeMinimum:(double)count];
-//    
-//    groupWidth = [chartData groupWidthWithGroupSpace:groupSpace barSpace:barSpace];
-//    
-//    barChart.xAxis.axisMaximum = groupWidth * (double)count;
-//    barChart.xAxis.axisMinimum = 0.0f;
-//    barChart.xAxis.centerAxisLabelsEnabled = YES;
-//    barChart.xAxis.labelCount = count;
-//    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
-//    
-//    if (self.toDisplayData) {
-//        chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoCandidates", nil)
-//                                              items:infoDict[@"entries"][0]
-//                                           colorKey:self.typeColorKey];
-//        chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
-//                                              items:infoDict[@"entries"][1]
-//                                           colorKey:kELOrangeColor];
-//        
-//        chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
-//        chartData.barWidth = 0.4f;
-//        
-//        barChart.data = chartData;
-//        
-//        [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
-//    }
-//    
-//    [barChart animateWithYAxisDuration:kELAnimateInterval];
-    
     double barSpace,
            groupSpace,
            groupWidth;
