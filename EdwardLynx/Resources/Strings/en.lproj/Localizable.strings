@@ -14,6 +14,7 @@
 "kELCompleteButton" = "Complete";
 "kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
 "kELInstantFeedbackTitle" = "Instant Feedback";
+"kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
 "kELSaveToDraftButton" = "Save to Drafts";
@@ -151,9 +152,10 @@
 /* Reports */
 
 "kELReportInfoLabel" = "Invited: %@ | Answered: %@";
+"kELReportInfoCandidates" = "Candidates";
 "kELReportInfoOthers" = "Others combined";
-"kELReportInfoSelf" = "Self";
 "kELReportNoData" = "No chart data available";
+"kELReportTitleFeedback" = "Feedback Report";
 
 /* Surveys */
 

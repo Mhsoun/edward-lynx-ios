@@ -85,7 +85,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="violetColor"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-zP-pqA">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Survey" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-zP-pqA">
                                 <rect key="frame" x="99" y="10" width="181" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>

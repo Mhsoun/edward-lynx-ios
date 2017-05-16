@@ -132,11 +132,10 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSString *buttonLabel = self.instantFeedback ? @"kELAddMoreParticipantsButton" : @"kELSelectParticipantsButton";
     NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
     
     // Button
-    [self.inviteButton setTitle:NSLocalizedString(buttonLabel, nil) forState:UIControlStateNormal];
+    [self.inviteButton setTitle:NSLocalizedString(@"kELInviteParticipantsButton", nil) forState:UIControlStateNormal];
     
     // Title
     self.title = [NSLocalizedString(titleLabel, nil) uppercaseString];

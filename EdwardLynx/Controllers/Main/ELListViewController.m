@@ -61,19 +61,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     if (self.listType == kELListTypeReports) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
+    
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // Load
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -245,9 +241,24 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             break;
         case kELListTypeReports:
+            surveyDict = responseDict[@"surveys"];
             emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
             
             self.tableView.rowHeight = 115;
+            
+            if (!surveyDict) {
+                for (NSDictionary *detailDict in responseDict[@"items"]) {
+                    [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                }
+                
+                // Store values
+                self.countPerPage = [responseDict[@"num"] integerValue];
+                self.pages = [responseDict[@"pages"] integerValue];
+                self.total = [responseDict[@"total"] integerValue];
+                self.paginationLink = responseDict[@"_links"][@"self"][@"href"];
+                
+                break;
+            }
             
             for (NSDictionary *detailDict in responseDict[@"surveys"][@"items"]) {
                 [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
@@ -256,6 +267,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
                 [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
             }
+            
+            // Store values
+            self.countPerPage = [surveyDict[@"num"] integerValue];
+            self.pages = [surveyDict[@"pages"] integerValue];
+            self.total = [surveyDict[@"total"] integerValue];
+            self.paginationLink = responseDict[@"surveys"][@"_links"][@"self"][@"href"];
             
             break;
         case kELListTypeDevPlan:

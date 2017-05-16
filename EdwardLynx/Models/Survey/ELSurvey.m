@@ -35,7 +35,7 @@
 }
 
 - (NSString<Ignore> *)endDateString {
-    return [AppSingleton.printDateFormatter stringFromDate:self.startDate];
+    return [AppSingleton.printDateFormatter stringFromDate:self.endDate];
 }
 
 @end
