@@ -66,19 +66,15 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         ApplicationDelegate.notification = nil;
     }
 #endif
+    
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // Prepare for loading
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -92,7 +92,7 @@ static CGFloat const kELBarHeight = 40;
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
         self.instantFeedback = (ELInstantFeedback *)self.selectedObject;
         
-        self.title = [@"FEEDBACK REPORT" uppercaseString];
+        self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
         self.headerLabel.text = self.instantFeedback.question.text;
         self.dateLabel.text = self.instantFeedback.dateString;
@@ -122,10 +122,12 @@ static CGFloat const kELBarHeight = 40;
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     CGFloat height;
+    NSInteger answered;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    self.toDisplayData = [responseDict[@"totalAnswers"] integerValue] >= kELParticipantsMinimumCount;
+    answered = self.instantFeedback ? self.instantFeedback.answered : self.survey.answered;
+    self.toDisplayData = answered > 0;
     
     if (isFeedback) {
         for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
@@ -200,13 +202,24 @@ static CGFloat const kELBarHeight = 40;
             NSMutableArray<BarChartDataEntry *> *mGroup2 = [[NSMutableArray alloc] init];
             
             for (int i = 0; i < answers.count; i++) {
+                NSString *name;
+                NSDictionary *firstAverageDict;
                 NSDictionary *answerDict = answers[i];
-                NSArray *roles = answerDict[@"roles"];
+                NSMutableArray *mRoles = [answerDict[@"roles"] mutableCopy];
                 
                 [mLabels addObject:answerDict[@"name"]];
                 
-                for (int j = 0; j < roles.count; j++) {
-                    NSDictionary *averageDict = roles[j];
+                if (mRoles.count <= 1) {
+                    firstAverageDict = mRoles[0];
+                    name = [firstAverageDict[@"name"] isEqualToString:@"Others combined"] ? @"Candidate" : @"Others combined";
+                    
+                    [mRoles addObject:@{@"id": @(-1),
+                                        @"average": @0,
+                                        @"name": name}];
+                }
+                
+                for (int j = 0; j < 2; j++) {
+                    NSDictionary *averageDict = mRoles[j];
                     
                     y = [averageDict[@"average"] doubleValue];
                     
@@ -347,6 +360,49 @@ static CGFloat const kELBarHeight = 40;
 }
 
 - (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
+//    double barSpace,
+//           groupSpace,
+//           groupWidth;
+//    NSInteger count;
+//    BarChartData *chartData;
+//    BarChartDataSet *chartDataSet1, *chartDataSet2;
+//    NSDictionary *infoDict = [self chartInfoFromData:answers[1] grouping:YES];
+//    NSArray *labels = infoDict[@"labels"];
+//    
+//    count = labels.count;
+//    barSpace = 0.0f, groupSpace = 0.15f;
+//    
+//    barChart = [self configureBarChart:barChart];
+//    
+//    [barChart setVisibleXRangeMaximum:(double)count];
+//    [barChart setVisibleXRangeMinimum:(double)count];
+//    
+//    groupWidth = [chartData groupWidthWithGroupSpace:groupSpace barSpace:barSpace];
+//    
+//    barChart.xAxis.axisMaximum = groupWidth * (double)count;
+//    barChart.xAxis.axisMinimum = 0.0f;
+//    barChart.xAxis.centerAxisLabelsEnabled = YES;
+//    barChart.xAxis.labelCount = count;
+//    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
+//    
+//    if (self.toDisplayData) {
+//        chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoCandidates", nil)
+//                                              items:infoDict[@"entries"][0]
+//                                           colorKey:self.typeColorKey];
+//        chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
+//                                              items:infoDict[@"entries"][1]
+//                                           colorKey:kELOrangeColor];
+//        
+//        chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
+//        chartData.barWidth = 0.4f;
+//        
+//        barChart.data = chartData;
+//        
+//        [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
+//    }
+//    
+//    [barChart animateWithYAxisDuration:kELAnimateInterval];
+    
     double barSpace,
            groupSpace,
            groupWidth;
@@ -359,7 +415,21 @@ static CGFloat const kELBarHeight = 40;
     count = labels.count;
     barSpace = 0.0f, groupSpace = 0.15f;
     
+    chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoCandidates", nil)
+                                          items:infoDict[@"entries"][0]
+                                       colorKey:self.typeColorKey];
+    chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
+                                          items:infoDict[@"entries"][1]
+                                       colorKey:kELOrangeColor];
+    
+    chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
+    chartData.barWidth = 0.4f;
+    
     barChart = [self configureBarChart:barChart];
+    
+    if (self.toDisplayData) {
+        barChart.data = chartData;
+    }
     
     [barChart setVisibleXRangeMaximum:(double)count];
     [barChart setVisibleXRangeMinimum:(double)count];
@@ -372,22 +442,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.xAxis.labelCount = count;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
     
-    if (self.toDisplayData) {
-        chartDataSet1 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
-                                              items:infoDict[@"entries"][0]
-                                           colorKey:self.typeColorKey];
-        chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
-                                              items:infoDict[@"entries"][1]
-                                           colorKey:kELOrangeColor];
-        
-        chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
-        chartData.barWidth = 0.4f;
-        
-        barChart.data = chartData;
-        
-        [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
-    }
-    
+    [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 
