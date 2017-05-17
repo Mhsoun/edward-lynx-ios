@@ -65,6 +65,7 @@ platform :ios do
     build_for_hockeyapp()
   end
 
+  desc "Generates an .ipa file"
   lane :ipabuild do
     gym(
       scheme: "EdwardLynx",
@@ -74,7 +75,17 @@ platform :ios do
     )
   end
 
-  desc "Deploy a new version to the App Store"
+  desc "Updates .p12 file to be used for Push Notifications"
+  lane :p12 do
+    pem(
+      force: true,
+      development: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["DEV_TEAM_ID"]
+    )
+  end       
+
+  desc "Deploys a new version to the App Store"
   lane :release do
     # match(type: "appstore")
     # snapshot
