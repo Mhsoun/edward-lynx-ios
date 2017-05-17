@@ -177,6 +177,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     
     // Chart
     [ELUtils circleChart:self.circleChart developmentPlan:self.devPlan];
+    [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
 }
 
