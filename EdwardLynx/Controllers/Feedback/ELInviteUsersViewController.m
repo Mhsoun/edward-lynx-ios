@@ -243,10 +243,14 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELInviteUsersSuccess", nil)
                      completion:^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                     instantiateInitialViewController]
-                           animated:YES
-                         completion:nil];
+        if (self.inviteType == kELInviteUsersReports) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                         instantiateInitialViewController]
+                               animated:YES
+                             completion:nil];
+        }
     }];
 }
 

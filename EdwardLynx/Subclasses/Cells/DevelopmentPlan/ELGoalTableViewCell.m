@@ -72,7 +72,9 @@ static NSString * const kELCellIdentifier = @"ActionCell";
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
-    action.urlLink = [NSString stringWithFormat:@"%@/actions/%@", self.goal.urlLink, @(action.objectId)];
+    action.urlLink = [NSString stringWithFormat:@"%@/actions/%@",
+                      self.goal.urlLink,
+                      @(action.objectId)];
     
     cell.accessoryView = [[UIImageView alloc] initWithImage:checkIcon];
     cell.backgroundColor = [UIColor clearColor];
@@ -111,6 +113,13 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             UIImage *checkIcon;
             
             if (error) {
+                checkIcon = [FontAwesome imageWithIcon:fa_circle_o
+                                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELWhiteColor]
+                                              iconSize:kELIconSize
+                                             imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+                
+                [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
+                
                 return;
             }
             
@@ -138,7 +147,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
                                                details:detailsDict];
             } else {
                 [ELUtils presentToastAtView:visibleController.view
-                                    message:@"Action successfully updated."
+                                    message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
                                  completion:^{}];
             }
         }];
@@ -175,14 +184,22 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     NSString *stringKey, *timestamp;
     UIColor *color;
     BOOL completed = self.goal.progress == 1;
-    NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.createdAt];
+//    NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.dueDate];
     NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
     
     color = [[RNThemeManager sharedManager] colorForKey:colorKey];
     
-    if (days == 0) {
-        timestamp = NSLocalizedString(@"kELDevelopmentPlanGoalTimestampToday", nil);
-    } else  {
+    // TODO Handling today
+//    if (days == 0) {
+//        timestamp = NSLocalizedString(@"kELDevelopmentPlanGoalTimestampToday", nil);
+//    } else  {
+//        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : @"kELListFilterCompleted";
+//        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), self.goal.dueDateString];
+//    }
+    
+    if (!self.goal.dueDate)  {
+        timestamp = @"";
+    } else {
         stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : @"kELListFilterCompleted";
         timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), self.goal.dueDateString];
     }

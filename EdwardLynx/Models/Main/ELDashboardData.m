@@ -10,6 +10,23 @@
 
 @implementation ELDashboardData
 
+- (void)setDevelopmentPlansWithNSArray:(NSArray<Optional,ELDevelopmentPlan> *)developmentPlans {
+    NSMutableArray *mDevPlans = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *devPlanDict in developmentPlans) {
+        ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:devPlanDict error:nil];
+        NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanEndpoint,
+                              kELAPIVersionNamespace,
+                              @(devPlan.objectId)];
+        
+        devPlan.urlLink = [NSString stringWithFormat:@"%@/%@", kELAPIRootEndpoint, endpoint];
+        
+        [mDevPlans addObject:devPlan];
+    }
+    
+    self.developmentPlans = [mDevPlans copy];
+}
+
 - (NSArray *)sections {
     NSMutableArray *mSections = [[NSMutableArray alloc] init];
     
@@ -32,7 +49,9 @@
     } else if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
         return self.developmentPlans;
     } else {
-        return @[self.answerableCount, @0, @0, @0];
+        NSInteger count = self.answerableCount ? [self.answerableCount integerValue] : 0;
+        
+        return @[@(count), @0, @0, @0];
     }
 }
 

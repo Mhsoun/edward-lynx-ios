@@ -30,7 +30,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rsz-BP-xk6">
-                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -90,7 +90,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -45,7 +45,7 @@
         data.identifier = [NSString stringWithFormat:@"%@", (NSNumber *)option.value];
         
         if (!_question.optional) {
-            data.selected = !_question.value ? i == 0 : [_question.value isEqualToString:data.identifier];
+            data.selected = _question.value ? [_question.value isEqualToString:data.identifier] : NO;
         } else {
             data.selected = NO;
         }
@@ -62,7 +62,8 @@
         [mRadioButtons addObject:data];
     }
     
-    self.group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy] layout:TNRadioButtonGroupLayoutVertical];
+    self.group = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mRadioButtons copy]
+                                                              layout:TNRadioButtonGroupLayoutVertical];
     self.group.frame = self.radioGroupView.bounds;
     self.group.identifier = @"Choices";
     self.group.marginBetweenItems = 10;

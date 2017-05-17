@@ -89,7 +89,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zy-1Z-2jF" customClass="RNThemeView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zy-1Z-2jF" customClass="RNThemeView">
                                 <rect key="frame" x="249" y="0.0" width="114.5" height="63.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -111,11 +111,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="nSv-8J-Yja" firstAttribute="width" secondItem="fFP-UJ-PQd" secondAttribute="width" id="6OC-Oj-fO5"/>
-                            <constraint firstItem="8sM-aA-JbZ" firstAttribute="width" secondItem="7Zy-1Z-2jF" secondAttribute="width" id="9pU-lp-Vgf"/>
-                            <constraint firstItem="7Zy-1Z-2jF" firstAttribute="width" secondItem="nSv-8J-Yja" secondAttribute="width" id="UXI-IR-e9H"/>
-                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
