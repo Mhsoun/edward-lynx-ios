@@ -58,8 +58,8 @@
 "kELDashboardReminderGoal" = "Goal";
 "kELDashboardReminderSurvey" = "Survey";
 
-"kELDashboardSectionDevelopmentPlan" = "Development Plan";
-"kELDashboardSectionReminder" = "Reminder";
+"kELDashboardSectionDevelopmentPlans" = "Development Plans";
+"kELDashboardSectionReminders" = "Reminders";
 
 "kELMenuItemDashboard" = "Dashboard";
 "kELMenuItemDevelopmentPlan" = "Development Plans";

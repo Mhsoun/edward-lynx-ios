@@ -216,7 +216,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                       kELAdsViewHeight)];
     
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Lato-Regular" size:12.0];
+    label.font = [UIFont fontWithName:@"Lato-Regular" size:11.0];
     label.opaque = YES;
     label.text = @"";
     label.textAlignment = NSTextAlignmentCenter;
@@ -232,7 +232,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     
     if (section == 0) {
         return nil;
-    } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
+    } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)]) {
         [mSectionDict setObject:kELDashboardActionTypeDevPlan forKey:@"segue"];
     }
     
