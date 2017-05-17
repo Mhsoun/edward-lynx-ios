@@ -44,13 +44,11 @@
         
         data.identifier = [NSString stringWithFormat:@"%@", (NSNumber *)option.value];
         
-        // TODO In question
-//        if (!_question.optional) {
-//            data.selected = !_question.value ? i == 0 : [_question.value isEqualToString:data.identifier];
-//        } else {
-//            data.selected = NO;
-//        }
-        data.selected = NO;
+        if (!_question.optional) {
+            data.selected = _question.value ? [_question.value isEqualToString:data.identifier] : NO;
+        } else {
+            data.selected = NO;
+        }
         
         data.labelText = option.shortDescription;
         data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
