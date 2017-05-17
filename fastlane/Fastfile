@@ -81,7 +81,8 @@ platform :ios do
       force: true,
       development: true,
       username: ENV["APPLE_ID"],
-      team_id: ENV["DEV_TEAM_ID"]
+      team_id: ENV["DEV_TEAM_ID"],
+      app_identifier: ENV["APP_IDENTIFIER"]
     )
   end       
 
