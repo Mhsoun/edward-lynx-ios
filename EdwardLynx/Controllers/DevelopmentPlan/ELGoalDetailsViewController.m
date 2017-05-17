@@ -219,6 +219,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     self.dropdown.delegate = self;
     self.selectedCategory = defaultSelection;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
+    self.descriptionTextView.text = self.goal.shortDescription;
     
     // Date
     [self.remindSwitch setOn:self.goal.dueDateChecked];
@@ -299,6 +300,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:^{}];
+        
+        return;
     }
     
     dateString = [AppSingleton.apiDateFormatter stringFromDate:self.datePicker.date];
