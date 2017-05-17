@@ -12,7 +12,7 @@ static NSString * const kELNoQuestionType = @"No type selected";
 
 @interface ELFeedbackViewManager : NSObject
 
-@property (strong, nonatomic) id<ELAPIPostResponseDelegate> delegate;
+@property (weak, nonatomic) id<ELAPIPostResponseDelegate> delegate;
 
 - (void)processInstantFeedback:(NSDictionary *)formDict;
 - (void)processInstantFeedbackAddParticipantsWithId:(int64_t)objId

@@ -8,7 +8,7 @@
 
 @interface ELListViewManager : NSObject
 
-@property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
 
 - (void)processRetrievalOfInstantFeedbacks;
 - (void)processRetrievalOfDevelopmentPlans;

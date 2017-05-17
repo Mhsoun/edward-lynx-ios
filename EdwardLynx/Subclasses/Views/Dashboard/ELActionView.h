@@ -8,7 +8,7 @@
 
 @interface ELActionView : UIView
 
-@property (strong, nonatomic) id<ELDashboardViewDelegate> delegate;
+@property (weak, nonatomic) id<ELDashboardViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;

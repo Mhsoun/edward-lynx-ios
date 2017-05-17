@@ -10,7 +10,7 @@
 
 @interface ELDetailViewManager : NSObject
 
-@property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 - (instancetype)initWithObjectId:(int64_t)objectId;

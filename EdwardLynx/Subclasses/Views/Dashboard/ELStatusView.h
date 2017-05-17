@@ -8,8 +8,7 @@
 
 @interface ELStatusView : UIView
 
-@property (strong, nonatomic) id<ELDashboardViewDelegate> delegate;
-
+@property (weak, nonatomic) id<ELDashboardViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;

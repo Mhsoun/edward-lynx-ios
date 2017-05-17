@@ -10,8 +10,7 @@
 
 @interface ELListPopupViewController : ELBasePopupViewController<UITableViewDelegate>
 
-@property (strong, nonatomic) id<ELListPopupDelegate> delegate;
-
+@property (weak, nonatomic) id<ELListPopupDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
