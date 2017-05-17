@@ -8,7 +8,7 @@
 
 @interface ELAccountsViewManager : NSObject
 
-@property (nonatomic, strong) id<ELAPIResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
 
 - (void)processProfileUpdate;
 - (void)processAuthentication;

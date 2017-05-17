@@ -10,7 +10,7 @@
 
 @interface ELSectionView : UIView
 
-@property (nonatomic, strong) id<ELDashboardViewDelegate> delegate;
+@property (nonatomic, weak) id<ELDashboardViewDelegate> delegate;
 
 - (instancetype)initWithDetails:(NSDictionary *)detailsDict frame:(CGRect)frame;
 

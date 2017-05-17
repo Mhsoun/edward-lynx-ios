@@ -10,9 +10,9 @@ static CGFloat const kELActionCellHeight = 60;
 
 @interface ELGoalTableViewCell : UITableViewCell<UITableViewDataSource, UITableViewDelegate, ELConfigurableCellDelegate>
 
-@property (strong, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;
 @property (strong, nonatomic) NSString *devPlanName;
 
+@property (weak, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UILabel *goalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

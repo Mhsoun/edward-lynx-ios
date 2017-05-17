@@ -84,10 +84,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                  name:kELTabPageSearchNotification
                                                object:nil];
     
-    // Toggle Add Button Notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:kELInstantFeedbackTabNotification
-                                                        object:nil
-                                                      userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
+    if (self.listType == kELListTypeSurveys) {
+        // Toggle Add Button Notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:kELInstantFeedbackTabNotification
+                                                            object:nil
+                                                          userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
+    }
     
     // Load list type's corresponding data set
     [self loadListByType];
@@ -100,6 +102,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kELTabPageSearchNotification
                                                   object:nil];
+}
+
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Protocol Methods (UIScrollView)

@@ -75,6 +75,10 @@ static CGFloat const kELBarHeight = 40;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -95,7 +99,7 @@ static CGFloat const kELBarHeight = 40;
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
         self.headerLabel.text = self.instantFeedback.question.text;
-        self.dateLabel.text = self.instantFeedback.dateString;
+        self.dateLabel.text = self.instantFeedback.longDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.instantFeedback.invited),
                                @(self.instantFeedback.answered)];
@@ -104,7 +108,7 @@ static CGFloat const kELBarHeight = 40;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
-        self.dateLabel.text = self.survey.startDateString;
+        self.dateLabel.text = self.survey.longEndDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.survey.invited),
                                @(self.survey.answered)];

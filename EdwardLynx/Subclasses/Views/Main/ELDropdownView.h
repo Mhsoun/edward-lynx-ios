@@ -13,7 +13,7 @@
 @interface ELDropdownView : UIView<ELListPopupDelegate>
 
 @property (nonatomic) BOOL enabled, hasSelection;
-@property (nonatomic, strong) id<ELDropdownDelegate> delegate;
+@property (nonatomic, weak) id<ELDropdownDelegate> delegate;
 
 - (instancetype)initWithItems:(NSMutableArray *)items
                baseController:(__kindof ELBaseViewController *)controller

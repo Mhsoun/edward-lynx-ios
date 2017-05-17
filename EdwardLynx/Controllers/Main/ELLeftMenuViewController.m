@@ -65,6 +65,10 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {

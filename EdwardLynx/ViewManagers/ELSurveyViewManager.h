@@ -10,7 +10,7 @@
 
 @interface ELSurveyViewManager : NSObject
 
-@property (nonatomic, strong) id<ELAPIPostResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIPostResponseDelegate> delegate;
 
 - (instancetype)initWithSurvey:(ELSurvey *)survey;
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;

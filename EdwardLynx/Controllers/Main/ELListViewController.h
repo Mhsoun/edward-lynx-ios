@@ -15,8 +15,7 @@
 @property (nonatomic) kELListType listType;
 @property (nonatomic) kELListFilter listFilter;
 
-@property (strong, nonatomic) id<ELListViewControllerDelegate> delegate;
-
+@property (weak, nonatomic) id<ELListViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 

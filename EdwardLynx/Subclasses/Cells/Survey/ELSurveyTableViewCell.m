@@ -85,10 +85,12 @@
     NSDate *currentDate = [NSDate date];
     
     beforeExpiration = [currentDate mt_isOnOrBefore:endDate];
-    
+        
     if (status == kELSurveyStatusCompleted) {
         colorString = kELGreenColor;
-    } else if (beforeExpiration && ([currentDate mt_weekOfYear] - [endDate mt_weekOfYear] <= 2)) {
+    } else if (beforeExpiration &&
+               [currentDate mt_daysUntilDate:endDate] <= 14 &&
+               status != kELSurveyStatusNotInvited) {
         colorString = kELRedColor;
     } else if (!beforeExpiration) {
         colorString = kELDarkGrayColor;

@@ -8,7 +8,7 @@
 
 @interface ELDevelopmentPlanViewManager : NSObject
 
-@property (nonatomic, strong) id<ELAPIPostResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIPostResponseDelegate> delegate;
 
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict;

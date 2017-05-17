@@ -63,6 +63,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -229,17 +233,10 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    // Loading alert
-    [self presentViewController:[ELUtils loadingAlert]
-                       animated:YES
-                     completion:nil];
-    
     if (self.mGoals.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
-                         completion:^{
-                             [self dismissViewControllerAnimated:YES completion:nil];
-                         }];
+                         completion:^{}];
     }
     
     isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": nameGroup}];
@@ -247,10 +244,13 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (!isValid) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
         return;
     }
+    
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
     
     for (ELGoal *goal in self.mGoals) [mGoals addObject:[goal toDictionary]];
     

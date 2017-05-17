@@ -132,6 +132,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self clearSelection];
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UISearchBar)
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

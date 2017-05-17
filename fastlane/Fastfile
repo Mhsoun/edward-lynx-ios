@@ -65,6 +65,7 @@ platform :ios do
     build_for_hockeyapp()
   end
 
+  desc "Generates an .ipa file"
   lane :ipabuild do
     gym(
       scheme: "EdwardLynx",
@@ -74,7 +75,26 @@ platform :ios do
     )
   end
 
-  desc "Deploy a new version to the App Store"
+  desc "Updates .p12 file to be used for Push Notifications"
+  lane :p12 do
+    pem(
+      force: true,
+      development: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["DEV_TEAM_ID"]
+    )
+  end       
+
+  desc "Updates project's Provisioning Profile"
+  lane :provisioningprofile do
+    sigh(
+      development: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["DEV_TEAM_ID"]
+    )
+  end
+
+  desc "Deploys a new version to the App Store"
   lane :release do
     # match(type: "appstore")
     # snapshot
@@ -165,7 +185,7 @@ platform :ios do
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
 
     # Clean directory
-    # clean_build_artifacts
+    clean_build_artifacts
 
     # Push version changes to repository
     # push_version_bump_to_repo(version_string(version, build))

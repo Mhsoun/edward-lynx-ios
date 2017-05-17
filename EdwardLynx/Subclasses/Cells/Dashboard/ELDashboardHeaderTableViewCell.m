@@ -105,18 +105,7 @@
 }
 
 - (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
-    BOOL isAnswer;
     UIAlertController *controller;
-    UIAlertAction *answerFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
-                                                                   style:UIAlertActionStyleDefault
-                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                     [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeFeedback];
-                                                                 }];
-    UIAlertAction *answerSurveyAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELMenuItemSurveys", nil)
-                                                                 style:UIAlertActionStyleDefault
-                                                               handler:^(UIAlertAction * _Nonnull action) {
-                                                                   [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeLynx];
-                                                               }];
     UIAlertAction *createDevPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
@@ -134,14 +123,12 @@
         return;
     }
     
-    isAnswer = [identifier isEqualToString:@"Answer"];
-    controller = [UIAlertController alertControllerWithTitle:isAnswer ? NSLocalizedString(@"kELDashboardAddNew", nil) :
-                                                                        NSLocalizedString(@"kELDashboardCreateNew", nil)
+    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDashboardCreateNew", nil)
                                                      message:@""
                                               preferredStyle:UIAlertControllerStyleAlert];
     
-    [controller addAction:isAnswer ? answerSurveyAction : createDevPlanAction];
-    [controller addAction:isAnswer ? answerFeedbackAction : createFeedbackAction];
+    [controller addAction:createDevPlanAction];
+    [controller addAction:createFeedbackAction];
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];

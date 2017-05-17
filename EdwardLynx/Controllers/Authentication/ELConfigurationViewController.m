@@ -8,6 +8,7 @@
 
 #import "ELConfigurationViewController.h"
 #import "ELCategory.h"
+#import "ELLeftMenuViewController.h"
 #import "ELInstantFeedback.h"
 #import "ELOAuthInstance.h"
 #import "ELParticipant.h"
@@ -41,6 +42,8 @@ static NSInteger const kELAPICallsNumber = 3;
     
     self.index = 1;
     self.apiCallBlock = ^(NSError *error) {
+        ELLeftMenuViewController *controller;
+        
         if (error) {
             [weakSelf.indicatorView stopAnimating];
             
@@ -55,8 +58,11 @@ static NSInteger const kELAPICallsNumber = 3;
             return;
         }
         
-        [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                         instantiateInitialViewController]
+        controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                      instantiateInitialViewController];
+        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        [weakSelf presentViewController:controller
                                animated:YES
                              completion:^{
             [weakSelf.indicatorView stopAnimating];
@@ -70,6 +76,10 @@ static NSInteger const kELAPICallsNumber = 3;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Private Methods

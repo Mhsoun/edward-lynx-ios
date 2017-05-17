@@ -75,7 +75,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if (self.survey &&
+    if ((self.survey && self.survey.key) &&
         (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
         [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
                                                                             @"final": @(NO),
@@ -88,6 +88,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kELPopupCloseNotification
                                                   object:nil];
+}
+
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Protocol Methods (UIPageViewController)

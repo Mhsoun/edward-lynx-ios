@@ -56,6 +56,10 @@ static CGFloat const kELCornerRadius = 2.0f;
     [super viewWillAppear:animated];
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UITextField)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
