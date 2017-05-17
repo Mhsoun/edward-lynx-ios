@@ -294,8 +294,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                 return;
             }
             
-            self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict
-                                                                       error:&error];
+            self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict error:&error];
             
             [self.tableView setHidden:NO];
             [self.tableView reloadData];

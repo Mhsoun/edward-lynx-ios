@@ -30,21 +30,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rsz-BP-xk6">
-                                <rect key="frame" x="177" y="356" width="20" height="20"/>
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rsz-BP-xk6" firstAttribute="centerX" secondItem="j8u-U5-0mq" secondAttribute="centerX" id="KOt-7t-1a4"/>
                             <constraint firstItem="T7T-Dc-jYF" firstAttribute="top" secondItem="jak-j1-P2T" secondAttribute="bottom" id="Nsb-Wk-Fhl"/>
-                            <constraint firstItem="Rsz-BP-xk6" firstAttribute="centerY" secondItem="jak-j1-P2T" secondAttribute="centerY" id="Pta-1b-nkI"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerY" secondItem="j8u-U5-0mq" secondAttribute="centerY" id="QNY-lZ-OCD"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="centerX" secondItem="j8u-U5-0mq" secondAttribute="centerX" id="QOO-cN-rjv"/>
-                            <constraint firstItem="Rsz-BP-xk6" firstAttribute="centerX" secondItem="jak-j1-P2T" secondAttribute="centerX" id="Sdl-4e-nTm"/>
                             <constraint firstAttribute="trailing" secondItem="jak-j1-P2T" secondAttribute="trailing" constant="5" id="YrX-3W-7eW"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="height" secondItem="j8u-U5-0mq" secondAttribute="height" id="ZeM-zF-Vhg"/>
                             <constraint firstItem="jak-j1-P2T" firstAttribute="leading" secondItem="j8u-U5-0mq" secondAttribute="leading" constant="5" id="azE-rc-8i5"/>
                             <constraint firstItem="ZY0-k5-PUd" firstAttribute="width" secondItem="j8u-U5-0mq" secondAttribute="width" id="eye-ck-nkr"/>
+                            <constraint firstItem="Rsz-BP-xk6" firstAttribute="centerY" secondItem="j8u-U5-0mq" secondAttribute="centerY" id="gM6-az-cI8"/>
                             <constraint firstItem="jak-j1-P2T" firstAttribute="top" secondItem="PHU-zc-u1l" secondAttribute="bottom" id="thn-QJ-cm8"/>
                         </constraints>
                     </view>
