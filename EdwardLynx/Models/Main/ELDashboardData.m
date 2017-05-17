@@ -49,7 +49,9 @@
     } else if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
         return self.developmentPlans;
     } else {
-        return @[self.answerableCount, @0, @0, @0];
+        NSInteger count = self.answerableCount ? [self.answerableCount integerValue] : 0;
+        
+        return @[@(count), @0, @0, @0];
     }
 }
 
