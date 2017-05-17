@@ -64,6 +64,10 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     [self.viewManager processRetrievalOfInstantFeedbacks];
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

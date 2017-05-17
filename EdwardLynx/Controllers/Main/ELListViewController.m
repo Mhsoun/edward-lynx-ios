@@ -104,6 +104,10 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                   object:nil];
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UIScrollView)
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

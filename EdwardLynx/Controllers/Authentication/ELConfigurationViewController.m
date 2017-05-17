@@ -78,6 +78,10 @@ static NSInteger const kELAPICallsNumber = 3;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Private Methods
 
 - (void)fetchDataFromAPI {

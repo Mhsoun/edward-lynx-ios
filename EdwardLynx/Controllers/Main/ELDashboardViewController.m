@@ -84,6 +84,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     [self loadDashboardData];
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

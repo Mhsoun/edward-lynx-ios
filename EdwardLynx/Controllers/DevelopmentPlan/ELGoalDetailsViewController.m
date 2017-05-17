@@ -78,6 +78,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     }    
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

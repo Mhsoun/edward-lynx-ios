@@ -59,14 +59,8 @@
                                                   object:nil];
 }
 
-- (void)onInstantFeedbackTab:(NSNotification *)notification {
-    BOOL hidden = [notification.userInfo[@"hidden"] boolValue];
-    
-    self.addButton.hidden = NO;
-    
-    [UIView animateWithDuration:0.15 animations:^{
-        self.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
-    }];
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Private Methods
@@ -230,6 +224,18 @@
                   instantiateInitialViewController];
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark - Selectors
+
+- (void)onInstantFeedbackTab:(NSNotification *)notification {
+    BOOL hidden = [notification.userInfo[@"hidden"] boolValue];
+    
+    self.addButton.hidden = NO;
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        self.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
+    }];
 }
 
 @end
