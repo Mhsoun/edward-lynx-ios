@@ -17,6 +17,8 @@
 "kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
+"kELProfileEditButton" = "Edit";
+"kELProfileSaveButton" = "Save";
 "kELSaveToDraftButton" = "Save to Drafts";
 "kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
@@ -100,7 +102,7 @@
 "kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
 "kELFeedbackAnswerTypeOneToTenScale" = "Numeric 1-10 Scale";
 "kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
-"kELFeedbackAnswerTypeYesNoScale" = "Yes/No";
+"kELFeedbackAnswerTypeYesNoScale" = "Yes or No";
 "kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
 "kELFeedbackAnswerTypeText" = "Free Text";
 "kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
