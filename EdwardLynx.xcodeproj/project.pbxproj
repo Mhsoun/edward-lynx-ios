@@ -1228,7 +1228,7 @@
 					A9308BCD1DED74B5007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 4XE8MVRXHY;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1994,6 +1994,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -2002,6 +2003,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
 				PRODUCT_NAME = "Edward Lynx";
+				PROVISIONING_PROFILE = "5027a686-c2c8-4643-8fee-2d3cd4b401cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2013,6 +2016,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -2021,6 +2025,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
 				PRODUCT_NAME = "Edward Lynx";
+				PROVISIONING_PROFILE = "5027a686-c2c8-4643-8fee-2d3cd4b401cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

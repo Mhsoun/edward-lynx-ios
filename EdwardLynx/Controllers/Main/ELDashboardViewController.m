@@ -307,7 +307,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (void)triggerRegisterForNotifications {
-    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+    UIUserNotificationSettings *settings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    
+    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications] ||
+        settings.types & UIUserNotificationTypeAlert) {
         [ApplicationDelegate registerDeviceToFirebaseAndAPI];
     } else {
         [ApplicationDelegate registerForRemoteNotifications];
