@@ -11,5 +11,6 @@
 @interface ELBaseDetailViewController : ELBaseViewController
 
 @property (nonatomic) int64_t objectId;
+@property (nonatomic) NSInteger index;
 
 @end
