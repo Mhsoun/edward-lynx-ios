@@ -39,11 +39,11 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    
     self.pageCount = 0, self.pageIndex = 0;
     self.isSurveyFinal = NO, self.saved = NO;
     self.mControllers = [[NSMutableArray alloc] init];
     self.title = [NSLocalizedString(@"kELAnswerSurveyTitle", nil) uppercaseString];
+    self.stackView.hidden = YES;
     
     if (!self.survey) {
         self.responseType = kELSurveyResponseTypeDetails;
@@ -113,8 +113,8 @@
     self.pageControl.currentPage = self.pageIndex;
     self.prevButton.hidden = self.pageIndex == 0;
     self.nextButton.hidden = isLastPage;
-    
-    [self toggleViewSubmitButton:isLastPage];
+    self.draftsButton.hidden = self.pageIndex == 0;
+    self.submitButton.hidden = !isLastPage;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
@@ -197,8 +197,7 @@
             
             break;
         case kELSurveyResponseTypeQuestions:
-            self.draftsButton.hidden = NO;
-            self.submitButton.hidden = NO;
+            self.stackView.hidden = NO;
             
             for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
                 ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil];
@@ -339,8 +338,9 @@
     controller = [self viewControllerAtIndex:self.pageIndex];
     
     self.pageControl.currentPage = self.pageIndex;
+    self.draftsButton.hidden = self.pageIndex == 0;
+    self.submitButton.hidden = !(self.pageIndex == self.pageCount - 1);
     
-    [self toggleViewSubmitButton:self.pageIndex == self.pageCount - 1];
     [self.pageController setViewControllers:@[controller]
                                   direction:direction
                                    animated:YES
@@ -364,26 +364,8 @@
     self.prevButton.hidden = YES;
     self.nextButton.hidden = NO;
     
-    // Toggle constraints
-    if (self.survey.status == kELSurveyStatusCompleted) {
-        self.draftsButton.hidden = YES;
-        self.submitButton.hidden = YES;
-        self.superviewBottomConstraint.active = YES;
-    } else {
-        self.draftsButton.hidden = NO;
-        self.submitButton.hidden = NO;
-        self.superviewBottomConstraint.active = NO;
-        
-        [self toggleViewSubmitButton:NO];
-    }
-    
-    [self.heightConstraint setConstant:self.pageCount <= 1 ? 0 : 40];
-    [self.navigatorView updateConstraints];
-}
-
-- (void)toggleViewSubmitButton:(BOOL)toDisplay {
-    [self.viewBottomConstraint setConstant:toDisplay ? 60 : 10];
-    [self.draftsButton updateConstraints];
+    self.draftsButton.hidden = YES;
+    self.submitButton.hidden = YES;
 }
 
 #pragma mark - Interface Builder Actions
