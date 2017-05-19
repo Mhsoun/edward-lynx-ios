@@ -110,40 +110,60 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 #pragma mark - Protocol Methods (UIScrollView)
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (self.listFilter != kELListFilterLynxMeasurement) {
-        return;
-    }
-    
-    self.page++;
-    
-    if (!self.tableView.tableFooterView || self.page > self.pages) {
-        self.tableView.tableFooterView = nil;
-        self.page--;
-        
-        return;
-    }
-    
-    // Proceed to reloading
-    self.isPaginated = YES;
-    
-    [scrollView setScrollEnabled:NO];
-    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
     
     if (self.listFilter != kELListFilterLynxMeasurement) {
         return;
     }
     
-    if (endScrolling >= scrollView.contentSize.height - CGRectGetHeight(self.tableIndicatorView.frame)) {
-        self.tableView.tableFooterView = self.tableIndicatorView;
+    if ((scrollView == self.tableView) && (endScrolling >= scrollView.contentSize.height)) {
+        self.page++;
         
-        [self.tableIndicatorView startAnimating];
+        // Proceed to reloading
+        self.isPaginated = YES;
+        
+        [scrollView setScrollEnabled:NO];
+        [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
     }
 }
+
+// TODO Disable UI indicator for now
+
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    if (self.listFilter != kELListFilterLynxMeasurement) {
+//        return;
+//    }
+//    
+//    self.page++;
+//    
+//    if (!self.tableView.tableFooterView || self.page > self.pages) {
+//        self.tableView.tableFooterView = nil;
+//        self.page--;
+//        
+//        return;
+//    }
+//    
+//    // Proceed to reloading
+//    self.isPaginated = YES;
+//    
+//    [scrollView setScrollEnabled:NO];
+//    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
+//}
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+//    
+//    if (self.listFilter != kELListFilterLynxMeasurement) {
+//        return;
+//    }
+//    
+//    if (endScrolling >= scrollView.contentSize.height - CGRectGetHeight(self.tableIndicatorView.frame)) {
+//        self.tableView.tableFooterView = self.tableIndicatorView;
+//        
+//        [self.tableIndicatorView startAnimating];
+//    }
+//}
 
 #pragma mark - Protocol Methods (UITableView)
 
