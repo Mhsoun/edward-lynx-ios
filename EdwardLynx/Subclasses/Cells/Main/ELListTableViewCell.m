@@ -28,7 +28,7 @@
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    //
+
 }
 
 - (void)handleObject:(id)object deselectionActionAtIndexPath:(NSIndexPath *)indexPath {

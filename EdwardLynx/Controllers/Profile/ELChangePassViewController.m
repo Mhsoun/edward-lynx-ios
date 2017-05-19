@@ -88,6 +88,8 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
+    
     // Update password stored on NSUserDefaults
     NSMutableDictionary *mCredentialsDict = [[ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey] mutableCopy];
     
@@ -100,7 +102,7 @@
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELProfileChangePasswordSuccess", nil)
                      completion:^{
-        [self.navigationController popViewControllerAnimated:YES];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
 }
 

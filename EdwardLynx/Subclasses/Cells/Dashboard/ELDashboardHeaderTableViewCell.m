@@ -106,15 +106,16 @@
 
 - (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
     UIAlertController *controller;
+    __weak typeof(self) weakSelf = self;
     UIAlertAction *createDevPlanAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanTitle", nil)
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                    [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateDevPlan];
+                                                                    [weakSelf.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateDevPlan];
                                                                 }];
     UIAlertAction *createFeedbackAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInstantFeedbackTitle", nil)
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * _Nonnull action) {
-                                                                     [self.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateFeedback];
+                                                                     [weakSelf.delegate viewTapToPerformControllerPushWithIdentifier:kELDashboardActionTypeCreateFeedback];
                                                                  }];
     
     if (![identifier isEqualToString:kELDashboardActionTypeCreate]) {

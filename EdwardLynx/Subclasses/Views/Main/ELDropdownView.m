@@ -69,12 +69,18 @@ static CGFloat const kELIconSize = 15;
     
     self.items = [items copy];
     self.baseController = controller;
+    self.delegate = controller;
     
     _hasSelection = !self.hasValidation;
     
     [self setupContent];
     
     return self;
+}
+
+- (void)reset {
+    self.baseController = nil;
+    self.delegate = nil;
 }
 
 #pragma mark - Getters/Setters
@@ -113,16 +119,17 @@ static CGFloat const kELIconSize = 15;
 #pragma mark - Private Methods
 
 - (UIAlertController *)itemsAlertController {
+    __weak typeof(self) weakSelf = self;
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
                                                                         message:nil
                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        self.titleLabel.text = action.title;
-        self.selectedItem = action.title;
+        weakSelf.titleLabel.text = action.title;
+        weakSelf.selectedItem = action.title;
         
-        _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
+        _hasSelection = weakSelf.hasValidation ? ![weakSelf.selectedItem isEqualToString:weakSelf.items[0]] : YES;
         
-        [self.delegate onDropdownSelectionValueChange:self.selectedItem];
+        [weakSelf.delegate onDropdownSelectionValueChange:weakSelf.selectedItem];
     };
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)

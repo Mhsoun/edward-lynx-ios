@@ -41,6 +41,7 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [AppSingleton.manager dataTaskWithRequest:request
                                                              completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSString *errorMessage;
@@ -66,9 +67,9 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                     
                     // Re-execute task
                     [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
-                    [self performAuthenticatedTask:isAuthenticated
-                                       withRequest:request
-                                        completion:completion];
+                    [weakSelf performAuthenticatedTask:isAuthenticated
+                                           withRequest:request
+                                            completion:completion];
                 }];
             }
             

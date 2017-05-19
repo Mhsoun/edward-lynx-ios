@@ -86,13 +86,15 @@
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
+    
     // Back to the Feedbacks list
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELFeedbackAnswerSuccess", nil)
                      completion:^{
-        self.submitButton.enabled = YES;
+        weakSelf.submitButton.enabled = YES;
                          
-        [self.navigationController popViewControllerAnimated:YES];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
 }
 

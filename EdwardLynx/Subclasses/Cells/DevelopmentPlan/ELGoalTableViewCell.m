@@ -87,6 +87,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *detailMessage;
     UIAlertController *controller;
+    __weak typeof(self) weakSelf = self;
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     ELGoalAction *goalAction = mActions[indexPath.row];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
@@ -132,10 +133,10 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
             [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
             
-            [self.goal setActions:[mActions copy]];
-            [self.delegate onGoalUpdate:self.goal];
+            [weakSelf.goal setActions:[mActions copy]];
+            [weakSelf.delegate onGoalUpdate:weakSelf.goal];
             
-            if ([[self.goal progressDetails][@"value"] floatValue] == 1.0f) {
+            if ([[weakSelf.goal progressDetails][@"value"] floatValue] == 1.0f) {
                 NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
                                               @"header": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteHeader", nil),
                                               @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
@@ -160,8 +161,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         return;
     }
     
-    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil),
-                     goalAction.title];    
+    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil), goalAction.title];
     controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
                                                      message:detailMessage
                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -172,7 +172,6 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
-    
     [visibleController presentViewController:controller
                                     animated:YES
                                   completion:nil];
@@ -184,7 +183,6 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     NSString *stringKey, *timestamp;
     UIColor *color;
     BOOL completed = self.goal.progress == 1;
-//    NSInteger days = [[NSDate date] mt_daysSinceDate:self.goal.dueDate];
     NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
     
     color = [[RNThemeManager sharedManager] colorForKey:colorKey];

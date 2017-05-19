@@ -116,22 +116,27 @@ static ELNotificationView *currentNotificationView = nil;
 }
 
 - (void)dismiss {
+    __weak typeof(self) weakSelf = self;
     self.animateConstraint.constant = [self startPosition];
     
-    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [self.superview layoutIfNeeded];
+    [UIView animateWithDuration:0.3 delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+        [weakSelf.superview layoutIfNeeded];
     } completion:^(BOOL finished) {
-        if (currentNotificationView == self) {
+        if (currentNotificationView == weakSelf) {
             currentNotificationView = nil;
         }
         
-        [self removeFromSuperview];
+        [weakSelf removeFromSuperview];
     }];
 }
 
 - (void)dismissNotificationAfter:(NSTimeInterval)interval {
+    __weak typeof(self) weakSelf = self;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dismiss];
+        [weakSelf dismiss];
     });
 }
 
@@ -147,7 +152,7 @@ static ELNotificationView *currentNotificationView = nil;
         imageName = @"Survey";
     }
     
-    self.iconImageView.image = [UIImage imageNamed:@"AppIcon40x40"];  // TODO Image based on type
+    self.iconImageView.image = [UIImage imageNamed:@"AppIcon40x40"];
     self.titleLabel.text = notification.title;
     self.detailLabel.text = notification.body;
     self.rightImageView.image = [FontAwesome imageWithIcon:fa_chevron_right
@@ -157,16 +162,17 @@ static ELNotificationView *currentNotificationView = nil;
 }
      
 - (void)showNotificationAnimation {
+    __weak typeof(self) weakSelf = self;
     self.animateConstraint.constant = [self startPosition];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.animateConstraint.constant = 20;
+        weakSelf.animateConstraint.constant = 20;
         
         [UIView animateWithDuration:0.3
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-            [self.superview layoutIfNeeded];
+            [weakSelf.superview layoutIfNeeded];
         } completion:nil];
     });
 }

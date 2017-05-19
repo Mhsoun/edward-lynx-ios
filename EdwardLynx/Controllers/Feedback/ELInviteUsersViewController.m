@@ -236,6 +236,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     // Clear selections
@@ -245,13 +247,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELInviteUsersSuccess", nil)
                      completion:^{
-        if (self.inviteType == kELInviteUsersReports) {
-            [self.navigationController popViewControllerAnimated:YES];
+        if (weakSelf.inviteType == kELInviteUsersReports) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         } else {
-            [self presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                         instantiateInitialViewController]
-                               animated:YES
-                             completion:nil];
+            [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
+                                             instantiateInitialViewController]
+                                   animated:YES
+                                 completion:nil];
         }
     }];
 }
@@ -472,19 +474,19 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         participant.isSelected = YES;
         participant.isAddedByEmail = YES;
         
-        [self.mParticipants addObject:participant];
-        [self.mInitialParticipants addObject:participant];
+        [weakSelf.mParticipants addObject:participant];
+        [weakSelf.mInitialParticipants addObject:participant];
         
-        self.provider = [[ELDataProvider alloc] initWithDataArray:[self.mInitialParticipants copy]];
+        weakSelf.provider = [[ELDataProvider alloc] initWithDataArray:[weakSelf.mInitialParticipants copy]];
         
-        [self.tableView reloadData];
-        [self adjustScrollViewContentSize];
+        [weakSelf.tableView reloadData];
+        [weakSelf adjustScrollViewContentSize];
         
-        [ELUtils scrollViewToBottom:self.scrollView];
+        [ELUtils scrollViewToBottom:weakSelf.scrollView];
         
         // Updated selected users label
-        self.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
-                                     @(self.mParticipants.count)];
+        weakSelf.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                     @(weakSelf.mParticipants.count)];
     }];
     self.inviteAction.enabled = NO;
     

@@ -42,7 +42,7 @@
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    // No action since it is handled in the view controller's delegate implementation
+
 }
 
 @end

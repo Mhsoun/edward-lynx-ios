@@ -64,6 +64,12 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.dropdown reset];
+}
+
 - (void)dealloc {
     DLog(@"%@", [self class]);
 }
@@ -103,7 +109,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option : [(ELAnswerOption *)option shortDescription];
+        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option :
+                                                                          [(ELAnswerOption *)option shortDescription];
         
         return cell;
     }
@@ -139,7 +146,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
     
     // Button
-    [self.inviteButton setTitle:NSLocalizedString(@"kELInviteParticipantsButton", nil) forState:UIControlStateNormal];
+    [self.inviteButton setTitle:NSLocalizedString(@"kELInviteParticipantsButton", nil)
+                       forState:UIControlStateNormal];
     
     // Title
     self.title = [NSLocalizedString(titleLabel, nil) uppercaseString];
@@ -233,7 +241,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.dropdown = [[ELDropdownView alloc] initWithItems:mTypes
                                            baseController:self
                                          defaultSelection:nil];
-    self.dropdown.delegate = self;
     self.selectedAnswerType = !self.instantFeedback ? [ELUtils labelByAnswerType:kELAnswerTypeYesNoScale] :
                                                       [ELUtils labelByAnswerType:self.instantFeedback.question.answer.type];
     
@@ -328,17 +335,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.questionPreview addSubview:questionView];
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(setNeedsDisplay)];
-    
-    // TODO Draw dotted line
-//    for (CALayer *layer in [self.questionContainerView.layer.sublayers copy]) {
-//        if ([layer isKindOfClass:[CAShapeLayer class]]) {
-//            [layer removeFromSuperlayer];
-//            
-//            break;
-//        }
-//    }
-//    
-//    [self drawDashedBorderAroundView:self.questionContainerView];
 }
 
 - (void)updateOptionsTableView {

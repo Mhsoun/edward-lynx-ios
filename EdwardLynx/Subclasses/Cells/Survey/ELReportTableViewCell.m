@@ -57,13 +57,13 @@
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    //
+    
 }
 
 #pragma mark - Private Methods
 
 - (void)configureWithDetails:(NSDictionary *)detailsDict {
-    NSString *colorKey = kELWhiteColor;  // TODO
+    NSString *colorKey = kELWhiteColor;
     
     // Content
     self.titleLabel.text = detailsDict[@"title"];

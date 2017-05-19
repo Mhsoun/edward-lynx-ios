@@ -94,6 +94,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     NSString *segueIdentifier = [(ELMenuItem *)[self.provider rowObjectAtIndexPath:indexPath] segueIdentifier];
     
     if ([segueIdentifier isEqualToString:@"Logout"]) {
+        __weak typeof(self) weakSelf = self;
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELLogoutButton", nil)
                                                                             message:kELLogoutAlertMessage
                                                                      preferredStyle:UIAlertControllerStyleAlert];
@@ -104,17 +105,17 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
             // Remove auth header
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthInstanceUserDefaultsKey];
             
-            [self presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
-                                         instantiateInitialViewController]
-                               animated:YES
-                             completion:nil];
+            [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
+                                             instantiateInitialViewController]
+                                   animated:YES
+                                 completion:nil];
         }]];
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                        style:UIAlertActionStyleCancel
                                                      handler:^(UIAlertAction * _Nonnull action) {
-            [self.tableView selectRowAtIndexPath:self.prevIndexPath
-                                        animated:NO
-                                  scrollPosition:UITableViewScrollPositionNone];
+            [weakSelf.tableView selectRowAtIndexPath:weakSelf.prevIndexPath
+                                            animated:NO
+                                      scrollPosition:UITableViewScrollPositionNone];
         }]];
         
         [self presentViewController:controller
@@ -147,6 +148,10 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     [menuButton setFrame:CGRectMake(0, 0, 25, 20)];
     [menuButton setImage:image forState:UIControlStateNormal];
     [menuButton setTintColor:[UIColor whiteColor]];
+}
+
+- (Boolean)disableContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 - (Boolean)disablePanGestureForIndexPath:(NSIndexPath *)indexPath {
