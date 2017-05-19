@@ -199,6 +199,8 @@
 }
 
 - (void)toggleForm:(BOOL)enable {
+    NSString *labelKey = enable ? @"kELProfileSaveButton" : @"kELProfileEditButton";
+    
     self.nameTextField.enabled = enable;
     self.emailTextField.enabled = enable;
     self.infoTextView.userInteractionEnabled = enable;
@@ -208,19 +210,10 @@
     self.cityTextField.enabled = enable;
     self.radioGroup.userInteractionEnabled = enable;
     
-    if (enable) {
-        self.toSave = YES;
-        self.cancelButton.hidden = NO;
-        
-        [self.saveButton setTitle:NSLocalizedString(@"kELProfileSaveButton", nil)
-                         forState:UIControlStateNormal];
-    } else {
-        self.toSave = NO;
-        self.cancelButton.hidden = YES;
-        
-        [self.saveButton setTitle:NSLocalizedString(@"kELProfileEditButton", nil)
-                         forState:UIControlStateNormal];
-    }
+    self.toSave = enable;
+    self.cancelButton.hidden = !enable;
+    
+    [self.saveButton setTitle:NSLocalizedString(labelKey, nil) forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions

@@ -120,27 +120,14 @@
 #pragma mark - Deep Linking
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    NSNumber *objectId;
-    NSString *type;
-    NSArray *urlParts;
-    
-    if ([url.absoluteString containsString:@"survey"]) {
-        return YES;
-    }
-    
-    // For other types
-    urlParts = [url.absoluteString componentsSeparatedByString:@"/"];
-    objectId = urlParts[3];
-    type = [urlParts[2] componentsSeparatedByString:@":"][1];
-    type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
-                                                             kELNotificationTypeInstantFeedbackRequest;
-    
-    [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
+    [self parseWebpageURL:url.absoluteString];
     
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    [self parseWebpageURL:userActivity.webpageURL.absoluteString];
+    
     return YES;
 }
 
@@ -159,8 +146,6 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [self processReceivedNotification:userInfo forApplication:application];
 }
-
-#pragma mark - Notification Received Methods (iOS 10)
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
     // Called when a notification is delivered to a foreground app.
@@ -278,8 +263,8 @@
         center.delegate = self;
         
         [center requestAuthorizationWithOptions:authorizationOptions
-                              completionHandler:^(BOOL granted, NSError * _Nullable error){
-            if (error) {
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!error) {
                 [[UIApplication sharedApplication] registerForRemoteNotifications];
             }
         }];
@@ -378,6 +363,24 @@
     controller.objectId = objectId;
     
     [self.notificationRootNavController pushViewController:controller animated:YES];
+}
+
+- (void)parseWebpageURL:(NSString *)urlString {
+    NSNumber *objectId;
+    NSString *type;
+    NSArray *urlParts;
+    
+    if ([urlString containsString:kELAPIEmailLinkFeedback]) {
+        urlParts = [urlString componentsSeparatedByString:@"/"];
+        objectId = urlParts[3];
+        type = [urlParts[2] componentsSeparatedByString:@":"][1];
+        type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
+        kELNotificationTypeInstantFeedbackRequest;
+        
+        [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
+    } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
+        // TODO Parse
+    }
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {

@@ -78,7 +78,6 @@ platform :ios do
   desc "Updates .p12 file to be used for Push Notifications"
   lane :p12 do
     pem(
-      force: true,
       development: true,
       username: ENV["APPLE_ID"],
       team_id: ENV["DEV_TEAM_ID"],

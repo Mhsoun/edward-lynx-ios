@@ -56,6 +56,11 @@ NSString * const kELUserRoleParticipant = @"participant";
 NSString * const kELUserRoleSuperAdmin = @"superadmin";
 NSString * const kELUserRoleSupervisor = @"supervisor";
 
+#pragma mark - Email Link Paths
+
+NSString * const kELAPIEmailLinkFeedback = @"";
+NSString * const kELAPIEmailLinkSurvey = @"/survey/answer/";
+
 #pragma mark - Endpoints
 
 NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
