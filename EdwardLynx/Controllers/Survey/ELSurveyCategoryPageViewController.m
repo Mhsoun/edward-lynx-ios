@@ -11,6 +11,7 @@
 #import "ELQuestionCategory.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
+#import "ELSurveyInfoViewController.h"
 #import "ELSurveyViewManager.h"
 
 #pragma mark - Class Extension
@@ -18,11 +19,11 @@
 @interface ELSurveyCategoryPageViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal, saved;
-@property (nonatomic) NSInteger pageIndex;
+@property (nonatomic) NSInteger pageCount, pageIndex;
 @property (nonatomic) kELSurveyResponseType responseType;
-@property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
-@property (nonatomic, strong) NSMutableArray<ELSurveyDetailsViewController *> *mControllers;
+@property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
+@property (nonatomic, strong) NSMutableArray<__kindof ELBaseDetailViewController *> *mControllers;
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) ELSurveyViewManager *surveyViewManager;
@@ -38,9 +39,11 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.pageIndex = 0;
+    self.pageCount = 0, self.pageIndex = 0;
     self.isSurveyFinal = NO, self.saved = NO;
     self.mControllers = [[NSMutableArray alloc] init];
+    self.title = [NSLocalizedString(@"kELAnswerSurveyTitle", nil) uppercaseString];
+    self.stackView.hidden = YES;
     
     if (!self.survey) {
         self.responseType = kELSurveyResponseTypeDetails;
@@ -49,7 +52,6 @@
         // Retrieve survey details
         [self.detailViewManager processRetrievalOfSurveyDetails];
     } else {
-        self.title = [self.survey.name uppercaseString];
         self.responseType = kELSurveyResponseTypeQuestions;
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
         self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
@@ -97,25 +99,28 @@
 #pragma mark - Protocol Methods (UIPageViewController)
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
-    self.pageIndex = [(ELSurveyDetailsViewController *)[pendingViewControllers lastObject] index];
+    __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)[pendingViewControllers lastObject];
+    
+    self.pageIndex = [controller index];
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
-    BOOL isLastPage = self.pageIndex == self.items.count - 1;
+    BOOL isLastPage = self.pageIndex == self.pageCount - 1;
     
     self.pageControl.currentPage = self.pageIndex;
     self.prevButton.hidden = self.pageIndex == 0;
     self.nextButton.hidden = isLastPage;
-    
-    [self toggleViewSubmitButton:isLastPage];
+    self.draftsButton.hidden = self.pageIndex == 0;
+    self.submitButton.hidden = !isLastPage;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger index = [(ELSurveyDetailsViewController *)viewController index];
+    __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)viewController;
+    NSInteger index = [controller index];
     
     if (index == 0) {
         return nil;
@@ -130,11 +135,12 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger index = [(ELSurveyDetailsViewController *)viewController index];
+    __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)viewController;
+    NSInteger index = [controller index];
     
     index++;
     
-    if (index == self.items.count) {
+    if (index == self.pageCount) {
         return nil;
     }
     
@@ -191,9 +197,7 @@
             
             break;
         case kELSurveyResponseTypeQuestions:
-            self.title = [self.survey.name uppercaseString];
-            self.draftsButton.hidden = NO;
-            self.submitButton.hidden = NO;
+            self.stackView.hidden = NO;
             
             for (NSDictionary *categoryDict in (NSArray *)responseDict[@"items"]) {
                 ELQuestionCategory *category = [[ELQuestionCategory alloc] initWithDictionary:categoryDict error:nil];
@@ -213,6 +217,7 @@
             }
             
             self.items = [mCategories copy];
+            self.pageCount = self.items.count + 1;
             self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                                   navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                                 options:nil];
@@ -280,13 +285,28 @@
 
 - (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
     ELSurveyDetailsViewController *controller;
+    ELSurveyInfoViewController *infoController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Survey" bundle:nil];
     
-    for (int i = 0; i < self.items.count; i++) {
-        controller = [[UIStoryboard storyboardWithName:@"Survey" bundle:nil]
-                      instantiateViewControllerWithIdentifier:@"SurveyPage"];
+    for (int i = 0; i < self.pageCount; i++) {
+        if (i == 0) {
+            infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
+            infoController.index = i;
+            infoController.infoDict = @{@"title": [NSString stringWithFormat:@"%@: %@",
+                                                   [ELUtils labelBySurveyType:self.survey.type],
+                                                   self.survey.name],
+                                        @"description": self.survey.shortDescription,
+                                        @"evaluation": self.survey.evaluationText};
+            
+            [self.mControllers addObject:infoController];
+            
+            continue;
+        }
+        
+        controller = [storyboard instantiateViewControllerWithIdentifier:@"SurveyPage"];
         controller.index = i;
         controller.survey = self.survey;
-        controller.category = self.items[i];
+        controller.category = self.items[i - 1];
         
         [self.mControllers addObject:controller];
     }
@@ -302,24 +322,25 @@
     [pageController didMoveToParentViewController:self];
 }
 
-- (ELSurveyDetailsViewController *)viewControllerAtIndex:(NSInteger)index {
+- (__kindof ELBaseDetailViewController *)viewControllerAtIndex:(NSInteger)index {
     return self.mControllers[index];
 }
 
 #pragma mark - Private Methods
 
 - (void)changePage:(UIPageViewControllerNavigationDirection)direction {
-    ELSurveyDetailsViewController *controller;
+    __kindof ELBaseDetailViewController *controller;
     
-    if (self.pageIndex < 0 || self.pageIndex == self.self.mControllers.count) {
+    if (self.pageIndex < 0 || self.pageIndex == self.self.pageCount) {
         return;
     }
     
     controller = [self viewControllerAtIndex:self.pageIndex];
     
     self.pageControl.currentPage = self.pageIndex;
+    self.draftsButton.hidden = self.pageIndex == 0;
+    self.submitButton.hidden = !(self.pageIndex == self.pageCount - 1);
     
-    [self toggleViewSubmitButton:self.pageIndex == self.items.count - 1];
     [self.pageController setViewControllers:@[controller]
                                   direction:direction
                                    animated:YES
@@ -337,36 +358,14 @@
 }
 
 - (void)setupNavigators {
-    BOOL isSinglePage = self.items.count <= 1;
-    
-    if (!isSinglePage) {
-        self.pageControl.numberOfPages = self.items.count;
-        self.pageControl.currentPage = 0;
-    }
+    self.pageControl.currentPage = 0;
+    self.pageControl.numberOfPages = self.pageCount;
     
     self.prevButton.hidden = YES;
-    self.nextButton.hidden = isSinglePage;
+    self.nextButton.hidden = NO;
     
-    // Toggle constraints
-    if (self.survey.status == kELSurveyStatusCompleted) {
-        self.draftsButton.hidden = YES;
-        self.submitButton.hidden = YES;
-        self.superviewBottomConstraint.active = YES;
-    } else {
-        self.draftsButton.hidden = NO;
-        self.submitButton.hidden = NO;
-        self.superviewBottomConstraint.active = NO;
-        
-        [self toggleViewSubmitButton:isSinglePage];
-    }
-    
-    [self.heightConstraint setConstant:self.items.count <= 1 ? 0 : 40];
-    [self.navigatorView updateConstraints];
-}
-
-- (void)toggleViewSubmitButton:(BOOL)toDisplay {
-    [self.viewBottomConstraint setConstant:toDisplay ? 60 : 10];
-    [self.draftsButton updateConstraints];
+    self.draftsButton.hidden = YES;
+    self.submitButton.hidden = YES;
 }
 
 #pragma mark - Interface Builder Actions
@@ -384,7 +383,7 @@
     self.pageIndex++;
     
     self.prevButton.hidden = NO;
-    self.nextButton.hidden = self.pageIndex == self.mControllers.count - 1;
+    self.nextButton.hidden = self.pageIndex == self.pageCount - 1;
     
     [self changePage:UIPageViewControllerNavigationDirectionForward];
 }

@@ -216,7 +216,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                                                       kELAdsViewHeight)];
     
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Lato-Regular" size:12.0];
+    label.font = [UIFont fontWithName:@"Lato-Regular" size:11.0];
     label.opaque = YES;
     label.text = @"";
     label.textAlignment = NSTextAlignmentCenter;
@@ -232,7 +232,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     
     if (section == 0) {
         return nil;
-    } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlan", nil)]) {
+    } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)]) {
         [mSectionDict setObject:kELDashboardActionTypeDevPlan forKey:@"segue"];
     }
     
@@ -307,7 +307,11 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (void)triggerRegisterForNotifications {
-    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+    UIUserNotificationSettings *settings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    NSString *deviceToken = [ELUtils getUserDefaultsValueForKey:kELDeviceTokenUserDefaultsKey];
+    
+    if (([[UIApplication sharedApplication] isRegisteredForRemoteNotifications] || settings.types & UIUserNotificationTypeAlert) &&
+        (deviceToken && deviceToken.length > 0)) {
         [ApplicationDelegate registerDeviceToFirebaseAndAPI];
     } else {
         [ApplicationDelegate registerForRemoteNotifications];

@@ -43,7 +43,7 @@
         kELSurveyStatus status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusUnfinished;
         
         [self configureWithDetails:@{@"title": feedback.question.text,
-                                     @"type": @"Instant Feedback",
+                                     @"type": NSLocalizedString(@"kELInstantFeedbackTitle", nil),
                                      @"description": @"",
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];

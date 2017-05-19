@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeO-wN-6bl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeO-wN-6bl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-3l-gDw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="498"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-cs-I3z" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
@@ -95,7 +95,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="JWS-96-koN"/>
                                                 </constraints>
                                             </view>
-                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0O3-sy-krY">
+                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0O3-sy-krY">
                                                 <rect key="frame" x="15" y="174" width="345" height="17"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
@@ -305,43 +305,65 @@
                                     <constraint firstAttribute="trailing" secondItem="gTG-cs-I3z" secondAttribute="trailing" id="tKO-b1-bal"/>
                                 </constraints>
                             </scrollView>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfG-4u-dUc">
-                                <rect key="frame" x="16" y="617" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="zIf-J3-Afd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Processing..."/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onSaveButtonClick:" destination="ggl-kA-jIJ" eventType="touchUpInside" id="b9V-CT-cEc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0qZ-vS-PTl">
+                                <rect key="frame" x="16" y="572" width="343" height="85"/>
+                                <subviews>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfG-4u-dUc">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="zIf-J3-Afd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onSaveButtonClick:" destination="ggl-kA-jIJ" eventType="touchUpInside" id="uIX-kI-AwU"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC2-cE-mwR">
+                                        <rect key="frame" x="0.0" y="45" width="343" height="40"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ExD-oy-0Ni"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.26666666666666666" green="0.12549019607843137" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onCancelButtonClick:" destination="ggl-kA-jIJ" eventType="touchUpInside" id="zyN-RF-U51"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="G7C-4T-jWV" firstAttribute="centerY" secondItem="DVm-eg-BZu" secondAttribute="centerY" id="BWy-et-2EU"/>
                             <constraint firstItem="ZJz-3l-gDw" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leading" id="E2J-Zw-aCf"/>
-                            <constraint firstItem="pfG-4u-dUc" firstAttribute="top" secondItem="ZJz-3l-gDw" secondAttribute="bottom" constant="10" id="FFL-MX-96w"/>
-                            <constraint firstItem="pfG-4u-dUc" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" id="HhP-sA-nZs"/>
+                            <constraint firstItem="0qZ-vS-PTl" firstAttribute="top" secondItem="ZJz-3l-gDw" secondAttribute="bottom" constant="10" id="E8a-ur-1Eh"/>
                             <constraint firstItem="ZJz-3l-gDw" firstAttribute="top" secondItem="t7k-RW-LGe" secondAttribute="bottom" id="SzM-vW-H9c"/>
-                            <constraint firstItem="6E7-Ge-Nom" firstAttribute="top" secondItem="pfG-4u-dUc" secondAttribute="bottom" constant="10" id="hA9-zQ-G1p"/>
+                            <constraint firstItem="6E7-Ge-Nom" firstAttribute="top" secondItem="0qZ-vS-PTl" secondAttribute="bottom" constant="10" id="gPc-qZ-pVo"/>
                             <constraint firstItem="G7C-4T-jWV" firstAttribute="width" secondItem="DVm-eg-BZu" secondAttribute="width" id="jTb-Hg-hyi"/>
                             <constraint firstItem="G7C-4T-jWV" firstAttribute="centerX" secondItem="DVm-eg-BZu" secondAttribute="centerX" id="mee-oy-3id"/>
                             <constraint firstAttribute="trailing" secondItem="ZJz-3l-gDw" secondAttribute="trailing" id="tQW-fd-jBC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pfG-4u-dUc" secondAttribute="trailing" id="v5q-1C-mlk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0qZ-vS-PTl" secondAttribute="trailing" id="tme-ur-Z8W"/>
                             <constraint firstItem="G7C-4T-jWV" firstAttribute="height" secondItem="DVm-eg-BZu" secondAttribute="height" id="yUo-oM-aJi"/>
+                            <constraint firstItem="0qZ-vS-PTl" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" id="zno-xb-fZU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PROFILE" id="KUQ-vm-yU0"/>
                     <connections>
+                        <outlet property="cancelButton" destination="AC2-cE-mwR" id="LqX-2T-dZb"/>
                         <outlet property="cityTextField" destination="txP-qy-ruz" id="di1-ac-bo9"/>
                         <outlet property="countryTextField" destination="rxf-hq-0bz" id="RpC-Qv-UvV"/>
                         <outlet property="departmentTextField" destination="mQ0-TR-Exu" id="ddp-GJ-Rm7"/>
@@ -350,12 +372,12 @@
                         <outlet property="nameTextField" destination="B03-lb-klR" id="Wms-wF-kAm"/>
                         <outlet property="radioGroupView" destination="sWV-AR-kO6" id="fek-Oo-2xJ"/>
                         <outlet property="roleTextField" destination="F6Y-Cp-ZBc" id="YXn-li-OCo"/>
-                        <outlet property="saveButton" destination="pfG-4u-dUc" id="WA4-LX-niC"/>
+                        <outlet property="saveButton" destination="pfG-4u-dUc" id="kXf-td-oHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNu-Jt-kF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="152"/>
+            <point key="canvasLocation" x="637.60000000000002" y="151.57421289355324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oZD-2N-EjU">

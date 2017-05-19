@@ -13,8 +13,6 @@
 
 @interface ELSurveyDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic) NSInteger index;
-
 @property (strong, nonatomic) ELQuestionCategory *category;
 @property (strong, nonatomic) ELSurvey *survey;
 

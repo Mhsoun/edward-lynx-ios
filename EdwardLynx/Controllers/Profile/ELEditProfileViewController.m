@@ -15,6 +15,7 @@
 
 @interface ELEditProfileViewController ()
 
+@property (nonatomic) BOOL toSave;
 @property (nonatomic, strong) NSString *selectedGender;
 @property (nonatomic, strong) NSDictionary *formGroupsDict;
 @property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
@@ -31,6 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.toSave = NO;
     self.nameTextField.delegate = self;
     self.emailTextField.delegate = self;
     self.roleTextField.delegate = self;
@@ -100,6 +102,7 @@
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self toggleForm:NO];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELProfileUpdateSuccess", nil)
                      completion:^{
@@ -114,8 +117,7 @@
     ELUser *user = AppSingleton.user;
     NSMutableArray *mData = [[NSMutableArray alloc] init];
     NSArray *genders = @[NSLocalizedString(@"kELProfileGenderMale", nil),
-                         NSLocalizedString(@"kELProfileGenderFemale", nil),
-                         NSLocalizedString(@"kELProfileGenderOther", nil)];
+                         NSLocalizedString(@"kELProfileGenderFemale", nil)];
     
     self.selectedGender = user.gender.length > 0 ? user.gender : genders[0];
     
@@ -167,11 +169,11 @@
     self.departmentTextField.text = user.department;
     self.countryTextField.text = user.country;
     self.cityTextField.text = user.city;
+    
+    [self toggleForm:NO];
 }
 
-#pragma mark - Interface Builder Actions
-
-- (IBAction)onSaveButtonClick:(id)sender {
+- (void)saveProfileInfo {
     BOOL isValid;
     NSMutableDictionary *mFormDict = [self.formGroupsDict mutableCopy];
     ELFormItemGroup *genderGroup = [[ELFormItemGroup alloc] initWithText:self.selectedGender
@@ -194,6 +196,38 @@
                      completion:nil];
     
     [self.viewManager processProfileUpdate];
+}
+
+- (void)toggleForm:(BOOL)enable {
+    NSString *labelKey = enable ? @"kELProfileSaveButton" : @"kELProfileEditButton";
+    
+    self.nameTextField.enabled = enable;
+    self.emailTextField.enabled = enable;
+    self.infoTextView.userInteractionEnabled = enable;
+    self.roleTextField.enabled = enable;
+    self.departmentTextField.enabled = enable;
+    self.countryTextField.enabled = enable;
+    self.cityTextField.enabled = enable;
+    self.radioGroup.userInteractionEnabled = enable;
+    
+    self.toSave = enable;
+    self.cancelButton.hidden = !enable;
+    
+    [self.saveButton setTitle:NSLocalizedString(labelKey, nil) forState:UIControlStateNormal];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onSaveButtonClick:(id)sender {
+    if (self.toSave) {
+        [self saveProfileInfo];
+    } else {
+        [self toggleForm:YES];
+    }
+}
+
+- (IBAction)onCancelButtonClick:(id)sender {
+    [self toggleForm:NO];
 }
 
 #pragma mark - Notifications

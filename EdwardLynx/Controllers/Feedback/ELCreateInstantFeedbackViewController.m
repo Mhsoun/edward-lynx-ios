@@ -130,7 +130,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Protocol Methods (UITextView)
 
 - (void)textViewDidChange:(UITextView *)textView {
-    self.questionPreviewLabel.text = textView.text.length == 0 ? NSLocalizedString(@"kELQuestionField", nil) : textView.text;
+    self.questionPreviewLabel.text = textView.text;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)

@@ -17,6 +17,8 @@
 "kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
+"kELProfileEditButton" = "Edit";
+"kELProfileSaveButton" = "Save";
 "kELSaveToDraftButton" = "Save to Drafts";
 "kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
@@ -58,8 +60,8 @@
 "kELDashboardReminderGoal" = "Goal";
 "kELDashboardReminderSurvey" = "Survey";
 
-"kELDashboardSectionDevelopmentPlan" = "Development Plan";
-"kELDashboardSectionReminder" = "Reminder";
+"kELDashboardSectionDevelopmentPlans" = "Development Plans";
+"kELDashboardSectionReminders" = "Reminders";
 
 "kELMenuItemDashboard" = "Dashboard";
 "kELMenuItemDevelopmentPlan" = "Development Plans";
@@ -100,9 +102,9 @@
 "kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
 "kELFeedbackAnswerTypeOneToTenScale" = "Numeric 1-10 Scale";
 "kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
-"kELFeedbackAnswerTypeYesNoScale" = "Yes/No Scale";
+"kELFeedbackAnswerTypeYesNoScale" = "Yes or No";
 "kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
-"kELFeedbackAnswerTypeText" = "Text";
+"kELFeedbackAnswerTypeText" = "Free Text";
 "kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
 "kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
 "kELFeedbackAnswerTypeCustomScale" = "Custom Scale";
@@ -112,7 +114,6 @@
 "kELDefaultField" = "Field";
 "kELNameField" = "Name";
 "kELPasswordField" = "Password";
-"kELQuestionField" = "Question";
 
 /* Invite/Share */
 
@@ -160,6 +161,8 @@
 
 /* Surveys */
 
+"kELAnswerSurveyTitle"  = "Answer Survey";
+
 "kELSurveyEmptyMessage"  = "No Surveys";
 
 "kELSurveyCompleteHeader" = "Survey Completed!";
@@ -193,7 +196,7 @@
 /* Validations */
 
 "kELAnswerTypeValidationMessage" = "No Answer type selected";
-"kELGoalActionsValidationMessage" = "No Goal Actions added";
+"kELGoalActionsValidationMessage" = "No Actions added";
 "kELGoalCategoryValidationMessage" = "No Category selected";
 "kELGoalsValidationMessage" = "No Goals added";
 "kELGoalReminderValidationMessage" = "Reminder date should be on or after today";

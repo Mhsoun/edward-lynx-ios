@@ -21,5 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)onSaveButtonClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+- (IBAction)onCancelButtonClick:(id)sender;
 
 @end
