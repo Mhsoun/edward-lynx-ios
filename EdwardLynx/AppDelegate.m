@@ -366,18 +366,18 @@
 }
 
 - (void)parseWebpageURL:(NSString *)urlString {
-    NSNumber *objectId;
+    NSInteger objectId;
     NSString *type;
     NSArray *urlParts;
     
     if ([urlString containsString:kELAPIEmailLinkFeedback]) {
-        urlParts = [urlString componentsSeparatedByString:@"/"];
-        objectId = urlParts[3];
-        type = [urlParts[2] componentsSeparatedByString:@":"][1];
+        urlParts = [@"edwardlynx://instant-feedback/250" componentsSeparatedByString:@"//"];
+        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
+        type = [urlParts[1] componentsSeparatedByString:@"/"][0];
         type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
-        kELNotificationTypeInstantFeedbackRequest;
+                                                                 kELNotificationTypeInstantFeedbackRequest;
         
-        [self displayViewControllerByData:@{@"id": objectId, @"type": type}];
+        [self displayViewControllerByData:@{@"id": @(objectId), @"type": type}];
     } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
         // TODO Parse
     }

@@ -67,6 +67,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    [self.dropdown reset];
+    
     if (!self.hasCreatedGoal) {
         return;
     }
@@ -75,7 +77,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         [self.delegate onGoalAddition:self.goal];
     } else {
         [self.delegate onGoalUpdate:self.goal];
-    }    
+    }
 }
 
 - (void)dealloc {
@@ -216,7 +218,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
                                            baseController:self
                                          defaultSelection:defaultSelection];
-    self.dropdown.delegate = self;
+    
     self.selectedCategory = defaultSelection;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;

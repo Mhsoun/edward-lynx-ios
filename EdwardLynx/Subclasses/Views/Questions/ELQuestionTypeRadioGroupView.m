@@ -116,8 +116,7 @@
 #pragma mark - Notifications
 
 - (void)onSelectionUpdate:(NSNotification *)notification {
-    [AppSingleton.mSurveyFormDict setObject:[self formValues]
-                                     forKey:@(_question.objectId)];
+    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
 }
 
 @end

@@ -210,8 +210,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         return nil;
     }
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0,
-                                                      0,
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
                                                       CGRectGetWidth(self.tableView.frame),
                                                       kELAdsViewHeight)];
     
@@ -288,20 +287,22 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 #pragma mark - Private Methods
 
 - (void)loadDashboardData {
+    __weak typeof(self) weakSelf = self;
+    
     [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSError *error;
             
-            [self.indicatorView stopAnimating];
+            [weakSelf.indicatorView stopAnimating];
             
             if (error) {
                 return;
             }
             
-            self.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict error:&error];
+            weakSelf.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict error:&error];
             
-            [self.tableView setHidden:NO];
-            [self.tableView reloadData];
+            [weakSelf.tableView setHidden:NO];
+            [weakSelf.tableView reloadData];
         });
     }];
 }

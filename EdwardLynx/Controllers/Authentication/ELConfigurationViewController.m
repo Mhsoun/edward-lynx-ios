@@ -120,17 +120,19 @@ static NSInteger const kELAPICallsNumber = 3;
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
+    __weak typeof(self) weakSelf = self;
+    
     [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error || responseDict[@"error"]) {
-                [self reloginUserCredentialsWithCompletion:^(NSError *loginError) {
+                [weakSelf reloginUserCredentialsWithCompletion:^(NSError *loginError) {
                     if (loginError) {
                         return;
                     }
                     
-                    DLog(@"%@: Re-login successful", [self class]);
+                    DLog(@"%@: Re-login successful", [weakSelf class]);
                     
-                    [self fetchUserProfileFromAPIWithCompletion:completion];
+                    [weakSelf fetchUserProfileFromAPIWithCompletion:completion];
                 }];
                 
                 return;

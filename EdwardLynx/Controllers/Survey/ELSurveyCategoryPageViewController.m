@@ -247,6 +247,7 @@
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
     NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
@@ -273,7 +274,7 @@
     [ELUtils presentToastAtView:self.view
                         message:successMessage
                      completion:^{
-        [self.navigationController popViewControllerAnimated:YES];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
 }
 

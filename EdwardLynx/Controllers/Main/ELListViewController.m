@@ -159,7 +159,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     if ([self.cellIdentifier isEqualToString:kELDevPlanCellIdentifier]) {
         ELDevelopmentPlanTableViewCell *devPlanCell = (ELDevelopmentPlanTableViewCell *)cell;
-        
         devPlanCell.tableView = self.tableView;
         
         [devPlanCell configure:value atIndexPath:indexPath];

@@ -49,7 +49,6 @@
 		A913123F1E8642D30042C91F /* QuestionTypeScaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91311051E8642D20042C91F /* QuestionTypeScaleView.xib */; };
 		A91312401E8642D30042C91F /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91311061E8642D20042C91F /* QuestionTypeTextView.xib */; };
 		A91312411E8642D30042C91F /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91311071E8642D20042C91F /* ShortcutView.xib */; };
-		A91312421E8642D30042C91F /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91311081E8642D20042C91F /* StatusView.xib */; };
 		A91312431E8642D30042C91F /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110D1E8642D20042C91F /* ELConfigurationViewController.m */; };
 		A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110F1E8642D20042C91F /* ELForgotPasswordViewController.m */; };
 		A91312451E8642D30042C91F /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311111E8642D20042C91F /* ELLoginViewController.m */; };
@@ -117,7 +116,6 @@
 		A91312951E8642D30042C91F /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C91E8642D30042C91F /* ELSearchBar.m */; };
 		A91312961E8642D30042C91F /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CD1E8642D30042C91F /* ELActionView.m */; };
 		A91312971E8642D30042C91F /* ELShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CF1E8642D30042C91F /* ELShortcutView.m */; };
-		A91312981E8642D30042C91F /* ELStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D11E8642D30042C91F /* ELStatusView.m */; };
 		A91312991E8642D30042C91F /* ELDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D41E8642D30042C91F /* ELDropdownView.m */; };
 		A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D61E8642D30042C91F /* ELNotificationView.m */; };
 		A913129B1E8642D30042C91F /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D91E8642D30042C91F /* ELBaseQuestionTypeView.m */; };
@@ -258,7 +256,6 @@
 		A91311051E8642D20042C91F /* QuestionTypeScaleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeScaleView.xib; sourceTree = "<group>"; };
 		A91311061E8642D20042C91F /* QuestionTypeTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTypeTextView.xib; sourceTree = "<group>"; };
 		A91311071E8642D20042C91F /* ShortcutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutView.xib; sourceTree = "<group>"; };
-		A91311081E8642D20042C91F /* StatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
 		A913110C1E8642D20042C91F /* ELConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELConfigurationViewController.h; sourceTree = "<group>"; };
 		A913110D1E8642D20042C91F /* ELConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELConfigurationViewController.m; sourceTree = "<group>"; };
 		A913110E1E8642D20042C91F /* ELForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELForgotPasswordViewController.h; sourceTree = "<group>"; };
@@ -386,8 +383,6 @@
 		A91311CD1E8642D30042C91F /* ELActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELActionView.m; sourceTree = "<group>"; };
 		A91311CE1E8642D30042C91F /* ELShortcutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShortcutView.h; sourceTree = "<group>"; };
 		A91311CF1E8642D30042C91F /* ELShortcutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShortcutView.m; sourceTree = "<group>"; };
-		A91311D01E8642D30042C91F /* ELStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELStatusView.h; sourceTree = "<group>"; };
-		A91311D11E8642D30042C91F /* ELStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELStatusView.m; sourceTree = "<group>"; };
 		A91311D31E8642D30042C91F /* ELDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDropdownView.h; sourceTree = "<group>"; };
 		A91311D41E8642D30042C91F /* ELDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDropdownView.m; sourceTree = "<group>"; };
 		A91311D51E8642D30042C91F /* ELNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNotificationView.h; sourceTree = "<group>"; };
@@ -644,7 +639,6 @@
 				A91311051E8642D20042C91F /* QuestionTypeScaleView.xib */,
 				A91311061E8642D20042C91F /* QuestionTypeTextView.xib */,
 				A91311071E8642D20042C91F /* ShortcutView.xib */,
-				A91311081E8642D20042C91F /* StatusView.xib */,
 				A91312AF1E86437C0042C91F /* SectionView.xib */,
 			);
 			path = Views;
@@ -906,8 +900,6 @@
 				A91311CD1E8642D30042C91F /* ELActionView.m */,
 				A91311CE1E8642D30042C91F /* ELShortcutView.h */,
 				A91311CF1E8642D30042C91F /* ELShortcutView.m */,
-				A91311D01E8642D30042C91F /* ELStatusView.h */,
-				A91311D11E8642D30042C91F /* ELStatusView.m */,
 				A91312B11E8644380042C91F /* ELSectionView.h */,
 				A91312B21E8644380042C91F /* ELSectionView.m */,
 			);
@@ -1338,7 +1330,6 @@
 				A913122F1E8642D30042C91F /* ActionCell.xib in Resources */,
 				A91312261E8642D30042C91F /* Invite.storyboard in Resources */,
 				A91312661E8642D30042C91F /* LeftMenu.strings in Resources */,
-				A91312421E8642D30042C91F /* StatusView.xib in Resources */,
 				A913125E1E8642D30042C91F /* Authentication.strings in Resources */,
 				A91312B51E8657320042C91F /* DashboardReminderCell.xib in Resources */,
 				A91312411E8642D30042C91F /* ShortcutView.xib in Resources */,
@@ -1570,7 +1561,6 @@
 				A97C298D1E8B8CC300EBC5CE /* ELAnswer.m in Sources */,
 				A97C29891E8B8CC300EBC5CE /* ELOAuthInstance.m in Sources */,
 				A91312561E8642D30042C91F /* ELPopupViewController.m in Sources */,
-				A91312981E8642D30042C91F /* ELStatusView.m in Sources */,
 				A97C298F1E8B8CC300EBC5CE /* ELInstantFeedback.m in Sources */,
 				A913125C1E8642D30042C91F /* ELSurveyDetailsViewController.m in Sources */,
 				A91312471E8642D30042C91F /* ELDevelopmentPlanDetailsViewController.m in Sources */,

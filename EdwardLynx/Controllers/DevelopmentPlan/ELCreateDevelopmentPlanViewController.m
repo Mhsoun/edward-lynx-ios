@@ -70,9 +70,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ELGoalDetailsViewController *controller = (ELGoalDetailsViewController *)[segue destinationViewController];
     BOOL toAddNew = [segue.identifier isEqualToString:kELAddGoalSegueIdentifier];
-    
+    ELGoalDetailsViewController *controller = (ELGoalDetailsViewController *)[segue destinationViewController];
+        
     controller.delegate = self;
     controller.toAddNew = toAddNew;
     controller.goal = self.selectedGoal;
@@ -172,12 +172,14 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{
-        [self.navigationController popViewControllerAnimated:YES];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
 }
 

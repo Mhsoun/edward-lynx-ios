@@ -230,11 +230,12 @@
 
 - (void)onInstantFeedbackTab:(NSNotification *)notification {
     BOOL hidden = [notification.userInfo[@"hidden"] boolValue];
+    __weak typeof(self) weakSelf = self;
     
     self.addButton.hidden = NO;
     
     [UIView animateWithDuration:0.15 animations:^{
-        self.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
+        weakSelf.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
     }];
 }
 
