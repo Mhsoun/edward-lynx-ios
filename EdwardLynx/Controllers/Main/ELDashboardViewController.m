@@ -291,15 +291,17 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     
     [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error;
+            NSDictionary *dict = responseDict;
             
             [weakSelf.indicatorView stopAnimating];
             
             if (error) {
-                return;
+                dict = @{@"answerableCount": @0,
+                         @"reminders": @[],
+                         @"developmentPlans": @[]};
             }
             
-            weakSelf.dashboardData = [[ELDashboardData alloc] initWithDictionary:responseDict error:&error];
+            weakSelf.dashboardData = [[ELDashboardData alloc] initWithDictionary:dict error:nil];
             
             [weakSelf.tableView setHidden:NO];
             [weakSelf.tableView reloadData];
