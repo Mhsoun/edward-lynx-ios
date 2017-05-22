@@ -213,16 +213,15 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 }
 
 - (void)populatePage {
-    NSString *defaultSelection = NSLocalizedString(@"kELGoalCategoryValidationMessage", nil);
     NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
     for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
     
     self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
                                            baseController:self
-                                         defaultSelection:defaultSelection];
+                                         defaultSelection:nil];
     
-    self.selectedCategory = defaultSelection;
+    self.selectedCategory = self.goal ? self.goal.category : mCategories[0];
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;
     
@@ -234,7 +233,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     // Category
     [self.categorySwitch setOn:self.goal.categoryChecked];
     [self.dropdown setFrame:self.dropdownView.bounds];
-    [self.dropdown setDefaultValue:self.goal ? self.goal.category : defaultSelection];
+    [self.dropdown setDefaultValue:self.selectedCategory];
     [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
