@@ -134,7 +134,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    ELGoal *goal = self.mGoals[indexPath.row];
+    
+    return !goal.isAlreadyAdded;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -237,6 +239,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [self.mGoals addObjectsFromArray:self.devPlan.goals];
     [self.tableView reloadData];
+    [self adjustScrollViewContentSize];
 }
 
 #pragma mark - Interface Builder Actions

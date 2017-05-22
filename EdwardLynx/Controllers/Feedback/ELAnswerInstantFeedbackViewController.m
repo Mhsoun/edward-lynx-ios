@@ -78,23 +78,25 @@
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    self.submitButton.enabled = YES;
+    __weak typeof(self) weakSelf = self;
     
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
-                     completion:^{}];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [ELUtils presentToastAtView:weakSelf.view
+                            message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
+                         completion:^{}];
+    }];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     __weak typeof(self) weakSelf = self;
     
-    // Back to the Feedbacks list
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELFeedbackAnswerSuccess", nil)
-                     completion:^{
-        weakSelf.submitButton.enabled = YES;
-                         
-        [weakSelf.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        // Back to the Feedbacks list
+        [ELUtils presentToastAtView:weakSelf.view
+                            message:NSLocalizedString(@"kELFeedbackAnswerSuccess", nil)
+                         completion:^{
+                             [weakSelf.navigationController popViewControllerAnimated:YES];
+                         }];
     }];
 }
 
@@ -131,8 +133,10 @@
     NSDictionary *formDict = @{@"key": self.instantFeedback.key,
                                @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
     
-    self.submitButton.enabled = NO;
-    
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
     [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
                                                                   formData:formDict];
 }

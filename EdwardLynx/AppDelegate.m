@@ -371,7 +371,7 @@
     NSArray *urlParts;
     
     if ([urlString containsString:kELAPIEmailLinkFeedback]) {
-        urlParts = [@"edwardlynx://instant-feedback/250" componentsSeparatedByString:@"//"];
+        urlParts = [urlString componentsSeparatedByString:@"//"];
         objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
         type = [urlParts[1] componentsSeparatedByString:@"/"][0];
         type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :

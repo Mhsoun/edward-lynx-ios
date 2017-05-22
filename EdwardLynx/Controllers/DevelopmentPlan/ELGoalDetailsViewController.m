@@ -101,11 +101,13 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         
         return cell;
     } else {
+        ELGoalAction *action  = (ELGoalAction *)value;
         ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = [(ELGoalAction *)value title];
+        cell.optionLabel.text = action.title;
+        cell.userInteractionEnabled = !action.isAlreadyAdded;
         
         return cell;
     }
@@ -194,10 +196,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                                                         @"checked": @NO,
                                                         @"position": @(self.mActions.count)}
                                                 error:nil];
+    action.isAlreadyAdded = NO;
     
-    self.addActionButton.enabled = YES;
-    textField.text = @"";
-    
+    [textField setText:@""];
+    [self.addActionButton setEnabled:YES];
     [self.mActions addObject:action];
     [self.tableView reloadData];
     [self adjustTableViewSize];

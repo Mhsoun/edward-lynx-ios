@@ -14,6 +14,10 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"isAlreadyAdded"];
+}
+
 - (NSDictionary *)apiGetDictionary {
     return @{@"title": self.title,
              @"position": @(self.position)};

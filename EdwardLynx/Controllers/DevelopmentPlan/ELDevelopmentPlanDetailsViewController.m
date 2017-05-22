@@ -64,6 +64,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         
         [self setupChart];
+        [self setupDevPlan];
         [self.indicatorView stopAnimating];
     }
 
@@ -178,6 +179,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.title = [self.devPlan.name uppercaseString];
     
     [self setupChart];
+    [self setupDevPlan];
     [self.indicatorView stopAnimating];
     [self.tableView reloadData];
 }
@@ -204,6 +206,16 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [ELUtils circleChart:self.circleChart developmentPlan:self.devPlan];
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
+}
+
+- (void)setupDevPlan {
+    for (ELGoal *goal in self.devPlan.goals) {
+        goal.isAlreadyAdded = YES;
+        
+        for (ELGoalAction *action in goal.actions) {
+            action.isAlreadyAdded = YES;
+        }
+    }
 }
 
 #pragma mark - Interface Builder Actions
