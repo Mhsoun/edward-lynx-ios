@@ -50,7 +50,7 @@
                                                             message:nil
                                                      preferredStyle:UIAlertControllerStyleAlert];
     self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    self.printDateFormatter.dateStyle = NSDateFormatterShortStyle;
+    self.printDateFormatter.dateFormat = kELPrintDateFormat;
     
     return self;
 }

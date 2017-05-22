@@ -124,6 +124,7 @@ extern NSString * const kELLogoutAlertMessage;
 #pragma mark - Constants
 
 extern NSString * const kELAPIDateFormat;
+extern NSString * const kELPrintDateFormat;
 
 extern NSString * const kELEdwardLynxContactUsURL;
 

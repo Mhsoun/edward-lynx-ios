@@ -100,7 +100,7 @@ static CGFloat const kELBarHeight = 40;
         self.typeColorKey = kELFeedbackColor;
         self.headerLabel.text = self.instantFeedback.question.text;
         self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
-        self.dateLabel.text = self.instantFeedback.longDateString;
+        self.dateLabel.text = self.instantFeedback.dateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.instantFeedback.invited),
                                @(self.instantFeedback.answered)];
@@ -109,7 +109,7 @@ static CGFloat const kELBarHeight = 40;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
-        self.dateLabel.text = self.survey.longEndDateString;
+        self.dateLabel.text = self.survey.endDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.survey.invited),
                                @(self.survey.answered)];

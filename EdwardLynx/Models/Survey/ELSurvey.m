@@ -11,8 +11,6 @@
 @implementation ELSurvey
 
 @synthesize endDateString = _endDateString;
-@synthesize longEndDateString = _longEndDateString;
-@synthesize longStartDateString = _longStartDateString;
 @synthesize searchTitle = _searchTitle;
 @synthesize startDateString = _startDateString;
 
@@ -33,26 +31,10 @@
 }
 
 - (NSString<Ignore> *)endDateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    
-    return [AppSingleton.printDateFormatter stringFromDate:self.endDate];
-}
-
-- (NSString<Ignore> *)longEndDateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterLongStyle;
-    
     return [AppSingleton.printDateFormatter stringFromDate:self.endDate];
 }
 
 - (NSString<Ignore> *)startDateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    
-    return [AppSingleton.printDateFormatter stringFromDate:self.startDate];
-}
-
-- (NSString<Ignore> *)longStartDateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterLongStyle;
-    
     return [AppSingleton.printDateFormatter stringFromDate:self.startDate];
 }
 

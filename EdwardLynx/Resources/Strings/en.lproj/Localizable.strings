@@ -160,7 +160,7 @@
 "kELReportInfoCandidates" = "Candidates";
 "kELReportInfoOthers" = "Others combined";
 "kELReportNoData" = "No chart data available";
-"kELReportRestrictedData" = "Feedback has not yet reached the minimum number of participants (%@) to answer";
+"kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Report";
 
 /* Surveys */

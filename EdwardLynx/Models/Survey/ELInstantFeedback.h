@@ -28,6 +28,5 @@
 @property (nonatomic) NSArray<Optional, ELParticipant> *participants;
 
 @property (nonatomic) NSString<Ignore> *dateString;
-@property (nonatomic) NSString<Ignore> *longDateString;
 
 @end
