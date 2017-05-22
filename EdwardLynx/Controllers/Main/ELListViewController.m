@@ -76,6 +76,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [super viewDidAppear:animated];
     
     self.page = 1;
+    self.isPaginated = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // Search Notification
