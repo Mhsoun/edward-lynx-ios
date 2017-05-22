@@ -9,6 +9,7 @@
 #import <PNChart/PNCircleChart.h>
 
 #import "ELDevelopmentPlanDetailsViewController.h"
+#import "ELCreateDevelopmentPlanViewController.h"
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanAPIClient.h"
@@ -19,6 +20,7 @@
 static CGFloat const kELGoalCellHeight = 105;
 
 static NSString * const kELCellIdentifier = @"GoalCell";
+static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 #pragma mark - Class Extension
 
@@ -62,6 +64,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         
         [self setupChart];
+        [self setupDevPlan];
         [self.indicatorView stopAnimating];
     }
 
@@ -84,6 +87,16 @@ static NSString * const kELCellIdentifier = @"GoalCell";
 
 - (void)dealloc {
     DLog(@"%@", [self class]);
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
+        ELCreateDevelopmentPlanViewController *controller = (ELCreateDevelopmentPlanViewController *)[segue destinationViewController];
+        
+        controller.devPlan = self.devPlan;
+    }
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -139,6 +152,19 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    CGFloat iconHeight = 15;
+    
+    // Button
+    [self.updateDevPlanButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                                        iconColor:[UIColor blackColor]
+                                                         iconSize:iconHeight
+                                                        imageSize:CGSizeMake(iconHeight, iconHeight)]
+                              forState:UIControlStateNormal];
+}
+
 #pragma mark - Protocol Methods (ELDetailViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
@@ -153,6 +179,7 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     self.title = [self.devPlan.name uppercaseString];
     
     [self setupChart];
+    [self setupDevPlan];
     [self.indicatorView stopAnimating];
     [self.tableView reloadData];
 }
@@ -179,6 +206,22 @@ static NSString * const kELCellIdentifier = @"GoalCell";
     [ELUtils circleChart:self.circleChart developmentPlan:self.devPlan];
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
+}
+
+- (void)setupDevPlan {
+    for (ELGoal *goal in self.devPlan.goals) {
+        goal.isAlreadyAdded = YES;
+        
+        for (ELGoalAction *action in goal.actions) {
+            action.isAlreadyAdded = YES;
+        }
+    }
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onUpdateDevPlanButtonClick:(id)sender {
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 @end

@@ -74,7 +74,7 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
         ELAnswerInstantFeedbackViewController *controller = (ELAnswerInstantFeedbackViewController *)[segue destinationViewController];
         
-        controller.instantFeedback = self.selectedInstantFeedback;
+        controller.objectId = self.selectedInstantFeedback.objectId;
     }
 }
 

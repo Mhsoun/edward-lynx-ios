@@ -99,7 +99,8 @@ static CGFloat const kELBarHeight = 40;
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
         self.headerLabel.text = self.instantFeedback.question.text;
-        self.dateLabel.text = self.instantFeedback.longDateString;
+        self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
+        self.dateLabel.text = self.instantFeedback.dateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.instantFeedback.invited),
                                @(self.instantFeedback.answered)];
@@ -108,7 +109,7 @@ static CGFloat const kELBarHeight = 40;
         
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
-        self.dateLabel.text = self.survey.longEndDateString;
+        self.dateLabel.text = self.survey.endDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.survey.invited),
                                @(self.survey.answered)];
@@ -131,7 +132,7 @@ static CGFloat const kELBarHeight = 40;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     answered = self.instantFeedback ? self.instantFeedback.answered : self.survey.answered;
-    self.toDisplayData = self.instantFeedback ? answered >= kELParticipantsMinimumCount : answered > 0;
+    self.toDisplayData = self.instantFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
         for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
@@ -143,6 +144,7 @@ static CGFloat const kELBarHeight = 40;
     }
     
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
+    height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
     
     [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
     [self.averageContainerView layoutIfNeeded];
@@ -297,7 +299,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.legend.yEntrySpace = 0.0f;
     
     barChart.noDataFont = dataFont;
-    barChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
+    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
     barChart.rightAxis.axisMaximum = 1.1f;

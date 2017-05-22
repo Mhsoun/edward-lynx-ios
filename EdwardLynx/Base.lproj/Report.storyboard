@@ -94,15 +94,22 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nQ-7R-h2h" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzC-S5-oZd">
-                                                <rect key="frame" x="15" y="15" width="345" height="100"/>
+                                                <rect key="frame" x="15" y="15" width="345" height="115"/>
                                                 <subviews>
-                                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average values" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-dZ-msV">
+                                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average values" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-dZ-msV">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DX-QD-O93">
+                                                        <rect key="frame" x="0.0" y="24" width="345" height="0.0"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -114,7 +121,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-Ob-JQ7">
-                                                        <rect key="frame" x="0.0" y="48" width="345" height="52"/>
+                                                        <rect key="frame" x="0.0" y="48" width="345" height="67"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -122,19 +129,22 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="beJ-dZ-msV" secondAttribute="trailing" id="297-7K-lE4"/>
                                                     <constraint firstAttribute="trailing" secondItem="RgW-Ob-JQ7" secondAttribute="trailing" id="7fX-R8-Glx"/>
+                                                    <constraint firstItem="4DX-QD-O93" firstAttribute="top" secondItem="beJ-dZ-msV" secondAttribute="bottom" id="9oU-s5-Bjw"/>
+                                                    <constraint firstItem="L61-gO-7n1" firstAttribute="top" secondItem="4DX-QD-O93" secondAttribute="bottom" id="I1z-Ls-xf7"/>
                                                     <constraint firstAttribute="trailing" secondItem="L61-gO-7n1" secondAttribute="trailing" id="JbA-Ot-VKm"/>
-                                                    <constraint firstAttribute="height" constant="100" id="KmL-Id-uDx"/>
+                                                    <constraint firstAttribute="height" constant="115" id="KmL-Id-uDx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4DX-QD-O93" secondAttribute="trailing" id="S10-ro-urM"/>
                                                     <constraint firstItem="RgW-Ob-JQ7" firstAttribute="leading" secondItem="gzC-S5-oZd" secondAttribute="leading" id="WpY-Pb-CTW"/>
                                                     <constraint firstItem="L61-gO-7n1" firstAttribute="leading" secondItem="gzC-S5-oZd" secondAttribute="leading" id="eJ6-Sg-OmD"/>
                                                     <constraint firstItem="beJ-dZ-msV" firstAttribute="top" secondItem="gzC-S5-oZd" secondAttribute="top" id="fIH-Ha-G5i"/>
                                                     <constraint firstAttribute="bottom" secondItem="RgW-Ob-JQ7" secondAttribute="bottom" id="rlq-Ic-sGc"/>
+                                                    <constraint firstItem="4DX-QD-O93" firstAttribute="leading" secondItem="gzC-S5-oZd" secondAttribute="leading" id="tUJ-99-ZOo"/>
                                                     <constraint firstItem="RgW-Ob-JQ7" firstAttribute="top" secondItem="L61-gO-7n1" secondAttribute="bottom" constant="10" id="trS-X9-ZhC"/>
                                                     <constraint firstItem="beJ-dZ-msV" firstAttribute="leading" secondItem="gzC-S5-oZd" secondAttribute="leading" id="xuN-w8-eYc"/>
-                                                    <constraint firstItem="L61-gO-7n1" firstAttribute="top" secondItem="beJ-dZ-msV" secondAttribute="bottom" id="xur-cR-d2E"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrn-rD-3PB">
-                                                <rect key="frame" x="15" y="125" width="345" height="200"/>
+                                                <rect key="frame" x="15" y="140" width="345" height="200"/>
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index over competencies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-9Z-6a5">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
@@ -172,14 +182,14 @@
                                                 </constraints>
                                             </view>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-p4-vWS">
-                                                <rect key="frame" x="15" y="345" width="345" height="0.0"/>
+                                                <rect key="frame" x="15" y="360" width="345" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwi-Uc-ESe">
-                                                <rect key="frame" x="15" y="345" width="345" height="0.0"/>
+                                                <rect key="frame" x="15" y="360" width="345" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,6 +251,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="anonymousLabel" destination="4DX-QD-O93" id="MXF-X7-DaU"/>
                         <outlet property="averageChartView" destination="RgW-Ob-JQ7" id="GIe-2n-Jor"/>
                         <outlet property="averageContainerView" destination="gzC-S5-oZd" id="BcQ-xu-8ei"/>
                         <outlet property="averageHeightConstraint" destination="KmL-Id-uDx" id="Jts-UH-bAx"/>

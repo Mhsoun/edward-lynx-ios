@@ -26,6 +26,7 @@ NSString * const kELLogoutAlertMessage = @"Logging out will require the app for 
 #pragma mark - Constants
 
 NSString * const kELAPIDateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
+NSString * const kELPrintDateFormat = @"MMM dd, yyyy";
 
 NSString * const kELEdwardLynxContactUsURL = @"http://www.edwardlynx.com/contact/";
 
@@ -58,8 +59,8 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 #pragma mark - Email Link Paths
 
-NSString * const kELAPIEmailLinkFeedback = @"";
-NSString * const kELAPIEmailLinkSurvey = @"/survey/answer/";
+NSString * const kELAPIEmailLinkFeedback = @"/instant-feedback/";  // TEMP
+NSString * const kELAPIEmailLinkSurvey = @"/surveys/exchange/";
 
 #pragma mark - Endpoints
 

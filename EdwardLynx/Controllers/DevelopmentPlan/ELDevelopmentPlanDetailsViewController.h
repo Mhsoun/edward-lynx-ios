@@ -18,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *chartLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIButton *updateDevPlanButton;
+- (IBAction)onUpdateDevPlanButtonClick:(id)sender;
 
 @end

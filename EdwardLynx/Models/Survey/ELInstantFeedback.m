@@ -12,11 +12,11 @@
 @implementation ELInstantFeedback
 
 @synthesize dateString = _dateString;
-@synthesize longDateString = _longDateString;
 @synthesize searchTitle = _searchTitle;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"createdBy": @"author.name",
                                                                   @"participants": @"recipients",
                                                                   @"question": @"questions",
                                                                   @"answered": @"stats.answered",
@@ -57,16 +57,7 @@
 }
 
 - (NSString<Ignore> *)dateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    
     return [AppSingleton.printDateFormatter stringFromDate:self.createdAt];
 }
-
-- (NSString<Ignore> *)longDateString {
-    AppSingleton.printDateFormatter.dateStyle = NSDateFormatterLongStyle;
-    
-    return [AppSingleton.printDateFormatter stringFromDate:self.createdAt];
-}
-
 
 @end

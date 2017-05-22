@@ -640,6 +640,13 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 
     UIScrollView *superScrollView = nil;
     UIScrollView *superView = (UIScrollView*)[_textFieldView superviewOfClassType:[UIScrollView class]];
+    
+    // EL-specific changes
+    if ([superView isKindOfClass:[UITableView class]] &&
+        [superView superviewOfClassType:[UIScrollView class]] &&
+        superView.isScrollEnabled) {
+        superView.scrollEnabled = NO;
+    }
 
     //Getting UIScrollView whose scrolling is enabled.    //  (Bug ID: #285)
     while (superView)

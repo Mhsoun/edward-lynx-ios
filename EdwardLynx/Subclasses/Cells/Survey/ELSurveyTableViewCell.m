@@ -39,12 +39,14 @@
         self.reactivateLabel.hidden = ![[NSDate date] mt_isAfter:survey.endDate];
         self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
     } else {
+        kELSurveyStatus status;
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
-        kELSurveyStatus status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusUnfinished;
+        
+        status = feedback.answered == 0 ? kELSurveyStatusOpen : kELSurveyStatusUnfinished;
         
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": NSLocalizedString(@"kELInstantFeedbackTitle", nil),
-                                     @"description": @"",
+                                     @"description": feedback.createdBy,
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];
         

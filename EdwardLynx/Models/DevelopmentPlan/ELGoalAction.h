@@ -15,6 +15,8 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString<Ignore> *urlLink;
 
+@property (nonatomic) BOOL isAlreadyAdded;
+
 - (NSDictionary *)apiGetDictionary;
 - (NSDictionary *)apiPatchDictionary;
 

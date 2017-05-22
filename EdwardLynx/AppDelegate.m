@@ -367,19 +367,40 @@
 
 - (void)parseWebpageURL:(NSString *)urlString {
     NSInteger objectId;
-    NSString *type;
     NSArray *urlParts;
     
     if ([urlString containsString:kELAPIEmailLinkFeedback]) {
-        urlParts = [@"edwardlynx://instant-feedback/250" componentsSeparatedByString:@"//"];
+        urlParts = [urlString componentsSeparatedByString:@"//"];
         objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
-        type = [urlParts[1] componentsSeparatedByString:@"/"][0];
-        type = [kELNotificationTypeSurvey containsString:type] ? kELNotificationTypeDevPlan :
-                                                                 kELNotificationTypeInstantFeedbackRequest;
         
-        [self displayViewControllerByData:@{@"id": @(objectId), @"type": type}];
+        [self displayViewControllerByData:@{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest}];
     } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
-        // TODO Parse
+        __weak typeof(self) weakSelf = self;
+        
+        [[[ELAPIClient alloc] init] getRequestAtLink:urlString
+                                         queryParams:nil
+                                          completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+            int64_t objectId;
+            
+            if (error) {
+                NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
+                NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                         message:message
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil]];
+                [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
+                                                                                                  animated:YES
+                                                                                                completion:nil];
+            }
+            
+            objectId = [responseDict[@"surveyId"] intValue];
+            
+            [weakSelf displayViewControllerByData:@{@"id": @(objectId), @"type": kELNotificationTypeSurvey}];
+        }];
     }
 }
 

@@ -105,7 +105,7 @@
     __block NSMutableDictionary *mItems = [[NSMutableDictionary alloc] init];
     __weak typeof(self) weakSelf = self;
     
-    [self.surveyClient currentUserSurveysWithQueryParams:nil
+    [self.surveyClient currentUserSurveysWithQueryParams:@{@"filter": @"answerable"}
                                               completion:^(NSURLResponse *response, NSDictionary *surveyResponseDict, NSError *surveyError) {
         if (surveyError) {
             [weakSelf.delegate onAPIResponseError:surveyError.userInfo];

@@ -16,6 +16,7 @@
 static CGFloat const kELCellHeight = 60;
 static CGFloat const kELFormViewHeight = 100;
 static CGFloat const kELIconSize = 15;
+static CGFloat const kELSectionHeight = 17;
 
 static NSString * const kELAddGoalCellIdentifier = @"AddGoalCell";
 static NSString * const kELGoalCellIdentifier = @"GoalCell";
@@ -56,6 +57,11 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.tableView.scrollEnabled = NO;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
+    
+    // Populate page
+    if (self.devPlan) {
+        [self populatePage];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,7 +134,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    ELGoal *goal = self.mGoals[indexPath.row];
+    
+    return !goal.isAlreadyAdded;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -217,13 +225,21 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
         return;
     }
     
-    [self.heightConstraint setConstant:tableViewContentSizeHeight];
+    [self.heightConstraint setConstant:tableViewContentSizeHeight + kELSectionHeight];
     [self.tableView updateConstraints];
     
     // Set the content size of your scroll view to be the content size of your
     // table view + whatever else you have in the scroll view.
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
                                                (kELFormViewHeight + tableViewContentSizeHeight))];
+}
+
+- (void)populatePage {
+    self.nameTextField.text = self.devPlan.name;
+    
+    [self.mGoals addObjectsFromArray:self.devPlan.goals];
+    [self.tableView reloadData];
+    [self adjustScrollViewContentSize];
 }
 
 #pragma mark - Interface Builder Actions

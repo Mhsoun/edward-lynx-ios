@@ -22,6 +22,7 @@
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
     return ([propertyName isEqualToString:@"categoryChecked"] ||
             [propertyName isEqualToString:@"dueDateChecked"] ||
+            [propertyName isEqualToString:@"isAlreadyAdded"] ||
             [propertyName isEqualToString:@"progress"]);
 }
 

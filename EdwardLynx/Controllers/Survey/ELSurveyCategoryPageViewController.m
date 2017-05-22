@@ -109,12 +109,13 @@
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     BOOL isLastPage = self.pageIndex == self.pageCount - 1;
+    BOOL isCompleted = self.survey.status == kELSurveyStatusCompleted;
     
     self.pageControl.currentPage = self.pageIndex;
     self.prevButton.hidden = self.pageIndex == 0;
     self.nextButton.hidden = isLastPage;
-    self.draftsButton.hidden = self.pageIndex == 0;
-    self.submitButton.hidden = !isLastPage;
+    self.draftsButton.hidden = self.pageIndex == 0 || isCompleted;
+    self.submitButton.hidden = !isLastPage || isCompleted;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
@@ -330,17 +331,19 @@
 #pragma mark - Private Methods
 
 - (void)changePage:(UIPageViewControllerNavigationDirection)direction {
+    BOOL isCompleted;
     __kindof ELBaseDetailViewController *controller;
     
     if (self.pageIndex < 0 || self.pageIndex == self.self.pageCount) {
         return;
     }
     
+    isCompleted = self.survey.status == kELSurveyStatusCompleted;
     controller = [self viewControllerAtIndex:self.pageIndex];
     
     self.pageControl.currentPage = self.pageIndex;
-    self.draftsButton.hidden = self.pageIndex == 0;
-    self.submitButton.hidden = !(self.pageIndex == self.pageCount - 1);
+    self.draftsButton.hidden = self.pageIndex == 0 || isCompleted;
+    self.submitButton.hidden = !(self.pageIndex == self.pageCount - 1) || isCompleted;
     
     [self.pageController setViewControllers:@[controller]
                                   direction:direction

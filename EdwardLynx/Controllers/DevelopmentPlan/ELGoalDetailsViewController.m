@@ -20,6 +20,7 @@
 static CGFloat const kELCategoryViewInitialHeight = 60;
 static CGFloat const kELCellHeight = 50;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
+static CGFloat const kELSectionHeight = 17;
 
 static NSString * const kELActionCellIdentifier = @"ActionCell";
 static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
@@ -100,11 +101,13 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         
         return cell;
     } else {
+        ELGoalAction *action  = (ELGoalAction *)value;
         ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = [(ELGoalAction *)value title];
+        cell.optionLabel.text = action.title;
+        cell.userInteractionEnabled = !action.isAlreadyAdded;
         
         return cell;
     }
@@ -193,10 +196,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
                                                         @"checked": @NO,
                                                         @"position": @(self.mActions.count)}
                                                 error:nil];
+    action.isAlreadyAdded = NO;
     
-    self.addActionButton.enabled = YES;
-    textField.text = @"";
-    
+    [textField setText:@""];
+    [self.addActionButton setEnabled:YES];
     [self.mActions addObject:action];
     [self.tableView reloadData];
     [self adjustTableViewSize];
@@ -205,7 +208,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 - (void)adjustTableViewSize {
     CGFloat tableViewContentSizeHeight = (kELCellHeight * (self.mActions.count == 0 ? 1: self.mActions.count)) + kELCellHeight;
     
-    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight];
+    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight + kELSectionHeight];
     [self.tableView updateConstraints];
 }
 
@@ -225,7 +228,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     
     // Date
     [self.remindSwitch setOn:self.goal.dueDateChecked];
-    [self.datePicker setDate:self.goal ? self.goal.dueDate : [NSDate date]];
+    [self.datePicker setDate:self.goal && self.goal.dueDate ? self.goal.dueDate : [NSDate date]];
     [self toggleBasedOnSwitchValue:self.remindSwitch];
     
     // Category

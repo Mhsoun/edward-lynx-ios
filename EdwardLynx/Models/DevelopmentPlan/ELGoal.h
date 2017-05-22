@@ -25,6 +25,7 @@
 @property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSDate<Optional> *dueDate;
 
+@property (nonatomic) BOOL isAlreadyAdded;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) NSArray<ELGoalAction, Optional> *actions;
 @property (nonatomic) NSDate<Ignore> *createdAt;
