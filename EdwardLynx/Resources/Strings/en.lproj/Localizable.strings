@@ -27,6 +27,7 @@
 "kELFilterLabel" = "Filter";
 "kELFilterByLabel" = "Filter By";
 "kELEmailLabel" = "E-mail";
+"kELErrorLabel" = "Error";
 "kELExpiresOnLabel" = "Expires on %@";
 "kELNameLabel" = "Name";
 "kELNoDescriptionLabel" = "No description";
@@ -183,6 +184,8 @@
 "kELSurveyTypeProgress" = "Lynx Progress";
 "kELSurveyTypeSurvey" = "Lynx Survey";
 "kELSurveyTypeLTT" = "LTT";
+
+"kELSurveyUnauthorizedLabel" = "You are not authorized to answer this survey.";
 
 /* Tabs */
 

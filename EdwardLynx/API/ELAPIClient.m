@@ -89,7 +89,7 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
             
             errorMessage = [NSString stringWithFormat:kELDefaultAlertMessage, error.localizedDescription];
             visibleViewController = [ApplicationDelegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
-            alertController = [UIAlertController alertControllerWithTitle:@"Error"
+            alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
                                                                   message:errorMessage
                                                            preferredStyle:UIAlertControllerStyleAlert];
           
