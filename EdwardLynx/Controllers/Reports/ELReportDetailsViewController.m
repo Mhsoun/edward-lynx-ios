@@ -99,6 +99,7 @@ static CGFloat const kELBarHeight = 40;
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
         self.headerLabel.text = self.instantFeedback.question.text;
+        self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
         self.dateLabel.text = self.instantFeedback.longDateString;
         self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
                                @(self.instantFeedback.invited),
@@ -143,6 +144,7 @@ static CGFloat const kELBarHeight = 40;
     }
     
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
+    height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
     
     [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
     [self.averageContainerView layoutIfNeeded];

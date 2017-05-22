@@ -113,6 +113,7 @@
     
     // Content
     self.questionLabel.text = question.text;
+    self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
     
     // UI
     if (!questionView) {

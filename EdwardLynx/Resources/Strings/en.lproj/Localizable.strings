@@ -95,8 +95,7 @@
 
 /* Feedback */
 
-"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
-"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+"kELFeedbackAnonymousLabel" = "Anonymous Feedback";
 "kELFeedbackAnswerError" = "Failed answering Instant Feedback";
 "kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback";
 
@@ -109,6 +108,8 @@
 "kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
 "kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
 "kELFeedbackAnswerTypeCustomScale" = "Custom Scale";
+"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
 
 /* Fields */
 
