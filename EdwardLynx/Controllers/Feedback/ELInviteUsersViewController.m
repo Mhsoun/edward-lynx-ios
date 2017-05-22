@@ -384,19 +384,28 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         kELAnswerType answerType;
         NSArray *questions;
         NSMutableDictionary *mAnswerDict;
+
+        // NOTE Condition checking the minimum participant count
+//        if (!self.mParticipants.count || self.mParticipants.count < kELParticipantsMinimumCount) {
+//            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
+//                                                                                message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
+//                                                                         preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCloseButton", nil)
+//                                                           style:UIAlertActionStyleCancel
+//                                                         handler:nil]];
+//            
+//            [self presentViewController:controller
+//                               animated:YES
+//                             completion:nil];
+//            
+//            return;
+//        }
         
-        if (!self.mParticipants.count || self.mParticipants.count < kELParticipantsMinimumCount) {
-            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
-                                                                                message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
-                                                                         preferredStyle:UIAlertControllerStyleAlert];
-            
-            [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCloseButton", nil)
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil]];
-            
-            [self presentViewController:controller
-                               animated:YES
-                             completion:nil];
+        if (!self.mParticipants.count || self.mParticipants.count == 0) {
+            [ELUtils presentToastAtView:self.view
+                                message:NSLocalizedString(@"kELInviteUsersNoSelectionMessage", nil)
+                             completion:^{}];
             
             return;
         }

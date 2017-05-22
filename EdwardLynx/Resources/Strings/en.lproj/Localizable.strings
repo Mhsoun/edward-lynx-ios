@@ -121,7 +121,8 @@
 "kELDeselectAllButton" = "Deselect all";
 "kELSelectAllButton" = "Select all";
 
-"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed.";
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed";
+"kELInviteUsersNoSelectionMessage" = "No users selected";
 
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users";
@@ -158,6 +159,7 @@
 "kELReportInfoCandidates" = "Candidates";
 "kELReportInfoOthers" = "Others combined";
 "kELReportNoData" = "No chart data available";
+"kELReportRestrictedData" = "Feedback has not yet reached the minimum number of participants (%@) to answer";
 "kELReportTitleFeedback" = "Feedback Report";
 
 /* Surveys */

@@ -17,7 +17,7 @@
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
-                                                                  @"createdBy": @"name",
+//                                                                  @"createdBy": @"name",
                                                                   @"participants": @"recipients",
                                                                   @"question": @"questions",
                                                                   @"answered": @"stats.answered",

@@ -131,7 +131,7 @@ static CGFloat const kELBarHeight = 40;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     answered = self.instantFeedback ? self.instantFeedback.answered : self.survey.answered;
-    self.toDisplayData = self.instantFeedback ? answered >= kELParticipantsMinimumCount : answered > 0;
+    self.toDisplayData = self.instantFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
         for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
@@ -297,7 +297,7 @@ static CGFloat const kELBarHeight = 40;
     barChart.legend.yEntrySpace = 0.0f;
     
     barChart.noDataFont = dataFont;
-    barChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
+    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
     barChart.rightAxis.axisMaximum = 1.1f;

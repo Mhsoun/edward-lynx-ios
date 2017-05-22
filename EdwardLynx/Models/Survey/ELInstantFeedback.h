@@ -21,7 +21,7 @@
 @property (nonatomic) NSInteger answered;
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSString *lang;
-@property (nonatomic) NSString *createdBy;
+@property (nonatomic) NSString<Optional> *createdBy;  // TODO Remove optional
 @property (nonatomic) ELQuestion *question;
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSArray<Optional> *shares;

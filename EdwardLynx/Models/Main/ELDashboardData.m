@@ -47,7 +47,7 @@
     if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionReminders", nil)]) {
         return self.reminders;
     } else if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)]) {
-        return self.developmentPlans;
+        return [self.developmentPlans subarrayWithRange:NSMakeRange(0, 2)];
     } else {
         NSInteger count = self.answerableCount ? [self.answerableCount integerValue] : 0;
         
