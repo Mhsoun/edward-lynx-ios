@@ -158,6 +158,8 @@
 		A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */; };
 		A97C29911E8B8CC300EBC5CE /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */; };
 		A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
+		A9836FA41ED3E2F000C05594 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9836FA31ED3E2F000C05594 /* OptionCell.xib */; };
+		A9836FA61ED3E40100C05594 /* AddOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9836FA51ED3E40100C05594 /* AddOptionCell.xib */; };
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
@@ -497,6 +499,8 @@
 		A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionCategory.m; sourceTree = "<group>"; };
 		A97C297F1E8B8CC300EBC5CE /* ELSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurvey.h; sourceTree = "<group>"; };
 		A97C29801E8B8CC300EBC5CE /* ELSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurvey.m; sourceTree = "<group>"; };
+		A9836FA31ED3E2F000C05594 /* OptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
+		A9836FA51ED3E40100C05594 /* AddOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddOptionCell.xib; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearcheableModel.h; sourceTree = "<group>"; };
 		A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearcheableModel.m; sourceTree = "<group>"; };
@@ -613,11 +617,13 @@
 			isa = PBXGroup;
 			children = (
 				A91310F41E8642D20042C91F /* ActionCell.xib */,
+				A9836FA51ED3E40100C05594 /* AddOptionCell.xib */,
 				A91310F51E8642D20042C91F /* DashboardHeaderCell.xib */,
 				A91312B41E8657320042C91F /* DashboardReminderCell.xib */,
 				A91310F61E8642D20042C91F /* DevelopmentPlanCell.xib */,
 				A91310F71E8642D20042C91F /* GoalCell.xib */,
 				A91310F81E8642D20042C91F /* ListCell.xib */,
+				A9836FA31ED3E2F000C05594 /* OptionCell.xib */,
 				A91310F91E8642D20042C91F /* ParticipantCell.xib */,
 				A91310FA1E8642D20042C91F /* QuestionCell.xib */,
 				A91310FB1E8642D20042C91F /* ReportCell.xib */,
@@ -1287,6 +1293,7 @@
 				A91312271E8642D30042C91F /* LaunchScreen.storyboard in Resources */,
 				A91312201E8642D30042C91F /* Authentication.storyboard in Resources */,
 				A91312241E8642D30042C91F /* DevelopmentPlan.storyboard in Resources */,
+				A9836FA61ED3E40100C05594 /* AddOptionCell.xib in Resources */,
 				A91312321E8642D30042C91F /* GoalCell.xib in Resources */,
 				A91312821E8642D30042C91F /* Lato-Heavy.ttf in Resources */,
 				A91312231E8642D30042C91F /* Dashboard.storyboard in Resources */,
@@ -1331,6 +1338,7 @@
 				A91312261E8642D30042C91F /* Invite.storyboard in Resources */,
 				A91312661E8642D30042C91F /* LeftMenu.strings in Resources */,
 				A913125E1E8642D30042C91F /* Authentication.strings in Resources */,
+				A9836FA41ED3E2F000C05594 /* OptionCell.xib in Resources */,
 				A91312B51E8657320042C91F /* DashboardReminderCell.xib in Resources */,
 				A91312411E8642D30042C91F /* ShortcutView.xib in Resources */,
 				A91312861E8642D30042C91F /* Lato-Regular.ttf in Resources */,

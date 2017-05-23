@@ -22,8 +22,8 @@ static CGFloat const kELCellHeight = 50;
 static CGFloat const kELDatePickerViewInitialHeight = 200;
 static CGFloat const kELSectionHeight = 17;
 
-static NSString * const kELActionCellIdentifier = @"ActionCell";
-static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
+static NSString * const kELActionCellIdentifier = @"OptionCell";
+static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 #pragma mark - Class Extension
 
@@ -55,6 +55,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELActionCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELActionCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:kELAddActionCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELAddActionCellIdentifier];
     
     // Goal details
     [self populatePage];
@@ -97,7 +102,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     if ([value isKindOfClass:[NSString class]]) {
         ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier];
         
-        [cell.textField setDelegate:self];
+        cell.delegate = self;
         
         return cell;
     } else {
@@ -123,19 +128,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
     }
 }
 
-#pragma mark - Protocol Methods (UITextField)
+#pragma mark - Protocol Methods (ELAddItem)
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [[IQKeyboardManager sharedManager] resignFirstResponder];
-    
-    if ([textField isEqual:self.nameTextField]) {
-        return YES;
-    }
-    
-    // Add Option
-    [self addNewActionFromTextField:textField];
-    
-    return YES;
+- (void)onAddNewItem:(NSString *)item {
+    [self addNewActionWithValue:item];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -182,23 +178,22 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
 
 #pragma mark - Private Methods
 
-- (void)addNewActionFromTextField:(UITextField *)textField {
+- (void)addNewActionWithValue:(NSString *)value {
     ELGoalAction *action;
     
-    if (textField.text.length == 0) {
+    if (value.length == 0) {
         return;
     }
     
     [self.mActions removeObject:@""];
     
     action = [[ELGoalAction alloc] initWithDictionary:@{@"id": @(-1),
-                                                        @"title": textField.text,
+                                                        @"title": value,
                                                         @"checked": @NO,
                                                         @"position": @(self.mActions.count)}
                                                 error:nil];
     action.isAlreadyAdded = NO;
     
-    [textField setText:@""];
     [self.addActionButton setEnabled:YES];
     [self.mActions addObject:action];
     [self.tableView reloadData];
@@ -278,7 +273,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddActionCell";
         cell = [self.tableView cellForRowAtIndexPath:indexPath];
         
         if ([cell isKindOfClass:[ELAddObjectTableViewCell class]]) {
-            [self addNewActionFromTextField:cell.textField];
+            [self addNewActionWithValue:cell.textField.text];
         }
     }
     
