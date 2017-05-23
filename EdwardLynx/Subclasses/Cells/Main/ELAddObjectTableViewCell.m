@@ -45,6 +45,10 @@
 }
 
 - (IBAction)onAddButtonClick:(id)sender {
+    if (self.textField.text.length == 0) {
+        return;
+    }
+    
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     [self.delegate onAddNewItem:self.textField.text];
     [self.textField setText:@""];
