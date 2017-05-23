@@ -12,7 +12,7 @@
 
 @class ELGoal;
 
-@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAddItemDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic) BOOL toAddNew;
 

@@ -17,7 +17,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELCellHeight = 45;
+static CGFloat const kELCellHeight = 50;
 static NSString * const kELAddOptionCellIdentifier = @"AddOptionCell";
 static NSString * const kELOptionCellIdentifier = @"OptionCell";
 
@@ -55,6 +55,11 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELAddOptionCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELAddOptionCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:kELOptionCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELOptionCellIdentifier];
     
     [self populatePage];
 }
@@ -101,7 +106,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     if ([option isKindOfClass:[NSString class]] && [(NSString *)option length] == 0) {
         ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
         
-        cell.textField.delegate = self;
+        cell.delegate = self;
         
         return cell;
     } else {
@@ -109,35 +114,37 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
-        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option :
-                                                                          [(ELAnswerOption *)option shortDescription];
+        cell.optionLabel.text = [option isKindOfClass:[NSString class]] ? option : [(ELAnswerOption *)option shortDescription];
         
         return cell;
     }
-}
-
-#pragma mark - Protocol Methods (UITextField)
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // Add Option
-    if (textField.text.length > 0) {
-        [self.mCustomScaleOptions insertObject:textField.text atIndex:self.mCustomScaleOptions.count - 1];
-        
-        // Dynamically adjust scroll view based on table view content
-        [self updateOptionsTableView];
-        [self toggleQuestionTypePreview];
-        [ELUtils scrollViewToBottom:self.scrollView];
-    }
-    
-    textField.text = @"";
-    
-    return YES;
 }
 
 #pragma mark - Protocol Methods (UITextView)
 
 - (void)textViewDidChange:(UITextView *)textView {
     self.questionPreviewLabel.text = textView.text;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [[IQKeyboardManager sharedManager] resignFirstResponder];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+#pragma mark - Protocol Methods (ELAddItem)
+
+- (void)onAddNewItem:(NSString *)item {
+    [self.mCustomScaleOptions insertObject:item atIndex:self.mCustomScaleOptions.count - 1];
+    
+    // Dynamically adjust scroll view based on table view content
+    [self updateOptionsTableView];
+    [self toggleQuestionTypePreview];
+    [ELUtils scrollViewToBottom:self.scrollView];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -186,50 +193,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // table view + whatever else you have in the scroll view.
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width,
                                                (self.heightConstraint.constant + tableViewContentSizeHeight + 30))];
-}
-
-- (void)drawDashedBorderAroundView:(UIView *)view {
-    CGFloat cornerRadius = 10, borderWidth = 2.5;
-    CGRect frame = view.bounds;
-    CGMutablePathRef path = CGPathCreateMutable();
-    NSInteger dashPattern1 = 8, dashPattern2 = 8;
-    UIColor *lineColor = [UIColor lightGrayColor];
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    
-    // Drawing a border around a view
-    CGPathMoveToPoint(path, NULL, 0, frame.size.height - cornerRadius);
-    CGPathAddLineToPoint(path, NULL, 0, cornerRadius);
-    CGPathAddArc(path, NULL, cornerRadius, cornerRadius, cornerRadius, M_PI, -M_PI_2, NO);
-    CGPathAddLineToPoint(path, NULL, frame.size.width - cornerRadius, 0);
-    CGPathAddArc(path, NULL, frame.size.width - cornerRadius, cornerRadius, cornerRadius, -M_PI_2, 0, NO);
-    CGPathAddLineToPoint(path, NULL, frame.size.width, frame.size.height - cornerRadius);
-    CGPathAddArc(path, NULL, frame.size.width - cornerRadius, frame.size.height - cornerRadius, cornerRadius, 0, M_PI_2, NO);
-    CGPathAddLineToPoint(path, NULL, cornerRadius, frame.size.height);
-    CGPathAddArc(path, NULL, cornerRadius, frame.size.height - cornerRadius, cornerRadius, M_PI_2, M_PI, NO);
-    
-    // Path is set as the shapeLayer object's path
-    shapeLayer.path = path;
-    CGPathRelease(path);
-    
-    shapeLayer.backgroundColor = [[UIColor clearColor] CGColor];
-    shapeLayer.frame = frame;
-    shapeLayer.masksToBounds = NO;
-    
-    [shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@"isCircle"];
-    
-    shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-    shapeLayer.strokeColor = [lineColor CGColor];
-    shapeLayer.lineWidth = borderWidth;
-    shapeLayer.lineDashPattern = [NSArray arrayWithObjects:
-                                  [NSNumber numberWithInteger:dashPattern1],
-                                  [NSNumber numberWithInteger:dashPattern2],
-                                  nil];
-    shapeLayer.lineCap = kCALineCapRound;
-    
-    // shapeLayer is added as a sublayer of the view, the border is visible
-    view.layer.cornerRadius = cornerRadius;
-    
-    [view.layer addSublayer:shapeLayer];
 }
 
 - (void)populatePage {
@@ -368,8 +331,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
-        [self.mCustomScaleOptions removeObject:@""];
-        [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
+        [self.mInstantFeedbackDict setObject:[self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)]
+                                      forKey:@"options"];
     }
     
     hasSelection = self.dropdown.hasSelection;

@@ -1,9 +1,15 @@
 
-/* Class = "UISearchBar"; placeholder = "Search Reports"; ObjectID = "Dct-i4-rc6"; */
-"Dct-i4-rc6.placeholder" = "Search Reports";
+/* Class = "UILabel"; text = "Index over competencies"; ObjectID = "ClC-9Z-6a5"; */
+"ClC-9Z-6a5.text" = "Index over competencies";
+
+/* Class = "UILabel"; text = "Shows the average for all categories."; ObjectID = "L61-gO-7n1"; */
+"L61-gO-7n1.text" = "Shows the average for all categories.";
+
+/* Class = "UILabel"; text = "Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar."; ObjectID = "VzL-Fa-l1a"; */
+"VzL-Fa-l1a.text" = "Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar.";
+
+/* Class = "UILabel"; text = "Average values"; ObjectID = "beJ-dZ-msV"; */
+"beJ-dZ-msV.text" = "Average values";
 
 /* Class = "UINavigationItem"; title = "REPORTS"; ObjectID = "ecC-sn-zjy"; */
 "ecC-sn-zjy.title" = "REPORTS";
-
-/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "lT7-AG-ENN"; */
-"lT7-AG-ENN.title" = "Share";

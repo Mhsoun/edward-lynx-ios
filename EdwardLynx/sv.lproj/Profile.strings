@@ -1,9 +1,12 @@
 
-/* Class = "UILabel"; text = "Info"; ObjectID = "0O3-sy-krY"; */
-"0O3-sy-krY.text" = "Info";
+/* Class = "UILabel"; text = "About"; ObjectID = "0O3-sy-krY"; */
+"0O3-sy-krY.text" = "About";
 
 /* Class = "UILabel"; text = "Role"; ObjectID = "3VS-oh-Dyo"; */
 "3VS-oh-Dyo.text" = "Role";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "AC2-cE-mwR"; */
+"AC2-cE-mwR.normalTitle" = "Cancel";
 
 /* Class = "UILabel"; text = "City"; ObjectID = "B6X-dK-AVR"; */
 "B6X-dK-AVR.text" = "City";
@@ -23,11 +26,5 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "dxl-P5-CHQ"; */
 "dxl-P5-CHQ.text" = "Name";
 
-/* Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "pfG-4u-dUc"; */
-"pfG-4u-dUc.disabledTitle" = "PROCESSING...";
-
-/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "pfG-4u-dUc"; */
-"pfG-4u-dUc.normalTitle" = "SAVE";
-
-/* Class = "UILabel"; text = "Email"; ObjectID = "sRf-Jg-FHm"; */
-"sRf-Jg-FHm.text" = "Email";
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "pfG-4u-dUc"; */
+"pfG-4u-dUc.normalTitle" = "Edit";

@@ -10,7 +10,7 @@
 
 @class ELInstantFeedback;
 
-@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, ELDropdownDelegate, ELItemCellDelegate>
+@interface ELCreateInstantFeedbackViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, ELAddItemDelegate, ELDropdownDelegate, ELItemCellDelegate>
 
 @property (strong, nonatomic) ELInstantFeedback *instantFeedback;
 

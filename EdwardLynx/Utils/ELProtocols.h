@@ -25,6 +25,12 @@
 
 @end
 
+@protocol ELAddItemDelegate <NSObject>
+
+- (void)onAddNewItem:(NSString *)item;
+
+@end
+
 @protocol ELBaseViewControllerDelegate <NSObject>
 
 @optional

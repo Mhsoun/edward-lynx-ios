@@ -1,21 +1,3 @@
 
 /* Class = "UINavigationItem"; title = "DEVELOPMENT PLANS"; ObjectID = "AZJ-jF-NaL"; */
 "AZJ-jF-NaL.title" = "DEVELOPMENT PLANS";
-
-/* Class = "UILabel"; text = "Description"; ObjectID = "C5b-oJ-ooc"; */
-"C5b-oJ-ooc.text" = "Description";
-
-/* Class = "UILabel"; text = "3/4 Completed"; ObjectID = "JaT-Uz-Dfj"; */
-"JaT-Uz-Dfj.text" = "3/4 Completed";
-
-/* Class = "UISearchBar"; placeholder = "Search Development Plans"; ObjectID = "Knh-vi-zh3"; */
-"Knh-vi-zh3.placeholder" = "Search Development Plans";
-
-/* Class = "UILabel"; text = "2 days ago"; ObjectID = "YUX-J5-sdP"; */
-"YUX-J5-sdP.text" = "2 days ago";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "nFQ-9Y-wba"; */
-"nFQ-9Y-wba.text" = "Title";
-
-/* Class = "UILabel"; text = "Goal 1"; ObjectID = "paG-Rc-1qL"; */
-"paG-Rc-1qL.text" = "Goal 1";

@@ -416,6 +416,8 @@
     if (application.applicationState == UIApplicationStateActive ||
         application.applicationState == UIApplicationStateBackground ||
         application.applicationState == UIApplicationStateInactive) {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = notification.badge;
+        
         if (self.notification) {
             return;
         }

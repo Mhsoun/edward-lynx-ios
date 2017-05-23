@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VWd-5R-vaB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VWd-5R-vaB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -234,6 +234,7 @@
                                             <constraint firstItem="Tkc-yK-667" firstAttribute="top" secondItem="OYu-hV-dci" secondAttribute="top" id="Hyb-8T-8Wx"/>
                                             <constraint firstItem="Tkc-yK-667" firstAttribute="leading" secondItem="2RB-P0-3fm" secondAttribute="trailing" constant="10" id="MMW-Re-jAV"/>
                                             <constraint firstItem="C7C-H1-C7k" firstAttribute="leading" secondItem="OYu-hV-dci" secondAttribute="leading" id="RQG-cz-Jod"/>
+                                            <constraint firstAttribute="height" constant="40" id="ZFz-9O-Wn0"/>
                                             <constraint firstAttribute="trailing" secondItem="Tkc-yK-667" secondAttribute="trailing" id="bJO-rt-fa5"/>
                                             <constraint firstItem="2RB-P0-3fm" firstAttribute="leading" secondItem="C7C-H1-C7k" secondAttribute="trailing" constant="10" id="fnC-Ta-EIb"/>
                                             <constraint firstAttribute="bottom" secondItem="Tkc-yK-667" secondAttribute="bottom" id="m0f-IN-U93"/>
@@ -260,9 +261,6 @@
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-Ki-W5I">
                                         <rect key="frame" x="0.0" y="90" width="343" height="40"/>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="7DQ-0F-HSS"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

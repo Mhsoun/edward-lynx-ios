@@ -8,6 +8,9 @@
 /* Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "95j-rQ-DgJ"; */
 "95j-rQ-DgJ.normalTitle" = "Forgot Password?";
 
+/* Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "Rls-Cu-J3h"; */
+"Rls-Cu-J3h.disabledTitle" = "PROCESSING...";
+
 /* Class = "UIButton"; normalTitle = "RECOVER"; ObjectID = "Rls-Cu-J3h"; */
 "Rls-Cu-J3h.normalTitle" = "RECOVER";
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OptionCell" id="Uwu-Rq-Z6b" userLabel="ActionCell" customClass="ELItemTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uwu-Rq-Z6b" id="ws8-e9-qTT">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-FL-C9Q" userLabel="Delete Button">
+                        <rect key="frame" x="301" y="5" width="39" height="39"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bkH-FL-C9Q" secondAttribute="height" multiplier="1:1" id="CV7-FE-32w"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onDeleteButtonClick:" destination="Uwu-Rq-Z6b" eventType="touchUpInside" id="rGL-q2-VKA"/>
+                        </connections>
+                    </button>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-2y-1a9">
+                        <rect key="frame" x="5" y="5" width="291" height="39"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="bkH-FL-C9Q" firstAttribute="leading" secondItem="qI4-2y-1a9" secondAttribute="trailing" constant="5" id="3wK-Ku-5RQ"/>
+                    <constraint firstItem="qI4-2y-1a9" firstAttribute="height" secondItem="bkH-FL-C9Q" secondAttribute="height" id="6XX-Fc-AkI"/>
+                    <constraint firstAttribute="trailing" secondItem="bkH-FL-C9Q" secondAttribute="trailing" constant="5" id="AKy-L8-WOs"/>
+                    <constraint firstAttribute="bottom" secondItem="bkH-FL-C9Q" secondAttribute="bottom" constant="5" id="QzD-Yu-PRg"/>
+                    <constraint firstItem="bkH-FL-C9Q" firstAttribute="top" secondItem="ws8-e9-qTT" secondAttribute="top" constant="5" id="R2P-6B-Fg0"/>
+                    <constraint firstItem="qI4-2y-1a9" firstAttribute="centerY" secondItem="ws8-e9-qTT" secondAttribute="centerY" id="vFi-ZG-N3f"/>
+                    <constraint firstItem="qI4-2y-1a9" firstAttribute="leading" secondItem="ws8-e9-qTT" secondAttribute="leading" constant="5" id="zDT-7e-2FH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="deleteButton" destination="bkH-FL-C9Q" id="MhV-8p-Sjp"/>
+                <outlet property="optionLabel" destination="qI4-2y-1a9" id="VsV-U6-Sn1"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

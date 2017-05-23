@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -365,91 +365,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActionCell" id="PEl-Nc-XCf" userLabel="ActionCell" customClass="ELItemTableViewCell">
-                                                        <rect key="frame" x="0.0" y="73" width="345" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PEl-Nc-XCf" id="qEO-xZ-7ig">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="49.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-fU-iC2" userLabel="Delete Button">
-                                                                    <rect key="frame" x="301" y="5" width="39" height="39"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="gyT-fU-iC2" secondAttribute="height" multiplier="1:1" id="wMD-1u-gHS"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <state key="normal">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="onDeleteButtonClick:" destination="PEl-Nc-XCf" eventType="touchUpInside" id="9er-KV-LGr"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-GZ-JHH">
-                                                                    <rect key="frame" x="5" y="5" width="291" height="39"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="centerY" secondItem="qEO-xZ-7ig" secondAttribute="centerY" id="Iyw-Xz-1KV"/>
-                                                                <constraint firstItem="gyT-fU-iC2" firstAttribute="leading" secondItem="m3E-GZ-JHH" secondAttribute="trailing" constant="5" id="cBp-tG-7u8"/>
-                                                                <constraint firstAttribute="trailing" secondItem="gyT-fU-iC2" secondAttribute="trailing" constant="5" id="o7M-xf-MF3"/>
-                                                                <constraint firstAttribute="bottom" secondItem="gyT-fU-iC2" secondAttribute="bottom" constant="5" id="pZM-4I-TDF"/>
-                                                                <constraint firstItem="gyT-fU-iC2" firstAttribute="top" secondItem="qEO-xZ-7ig" secondAttribute="top" constant="5" id="smq-gJ-3kt"/>
-                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="height" secondItem="gyT-fU-iC2" secondAttribute="height" id="tkl-o7-S9Q"/>
-                                                                <constraint firstItem="m3E-GZ-JHH" firstAttribute="leading" secondItem="qEO-xZ-7ig" secondAttribute="leading" constant="5" id="wGz-hw-aDx"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <outlet property="deleteButton" destination="gyT-fU-iC2" id="yEv-D6-9Hl"/>
-                                                            <outlet property="optionLabel" destination="m3E-GZ-JHH" id="9hg-ue-fh0"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddActionCell" id="UGH-6o-geO" customClass="ELAddObjectTableViewCell">
-                                                        <rect key="frame" x="0.0" y="123" width="345" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGH-6o-geO" id="05p-Ji-ml4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="49.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lus-69-q1b">
-                                                                    <rect key="frame" x="5" y="9" width="335" height="35"/>
-                                                                    <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="35" id="wOa-Pa-z6U"/>
-                                                                    </constraints>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                            <color key="value" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </textField>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstItem="lus-69-q1b" firstAttribute="leading" secondItem="05p-Ji-ml4" secondAttribute="leading" constant="5" id="3cm-aF-sxZ"/>
-                                                                <constraint firstAttribute="trailing" secondItem="lus-69-q1b" secondAttribute="trailing" constant="5" id="J1Q-IE-7ug"/>
-                                                                <constraint firstAttribute="bottom" secondItem="lus-69-q1b" secondAttribute="bottom" constant="5" id="old-vI-hk5"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <outlet property="textField" destination="lus-69-q1b" id="WcA-gX-q2z"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
                                             </tableView>
                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGd-0n-bXu">
                                                 <rect key="frame" x="310" y="314.5" width="50" height="50"/>

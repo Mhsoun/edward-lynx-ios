@@ -2,8 +2,14 @@
 /* Class = "UINavigationItem"; title = "SURVEYS"; ObjectID = "B21-4l-6el"; */
 "B21-4l-6el.title" = "SURVEYS";
 
-/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "bdd-eb-LRQ"; */
-"bdd-eb-LRQ.normalTitle" = "SUBMIT";
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Y7d-Ki-W5I"; */
+"Y7d-Ki-W5I.disabledTitle" = "Processing...";
 
-/* Class = "UISearchBar"; placeholder = "Search Surveys"; ObjectID = "wt7-lQ-5zz"; */
-"wt7-lQ-5zz.placeholder" = "Search Surveys";
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Y7d-Ki-W5I"; */
+"Y7d-Ki-W5I.normalTitle" = "Submit";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "ajk-Vm-b8j"; */
+"ajk-Vm-b8j.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "Save to Drafts"; ObjectID = "ajk-Vm-b8j"; */
+"ajk-Vm-b8j.normalTitle" = "Save to Drafts";
