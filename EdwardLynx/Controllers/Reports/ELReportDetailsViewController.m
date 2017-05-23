@@ -19,6 +19,8 @@
 
 static NSTimeInterval const kELAnimateInterval = 0.5;
 static CGFloat const kELBarHeight = 40;
+static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
+static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 #pragma mark - Class Extension
 
@@ -45,8 +47,8 @@ static CGFloat const kELBarHeight = 40;
     // Do any additional setup after loading the view.
     
     isSurvey = [self.selectedObject isKindOfClass:[ELSurvey class]];
-    image = [FontAwesome imageWithIcon:fa_share_alt
-                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+    image = [FontAwesome imageWithIcon:fa_ellipsis_vertical
+                             iconColor:[UIColor whiteColor]
                               iconSize:25];
     
     // Initialization
@@ -59,9 +61,9 @@ static CGFloat const kELBarHeight = 40;
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
     
-    [self.shareBarButton setEnabled:!isSurvey];
-    [self.shareBarButton setImage:isSurvey ? nil : image];
-    [self.shareBarButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    [self.moreBarButton setEnabled:!isSurvey];
+    [self.moreBarButton setImage:!isSurvey ? image : nil];
+    [self.moreBarButton setTintColor:[UIColor whiteColor]];
     
     [self.averageChartView addSubview:self.averageBarChart];
     [self.indexChartView addSubview:self.indexBarChart];
@@ -82,7 +84,13 @@ static CGFloat const kELBarHeight = 40;
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShareReport"]) {
+    ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
+    
+    if ([segue.identifier isEqualToString:kELAddMoreSegueIdentifier]) {
+        controller.inviteType = kELInviteUsersInstantFeedback;
+        controller.instantFeedback = self.selectedObject;
+        
+    } else if ([segue.identifier isEqualToString:kELShareSegueIdentifier]) {
         ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
         
         controller.inviteType = kELInviteUsersReports;
@@ -411,12 +419,40 @@ static CGFloat const kELBarHeight = 40;
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onShareBarButtonClick:(id)sender {
+- (IBAction)onMoreBarButtonClick:(UIBarButtonItem *)sender {
+    UIAlertController *controller;
+    __weak typeof(self) weakSelf = self;
+    
     if ([self.selectedObject isKindOfClass:[ELSurvey class]]) {
         return;
     }
     
-    [self performSegueWithIdentifier:@"ShareReport" sender:self];
+    controller = [UIAlertController alertControllerWithTitle:nil
+                                                     message:nil
+                                              preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELReportMoreDropdownShare", nil)
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                     [weakSelf performSegueWithIdentifier:kELShareSegueIdentifier sender:self];
+                                                 }]];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELReportMoreDropdownAddMore", nil)
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                     [weakSelf performSegueWithIdentifier:kELAddMoreSegueIdentifier sender:self];
+                                                 }]];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        controller.modalPresentationStyle = UIModalPresentationPopover;
+        controller.popoverPresentationController.barButtonItem = sender;
+    }
+    
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
 }
 
 @end

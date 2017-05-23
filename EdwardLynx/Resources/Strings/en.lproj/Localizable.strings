@@ -159,6 +159,8 @@
 "kELReportInfoLabel" = "Invited: %@ | Answered: %@";
 "kELReportInfoCandidates" = "Candidates";
 "kELReportInfoOthers" = "Others combined";
+"kELReportMoreDropdownAddMore" = "Add More Participants";
+"kELReportMoreDropdownShare" = "Share Report";
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Report";
