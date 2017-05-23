@@ -10,6 +10,10 @@
 
 @implementation ELNotification
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"badge"];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dict error:(NSError *__autoreleasing *)err {
     self = [super init];
     
@@ -21,6 +25,7 @@
     _body = dict[@"aps"][@"alert"][@"body"];
     _type = dict[@"type"];
     _objectId = [dict[@"id"] intValue];
+    _badge = !dict[@"badge"] ? 0 : [dict[@"badge"] intValue];
     
     return self;
 }
