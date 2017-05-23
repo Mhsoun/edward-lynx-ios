@@ -126,6 +126,16 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.questionPreviewLabel.text = textView.text;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [[IQKeyboardManager sharedManager] resignFirstResponder];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - Protocol Methods (ELAddItem)
 
 - (void)onAddNewItem:(NSString *)item {
@@ -321,8 +331,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
-        [self.mCustomScaleOptions removeObject:@""];
-        [self.mInstantFeedbackDict setObject:self.mCustomScaleOptions forKey:@"options"];
+        [self.mInstantFeedbackDict setObject:[self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)]
+                                      forKey:@"options"];
     }
     
     hasSelection = self.dropdown.hasSelection;

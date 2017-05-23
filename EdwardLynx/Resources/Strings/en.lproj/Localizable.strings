@@ -116,6 +116,7 @@
 "kELDefaultField" = "Field";
 "kELNameField" = "Name";
 "kELPasswordField" = "Password";
+"kELQuestionField" = "Question";
 
 /* Invite/Share */
 
