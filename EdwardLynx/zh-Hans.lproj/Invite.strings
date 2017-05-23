@@ -1,27 +1,21 @@
 
-/* Class = "UILabel"; text = "The person evaluated is:"; ObjectID = "84t-JN-A4w"; */
-"84t-JN-A4w.text" = "The person evaluated is:";
-
 /* Class = "UIButton"; normalTitle = "Select all"; ObjectID = "DgO-U8-40k"; */
 "DgO-U8-40k.normalTitle" = "Select all";
 
 /* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "IPk-wm-Q6F"; */
 "IPk-wm-Q6F.placeholder" = "Search";
 
-/* Class = "UILabel"; text = "No. of people selected: 0"; ObjectID = "VRi-ls-lhD"; */
-"VRi-ls-lhD.text" = "No. of people selected: 0";
+/* Class = "UILabel"; text = "People selected: 0"; ObjectID = "VRi-ls-lhD"; */
+"VRi-ls-lhD.text" = "People selected: 0";
 
-/* Class = "UILabel"; text = "Invite people to participate"; ObjectID = "b6m-Fd-J6y"; */
-"b6m-Fd-J6y.text" = "Invite people to participate";
+/* Class = "UIButton"; normalTitle = "Invite people by email address"; ObjectID = "b9s-4t-stq"; */
+"b9s-4t-stq.normalTitle" = "Invite people by email address";
 
-/* Class = "UIButton"; normalTitle = "INVITE PEOPLE BY EMAIL"; ObjectID = "b9s-4t-stq"; */
-"b9s-4t-stq.normalTitle" = "INVITE PEOPLE BY EMAIL";
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "vah-jb-Lki"; */
+"vah-jb-Lki.disabledTitle" = "Processing...";
 
-/* Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "vah-jb-Lki"; */
-"vah-jb-Lki.disabledTitle" = "PROCESSING...";
+/* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "vah-jb-Lki"; */
+"vah-jb-Lki.normalTitle" = "Send Invites";
 
-/* Class = "UIButton"; normalTitle = "SEND INVITES"; ObjectID = "vah-jb-Lki"; */
-"vah-jb-Lki.normalTitle" = "SEND INVITES";
-
-/* Class = "UINavigationItem"; title = "INVITE"; ObjectID = "zar-hO-SbN"; */
-"zar-hO-SbN.title" = "INVITE";
+/* Class = "UINavigationItem"; title = "INVITE PEOPLE"; ObjectID = "zar-hO-SbN"; */
+"zar-hO-SbN.title" = "INVITE PEOPLE";
