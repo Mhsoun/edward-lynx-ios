@@ -46,7 +46,7 @@
         
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": NSLocalizedString(@"kELInstantFeedbackTitle", nil),
-                                     @"description": feedback.createdBy,
+                                     @"description": [NSString stringWithFormat:NSLocalizedString(@"kELFeedbackCellAuthor", nil), feedback.createdBy],
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];
         

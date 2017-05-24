@@ -32,14 +32,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Bl-LL-2gc">
-                        <rect key="frame" x="18" y="13" width="349" height="0.0"/>
+                        <rect key="frame" x="18" y="13" width="349" height="25"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="dWB-H5-xRi"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-B0-GT5">
-                        <rect key="frame" x="18" y="13" width="100" height="20"/>
+                        <rect key="frame" x="18" y="38" width="100" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="8eG-lI-Bfv"/>
@@ -50,7 +53,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Progress" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SzG-0l-ZT5">
-                        <rect key="frame" x="18" y="43" width="126" height="20"/>
+                        <rect key="frame" x="18" y="68" width="101" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Mc9-vt-GIh"/>
@@ -60,7 +63,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-Ji-d0N">
-                        <rect key="frame" x="118" y="13" width="249" height="20"/>
+                        <rect key="frame" x="118" y="38" width="249" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="zrp-BE-dl2"/>
@@ -70,14 +73,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROn-8k-piz">
-                        <rect key="frame" x="18" y="73" width="126" height="126"/>
+                        <rect key="frame" x="18" y="98" width="101" height="101"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ROn-8k-piz" secondAttribute="height" multiplier="1:1" id="ngJ-jZ-F6h"/>
                         </constraints>
                     </view>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals Progress Bar" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-PM-3y0">
-                        <rect key="frame" x="154" y="43" width="213" height="20"/>
+                        <rect key="frame" x="129" y="68" width="238" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="wzo-zK-vuI"/>
@@ -87,13 +90,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-E1-yi5">
-                        <rect key="frame" x="154" y="73" width="198" height="136"/>
+                        <rect key="frame" x="129" y="98" width="238" height="111"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaw-Dx-V7b" userLabel="Content View">
-                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="136"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="111"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-c9-G8Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="136"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="111"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="Rmx-t5-UVu"/>
@@ -120,7 +123,7 @@
                         </constraints>
                     </scrollView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-ek-8or">
-                        <rect key="frame" x="352" y="73" width="15" height="136"/>
+                        <rect key="frame" x="352" y="98" width="15" height="111"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="dyl-r2-AMK"/>
                         </constraints>
@@ -162,8 +165,8 @@
                     <constraint firstItem="wH3-KX-9gl" firstAttribute="centerX" secondItem="c2o-TC-82i" secondAttribute="centerX" id="kpO-Bj-MNC"/>
                     <constraint firstItem="0Bl-LL-2gc" firstAttribute="top" secondItem="c2o-TC-82i" secondAttribute="topMargin" constant="5" id="lMU-xn-kLV"/>
                     <constraint firstItem="cw7-Ji-d0N" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="lXT-aQ-RzF"/>
+                    <constraint firstItem="dEu-E1-yi5" firstAttribute="trailing" secondItem="jtd-PM-3y0" secondAttribute="trailing" id="lZD-Nn-ytH"/>
                     <constraint firstItem="jtd-PM-3y0" firstAttribute="trailing" secondItem="0Bl-LL-2gc" secondAttribute="trailing" id="oKX-fG-GbH"/>
-                    <constraint firstItem="7Zd-ek-8or" firstAttribute="leading" secondItem="dEu-E1-yi5" secondAttribute="trailing" id="s8l-ke-Dvq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7Zd-ek-8or" secondAttribute="trailing" id="sQn-Gj-XUl"/>
                     <constraint firstItem="ROn-8k-piz" firstAttribute="top" secondItem="SzG-0l-ZT5" secondAttribute="bottom" constant="10" id="ul2-dS-GYS"/>
                     <constraint firstItem="RD2-B0-GT5" firstAttribute="top" secondItem="0Bl-LL-2gc" secondAttribute="bottom" id="za5-u6-bhL"/>
