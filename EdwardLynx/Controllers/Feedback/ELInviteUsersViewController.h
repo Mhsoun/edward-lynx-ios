@@ -9,13 +9,11 @@
 #import "ELBaseViewController.h"
 
 @class ELInstantFeedback;
-@class ELSurvey;
 
 @interface ELInviteUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate>
 
 @property (nonatomic) kELInviteUsers inviteType;
 
-@property (strong, nonatomic) ELSurvey *survey;
 @property (strong, nonatomic) ELInstantFeedback *instantFeedback;
 @property (strong, nonatomic) NSDictionary *instantFeedbackDict;
 

@@ -60,7 +60,9 @@ static NSInteger const kELAPICallsNumber = 3;
         
         controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                       instantiateInitialViewController];
-        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        // NOTE Fade in transition
+//        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         [weakSelf presentViewController:controller
                                animated:YES

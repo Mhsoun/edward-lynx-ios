@@ -13,6 +13,9 @@
 @property (nonatomic, weak) id<ELAPIPostResponseDelegate> delegate;
 
 - (instancetype)initWithSurvey:(ELSurvey *)survey;
+
+- (void)processInviteOthersToRateYouWithParams:(NSDictionary *)formDict;
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict;
+- (BOOL)validateAddInviteUserFormValues:(NSDictionary *)formDict;
 
 @end

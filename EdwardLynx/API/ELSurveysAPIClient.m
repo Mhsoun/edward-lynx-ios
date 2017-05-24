@@ -120,7 +120,9 @@
 - (void)inviteOthersToRateYouWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyRecipientsEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyRecipientsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                         bodyParams:params];

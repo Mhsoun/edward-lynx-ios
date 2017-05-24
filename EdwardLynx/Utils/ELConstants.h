@@ -56,8 +56,7 @@ typedef NS_ENUM(NSInteger, kELAnswerType) {
 
 typedef NS_ENUM(NSInteger, kELInviteUsers) {
     kELInviteUsersInstantFeedback,
-    kELInviteUsersReports,
-    kELInviteUsersSurvey
+    kELInviteUsersReports
 };
 
 typedef NS_ENUM(NSInteger, kELListFilter) {
@@ -105,6 +104,15 @@ typedef NS_ENUM(NSInteger, kELSurveyType) {
     kELSurveyTypeProgress = 2,
     kELSurveyTypeSurvey = 3,
     kELSurveyTypeLTT = 4
+};
+
+typedef NS_ENUM(NSInteger, kELUserRole) {
+    kELUserRoleColleague = 2,
+    kELUserRoleManager = 3,
+    kELUserRoleCustomer = 4,
+    kELUserRoleMatrixManager = 5,
+    kELUserRoleOtherStakeholder = 6,
+    kELUserRoleDirectReport = 7
 };
 
 #pragma mark - .plist Keys (Root)

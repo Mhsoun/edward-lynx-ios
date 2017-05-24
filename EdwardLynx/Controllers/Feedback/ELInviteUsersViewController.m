@@ -14,7 +14,6 @@
 #import "ELInstantFeedback.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
-#import "ELSurvey.h"
 #import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
@@ -431,12 +430,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         
         [self.viewManager processSharingOfReportToUsersWithId:self.instantFeedback.objectId
                                                      formData:@{@"users": [mUsers copy]}];
-    } else if (self.inviteType == kELInviteUsersSurvey) {
-        for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
-        
-        // TODO Feed actual needed parameters
-        [self.viewManager processInviteOthersToRateYouWithId:self.survey.objectId
-                                                    formData:@{@"users": [mUsers copy]}];
     }
 }
 

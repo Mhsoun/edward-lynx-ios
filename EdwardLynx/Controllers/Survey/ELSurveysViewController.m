@@ -9,10 +9,10 @@
 #import "ELSurveysViewController.h"
 #import "ELAnswerInstantFeedbackViewController.h"
 #import "ELInstantFeedback.h"
-#import "ELInviteUsersViewController.h"
 #import "ELListViewController.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
+#import "ELSurveyRateOthersViewController.h"
 
 #pragma mark - Private Constants
 
@@ -35,6 +35,9 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.title = [NSLocalizedString(@"kELDashboardActionInvite", nil) uppercaseString];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,9 +63,9 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         controller.listType = kELListTypeSurveys;
         controller.listFilter = !self.tabs ? kELListFilterLynxMeasurement : [self.tabs[self.index] integerValue];
     } else if ([segue.identifier isEqualToString:kELInviteSegueIdentifier]) {
-        ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
+        ELSurveyRateOthersViewController *controller = (ELSurveyRateOthersViewController *)[segue destinationViewController];
         
-        controller.inviteType = kELInviteUsersSurvey;
+        controller.survey = self.selectedSurvey;
     }
 }
 

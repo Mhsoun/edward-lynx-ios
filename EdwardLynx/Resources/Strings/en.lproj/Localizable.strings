@@ -118,9 +118,11 @@
 /* Fields */
 
 "kELDefaultField" = "Field";
+"kELEmailField" = "E-mail";
 "kELNameField" = "Name";
 "kELPasswordField" = "Password";
 "kELQuestionField" = "Question";
+"kELUsernameField" = "Username";
 
 /* Invite/Share */
 
@@ -184,6 +186,9 @@
 "kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts";
 "kELSurveyPostError" = "Failed to post answers";
 
+"kELSurveyRateError" = "Failed to invite others to rate you";
+"kELSurveyRateSuccess" = "Successfully invited others to rate you";
+
 "kELSurveyStatusOpen" = "Open";
 "kELSurveyStatusUnfinished" = "Unfinished";
 "kELSurveyStatusCompleted" = "Completed";
@@ -206,6 +211,15 @@
 "kELListFilterInstantFeedback" = "Instant Feedback";
 "kELListFilterLynxMeasurement" = "Lynx Measurement";
 
+/* User Roles */
+
+"kELUserRoleColleague" = "Colleague";
+"kELUserRoleManager" = "Manager";
+"kELUserRoleCustomer" = "Customer";
+"kELUserRoleMatrixManager" = "Matrix Manager";
+"kELUserRoleOtherStakeholder" = "Other Stakeholder";
+"kELUserRoleDirectReport" = "Direct Report";
+
 /* Validations */
 
 "kELAnswerTypeValidationMessage" = "No Answer type selected";
@@ -214,5 +228,5 @@
 "kELGoalsValidationMessage" = "No Goals added";
 "kELGoalReminderValidationMessage" = "Reminder date should be on or after today";
 "kELPasswordValidationMessage" = "New Password fields must be the same";
-"kELREValidationEmailMessage" = "%@ can't be blank";
+"kELREValidationEmailMessage" = "%@ is an invalid email";
 "kELREValidationPresenceMessage" = "%@ can't be blank";
