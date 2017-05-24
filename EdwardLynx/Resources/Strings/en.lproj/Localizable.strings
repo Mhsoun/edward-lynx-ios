@@ -216,4 +216,3 @@
 "kELPasswordValidationMessage" = "New Password fields must be the same";
 "kELREValidationEmailMessage" = "%@ can't be blank";
 "kELREValidationPresenceMessage" = "%@ can't be blank";
-"kELUsersSelectionValidationMessage" = "No users selected";

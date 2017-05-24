@@ -71,6 +71,10 @@
                                   completion:self.requestCompletionBlock];
 }
 
+- (void)processInviteOthersToRateYouWithId:(int64_t)objId formData:(NSDictionary *)formDict {
+    // TODO API call
+}
+
 - (void)processSharingOfReportToUsersWithId:(int64_t)objId formData:(NSDictionary *)formDict {
     [self.client shareInstantFeedbackWithId:objId
                                      params:formDict

@@ -9,6 +9,7 @@
 #import "ELSurveysViewController.h"
 #import "ELAnswerInstantFeedbackViewController.h"
 #import "ELInstantFeedback.h"
+#import "ELInviteUsersViewController.h"
 #import "ELListViewController.h"
 #import "ELSurvey.h"
 #import "ELSurveyDetailsViewController.h"
@@ -58,6 +59,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         controller.delegate = self;
         controller.listType = kELListTypeSurveys;
         controller.listFilter = !self.tabs ? kELListFilterLynxMeasurement : [self.tabs[self.index] integerValue];
+    } else if ([segue.identifier isEqualToString:kELInviteSegueIdentifier]) {
+        ELInviteUsersViewController *controller = (ELInviteUsersViewController *)[segue destinationViewController];
+        
+        controller.inviteType = kELInviteUsersSurvey;
     }
 }
 

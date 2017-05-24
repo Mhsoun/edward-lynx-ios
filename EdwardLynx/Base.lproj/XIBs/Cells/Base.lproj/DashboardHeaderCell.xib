@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-P5-FTm">
-                        <rect key="frame" x="10" y="10" width="488" height="156"/>
+                        <rect key="frame" x="10" y="10.5" width="488" height="156"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-MY-f6X" customClass="RNThemeView">
                                 <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
@@ -67,10 +67,10 @@
                         </constraints>
                     </stackView>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-dI-AVq">
-                        <rect key="frame" x="10" y="176" width="488" height="63.5"/>
+                        <rect key="frame" x="10" y="176.5" width="488" height="40"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFP-UJ-PQd" customClass="RNThemeView">
-                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="63.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
@@ -80,7 +80,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSv-8J-Yja" customClass="RNThemeView">
-                                <rect key="frame" x="124.5" y="0.0" width="114.5" height="63.5"/>
+                                <rect key="frame" x="124.5" y="0.0" width="114.5" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
@@ -90,7 +90,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zy-1Z-2jF" customClass="RNThemeView">
-                                <rect key="frame" x="249" y="0.0" width="114.5" height="63.5"/>
+                                <rect key="frame" x="249" y="0.0" width="114.5" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
@@ -100,7 +100,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-aA-JbZ" customClass="RNThemeView">
-                                <rect key="frame" x="373.5" y="0.0" width="114.5" height="63.5"/>
+                                <rect key="frame" x="373.5" y="0.0" width="114.5" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
@@ -111,6 +111,11 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="BVk-sm-PoZ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                            </constraint>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>

@@ -14,6 +14,7 @@
 #import "ELInstantFeedback.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
+#import "ELSurvey.h"
 #import "ELTableDataSource.h"
 
 #pragma mark - Private Constants
@@ -77,7 +78,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil) description:@""];
@@ -239,15 +239,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     __weak typeof(self) weakSelf = self;
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    // Clear selections
     [self clearSelection];
     
     // Back to the Dashboard
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELInviteUsersSuccess", nil)
                      completion:^{
-        if (weakSelf.inviteType == kELInviteUsersReports) {
+        if (weakSelf.inviteType != kELInviteUsersInstantFeedback) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         } else {
             [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
@@ -380,40 +378,23 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 - (IBAction)onInviteButtonClick:(id)sender {
     NSMutableArray *mUsers = [[NSMutableArray alloc] init];
     
+    if (!self.mParticipants.count || self.mParticipants.count == 0) {
+        [ELUtils presentToastAtView:self.view
+                            message:NSLocalizedString(@"kELInviteUsersNoSelectionMessage", nil)
+                         completion:^{}];
+        
+        return;
+    }
+    
+    // Loading alert
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    
     if (self.inviteType == kELInviteUsersInstantFeedback) {
         kELAnswerType answerType;
         NSArray *questions;
         NSMutableDictionary *mAnswerDict;
-
-        // NOTE Condition checking the minimum participant count
-//        if (!self.mParticipants.count || self.mParticipants.count < kELParticipantsMinimumCount) {
-//            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Info"
-//                                                                                message:NSLocalizedString(@"kELInviteUsersInfoMessage", nil)
-//                                                                         preferredStyle:UIAlertControllerStyleAlert];
-//            
-//            [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCloseButton", nil)
-//                                                           style:UIAlertActionStyleCancel
-//                                                         handler:nil]];
-//            
-//            [self presentViewController:controller
-//                               animated:YES
-//                             completion:nil];
-//            
-//            return;
-//        }
-        
-        if (!self.mParticipants.count || self.mParticipants.count == 0) {
-            [ELUtils presentToastAtView:self.view
-                                message:NSLocalizedString(@"kELInviteUsersNoSelectionMessage", nil)
-                             completion:^{}];
-            
-            return;
-        }
-        
-        // Loading alert
-        [self presentViewController:[ELUtils loadingAlert]
-                           animated:YES
-                         completion:nil];
         
         // Retrieve selected user(s)
         for (ELParticipant *participant in self.mParticipants) {
@@ -446,23 +427,16 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                    @"questions": questions,
                                                    @"recipients": [mUsers copy]}];
     } else if (self.inviteType == kELInviteUsersReports) {
-        if (!self.mParticipants.count) {
-            [ELUtils presentToastAtView:self.view
-                                message:NSLocalizedString(@"kELUsersSelectionValidationMessage", nil)
-                             completion:^{}];
-            
-            return;
-        }
-        
-        // Loading alert
-        [self presentViewController:[ELUtils loadingAlert]
-                           animated:YES
-                         completion:nil];
-        
         for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
         
         [self.viewManager processSharingOfReportToUsersWithId:self.instantFeedback.objectId
                                                      formData:@{@"users": [mUsers copy]}];
+    } else if (self.inviteType == kELInviteUsersSurvey) {
+        for (ELParticipant *participant in self.mParticipants) [mUsers addObject:@(participant.objectId)];
+        
+        // TODO Feed actual needed parameters
+        [self.viewManager processInviteOthersToRateYouWithId:self.survey.objectId
+                                                    formData:@{@"users": [mUsers copy]}];
     }
 }
 
