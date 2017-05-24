@@ -16,6 +16,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELListSegueIdentifier = @"ListContainer";
+static NSString * const kELInviteSegueIdentifier = @"Invite";
 static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 #pragma mark - Class Extension
@@ -56,7 +57,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         
         controller.delegate = self;
         controller.listType = kELListTypeSurveys;
-        controller.listFilter = [self.tabs[self.index] integerValue];
+        controller.listFilter = !self.tabs ? kELListFilterLynxMeasurement : [self.tabs[self.index] integerValue];
     }
 }
 
@@ -69,7 +70,8 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     if ([object isKindOfClass:[ELSurvey class]]) {
         self.selectedSurvey = (ELSurvey *)object;
         
-        [self performSegueWithIdentifier:kELSurveySegueIdentifier sender:self];
+        [self performSegueWithIdentifier:self.toInvite ? kELInviteSegueIdentifier : kELSurveySegueIdentifier
+                                  sender:self];
         
         return;
     }

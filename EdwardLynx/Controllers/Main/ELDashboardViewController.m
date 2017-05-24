@@ -15,6 +15,7 @@
 #import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELNotificationView.h"
 #import "ELSectionView.h"
+#import "ELSurveysViewController.h"
 #import "ELTabPageViewController.h"
 #import "ELUsersAPIClient.h"
 
@@ -86,6 +87,16 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (void)dealloc {
     DLog(@"%@", [self class]);
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kELDashboardActionTypeInvite]) {
+        ELSurveysViewController *controller = (ELSurveysViewController *)[segue destinationViewController];
+        
+        controller.toInvite = YES;
+    }
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -246,6 +257,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (void)viewTapToPerformControllerPushWithIdentifier:(NSString *)identifier {
     if ([@[kELDashboardActionTypeAnswer,
+           kELDashboardActionTypeInvite,
            kELDashboardActionTypeCreateDevPlan,
            kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
         [self performSegueWithIdentifier:identifier sender:self];

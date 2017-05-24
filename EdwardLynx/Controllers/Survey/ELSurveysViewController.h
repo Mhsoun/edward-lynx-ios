@@ -12,4 +12,6 @@
 
 @interface ELSurveysViewController : ELBasePageChildViewController<UISearchBarDelegate, ELListViewControllerDelegate, XLPagerTabStripChildItem>
 
+@property (nonatomic) BOOL toInvite;
+
 @end

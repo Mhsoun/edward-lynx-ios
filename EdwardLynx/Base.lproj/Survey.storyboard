@@ -58,6 +58,7 @@
                     <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
                     <connections>
                         <segue destination="Oe3-tM-qcI" kind="show" identifier="SurveyDetails" id="GE1-NU-ghW"/>
+                        <segue destination="ENV-DF-hND" kind="show" identifier="Invite" id="Il8-sj-H5O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUC-V9-KHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,7 +71,7 @@
                 <viewControllerPlaceholder storyboardName="List" id="GBw-Bk-MKh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9B-uU-re7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1153" y="576"/>
+            <point key="canvasLocation" x="1084" y="575"/>
         </scene>
         <!--Survey Details View Controller-->
         <scene sceneID="9FL-RF-ejk">
@@ -310,6 +311,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lna-HN-p5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2008.8" y="153.37331334332833"/>
+        </scene>
+        <!--Invite-->
+        <scene sceneID="6mb-7k-vVR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Invite" id="ENV-DF-hND" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGO-vG-t06" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224" y="575"/>
         </scene>
     </scenes>
     <resources>
