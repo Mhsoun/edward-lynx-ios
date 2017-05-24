@@ -276,7 +276,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.drawGridBackgroundEnabled = NO;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
-    barChart.maxVisibleCount = 15;
+    barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
     barChart.leftAxis.axisMaximum = 1.1f;

@@ -105,8 +105,6 @@
     NSMutableArray *mColors = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     
-    visibleCount = 10;
-    
     for (int i = 0; i < devPlan.goals.count; i++) {
         double progress;
         NSString *colorKey;
@@ -125,6 +123,8 @@
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     chartData.barWidth = 0.9f;
+    
+    visibleCount = 10;
     
     self.barChart.chartDescription.enabled = NO;
     self.barChart.doubleTapToZoomEnabled = NO;
