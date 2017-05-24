@@ -60,7 +60,9 @@ static NSInteger const kELAPICallsNumber = 3;
         
         controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                       instantiateInitialViewController];
-        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        // NOTE Fade in transition
+//        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         [weakSelf presentViewController:controller
                                animated:YES
@@ -106,7 +108,15 @@ static NSInteger const kELAPICallsNumber = 3;
 - (void)fetchQuestionCategoriesFromAPIWithCompletion:(void (^)(NSError *))completion {
     [[[ELQuestionCategoriesAPIClient alloc] init] categoriesOfUserWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSMutableArray *mCategories = [[NSMutableArray alloc] init];
+            NSMutableArray *mCategories;
+            
+            if (error) {
+                completion(error);
+                
+                return;
+            }
+            
+            mCategories = [[NSMutableArray alloc] init];
             
             for (NSDictionary *categoryDict in responseDict[@"items"]) {
                 [mCategories addObject:[[ELCategory alloc] initWithDictionary:categoryDict error:nil]];
@@ -120,20 +130,26 @@ static NSInteger const kELAPICallsNumber = 3;
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     
     [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (error || responseDict[@"error"]) {
-                [weakSelf reloginUserCredentialsWithCompletion:^(NSError *loginError) {
-                    if (loginError) {
-                        return;
-                    }
-                    
-                    DLog(@"%@: Re-login successful", [weakSelf class]);
-                    
-                    [weakSelf fetchUserProfileFromAPIWithCompletion:completion];
-                }];
+//            if (error || responseDict[@"error"]) {
+//                [weakSelf reloginUserCredentialsWithCompletion:^(NSError *loginError) {
+//                    if (loginError) {
+//                        return;
+//                    }
+//                    
+//                    DLog(@"%@: Re-login successful", [weakSelf class]);
+//                    
+//                    [weakSelf fetchUserProfileFromAPIWithCompletion:completion];
+//                }];
+//                
+//                return;
+//            }
+            
+            if (error) {
+                completion(error);
                 
                 return;
             }
@@ -148,7 +164,15 @@ static NSInteger const kELAPICallsNumber = 3;
 - (void)fetchUsersFromAPIWithCompletion:(void (^)(NSError *))completion {
     [[[ELUsersAPIClient alloc] init] retrieveUsersWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
+            NSMutableArray *mParticipants;
+            
+            if (error) {
+                completion(error);
+                
+                return;
+            }
+            
+            mParticipants = [[NSMutableArray alloc] init];
             
             for (NSDictionary *participantDict in responseDict[@"items"]) {
                 ELParticipant *participant = [[ELParticipant alloc] initWithDictionary:participantDict

@@ -117,6 +117,21 @@
                         completion:completion];
 }
 
+- (void)inviteOthersToRateYouWithId:(int64_t)surveyId
+                             params:(NSDictionary *)params
+                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPISurveyRecipientsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(surveyId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                        bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)submitAnswerForSurveyWithId:(int64_t)surveyId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {

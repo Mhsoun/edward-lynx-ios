@@ -368,6 +368,25 @@
     }
 }
 
++ (NSString *)labelByUserRole:(kELUserRole)role {
+    switch (role) {
+        case kELUserRoleColleague:
+            return NSLocalizedString(@"kELUserRoleColleague", nil);
+        case kELUserRoleManager:
+            return NSLocalizedString(@"kELUserRoleManager", nil);
+        case kELUserRoleCustomer:
+            return NSLocalizedString(@"kELUserRoleCustomer", nil);
+        case kELUserRoleMatrixManager:
+            return NSLocalizedString(@"kELUserRoleMatrixManager", nil);
+        case kELUserRoleOtherStakeholder:
+            return NSLocalizedString(@"kELUserRoleOtherStakeholder", nil);
+        case kELUserRoleDirectReport:
+            return NSLocalizedString(@"kELUserRoleDirectReport", nil);
+        default:
+            return @"";
+    }
+}
+
 + (UIAlertController *)loadingAlert {
     return AppSingleton.loadingAlert;
 }
@@ -499,15 +518,6 @@
     return [mUsers copy];
 }
 
-+ (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
-    NSArray *answerTypes = @[@(kELAnswerTypeYesNoScale), @(kELAnswerTypeCustomScale),
-                             @(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale),
-                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
-                             @(kELAnswerTypeInvertedAgreementScale)];
-    
-    return [answerTypes containsObject:@(type)];
-}
-
 + (void)scrollViewToBottom:(UIScrollView *)scrollView {
     CGSize contentSize = scrollView.contentSize;
     
@@ -541,6 +551,33 @@
     
     // Table View cell
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
+}
+
++ (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type {
+    NSArray *answerTypes = @[@(kELAnswerTypeYesNoScale), @(kELAnswerTypeCustomScale),
+                             @(kELAnswerTypeOneToFiveScale), @(kELAnswerTypeOneToTenScale),
+                             @(kELAnswerTypeAgreeementScale), @(kELAnswerTypeStrongAgreeementScale),
+                             @(kELAnswerTypeInvertedAgreementScale)];
+    
+    return [answerTypes containsObject:@(type)];
+}
+
++ (kELUserRole)userRoleByLabel:(NSString *)label {
+    if ([label isEqualToString:NSLocalizedString(@"kELUserRoleColleague", nil)]) {
+        return kELUserRoleColleague;
+    } else if ([label isEqualToString:NSLocalizedString(@"kELUserRoleManager", nil)]) {
+        return kELUserRoleManager;
+    } else if ([label isEqualToString:NSLocalizedString(@"kELUserRoleCustomer", nil)]) {
+        return kELUserRoleCustomer;
+    } else if ([label isEqualToString:NSLocalizedString(@"kELUserRoleMatrixManager", nil)]) {
+        return kELUserRoleMatrixManager;
+    } else if ([label isEqualToString:NSLocalizedString(@"kELUserRoleOtherStakeholder", nil)]) {
+        return kELUserRoleOtherStakeholder;
+    } else if ([label isEqualToString:NSLocalizedString(@"kELUserRoleDirectReport", nil)]) {
+        return kELUserRoleDirectReport;
+    } else {
+        return -1;
+    }
 }
 
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type {

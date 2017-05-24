@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELSurveyViewManager.h"
 #import "ELSurvey.h"
 #import "ELSurveysAPIClient.h"
@@ -48,15 +50,53 @@
         });
     };
     
+    [ELUtils registerValidators];
+    
     return self;
 }
 
 #pragma mark - Public Methods
 
+- (void)processInviteOthersToRateYouWithParams:(NSDictionary *)formDict {
+    [self.client inviteOthersToRateYouWithId:self.survey.objectId
+                                      params:formDict
+                                  completion:self.requestCompletionBlock];
+}
+
 - (void)processSurveyAnswerSubmissionWithFormData:(NSDictionary *)formDict {
     [self.client submitAnswerForSurveyWithId:self.survey.objectId
                                       params:formDict
                                   completion:self.requestCompletionBlock];
+}
+
+- (BOOL)validateAddInviteUserFormValues:(NSDictionary *)formDict {
+    NSString *key;
+    NSArray *emailErrors, *nameErrors;
+    ELFormItemGroup *formFieldGroup;
+    
+    key = @"email";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        emailErrors = [REValidation validateObject:[formFieldGroup textValue]
+                                              name:NSLocalizedString(@"kELEmailField", nil)
+                                        validators:@[@"presence", @"email"]];
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
+    }
+    
+    key = @"name";
+    
+    if (formDict[key]) {
+        formFieldGroup = formDict[key];
+        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
+                                             name:NSLocalizedString(@"kELNameField", nil)
+                                       validators:@[@"presence"]];
+        
+        [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
+    }
+    
+    return emailErrors.count == 0 && nameErrors.count == 0;
 }
 
 @end

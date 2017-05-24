@@ -89,8 +89,9 @@
     [self.resultsActionView addSubview:actionView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionInvite", nil),
-                                                         @"count": contents[2]}];
-//    actionView.delegate = self;
+                                                         @"count": contents[2],
+                                                         @"segue": kELDashboardActionTypeInvite}];
+    actionView.delegate = self;
     actionView.frame = self.answerActionView.bounds;
     
     [self.inviteActionView addSubview:actionView];

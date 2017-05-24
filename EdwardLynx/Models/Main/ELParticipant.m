@@ -20,6 +20,10 @@
             [propertyName isEqualToString:@"isAlreadyInvited"]);
 }
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"role"];
+}
+
 - (BOOL)isEqual:(id)object {
     ELParticipant *compareObject = (ELParticipant *)object;
     
@@ -36,6 +40,14 @@
 
 - (NSDictionary *)apiPostDictionary {
     return @{@"id": @(self.objectId)};
+}
+
+- (NSDictionary *)othersRateDictionary {
+    NSMutableDictionary *mDict = [[self addedByEmailDictionary] mutableCopy];
+    
+    [mDict setObject:@(self.role) forKey:@"role"];
+    
+    return [mDict copy];
 }
 
 @end

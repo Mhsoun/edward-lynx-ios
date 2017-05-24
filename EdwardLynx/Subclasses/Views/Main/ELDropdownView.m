@@ -167,6 +167,7 @@ static CGFloat const kELIconSize = 15;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onDropdownButtonClick:(id)sender {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     [ELUtils displayPopupForViewController:self.baseController
                                       type:kELPopupTypeList
                                    details:@{@"title": @"",

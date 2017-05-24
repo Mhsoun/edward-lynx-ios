@@ -106,6 +106,15 @@ typedef NS_ENUM(NSInteger, kELSurveyType) {
     kELSurveyTypeLTT = 4
 };
 
+typedef NS_ENUM(NSInteger, kELUserRole) {
+    kELUserRoleColleague = 2,
+    kELUserRoleManager = 3,
+    kELUserRoleCustomer = 4,
+    kELUserRoleMatrixManager = 5,
+    kELUserRoleOtherStakeholder = 6,
+    kELUserRoleDirectReport = 7
+};
+
 #pragma mark - .plist Keys (Root)
 
 extern NSString * const kELAPIClientPlistKey;
@@ -183,6 +192,7 @@ extern NSString * const kELAPISurveysEndpoint;
 extern NSString * const kELAPISurveyEndpoint;
 extern NSString * const kELAPISurveyAnswersEndpoint;
 extern NSString * const kELAPISurveyQuestionsEndpoint;
+extern NSString * const kELAPISurveyRecipientsEndpoint;
 extern NSString * const kELAPISurveyResultsEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;

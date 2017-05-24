@@ -59,6 +59,7 @@
 + (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;
 + (NSString *)labelBySurveyType:(kELSurveyType)type;
++ (NSString *)labelByUserRole:(kELUserRole)role;
 + (UIAlertController *)loadingAlert;
 + (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
 + (void)presentToastAtView:(UIView *)view
@@ -71,6 +72,7 @@
 + (void)scrollViewToBottom:(UIScrollView *)scrollView;
 + (void)setupGlobalUIChanges;
 + (BOOL)toggleQuestionTypeViewExpansionByType:(kELAnswerType)type;
++ (kELUserRole)userRoleByLabel:(NSString *)label;
 + (__kindof ELBaseQuestionTypeView *)viewByAnswerType:(kELAnswerType)type;
 
 @end
