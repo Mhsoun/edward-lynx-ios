@@ -151,9 +151,11 @@ static CGFloat const kELIconSize = 15;
 
 - (void)setupContent {
     // Content
-    self.selectedItem = self.items[0];
-    self.errorLabel.text = self.items[0];
-    self.titleLabel.text = self.items[0];
+    if (self.items.count && self.items.count > 0) {
+        self.selectedItem = self.items[0];
+        self.errorLabel.text = self.items[0];
+        self.titleLabel.text = self.items[0];
+    }
     
     // UI
     [self.button setImage:[FontAwesome imageWithIcon:fa_chevron_down
@@ -168,6 +170,15 @@ static CGFloat const kELIconSize = 15;
 
 - (IBAction)onDropdownButtonClick:(id)sender {
     [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if (!self.items || self.items.count == 0) {
+        [ELUtils presentToastAtView:self.baseController.view
+                            message:NSLocalizedString(@"kELGoalCategoriesValidationMessage", nil)
+                         completion:^{}];
+        
+        return;
+    }
+    
     [ELUtils displayPopupForViewController:self.baseController
                                       type:kELPopupTypeList
                                    details:@{@"title": @"",

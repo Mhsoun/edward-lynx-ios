@@ -225,6 +225,7 @@
 "kELAnswerTypeValidationMessage" = "No Answer type selected";
 "kELGoalActionsValidationMessage" = "No Actions added";
 "kELGoalCategoryValidationMessage" = "No Category selected";
+"kELGoalCategoriesValidationMessage" = "No Categories available";
 "kELGoalsValidationMessage" = "No Goals added";
 "kELGoalReminderValidationMessage" = "Reminder date should be on or after today";
 "kELPasswordValidationMessage" = "New Password fields must be the same";
