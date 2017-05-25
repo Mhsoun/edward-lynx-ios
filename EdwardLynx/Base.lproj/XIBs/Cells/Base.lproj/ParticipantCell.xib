@@ -14,6 +14,9 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
+        <array key="Lato-Italic.ttf">
+            <string>Lato-Italic</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -42,6 +45,13 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31P-2M-mds">
+                        <rect key="frame" x="20" y="40" width="327" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -49,14 +59,18 @@
                     <constraint firstAttribute="trailingMargin" secondItem="TBu-9M-WrE" secondAttribute="trailing" constant="20" id="5B0-Cm-BBg"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="trailing" secondItem="TBu-9M-WrE" secondAttribute="trailing" id="GwR-0f-wEb"/>
                     <constraint firstItem="TBu-9M-WrE" firstAttribute="leading" secondItem="z93-6a-3vE" secondAttribute="leading" constant="20" id="OAj-32-LOR"/>
+                    <constraint firstItem="31P-2M-mds" firstAttribute="leading" secondItem="LAB-kt-cxK" secondAttribute="leading" id="X27-mx-hZT"/>
+                    <constraint firstItem="31P-2M-mds" firstAttribute="trailing" secondItem="LAB-kt-cxK" secondAttribute="trailing" id="jsp-BF-yPp"/>
                     <constraint firstItem="LAB-kt-cxK" firstAttribute="top" secondItem="TBu-9M-WrE" secondAttribute="bottom" id="l8U-8Q-Tzv"/>
                     <constraint firstItem="TBu-9M-WrE" firstAttribute="centerY" secondItem="z93-6a-3vE" secondAttribute="centerY" multiplier="0.8" id="md3-go-kmq"/>
+                    <constraint firstItem="31P-2M-mds" firstAttribute="top" secondItem="LAB-kt-cxK" secondAttribute="bottom" id="v4H-oI-rqD"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="emailLabel" destination="LAB-kt-cxK" id="mDu-9K-fN2"/>
                 <outlet property="nameLabel" destination="TBu-9M-WrE" id="Mfw-9v-7jM"/>
+                <outlet property="roleLabel" destination="31P-2M-mds" id="r6P-Fh-FOf"/>
             </connections>
             <point key="canvasLocation" x="-57.5" y="-14"/>
         </tableViewCell>
