@@ -216,7 +216,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                            baseController:self
                                          defaultSelection:nil];
     
-    self.selectedCategory = self.goal ? self.goal.category : mCategories[0];
+    self.selectedCategory = self.goal ? self.goal.category : (mCategories.count > 0 ? mCategories[0] : @"");
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;
     
