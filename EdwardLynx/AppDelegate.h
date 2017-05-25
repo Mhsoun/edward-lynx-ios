@@ -16,6 +16,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSDictionary *emailInfoDict;
 @property (strong, nonatomic) ELNotification *notification;
 @property (strong, readonly) NSPersistentContainer *persistentContainer;
 

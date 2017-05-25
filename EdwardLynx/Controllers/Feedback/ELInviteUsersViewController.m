@@ -309,16 +309,17 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
-    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];;
+    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];
     
     // Traverse cells to get count of currently selected rows
     for (int i = 0; i < rowsCount; i++) {
         ELParticipantTableViewCell *cell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
-        [self.tableView scrollToRowAtIndexPath:indexPath
-                              atScrollPosition:UITableViewScrollPositionTop
-                                      animated:NO];
+        // Commented out since it scrolls down the list upon user selection
+//        [self.tableView scrollToRowAtIndexPath:indexPath
+//                              atScrollPosition:UITableViewScrollPositionTop
+//                                      animated:NO];
         
         cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         
