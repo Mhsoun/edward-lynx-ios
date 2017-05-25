@@ -60,17 +60,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
-    
-    if (ApplicationDelegate.notification) {
-        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
-        
-        ApplicationDelegate.notification = nil;
-    }
 #endif
-    
-    // Prepare for loading
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,8 +68,26 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+#if !(TARGET_OS_SIMULATOR)
+    if (ApplicationDelegate.notification) {
+        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
+        
+        ApplicationDelegate.notification = nil;
+        
+        return;
+    }
+#endif
     
     // Load Dashboard details
     [self loadDashboardData];

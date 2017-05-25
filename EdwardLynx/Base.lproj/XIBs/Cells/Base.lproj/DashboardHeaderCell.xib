@@ -6,14 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DashboardHeaderCell" rowHeight="304" id="NOH-pT-0EF" customClass="ELDashboardHeaderTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DashboardHeaderCell" rowHeight="175" id="NOH-pT-0EF" customClass="ELDashboardHeaderTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="508" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NOH-pT-0EF" id="RRa-Lp-oBU">
@@ -21,14 +20,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-P5-FTm">
-                        <rect key="frame" x="10" y="10.5" width="488" height="156"/>
+                        <rect key="frame" x="10" y="10.5" width="488" height="179"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-MY-f6X" customClass="RNThemeView">
-                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
+                                <rect key="frame" x="0.0" y="0.0" width="156" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qk7-MY-f6X" secondAttribute="height" multiplier="1:1" id="6PJ-sC-CMg"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -36,11 +32,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-Hq-WJW" customClass="RNThemeView">
-                                <rect key="frame" x="166" y="0.0" width="156" height="156"/>
+                                <rect key="frame" x="166" y="0.0" width="156" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="m0u-Hq-WJW" secondAttribute="height" multiplier="1:1" id="eVa-Q9-0Tg"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -48,11 +41,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udV-tp-T7A" customClass="RNThemeView">
-                                <rect key="frame" x="332" y="0.0" width="156" height="156"/>
+                                <rect key="frame" x="332" y="0.0" width="156" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="udV-tp-T7A" secondAttribute="height" multiplier="1:1" id="ziL-75-w7Z"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -61,13 +51,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="udV-tp-T7A" firstAttribute="width" secondItem="m0u-Hq-WJW" secondAttribute="width" id="deG-GD-D7X"/>
-                            <constraint firstItem="m0u-Hq-WJW" firstAttribute="width" secondItem="qk7-MY-f6X" secondAttribute="width" id="izU-VR-Jfd"/>
-                        </constraints>
                     </stackView>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-dI-AVq">
-                        <rect key="frame" x="10" y="176.5" width="488" height="40"/>
+                        <rect key="frame" x="10" y="199.5" width="488" height="40"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFP-UJ-PQd" customClass="RNThemeView">
                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="40"/>
