@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportChartCell" id="z9B-u6-fci" customClass="ELReportChartTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z9B-u6-fci" id="vtx-xD-kRK">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-QU-3FF">
+                        <rect key="frame" x="5" y="5" width="333" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyp-aO-ThA">
+                        <rect key="frame" x="5" y="5" width="333" height="179.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wyp-aO-ThA" firstAttribute="top" secondItem="MqK-QU-3FF" secondAttribute="bottom" id="4Tk-h6-utW"/>
+                    <constraint firstItem="MqK-QU-3FF" firstAttribute="top" secondItem="vtx-xD-kRK" secondAttribute="top" constant="5" id="Bbc-EN-ziE"/>
+                    <constraint firstAttribute="bottom" secondItem="wyp-aO-ThA" secondAttribute="bottom" constant="15" id="CP9-ie-Qcb"/>
+                    <constraint firstItem="MqK-QU-3FF" firstAttribute="leading" secondItem="vtx-xD-kRK" secondAttribute="leading" constant="5" id="Dvk-4I-JUu"/>
+                    <constraint firstItem="wyp-aO-ThA" firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" id="hIo-rh-jrA"/>
+                    <constraint firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" constant="5" id="l5i-gN-OIG"/>
+                    <constraint firstItem="wyp-aO-ThA" firstAttribute="leading" secondItem="MqK-QU-3FF" secondAttribute="leading" id="uSz-lM-W5E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="chartContainerView" destination="wyp-aO-ThA" id="unZ-Fx-nmj"/>
+                <outlet property="titleLabel" destination="MqK-QU-3FF" id="fuQ-CV-TGQ"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
