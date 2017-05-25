@@ -51,9 +51,13 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    [cell configure:@"Test" atIndexPath:indexPath];
+    [cell configure:@{@"title": @"", @"type": @(kELReportChartTypeRadar)} atIndexPath:indexPath];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 500;
 }
 
 @end

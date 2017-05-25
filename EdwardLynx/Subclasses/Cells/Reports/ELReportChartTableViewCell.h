@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, kELReportChartType) {
+    kELReportChartTypeBarChart,
+    kELReportChartTypeHorizontalBarChart,
+    kELReportChartTypeRadar,
+    kELReportChartTypePie
+};
+
 @interface ELReportChartTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
+
+@property (nonatomic) kELReportChartType chartType;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *chartContainerView;

@@ -13,6 +13,7 @@
 @interface ELReportChartTableViewCell ()
 
 @property (nonatomic, strong) BarChartView *barChart;
+@property (nonatomic, strong) RadarChartView *radarChart;
 
 @end
 
@@ -21,11 +22,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    self.barChart = [[BarChartView alloc] init];
-    self.barChart.frame = self.chartContainerView.bounds;
-    
-    [self.chartContainerView addSubview:self.barChart];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,35 +31,24 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *mEntries, *mLabels;
-    BarChartData *chartData;
-    BarChartDataSet *chartDataSet;
+    kELReportChartType type;
+    NSDictionary *detailDict = (NSDictionary *)object;
     
-    self.titleLabel.text = (NSString *)object;
+    self.titleLabel.text = detailDict[@"title"];
+    type = [detailDict[@"type"] integerValue];
     
-    mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
-    
-    // NOTE: Dummy data
-    for (int i = 0; i < 5; i++) {
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.5f)]];
+    switch (type) {
+        case kELReportChartTypeBarChart:
+            [self setupPerCategoryChart];
+            
+            break;
+        case kELReportChartTypeRadar:
+            [self setupRadarChart];
+            
+            break;
+        default:
+            break;
     }
-    
-    self.barChart = [self configureBarChart:self.barChart];
-    self.barChart.legend.enabled = NO;
-    self.barChart.xAxis.labelCount = mLabels.count;
-    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
-    
-    chartDataSet = [self chartDataSetWithTitle:@""
-                                         items:[mEntries copy]
-                                      colorKey:kELGreenColor];
-    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    chartData.barWidth = 0.5f;
-    
-    self.barChart.data = chartData;
-    
-    [self.barChart animateWithYAxisDuration:0.5];
 }
 
 #pragma mark - Private Methods
@@ -149,6 +134,106 @@
     barChart.xAxis.wordWrapEnabled = YES;
     
     return barChart;
+}
+
+- (void)setupPerCategoryChart {
+    NSMutableArray *mEntries, *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    // NOTE: Dummy data
+    for (int i = 0; i < 3; i++) {
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
+        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.5f)]];
+    }
+    
+    self.barChart = [self configureBarChart:[[BarChartView alloc] init]];
+    self.barChart.frame = self.chartContainerView.bounds;
+    self.barChart.legend.enabled = NO;
+    self.barChart.xAxis.labelCount = mLabels.count;
+    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELGreenColor];
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.barChart.data = chartData;
+    
+    [self.chartContainerView addSubview:self.barChart];
+    [self.barChart animateWithYAxisDuration:0.5];
+}
+
+- (void)setupRadarChart {
+    double axisMax, axisMin;
+    NSMutableArray *mEntries, *mLabels;
+    RadarChartData *chartData;
+    RadarChartDataSet *chartDataSet, *chartDataSet2;
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    axisMax = 1.1f, axisMin = 0.0f;
+    
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    // NOTE: Dummy data
+    for (int i = 0; i < 3; i++) {
+        [mEntries addObject:[[RadarChartDataEntry alloc] initWithValue:0.5]];
+        [mLabels addObject:@"Test"];
+    }
+    
+    chartDataSet = [[RadarChartDataSet alloc] initWithValues:mEntries];
+    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    chartDataSet.highlightEnabled = NO;
+    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    // NOTE: Dummy data
+    [mEntries removeAllObjects];
+    [mLabels removeAllObjects];
+    
+    for (int i = 0; i < 3; i++) {
+        [mEntries addObject:[[RadarChartDataEntry alloc] initWithValue:0.85]];
+        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.85f)]];
+    }
+    
+    chartDataSet2 = [[RadarChartDataSet alloc] initWithValues:mEntries];
+    chartDataSet2.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
+    chartDataSet2.highlightEnabled = NO;
+    chartDataSet2.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    chartData = [[RadarChartData alloc] initWithDataSet:chartDataSet];
+    
+    self.radarChart = [[RadarChartView alloc] init];
+    self.radarChart.chartDescription.enabled = NO;
+    self.radarChart.data = chartData;
+    self.radarChart.frame = self.chartContainerView.bounds;
+    self.radarChart.innerWebColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    self.radarChart.webColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    
+    self.radarChart.legend.enabled = NO;
+    
+    self.radarChart.xAxis.axisMinimum = axisMin;
+    self.radarChart.xAxis.axisMinimum = axisMax;
+    self.radarChart.xAxis.drawAxisLineEnabled = NO;
+    self.radarChart.xAxis.drawGridLinesEnabled = NO;
+    self.radarChart.xAxis.labelFont = labelFont;
+    self.radarChart.xAxis.labelTextColor = [UIColor whiteColor];
+    self.radarChart.xAxis.xOffset = 0.0;
+    self.radarChart.xAxis.yOffset = 0.0;
+    
+    self.radarChart.yAxis.axisMinimum = axisMin;
+    self.radarChart.yAxis.axisMinimum = axisMax;
+    self.radarChart.yAxis.drawAxisLineEnabled = NO;
+    self.radarChart.yAxis.drawGridLinesEnabled = NO;
+    self.radarChart.yAxis.labelFont = labelFont;
+    self.radarChart.yAxis.labelCount = mLabels.count;
+    
+    [self.chartContainerView addSubview:self.radarChart];
+    [self.radarChart animateWithYAxisDuration:0.5];
 }
 
 @end
