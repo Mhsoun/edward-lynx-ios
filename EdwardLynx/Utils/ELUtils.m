@@ -10,6 +10,7 @@
 #import <Fabric/Fabric.h>
 #import <Firebase/Firebase.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
+#import <HockeySDK/HockeySDK.h>
 #import <PNChart/PNCircleChart.h>
 #import <REValidation/REValidation.h>
 #import <UIView+Toast.h>
@@ -177,6 +178,12 @@
     [Fabric with:@[[Crashlytics class]]];
 }
 
++ (void)setupHockeyApp {
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"3ff19c0df1f644b4ad09312c812c59d1"];
+    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+}
+
 + (void)setupIQKeyboardManager {
     IQKeyboardManager *keyboardManager;
     
@@ -193,7 +200,7 @@
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
     
     animation.keyPath = @"position.x";
-    animation.values =  @[@0, @20, @-20, @10, @0];
+    animation.values =  @[@0, @20, @(-20), @10, @0];
     animation.keyTimes = @[@0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1];
     animation.duration = 0.3;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];

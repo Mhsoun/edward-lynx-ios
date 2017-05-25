@@ -47,6 +47,7 @@
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
 
 + (void)setupFabric;
++ (void)setupHockeyApp;
 + (void)setupIQKeyboardManager;
 
 + (void)animateCell:(__kindof UITableViewCell *)cell;

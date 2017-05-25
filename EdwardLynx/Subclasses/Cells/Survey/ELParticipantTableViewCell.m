@@ -39,6 +39,7 @@
     self.participant = participant;
     self.nameLabel.text = participant.name;
     self.emailLabel.text = participant.email;
+    self.roleLabel.text = [ELUtils labelByUserRole:participant.role];
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {

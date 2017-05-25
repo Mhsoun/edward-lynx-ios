@@ -15,7 +15,7 @@
 
 #pragma mark - Private Constants
 
-static NSInteger const kELCellHeight = 60;
+static NSInteger const kELCellHeight = 90;
 static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Class Extension
@@ -51,9 +51,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = kELCellHeight;
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    self.tableView.delegate = self;    
     
     self.dropdown = [[ELDropdownView alloc] initWithItems:self.mRoles
                                            baseController:self

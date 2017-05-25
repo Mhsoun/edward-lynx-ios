@@ -33,8 +33,9 @@
     // Initialization
     self.notification = nil;
     
-    // Setup Fabric
+    // Setup Libraries
     [ELUtils setupFabric];
+    [ELUtils setupHockeyApp];
     
     // Setup Firebase and Push Notifications
 #if !(TARGET_OS_SIMULATOR)
