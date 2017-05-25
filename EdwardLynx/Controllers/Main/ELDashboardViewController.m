@@ -83,7 +83,11 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     if (ApplicationDelegate.notification) {
         [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.notification];
         
-        ApplicationDelegate.notification = nil;
+        return;
+    }
+    
+    if (ApplicationDelegate.emailInfoDict) {
+        [ApplicationDelegate displayViewControllerByData:ApplicationDelegate.emailInfoDict];
         
         return;
     }

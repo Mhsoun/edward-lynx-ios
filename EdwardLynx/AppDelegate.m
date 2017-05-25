@@ -66,6 +66,11 @@
                                                                  error:nil];
     }
     
+    // Check if app is launched due to user opening a deep linked email
+    if (launchOptions[UIApplicationLaunchOptionsURLKey]) {
+        [self parseURLString:[(NSURL *)launchOptions[UIApplicationLaunchOptionsURLKey] absoluteString]];
+    }
+    
     return YES;
 }
 
@@ -121,13 +126,51 @@
 #pragma mark - Deep Linking
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    [self parseWebpageURL:url.absoluteString];
+    if (app.applicationState == UIApplicationStateActive ||
+        app.applicationState == UIApplicationStateBackground ||
+        app.applicationState == UIApplicationStateInactive) {
+        if (self.emailInfoDict) {
+            return YES;
+        }
+        
+        [self parseURLString:url.absoluteString];
+        
+        switch (app.applicationState) {
+            case UIApplicationStateActive:
+            case UIApplicationStateInactive:
+                [self displayViewControllerByData:self.emailInfoDict];
+                
+                break;
+            default:
+                break;
+        }
+    }
     
     return YES;
 }
 
+#pragma mark - Universal Linking
+
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
-    [self parseWebpageURL:userActivity.webpageURL.absoluteString];
+    if (application.applicationState == UIApplicationStateActive ||
+        application.applicationState == UIApplicationStateBackground ||
+        application.applicationState == UIApplicationStateInactive) {
+        if (self.emailInfoDict) {
+            return YES;
+        }
+        
+        [self parseURLString:userActivity.webpageURL.absoluteString];
+        
+        switch (application.applicationState) {
+            case UIApplicationStateActive:
+            case UIApplicationStateInactive:
+                [self displayViewControllerByData:self.emailInfoDict];
+                
+                break;
+            default:
+                break;
+        }
+    }
     
     return YES;
 }
@@ -343,11 +386,15 @@
     if ([object isKindOfClass:[ELNotification class]]) {
         objectId = [(ELNotification *)object objectId];
         type = [(ELNotification *)object type];
+        
+        self.notification = nil;
     } else {
         NSDictionary *objectDict = (NSDictionary *)object;
         
         objectId = [objectDict[@"id"] integerValue];
         type = objectDict[@"type"];
+        
+        self.emailInfoDict = nil;
     }
     
     if ([type isEqualToString:kELNotificationTypeDevPlan]) {
@@ -366,7 +413,7 @@
     [self.notificationRootNavController pushViewController:controller animated:YES];
 }
 
-- (void)parseWebpageURL:(NSString *)urlString {
+- (void)parseURLString:(NSString *)urlString {
     NSInteger objectId;
     NSArray *urlParts;
     
@@ -374,7 +421,7 @@
         urlParts = [urlString componentsSeparatedByString:@"//"];
         objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
         
-        [self displayViewControllerByData:@{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest}];
+        self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest};
     } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
         __weak typeof(self) weakSelf = self;
         
@@ -399,8 +446,8 @@
             }
             
             objectId = [responseDict[@"surveyId"] intValue];
-            
-            [weakSelf displayViewControllerByData:@{@"id": @(objectId), @"type": kELNotificationTypeSurvey}];
+                                              
+            self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
         }];
     }
 }
