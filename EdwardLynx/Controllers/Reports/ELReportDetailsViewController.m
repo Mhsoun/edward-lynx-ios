@@ -31,6 +31,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
 @property (nonatomic, strong) ELSurvey *survey;
+@property (nonatomic, strong) BarChartView *categoryBarChart;
 @property (nonatomic, strong) HorizontalBarChartView *averageBarChart, *indexBarChart;
 
 @end
@@ -55,6 +56,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     self.toDisplayData = YES;
     self.averageBarChart = [[HorizontalBarChartView alloc] init];
     self.indexBarChart = [[HorizontalBarChartView alloc] init];
+    self.categoryBarChart = [[BarChartView alloc] init];
     self.averageBarChart.noDataText = @"";
     self.indexBarChart.noDataText = @"";
     
@@ -264,10 +266,94 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
 }
 
-- (HorizontalBarChartView *)configureBarChart:(HorizontalBarChartView *)barChart {
+- (BarChartView *)configureBarChart:(BarChartView *)barChart {
+    double axisMax, axisMin;
+    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+
+    axisMax = 1.1f, axisMin = 0.0f;
+    
+    barChart.chartDescription.enabled = NO;
+    barChart.doubleTapToZoomEnabled = NO;
+    barChart.drawBarShadowEnabled = NO;
+    barChart.drawBordersEnabled = NO;
+    barChart.drawGridBackgroundEnabled = NO;
+    barChart.highlightPerDragEnabled = NO;
+    barChart.highlightPerTapEnabled = NO;
+    barChart.maxVisibleCount = 10;
+    barChart.pinchZoomEnabled = NO;
+
+    barChart.leftAxis.axisMaximum = 1.1f;
+    barChart.leftAxis.axisMinimum = 0.0f;
+    barChart.leftAxis.drawAxisLineEnabled = NO;
+    barChart.leftAxis.drawGridLinesEnabled = NO;
+    barChart.leftAxis.drawLabelsEnabled = YES;
+    barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
+    barChart.leftAxis.labelCount = 5;
+    barChart.leftAxis.labelFont = labelFont;
+    barChart.leftAxis.labelTextColor = [UIColor whiteColor];
+    barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        switch (percentage) {
+            case 0:
+            case 25:
+            case 50:
+            case 75:
+            case 100:
+                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+            default:
+                return @"";
+        }
+    }];
+
+    for (NSNumber *value in @[@(0), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
+        ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0;
+        
+        [barChart.leftAxis addLimitLine:limitLine];
+    }
+//
+//    barChart.legend.enabled = YES;
+//    barChart.legend.font = labelFont;
+//    barChart.legend.position = ChartLegendPositionBelowChartLeft;
+//    barChart.legend.textColor = [UIColor whiteColor];
+//    barChart.legend.yEntrySpace = 0.0f;
+    
+    barChart.noDataFont = dataFont;
+    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
+    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+
+    barChart.rightAxis.axisMaximum = 1.1f;
+    barChart.rightAxis.axisMinimum = 0.0f;
+    barChart.rightAxis.drawAxisLineEnabled = NO;
+    barChart.rightAxis.drawGridLinesEnabled = NO;
+    barChart.rightAxis.drawLabelsEnabled = NO;
+
+    barChart.xAxis.centerAxisLabelsEnabled = NO;
+    barChart.xAxis.drawGridLinesEnabled = NO;
+    barChart.xAxis.granularity = 1;
+    barChart.xAxis.granularityEnabled = YES;
+    barChart.xAxis.labelFont = labelFont;
+    barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
+    barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    barChart.xAxis.labelWidth = 100;
+    barChart.xAxis.wordWrapEnabled = YES;
+    
+    return barChart;
+}
+
+- (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
+    double axisMax, axisMin;
     ChartLimitLine *limitLine70, *limitLine100;
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    axisMax = 1.1f, axisMin = 0.0f;
     
     barChart.chartDescription.enabled = NO;
     barChart.doubleTapToZoomEnabled = NO;
@@ -279,8 +365,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
-    barChart.leftAxis.axisMaximum = 1.1f;
-    barChart.leftAxis.axisMinimum = 0.0f;
+    barChart.leftAxis.axisMaximum = axisMax;
+    barChart.leftAxis.axisMinimum = axisMin;
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
@@ -310,8 +396,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
-    barChart.rightAxis.axisMaximum = 1.1f;
-    barChart.rightAxis.axisMinimum = 0.0f;
+    barChart.rightAxis.axisMaximum = axisMax;
+    barChart.rightAxis.axisMinimum = axisMin;
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = YES;
@@ -351,7 +437,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     NSDictionary *infoDict = [self chartInfoFromData:self.instantFeedback ? answers : answers[0] grouping:NO];
     NSArray *labels = infoDict[@"labels"];
     
-    barChart = [self configureBarChart:barChart];
+    barChart = [self configureHorizontalBarChart:barChart];
     barChart.legend.enabled = NO;
     barChart.xAxis.labelCount = labels.count;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
@@ -361,6 +447,42 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         chartDataSet = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
                                              items:infoDict[@"entries"]
+                                          colorKey:self.typeColorKey];
+        chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+        chartData.barWidth = 0.5f;
+        
+        barChart.data = chartData;
+        
+        [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
+    }
+    
+    [barChart animateWithYAxisDuration:kELAnimateInterval];
+}
+
+- (void)setupCategoryBarChart:(BarChartView *)barChart answers:(NSArray *)answers {
+    NSMutableArray *mEntries, *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    // Dummy data
+    for (int i = 0; i < 5; i++) {
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
+        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.5f)]];
+    }
+    
+    barChart = [self configureBarChart:barChart];
+    barChart.legend.enabled = NO;
+    barChart.xAxis.labelCount = mLabels.count;
+    barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    if (self.toDisplayData) {
+        double barSpace = 0.0f, groupSpace = 0.15f;
+        
+        chartDataSet = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
+                                             items:[mEntries copy]
                                           colorKey:self.typeColorKey];
         chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
         chartData.barWidth = 0.5f;
@@ -396,7 +518,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
     chartData.barWidth = 0.4f;
     
-    barChart = [self configureBarChart:barChart];
+    barChart = [self configureHorizontalBarChart:barChart];
     
     if (self.toDisplayData) {
         barChart.data = chartData;
