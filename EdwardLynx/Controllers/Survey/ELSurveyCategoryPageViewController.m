@@ -193,6 +193,7 @@
     switch (self.responseType) {
         case kELSurveyResponseTypeDetails:
             self.responseType = kELSurveyResponseTypeQuestions;
+            
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
             self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
             self.surveyViewManager.delegate = self;

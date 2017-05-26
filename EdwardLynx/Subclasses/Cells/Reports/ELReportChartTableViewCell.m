@@ -60,7 +60,7 @@
             self.radarChart.frame = self.chartContainerView.bounds;
             
             [self.chartContainerView addSubview:self.radarChart];
-            [self setupRadarChart];
+            [self setupRadarChartWithData:detailDict[@"data"]];
             
             break;
         case kELReportChartTypeHorizontalBar:
@@ -294,44 +294,42 @@
     [self.horizontalBarChart animateWithYAxisDuration:0.5];
 }
 
-- (void)setupRadarChart {
+- (void)setupRadarChartWithData:(NSArray *)items {
     double axisMax, axisMin;
-    NSMutableArray *mEntries, *mLabels;
+    NSMutableArray *mDataSets, *mEntries, *mEntries2, *mLabels;
     RadarChartData *chartData;
-    RadarChartDataSet *chartDataSet, *chartDataSet2;
+    RadarChartDataSet *chartDataSet;
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
     axisMax = 1.1f, axisMin = 0.0f;
     
+    mDataSets = [[NSMutableArray alloc] init];
     mEntries = [[NSMutableArray alloc] init];
+    mEntries2 = [[NSMutableArray alloc] init];
     mLabels = [[NSMutableArray alloc] init];
     
-    // NOTE: Dummy data
-    for (int i = 0; i < 3; i++) {
-        [mEntries addObject:[[RadarChartDataEntry alloc] initWithValue:0.5]];
-        [mLabels addObject:@"Test"];
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < items.count; j++) {
+            NSDictionary *itemDict = items[j];
+            NSDictionary *role = [itemDict[@"roles"] objectAtIndex:i];
+            RadarChartDataEntry *entry = [[RadarChartDataEntry alloc] initWithValue:[role[@"average"] doubleValue]];
+            
+            if (i == 0) {
+                [mEntries addObject:entry];
+            } else {
+                [mEntries2 addObject:entry];
+            }
+        }
+        
+        chartDataSet = [[RadarChartDataSet alloc] initWithValues:i == 0 ? mEntries : mEntries2];
+        chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:i == 0 ? kELOrangeColor : kELGreenColor]];
+        chartDataSet.highlightEnabled = NO;
+        chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+        
+        [mDataSets addObject:chartDataSet];
     }
     
-    chartDataSet = [[RadarChartDataSet alloc] initWithValues:mEntries];
-    chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
-    chartDataSet.highlightEnabled = NO;
-    chartDataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
-    
-    // NOTE: Dummy data
-    [mEntries removeAllObjects];
-    [mLabels removeAllObjects];
-    
-    for (int i = 0; i < 3; i++) {
-        [mEntries addObject:[[RadarChartDataEntry alloc] initWithValue:0.85]];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.85f)]];
-    }
-    
-    chartDataSet2 = [[RadarChartDataSet alloc] initWithValues:mEntries];
-    chartDataSet2.colors = @[[[RNThemeManager sharedManager] colorForKey:kELGreenColor]];
-    chartDataSet2.highlightEnabled = NO;
-    chartDataSet2.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
-    
-    chartData = [[RadarChartData alloc] initWithDataSet:chartDataSet];
+    chartData = [[RadarChartData alloc] initWithDataSets:[mDataSets copy]];
     
     self.radarChart.chartDescription.enabled = NO;
     self.radarChart.data = chartData;

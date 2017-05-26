@@ -31,14 +31,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyp-aO-ThA">
-                        <rect key="frame" x="5" y="5" width="333" height="179.5"/>
+                        <rect key="frame" x="5" y="5" width="333" height="189.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wyp-aO-ThA" firstAttribute="top" secondItem="MqK-QU-3FF" secondAttribute="bottom" id="4Tk-h6-utW"/>
                     <constraint firstItem="MqK-QU-3FF" firstAttribute="top" secondItem="vtx-xD-kRK" secondAttribute="top" constant="5" id="Bbc-EN-ziE"/>
-                    <constraint firstAttribute="bottom" secondItem="wyp-aO-ThA" secondAttribute="bottom" constant="15" id="CP9-ie-Qcb"/>
+                    <constraint firstAttribute="bottom" secondItem="wyp-aO-ThA" secondAttribute="bottom" constant="5" id="CP9-ie-Qcb"/>
                     <constraint firstItem="MqK-QU-3FF" firstAttribute="leading" secondItem="vtx-xD-kRK" secondAttribute="leading" constant="5" id="Dvk-4I-JUu"/>
                     <constraint firstItem="wyp-aO-ThA" firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" id="hIo-rh-jrA"/>
                     <constraint firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" constant="5" id="l5i-gN-OIG"/>
