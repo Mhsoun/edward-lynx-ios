@@ -181,6 +181,10 @@
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     [self.indicatorView stopAnimating];
+    
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {

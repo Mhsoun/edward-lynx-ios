@@ -104,6 +104,7 @@
 "kELFeedbackAnonymousLabel" = "Anonymous Feedback";
 
 "kELFeedbackAnswerError" = "Failed answering Instant Feedback";
+"kELFeedbackAnswerRequired" = "Please fill up all required questions";
 "kELFeedbackAnswerSuccess" = "Successfully answered Instant Feedback";
 
 "kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";

@@ -131,15 +131,23 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSubmitButtonClick:(id)sender {
-    NSDictionary *formDict = @{@"key": self.instantFeedback.key,
-                               @"answers": @[[[ELUtils questionViewFromSuperview:self.questionTypeView] formValues]]};
+    NSDictionary *formDict = [[ELUtils questionViewFromSuperview:self.questionTypeView] formValues];
+    
+    if (!formDict) {
+        [ELUtils presentToastAtView:self.view
+                            message:NSLocalizedString(@"kELFeedbackAnswerRequired", nil)
+                         completion:nil];
+        
+        return;
+    }
     
     // Loading alert
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
                      completion:nil];
     [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
-                                                                  formData:formDict];
+                                                                  formData:@{@"key": self.instantFeedback.key,
+                                                                             @"answers": @[formDict]}];
 }
 
 @end
