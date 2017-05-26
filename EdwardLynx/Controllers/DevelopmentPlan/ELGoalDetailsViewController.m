@@ -285,15 +285,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid, hasSelection;
     NSString *dateString;
-    NSMutableDictionary *mFormItems;
+    NSMutableDictionary *mFormItems, *mGoalDict;
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    hasSelection = YES;
+    hasSelection = NO;
     
     [self.mActions removeObject:@""];
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     if (self.mActions.count == 0) {
         [ELUtils presentToastAtView:self.view
@@ -303,14 +304,22 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         return;
     }
     
-    dateString = [AppSingleton.apiDateFormatter stringFromDate:self.datePicker.date];
     mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": nameGroup}];
+    mGoalDict = [[NSMutableDictionary alloc] initWithDictionary:@{@"title": self.nameTextField.text,
+                                                                  @"description": self.descriptionTextView.text,
+                                                                  @"checked": @NO,
+                                                                  @"position": @0,
+                                                                  @"reminderSent": @NO,
+                                                                  @"actions": [mActions copy]}];
     
     if (self.remindSwitch.isOn) {
+        dateString = [AppSingleton.apiDateFormatter stringFromDate:self.datePicker.date];
+        
         [mFormItems setObject:[[ELFormItemGroup alloc] initWithText:dateString
                                                                icon:nil
                                                          errorLabel:self.dateErrorLabel]
                        forKey:@"date"];
+        [mGoalDict setObject:dateString forKey:@"dueDate"];
     }
     
     if (self.categorySwitch.isOn) {
@@ -319,8 +328,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
     
-    [[IQKeyboardManager sharedManager] resignFirstResponder];
-    
     if (!(isValid && hasSelection)) {
         return;
     }
@@ -328,14 +335,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
     self.hasCreatedGoal = YES;
-    self.goal = [[ELGoal alloc] initWithDictionary:@{@"title": self.nameTextField.text,
-                                                     @"description": self.descriptionTextView.text,
-                                                     @"checked": @NO,
-                                                     @"position": @0,
-                                                     @"dueDate": dateString,
-                                                     @"reminderSent": @NO,
-                                                     @"actions": [mActions copy]}
-                                             error:nil];
+    
+    self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
     self.goal.category = self.selectedCategory;
     self.goal.categoryChecked = self.categorySwitch.on;
     self.goal.dueDateChecked = self.remindSwitch.on;
