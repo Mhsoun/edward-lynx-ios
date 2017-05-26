@@ -26,6 +26,7 @@
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define NotificationCenter [NSNotificationCenter defaultCenter]
 #define SharedApplication [UIApplication sharedApplication]
+#define ThemeColor(key) [[RNThemeManager sharedManager] colorForKey:key]
 
 #define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0];
 #define IDIOM UI_USER_INTERFACE_IDIOM()

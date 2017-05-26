@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) BarChartView *barChart;
 @property (nonatomic, strong) HorizontalBarChartView *horizontalBarChart;
+@property (nonatomic, strong) PieChartView *pieChart;
 @property (nonatomic, strong) RadarChartView *radarChart;
 
 @end
@@ -75,6 +76,16 @@
             [self setupPerQuestionChartWithData:detailDict[@"data"]];
             
             break;
+        case kELReportChartTypePie:
+            if ([self hasClassViewAsSubview:[PieChartView class]]) {
+                return;
+            }
+            
+            self.pieChart = [[PieChartView alloc] init];
+            self.pieChart.frame = self.chartContainerView.bounds;
+            
+            [self.chartContainerView addSubview:self.pieChart];
+            [self setupPieChartWithData:detailDict[@"data"]];
         default:
             break;
     }
@@ -294,6 +305,53 @@
     [self.horizontalBarChart animateWithYAxisDuration:0.5];
 }
 
+- (void)setupPieChartWithData:(NSDictionary *)data {
+    double yesValue, noValue;
+    PieChartDataEntry *entry;
+    PieChartDataSet *chartDataSet;
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    NSMutableArray *mEntries = [[NSMutableArray alloc] init];
+    
+    yesValue = [data[@"yesPercentage"] doubleValue];
+    noValue = [data[@"noPercentage"] doubleValue];
+    
+    entry = [[PieChartDataEntry alloc] initWithValue:noValue label:@"No"];
+    
+    [mEntries addObject:entry];
+
+    entry = [[PieChartDataEntry alloc] initWithValue:yesValue label:@"Yes"];
+    
+    [mEntries addObject:entry];
+    
+    chartDataSet = [[PieChartDataSet alloc] initWithValues:[mEntries copy] label:@""];
+    chartDataSet.colors = @[ThemeColor(kELGreenColor), ThemeColor(kELOrangeColor)];
+    
+    self.pieChart.chartDescription.enabled = NO;
+    self.pieChart.drawCenterTextEnabled = NO;
+    self.pieChart.drawEntryLabelsEnabled = NO;
+    self.pieChart.drawHoleEnabled = NO;
+    
+    self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        NSDictionary *attributes = @{NSFontAttributeName: labelFont,
+                                     NSForegroundColorAttributeName: ThemeColor(kELBlueColor)};
+        
+        // TODO Attributes not working
+        
+        return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%%", @(value)]
+                                                attributes:attributes] string];
+    }];
+    
+    self.pieChart.legend.font = labelFont;
+    self.pieChart.legend.textColor = [UIColor whiteColor];
+    self.pieChart.legend.position = ChartLegendPositionRightOfChartCenter;
+    
+    // TODO Font of actual value
+    
+    self.pieChart.data = [[PieChartData alloc] initWithDataSet:chartDataSet];
+    
+    [self.pieChart animateWithYAxisDuration:0.5];
+}
+
 - (void)setupRadarChartWithData:(NSArray *)items {
     double axisMax, axisMin;
     NSMutableArray *mDataSets, *mEntries, *mEntries2, *mLabels;
@@ -333,8 +391,9 @@
     
     self.radarChart.chartDescription.enabled = NO;
     self.radarChart.data = chartData;
-    self.radarChart.innerWebColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    self.radarChart.webColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    self.radarChart.innerWebColor = ThemeColor(kELTextFieldBGColor);
+    self.radarChart.rotationEnabled = NO;
+    self.radarChart.webColor = ThemeColor(kELTextFieldBGColor);
     
     self.radarChart.legend.enabled = NO;
     
