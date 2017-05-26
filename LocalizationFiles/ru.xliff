@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="EdwardLynx/Base.lproj/Authentication.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="0zg-eg-vpS.placeholder">
+        <source>Username/Email</source>
+        <target>Username/Email</target>
+        <note>Class = "UITextField"; placeholder = "Username/Email"; ObjectID = "0zg-eg-vpS";</note>
+      </trans-unit>
+      <trans-unit id="1hR-H6-4Zt.placeholder">
+        <source>Password</source>
+        <target>Password</target>
+        <note>Class = "UITextField"; placeholder = "Password"; ObjectID = "1hR-H6-4Zt";</note>
+      </trans-unit>
+      <trans-unit id="95j-rQ-DgJ.normalTitle">
+        <source>Forgot Password?</source>
+        <target>Forgot Password?</target>
+        <note>Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "95j-rQ-DgJ";</note>
+      </trans-unit>
+      <trans-unit id="Rls-Cu-J3h.disabledTitle">
+        <source>PROCESSING...</source>
+        <target>PROCESSING...</target>
+        <note>Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "Rls-Cu-J3h";</note>
+      </trans-unit>
+      <trans-unit id="Rls-Cu-J3h.normalTitle">
+        <source>RECOVER</source>
+        <target>RECOVER</target>
+        <note>Class = "UIButton"; normalTitle = "RECOVER"; ObjectID = "Rls-Cu-J3h";</note>
+      </trans-unit>
+      <trans-unit id="T2j-yn-dSI.disabledTitle">
+        <source>PROCESSING...</source>
+        <target>PROCESSING...</target>
+        <note>Class = "UIButton"; disabledTitle = "PROCESSING..."; ObjectID = "T2j-yn-dSI";</note>
+      </trans-unit>
+      <trans-unit id="T2j-yn-dSI.normalTitle">
+        <source>LOGIN</source>
+        <target>LOGIN</target>
+        <note>Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "T2j-yn-dSI";</note>
+      </trans-unit>
+      <trans-unit id="UoZ-DP-lmZ.normalTitle">
+        <source>Login Now</source>
+        <target>Login Now</target>
+        <note>Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "UoZ-DP-lmZ";</note>
+      </trans-unit>
+      <trans-unit id="iY9-zi-6oy.text">
+        <source>RECOVER PASSWORD</source>
+        <target>RECOVER PASSWORD</target>
+        <note>Class = "UILabel"; text = "RECOVER PASSWORD"; ObjectID = "iY9-zi-6oy";</note>
+      </trans-unit>
+      <trans-unit id="jZj-dI-Wdm.normalTitle">
+        <source>Contact Us</source>
+        <target>Contact Us</target>
+        <note>Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm";</note>
+      </trans-unit>
+      <trans-unit id="vhw-1P-ZZy.placeholder">
+        <source>Username</source>
+        <target>Username</target>
+        <note>Class = "UITextField"; placeholder = "Username"; ObjectID = "vhw-1P-ZZy";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/CreateDevelopmentPlan.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="0mI-Vz-p3Z.normalTitle">
+        <source>Save</source>
+        <target>Save</target>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "0mI-Vz-p3Z";</note>
+      </trans-unit>
+      <trans-unit id="1sF-5k-Txc.text">
+        <source>Enter Description</source>
+        <target>Enter Description</target>
+        <note>Class = "UILabel"; text = "Enter Description"; ObjectID = "1sF-5k-Txc";</note>
+      </trans-unit>
+      <trans-unit id="6j0-UM-6if.text">
+        <source>Enter Goal Name</source>
+        <target>Enter Goal Name</target>
+        <note>Class = "UILabel"; text = "Enter Goal Name"; ObjectID = "6j0-UM-6if";</note>
+      </trans-unit>
+      <trans-unit id="9wj-up-hY1.normalTitle">
+        <source>Create</source>
+        <target>Create</target>
+        <note>Class = "UIButton"; normalTitle = "Create"; ObjectID = "9wj-up-hY1";</note>
+      </trans-unit>
+      <trans-unit id="76e-JE-FPl.text">
+        <source>Enter Development Plan Name</source>
+        <target>Enter Development Plan Name</target>
+        <note>Class = "UILabel"; text = "Enter Development Plan Name"; ObjectID = "76e-JE-FPl";</note>
+      </trans-unit>
+      <trans-unit id="Ei9-aC-MO4.text">
+        <source>Link to a category</source>
+        <target>Link to a category</target>
+        <note>Class = "UILabel"; text = "Link to a category"; ObjectID = "Ei9-aC-MO4";</note>
+      </trans-unit>
+      <trans-unit id="O5J-gr-nQK.title">
+        <source>GOAL DETAILS</source>
+        <target>GOAL DETAILS</target>
+        <note>Class = "UINavigationItem"; title = "GOAL DETAILS"; ObjectID = "O5J-gr-nQK";</note>
+      </trans-unit>
+      <trans-unit id="Vv2-Q3-oR2.title">
+        <source>CREATE DEVELOPMENT PLAN</source>
+        <target>CREATE DEVELOPMENT PLAN</target>
+        <note>Class = "UINavigationItem"; title = "CREATE DEVELOPMENT PLAN"; ObjectID = "Vv2-Q3-oR2";</note>
+      </trans-unit>
+      <trans-unit id="aRW-0g-O3z.text">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "aRW-0g-O3z";</note>
+      </trans-unit>
+      <trans-unit id="ec1-sT-EDz.text">
+        <source>Actions</source>
+        <target>Actions</target>
+        <note>Class = "UILabel"; text = "Actions"; ObjectID = "ec1-sT-EDz";</note>
+      </trans-unit>
+      <trans-unit id="k8P-kX-1PH.text">
+        <source>Due Date</source>
+        <target>Due Date</target>
+        <note>Class = "UILabel"; text = "Due Date"; ObjectID = "k8P-kX-1PH";</note>
+      </trans-unit>
+      <trans-unit id="y2D-su-Kaj.text">
+        <source>Goals</source>
+        <target>Goals</target>
+        <note>Class = "UILabel"; text = "Goals"; ObjectID = "y2D-su-Kaj";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/CreateInstantFeedback.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="BvV-Tr-b41.text">
+        <source>Answer Type</source>
+        <target>Answer Type</target>
+        <note>Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41";</note>
+      </trans-unit>
+      <trans-unit id="LqK-pq-nP3.text">
+        <source>Question</source>
+        <target>Question</target>
+        <note>Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3";</note>
+      </trans-unit>
+      <trans-unit id="Tex-aE-SUX.text">
+        <source>Question Type Preview</source>
+        <target>Question Type Preview</target>
+        <note>Class = "UILabel"; text = "Question Type Preview"; ObjectID = "Tex-aE-SUX";</note>
+      </trans-unit>
+      <trans-unit id="WO5-DV-VLL.text">
+        <source>Is Anonymous</source>
+        <target>Is Anonymous</target>
+        <note>Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL";</note>
+      </trans-unit>
+      <trans-unit id="ZYd-Wg-Okj.title">
+        <source>CREATE INSTANT FEEDBACK</source>
+        <target>CREATE INSTANT FEEDBACK</target>
+        <note>Class = "UINavigationItem"; title = "CREATE INSTANT FEEDBACK"; ObjectID = "ZYd-Wg-Okj";</note>
+      </trans-unit>
+      <trans-unit id="eM8-uf-ggi.text">
+        <source>Options</source>
+        <target>Options</target>
+        <note>Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi";</note>
+      </trans-unit>
+      <trans-unit id="tgA-52-d0c.text">
+        <source>Add a N/A option</source>
+        <target>Add a N/A option</target>
+        <note>Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c";</note>
+      </trans-unit>
+      <trans-unit id="vhu-w3-2iZ.normalTitle">
+        <source>Invite</source>
+        <target>Invite</target>
+        <note>Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Dashboard.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="Ta0-tH-txy.title">
+        <source>DASHBOARD</source>
+        <target>DASHBOARD</target>
+        <note>Class = "UINavigationItem"; title = "DASHBOARD"; ObjectID = "Ta0-tH-txy";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/DevelopmentPlan.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="AZJ-jF-NaL.title">
+        <source>DEVELOPMENT PLANS</source>
+        <target>DEVELOPMENT PLANS</target>
+        <note>Class = "UINavigationItem"; title = "DEVELOPMENT PLANS"; ObjectID = "AZJ-jF-NaL";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/InstantFeedback.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="2ww-PD-LlL.title">
+        <source>INSTANT FEEDBACK</source>
+        <target>INSTANT FEEDBACK</target>
+        <note>Class = "UINavigationItem"; title = "INSTANT FEEDBACK"; ObjectID = "2ww-PD-LlL";</note>
+      </trans-unit>
+      <trans-unit id="9V0-Dg-MzZ.disabledTitle">
+        <source>Processing...</source>
+        <target>Processing...</target>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "9V0-Dg-MzZ";</note>
+      </trans-unit>
+      <trans-unit id="9V0-Dg-MzZ.normalTitle">
+        <source>Submit</source>
+        <target>Submit</target>
+        <note>Class = "UIButton"; normalTitle = "Submit"; ObjectID = "9V0-Dg-MzZ";</note>
+      </trans-unit>
+      <trans-unit id="abA-ak-a58.title">
+        <source>INSTANT FEEDBACK REQUESTS</source>
+        <target>INSTANT FEEDBACK REQUESTS</target>
+        <note>Class = "UINavigationItem"; title = "INSTANT FEEDBACK REQUESTS"; ObjectID = "abA-ak-a58";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Invite.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="DgO-U8-40k.normalTitle">
+        <source>Select all</source>
+        <target>Select all</target>
+        <note>Class = "UIButton"; normalTitle = "Select all"; ObjectID = "DgO-U8-40k";</note>
+      </trans-unit>
+      <trans-unit id="IPk-wm-Q6F.placeholder">
+        <source>Search</source>
+        <target>Search</target>
+        <note>Class = "UISearchBar"; placeholder = "Search"; ObjectID = "IPk-wm-Q6F";</note>
+      </trans-unit>
+      <trans-unit id="VRi-ls-lhD.text">
+        <source>People selected: 0</source>
+        <target>People selected: 0</target>
+        <note>Class = "UILabel"; text = "People selected: 0"; ObjectID = "VRi-ls-lhD";</note>
+      </trans-unit>
+      <trans-unit id="b9s-4t-stq.normalTitle">
+        <source>Invite people by email address</source>
+        <target>Invite people by email address</target>
+        <note>Class = "UIButton"; normalTitle = "Invite people by email address"; ObjectID = "b9s-4t-stq";</note>
+      </trans-unit>
+      <trans-unit id="vah-jb-Lki.disabledTitle">
+        <source>Processing...</source>
+        <target>Processing...</target>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "vah-jb-Lki";</note>
+      </trans-unit>
+      <trans-unit id="vah-jb-Lki.normalTitle">
+        <source>Send Invites</source>
+        <target>Send Invites</target>
+        <note>Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "vah-jb-Lki";</note>
+      </trans-unit>
+      <trans-unit id="zar-hO-SbN.title">
+        <source>INVITE PEOPLE</source>
+        <target>INVITE PEOPLE</target>
+        <note>Class = "UINavigationItem"; title = "INVITE PEOPLE"; ObjectID = "zar-hO-SbN";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body/>
+  </file>
+  <file original="EdwardLynx/Base.lproj/LeftMenu.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="pdE-jQ-kVu.text">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "pdE-jQ-kVu";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/List.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body/>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Profile.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="0O3-sy-krY.text">
+        <source>About</source>
+        <target>About</target>
+        <note>Class = "UILabel"; text = "About"; ObjectID = "0O3-sy-krY";</note>
+      </trans-unit>
+      <trans-unit id="3VS-oh-Dyo.text">
+        <source>Role</source>
+        <target>Role</target>
+        <note>Class = "UILabel"; text = "Role"; ObjectID = "3VS-oh-Dyo";</note>
+      </trans-unit>
+      <trans-unit id="AC2-cE-mwR.normalTitle">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "AC2-cE-mwR";</note>
+      </trans-unit>
+      <trans-unit id="B6X-dK-AVR.text">
+        <source>City</source>
+        <target>City</target>
+        <note>Class = "UILabel"; text = "City"; ObjectID = "B6X-dK-AVR";</note>
+      </trans-unit>
+      <trans-unit id="IYD-Fd-0fI.text">
+        <source>Department</source>
+        <target>Department</target>
+        <note>Class = "UILabel"; text = "Department"; ObjectID = "IYD-Fd-0fI";</note>
+      </trans-unit>
+      <trans-unit id="KIE-Hp-b3o.text">
+        <source>Country</source>
+        <target>Country</target>
+        <note>Class = "UILabel"; text = "Country"; ObjectID = "KIE-Hp-b3o";</note>
+      </trans-unit>
+      <trans-unit id="KUQ-vm-yU0.title">
+        <source>PROFILE</source>
+        <target>PROFILE</target>
+        <note>Class = "UINavigationItem"; title = "PROFILE"; ObjectID = "KUQ-vm-yU0";</note>
+      </trans-unit>
+      <trans-unit id="aHy-DJ-e6N.text">
+        <source>Gender</source>
+        <target>Gender</target>
+        <note>Class = "UILabel"; text = "Gender"; ObjectID = "aHy-DJ-e6N";</note>
+      </trans-unit>
+      <trans-unit id="dxl-P5-CHQ.text">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "UILabel"; text = "Name"; ObjectID = "dxl-P5-CHQ";</note>
+      </trans-unit>
+      <trans-unit id="pfG-4u-dUc.normalTitle">
+        <source>Edit</source>
+        <target>Edit</target>
+        <note>Class = "UIButton"; normalTitle = "Edit"; ObjectID = "pfG-4u-dUc";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Report.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="ClC-9Z-6a5.text">
+        <source>Index over competencies</source>
+        <target>Index over competencies</target>
+        <note>Class = "UILabel"; text = "Index over competencies"; ObjectID = "ClC-9Z-6a5";</note>
+      </trans-unit>
+      <trans-unit id="L61-gO-7n1.text">
+        <source>Shows the average for all categories.</source>
+        <target>Shows the average for all categories.</target>
+        <note>Class = "UILabel"; text = "Shows the average for all categories."; ObjectID = "L61-gO-7n1";</note>
+      </trans-unit>
+      <trans-unit id="VzL-Fa-l1a.text">
+        <source>Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar.</source>
+        <target>Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar.</target>
+        <note>Class = "UILabel"; text = "Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar."; ObjectID = "VzL-Fa-l1a";</note>
+      </trans-unit>
+      <trans-unit id="beJ-dZ-msV.text">
+        <source>Average values</source>
+        <target>Average values</target>
+        <note>Class = "UILabel"; text = "Average values"; ObjectID = "beJ-dZ-msV";</note>
+      </trans-unit>
+      <trans-unit id="ecC-sn-zjy.title">
+        <source>REPORTS</source>
+        <target>REPORTS</target>
+        <note>Class = "UINavigationItem"; title = "REPORTS"; ObjectID = "ecC-sn-zjy";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Settings.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="BjN-OE-GdF.disabledTitle">
+        <source>Processing...</source>
+        <target>Processing...</target>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "BjN-OE-GdF";</note>
+      </trans-unit>
+      <trans-unit id="BjN-OE-GdF.normalTitle">
+        <source>Save</source>
+        <target>Save</target>
+        <note>Class = "UIButton"; normalTitle = "Save"; ObjectID = "BjN-OE-GdF";</note>
+      </trans-unit>
+      <trans-unit id="UV4-Hn-sih.text">
+        <source>Current Password</source>
+        <target>Current Password</target>
+        <note>Class = "UILabel"; text = "Current Password"; ObjectID = "UV4-Hn-sih";</note>
+      </trans-unit>
+      <trans-unit id="nWU-44-xh5.title">
+        <source>CHANGE PASSWORD</source>
+        <target>CHANGE PASSWORD</target>
+        <note>Class = "UINavigationItem"; title = "CHANGE PASSWORD"; ObjectID = "nWU-44-xh5";</note>
+      </trans-unit>
+      <trans-unit id="ogE-JI-TFm.text">
+        <source>New Password (Again)</source>
+        <target>New Password (Again)</target>
+        <note>Class = "UILabel"; text = "New Password (Again)"; ObjectID = "ogE-JI-TFm";</note>
+      </trans-unit>
+      <trans-unit id="onu-cs-HCb.text">
+        <source>New Password</source>
+        <target>New Password</target>
+        <note>Class = "UILabel"; text = "New Password"; ObjectID = "onu-cs-HCb";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/Survey.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="33n-m2-WWu.text">
+        <source>Role</source>
+        <note>Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu";</note>
+      </trans-unit>
+      <trans-unit id="B21-4l-6el.title">
+        <source>SURVEYS</source>
+        <target>SURVEYS</target>
+        <note>Class = "UINavigationItem"; title = "SURVEYS"; ObjectID = "B21-4l-6el";</note>
+      </trans-unit>
+      <trans-unit id="OUg-ex-YkK.text">
+        <source>Users to invite</source>
+        <note>Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK";</note>
+      </trans-unit>
+      <trans-unit id="Ot0-UB-XIx.text">
+        <source>E-mail</source>
+        <note>Class = "UILabel"; text = "E-mail"; ObjectID = "Ot0-UB-XIx";</note>
+      </trans-unit>
+      <trans-unit id="Y7d-Ki-W5I.disabledTitle">
+        <source>Processing...</source>
+        <target>Processing...</target>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Y7d-Ki-W5I";</note>
+      </trans-unit>
+      <trans-unit id="Y7d-Ki-W5I.normalTitle">
+        <source>Submit</source>
+        <target>Submit</target>
+        <note>Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Y7d-Ki-W5I";</note>
+      </trans-unit>
+      <trans-unit id="Yym-JO-B5p.text">
+        <source>Invite people to rate you in a survey</source>
+        <note>Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p";</note>
+      </trans-unit>
+      <trans-unit id="ajk-Vm-b8j.disabledTitle">
+        <source>Processing...</source>
+        <target>Processing...</target>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "ajk-Vm-b8j";</note>
+      </trans-unit>
+      <trans-unit id="ajk-Vm-b8j.normalTitle">
+        <source>Save to Drafts</source>
+        <target>Save to Drafts</target>
+        <note>Class = "UIButton"; normalTitle = "Save to Drafts"; ObjectID = "ajk-Vm-b8j";</note>
+      </trans-unit>
+      <trans-unit id="bai-qk-Mib.disabledTitle">
+        <source>Processing...</source>
+        <note>Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "bai-qk-Mib";</note>
+      </trans-unit>
+      <trans-unit id="bai-qk-Mib.normalTitle">
+        <source>Send Invites</source>
+        <note>Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib";</note>
+      </trans-unit>
+      <trans-unit id="ptj-GZ-AdK.normalTitle">
+        <source>Add User</source>
+        <note>Class = "UIButton"; normalTitle = "Add User"; ObjectID = "ptj-GZ-AdK";</note>
+      </trans-unit>
+      <trans-unit id="ya8-nY-aED.text">
+        <source>Name</source>
+        <note>Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Base.lproj/TabPage.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="sTS-mi-xzv.placeholder">
+        <source>Search Development Plans</source>
+        <target>Search Development Plans</target>
+        <note>Class = "UISearchBar"; placeholder = "Search Development Plans"; ObjectID = "sTS-mi-xzv";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Info.plist" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynx/Resources/Strings/en.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="kELAddMoreParticipantsButton">
+        <source>Add Participants</source>
+      </trans-unit>
+      <trans-unit id="kELAnswerSurveyTitle">
+        <source>Answer Survey</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELAnswerTypeValidationMessage">
+        <source>No Answer type selected</source>
+      </trans-unit>
+      <trans-unit id="kELCancelButton">
+        <source>Cancel</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELCloseButton">
+        <source>Close</source>
+      </trans-unit>
+      <trans-unit id="kELCompleteButton">
+        <source>Complete</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELCompletedLabel">
+        <source>%@ / %@ Completed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELCreateInstantFeedbackTitle">
+        <source>Create Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionAnswer">
+        <source>Answer</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionCreate">
+        <source>Create</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionDevelopmentPlan">
+        <source>Development 
+Plans</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionInstantFeedback">
+        <source>Instant 
+Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionInvite">
+        <source>Invite</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionLynxMeasurement">
+        <source>Lynx 
+Measurement</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardActionResults">
+        <source>Results</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardAddNew">
+        <source>Answer New</source>
+      </trans-unit>
+      <trans-unit id="kELDashboardCreateNew">
+        <source>Create New</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardDueDateMessagePlural">
+        <source>Due in 
+%@ Days</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardDueDateMessageSingular">
+        <source>Due in 
+%@ Day</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardDueDateNow">
+        <source>Now</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardReminderFeedback">
+        <source>Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardReminderGoal">
+        <source>Goal</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardReminderSurvey">
+        <source>Survey</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardSectionDevelopmentPlans">
+        <source>Development Plans</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDashboardSectionReminders">
+        <source>Reminders</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDefaultAlertMessage">
+        <source>%@. Please try again later.</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDefaultField">
+        <source>Field</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDeselectAllButton">
+        <source>Deselect all</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDetailsPageLoadError">
+        <source>Failed to load details</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanCreateError">
+        <source>Failed to create Development Plan</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanCreateSuccess">
+        <source>Successfully created Development Plan</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanEmptyMessage">
+        <source>No Development Plans</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalActionCompleteDetaislMessage">
+        <source>Complete the action, %@?</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalActionCompleteHeaderMessage">
+        <source>Confirmation</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalActionUpdateSuccess">
+        <source>Goal Action successfully updated</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalButtonAdd">
+        <source>Add Goal</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalButtonUpdate">
+        <source>Update Goal</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalCompleteDetail">
+        <source>You've got the right mix of dedication and enthusiasm. Keep it up!</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalCompleteHeader">
+        <source>Goal Completed!</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalTimestampDueDate">
+        <source>Due Date: %@</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanGoalTimestampToday">
+        <source>Today</source>
+      </trans-unit>
+      <trans-unit id="kELDevelopmentPlanTitle">
+        <source>Development Plan</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELEmailField">
+        <source>E-mail</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELEmailLabel">
+        <source>E-mail</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELErrorDetailsMessage">
+        <source>Please try again later</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELErrorLabel">
+        <source>Error</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELExpiresOnLabel">
+        <source>Expires on %@</source>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnonymousLabel">
+        <source>Anonymous Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerError">
+        <source>Failed answering Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerRequired">
+        <source>Please fill up all required questions</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerSuccess">
+        <source>Successfully answered Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeAgreementScale">
+        <source>Agreement Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeCustomScale">
+        <source>Custom Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeInvertedAgreementScale">
+        <source>Inverted Agreement Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeOneToFiveScale">
+        <source>Numeric 1-5 Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeOneToTenScale">
+        <source>Numeric 1-10 Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeOneToTenWithExplanation">
+        <source>1-1 with Explanation</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeStrongAgreementScale">
+        <source>Strong Agreement Scale</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeText">
+        <source>Free Text</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackAnswerTypeYesNoScale">
+        <source>Yes or No</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbackCellAuthor">
+        <source>Created by: %@</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbacksRetrievalEmpty">
+        <source>No Instant Feedbacks</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFeedbacksRetrievalError">
+        <source>Failed to retrieve Instant Feedbacks</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELFilterByLabel">
+        <source>Filter By</source>
+      </trans-unit>
+      <trans-unit id="kELFilterLabel">
+        <source>Filter</source>
+      </trans-unit>
+      <trans-unit id="kELGoalActionsValidationMessage">
+        <source>No Actions added</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELGoalCategoriesValidationMessage">
+        <source>No Categories available</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELGoalCategoryValidationMessage">
+        <source>No Category selected</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELGoalReminderValidationMessage">
+        <source>Reminder date should be on or after today</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELGoalsValidationMessage">
+        <source>No Goals added</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInstantFeedbackTitle">
+        <source>Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteParticipantsButton">
+        <source>Invite</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteTitleFeedback">
+        <source>Invite People</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteTitleReport">
+        <source>Share Report</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersAddEmailButtonAdd">
+        <source>Add User</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersAddEmailDetailsMessage">
+        <source>Enter Name and E-mail address</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersAddEmailHeaderMessage">
+        <source>Add user</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersInfoMessage">
+        <source>You have to invite at least 3 people and at least 3 people have to answer before result can be viewed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersNoSelectionMessage">
+        <source>No users selected</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersRetrievalEmpty">
+        <source>No users</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersRetrievalError">
+        <source>Failed to retrieve users</source>
+      </trans-unit>
+      <trans-unit id="kELInviteUsersSuccess">
+        <source>Successfully invited participants</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterAll">
+        <source>All</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterCompleted">
+        <source>Completed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterExpired">
+        <source>Expired</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterInProgress">
+        <source>In Progress</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterInstantFeedback">
+        <source>Instant Feedback</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELListFilterLynxMeasurement">
+        <source>Lynx Measurement</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELLogoutAlertMessage">
+        <source>Logging out will require the app for your credentials next time.</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELLogoutButton">
+        <source>Logout</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELMenuItemDashboard">
+        <source>Dashboard</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELMenuItemDevelopmentPlan">
+        <source>Development Plans</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELMenuItemProfile">
+        <source>Profile</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELMenuItemSettings">
+        <source>Settings</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELMenuItemSurveys">
+        <source>Surveys</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELNameField">
+        <source>Name</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELNameLabel">
+        <source>Name</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELNoDescriptionLabel">
+        <source>No description</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELOkButton">
+        <source>Ok</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELPasswordField">
+        <source>Password</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELPasswordValidationMessage">
+        <source>New Password fields must be the same</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELPostMethodError">
+        <source>Failed to process request</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProcessingLabel">
+        <source>Processing...</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileChangePasswordSuccess">
+        <source>Successfully updated password</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileEditButton">
+        <source>Edit</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileGenderFemale">
+        <source>Female</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileGenderMale">
+        <source>Male</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileGenderOther">
+        <source>Other</source>
+      </trans-unit>
+      <trans-unit id="kELProfileSaveButton">
+        <source>Save</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELProfileUpdateSuccess">
+        <source>Successfully updated profile</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELQuestionField">
+        <source>Question</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELREValidationEmailMessage">
+        <source>%@ is an invalid email</source>
+      </trans-unit>
+      <trans-unit id="kELREValidationPresenceMessage">
+        <source>%@ can't be blank</source>
+      </trans-unit>
+      <trans-unit id="kELReportEmptyMessage">
+        <source>No Reports</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportInfoCandidates">
+        <source>Candidates</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportInfoLabel">
+        <source>Invited: %@ | Answered: %@</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportInfoOthers">
+        <source>Others combined</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportInfoSelf">
+        <source>kELReportInfoSelf</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportMoreDropdownAddMore">
+        <source>Add More Participants</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportMoreDropdownShare">
+        <source>Share Report</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportNoData">
+        <source>No chart data available</source>
+      </trans-unit>
+      <trans-unit id="kELReportRestrictedData">
+        <source>Minimum of %@ people to view this chart</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELReportTitleFeedback">
+        <source>Feedback Report</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSaveToDraftButton">
+        <source>Save to Drafts</source>
+      </trans-unit>
+      <trans-unit id="kELSelectAllButton">
+        <source>Select all</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSelectParticipantsButton">
+        <source>Select Participants</source>
+      </trans-unit>
+      <trans-unit id="kELServerMessage">
+        <source>Can't connect to server. Please try again later.</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELShareButtonFeedback">
+        <source>Send Invites</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELShareButtonReport">
+        <source>Share</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELShareReportsHeaderMessage">
+        <source>Share report to users</source>
+      </trans-unit>
+      <trans-unit id="kELSortByLabel">
+        <source>Sort By</source>
+      </trans-unit>
+      <trans-unit id="kELSortLabel">
+        <source>Sort</source>
+      </trans-unit>
+      <trans-unit id="kELSubmitButton">
+        <source>Submit</source>
+      </trans-unit>
+      <trans-unit id="kELSurveyCompleteHeader">
+        <source>Survey Completed!</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyDetailsRetrievalError">
+        <source>Failed to retrieve survey details</source>
+      </trans-unit>
+      <trans-unit id="kELSurveyEmptyMessage">
+        <source>No Surveys</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyPostError">
+        <source>Failed to post answers</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyQuestionsRetrievalError">
+        <source>Failed to retrieve survey questions</source>
+      </trans-unit>
+      <trans-unit id="kELSurveyRateError">
+        <source>Failed to invite others to rate you</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyRateSuccess">
+        <source>Successfully invited others to rate you</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveySaveToDraftSuccess">
+        <source>Successfully saved answers to drafts</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyStatusCompleted">
+        <source>Completed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyStatusNotInvited">
+        <source>Not Invited</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyStatusOpen">
+        <source>Open</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyStatusUnfinished">
+        <source>Unfinished</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveySubmissionSuccess">
+        <source>Successfully submitted answers</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyType360Individual">
+        <source>Lynx 360</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyTypeLMTT">
+        <source>LMTT</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyTypeLTT">
+        <source>LTT</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyTypeProgress">
+        <source>Lynx Progress</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyTypeSurvey">
+        <source>Lynx Survey</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELSurveyUnauthorizedLabel">
+        <source>You are not authorized to answer this survey.</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleColleague">
+        <source>Colleague</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleCustomer">
+        <source>Customer</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleDirectReport">
+        <source>Direct Report</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleManager">
+        <source>Manager</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleMatrixManager">
+        <source>Matrix Manager</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUserRoleOtherStakeholder">
+        <source>Other Stakeholder</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUsernameField">
+        <source>Username</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="kELUsersNumberSelectedLabel">
+        <source>People selected: %@</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynxTests/Info.plist" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="EdwardLynxUITests/Info.plist" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.3.2" build-num="8E2002"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
