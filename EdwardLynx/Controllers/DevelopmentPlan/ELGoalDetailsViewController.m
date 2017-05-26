@@ -190,11 +190,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat iconHeight = 15;
-    NSString *buttonLabel = self.toAddNew ? NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil) :
-                                            NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
+    CGFloat iconHeight;
+    NSString *buttonLabel;
     
-    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    iconHeight = 15;
+    
+    if (self.toAddNew) {
+        buttonLabel = NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil);
+    } else {
+        buttonLabel = NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
+    }
     
     // Button
     [self.addGoalButton setTitle:buttonLabel forState:UIControlStateNormal];

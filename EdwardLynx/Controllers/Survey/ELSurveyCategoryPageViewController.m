@@ -270,8 +270,13 @@
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     __weak typeof(self) weakSelf = self;
-    NSString *successMessage = NSLocalizedString(self.isSurveyFinal ? @"kELSurveySubmissionSuccess" :
-                                                                      @"kELSurveySaveToDraftSuccess", nil);
+    NSString *successMessage;
+    
+    if (self.isSurveyFinal) {
+        successMessage = NSLocalizedString(@"kELSurveySubmissionSuccess", nil);
+    } else {
+        successMessage = NSLocalizedString(@"kELSurveySaveToDraftSuccess", nil);
+    }
     
     self.saved = YES;
     
