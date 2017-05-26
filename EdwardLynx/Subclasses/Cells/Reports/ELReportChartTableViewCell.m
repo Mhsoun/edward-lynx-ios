@@ -13,6 +13,7 @@
 @interface ELReportChartTableViewCell ()
 
 @property (nonatomic, strong) BarChartView *barChart;
+@property (nonatomic, strong) HorizontalBarChartView *horizontalBarChart;
 @property (nonatomic, strong) RadarChartView *radarChart;
 
 @end
@@ -38,12 +39,28 @@
     type = [detailDict[@"type"] integerValue];
     
     switch (type) {
-        case kELReportChartTypeBarChart:
+        case kELReportChartTypeBar:
+            self.barChart = [[BarChartView alloc] init];
+            self.barChart.frame = self.chartContainerView.bounds;
+            
+            [self.chartContainerView addSubview:self.barChart];
             [self setupPerCategoryChart];
             
             break;
         case kELReportChartTypeRadar:
+            self.radarChart = [[RadarChartView alloc] init];
+            self.radarChart.frame = self.chartContainerView.bounds;
+            
+            [self.chartContainerView addSubview:self.radarChart];
             [self setupRadarChart];
+            
+            break;
+        case kELReportChartTypeHorizontalBar:
+            self.horizontalBarChart = [[HorizontalBarChartView alloc] init];
+            self.horizontalBarChart.frame = self.chartContainerView.bounds;
+            
+            [self.chartContainerView addSubview:self.horizontalBarChart];
+            [self setupPerQuestionChart];
             
             break;
         default:
@@ -136,6 +153,59 @@
     return barChart;
 }
 
+- (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
+    double axisMax, axisMin;
+    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    axisMax = 1.1f, axisMin = 0.0f;
+    
+    barChart.chartDescription.enabled = NO;
+    barChart.doubleTapToZoomEnabled = NO;
+    barChart.drawBarShadowEnabled = NO;
+    barChart.drawBordersEnabled = NO;
+    barChart.drawGridBackgroundEnabled = NO;
+    barChart.highlightPerDragEnabled = NO;
+    barChart.highlightPerTapEnabled = NO;
+    barChart.maxVisibleCount = 10;
+    barChart.pinchZoomEnabled = NO;
+    
+    barChart.leftAxis.axisMaximum = axisMax;
+    barChart.leftAxis.axisMinimum = axisMin;
+    barChart.leftAxis.drawAxisLineEnabled = NO;
+    barChart.leftAxis.drawGridLinesEnabled = YES;
+    barChart.leftAxis.drawLabelsEnabled = NO;
+    barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
+    
+    barChart.noDataFont = dataFont;
+    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
+                           @(kELParticipantsMinimumCount)];
+    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    
+    barChart.rightAxis.axisMaximum = axisMax;
+    barChart.rightAxis.axisMinimum = axisMin;
+    barChart.rightAxis.drawAxisLineEnabled = NO;
+    barChart.rightAxis.drawGridLinesEnabled = NO;
+    barChart.rightAxis.drawLabelsEnabled = YES;
+    barChart.rightAxis.labelCount = 10;
+    barChart.rightAxis.labelFont = labelFont;
+    barChart.rightAxis.labelTextColor = [UIColor whiteColor];
+    barChart.rightAxis.yOffset = 1;
+    
+    barChart.xAxis.centerAxisLabelsEnabled = NO;
+    barChart.xAxis.drawGridLinesEnabled = NO;
+    barChart.xAxis.drawLabelsEnabled = YES;
+    barChart.xAxis.granularity = 1;
+    barChart.xAxis.granularityEnabled = YES;
+    barChart.xAxis.labelFont = labelFont;
+    barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
+    barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    barChart.xAxis.labelWidth = 100;
+    barChart.xAxis.wordWrapEnabled = YES;
+    
+    return barChart;
+}
+
 - (void)setupPerCategoryChart {
     NSMutableArray *mEntries, *mLabels;
     BarChartData *chartData;
@@ -150,9 +220,9 @@
         [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.5f)]];
     }
     
-    self.barChart = [self configureBarChart:[[BarChartView alloc] init]];
-    self.barChart.frame = self.chartContainerView.bounds;
+    self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
+    
     self.barChart.xAxis.labelCount = mLabels.count;
     self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
     
@@ -164,8 +234,38 @@
     
     self.barChart.data = chartData;
     
-    [self.chartContainerView addSubview:self.barChart];
     [self.barChart animateWithYAxisDuration:0.5];
+}
+
+- (void)setupPerQuestionChart {
+    NSMutableArray *mEntries, *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    // NOTE: Dummy data
+    for (int i = 0; i < 2; i++) {
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
+        [mLabels addObject:@"Others combined"];
+    }
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELGreenColor];
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart.data = chartData;
+    
+    [self.horizontalBarChart animateWithYAxisDuration:0.5];
 }
 
 - (void)setupRadarChart {
@@ -207,10 +307,8 @@
     
     chartData = [[RadarChartData alloc] initWithDataSet:chartDataSet];
     
-    self.radarChart = [[RadarChartView alloc] init];
     self.radarChart.chartDescription.enabled = NO;
     self.radarChart.data = chartData;
-    self.radarChart.frame = self.chartContainerView.bounds;
     self.radarChart.innerWebColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     self.radarChart.webColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
     
@@ -232,7 +330,6 @@
     self.radarChart.yAxis.labelFont = labelFont;
     self.radarChart.yAxis.labelCount = mLabels.count;
     
-    [self.chartContainerView addSubview:self.radarChart];
     [self.radarChart animateWithYAxisDuration:0.5];
 }
 

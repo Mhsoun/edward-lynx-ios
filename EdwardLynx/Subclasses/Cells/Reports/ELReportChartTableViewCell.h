@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, kELReportChartType) {
-    kELReportChartTypeBarChart,
-    kELReportChartTypeHorizontalBarChart,
+    kELReportChartTypeBar,
+    kELReportChartTypeHorizontalBar,
     kELReportChartTypeRadar,
     kELReportChartTypePie
 };

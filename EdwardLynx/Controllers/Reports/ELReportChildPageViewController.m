@@ -44,14 +44,15 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    [cell configure:@{@"title": @"", @"type": @(kELReportChartTypeRadar)} atIndexPath:indexPath];
+    [cell configure:@{@"title": @"Test", @"type": @(kELReportChartTypeHorizontalBar)}
+        atIndexPath:indexPath];
     
     return cell;
 }
