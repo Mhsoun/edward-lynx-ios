@@ -244,7 +244,7 @@
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELSurveyPostError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

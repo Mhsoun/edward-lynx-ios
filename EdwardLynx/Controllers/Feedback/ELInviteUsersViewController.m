@@ -231,7 +231,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELPostMethodError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -381,7 +381,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     if (!self.mParticipants.count || self.mParticipants.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELInviteUsersNoSelectionMessage", nil)
-                         completion:^{}];
+                         completion:nil];
         
         return;
     }

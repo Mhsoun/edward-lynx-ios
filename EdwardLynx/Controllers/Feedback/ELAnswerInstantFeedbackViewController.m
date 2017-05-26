@@ -64,7 +64,7 @@
     [self.indicatorView stopAnimating];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
@@ -83,7 +83,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         [ELUtils presentToastAtView:weakSelf.view
                             message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
-                         completion:^{}];
+                         completion:nil];
     }];
 }
 

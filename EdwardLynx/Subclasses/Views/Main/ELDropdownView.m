@@ -174,7 +174,7 @@ static CGFloat const kELIconSize = 15;
     if (!self.items || self.items.count == 0) {
         [ELUtils presentToastAtView:self.baseController.view
                             message:NSLocalizedString(@"kELGoalCategoriesValidationMessage", nil)
-                         completion:^{}];
+                         completion:nil];
         
         return;
     }

@@ -176,7 +176,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -254,7 +254,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     if (self.mGoals.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
-                         completion:^{}];
+                         completion:nil];
     }
     
     isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": nameGroup}];

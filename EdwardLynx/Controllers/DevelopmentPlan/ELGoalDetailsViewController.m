@@ -299,7 +299,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     if (self.mActions.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
-                         completion:^{}];
+                         completion:nil];
         
         return;
     }
