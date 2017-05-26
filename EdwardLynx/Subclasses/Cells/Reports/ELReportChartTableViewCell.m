@@ -40,14 +40,22 @@
     
     switch (type) {
         case kELReportChartTypeBar:
+            if ([self hasClassViewAsSubview:[BarChartView class]]) {
+                return;
+            }
+            
             self.barChart = [[BarChartView alloc] init];
             self.barChart.frame = self.chartContainerView.bounds;
             
             [self.chartContainerView addSubview:self.barChart];
-            [self setupPerCategoryChart];
+            [self setupPerCategoryChartWithData:detailDict[@"data"]];
             
             break;
         case kELReportChartTypeRadar:
+            if ([self hasClassViewAsSubview:[RadarChartView class]]) {
+                return;
+            }
+            
             self.radarChart = [[RadarChartView alloc] init];
             self.radarChart.frame = self.chartContainerView.bounds;
             
@@ -56,11 +64,15 @@
             
             break;
         case kELReportChartTypeHorizontalBar:
+            if ([self hasClassViewAsSubview:[HorizontalBarChartView class]]) {
+                return;
+            }
+            
             self.horizontalBarChart = [[HorizontalBarChartView alloc] init];
             self.horizontalBarChart.frame = self.chartContainerView.bounds;
             
             [self.chartContainerView addSubview:self.horizontalBarChart];
-            [self setupPerQuestionChart];
+            [self setupPerQuestionChartWithData:detailDict[@"data"]];
             
             break;
         default:
@@ -206,25 +218,38 @@
     return barChart;
 }
 
-- (void)setupPerCategoryChart {
-    NSMutableArray *mEntries, *mLabels;
+- (BOOL)hasClassViewAsSubview:(Class)class {
+    for (UIView *subview in self.chartContainerView.subviews) {
+        if ([subview isKindOfClass:class]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (void)setupPerCategoryChartWithData:(NSDictionary *)data {
+    NSMutableArray *mEntries;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     
     mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
     
-    // NOTE: Dummy data
-    for (int i = 0; i < 3; i++) {
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(0.5f)]];
-    }
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0
+                                                           y:[data[@"Percentage"] doubleValue]]];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1
+                                                           y:[data[@"Percentage_1"] doubleValue]]];
     
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
     
-    self.barChart.xAxis.labelCount = mLabels.count;
-    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    // TODO: Labels by 0, 25, 50, 75, 100
+    
+    self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        return [NSString stringWithFormat:@"%@%%", @(percentage)];
+    }];
     
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
@@ -237,7 +262,7 @@
     [self.barChart animateWithYAxisDuration:0.5];
 }
 
-- (void)setupPerQuestionChart {
+- (void)setupPerQuestionChartWithData:(NSDictionary *)data {
     NSMutableArray *mEntries, *mLabels;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
@@ -245,11 +270,12 @@
     mEntries = [[NSMutableArray alloc] init];
     mLabels = [[NSMutableArray alloc] init];
     
-    // NOTE: Dummy data
-    for (int i = 0; i < 2; i++) {
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:0.5]];
-        [mLabels addObject:@"Others combined"];
-    }
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0
+                                                           y:[data[@"Percentage"] doubleValue]]];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1
+                                                           y:[data[@"Percentage_1"] doubleValue]]];
+    [mLabels addObject:@"Others combined"];
+    [mLabels addObject:@"Candidates"];
     
     self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
     self.horizontalBarChart.legend.enabled = NO;

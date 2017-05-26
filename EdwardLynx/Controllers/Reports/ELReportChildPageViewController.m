@@ -17,6 +17,8 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 @interface ELReportChildPageViewController ()
 
+@property (nonatomic, strong) NSArray *items;
+
 @end
 
 @implementation ELReportChildPageViewController
@@ -28,6 +30,16 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
+                                        @"Percentage": @0,
+                                        @"Percentage_1": @0.14},
+                                      @{@"Question": @2,
+                                        @"Percentage": @0.25,
+                                        @"Percentage_1": @0.5},
+                                      @{@"Question": @3,
+                                        @"Percentage": @0.8,
+                                        @"Percentage_1": @0.4}]}];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -44,21 +56,23 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [self.items[0][@"dataPoints"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    [cell configure:@{@"title": @"Test", @"type": @(kELReportChartTypeHorizontalBar)}
+    [cell configure:@{@"title": @"",
+                      @"type": @(kELReportChartTypeBar),
+                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
         atIndexPath:indexPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 500;
+    return 200;
 }
 
 @end
