@@ -130,7 +130,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     [self.indicatorView stopAnimating];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {

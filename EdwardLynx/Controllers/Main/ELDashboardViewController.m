@@ -219,7 +219,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section != [self.dashboardData sections].count - 1 ? 0 : kELAdsViewHeight;
+    // NOTE Removed ads section for now
+//    return section != [self.dashboardData sections].count - 1 ? 0 : kELAdsViewHeight;
+    
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -227,24 +230,27 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UILabel *label;
+    // NOTE Removed ads section for now
+//    UILabel *label;
+//    
+//    if (section != [self.dashboardData sections].count - 1) {
+//        return nil;
+//    }
+//    
+//    label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
+//                                                      CGRectGetWidth(self.tableView.frame),
+//                                                      kELAdsViewHeight)];
+//    
+//    label.backgroundColor = [UIColor clearColor];
+//    label.font = [UIFont fontWithName:@"Lato-Regular" size:11.0];
+//    label.opaque = YES;
+//    label.text = @"";
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.textColor = [UIColor whiteColor];
+//    
+//    return label;
     
-    if (section != [self.dashboardData sections].count - 1) {
-        return nil;
-    }
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
-                                                      CGRectGetWidth(self.tableView.frame),
-                                                      kELAdsViewHeight)];
-    
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Lato-Regular" size:11.0];
-    label.opaque = YES;
-    label.text = @"";
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor whiteColor];
-    
-    return label;
+    return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

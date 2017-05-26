@@ -149,7 +149,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             } else {
                 [ELUtils presentToastAtView:visibleController.view
                                     message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
-                                 completion:^{}];
+                                 completion:nil];
             }
         }];
     };

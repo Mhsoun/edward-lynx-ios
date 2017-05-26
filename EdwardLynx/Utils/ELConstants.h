@@ -125,11 +125,6 @@ extern NSString * const kELHockeyAppPlistKey;
 
 extern NSString * const kELAPITokenPlistKey;
 
-#pragma mark - Alert Messages
-
-extern NSString * const kELDefaultAlertMessage;
-extern NSString * const kELLogoutAlertMessage;
-
 #pragma mark - Constants
 
 extern NSString * const kELAPIDateFormat;

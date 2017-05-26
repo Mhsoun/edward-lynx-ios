@@ -407,7 +407,9 @@
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)((duration + 0.5) * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-        completion();
+        if (completion) {
+            completion();
+        }
     });
 }
 

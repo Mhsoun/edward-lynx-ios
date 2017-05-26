@@ -69,6 +69,16 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.nameTextField.text.length > 0) {
+        return;
+    }
+    
+    [self.nameTextField becomeFirstResponder];
+}
+
 - (void)dealloc {
     DLog(@"%@", [self class]);
 }
@@ -176,7 +186,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
-                     completion:^{}];
+                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -254,7 +264,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     if (self.mGoals.count == 0) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalsValidationMessage", nil)
-                         completion:^{}];
+                         completion:nil];
     }
     
     isValid = [self.viewManager validateDevelopmentPlanFormValues:@{@"name": nameGroup}];
@@ -270,7 +280,12 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                        animated:YES
                      completion:nil];
     
-    for (ELGoal *goal in self.mGoals) [mGoals addObject:[goal toDictionary]];
+    for (int i = 0; i < self.mGoals.count; i++) {
+        NSMutableDictionary *mDict = [[self.mGoals[i] toDictionary] mutableCopy];
+        
+        [mDict setObject:@(i) forKey:@"position"];
+        [mGoals addObject:[mDict copy]];
+    }
     
     [self.viewManager processCreateDevelopmentPlan:@{@"name": self.nameTextField.text,
                                                      @"target": @(AppSingleton.user.objectId),

@@ -47,6 +47,11 @@ static NSInteger const kELAPICallsNumber = 3;
         if (error) {
             [weakSelf.indicatorView stopAnimating];
             
+            [ELUtils presentToastAtView:weakSelf.view
+                                message:[NSString stringWithFormat:NSLocalizedString(@"kELServerMessage", nil),
+                                         error.localizedDescription]
+                             completion:nil];
+            
             return;
         }
         
@@ -60,9 +65,6 @@ static NSInteger const kELAPICallsNumber = 3;
         
         controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                       instantiateInitialViewController];
-        
-        // NOTE Fade in transition
-//        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         [weakSelf presentViewController:controller
                                animated:YES
@@ -124,37 +126,35 @@ static NSInteger const kELAPICallsNumber = 3;
             
             AppSingleton.categories = [mCategories copy];
             
+            DLog(@"%@: Question categories fetch successful", [self class]);
+            
             completion(error);
         });
     }];
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-//            if (error || responseDict[@"error"]) {
-//                [weakSelf reloginUserCredentialsWithCompletion:^(NSError *loginError) {
-//                    if (loginError) {
-//                        return;
-//                    }
-//                    
-//                    DLog(@"%@: Re-login successful", [weakSelf class]);
-//                    
-//                    [weakSelf fetchUserProfileFromAPIWithCompletion:completion];
-//                }];
-//                
-//                return;
-//            }
-            
-            if (error) {
-                completion(error);
+            if (error || responseDict[@"error"]) {
+                [weakSelf reloginUserCredentialsWithCompletion:^(NSError *loginError) {
+                    if (loginError) {
+                        return;
+                    }
+                    
+                    DLog(@"%@: Re-login successful", [weakSelf class]);
+                    
+                    [weakSelf fetchUserProfileFromAPIWithCompletion:completion];
+                }];
                 
                 return;
             }
             
             [AppSingleton setUser:[[ELUser alloc] initWithDictionary:responseDict error:nil]];
+            
+            DLog(@"%@: User profile fetch successful", [self class]);
             
             completion(error);
         });
@@ -184,6 +184,8 @@ static NSInteger const kELAPICallsNumber = 3;
             }
             
             AppSingleton.participants = [mParticipants copy];
+            
+            DLog(@"%@: Users fetch successful", [self class]);
             
             completion(error);
         });
