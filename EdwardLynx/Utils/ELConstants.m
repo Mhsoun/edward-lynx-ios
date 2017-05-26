@@ -18,11 +18,6 @@ NSString * const kELHockeyAppPlistKey = @"HockeyApp";
 
 NSString * const kELAPITokenPlistKey = @"APIKey";
 
-#pragma mark - Alert Messages
-
-NSString * const kELDefaultAlertMessage = @"%@. Please try again later.";
-NSString * const kELLogoutAlertMessage = @"Logging out will require the app for your credentials next time.";
-
 #pragma mark - Constants
 
 NSString * const kELAPIDateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";

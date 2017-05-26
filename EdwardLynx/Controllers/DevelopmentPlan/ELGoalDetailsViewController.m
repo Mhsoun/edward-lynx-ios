@@ -70,6 +70,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.nameTextField.text.length > 0) {
+        return;
+    }
+    
+    [self.nameTextField becomeFirstResponder];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -291,7 +301,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    hasSelection = NO;
+    hasSelection = YES;
     
     [self.mActions removeObject:@""];
     [[IQKeyboardManager sharedManager] resignFirstResponder];
@@ -309,8 +319,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                   @"description": self.descriptionTextView.text,
                                                                   @"checked": @NO,
                                                                   @"position": @0,
-                                                                  @"reminderSent": @NO,
-                                                                  @"actions": [mActions copy]}];
+                                                                  @"reminderSent": @NO}];
     
     if (self.remindSwitch.isOn) {
         dateString = [AppSingleton.apiDateFormatter stringFromDate:self.datePicker.date];
@@ -333,6 +342,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     }
     
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
+    
+    [mGoalDict setObject:[mActions copy] forKey:@"actions"];
     
     self.hasCreatedGoal = YES;
     

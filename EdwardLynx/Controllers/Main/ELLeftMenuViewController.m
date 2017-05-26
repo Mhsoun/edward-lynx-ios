@@ -96,7 +96,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     if ([segueIdentifier isEqualToString:@"Logout"]) {
         __weak typeof(self) weakSelf = self;
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELLogoutButton", nil)
-                                                                            message:kELLogoutAlertMessage
+                                                                            message:NSLocalizedString(@"kELLogoutAlertMessage", nil)
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELLogoutButton", nil)

@@ -8,12 +8,18 @@
 
 /* General */
 
+"kELDefaultAlertMessage" = "%@. Please try again later.";
+"kELLogoutAlertMessage" = "Logging out will require the app for your credentials next time.";
+"kELServerMessage" = "Can't connect to server. Please try again later.";
+
+
+"kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
+"kELInstantFeedbackTitle" = "Instant Feedback";
+
 "kELAddMoreParticipantsButton" = "Add Participants";
 "kELCancelButton" = "Cancel";
 "kELCloseButton" = "Close";
 "kELCompleteButton" = "Complete";
-"kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
-"kELInstantFeedbackTitle" = "Instant Feedback";
 "kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";

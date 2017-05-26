@@ -32,14 +32,22 @@
 
 - (NSDictionary *)toDictionary {
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
+    NSMutableDictionary *mDict = [[NSMutableDictionary alloc] initWithDictionary:@{@"title": self.title,
+                                                                                   @"description": self.shortDescription}];
     
     for (ELGoalAction *action in self.actions) [mActions addObject:[action apiGetDictionary]];
     
-    return @{@"title": self.title,
-             @"position": @(self.position),
-             @"description": self.shortDescription,
-             @"dueDate": [AppSingleton.apiDateFormatter stringFromDate:self.dueDate],
-             @"actions": [mActions copy]};
+    if (self.dueDate) {
+        [mDict setObject:[AppSingleton.apiDateFormatter stringFromDate:self.dueDate] forKey:@"dueDate"];
+    }
+    
+    if (self.position) {
+        [mDict setObject:@(self.position) forKey:@"position"];
+    }
+    
+    [mDict setObject:[mActions copy] forKey:@"actions"];
+    
+    return [mDict copy];
 }
 
 - (BOOL)checked {
