@@ -31,15 +31,15 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     
     // Initialization
     // Detailed Answer Summary per category data
-//    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
-//                                        @"Percentage": @0,
-//                                        @"Percentage_1": @0.14},
-//                                      @{@"Question": @2,
-//                                        @"Percentage": @0.25,
-//                                        @"Percentage_1": @0.5},
-//                                      @{@"Question": @3,
-//                                        @"Percentage": @0.8,
-//                                        @"Percentage_1": @0.4}]}];
+    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
+                                        @"Percentage": @0,
+                                        @"Percentage_1": @0.14},
+                                      @{@"Question": @2,
+                                        @"Percentage": @0.25,
+                                        @"Percentage_1": @0.5},
+                                      @{@"Question": @3,
+                                        @"Percentage": @0.8,
+                                        @"Percentage_1": @0.4}]}];
 
     // Radar Diagram
 //    self.items = @[@[@{@"id": @176,
@@ -67,17 +67,32 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //                                     @"name": @"Candidates",
 //                                     @"average": @0}]}]];
     
-    self.items = @[@{@"id": @529,
-                     @"categoryId": @177,
-                     @"category": @"Category 2",
-                     @"yesPercentage": @100,
-                     @"noPercentage": @0},
-                   @{@"id": @529,
-                     @"categoryId": @178,
-                     @"category": @"Category 3",
-                     @"yesPercentage": @54,
-                     @"noPercentage": @46}];
+    // Yes/No
+//    self.items = @[@{@"id": @529,
+//                     @"categoryId": @177,
+//                     @"category": @"Category 2",
+//                     @"yesPercentage": @100,
+//                     @"noPercentage": @0},
+//                   @{@"id": @529,
+//                     @"categoryId": @178,
+//                     @"category": @"Category 3",
+//                     @"yesPercentage": @54,
+//                     @"noPercentage": @46}];
 
+    // Participant
+//    self.items = @[@{@"dataPoints": @[@{@"Title": @"\"Colleague\"",
+//                                        @"Percentage": @0.65,
+//                                        @"role_style": @"orangeColor"},
+//                                      @{@"Title": @"\"Candidates\"",
+//                                        @"Percentage": @0.15,
+//                                        @"role_style": @"selfColor"}]},
+//                   @{@"dataPoints": @[@{@"Title": @"\"Colleague\"",
+//                                        @"Percentage": @0.83,
+//                                        @"role_style": @"orangeColor"},
+//                                      @{@"Title": @"\"Candidates\"",
+//                                        @"Percentage": @0.5,
+//                                        @"role_style": @"selfColor"}]}];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -95,9 +110,9 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Detailed Answer Summary per category data
-//    return [self.items[0][@"dataPoints"] count];
+    return [self.items[0][@"dataPoints"] count];
     
-    return self.items.count;
+//    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,10 +120,10 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
                                                                        forIndexPath:indexPath];
     
     // Detailed Answer Summary per category data
-//    [cell configure:@{@"title": @"",
-//                      @"type": @(kELReportChartTypeBar),
-//                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
-//        atIndexPath:indexPath];
+    [cell configure:@{@"title": @"",
+                      @"type": @(kELReportChartTypeBar),
+                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
+        atIndexPath:indexPath];
     
     // Radar Diagram
 //    [cell configure:@{@"title": @"",
@@ -117,16 +132,22 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //        atIndexPath:indexPath];
     
     // Yes/No
-    [cell configure:@{@"title": self.items[indexPath.row][@"category"],
-                      @"type": @(kELReportChartTypePie),
-                      @"data": self.items[indexPath.row]}
-        atIndexPath:indexPath];
+//    [cell configure:@{@"title": self.items[indexPath.row][@"category"],
+//                      @"type": @(kELReportChartTypePie),
+//                      @"data": self.items[indexPath.row]}
+//        atIndexPath:indexPath];
+
+    // Participant
+//    [cell configure:@{@"title": @"",
+//                      @"type": @(kELReportChartTypeHorizontalBarBreakdown),
+//                      @"data": self.items[indexPath.row]}
+//        atIndexPath:indexPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 500;
+    return 250;
 }
 
 @end

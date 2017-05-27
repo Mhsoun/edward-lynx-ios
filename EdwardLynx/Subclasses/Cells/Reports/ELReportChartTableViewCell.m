@@ -10,6 +10,12 @@
 
 #import "ELReportChartTableViewCell.h"
 
+#pragma mark - Private Constants
+
+static NSString * const kELSelfColor = @"selfColor";
+
+#pragma mark - Class Extension
+
 @interface ELReportChartTableViewCell ()
 
 @property (nonatomic, strong) BarChartView *barChart;
@@ -52,19 +58,8 @@
             [self setupPerCategoryChartWithData:detailDict[@"data"]];
             
             break;
-        case kELReportChartTypeRadar:
-            if ([self hasClassViewAsSubview:[RadarChartView class]]) {
-                return;
-            }
-            
-            self.radarChart = [[RadarChartView alloc] init];
-            self.radarChart.frame = self.chartContainerView.bounds;
-            
-            [self.chartContainerView addSubview:self.radarChart];
-            [self setupRadarChartWithData:detailDict[@"data"]];
-            
-            break;
         case kELReportChartTypeHorizontalBar:
+        case kELReportChartTypeHorizontalBarBreakdown:
             if ([self hasClassViewAsSubview:[HorizontalBarChartView class]]) {
                 return;
             }
@@ -73,7 +68,12 @@
             self.horizontalBarChart.frame = self.chartContainerView.bounds;
             
             [self.chartContainerView addSubview:self.horizontalBarChart];
-            [self setupPerQuestionChartWithData:detailDict[@"data"]];
+            
+            if (type == kELReportChartTypeHorizontalBar) {
+                [self setupPerQuestionChartWithData:detailDict[@"data"]];
+            } else {
+                [self setupPerParticipantChartWithData:detailDict[@"data"]];
+            }
             
             break;
         case kELReportChartTypePie:
@@ -86,6 +86,18 @@
             
             [self.chartContainerView addSubview:self.pieChart];
             [self setupPieChartWithData:detailDict[@"data"]];
+        case kELReportChartTypeRadar:
+            if ([self hasClassViewAsSubview:[RadarChartView class]]) {
+                return;
+            }
+            
+            self.radarChart = [[RadarChartView alloc] init];
+            self.radarChart.frame = self.chartContainerView.bounds;
+            
+            [self.chartContainerView addSubview:self.radarChart];
+            [self setupRadarChartWithData:detailDict[@"data"]];
+            
+            break;
         default:
             break;
     }
@@ -256,9 +268,10 @@
     
     // TODO: Labels by 0, 25, 50, 75, 100
     
+    self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
-        
+//        
         return [NSString stringWithFormat:@"%@%%", @(percentage)];
     }];
     
@@ -271,6 +284,82 @@
     self.barChart.data = chartData;
     
     [self.barChart animateWithYAxisDuration:0.5];
+}
+
+- (void)setupPerParticipantChartWithData:(NSDictionary *)data {
+    NSMutableArray *mColors,
+                   *mEntries,
+                   *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    BarChartDataEntry *entry;
+    NSArray *items = data[@"dataPoints"];
+    
+    mColors = [[NSMutableArray alloc] init];
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < items.count; i++) {
+        NSDictionary *itemDict = items[i];
+        NSString *title = [itemDict[@"Title"] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        NSString *colorKey = [itemDict[@"role_style"] isEqualToString:kELSelfColor] ? kELGreenColor : kELOrangeColor;
+        
+        entry = [[BarChartDataEntry alloc] initWithX:(double)i y:[itemDict[@"Percentage"] doubleValue]];
+        
+        [mEntries addObject:entry];
+        [mLabels addObject:title];
+        [mColors addObject:ThemeColor(colorKey)];
+    }
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
+    self.horizontalBarChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    
+    for (NSNumber *value in @[@(0), @(0.7f), @(1.0f)]) {
+        ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0;
+        
+        [self.horizontalBarChart.leftAxis addLimitLine:limitLine];
+    }
+    
+    self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        switch (percentage) {
+            case 0:
+            case 70:
+            case 100:
+                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+            default:
+                return @"";
+        }
+    }];
+    
+    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELGreenColor];
+    chartDataSet.colors = [mColors copy];
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        int percentage = (int)ceil((value * 100));
+        
+        return [NSString stringWithFormat:@"%@", @(percentage)];
+    }];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart.data = chartData;
+    
+    [self.horizontalBarChart animateWithYAxisDuration:0.5];
 }
 
 - (void)setupPerQuestionChartWithData:(NSDictionary *)data {
