@@ -141,6 +141,14 @@
         return;
     }
     
+    if (!self.instantFeedback.key) {
+        [ELUtils presentToastAtView:self.view
+                            message:NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil)
+                         completion:nil];
+        
+        return;
+    }
+    
     // Loading alert
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
