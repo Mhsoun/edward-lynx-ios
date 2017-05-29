@@ -41,7 +41,6 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
 - (void)performAuthenticatedTask:(BOOL)isAuthenticated
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [AppSingleton.manager dataTaskWithRequest:request
                                                              completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSString *errorMessage;
@@ -50,33 +49,30 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) &&
-            (responseDict[@"error"] && ![responseDict[@"error"] isEqualToString:kELInvalidCredentials])) {
+//        if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) &&
+//            (responseDict[@"error"] && ![responseDict[@"error"] isEqualToString:kELInvalidCredentials])) {
             // Check if task requires user to be authenticated to invoke refreshing of credentials
-            if (isAuthenticated) {
-                [ELUtils processReauthenticationWithCompletion:^(NSError *error) {
-                    ELOAuthInstance *oauthInstance;
+        if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) && isAuthenticated) {
+            [ELUtils processReauthenticationWithCompletion:^(NSError *error) {
+                ELOAuthInstance *oauthInstance;
+                
+                if (error) {
+                    completion(response, responseDict, error);
                     
-                    if (error) {
-                        completion(response, responseDict, error);
-                        
-                        return;
-                    }
-                    
-                    oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
-                    
-                    // Re-execute task
-                    [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
-                    [weakSelf performAuthenticatedTask:isAuthenticated
-                                           withRequest:request
-                                            completion:completion];
-                }];
-            }
+                    return;
+                }
+                
+                oauthInstance = (ELOAuthInstance *)[ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
+                
+                // Re-execute task
+                [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];
+                [self performAuthenticatedTask:isAuthenticated
+                                   withRequest:request
+                                    completion:completion];
+            }];
             
             return;
-        }
-                              
-        if (responseDict[@"error"]) {
+        } else if (responseDict[@"error"]) {
             error = [NSError errorWithDomain:kELErrorDomain
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];

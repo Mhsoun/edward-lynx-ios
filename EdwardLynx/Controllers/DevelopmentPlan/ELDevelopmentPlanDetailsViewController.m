@@ -175,6 +175,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
+    self.devPlan.urlLink = responseDict[@"_links"][@"self"][@"href"];
+    
     self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
     self.title = [self.devPlan.name uppercaseString];
     

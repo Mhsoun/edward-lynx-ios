@@ -117,10 +117,12 @@
 "kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
 "kELFeedbackAnswerTypeCustomScale" = "Custom Scale";
 
+"kELFeedbackCellAuthor" = "Created by: %@";
+
+"kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback.";
+
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
-
-"kELFeedbackCellAuthor" = "Created by: %@";
 
 /* Fields */
 
