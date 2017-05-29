@@ -134,7 +134,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     [self dismissViewControllerAnimated:YES completion:^{
         [ELUtils presentToastAtView:weakSelf.view
-                            message:NSLocalizedString(@"kELSurveyRateError", nil)
+                            message:errorDict[@"message"]
                          completion:nil];
     }];
 }
