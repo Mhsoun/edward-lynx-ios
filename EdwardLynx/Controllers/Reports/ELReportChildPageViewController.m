@@ -17,7 +17,7 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 @interface ELReportChildPageViewController ()
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic) kELReportChartType type;
 
 @end
 
@@ -31,20 +31,20 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     
     // Initialization
     // Detailed Answer Summary per category data
-    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
-                                        @"Percentage": @0,
-                                        @"Percentage_1": @0.14},
-                                      @{@"Question": @2,
-                                        @"Percentage": @0.25,
-                                        @"Percentage_1": @0.5},
-                                      @{@"Question": @3,
-                                        @"Percentage": @0.8,
-                                        @"Percentage_1": @0.4}]}];
+//    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
+//                                        @"Percentage": @0,
+//                                        @"Percentage_1": @0.14},
+//                                      @{@"Question": @2,
+//                                        @"Percentage": @0.25,
+//                                        @"Percentage_1": @0.5},
+//                                      @{@"Question": @3,
+//                                        @"Percentage": @0.8,
+//                                        @"Percentage_1": @0.4}]}];
 
     // Radar Diagram
 //    self.items = @[@[@{@"id": @176,
 //                       @"name": @"Category 1",
-//                       @"roles": @[@{@"id": @-1,
+//                       @"roles": @[@{@"id": @(-1),
 //                                     @"name": @"Others combined",
 //                                     @"average": @0.65},
 //                                   @{@"id": @9,
@@ -93,6 +93,32 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //                                        @"Percentage": @0.5,
 //                                        @"role_style": @"selfColor"}]}];
     
+    if ([self.key containsString:@"blindspot"]) {
+        self.type = kELReportChartTypeHorizontalBarBlindspot;
+        self.tableView.rowHeight = 150;
+    } else if ([self.key isEqualToString:@"breakdown"]) {
+        self.type = kELReportChartTypeHorizontalBarBreakdown;
+        self.tableView.rowHeight = 150;
+    } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
+        self.type = kELReportChartTypeBar;
+        self.items = self.items[0][@"dataPoints"];
+        self.tableView.rowHeight = 200;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
+    } else if ([self.key isEqualToString:@"radar_diagram"]) {
+        self.type = kELReportChartTypeRadar;
+        self.items = @[self.items];
+        self.tableView.rowHeight = 400;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeRadarHeader", nil);
+        self.detailLabel.text = NSLocalizedString(@"kELReportTypeRadarDetail", nil);
+    }  else if ([self.key isEqualToString:@"yes_or_no"]) {
+        self.type = kELReportChartTypePie;
+        self.tableView.rowHeight = 400;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeYesNoHeader", nil);
+    }
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -110,9 +136,16 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Detailed Answer Summary per category data
-    return [self.items[0][@"dataPoints"] count];
+//    return [self.items[0][@"dataPoints"] count];
     
-//    return self.items.count;
+    switch (self.type) {
+        case kELReportChartTypeRadar:
+            return 1;
+            break;
+        default:
+            return self.items.count;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,10 +153,10 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
                                                                        forIndexPath:indexPath];
     
     // Detailed Answer Summary per category data
-    [cell configure:@{@"title": @"",
-                      @"type": @(kELReportChartTypeBar),
-                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
-        atIndexPath:indexPath];
+//    [cell configure:@{@"title": @"",
+//                      @"type": @(kELReportChartTypeBar),
+//                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
+//        atIndexPath:indexPath];
     
     // Radar Diagram
 //    [cell configure:@{@"title": @"",
@@ -143,11 +176,12 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //                      @"data": self.items[indexPath.row]}
 //        atIndexPath:indexPath];
     
+    [cell configure:@{@"title": @"",
+                      @"type": @(self.type),
+                      @"data": self.items[indexPath.row]}
+        atIndexPath:indexPath];
+    
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 250;
 }
 
 @end

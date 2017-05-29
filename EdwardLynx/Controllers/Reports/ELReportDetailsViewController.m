@@ -70,8 +70,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     [self.averageChartView addSubview:self.averageBarChart];
     [self.indexChartView addSubview:self.indexBarChart];
     
-    [self.indicatorView startAnimating];
-    [self.viewManager processRetrievalOfReportDetails];
+//    [self.indicatorView startAnimating];
+//    [self.viewManager processRetrievalOfReportDetails];
+    
+    [self setupReports:self.infoDict];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,14 +137,15 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
                      completion:nil];
 }
 
-- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+//- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+- (void)setupReports:(NSDictionary *)responseDict {
     CGFloat height;
     NSInteger answered;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    answered = self.instantFeedback ? self.instantFeedback.answered : self.survey.answered;
-    self.toDisplayData = self.instantFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
+    answered = isFeedback ? self.instantFeedback.answered : self.survey.answered;
+    self.toDisplayData = isFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
         for (NSDictionary *answerDict in responseDict[@"frequencies"]) {

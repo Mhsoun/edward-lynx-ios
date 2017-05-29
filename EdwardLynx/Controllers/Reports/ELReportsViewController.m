@@ -10,7 +10,7 @@
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELListViewController.h"
 #import "ELInstantFeedback.h"
-#import "ELReportDetailsViewController.h"
+#import "ELReportPageViewController.h"
 
 #pragma mark - Private Constants
 
@@ -46,9 +46,9 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kELReportSegueIdentifier]) {
-//        ELReportDetailsViewController *controller = (ELReportDetailsViewController *)[segue destinationViewController];
-//        
-//        controller.selectedObject = self.selectedObject;
+        ELReportPageViewController *controller = (ELReportPageViewController *)[segue destinationViewController];
+
+        controller.selectedObject = self.selectedObject;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         

@@ -19,7 +19,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportChartCell" id="z9B-u6-fci" customClass="ELReportChartTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z9B-u6-fci" id="vtx-xD-kRK">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z9B-u6-fci" id="vtx-xD-kRK">
                 <rect key="frame" x="0.0" y="0.0" width="343" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -35,6 +35,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="wyp-aO-ThA" firstAttribute="top" secondItem="MqK-QU-3FF" secondAttribute="bottom" id="4Tk-h6-utW"/>
                     <constraint firstItem="MqK-QU-3FF" firstAttribute="top" secondItem="vtx-xD-kRK" secondAttribute="top" constant="5" id="Bbc-EN-ziE"/>

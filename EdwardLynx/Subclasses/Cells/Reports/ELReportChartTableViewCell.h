@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, kELReportChartType) {
     kELReportChartTypeBar,
     kELReportChartTypeHorizontalBar,
+    kELReportChartTypeHorizontalBarBlindspot,
     kELReportChartTypeHorizontalBarBreakdown,
     kELReportChartTypeRadar,
     kELReportChartTypePie

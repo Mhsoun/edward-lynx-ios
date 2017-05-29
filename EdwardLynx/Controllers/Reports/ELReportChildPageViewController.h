@@ -10,6 +10,9 @@
 
 @interface ELReportChildPageViewController : ELBasePageChildViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSString *key;
+@property (strong, nonatomic) NSArray *items;
+
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

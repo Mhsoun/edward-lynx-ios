@@ -6,12 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import "ELBaseViewController.h"
+#import "ELBasePageChildViewController.h"
 
 @class ELInstantFeedback;
 
-@interface ELReportDetailsViewController : ELBaseViewController<ELAPIResponseDelegate>
+@interface ELReportDetailsViewController : ELBasePageChildViewController<ELAPIResponseDelegate>
 
+@property (strong, nonatomic) NSDictionary *infoDict;
 @property (strong, nonatomic) __kindof ELModel *selectedObject;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *moreBarButton;
