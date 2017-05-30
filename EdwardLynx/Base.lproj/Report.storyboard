@@ -79,7 +79,7 @@
         <!--Report Details View Controller-->
         <scene sceneID="Jti-rr-qaS">
             <objects>
-                <viewController storyboardIdentifier="ReportDetails" id="lWz-hf-IaL" customClass="ELReportDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReportDetails" automaticallyAdjustsScrollViewInsets="NO" id="lWz-hf-IaL" customClass="ELReportDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Knm-wX-oy2"/>
                         <viewControllerLayoutGuide type="bottom" id="R6f-2t-ijF"/>
@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-0g-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693.5999999999999" y="536.58170914542734"/>
+            <point key="canvasLocation" x="2340" y="537"/>
         </scene>
         <!--CreateInstantFeedback-->
         <scene sceneID="22D-vE-Ixh">
@@ -258,12 +258,12 @@
                 <viewControllerPlaceholder storyboardName="Invite" id="aHG-bx-ulF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctc-dV-rKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="536"/>
+            <point key="canvasLocation" x="2339" y="992"/>
         </scene>
         <!--Report Page View Controller-->
         <scene sceneID="Wcq-qh-EgJ">
             <objects>
-                <viewController id="bfu-5v-FI2" customClass="ELReportPageViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bfu-5v-FI2" customClass="ELReportPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pAl-du-MPE"/>
                         <viewControllerLayoutGuide type="bottom" id="B9X-ao-H2d"/>
@@ -380,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOW-aU-aaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681" y="537"/>
+            <point key="canvasLocation" x="1606" y="537"/>
         </scene>
         <!--Report Child Page View Controller-->
         <scene sceneID="Xz6-TF-oYV">
@@ -434,13 +434,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lu0-nZ-hn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3335" y="537"/>
+            <point key="canvasLocation" x="3082" y="537"/>
         </scene>
     </scenes>
     <resources>
         <image name="Background" width="247" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fUj-eL-fwS"/>
+        <segue reference="Vh9-EP-Xss"/>
     </inferredMetricsTieBreakers>
 </document>

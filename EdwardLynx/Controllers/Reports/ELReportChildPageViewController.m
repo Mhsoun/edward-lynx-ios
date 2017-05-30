@@ -154,6 +154,7 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //        atIndexPath:indexPath];
     
     [cell configure:@{@"title": @"",
+                      @"detail": @"",
                       @"type": @(self.type),
                       @"data": self.items[indexPath.row]}
         atIndexPath:indexPath];

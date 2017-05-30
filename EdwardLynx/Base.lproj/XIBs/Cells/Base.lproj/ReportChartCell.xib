@@ -12,6 +12,9 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -24,9 +27,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-QU-3FF">
-                        <rect key="frame" x="5" y="5" width="333" height="0.0"/>
+                        <rect key="frame" x="15" y="5" width="313" height="0.0"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkg-of-y57">
+                        <rect key="frame" x="15" y="5" width="313" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,18 +47,22 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="wyp-aO-ThA" firstAttribute="top" secondItem="MqK-QU-3FF" secondAttribute="bottom" id="4Tk-h6-utW"/>
+                    <constraint firstItem="qkg-of-y57" firstAttribute="top" secondItem="MqK-QU-3FF" secondAttribute="bottom" id="1D7-dw-TfA"/>
+                    <constraint firstAttribute="trailing" secondItem="wyp-aO-ThA" secondAttribute="trailing" constant="5" id="5kr-Ep-pEu"/>
                     <constraint firstItem="MqK-QU-3FF" firstAttribute="top" secondItem="vtx-xD-kRK" secondAttribute="top" constant="5" id="Bbc-EN-ziE"/>
                     <constraint firstAttribute="bottom" secondItem="wyp-aO-ThA" secondAttribute="bottom" constant="5" id="CP9-ie-Qcb"/>
-                    <constraint firstItem="MqK-QU-3FF" firstAttribute="leading" secondItem="vtx-xD-kRK" secondAttribute="leading" constant="5" id="Dvk-4I-JUu"/>
-                    <constraint firstItem="wyp-aO-ThA" firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" id="hIo-rh-jrA"/>
-                    <constraint firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" constant="5" id="l5i-gN-OIG"/>
-                    <constraint firstItem="wyp-aO-ThA" firstAttribute="leading" secondItem="MqK-QU-3FF" secondAttribute="leading" id="uSz-lM-W5E"/>
+                    <constraint firstItem="MqK-QU-3FF" firstAttribute="leading" secondItem="vtx-xD-kRK" secondAttribute="leading" constant="15" id="Dvk-4I-JUu"/>
+                    <constraint firstItem="qkg-of-y57" firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" id="G2e-6D-la0"/>
+                    <constraint firstItem="wyp-aO-ThA" firstAttribute="top" secondItem="qkg-of-y57" secondAttribute="bottom" id="JaS-fk-CYs"/>
+                    <constraint firstItem="qkg-of-y57" firstAttribute="leading" secondItem="MqK-QU-3FF" secondAttribute="leading" id="LUr-FU-Xn8"/>
+                    <constraint firstItem="wyp-aO-ThA" firstAttribute="leading" secondItem="vtx-xD-kRK" secondAttribute="leading" constant="5" id="POV-Ng-NHj"/>
+                    <constraint firstAttribute="trailing" secondItem="MqK-QU-3FF" secondAttribute="trailing" constant="15" id="l5i-gN-OIG"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="chartContainerView" destination="wyp-aO-ThA" id="unZ-Fx-nmj"/>
+                <outlet property="detailLabel" destination="qkg-of-y57" id="Q7I-Mp-HgW"/>
                 <outlet property="titleLabel" destination="MqK-QU-3FF" id="fuQ-CV-TGQ"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>

@@ -10,11 +10,8 @@
 
 #import "ELReportChartTableViewCell.h"
 #import "ELAverage.h"
+#import "ELDataPoint.h"
 #import "ELRadarDiagram.h"
-
-#pragma mark - Private Constants
-
-static NSString * const kELSelfColor = @"selfColor";
 
 #pragma mark - Class Extension
 
@@ -47,10 +44,11 @@ static NSString * const kELSelfColor = @"selfColor";
     NSDictionary *detailDict = (NSDictionary *)object;
     
     self.titleLabel.text = detailDict[@"title"];
+    self.detailLabel.text = detailDict[@"detail"];
     
     type = [detailDict[@"type"] integerValue];
     frame = self.chartContainerView.frame;
-    frame.size.height = CGRectGetHeight(self.frame) - 50;
+    frame.size.height = CGRectGetHeight(self.bounds) - 25;
     
     switch (type) {
         case kELReportChartTypeBar:
@@ -351,13 +349,12 @@ static NSString * const kELSelfColor = @"selfColor";
     NSMutableArray *mEntries;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
+    ELDataPointSummary *dataPoint = [[ELDataPointSummary alloc] initWithDictionary:data error:nil];
     
     mEntries = [[NSMutableArray alloc] init];
     
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0
-                                                           y:[data[@"Percentage"] doubleValue]]];
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1
-                                                           y:[data[@"Percentage_1"] doubleValue]]];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0 y:dataPoint.percentage]];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1 y:dataPoint.percentage1]];
     
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
@@ -394,15 +391,13 @@ static NSString * const kELSelfColor = @"selfColor";
     mLabels = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < items.count; i++) {
-        NSDictionary *itemDict = items[i];
-        NSString *title = [itemDict[@"Title"] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        NSString *colorKey = [itemDict[@"role_style"] isEqualToString:kELSelfColor] ? kELVioletColor : kELOrangeColor;
+        ELDataPointBreakdown *dataPoint = [[ELDataPointBreakdown alloc] initWithDictionary:items[i] error:nil];
         
-        entry = [[BarChartDataEntry alloc] initWithX:(double)i y:[itemDict[@"Percentage"] doubleValue]];
+        entry = [[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage];
         
         [mEntries addObject:entry];
-        [mLabels addObject:title];
-        [mColors addObject:ThemeColor(colorKey)];
+        [mLabels addObject:dataPoint.title];
+        [mColors addObject:ThemeColor(dataPoint.colorKey)];
     }
     
     self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
