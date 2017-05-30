@@ -10,8 +10,20 @@
 
 @implementation ELAnswer
 
+@synthesize optionKeys = _optionKeys;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"shortDescription": @"description"}];
+}
+
+- (NSArray *)optionKeys {
+    NSMutableArray *mKeys = [[NSMutableArray alloc] init];
+    
+    for (ELAnswerOption *option in self.options) {
+        [mKeys addObject:option.shortDescription];
+    }
+    
+    return [mKeys copy];
 }
 
 @end
