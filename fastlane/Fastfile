@@ -64,6 +64,11 @@ platform :ios do
     # )
   end
 
+  desc "Create Development Portal app"
+  lane :devportal do
+    build_for_devportal()
+  end
+
   desc "Submit a new Beta Build to HockeyApp"
   lane :hockeyapp do
     build_for_hockeyapp()
@@ -162,11 +167,12 @@ platform :ios do
   def build_for_devportal()
     produce(
       username: ENV["APPLE_ID"],
-      team_id: ENV["DEV_TEAM_ID"],
-      app_identifier: ENV["APP_IDENTIFIER"],
-      app_name: "<your app name here>",
+      team_id: "KGZFZP3DEA",
+      itc_team_id: "118663671",
+      app_identifier: "com.mobileapp.edwardlynx",
+      app_name: "Edward Lynx",
+      company_name: "Edward Lynx",
       language: "English",
-      app_version: get_version_number(xcodeproj: ENV["XCODE_PROJECT"]),
       sku: "SampleSKU"
     )
   end
