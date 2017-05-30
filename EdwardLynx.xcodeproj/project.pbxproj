@@ -121,6 +121,8 @@
 		A923C8BC1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
+		A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
+		A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CE1EDD13D3001FD570 /* ELAverage.m */; };
 		A97C29811E8B8CC300EBC5CE /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */; };
 		A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295E1E8B8CC300EBC5CE /* ELGoal.m */; };
 		A97C29831E8B8CC300EBC5CE /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */; };
@@ -451,6 +453,10 @@
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A960BB841ED55E2B00242346 /* ELSurveyRateOthersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyRateOthersViewController.h; sourceTree = "<group>"; };
 		A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyRateOthersViewController.m; sourceTree = "<group>"; };
+		A96EA2CA1EDD13B8001FD570 /* ELRadarDiagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRadarDiagram.h; sourceTree = "<group>"; };
+		A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELRadarDiagram.m; sourceTree = "<group>"; };
+		A96EA2CD1EDD13D3001FD570 /* ELAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAverage.h; sourceTree = "<group>"; };
+		A96EA2CE1EDD13D3001FD570 /* ELAverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAverage.m; sourceTree = "<group>"; };
 		A97C295B1E8B8CC300EBC5CE /* ELDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlan.h; sourceTree = "<group>"; };
 		A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlan.m; sourceTree = "<group>"; };
 		A97C295D1E8B8CC300EBC5CE /* ELGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGoal.h; sourceTree = "<group>"; };
@@ -1294,11 +1300,23 @@
 			path = EdwardLynxUITests;
 			sourceTree = "<group>";
 		};
+		A96EA2C91EDD139E001FD570 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				A96EA2CD1EDD13D3001FD570 /* ELAverage.h */,
+				A96EA2CE1EDD13D3001FD570 /* ELAverage.m */,
+				A96EA2CA1EDD13B8001FD570 /* ELRadarDiagram.h */,
+				A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		A97C29591E8B8CC300EBC5CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A97C295A1E8B8CC300EBC5CE /* DevelopmentPlan */,
 				A97C29611E8B8CC300EBC5CE /* Main */,
+				A96EA2C91EDD139E001FD570 /* Reports */,
 				A97C29741E8B8CC300EBC5CE /* Survey */,
 			);
 			path = Models;
@@ -1769,6 +1787,7 @@
 				A91312A61E8642D30042C91F /* ELAccountsViewManager.m in Sources */,
 				A91312A71E8642D30042C91F /* ELDetailViewManager.m in Sources */,
 				A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */,
+				A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */,
 				A91312A91E8642D30042C91F /* ELFeedbackViewManager.m in Sources */,
 				A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */,
 				A91312461E8642D30042C91F /* ELCreateDevelopmentPlanViewController.m in Sources */,
@@ -1779,6 +1798,7 @@
 				A913125A1E8642D30042C91F /* ELReportDetailsViewController.m in Sources */,
 				A91312A41E8642D30042C91F /* ELTableDataSource.m in Sources */,
 				A91312531E8642D30042C91F /* ELLeftMenuViewController.m in Sources */,
+				A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */,
 				A91312571E8642D30042C91F /* ELTabPageViewController.m in Sources */,
 				A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */,
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,

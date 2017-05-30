@@ -422,6 +422,8 @@
         objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
         
         self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest};
+        
+        // TODO Same with surveys
     } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
         __weak typeof(self) weakSelf = self;
         

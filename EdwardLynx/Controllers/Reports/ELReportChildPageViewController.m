@@ -29,7 +29,6 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Initialization
     // Detailed Answer Summary per category data
 //    self.items = @[@{@"dataPoints": @[@{@"Question": @1,
 //                                        @"Percentage": @0,
@@ -93,32 +92,10 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //                                        @"Percentage": @0.5,
 //                                        @"role_style": @"selfColor"}]}];
     
-    if ([self.key containsString:@"blindspot"]) {
-        self.type = kELReportChartTypeHorizontalBarBlindspot;
-        self.tableView.rowHeight = 150;
-    } else if ([self.key isEqualToString:@"breakdown"]) {
-        self.type = kELReportChartTypeHorizontalBarBreakdown;
-        self.tableView.rowHeight = 150;
-    } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
-        self.type = kELReportChartTypeBar;
-        self.items = self.items[0][@"dataPoints"];
-        self.tableView.rowHeight = 200;
-        
-        self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
-    } else if ([self.key isEqualToString:@"radar_diagram"]) {
-        self.type = kELReportChartTypeRadar;
-        self.items = @[self.items];
-        self.tableView.rowHeight = 400;
-        
-        self.headerLabel.text = NSLocalizedString(@"kELReportTypeRadarHeader", nil);
-        self.detailLabel.text = NSLocalizedString(@"kELReportTypeRadarDetail", nil);
-    }  else if ([self.key isEqualToString:@"yes_or_no"]) {
-        self.type = kELReportChartTypePie;
-        self.tableView.rowHeight = 400;
-        
-        self.headerLabel.text = NSLocalizedString(@"kELReportTypeYesNoHeader", nil);
-    }
+    // Initialization
+    [self populatePage];
     
+    self.tableView.emptyDataSetSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -182,6 +159,59 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         atIndexPath:indexPath];
     
     return cell;
+}
+
+#pragma mark - Protocol Methods (DZNEmptyDataSet)
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
+                                 NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELWhiteColor]};
+    
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELReportEmptyMessage", nil)
+                                           attributes:attributes];
+}
+
+#pragma mark - Private Methods
+
+- (void)populatePage {
+    CGFloat defaultHeight = 200, singleChartHeight = 350;
+    
+    if ([self.key containsString:@"blindspot"]) {
+        self.type = kELReportChartTypeHorizontalBarBlindspot;
+        self.tableView.rowHeight = defaultHeight;
+        
+        if ([self.key containsString:@"overestimated"]) {
+            self.headerLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverHeader", nil);
+            self.detailLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverDetail", nil);
+        } else {
+            self.headerLabel.text = NSLocalizedString(@"kELReportTypeBlindspotUnderHeader", nil);
+            self.detailLabel.text = NSLocalizedString(@"kELReportTypeBlindspotUnderDetail", nil);
+        }
+    } else if ([self.key isEqualToString:@"breakdown"]) {
+        self.type = kELReportChartTypeHorizontalBarBreakdown;
+        self.tableView.rowHeight = 150;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeBreakdownHeader", nil);
+        self.detailLabel.text = NSLocalizedString(@"kELReportTypeBreakdownDetail", nil);
+    } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
+        self.type = kELReportChartTypeBar;
+        self.items = self.items[0][@"dataPoints"];
+        self.tableView.rowHeight = defaultHeight;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
+    } else if ([self.key isEqualToString:@"radar_diagram"]) {
+        self.type = kELReportChartTypeRadar;
+        self.items = @[self.items];
+        self.tableView.rowHeight = singleChartHeight;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeRadarHeader", nil);
+        self.detailLabel.text = NSLocalizedString(@"kELReportTypeRadarDetail", nil);
+    }  else if ([self.key isEqualToString:@"yes_or_no"]) {
+        self.type = kELReportChartTypePie;
+        self.tableView.rowHeight = singleChartHeight;
+        
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeYesNoHeader", nil);
+    }
 }
 
 @end
