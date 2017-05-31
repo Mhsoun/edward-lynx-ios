@@ -321,7 +321,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.xAxis.labelTextColor = [UIColor whiteColor];
     barChart.xAxis.labelWidth = 100;
     barChart.xAxis.wordWrapEnabled = YES;
-        
+    
     return barChart;
 }
 

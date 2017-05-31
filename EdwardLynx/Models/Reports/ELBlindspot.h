@@ -13,6 +13,7 @@
 
 @interface ELBlindspot : ELModel
 
+@property (nonatomic) double gap;
 @property (nonatomic) double selfPercentage;
 @property (nonatomic) double othersPercentage;
 @property (nonatomic) NSString *title;

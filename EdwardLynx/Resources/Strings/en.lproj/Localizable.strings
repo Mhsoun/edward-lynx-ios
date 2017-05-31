@@ -195,6 +195,9 @@
 "kELReportTypeRadarHeader" = "Radar Diagram";
 "kELReportTypeRadarDetail" = "Shows an overview of the results from the feedback survey, compare with your own personal assessment. The points where the radius of the circle is largest show where your strong points are (according to you or the feedback group).";
 
+"kELReportTypeResponseRateHeader" = "Respose rate";
+"kELReportTypeResponseRateDetail" = "The following chart indicates the number of individuals that responded to your feedback, broken down by category of feedback provider.";
+
 "kELReportTypeYesNoHeader" = "Yes/No Questions";
 
 /* Surveys */

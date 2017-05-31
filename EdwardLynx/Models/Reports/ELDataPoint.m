@@ -18,7 +18,13 @@
 }
 
 - (NSString *)colorKey {
-    return [_colorKey isEqualToString:@"selfColor"] ? kELLynxColor : kELOrangeColor;
+    if ([_colorKey isEqualToString:@"selfColor"]) {
+        return kELLynxColor;
+    } else if ([_colorKey isEqualToString:@"otherColor"]) {
+        return kELOtherColor;
+    } else {
+        return kELOrangeColor;
+    }
 }
 
 - (NSString *)title {

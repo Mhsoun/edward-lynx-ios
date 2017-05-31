@@ -217,6 +217,7 @@ extern NSString * const kELDeviceTokenUserDefaultsKey;
 extern NSString * const kELDevPlanColor;
 extern NSString * const kELFeedbackColor;
 extern NSString * const kELLynxColor;
+extern NSString * const kELOtherColor;
 
 extern NSString * const kELContainerColor;
 extern NSString * const kELDevPlanSeparatorColor;
