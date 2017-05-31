@@ -49,6 +49,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UIPageViewController)
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
@@ -101,6 +105,9 @@
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    CGFloat iconSize = 15;
+    
+    // Content
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
         ELInstantFeedback *instantFeedback = (ELInstantFeedback *)self.selectedObject;
         
@@ -118,6 +125,23 @@
                                @(survey.invited),
                                @(survey.answered)];
     }
+    
+    // Buttons
+    [self.prevButton setTintColor:ThemeColor(kELOrangeColor)];
+    [self.prevButton setImage:[FontAwesome imageWithIcon:fa_chevron_left
+                                               iconColor:ThemeColor(kELOrangeColor)
+                                                iconSize:iconSize
+                                               imageSize:CGSizeMake(iconSize, iconSize)]
+                     forState:UIControlStateNormal];
+    [self.nextButton setTintColor:ThemeColor(kELOrangeColor)];
+    [self.nextButton setImage:[FontAwesome imageWithIcon:fa_chevron_right
+                                               iconColor:ThemeColor(kELOrangeColor)
+                                                iconSize:iconSize
+                                               imageSize:CGSizeMake(iconSize, iconSize)]
+                     forState:UIControlStateNormal];
+    
+    // Page Control
+    self.pageControl.currentPageIndicatorTintColor = ThemeColor(kELOrangeColor);
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -135,6 +159,7 @@
     DLog(@"%@", responseDict);
     
     self.responseDict = responseDict;
+    self.navigatorView.hidden = NO;
     
     for (NSString *key in responseDict.allKeys) {
         if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
@@ -160,9 +185,36 @@
     [self addChildViewController:self.pageController];
     [self.pageView addSubview:self.pageController.view];
     [self setupPageController:self.pageController atView:self.pageView];
+    
+    [self setupNavigators];
 }
 
 #pragma mark - Private Methods
+
+- (void)changePage:(UIPageViewControllerNavigationDirection)direction {
+    __kindof ELReportChildPageViewController *controller;
+    
+    if (self.pageIndex < 0 || self.pageIndex == self.self.pageCount) {
+        return;
+    }
+    
+    controller = self.mControllers[self.pageIndex];
+    
+    self.pageControl.currentPage = self.pageIndex;
+    
+    [self.pageController setViewControllers:@[controller]
+                                  direction:direction
+                                   animated:YES
+                                 completion:nil];
+}
+
+- (void)setupNavigators {
+    self.pageControl.currentPage = 0;
+    self.pageControl.numberOfPages = self.pageCount;
+    
+    self.prevButton.hidden = YES;
+    self.nextButton.hidden = NO;
+}
 
 - (void)setupPageController:(UIPageViewController *)pageController {
     [self setupPageController:pageController atView:self.view];
@@ -213,6 +265,26 @@
                               animated:NO
                             completion:nil];
     [pageController didMoveToParentViewController:self];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onPrevButtonClick:(id)sender {
+    self.pageIndex--;
+    
+    self.prevButton.hidden = self.pageIndex == 0;
+    self.nextButton.hidden = NO;
+    
+    [self changePage:UIPageViewControllerNavigationDirectionReverse];
+}
+
+- (IBAction)onNextButtonClick:(id)sender {
+    self.pageIndex++;
+    
+    self.prevButton.hidden = NO;
+    self.nextButton.hidden = self.pageIndex == self.pageCount - 1;
+    
+    [self changePage:UIPageViewControllerNavigationDirectionForward];
 }
 
 @end

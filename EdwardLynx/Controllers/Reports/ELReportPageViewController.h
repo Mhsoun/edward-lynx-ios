@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+- (IBAction)onPrevButtonClick:(id)sender;
+- (IBAction)onNextButtonClick:(id)sender;
 
 @end

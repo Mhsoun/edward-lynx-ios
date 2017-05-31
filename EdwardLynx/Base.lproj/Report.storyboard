@@ -61,12 +61,13 @@
                     <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
                     <connections>
                         <segue destination="4P0-Lz-7qb" kind="show" identifier="InstantFeedbackDetails" id="rHV-1k-SMv"/>
-                        <segue destination="bfu-5v-FI2" kind="show" identifier="ReportDetails" id="VvD-CG-5jO"/>
+                        <segue destination="bfu-5v-FI2" kind="show" identifier="ReportDetailsSurvey" id="VvD-CG-5jO"/>
+                        <segue destination="lWz-hf-IaL" kind="show" identifier="ReportDetailsFeedback" id="ynk-Cj-SYl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-ay-F4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856.79999999999995" y="536.58170914542734"/>
+            <point key="canvasLocation" x="930" y="538"/>
         </scene>
         <!--List-->
         <scene sceneID="6aG-c6-VLN">
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-0g-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="537"/>
+            <point key="canvasLocation" x="1934" y="872"/>
         </scene>
         <!--CreateInstantFeedback-->
         <scene sceneID="22D-vE-Ixh">
@@ -258,7 +259,7 @@
                 <viewControllerPlaceholder storyboardName="Invite" id="aHG-bx-ulF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctc-dV-rKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339" y="992"/>
+            <point key="canvasLocation" x="1933" y="1299"/>
         </scene>
         <!--Report Page View Controller-->
         <scene sceneID="Wcq-qh-EgJ">
@@ -276,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-tA-flN" userLabel="Navigation View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-tA-flN" userLabel="Navigation View">
                                 <rect key="frame" x="16" y="617" width="343" height="40"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvo-Id-IiJ">
@@ -285,6 +286,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uvo-Id-IiJ" secondAttribute="height" multiplier="1:1" id="JlL-vr-aYU"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onPrevButtonClick:" destination="bfu-5v-FI2" eventType="touchUpInside" id="hT0-Xe-2Zl"/>
+                                        </connections>
                                     </button>
                                     <pageControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZv-ei-LtX">
                                         <rect key="frame" x="50" y="0.0" width="243" height="40"/>
@@ -298,6 +302,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EC0-lf-NSg" secondAttribute="height" multiplier="1:1" id="Zbp-l6-gwt"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onNextButtonClick:" destination="bfu-5v-FI2" eventType="touchUpInside" id="fhy-gT-6ab"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -372,15 +379,15 @@
                         <outlet property="indicatorView" destination="bWo-CV-vIP" id="VZW-yk-wk6"/>
                         <outlet property="infoLabel" destination="684-3J-Q04" id="af6-Zz-Ue2"/>
                         <outlet property="navigatorView" destination="RAr-tA-flN" id="03k-YP-udY"/>
-                        <outlet property="nextButton" destination="EC0-lf-NSg" id="Mn6-Sw-csr"/>
+                        <outlet property="nextButton" destination="EC0-lf-NSg" id="P3F-cB-wsk"/>
                         <outlet property="pageControl" destination="aZv-ei-LtX" id="c2S-GA-0a2"/>
                         <outlet property="pageView" destination="A4z-UI-jcw" id="Ylx-05-XCt"/>
-                        <outlet property="prevButton" destination="uvo-Id-IiJ" id="n6a-38-mYI"/>
+                        <outlet property="prevButton" destination="uvo-Id-IiJ" id="GZ0-57-jCv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOW-aU-aaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="537"/>
+            <point key="canvasLocation" x="1934" y="232"/>
         </scene>
         <!--Report Child Page View Controller-->
         <scene sceneID="Xz6-TF-oYV">
@@ -434,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lu0-nZ-hn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="537"/>
+            <point key="canvasLocation" x="2612" y="232"/>
         </scene>
     </scenes>
     <resources>
