@@ -247,6 +247,16 @@
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    if ([[errorDict allKeys] containsObject:@"validation_errors"] &&
+        [[errorDict[@"validation_errors"] allKeys] containsObject:@"answers"]) {
+        
+        [ELUtils presentToastAtView:self.view
+                            message:errorDict[@"validation_errors"][@"answers"][0]
+                         completion:nil];
+        
+        return;
+    }
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELSurveyPostError", nil)
                      completion:nil];

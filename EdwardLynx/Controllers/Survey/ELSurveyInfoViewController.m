@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveyInfoViewController.h"
+#import "NSString+HTML.h"
 
 @implementation ELSurveyInfoViewController
 
@@ -17,10 +18,9 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.titleLabel.text = self.infoDict[@"title"];
-    self.evaluationLabel.text = self.infoDict[@"evaluation"];
-    self.descriptionTextView.text = self.infoDict[@"description"];
-    
+    [self.titleLabel setText:self.infoDict[@"title"]];
+    [self.evaluationLabel setText:self.infoDict[@"evaluation"]];
+    [self.descriptionTextView setText:[self.infoDict[@"description"] htmlString]];
 }
 
 - (void)didReceiveMemoryWarning {
