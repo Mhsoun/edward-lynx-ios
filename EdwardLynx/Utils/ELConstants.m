@@ -109,6 +109,7 @@ NSString * const kELDeviceTokenUserDefaultsKey = @"DeviceTokenUserDefaultsKey";
 NSString * const kELDevPlanColor = @"devPlanColor";
 NSString * const kELFeedbackColor = @"feedbackColor";
 NSString * const kELLynxColor = @"lynxColor";
+NSString * const kELOtherColor = @"otherColor";
 
 NSString * const kELContainerColor = @"containerColor";
 NSString * const kELDevPlanSeparatorColor = @"devPlanSeparatorColor";

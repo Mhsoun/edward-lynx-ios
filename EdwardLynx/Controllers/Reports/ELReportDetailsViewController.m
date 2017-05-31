@@ -40,33 +40,30 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
-    BOOL isSurvey;
-    UIImage *image;
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    isSurvey = [self.selectedObject isKindOfClass:[ELSurvey class]];
-    image = [FontAwesome imageWithIcon:fa_ellipsis_vertical
-                             iconColor:[UIColor whiteColor]
-                              iconSize:25];
-    
     // Initialization
     self.toDisplayData = YES;
+    
+    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
+    self.viewManager.delegate = self;
+    
     self.averageBarChart = [[HorizontalBarChartView alloc] init];
     self.indexBarChart = [[HorizontalBarChartView alloc] init];
     self.averageBarChart.noDataText = @"";
     self.indexBarChart.noDataText = @"";
     
-    self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
-    self.viewManager.delegate = self;
-    
-    [self.moreBarButton setEnabled:!isSurvey];
-    [self.moreBarButton setImage:!isSurvey ? image : nil];
-    [self.moreBarButton setTintColor:[UIColor whiteColor]];
-    
     [self.averageChartView addSubview:self.averageBarChart];
     [self.indexChartView addSubview:self.indexBarChart];
+    
+    if (self.infoDict) {
+        self.bgView.hidden = YES;
+        
+        [self setupReportsWithData:self.infoDict];
+        
+        return;
+    }
     
     [self.indicatorView startAnimating];
     [self.viewManager processRetrievalOfReportDetails];
@@ -101,6 +98,15 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    BOOL isSurvey;
+    UIImage *image;
+    
+    isSurvey = [self.selectedObject isKindOfClass:[ELSurvey class]];
+    image = [FontAwesome imageWithIcon:fa_ellipsis_vertical
+                             iconColor:[UIColor whiteColor]
+                              iconSize:25];
+    
+    // Content
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
         self.instantFeedback = (ELInstantFeedback *)self.selectedObject;
         
@@ -122,6 +128,11 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
                                @(self.survey.invited),
                                @(self.survey.answered)];
     }
+    
+    // Buttons
+    [self.moreBarButton setEnabled:!isSurvey];
+    [self.moreBarButton setImage:!isSurvey ? image : nil];
+    [self.moreBarButton setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -134,41 +145,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    CGFloat height;
-    NSInteger answered;
-    BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
-    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
-    
-    answered = self.instantFeedback ? self.instantFeedback.answered : self.survey.answered;
-    self.toDisplayData = self.instantFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
-    
-    if (isFeedback) {
-        for (NSDictionary *answerDict in responseDict[@"frequencies"]) {
-            [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
-        }
-    } else {
-        [mAnswers addObject:responseDict[@"average"]];
-        [mAnswers addObject:responseDict[@"ioc"]];
-    }
-    
-    height = (kELBarHeight * mAnswers.count) + kELBarHeight;
-    height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
-    
-    [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
-    [self.averageContainerView layoutIfNeeded];
-    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 1.8)];
-    [self.indexContainerView layoutIfNeeded];
-    
-    self.averageBarChart.frame = self.averageChartView.bounds;
-    self.indexBarChart.frame = self.indexChartView.bounds;
-    
-    [self.indicatorView stopAnimating];
-    [self.scrollView setHidden:NO];
-    [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
-    
-    if (!isFeedback) {
-        [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
-    }
+    [self setupReportsWithData:responseDict];
 }
 
 #pragma mark - Private Methods
@@ -264,10 +241,13 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
 }
 
-- (HorizontalBarChartView *)configureBarChart:(HorizontalBarChartView *)barChart {
+- (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
+    double axisMax, axisMin;
     ChartLimitLine *limitLine70, *limitLine100;
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    
+    axisMax = 1.1f, axisMin = 0.0f;
     
     barChart.chartDescription.enabled = NO;
     barChart.doubleTapToZoomEnabled = NO;
@@ -279,8 +259,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
-    barChart.leftAxis.axisMaximum = 1.1f;
-    barChart.leftAxis.axisMinimum = 0.0f;
+    barChart.leftAxis.axisMaximum = axisMax;
+    barChart.leftAxis.axisMinimum = axisMin;
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
@@ -310,8 +290,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
-    barChart.rightAxis.axisMaximum = 1.1f;
-    barChart.rightAxis.axisMinimum = 0.0f;
+    barChart.rightAxis.axisMaximum = axisMax;
+    barChart.rightAxis.axisMinimum = axisMin;
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = YES;
@@ -351,7 +331,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     NSDictionary *infoDict = [self chartInfoFromData:self.instantFeedback ? answers : answers[0] grouping:NO];
     NSArray *labels = infoDict[@"labels"];
     
-    barChart = [self configureBarChart:barChart];
+    barChart = [self configureHorizontalBarChart:barChart];
     barChart.legend.enabled = NO;
     barChart.xAxis.labelCount = labels.count;
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
@@ -396,7 +376,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
     chartData.barWidth = 0.4f;
     
-    barChart = [self configureBarChart:barChart];
+    barChart = [self configureHorizontalBarChart:barChart];
     
     if (self.toDisplayData) {
         barChart.data = chartData;
@@ -415,6 +395,44 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     
     [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     [barChart animateWithYAxisDuration:kELAnimateInterval];
+}
+
+- (void)setupReportsWithData:(NSDictionary *)dataDict {
+    CGFloat height;
+    NSInteger answered;
+    BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    
+    answered = isFeedback ? self.instantFeedback.answered : self.survey.answered;
+    self.toDisplayData = isFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
+    
+    if (isFeedback) {
+        for (NSDictionary *answerDict in dataDict[@"frequencies"]) {
+            [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
+        }
+    } else {
+        [mAnswers addObject:dataDict[@"average"]];
+        [mAnswers addObject:dataDict[@"ioc"]];
+    }
+    
+    height = (kELBarHeight * mAnswers.count) + kELBarHeight;
+    height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
+    
+    [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
+    [self.averageContainerView layoutIfNeeded];
+    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 1.8)];
+    [self.indexContainerView layoutIfNeeded];
+    
+    self.averageBarChart.frame = self.averageChartView.bounds;
+    self.indexBarChart.frame = self.indexChartView.bounds;
+    
+    [self.indicatorView stopAnimating];
+    [self.scrollView setHidden:NO];
+    [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
+    
+    if (!isFeedback) {
+        [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
+    }
 }
 
 #pragma mark - Interface Builder Actions

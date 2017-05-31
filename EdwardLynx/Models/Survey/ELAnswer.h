@@ -21,4 +21,6 @@
 @property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSArray<Optional, ELAnswerOption> *options;
 
+@property (nonatomic) NSArray<Ignore> *optionKeys;
+
 @end

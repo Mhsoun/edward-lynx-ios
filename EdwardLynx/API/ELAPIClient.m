@@ -48,6 +48,10 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
         __kindof UIViewController *visibleViewController;
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                                 
+        if (error) {
+            DLog(@"%@", error.localizedDescription);
+        }
         
 //        if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) &&
 //            (responseDict[@"error"] && ![responseDict[@"error"] isEqualToString:kELInvalidCredentials])) {
@@ -96,7 +100,7 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                                                 animated:YES
                                               completion:nil];
         }
-        
+                                                                 
         completion(response, responseDict, error);
     }];
     

@@ -119,22 +119,6 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-      viewControllerBeforeViewController:(UIViewController *)viewController {
-    __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)viewController;
-    NSInteger index = [controller index];
-    
-    if (index == 0) {
-        return nil;
-    }
-    
-    index--;
-    
-    self.pageIndex = index;
-    
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController {
     __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)viewController;
     NSInteger index = [controller index];
@@ -144,6 +128,22 @@
     if (index == self.pageCount) {
         return nil;
     }
+    
+    self.pageIndex = index;
+    
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+      viewControllerBeforeViewController:(UIViewController *)viewController {
+    __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)viewController;
+    NSInteger index = [controller index];
+    
+    if (index == 0) {
+        return nil;
+    }
+    
+    index--;
     
     self.pageIndex = index;
     
@@ -193,6 +193,7 @@
     switch (self.responseType) {
         case kELSurveyResponseTypeDetails:
             self.responseType = kELSurveyResponseTypeQuestions;
+            
             self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
             self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
             self.surveyViewManager.delegate = self;
@@ -283,51 +284,6 @@
     }];
 }
 
-#pragma mark - Public Methods
-
-- (void)setupPageController:(UIPageViewController *)pageController {
-    [self setupPageController:pageController atView:self.view];
-}
-
-- (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
-    ELSurveyDetailsViewController *controller;
-    ELSurveyInfoViewController *infoController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Survey" bundle:nil];
-    
-    for (int i = 0; i < self.pageCount; i++) {
-        if (i == 0) {
-            infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
-            infoController.index = i;
-            infoController.infoDict = @{@"title": [NSString stringWithFormat:@"%@: %@",
-                                                   [ELUtils labelBySurveyType:self.survey.type],
-                                                   self.survey.name],
-                                        @"description": self.survey.shortDescription,
-                                        @"evaluation": self.survey.evaluationText};
-            
-            [self.mControllers addObject:infoController];
-            
-            continue;
-        }
-        
-        controller = [storyboard instantiateViewControllerWithIdentifier:@"SurveyPage"];
-        controller.index = i;
-        controller.survey = self.survey;
-        controller.category = self.items[i - 1];
-        
-        [self.mControllers addObject:controller];
-    }
-    
-    pageController.dataSource = self;
-    pageController.view.frame = view.bounds;
-    pageController.view.backgroundColor = [UIColor clearColor];
-    
-    [pageController setViewControllers:@[self.mControllers[0]]
-                             direction:UIPageViewControllerNavigationDirectionForward
-                              animated:NO
-                            completion:nil];
-    [pageController didMoveToParentViewController:self];
-}
-
 - (__kindof ELBaseDetailViewController *)viewControllerAtIndex:(NSInteger)index {
     return self.mControllers[index];
 }
@@ -374,6 +330,49 @@
     
     self.draftsButton.hidden = YES;
     self.submitButton.hidden = YES;
+}
+
+- (void)setupPageController:(UIPageViewController *)pageController {
+    [self setupPageController:pageController atView:self.view];
+}
+
+- (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
+    ELSurveyDetailsViewController *controller;
+    ELSurveyInfoViewController *infoController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Survey" bundle:nil];
+    
+    for (int i = 0; i < self.pageCount; i++) {
+        if (i == 0) {
+            infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
+            infoController.index = i;
+            infoController.infoDict = @{@"title": [NSString stringWithFormat:@"%@: %@",
+                                                   [ELUtils labelBySurveyType:self.survey.type],
+                                                   self.survey.name],
+                                        @"description": self.survey.shortDescription,
+                                        @"evaluation": self.survey.evaluationText};
+            
+            [self.mControllers addObject:infoController];
+            
+            continue;
+        }
+        
+        controller = [storyboard instantiateViewControllerWithIdentifier:@"SurveyPage"];
+        controller.index = i;
+        controller.survey = self.survey;
+        controller.category = self.items[i - 1];
+        
+        [self.mControllers addObject:controller];
+    }
+    
+    pageController.dataSource = self;
+    pageController.view.frame = view.bounds;
+    pageController.view.backgroundColor = [UIColor clearColor];
+    
+    [pageController setViewControllers:@[self.mControllers[0]]
+                             direction:UIPageViewControllerNavigationDirectionForward
+                              animated:NO
+                            completion:nil];
+    [pageController didMoveToParentViewController:self];
 }
 
 #pragma mark - Interface Builder Actions

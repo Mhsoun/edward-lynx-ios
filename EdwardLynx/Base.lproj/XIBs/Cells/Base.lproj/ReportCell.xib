@@ -37,14 +37,14 @@
                         <rect key="frame" x="15" y="5" width="345" height="104"/>
                         <subviews>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnG-Ug-dZN">
-                                <rect key="frame" x="10" y="10" width="305" height="0.0"/>
+                                <rect key="frame" x="10" y="10" width="300" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jSf-RM-xl9">
-                                <rect key="frame" x="10" y="10" width="305" height="15"/>
+                                <rect key="frame" x="10" y="10" width="300" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Gr6-1w-cF6"/>
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v6m-Qn-8lG">
-                                <rect key="frame" x="10" y="54" width="305" height="15"/>
+                                <rect key="frame" x="10" y="54" width="300" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="xZW-Wr-mcl"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </imageView>
                             <label userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-Hb-diq">
-                                <rect key="frame" x="40" y="74" width="275" height="20"/>
+                                <rect key="frame" x="40" y="74" width="270" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +101,7 @@
                             <constraint firstItem="pQs-rW-MmQ" firstAttribute="bottom" secondItem="AKw-Hb-diq" secondAttribute="bottom" id="9ea-Me-lAH"/>
                             <constraint firstItem="Nww-S7-aP2" firstAttribute="leading" secondItem="v6m-Qn-8lG" secondAttribute="leading" id="AUv-97-img"/>
                             <constraint firstItem="pQs-rW-MmQ" firstAttribute="top" secondItem="VnG-Ug-dZN" secondAttribute="top" id="Dhs-De-hgS"/>
-                            <constraint firstItem="pQs-rW-MmQ" firstAttribute="leading" secondItem="VnG-Ug-dZN" secondAttribute="trailing" id="Dsd-qU-5Pd"/>
+                            <constraint firstItem="pQs-rW-MmQ" firstAttribute="leading" secondItem="VnG-Ug-dZN" secondAttribute="trailing" constant="5" id="Dsd-qU-5Pd"/>
                             <constraint firstItem="jSf-RM-xl9" firstAttribute="top" secondItem="VnG-Ug-dZN" secondAttribute="bottom" id="MX0-Qw-1qJ"/>
                             <constraint firstItem="AKw-Hb-diq" firstAttribute="height" secondItem="Nww-S7-aP2" secondAttribute="height" id="Nza-1I-Bx0"/>
                             <constraint firstItem="meo-hB-JvB" firstAttribute="centerY" secondItem="Nww-S7-aP2" secondAttribute="centerY" id="Xtf-9m-sjE"/>
