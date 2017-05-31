@@ -162,7 +162,7 @@
     self.navigatorView.hidden = NO;
     
     for (NSString *key in responseDict.allKeys) {
-        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
+        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers", @"highestLowestIndividual", @"response_rate"] containsObject:key]) {
             continue;
         }
         

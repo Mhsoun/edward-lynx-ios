@@ -14,9 +14,7 @@
 @synthesize title = _title;
 
 + (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"title": @"Title",
-                                                                  @"percentage": @"Percentage",
-                                                                  @"colorKey": @"role_style"}];
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"colorKey": @"role_style"}];
 }
 
 - (NSString *)colorKey {
@@ -35,9 +33,7 @@
 @synthesize percentage1 = _percentage1;
 
 + (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"question": @"Question",
-                                                                  @"percentage": @"Percentage",
-                                                                  @"percentage1": @"Percentage_1"}];
+    return [JSONKeyMapper mapperForSnakeCase];
 }
 
 - (double)percentage {

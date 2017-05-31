@@ -133,9 +133,7 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    [cell configure:@{@"title": @"",
-                      @"detail": @"",
-                      @"type": @(self.type),
+    [cell configure:@{@"type": @(self.type),
                       @"data": self.items[indexPath.row]}
         atIndexPath:indexPath];
     
@@ -213,7 +211,6 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 //                                            @"role_style": @"selfColor"}]}];
     } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
         self.type = kELReportChartTypeBar;
-        self.items = self.items[0][@"dataPoints"];
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
     } else if ([self.key isEqualToString:@"radar_diagram"]) {

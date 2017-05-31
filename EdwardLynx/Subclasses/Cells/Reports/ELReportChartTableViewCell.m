@@ -9,10 +9,11 @@
 @import Charts;
 
 #import "ELReportChartTableViewCell.h"
+#import "ELAnswerSummary.h"
 #import "ELAverage.h"
 #import "ELBlindspot.h"
-#import "ELDataPoint.h"
 #import "ELRadarDiagram.h"
+#import "ELYesNoData.h"
 
 #pragma mark - Class Extension
 
@@ -44,10 +45,10 @@
     NSDictionary *dataDict;
     NSDictionary *detailDict = (NSDictionary *)object;
     
-    self.titleLabel.text = detailDict[@"title"];
-    self.detailLabel.text = detailDict[@"detail"];
-    
     type = [detailDict[@"type"] integerValue];
+//    frame = self.chartContainerView.bounds;
+//    frame.size.height = CGRectGetHeight(self.frame) - 35;
+    
     frame = self.bounds;
     frame.size.height = CGRectGetHeight(frame) - 35;
     frame.size.width = CGRectGetWidth(frame) - 10;
@@ -80,6 +81,9 @@
             } else if (type == kELReportChartTypeHorizontalBarBlindspot) {
                 [self setupBlindspotChartWithData:detailDict[@"data"]];
             } else {
+                self.titleLabel.text = detailDict[@"data"][@"category"];
+                self.detailLabel.text = @"";
+                
                 [self setupPerParticipantChartWithData:detailDict[@"data"]];
             }
             
@@ -92,7 +96,6 @@
             dataDict = detailDict[@"data"];
             
             self.pieChart = [[PieChartView alloc] initWithFrame:frame];
-            self.titleLabel.text = dataDict[@"category"];
             
             [self.chartContainerView addSubview:self.pieChart];
             [self setupPieChartWithData:dataDict];
@@ -275,12 +278,12 @@
     mEntries = [[NSMutableArray alloc] init];
     mLabels = [[NSMutableArray alloc] init];
     
-    entry = [[BarChartDataEntry alloc] initWithX:(double)0 y:blindspot.othersPercentage];
+    entry = [[BarChartDataEntry alloc] initWithX:(double)0 y:blindspot.selfPercentage];
     
     [mEntries addObject:entry];
     [mColors addObject:ThemeColor(kELLynxColor)];
     
-    entry = [[BarChartDataEntry alloc] initWithX:(double)1 y:blindspot.selfPercentage];
+    entry = [[BarChartDataEntry alloc] initWithX:(double)1 y:blindspot.othersPercentage];
     
     [mEntries addObject:entry];
     [mColors addObject:ThemeColor(kELOrangeColor)];
@@ -326,14 +329,33 @@
 
 - (void)setupPerCategoryChartWithData:(NSDictionary *)data {
     NSMutableArray *mEntries;
+    ELDataPointSummary *dataPoint;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
-    ELDataPointSummary *dataPoint = [[ELDataPointSummary alloc] initWithDictionary:data error:nil];
+    ELAnswerSummary *summary = [[ELAnswerSummary alloc] initWithDictionary:data error:nil];
     
+    // Content
+    self.titleLabel.text = summary.category;
+    
+    // Chart
     mEntries = [[NSMutableArray alloc] init];
+
+    for (int i = 0; i < summary.dataPoints.count; i++) {
+        dataPoint = summary.dataPoints[i];
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage]];
+    }
     
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0 y:dataPoint.percentage]];
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1 y:dataPoint.percentage1]];
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELLynxColor];
+    chartDataSet.valueColors = @[ThemeColor(kELLynxColor)];
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        return [NSString stringWithFormat:@"%@", @(value)];
+    }];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
     
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
@@ -348,18 +370,8 @@
         return [NSString stringWithFormat:@"%@%%", @(percentage)];
     }];
     
-    chartDataSet = [self chartDataSetWithTitle:@""
-                                         items:[mEntries copy]
-                                      colorKey:kELLynxColor];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        int percentage = (int)ceil((value * 100));
-        
-        return [NSString stringWithFormat:@"%@", @(percentage)];
-    }];
-    chartDataSet.valueColors = @[ThemeColor(kELLynxColor)];
-    
-    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    chartData.barWidth = 0.5f;
+    self.barChart.xAxis.labelCount = [[summary pointKeys] count];
+    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[summary pointKeys]];
     
     self.barChart.data = chartData;
 }
@@ -468,21 +480,23 @@
 }
 
 - (void)setupPieChartWithData:(NSDictionary *)data {
-    double yesValue, noValue;
     PieChartDataEntry *entry;
     PieChartDataSet *chartDataSet;
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:14];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     NSMutableArray *mEntries = [[NSMutableArray alloc] init];
+    ELYesNoData *yesNoData = [[ELYesNoData alloc] initWithDictionary:data error:nil];
     
-    yesValue = [data[@"yesPercentage"] doubleValue];
-    noValue = [data[@"noPercentage"] doubleValue];
+    // Content
+    self.titleLabel.text = yesNoData.category;
+    self.detailLabel.text = yesNoData.question;
     
-    entry = [[PieChartDataEntry alloc] initWithValue:noValue label:@"No"];
+    // Chart
+    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.noPercentage label:@"No"];
     
     [mEntries addObject:entry];
 
-    entry = [[PieChartDataEntry alloc] initWithValue:yesValue label:@"Yes"];
+    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.yesPercentage label:@"Yes"];
     
     [mEntries addObject:entry];
     
