@@ -133,30 +133,6 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    // Detailed Answer Summary per category data
-//    [cell configure:@{@"title": @"",
-//                      @"type": @(kELReportChartTypeBar),
-//                      @"data": self.items[0][@"dataPoints"][indexPath.row]}
-//        atIndexPath:indexPath];
-    
-    // Radar Diagram
-//    [cell configure:@{@"title": @"",
-//                      @"type": @(kELReportChartTypeRadar),
-//                      @"data": self.items[indexPath.row]}
-//        atIndexPath:indexPath];
-    
-    // Yes/No
-//    [cell configure:@{@"title": self.items[indexPath.row][@"category"],
-//                      @"type": @(kELReportChartTypePie),
-//                      @"data": self.items[indexPath.row]}
-//        atIndexPath:indexPath];
-
-    // Participant
-//    [cell configure:@{@"title": @"",
-//                      @"type": @(kELReportChartTypeHorizontalBarBreakdown),
-//                      @"data": self.items[indexPath.row]}
-//        atIndexPath:indexPath];
-    
     [cell configure:@{@"title": @"",
                       @"detail": @"",
                       @"type": @(self.type),
@@ -164,6 +140,18 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         atIndexPath:indexPath];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (self.type) {
+        case kELReportChartTypeHorizontalBarBlindspot:
+        case kELReportChartTypeHorizontalBarBreakdown:
+            return 150;
+        case kELReportChartTypeBar:
+            return 200;
+        default:
+            return 350;
+    }
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
@@ -179,34 +167,30 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 #pragma mark - Private Methods
 
 - (void)populatePage {
-    CGFloat defaultHeight = 150, singleChartHeight = 350;
-    
     if ([self.key containsString:@"blindspot"]) {
         self.type = kELReportChartTypeHorizontalBarBlindspot;
-        self.tableView.rowHeight = defaultHeight;
         
         // NOTE: Sample data
-        self.items = @[@{@"id": @530,
-                         @"title": @"question #5",
-                         @"category": @"Category 3",
-                         @"answerType": @{
-                                 @"type": @4,
-                                 @"description": @"Strong agreement scale",
-                                 @"help": @"An strong agreement scale that determines how much the person that answers the question agrees with it, where strongly disagree means the lowest and strongly agree, the highest.",
-                                 @"isText": @NO,
-                                 @"isNumeric": @NO,
-                                 @"options": @[@{@"description": @"Strongly Disagree",
-                                                 @"value": @0},
-                                               @{@"description": @"Disagree",
-                                                 @"value": @1},
-                                               @{@"description": @"Agree",
-                                                 @"value": @2},
-                                               @{@"description": @"Strongly Agree",
-                                                 @"value": @3}]},
-                         @"self": @0,
-                         @"others": @67,
-                         @"gap": @67}];
-        
+//        self.items = @[@{@"id": @530,
+//                         @"title": @"question #5",
+//                         @"category": @"Category 3",
+//                         @"answerType": @{
+//                                 @"type": @4,
+//                                 @"description": @"Strong agreement scale",
+//                                 @"help": @"An strong agreement scale that determines how much the person that answers the question agrees with it, where strongly disagree means the lowest and strongly agree, the highest.",
+//                                 @"isText": @NO,
+//                                 @"isNumeric": @NO,
+//                                 @"options": @[@{@"description": @"Strongly Disagree",
+//                                                 @"value": @0},
+//                                               @{@"description": @"Disagree",
+//                                                 @"value": @1},
+//                                               @{@"description": @"Agree",
+//                                                 @"value": @2},
+//                                               @{@"description": @"Strongly Agree",
+//                                                 @"value": @3}]},
+//                         @"self": @0,
+//                         @"others": @67,
+//                         @"gap": @67}];
         if ([self.key containsString:@"overestimated"]) {
             self.headerLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverHeader", nil);
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverDetail", nil);
@@ -216,26 +200,30 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         }
     } else if ([self.key isEqualToString:@"breakdown"]) {
         self.type = kELReportChartTypeHorizontalBarBreakdown;
-        self.tableView.rowHeight = defaultHeight;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeBreakdownHeader", nil);
         self.detailLabel.text = NSLocalizedString(@"kELReportTypeBreakdownDetail", nil);
+        
+        // NOTE: Sample data
+//        self.items = @[@{@"dataPoints": @[@{@"Percentage": @(0.65),
+//                                            @"Title": @"\"Colleague\"",
+//                                            @"role_style": @"orangeColor"},
+//                                          @{@"Percentage": @(0.70),
+//                                            @"Title": @"\"Candidate\"",
+//                                            @"role_style": @"selfColor"}]}];
     } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
         self.type = kELReportChartTypeBar;
         self.items = self.items[0][@"dataPoints"];
-        self.tableView.rowHeight = 200;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
     } else if ([self.key isEqualToString:@"radar_diagram"]) {
         self.type = kELReportChartTypeRadar;
         self.items = @[self.items];
-        self.tableView.rowHeight = singleChartHeight;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeRadarHeader", nil);
         self.detailLabel.text = NSLocalizedString(@"kELReportTypeRadarDetail", nil);
     }  else if ([self.key isEqualToString:@"yes_or_no"]) {
         self.type = kELReportChartTypePie;
-        self.tableView.rowHeight = singleChartHeight;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeYesNoHeader", nil);
     }

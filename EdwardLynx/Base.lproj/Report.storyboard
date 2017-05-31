@@ -89,6 +89,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-JO-o1i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <scrollView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8o-oh-hUX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
@@ -210,10 +214,14 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="z8o-oh-hUX" firstAttribute="leading" secondItem="4qo-ep-dde" secondAttribute="leading" id="0dm-oy-NR3"/>
+                            <constraint firstItem="TEd-JO-o1i" firstAttribute="height" secondItem="4qo-ep-dde" secondAttribute="height" id="1aG-YZ-SNy"/>
+                            <constraint firstItem="TEd-JO-o1i" firstAttribute="centerX" secondItem="4qo-ep-dde" secondAttribute="centerX" id="9k4-dh-nFn"/>
                             <constraint firstAttribute="trailing" secondItem="z8o-oh-hUX" secondAttribute="trailing" id="Cfh-gq-pMv"/>
                             <constraint firstItem="z8o-oh-hUX" firstAttribute="top" secondItem="Knm-wX-oy2" secondAttribute="bottom" id="H1E-6a-as4"/>
                             <constraint firstItem="R6f-2t-ijF" firstAttribute="top" secondItem="z8o-oh-hUX" secondAttribute="bottom" id="P3N-hL-LDv"/>
                             <constraint firstItem="YLr-hf-3Cr" firstAttribute="centerX" secondItem="4qo-ep-dde" secondAttribute="centerX" id="SPQ-vb-eCb"/>
+                            <constraint firstItem="TEd-JO-o1i" firstAttribute="centerY" secondItem="4qo-ep-dde" secondAttribute="centerY" id="b9J-qw-lYD"/>
+                            <constraint firstItem="TEd-JO-o1i" firstAttribute="width" secondItem="4qo-ep-dde" secondAttribute="width" id="d6r-hD-4ha"/>
                             <constraint firstItem="YLr-hf-3Cr" firstAttribute="centerY" secondItem="4qo-ep-dde" secondAttribute="centerY" id="ep3-rS-EfR"/>
                         </constraints>
                     </view>
@@ -229,6 +237,7 @@
                         <outlet property="averageChartView" destination="RgW-Ob-JQ7" id="GIe-2n-Jor"/>
                         <outlet property="averageContainerView" destination="gzC-S5-oZd" id="BcQ-xu-8ei"/>
                         <outlet property="averageHeightConstraint" destination="KmL-Id-uDx" id="Jts-UH-bAx"/>
+                        <outlet property="bgView" destination="TEd-JO-o1i" id="C2P-W6-m87"/>
                         <outlet property="detailLabel" destination="L61-gO-7n1" id="jwg-If-8hy"/>
                         <outlet property="headerLabel" destination="beJ-dZ-msV" id="2xq-cH-KJO"/>
                         <outlet property="indexChartView" destination="KSk-mx-nSW" id="6Zi-8S-cXT"/>

@@ -48,8 +48,9 @@
     self.detailLabel.text = detailDict[@"detail"];
     
     type = [detailDict[@"type"] integerValue];
-    frame = self.chartContainerView.frame;
-    frame.size.height = CGRectGetHeight(self.bounds) - 25;
+    frame = self.bounds;
+    frame.size.height = CGRectGetHeight(frame) - 35;
+    frame.size.width = CGRectGetWidth(frame) - 10;
     
     switch (type) {
         case kELReportChartTypeBar:
@@ -575,10 +576,9 @@
     
     self.radarChart.legend.drawInside = YES;
     self.radarChart.legend.font = labelFont;
-    self.radarChart.legend.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;
     self.radarChart.legend.orientation = ChartLegendOrientationHorizontal;
+    self.radarChart.legend.position = ChartLegendPositionBelowChartCenter;
     self.radarChart.legend.textColor = [UIColor whiteColor];
-    self.radarChart.legend.verticalAlignment = ChartLegendVerticalAlignmentBottom;
     self.radarChart.legend.xOffset = 0;
     self.radarChart.legend.yEntrySpace = 0;
     self.radarChart.legend.yOffset = 0;

@@ -73,11 +73,12 @@ static NSString * const kELInstantFeedbackSegueIdentifier = @"InstantFeedbackDet
 #pragma mark - Protocol Methods (ELListViewController)
 
 - (void)onRowSelection:(__kindof ELModel *)object {
-    self.selectedObject = (ELInstantFeedback *)object;
+    NSString *identifier = [object isKindOfClass:[ELInstantFeedback class]] ? kELFeedbackReportSegueIdentifier :
+                                                                              kELSurveyReportSegueIdentifier;
     
-    // TODO: Change segue based on selected survey (Feedback, Lynx)
+    self.selectedObject = object;
     
-    [self performSegueWithIdentifier:kELSurveyReportSegueIdentifier sender:self];
+    [self performSegueWithIdentifier:identifier sender:self];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

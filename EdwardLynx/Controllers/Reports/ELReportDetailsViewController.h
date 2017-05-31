@@ -16,6 +16,7 @@
 @property (strong, nonatomic) __kindof ELModel *selectedObject;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *moreBarButton;
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anonymousLabel;
