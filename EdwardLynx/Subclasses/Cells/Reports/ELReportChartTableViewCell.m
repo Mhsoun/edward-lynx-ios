@@ -13,6 +13,7 @@
 #import "ELAverage.h"
 #import "ELBlindspot.h"
 #import "ELRadarDiagram.h"
+#import "ELQuestionRate.h"
 #import "ELResponseRate.h"
 #import "ELYesNoData.h"
 
@@ -93,7 +94,7 @@
                 
                 [self setupPerParticipantChartWithData:detailDict[@"data"]];
             } else {
-                
+                [self setupHighestLowestWithData:detailDict[@"data"]];
             }
             
             break;
@@ -329,7 +330,69 @@
 }
 
 - (void)setupHighestLowestWithData:(NSDictionary *)data {
+    NSMutableArray *mColors,
+                   *mEntries,
+                   *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    BarChartDataEntry *entry;
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    ELQuestionRate *rate = [[ELQuestionRate alloc] initWithDictionary:data error:nil];
     
+    // Content
+    self.titleLabel.text = rate.category;
+    self.detailLabel.text = rate.question;
+    
+    // Chart
+    mColors = [[NSMutableArray alloc] init];
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    entry = [[BarChartDataEntry alloc] initWithX:(double)0 y:rate.candidates];
+    
+    [mEntries addObject:entry];
+    [mColors addObject:ThemeColor(kELLynxColor)];
+    
+    entry = [[BarChartDataEntry alloc] initWithX:(double)1 y:rate.others];
+    
+    [mEntries addObject:entry];
+    [mColors addObject:ThemeColor(kELOtherColor)];
+    
+    [mLabels addObject:@"Candidates"];
+    [mLabels addObject:@"Others combined"];
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
+    
+    self.horizontalBarChart.rightAxis.axisMaximum = 1.0;
+    self.horizontalBarChart.rightAxis.axisMinimum = 0.0;
+    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = YES;
+    self.horizontalBarChart.rightAxis.labelCount = 2;
+    self.horizontalBarChart.rightAxis.labelFont = labelFont;
+    
+    // TODO: Word wrap labels
+    
+    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
+    self.horizontalBarChart.xAxis.labelFont = labelFont;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELGreenColor];
+    chartDataSet.colors = [mColors copy];
+    chartDataSet.valueColors = [mColors copy];
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        int percentage = (int)ceil((value * 100));
+        
+        return [NSString stringWithFormat:@"%@", @(percentage)];
+    }];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart.data = chartData;
 }
 
 - (void)setupPerCategoryChartWithData:(NSDictionary *)data {
@@ -355,7 +418,6 @@
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
                                       colorKey:kELLynxColor];
-    chartDataSet.valueColors = @[ThemeColor(kELLynxColor)];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         return [NSString stringWithFormat:@"%@", @(value)];
     }];
@@ -409,6 +471,7 @@
     for (int i = 0; i < items.count; i++) {
         ELDataPointBreakdown *dataPoint = [[ELDataPointBreakdown alloc] initWithDictionary:items[i] error:nil];
         
+//        entry = [[BarChartDataEntry alloc] initWithX:(double)(items.count - 1) - i y:dataPoint.percentage];
         entry = [[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage];
         
         [mEntries addObject:entry];
@@ -630,6 +693,7 @@
     chartData.barWidth = 0.5f;
     
     self.barChart = [self configureBarChart:self.barChart];
+    self.barChart.extraTopOffset = 15.0f;
     self.barChart.legend.enabled = NO;
     
     for (BarChartDataEntry *entry in [mEntries copy]) {
@@ -656,7 +720,7 @@
 - (void)setupYesOrNoChartWithData:(NSDictionary *)data {
     PieChartDataEntry *entry;
     PieChartDataSet *chartDataSet;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     NSMutableArray *mEntries = [[NSMutableArray alloc] init];
     ELYesNoData *yesNoData = [[ELYesNoData alloc] initWithDictionary:data error:nil];
@@ -673,6 +737,12 @@
     entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.noPercentage label:@"No"];
     
     [mEntries addObject:entry];
+    
+    if (yesNoData.naPercentage > 0) {
+        entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.noPercentage label:@"N/A"];
+        
+        [mEntries addObject:entry];
+    }
     
     chartDataSet = [[PieChartDataSet alloc] initWithValues:[mEntries copy] label:@""];
     chartDataSet.colors = @[ThemeColor(kELDarkGrayColor), ThemeColor(kELVioletColor)];

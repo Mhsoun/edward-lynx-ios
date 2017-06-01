@@ -192,6 +192,12 @@
 
 "kELReportTypeDetailPerCategoryHeader" = "Detailed answer\nsummary per category";
 
+"kELReportTypeHighestHeader" = "Five Highest Rated Questions";
+"kELReportTypeHighestDetail" = "";
+
+"kELReportTypeLowestHeader" = "Five Lowest Rated Questions";
+"kELReportTypeLowestDetail" = "";
+
 "kELReportTypeRadarHeader" = "Radar Diagram";
 "kELReportTypeRadarDetail" = "Shows an overview of the results from the feedback survey, compare with your own personal assessment. The points where the radius of the circle is largest show where your strong points are (according to you or the feedback group).";
 

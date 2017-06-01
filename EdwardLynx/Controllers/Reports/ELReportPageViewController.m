@@ -148,6 +148,7 @@
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     [self.indicatorView stopAnimating];
+    
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
                      completion:nil];
@@ -162,13 +163,20 @@
     self.navigatorView.hidden = NO;
     
     for (NSString *key in responseDict.allKeys) {
-        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers", @"highestLowestIndividual"] containsObject:key]) {
+        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
             continue;
         }
         
         if ([key isEqualToString:@"blindspot"]) {
             [self.mReportKeys addObject:@"blindspot.overestimated"];
             [self.mReportKeys addObject:@"blindspot.underestimated"];
+            
+            continue;
+        }
+        
+        if ([key isEqualToString:@"highestLowestIndividual"]) {
+            [self.mReportKeys addObject:@"highestLowestIndividual.highest"];
+            [self.mReportKeys addObject:@"highestLowestIndividual.lowest"];
             
             continue;
         }
@@ -227,6 +235,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Report" bundle:nil];
     
     for (int i = 0; i < self.pageCount; i++) {
+        BOOL isValueForKeypath;
         NSString *key;
         
         if (i == 0) {
@@ -247,10 +256,11 @@
         }
         
         key = self.mReportKeys[i - 1];
+        isValueForKeypath = [key containsString:@"blindspot"] || [key containsString:@"highestLowestIndividual"];
         
         controller = [storyboard instantiateViewControllerWithIdentifier:@"ReportChildPage"];
         controller.index = i;
-        controller.items = [key containsString:@"blindspot"] ? [self.responseDict valueForKeyPath:key] : self.responseDict[key];
+        controller.items = isValueForKeypath ? [self.responseDict valueForKeyPath:key] : self.responseDict[key];
         controller.key = self.mReportKeys[i - 1];
         
         [self.mControllers addObject:controller];
