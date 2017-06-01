@@ -149,16 +149,16 @@
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
 
 "kELInviteTitleFeedback" = "Invite People";
-"kELInviteTitleReport" = "Share Report";
+"kELInviteTitleReport" = "Share Result";
 
 "kELInviteUsersSuccess" = "Successfully invited participants";
 
-"kELReportEmptyMessage" = "No Reports";
+"kELReportEmptyMessage" = "No Results";
 
 "kELShareButtonFeedback" = "Send Invites";
 "kELShareButtonReport" = "Share";
 
-"kELShareReportsHeaderMessage" = "Share report to users";
+"kELShareReportsHeaderMessage" = "Share result to users";
 
 "kELUsersNumberSelectedLabel" = "People selected: %@";
 
@@ -179,18 +179,24 @@
 "kELReportMoreDropdownShare" = "Share Report";
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
-"kELReportTitleFeedback" = "Feedback Report";
+"kELReportTitleFeedback" = "Feedback Result";
 
-"kELReportTypeBlindspotOverHeader" = "Blindspot";
-"kELReportTypeBlindspotOverDetail" = "Overestimated";
+"kELReportTypeBlindspotOverHeader" = "Blindspot (Overestimated)";
+"kELReportTypeBlindspotOverDetail" = "Questions where others have rated you lower than you rated yourself. Shows areas where there are areas for improvement.";
 
-"kELReportTypeBlindspotUnderHeader" = "Blindspot";
-"kELReportTypeBlindspotUnderDetail" = "Underestimated";
+"kELReportTypeBlindspotUnderHeader" = "Blindspot (Underestimated)";
+"kELReportTypeBlindspotUnderDetail" = "Questions where others have rated you higher than you rated yourself. Shows the attributes you have that others appreciate.";
 
 "kELReportTypeBreakdownHeader" = "Breakdown of answers by participant type";
 "kELReportTypeBreakdownDetail" = "The diagrams show an average of the answers of the competence areas for each participant category.";
 
 "kELReportTypeDetailPerCategoryHeader" = "Detailed answer\nsummary per category";
+
+"kELReportTypeHighestHeader" = "Five Highest Rated Questions";
+"kELReportTypeHighestDetail" = "";
+
+"kELReportTypeLowestHeader" = "Five Lowest Rated Questions";
+"kELReportTypeLowestDetail" = "";
 
 "kELReportTypeRadarHeader" = "Radar Diagram";
 "kELReportTypeRadarDetail" = "Shows an overview of the results from the feedback survey, compare with your own personal assessment. The points where the radius of the circle is largest show where your strong points are (according to you or the feedback group).";
@@ -238,6 +244,12 @@
 "kELListFilterExpired" = "Expired";
 "kELListFilterInstantFeedback" = "Instant Feedback";
 "kELListFilterLynxMeasurement" = "Lynx Measurement";
+
+/* Tab Titles */
+
+"kELTabTitleDevPlan" = "Development Plans";
+"kELTabTitleReports" = "Results";
+"kELTabTitleSurveys" = "Surveys";
 
 /* User Roles */
 

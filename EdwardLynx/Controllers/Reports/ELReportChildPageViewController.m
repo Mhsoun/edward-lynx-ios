@@ -75,10 +75,13 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     switch (self.type) {
         case kELReportChartTypeHorizontalBarBlindspot:
         case kELReportChartTypeHorizontalBarBreakdown:
+        case kELReportChartTypeHorizontalBarHighestLowest:
             return 150;
         case kELReportChartTypeBarCategory:
         case kELReportChartTypeBarResponseRate:
             return 200;
+        case kELReportChartTypePie:
+            return 250;
         default:
             return 350;
     }
@@ -145,6 +148,18 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         self.type = kELReportChartTypeBarCategory;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
+    } else if ([self.key containsString:@"highestLowestIndividual"]) {
+        NSString *subKey = [self.key componentsSeparatedByString:@"."][1];
+        
+        self.type = kELReportChartTypeHorizontalBarHighestLowest;
+        
+        if ([subKey isEqualToString:@"highest"]) {
+            self.headerLabel.text = NSLocalizedString(@"kELReportTypeHighestHeader", nil);
+            self.detailLabel.text = NSLocalizedString(@"kELReportTypeHighestDetail", nil);
+        } else {
+            self.headerLabel.text = NSLocalizedString(@"kELReportTypeLowestHeader", nil);
+            self.detailLabel.text = NSLocalizedString(@"kELReportTypeLowestDetail", nil);
+        }
     } else if ([self.key isEqualToString:@"radar_diagram"]) {
         self.type = kELReportChartTypeRadar;
         self.items = @[self.items];

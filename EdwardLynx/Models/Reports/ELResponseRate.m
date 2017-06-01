@@ -11,6 +11,7 @@
 @implementation ELResponseRate
 
 @synthesize maxValue = _maxValue;
+@synthesize values = _values;
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"dataPoints": @"data"}];
@@ -26,6 +27,14 @@
     for (ELDataPointBreakdown *dataPoint in self.dataPoints) [mPercentages addObject:@(dataPoint.percentage)];
     
     return [[[mPercentages copy] valueForKeyPath:@"@max.doubleValue"] doubleValue];
+}
+
+- (NSArray<Ignore> *)values {
+    NSMutableArray *mPercentages = [[NSMutableArray alloc] init];
+    
+    for (ELDataPointBreakdown *dataPoint in self.dataPoints) [mPercentages addObject:@(dataPoint.percentage)];
+    
+    return [mPercentages copy];
 }
 
 @end

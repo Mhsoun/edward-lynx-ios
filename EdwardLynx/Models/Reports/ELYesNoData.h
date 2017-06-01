@@ -12,6 +12,7 @@
 
 @property (nonatomic) double yesPercentage;
 @property (nonatomic) double noPercentage;
+@property (nonatomic) double naPercentage;
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSString *question;
 

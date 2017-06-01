@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--REPORTS-->
+        <!--RESULTS-->
         <scene sceneID="WVS-UR-LJn">
             <objects>
                 <viewController storyboardIdentifier="Report" id="vJQ-t1-0zN" customClass="ELReportsViewController" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="ubc-TN-ace"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="REPORTS" id="ecC-sn-zjy"/>
+                    <navigationItem key="navigationItem" title="RESULTS" id="ecC-sn-zjy"/>
                     <connections>
                         <segue destination="4P0-Lz-7qb" kind="show" identifier="InstantFeedbackDetails" id="rHV-1k-SMv"/>
                         <segue destination="bfu-5v-FI2" kind="show" identifier="ReportDetailsSurvey" id="VvD-CG-5jO"/>

@@ -134,19 +134,19 @@
     
     switch (type) {
         case kELListTypeDevPlan:
-            identifier = @"Development Plans";
+            identifier = NSLocalizedString(@"kELTabTitleDevPlan", nil);
             
             self.addButton.hidden = NO;
             
             break;
         case kELListTypeReports:
-            identifier = @"Reports";
+            identifier = NSLocalizedString(@"kELTabTitleReports", nil);
             
             self.addButton.hidden = YES;
             
             break;
         case kELListTypeSurveys:
-            identifier = @"Surveys";
+            identifier = NSLocalizedString(@"kELTabTitleSurveys", nil);
             
             self.addButton.hidden = YES;
             

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EdwardLynx/Controllers/Reports/ELReportChildPageViewController.h">
-   </FileRef>
-   <FileRef
-      location = "group:EdwardLynx/Controllers/Reports/ELReportChildPageViewController.m">
-   </FileRef>
-   <FileRef
       location = "group:EdwardLynx.xcodeproj">
    </FileRef>
    <FileRef
