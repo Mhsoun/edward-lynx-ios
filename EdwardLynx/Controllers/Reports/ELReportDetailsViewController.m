@@ -243,17 +243,18 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 - (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
     double axisMax, axisMin;
-    ChartLimitLine *limitLine70, *limitLine100;
+    ChartLimitLine *limitLine;
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
-    axisMax = 1.1f, axisMin = 0.0f;
+    axisMax = 1.0f, axisMin = 0.0f;
     
     barChart.chartDescription.enabled = NO;
     barChart.doubleTapToZoomEnabled = NO;
     barChart.drawBarShadowEnabled = NO;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
+    barChart.extraRightOffset = 30.0f;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
     barChart.maxVisibleCount = 10;
@@ -264,21 +265,18 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = NO;
+    barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
     
-    limitLine70 = [[ChartLimitLine alloc] initWithLimit:0.7f];
-    limitLine70.labelPosition = ChartLimitLabelPositionLeftBottom;
-    limitLine70.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    limitLine70.lineWidth = 0.5f;
-    
-    [barChart.leftAxis addLimitLine:limitLine70];
-    
-    limitLine100 = [[ChartLimitLine alloc] initWithLimit:1.0f];
-    limitLine100.labelPosition = ChartLimitLabelPositionLeftBottom;
-    limitLine100.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    limitLine100.lineWidth = 0.5f;
-    
-    [barChart.leftAxis addLimitLine:limitLine100];
+    for (NSNumber *value in @[@(0), @(0.70f), @(1.0f)]) {
+        limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0;
+        
+        [barChart.leftAxis addLimitLine:limitLine];
+    }
     
     barChart.legend.enabled = YES;
     barChart.legend.font = labelFont;
@@ -295,25 +293,26 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = YES;
-    barChart.rightAxis.yOffset = 1;
     barChart.rightAxis.labelCount = 10;
     barChart.rightAxis.labelFont = labelFont;
-    barChart.rightAxis.labelPosition = YAxisLabelPositionOutsideChart;
     barChart.rightAxis.labelTextColor = [UIColor whiteColor];
     barChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
         
-        if (percentage == 70) {
-            return @"70%";
-        } else if (percentage == 100) {
-            return @"100%";
-        } else {
-            return @"";
+        switch (percentage) {
+            case 0:
+            case 70:
+            case 100:
+                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+            default:
+                return @"";
         }
     }];
+    barChart.rightAxis.yOffset = 1;
     
     barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
+    barChart.xAxis.drawLabelsEnabled = YES;
     barChart.xAxis.granularity = 1;
     barChart.xAxis.granularityEnabled = YES;
     barChart.xAxis.labelFont = labelFont;
