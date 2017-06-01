@@ -336,8 +336,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
     
     if (self.toDisplayData) {
-        double barSpace = 0.0f, groupSpace = 0.15f;
-        
         chartDataSet = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoSelf", nil)
                                              items:infoDict[@"entries"]
                                           colorKey:self.typeColorKey];
@@ -345,8 +343,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         chartData.barWidth = 0.5f;
         
         barChart.data = chartData;
-        
-        [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
     }
     
     [barChart animateWithYAxisDuration:kELAnimateInterval];

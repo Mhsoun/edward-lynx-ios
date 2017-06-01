@@ -149,16 +149,16 @@
 "kELInviteUsersAddEmailButtonAdd" = "Add User";
 
 "kELInviteTitleFeedback" = "Invite People";
-"kELInviteTitleReport" = "Share Report";
+"kELInviteTitleReport" = "Share Result";
 
 "kELInviteUsersSuccess" = "Successfully invited participants";
 
-"kELReportEmptyMessage" = "No Reports";
+"kELReportEmptyMessage" = "No Results";
 
 "kELShareButtonFeedback" = "Send Invites";
 "kELShareButtonReport" = "Share";
 
-"kELShareReportsHeaderMessage" = "Share report to users";
+"kELShareReportsHeaderMessage" = "Share result to users";
 
 "kELUsersNumberSelectedLabel" = "People selected: %@";
 
@@ -179,7 +179,7 @@
 "kELReportMoreDropdownShare" = "Share Report";
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
-"kELReportTitleFeedback" = "Feedback Report";
+"kELReportTitleFeedback" = "Feedback Result";
 
 "kELReportTypeBlindspotOverHeader" = "Blindspot";
 "kELReportTypeBlindspotOverDetail" = "Overestimated";
@@ -244,6 +244,12 @@
 "kELListFilterExpired" = "Expired";
 "kELListFilterInstantFeedback" = "Instant Feedback";
 "kELListFilterLynxMeasurement" = "Lynx Measurement";
+
+/* Tab Titles */
+
+"kELTabTitleDevPlan" = "Development Plans";
+"kELTabTitleReports" = "Results";
+"kELTabTitleSurveys" = "Surveys";
 
 /* User Roles */
 

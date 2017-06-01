@@ -8,11 +8,16 @@
 
 #import <JSONModel/JSONModel.h>
 
+#import "ELAnswer.h"
+
+@protocol ELAnswer;
+
 @interface ELQuestionRate : JSONModel
 
 @property (nonatomic) double candidates;
 @property (nonatomic) double others;
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSString *question;
+@property (nonatomic) ELAnswer *answerType;
 
 @end
