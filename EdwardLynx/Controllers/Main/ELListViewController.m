@@ -295,7 +295,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             surveyDict = responseDict[@"surveys"];
             emptyMessage = NSLocalizedString(@"kELReportEmptyMessage", nil);
             
-            self.tableView.rowHeight = 115;
+            self.tableView.rowHeight = 125;
             
             if (!surveyDict) {
                 for (NSDictionary *detailDict in responseDict[@"items"]) {
