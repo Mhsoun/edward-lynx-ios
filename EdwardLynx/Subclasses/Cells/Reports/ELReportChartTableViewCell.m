@@ -105,7 +105,7 @@
             self.pieChart = [[PieChartView alloc] initWithFrame:frame];
             
             [self.chartContainerView addSubview:self.pieChart];
-            [self setupPieChartWithData:detailDict[@"data"]];
+            [self setupYesOrNoChartWithData:detailDict[@"data"]];
             
             break;
         case kELReportChartTypeRadar:
@@ -171,17 +171,6 @@
     barChart.leftAxis.labelCount = 5;
     barChart.leftAxis.labelFont = labelFont;
     barChart.leftAxis.labelTextColor = [UIColor whiteColor];
-    
-    for (NSNumber *value in @[@(0), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
-        ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
-        
-        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-        limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0;
-        
-        [barChart.leftAxis addLimitLine:limitLine];
-    }
     
     barChart.noDataFont = dataFont;
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
@@ -348,6 +337,7 @@
     ELDataPointSummary *dataPoint;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
+    ChartLimitLine *limitLine;
     ELAnswerSummary *summary = [[ELAnswerSummary alloc] initWithDictionary:data error:nil];
     
     // Content
@@ -376,10 +366,18 @@
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
     
-    // TODO: Labels by 0, 25, 50, 75, 100
+    for (NSNumber *value in @[@(0), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
+        limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0;
+        
+        [self.barChart.leftAxis addLimitLine:limitLine];
+    }
     
-    self.barChart.leftAxis.labelCount = 5;
     self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    self.barChart.leftAxis.labelCount = 5;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
         
@@ -390,6 +388,9 @@
     self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[summary pointKeys]];
     
     self.barChart.data = chartData;
+    
+    [self.barChart setVisibleXRangeMinimum:11];
+    [self.barChart setVisibleXRangeMinimum:0];
 }
 
 - (void)setupPerParticipantChartWithData:(NSDictionary *)data {
@@ -493,59 +494,6 @@
     chartData.barWidth = 0.5f;
     
     self.horizontalBarChart.data = chartData;
-}
-
-- (void)setupPieChartWithData:(NSDictionary *)data {
-    PieChartDataEntry *entry;
-    PieChartDataSet *chartDataSet;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:14];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
-    NSMutableArray *mEntries = [[NSMutableArray alloc] init];
-    ELYesNoData *yesNoData = [[ELYesNoData alloc] initWithDictionary:data error:nil];
-    
-    // Content
-    self.titleLabel.text = yesNoData.category;
-    self.detailLabel.text = yesNoData.question;
-    
-    // Chart
-    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.yesPercentage label:@"Yes"];
-    
-    [mEntries addObject:entry];
-
-    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.noPercentage label:@"No"];
-    
-    [mEntries addObject:entry];
-    
-    chartDataSet = [[PieChartDataSet alloc] initWithValues:[mEntries copy] label:@""];
-    chartDataSet.colors = @[ThemeColor(kELGreenColor), ThemeColor(kELOrangeColor)];
-    chartDataSet.valueFont = dataFont;
-    
-    self.pieChart.chartDescription.enabled = NO;
-    self.pieChart.drawCenterTextEnabled = NO;
-    self.pieChart.drawEntryLabelsEnabled = NO;
-    self.pieChart.drawHoleEnabled = NO;
-    
-    self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        NSDictionary *attributes = @{NSFontAttributeName: labelFont,
-                                     NSForegroundColorAttributeName: ThemeColor(kELBlueColor)};
-        
-        // TODO Attributes not working
-        
-        return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%%", @(value)]
-                                                attributes:attributes] string];
-    }];
-    
-    self.pieChart.legend.font = labelFont;
-    self.pieChart.legend.textColor = [UIColor whiteColor];
-    self.pieChart.legend.position = ChartLegendPositionRightOfChartCenter;
-    
-    self.pieChart.noDataFont = labelFont;
-    self.pieChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
-    self.pieChart.noDataTextColor = ThemeColor(kELOrangeColor);
-    
-    // TODO Font of actual value
-    
-    self.pieChart.data = [[PieChartData alloc] initWithDataSet:chartDataSet];
 }
 
 - (void)setupRadarChartWithData:(NSArray *)items {
@@ -653,6 +601,7 @@
     ELDataPointBreakdown *dataPoint;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
+    ChartLimitLine *limitLine;
     ELResponseRate *responseRate = [[ELResponseRate alloc] initWithDictionary:data error:nil];
     
     // Chart
@@ -683,17 +632,72 @@
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
     
-    // TODO: Labels by 0, 25, 50, 75, 100
+    for (BarChartDataEntry *entry in [mEntries copy]) {
+        limitLine = [[ChartLimitLine alloc] initWithLimit:entry.y];
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0;
     
-    self.barChart.leftAxis.axisMaximum = responseRate.maxValue + 1;
+        [self.barChart.leftAxis addLimitLine:limitLine];
+    }
+    
+    self.barChart.leftAxis.axisMaximum = responseRate.maxValue;
     self.barChart.leftAxis.axisMinimum = 0;
-    self.barChart.leftAxis.labelCount = responseRate.maxValue;
+    self.barChart.leftAxis.drawAxisLineEnabled = NO;
     self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    self.barChart.leftAxis.labelCount = responseRate.maxValue;
     
     self.barChart.xAxis.labelCount = responseRate.dataPoints.count;
     self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];
     
     self.barChart.data = chartData;
+}
+
+- (void)setupYesOrNoChartWithData:(NSDictionary *)data {
+    PieChartDataEntry *entry;
+    PieChartDataSet *chartDataSet;
+    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    NSMutableArray *mEntries = [[NSMutableArray alloc] init];
+    ELYesNoData *yesNoData = [[ELYesNoData alloc] initWithDictionary:data error:nil];
+    
+    // Content
+    self.titleLabel.text = yesNoData.category;
+    self.detailLabel.text = yesNoData.question;
+    
+    // Chart
+    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.yesPercentage label:@"Yes"];
+    
+    [mEntries addObject:entry];
+    
+    entry = [[PieChartDataEntry alloc] initWithValue:yesNoData.noPercentage label:@"No"];
+    
+    [mEntries addObject:entry];
+    
+    chartDataSet = [[PieChartDataSet alloc] initWithValues:[mEntries copy] label:@""];
+    chartDataSet.colors = @[ThemeColor(kELDarkGrayColor), ThemeColor(kELVioletColor)];
+    chartDataSet.valueFont = dataFont;
+    
+    self.pieChart.chartDescription.enabled = NO;
+    self.pieChart.drawCenterTextEnabled = NO;
+    self.pieChart.drawEntryLabelsEnabled = NO;
+    self.pieChart.drawHoleEnabled = NO;
+    
+    self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        return [NSString stringWithFormat:@"%@%%", @(value)];
+    }];
+    
+    self.pieChart.legend.font = labelFont;
+    self.pieChart.legend.textColor = [UIColor whiteColor];
+    self.pieChart.legend.position = ChartLegendPositionRightOfChartCenter;
+    
+    self.pieChart.noDataFont = labelFont;
+    self.pieChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
+    self.pieChart.noDataTextColor = ThemeColor(kELOrangeColor);
+    
+    // TODO Font of actual value
+    
+    self.pieChart.data = [[PieChartData alloc] initWithDataSet:chartDataSet];
 }
 
 @end
