@@ -181,11 +181,11 @@
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Result";
 
-"kELReportTypeBlindspotOverHeader" = "Blindspot";
-"kELReportTypeBlindspotOverDetail" = "Overestimated";
+"kELReportTypeBlindspotOverHeader" = "Blindspot (Overestimated)";
+"kELReportTypeBlindspotOverDetail" = "Questions where others have rated you lower than you rated yourself. Shows areas where there are areas for improvement.";
 
-"kELReportTypeBlindspotUnderHeader" = "Blindspot";
-"kELReportTypeBlindspotUnderDetail" = "Underestimated";
+"kELReportTypeBlindspotUnderHeader" = "Blindspot (Underestimated)";
+"kELReportTypeBlindspotUnderDetail" = "Questions where others have rated you higher than you rated yourself. Shows the attributes you have that others appreciate.";
 
 "kELReportTypeBreakdownHeader" = "Breakdown of answers by participant type";
 "kELReportTypeBreakdownDetail" = "The diagrams show an average of the answers of the competence areas for each participant category.";

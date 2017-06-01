@@ -203,13 +203,15 @@
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
-    axisMax = 1.1f, axisMin = 0.0f;
+    axisMax = 1.0f, axisMin = 0.0f;
     
     barChart.chartDescription.enabled = NO;
+    barChart.clipsToBounds = NO;
     barChart.doubleTapToZoomEnabled = NO;
     barChart.drawBarShadowEnabled = NO;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
+    barChart.extraRightOffset = 30.0f;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
     barChart.maxVisibleCount = 10;
@@ -262,9 +264,11 @@
 }
 
 - (void)setupBlindspotChartWithData:(NSDictionary *)data {
+    __block NSInteger count;
     NSMutableArray *mColors,
                    *mEntries,
-                   *mLabels;
+                   *mXLabels,
+                   *mYLabels;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     BarChartDataEntry *entry;
@@ -276,9 +280,11 @@
     self.detailLabel.text = blindspot.title;
     
     // Chart
+    count = 0;
     mColors = [[NSMutableArray alloc] init];
     mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
+    mXLabels = [[NSMutableArray alloc] init];
+    mYLabels = [[NSMutableArray alloc] init];
     
     entry = [[BarChartDataEntry alloc] initWithX:(double)0 y:blindspot.selfPercentage];
     
@@ -290,27 +296,8 @@
     [mEntries addObject:entry];
     [mColors addObject:ThemeColor(kELOrangeColor)];
     
-    [mLabels addObject:@"Candidates"];
-    [mLabels addObject:@"Others combined"];
-    
-    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
-    self.horizontalBarChart.legend.enabled = NO;
-    
-    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
-    
-    self.horizontalBarChart.rightAxis.axisMaximum = blindspot.answerType.optionKeys.count - 1;
-    self.horizontalBarChart.rightAxis.axisMinimum = 0.0;
-    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = YES;
-    self.horizontalBarChart.rightAxis.labelCount = blindspot.answerType.optionKeys.count - 1;
-    self.horizontalBarChart.rightAxis.labelFont = labelFont;
-    
-    // TODO: Word wrap labels
-    
-    self.horizontalBarChart.rightAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:blindspot.answerType.optionKeys];
-    
-    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
-    self.horizontalBarChart.xAxis.labelFont = labelFont;
-    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    [mYLabels addObject:@"Candidates"];
+    [mYLabels addObject:@"Others combined"];
     
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
@@ -325,6 +312,54 @@
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
+    
+    if (blindspot.answerType.isNumeric) {
+        for (NSNumber *value in @[@(0.7f), @(1.0f)]) {
+            ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+            
+            limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+            limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
+            limitLine.lineWidth = 0.5f;
+            limitLine.xOffset = 0;
+            
+            [self.horizontalBarChart.rightAxis addLimitLine:limitLine];
+        }
+    } else {
+        [self.horizontalBarChart.rightAxis removeAllLimitLines];
+        [mXLabels addObjectsFromArray:blindspot.answerType.optionKeys];
+    }
+    
+    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = !blindspot.answerType.isNumeric;
+    self.horizontalBarChart.rightAxis.labelFont = labelFont;
+    self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        if (blindspot.answerType.isNumeric) {
+            switch (percentage) {
+                case 0:
+                case 70:
+                case 100:
+                    return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                default:
+                    return @"";
+            }
+        } else {
+            // TODO Display actual label
+            return @"Test";
+        }
+    }];
+    
+    [self.horizontalBarChart.rightAxis setLabelCount:blindspot.answerType.isNumeric ? 10 : mXLabels.count
+                                               force:!blindspot.answerType.isNumeric];
+    
+    self.horizontalBarChart.xAxis.labelCount = mYLabels.count;
+    self.horizontalBarChart.xAxis.labelFont = labelFont;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mYLabels];
     
     self.horizontalBarChart.data = chartData;
 }
@@ -419,7 +454,9 @@
                                          items:[mEntries copy]
                                       colorKey:kELLynxColor];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        return [NSString stringWithFormat:@"%@", @(value)];
+        int percentage = (int)ceil((value * 100));
+        
+        return [NSString stringWithFormat:@"%@", @(percentage)];
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -431,7 +468,7 @@
     for (NSNumber *value in @[@(0), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
         limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
         limitLine.xOffset = 0;
         
@@ -439,6 +476,7 @@
     }
     
     self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
+    self.barChart.leftAxis.granularity = 0.25;
     self.barChart.leftAxis.labelCount = 5;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
@@ -710,6 +748,13 @@
     self.barChart.leftAxis.drawAxisLineEnabled = NO;
     self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     self.barChart.leftAxis.labelCount = responseRate.maxValue;
+    self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        if ([responseRate.values containsObject:@(value)] || value == 0) {
+            return [NSString stringWithFormat:@"%@", @(value)];
+        }
+        
+        return @"";
+    }];
     
     self.barChart.xAxis.labelCount = responseRate.dataPoints.count;
     self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[mLabels copy]];

@@ -15,6 +15,7 @@
 @interface ELResponseRate : JSONModel
 
 @property (nonatomic) double maxValue;
+@property (nonatomic) NSArray<Ignore> *values;
 @property (nonatomic) NSArray<ELDataPointBreakdown> *dataPoints;
 
 @end

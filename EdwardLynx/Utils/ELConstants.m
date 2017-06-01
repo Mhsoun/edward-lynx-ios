@@ -59,7 +59,7 @@ NSString * const kELAPIEmailLinkSurvey = @"/surveys/exchange/";
 
 #pragma mark - Endpoints
 
-NSString * const kELAPIRootEndpoint = @"http://edwardlynx.ingenuity.ph";
+NSString * const kELAPIRootEndpoint = @"https://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
 
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
