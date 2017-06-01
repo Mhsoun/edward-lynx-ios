@@ -163,7 +163,7 @@
     self.navigatorView.hidden = NO;
     
     for (NSString *key in responseDict.allKeys) {
-        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers", @"highestLowestIndividual"] containsObject:key]) {
+        if ([@[@"_links", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
             continue;
         }
         
@@ -175,8 +175,13 @@
         }
         
         if ([key isEqualToString:@"highestLowestIndividual"]) {
-            [self.mReportKeys addObject:@"highestLowestIndividual.highest"];
-            [self.mReportKeys addObject:@"highestLowestIndividual.lowest"];
+            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.highest"] allKeys]) {
+                [self.mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.highest.%@", key]];
+            }
+            
+            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.lowest"] allKeys]) {
+                [self.mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.lowest.%@", key]];
+            }
             
             continue;
         }

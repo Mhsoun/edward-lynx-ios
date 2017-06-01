@@ -12,6 +12,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"ReportChartCell";
+static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
 
 #pragma mark - Class Extension
 
@@ -32,6 +33,7 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     // Initialization
     [self populatePage];
     
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.01f)];
     self.tableView.emptyDataSetSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
@@ -52,8 +54,20 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 #pragma mark - Protocol Methods (UITableView)
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    switch (self.type) {
+        case kELReportChartTypeComments:
+            return self.items.count;
+        default:
+            return 1;
+    }
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (self.type) {
+        case kELReportChartTypeComments:
+            return [self.items[section][@"answer"] count];
         case kELReportChartTypeRadar:
             return 1;
         default:
@@ -62,10 +76,37 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *title;
+    NSDictionary *dataDict;
     ELReportChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                        forIndexPath:indexPath];
     
-    [cell configure:@{@"type": @(self.type), @"data": self.items[indexPath.row]}
+    if (self.type == kELReportChartTypeComments) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                       reuseIdentifier:kELCommentCellIdentifier];
+        
+        dataDict = self.items[indexPath.section][@"answer"][indexPath.row];
+        
+        cell.imageView.image = [FontAwesome imageWithIcon:fa_circle
+                                                iconColor:[UIColor whiteColor]
+                                                 iconSize:5
+                                                imageSize:CGSizeMake(5, 5)];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont fontWithName:@"Lato-Regular" size:12];
+        cell.textLabel.lineBreakMode = NSLineBreakByClipping;
+        cell.textLabel.numberOfLines = 2;
+        cell.textLabel.text = dataDict[@"text"];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+        return cell;
+    }
+    
+    title = self.type == kELReportChartTypeHorizontalBarHighestLowest ? [self.key componentsSeparatedByString:@"."][2] : @"";
+    dataDict = self.items[indexPath.row];
+    
+    [cell configure:@{@"title": title,
+                      @"type": @(self.type),
+                      @"data": dataDict}
         atIndexPath:indexPath];
     
     return cell;
@@ -73,6 +114,8 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.type) {
+        case kELReportChartTypeComments:
+            return 30;
         case kELReportChartTypeHorizontalBarBlindspot:
         case kELReportChartTypeHorizontalBarBreakdown:
         case kELReportChartTypeHorizontalBarHighestLowest:
@@ -85,6 +128,34 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         default:
             return 350;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.type != kELReportChartTypeComments) {
+        return 0;
+    }
+    
+    return 35;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *label;
+    UIView *view;
+    
+    if (self.type != kELReportChartTypeComments) {
+        return nil;
+    }
+    
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 35)];
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, CGRectGetWidth(self.tableView.frame), 30)];
+    label.font = [UIFont fontWithName:@"Lato-Italic" size:14];
+    label.textColor = [UIColor whiteColor];
+    label.text = self.items[section][@"question"];
+    
+    [view addSubview:label];
+    
+    return view;
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
@@ -103,27 +174,6 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
     if ([self.key containsString:@"blindspot"]) {
         self.type = kELReportChartTypeHorizontalBarBlindspot;
         
-        // NOTE: Sample data
-//        self.items = @[@{@"id": @530,
-//                         @"title": @"question #5",
-//                         @"category": @"Category 3",
-//                         @"answerType": @{
-//                                 @"type": @4,
-//                                 @"description": @"Strong agreement scale",
-//                                 @"help": @"An strong agreement scale that determines how much the person that answers the question agrees with it, where strongly disagree means the lowest and strongly agree, the highest.",
-//                                 @"isText": @NO,
-//                                 @"isNumeric": @NO,
-//                                 @"options": @[@{@"description": @"Strongly Disagree",
-//                                                 @"value": @0},
-//                                               @{@"description": @"Disagree",
-//                                                 @"value": @1},
-//                                               @{@"description": @"Agree",
-//                                                 @"value": @2},
-//                                               @{@"description": @"Strongly Agree",
-//                                                 @"value": @3}]},
-//                         @"self": @0,
-//                         @"others": @67,
-//                         @"gap": @67}];
         if ([self.key containsString:@"overestimated"]) {
             self.headerLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverHeader", nil);
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeBlindspotOverDetail", nil);
@@ -136,30 +186,32 @@ static NSString * const kELCellIdentifier = @"ReportChartCell";
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeBreakdownHeader", nil);
         self.detailLabel.text = NSLocalizedString(@"kELReportTypeBreakdownDetail", nil);
+    } else if ([self.key isEqualToString:@"comments"]) {
+        self.type = kELReportChartTypeComments;
         
-        // NOTE: Sample data
-//        self.items = @[@{@"dataPoints": @[@{@"Percentage": @(0.65),
-//                                            @"Title": @"\"Colleague\"",
-//                                            @"role_style": @"orangeColor"},
-//                                          @{@"Percentage": @(0.70),
-//                                            @"Title": @"\"Candidate\"",
-//                                            @"role_style": @"selfColor"}]}];
+        self.headerLabel.text = NSLocalizedString(@"kELReportTypeCommentsHeader", nil);
     } else if ([self.key isEqualToString:@"detailed_answer_summary"]) {
         self.type = kELReportChartTypeBarCategory;
         
         self.headerLabel.text = NSLocalizedString(@"kELReportTypeDetailPerCategoryHeader", nil);
     } else if ([self.key containsString:@"highestLowestIndividual"]) {
+        NSString *headerText;
         NSString *subKey = [self.key componentsSeparatedByString:@"."][1];
+        NSString *title = [self.key componentsSeparatedByString:@"."][2];
         
         self.type = kELReportChartTypeHorizontalBarHighestLowest;
         
         if ([subKey isEqualToString:@"highest"]) {
-            self.headerLabel.text = NSLocalizedString(@"kELReportTypeHighestHeader", nil);
+            headerText = NSLocalizedString(@"kELReportTypeHighestHeader", nil);
+            
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeHighestDetail", nil);
         } else {
-            self.headerLabel.text = NSLocalizedString(@"kELReportTypeLowestHeader", nil);
+            headerText = NSLocalizedString(@"kELReportTypeLowestHeader", nil);
+            
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeLowestDetail", nil);
         }
+        
+        self.headerLabel.text = [NSString stringWithFormat:headerText, title];
     } else if ([self.key isEqualToString:@"radar_diagram"]) {
         self.type = kELReportChartTypeRadar;
         self.items = @[self.items];

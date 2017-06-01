@@ -17,7 +17,6 @@
 
 #pragma mark - Private Constants
 
-static NSTimeInterval const kELAnimateInterval = 0.5;
 static CGFloat const kELBarHeight = 40;
 static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
 static NSString * const kELShareSegueIdentifier = @"ShareReport";
@@ -154,18 +153,18 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
                                      items:(NSArray *)items
                                   colorKey:(NSString *)colorKey {
     BarChartDataSet *dataSet;
-    UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     
     formatter.minimumFractionDigits = 0;
     formatter.numberStyle = NSNumberFormatterPercentStyle;
+    formatter.percentSymbol = @"";
     
     dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
-    dataSet.colors = @[color];
+    dataSet.colors = @[ThemeColor(colorKey)];
     dataSet.highlightEnabled = NO;
     dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
-    dataSet.valueTextColor = color;
+    dataSet.valueTextColor = ThemeColor(colorKey);
     
     return dataSet;
 }
@@ -344,8 +343,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         barChart.data = chartData;
     }
-    
-    [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 
 - (void)setupIndexBarChart:(HorizontalBarChartView *)barChart answers:(NSArray *)answers {
@@ -389,7 +386,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:labels];
     
     [barChart groupBarsFromX:0 groupSpace:groupSpace barSpace:barSpace];
-    [barChart animateWithYAxisDuration:kELAnimateInterval];
 }
 
 - (void)setupReportsWithData:(NSDictionary *)dataDict {

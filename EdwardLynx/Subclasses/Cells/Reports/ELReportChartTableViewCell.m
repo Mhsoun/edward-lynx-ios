@@ -47,12 +47,10 @@
     NSDictionary *detailDict = (NSDictionary *)object;
     
     type = [detailDict[@"type"] integerValue];
-    frame = self.chartContainerView.bounds;
-    frame.size.height = CGRectGetHeight(self.frame) - 55;
     
-//    frame = self.bounds;
-//    frame.size.height = CGRectGetHeight(frame) - 55;
-//    frame.size.width = CGRectGetWidth(frame) - 10;
+    frame = self.bounds;
+    frame.size.height = CGRectGetHeight(frame) - 55;
+    frame.size.width = CGRectGetWidth(frame) - 20;
     
     switch (type) {
         case kELReportChartTypeBarCategory:
@@ -94,7 +92,7 @@
                 
                 [self setupPerParticipantChartWithData:detailDict[@"data"]];
             } else {
-                [self setupHighestLowestWithData:detailDict[@"data"]];
+                [self setupHighestLowestWithData:detailDict[@"data"] title:detailDict[@"title"]];
             }
             
             break;
@@ -264,7 +262,7 @@
 }
 
 - (void)setupBlindspotChartWithData:(NSDictionary *)data {
-    __block NSInteger count;
+    __block int count;
     NSMutableArray *mColors,
                    *mEntries,
                    *mXLabels,
@@ -296,8 +294,13 @@
     [mEntries addObject:entry];
     [mColors addObject:ThemeColor(kELOrangeColor)];
     
-    [mYLabels addObject:@"Candidates"];
-    [mYLabels addObject:@"Others combined"];
+    // NOTE Use supplied labels
+//    [mYLabels addObject:@"Candidates"];
+//    [mYLabels addObject:@"Others Combined"];
+    
+    // NOTE Localized
+    [mYLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
+    [mYLabels addObject:NSLocalizedString(@"kELReportInfoOthers", nil)];
     
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
@@ -349,8 +352,15 @@
                     return @"";
             }
         } else {
-            // TODO Display actual label
-            return @"Test";
+            if (count == mXLabels.count) {
+                return @"Test";
+            }
+            
+            NSString *label = [mXLabels objectAtIndex:count];
+            
+            count++;
+            
+            return label;
         }
     }];
     
@@ -364,7 +374,7 @@
     self.horizontalBarChart.data = chartData;
 }
 
-- (void)setupHighestLowestWithData:(NSDictionary *)data {
+- (void)setupHighestLowestWithData:(NSDictionary *)data title:(NSString *)title {
     NSMutableArray *mColors,
                    *mEntries,
                    *mLabels;
@@ -393,8 +403,14 @@
     [mEntries addObject:entry];
     [mColors addObject:ThemeColor(kELOtherColor)];
     
-    [mLabels addObject:@"Candidates"];
-    [mLabels addObject:@"Others combined"];
+    // NOTE Use supplied labels
+//    [mLabels addObject:@"Candidates"];
+//    [mLabels addObject:title];
+    
+    // NOTE Localized
+    [mLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
+    [mLabels addObject:[title isEqualToString:@"Manager"] ? NSLocalizedString(@"kELReportInfoManager", nil) :
+                                                            NSLocalizedString(@"kELReportInfoOthers", nil)];
     
     self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
     self.horizontalBarChart.legend.enabled = NO;
@@ -575,12 +591,16 @@
     mEntries = [[NSMutableArray alloc] init];
     mLabels = [[NSMutableArray alloc] init];
     
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0
-                                                           y:[data[@"Percentage"] doubleValue]]];
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1
-                                                           y:[data[@"Percentage_1"] doubleValue]]];
-    [mLabels addObject:@"Others combined"];
-    [mLabels addObject:@"Candidates"];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0 y:[data[@"Percentage"] doubleValue]]];
+    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1 y:[data[@"Percentage_1"] doubleValue]]];
+
+    // NOTE Use supplied labels
+//    [mLabels addObject:@"Others Combined"];
+//    [mLabels addObject:@"Candidates"];
+    
+    // NOTE Localized
+    [mLabels addObject:NSLocalizedString(@"kELReportInfoOthers", nil)];
+    [mLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
     
     self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
     self.horizontalBarChart.legend.enabled = NO;
@@ -705,7 +725,6 @@
     ChartLimitLine *limitLine;
     ELResponseRate *responseRate = [[ELResponseRate alloc] initWithDictionary:data error:nil];
     
-    // Chart
     mColors = [[NSMutableArray alloc] init];
     mEntries = [[NSMutableArray alloc] init];
     mLabels = [[NSMutableArray alloc] init];
@@ -809,8 +828,6 @@
     self.pieChart.noDataFont = labelFont;
     self.pieChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
     self.pieChart.noDataTextColor = ThemeColor(kELOrangeColor);
-    
-    // TODO Font of actual value
     
     self.pieChart.data = [[PieChartData alloc] initWithDataSet:chartDataSet];
 }
