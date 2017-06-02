@@ -107,25 +107,6 @@
 - (void)layoutPage {
     CGFloat iconSize = 15;
     
-    // Content
-    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
-        ELInstantFeedback *instantFeedback = (ELInstantFeedback *)self.selectedObject;
-        
-        self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
-        self.dateLabel.text = instantFeedback.dateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(instantFeedback.invited),
-                               @(instantFeedback.answered)];
-    } else {
-        ELSurvey *survey = (ELSurvey *)self.selectedObject;
-        
-        self.title = [survey.name uppercaseString];
-        self.dateLabel.text = survey.endDateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(survey.invited),
-                               @(survey.answered)];
-    }
-    
     // Buttons
     [self.prevButton setTintColor:ThemeColor(kELOrangeColor)];
     [self.prevButton setImage:[FontAwesome imageWithIcon:fa_chevron_left
@@ -199,6 +180,7 @@
     [self.pageView addSubview:self.pageController.view];
     [self setupPageController:self.pageController atView:self.pageView];
     
+    [self setupContent];
     [self setupNavigators];
 }
 
@@ -219,6 +201,26 @@
                                   direction:direction
                                    animated:YES
                                  completion:nil];
+}
+
+- (void)setupContent {
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+        ELInstantFeedback *instantFeedback = (ELInstantFeedback *)self.selectedObject;
+        
+        self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
+        self.dateLabel.text = instantFeedback.dateString;
+        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                               @(instantFeedback.invited),
+                               @(instantFeedback.answered)];
+    } else {
+        ELSurvey *survey = (ELSurvey *)self.selectedObject;
+        
+        self.title = [survey.name uppercaseString];
+        self.dateLabel.text = survey.endDateString;
+        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                               @(survey.invited),
+                               @(survey.answered)];
+    }
 }
 
 - (void)setupNavigators {

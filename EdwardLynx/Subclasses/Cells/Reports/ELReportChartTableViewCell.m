@@ -149,23 +149,25 @@
     UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
     UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     
-    axisMax = 1.1f, axisMin = 0.0f;
+    axisMax = 1.0f, axisMin = 0.0f;
     
     barChart.chartDescription.enabled = NO;
     barChart.doubleTapToZoomEnabled = NO;
     barChart.drawBarShadowEnabled = NO;
     barChart.drawBordersEnabled = NO;
     barChart.drawGridBackgroundEnabled = NO;
+    barChart.extraTopOffset = 20.0f;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
     barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
-    barChart.leftAxis.axisMaximum = 1.1f;
-    barChart.leftAxis.axisMinimum = 0.0f;
+    barChart.leftAxis.axisMaximum = axisMax;
+    barChart.leftAxis.axisMinimum = axisMin;
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = NO;
     barChart.leftAxis.drawLabelsEnabled = YES;
+    barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
     barChart.leftAxis.labelCount = 5;
     barChart.leftAxis.labelFont = labelFont;
@@ -176,11 +178,12 @@
                            @(kELParticipantsMinimumCount)];
     barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
     
-    barChart.rightAxis.axisMaximum = 1.1f;
-    barChart.rightAxis.axisMinimum = 0.0f;
+    barChart.rightAxis.axisMaximum = axisMax;
+    barChart.rightAxis.axisMinimum = axisMin;
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = NO;
+    barChart.rightAxis.drawLimitLinesBehindDataEnabled = YES;
     
     barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
@@ -220,6 +223,7 @@
     barChart.leftAxis.drawAxisLineEnabled = NO;
     barChart.leftAxis.drawGridLinesEnabled = YES;
     barChart.leftAxis.drawLabelsEnabled = NO;
+    barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
     
     barChart.noDataFont = dataFont;
@@ -232,10 +236,11 @@
     barChart.rightAxis.drawAxisLineEnabled = NO;
     barChart.rightAxis.drawGridLinesEnabled = NO;
     barChart.rightAxis.drawLabelsEnabled = YES;
+    barChart.rightAxis.drawLimitLinesBehindDataEnabled = YES;
     barChart.rightAxis.labelCount = 10;
     barChart.rightAxis.labelFont = labelFont;
     barChart.rightAxis.labelTextColor = [UIColor whiteColor];
-    barChart.rightAxis.yOffset = 1;
+    barChart.rightAxis.yOffset = 1.0f;
     
     barChart.xAxis.centerAxisLabelsEnabled = NO;
     barChart.xAxis.drawGridLinesEnabled = NO;
@@ -262,7 +267,7 @@
 }
 
 - (void)setupBlindspotChartWithData:(NSDictionary *)data {
-    __block int count;
+    BOOL isNumeric;
     NSMutableArray *mColors,
                    *mEntries,
                    *mXLabels,
@@ -278,7 +283,7 @@
     self.detailLabel.text = blindspot.title;
     
     // Chart
-    count = 0;
+    isNumeric = blindspot.answerType.isNumeric;
     mColors = [[NSMutableArray alloc] init];
     mEntries = [[NSMutableArray alloc] init];
     mXLabels = [[NSMutableArray alloc] init];
@@ -321,14 +326,14 @@
     
     self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
     
-    if (blindspot.answerType.isNumeric) {
+    if (isNumeric) {
         for (NSNumber *value in @[@(0.7f), @(1.0f)]) {
             ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
             
             limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
             limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
             limitLine.lineWidth = 0.5f;
-            limitLine.xOffset = 0;
+            limitLine.xOffset = 0.0f;
             
             [self.horizontalBarChart.rightAxis addLimitLine:limitLine];
         }
@@ -337,12 +342,13 @@
         [mXLabels addObjectsFromArray:blindspot.answerType.optionKeys];
     }
     
-    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = !blindspot.answerType.isNumeric;
+    self.horizontalBarChart.rightAxis.axisMaximum = isNumeric ? 1.0f : mXLabels.count;
+    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = !isNumeric;
     self.horizontalBarChart.rightAxis.labelFont = labelFont;
     self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
         
-        if (blindspot.answerType.isNumeric) {
+        if (isNumeric) {
             switch (percentage) {
                 case 0:
                 case 70:
@@ -352,20 +358,30 @@
                     return @"";
             }
         } else {
-            if (count == mXLabels.count) {
-                return @"Test";
+            int index = 0;
+            
+            if (value != 0) {
+                index = (int)value;
+                
+                if (index == mXLabels.count) {
+                    index--;
+                }
             }
             
-            NSString *label = [mXLabels objectAtIndex:count];
-            
-            count++;
-            
-            return label;
+            return [mXLabels objectAtIndex:index];
         }
     }];
     
-    [self.horizontalBarChart.rightAxis setLabelCount:blindspot.answerType.isNumeric ? 10 : mXLabels.count
-                                               force:!blindspot.answerType.isNumeric];
+    if (blindspot.answerType.type == kELAnswerTypeAgreeementScale ||
+        blindspot.answerType.type == kELAnswerTypeCustomScale ||
+        blindspot.answerType.type == kELAnswerTypeInvertedAgreementScale ||
+        blindspot.answerType.type == kELAnswerTypeStrongAgreeementScale) {
+        labelFont = [UIFont fontWithName:@"Lato-Regular" size:8.5f];
+        
+        self.horizontalBarChart.rightAxis.labelFont = labelFont;
+    }
+    
+    [self.horizontalBarChart.rightAxis setLabelCount:isNumeric ? 10 : mXLabels.count force:!isNumeric];
     
     self.horizontalBarChart.xAxis.labelCount = mYLabels.count;
     self.horizontalBarChart.xAxis.labelFont = labelFont;
@@ -375,9 +391,11 @@
 }
 
 - (void)setupHighestLowestWithData:(NSDictionary *)data title:(NSString *)title {
+    BOOL isManager, isNumeric;
     NSMutableArray *mColors,
                    *mEntries,
-                   *mLabels;
+                   *mXLabels,
+                   *mYLabels;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     BarChartDataEntry *entry;
@@ -389,9 +407,12 @@
     self.detailLabel.text = rate.question;
     
     // Chart
+    isManager = [title isEqualToString:@"Manager"];
+    isNumeric = rate.answerType.isNumeric;
     mColors = [[NSMutableArray alloc] init];
     mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
+    mXLabels = [[NSMutableArray alloc] init];
+    mYLabels = [[NSMutableArray alloc] init];
     
     entry = [[BarChartDataEntry alloc] initWithX:(double)0 y:rate.candidates];
     
@@ -401,33 +422,16 @@
     entry = [[BarChartDataEntry alloc] initWithX:(double)1 y:rate.others];
     
     [mEntries addObject:entry];
-    [mColors addObject:ThemeColor(kELOtherColor)];
+    [mColors addObject:ThemeColor(isManager ? kELOrangeColor : kELOtherColor)];
     
     // NOTE Use supplied labels
-//    [mLabels addObject:@"Candidates"];
-//    [mLabels addObject:title];
+//    [mYLabels addObject:@"Candidates"];
+//    [mYLabels addObject:title];
     
     // NOTE Localized
-    [mLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
-    [mLabels addObject:[title isEqualToString:@"Manager"] ? NSLocalizedString(@"kELReportInfoManager", nil) :
-                                                            NSLocalizedString(@"kELReportInfoOthers", nil)];
-    
-    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
-    self.horizontalBarChart.legend.enabled = NO;
-    
-    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
-    
-    self.horizontalBarChart.rightAxis.axisMaximum = 1.0;
-    self.horizontalBarChart.rightAxis.axisMinimum = 0.0;
-    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = YES;
-    self.horizontalBarChart.rightAxis.labelCount = 2;
-    self.horizontalBarChart.rightAxis.labelFont = labelFont;
-    
-    // TODO: Word wrap labels
-    
-    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
-    self.horizontalBarChart.xAxis.labelFont = labelFont;
-    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    [mYLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
+    [mYLabels addObject:isManager ? NSLocalizedString(@"kELReportInfoManager", nil) :
+                                    NSLocalizedString(@"kELReportInfoOthers", nil)];
     
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
@@ -442,6 +446,73 @@
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
+    
+    if (isNumeric) {
+        for (NSNumber *value in @[@(0.7f), @(1.0f)]) {
+            ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+            
+            limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+            limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
+            limitLine.lineWidth = 0.5f;
+            limitLine.xOffset = 0.0f;
+            
+            [self.horizontalBarChart.rightAxis addLimitLine:limitLine];
+        }
+    } else {
+        [self.horizontalBarChart.rightAxis removeAllLimitLines];
+        [mXLabels addObjectsFromArray:rate.answerType.optionKeys];
+    }
+    
+    self.horizontalBarChart.rightAxis.axisMaximum = isNumeric ? 1.0f : mXLabels.count;
+    self.horizontalBarChart.rightAxis.drawGridLinesEnabled = !isNumeric;
+    self.horizontalBarChart.rightAxis.labelFont = labelFont;
+    
+    self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        if (isNumeric) {
+            switch (percentage) {
+                case 0:
+                case 70:
+                case 100:
+                    return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                default:
+                    return @"";
+            }
+        } else {
+            int index = 0;
+            
+            if (value != 0) {
+                index = (int)value;
+                
+                if (index == mXLabels.count) {
+                    index--;
+                }
+            }
+            
+            return [mXLabels objectAtIndex:index];
+        }
+    }];
+    
+    if (rate.answerType.type == kELAnswerTypeAgreeementScale ||
+        rate.answerType.type == kELAnswerTypeCustomScale ||
+        rate.answerType.type == kELAnswerTypeInvertedAgreementScale ||
+        rate.answerType.type == kELAnswerTypeStrongAgreeementScale) {
+        labelFont = [UIFont fontWithName:@"Lato-Regular" size:8.5f];
+
+        self.horizontalBarChart.rightAxis.labelFont = labelFont;
+    }
+    
+    [self.horizontalBarChart.rightAxis setLabelCount:isNumeric ? 10 : mXLabels.count force:!isNumeric];
+    
+    self.horizontalBarChart.xAxis.labelCount = mYLabels.count;
+    self.horizontalBarChart.xAxis.labelFont = labelFont;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mYLabels];
     
     self.horizontalBarChart.data = chartData;
 }
@@ -481,18 +552,17 @@
     self.barChart = [self configureBarChart:self.barChart];
     self.barChart.legend.enabled = NO;
     
-    for (NSNumber *value in @[@(0), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
+    for (NSNumber *value in @[@(0.0f), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
         limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
         limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0;
+        limitLine.xOffset = 0.0f;
         
         [self.barChart.leftAxis addLimitLine:limitLine];
     }
     
-    self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
-    self.barChart.leftAxis.granularity = 0.25;
+    self.barChart.leftAxis.granularity = 0.25f;
     self.barChart.leftAxis.labelCount = 5;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)ceil((value * 100));
@@ -537,15 +607,14 @@
     self.horizontalBarChart.legend.enabled = NO;
     
     self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
-    self.horizontalBarChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     
-    for (NSNumber *value in @[@(0), @(0.7f), @(1.0f)]) {
+    for (NSNumber *value in @[@(0.0f), @(0.7f), @(1.0f)]) {
         ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
         limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
         limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0;
+        limitLine.xOffset = 0.0f;
         
         [self.horizontalBarChart.leftAxis addLimitLine:limitLine];
     }
@@ -678,9 +747,9 @@
     self.radarChart.legend.orientation = ChartLegendOrientationHorizontal;
     self.radarChart.legend.position = ChartLegendPositionBelowChartCenter;
     self.radarChart.legend.textColor = [UIColor whiteColor];
-    self.radarChart.legend.xOffset = 0;
-    self.radarChart.legend.yEntrySpace = 0;
-    self.radarChart.legend.yOffset = 0;
+    self.radarChart.legend.xOffset = 0.0f;
+    self.radarChart.legend.yEntrySpace = 0.0f;
+    self.radarChart.legend.yOffset = 0.0f;
 
     self.radarChart.noDataFont = labelFont;
     self.radarChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
@@ -694,8 +763,8 @@
     self.radarChart.xAxis.labelCount = mLabels.count;
     self.radarChart.xAxis.labelTextColor = [UIColor whiteColor];
     self.radarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
-    self.radarChart.xAxis.xOffset = 0.0;
-    self.radarChart.xAxis.yOffset = 0.0;
+    self.radarChart.xAxis.xOffset = 0.0f;
+    self.radarChart.xAxis.yOffset = 0.0f;
 
     self.radarChart.yAxis.axisMinimum = axisMin;
     self.radarChart.yAxis.axisMaximum = 0.8f;
@@ -709,8 +778,8 @@
         
         return [NSString stringWithFormat:@"%@", @(percentage)];
     }];
-    self.radarChart.yAxis.xOffset = 0.0;
-    self.radarChart.yAxis.yOffset = 0.0;
+    self.radarChart.yAxis.xOffset = 0.0f;
+    self.radarChart.yAxis.yOffset = 0.0f;
     
     self.radarChart.data = chartData;
 }
@@ -750,22 +819,20 @@
     chartData.barWidth = 0.5f;
     
     self.barChart = [self configureBarChart:self.barChart];
-    self.barChart.extraTopOffset = 15.0f;
     self.barChart.legend.enabled = NO;
     
     for (BarChartDataEntry *entry in [mEntries copy]) {
         limitLine = [[ChartLimitLine alloc] initWithLimit:entry.y];
         limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0;
+        limitLine.xOffset = 0.0f;
     
         [self.barChart.leftAxis addLimitLine:limitLine];
     }
     
     self.barChart.leftAxis.axisMaximum = responseRate.maxValue;
-    self.barChart.leftAxis.axisMinimum = 0;
+    self.barChart.leftAxis.axisMinimum = 0.0f;
     self.barChart.leftAxis.drawAxisLineEnabled = NO;
-    self.barChart.leftAxis.drawLimitLinesBehindDataEnabled = YES;
     self.barChart.leftAxis.labelCount = responseRate.maxValue;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         if ([responseRate.values containsObject:@(value)] || value == 0) {

@@ -414,44 +414,41 @@
 }
 
 - (void)parseURLString:(NSString *)urlString {
-    NSInteger objectId;
+    BOOL isFeedback;
     NSArray *urlParts;
+    NSString *key, *url;
+    __weak typeof(self) weakSelf = self;
     
-    if ([urlString containsString:kELAPIEmailLinkFeedback]) {
-        urlParts = [urlString componentsSeparatedByString:@"//"];
-        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
+    isFeedback = [urlString containsString:kELAPIEmailLinkFeedback];
+    urlParts = [urlString componentsSeparatedByString:@"//"];
+    key = [urlParts[1] componentsSeparatedByString:@"/"][3];
+    url = isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint;
+    url = [NSString stringWithFormat:url, [ELAPIClient hostURL], key];
+    
+    [[[ELAPIClient alloc] init] getRequestAtLink:url
+                                     queryParams:nil
+                                      completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        int64_t objectId;
         
-        self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest};
-        
-        // TODO Same with surveys
-    } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
-        __weak typeof(self) weakSelf = self;
-        
-        [[[ELAPIClient alloc] init] getRequestAtLink:urlString
-                                         queryParams:nil
-                                          completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            int64_t objectId;
+        if (error) {
+            NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
+            NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                     message:message
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
             
-            if (error) {
-                NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
-                NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                         message:message
-                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                
-                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
-                                                                    style:UIAlertActionStyleDefault
-                                                                  handler:nil]];
-                [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
-                                                                                                  animated:YES
-                                                                                                completion:nil];
-            }
-            
-            objectId = [responseDict[@"surveyId"] intValue];
-                                              
-            self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
-        }];
-    }
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:nil]];
+            [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
+                                                                                              animated:YES
+                                                                                            completion:nil];
+        }
+        
+        objectId = [responseDict[@"surveyId"] intValue];
+                                          
+        self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
+    }];
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {

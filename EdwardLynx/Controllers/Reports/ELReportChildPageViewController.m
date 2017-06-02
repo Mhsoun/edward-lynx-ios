@@ -61,13 +61,16 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
         default:
             return 1;
     }
-    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *answers;
+    
     switch (self.type) {
         case kELReportChartTypeComments:
-            return [self.items[section][@"answer"] count];
+            answers = self.items[section][@"answer"];
+            
+            return [answers count];
         case kELReportChartTypeRadar:
             return 1;
         default:

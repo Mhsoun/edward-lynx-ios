@@ -170,8 +170,13 @@ extern NSString * const kELAPIEmailLinkSurvey;
 extern NSString * const kELAPIVersionNamespace;
 extern NSString * const kELAPIRootEndpoint;
 
+extern NSString * const kELAPILoginEndpoint;
+
 extern NSString * const kELAPIDevelopmentPlansEndpoint;
 extern NSString * const kELAPIDevelopmentPlanEndpoint;
+
+extern NSString * const kELAPIExchangeSurveyEndpoint;
+extern NSString * const kELAPIExchangeInstantFeedbackEndpoint;
 
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;
@@ -195,8 +200,6 @@ extern NSString * const kELAPIUserEndpoint;
 extern NSString * const kELAPIUserDashboardEndpoint;
 extern NSString * const kELAPIUserDeviceEndpoint;
 extern NSString * const kELAPIUsersEndpoint;
-
-extern NSString * const kELAPILoginEndpoint;
 
 #pragma mark - HTTP Methods
 
