@@ -101,7 +101,7 @@
         [self.surveyClient instantFeedbackReportDetailsWithId:self.detailObject.objectId
                                                    completion:self.requestCompletionBlock];
     } else {
-        [self.surveyClient surveyReportDetailsWithId:65//self.detailObject.objectId
+        [self.surveyClient surveyReportDetailsWithId:self.detailObject.objectId
                                           completion:self.requestCompletionBlock];
     }
 }

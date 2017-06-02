@@ -35,6 +35,15 @@
     // Initialization code
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    [self.barChart removeFromSuperview];
+    [self.horizontalBarChart removeFromSuperview];
+    [self.pieChart removeFromSuperview];
+    [self.radarChart removeFromSuperview];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -64,13 +73,12 @@
             [self.chartContainerView addSubview:self.barChart];
             
             if (type == kELReportChartTypeBarCategory) {
-                [self setupPerCategoryChartWithData:detailDict[@"data"]];
+                [self setupDetailedAnswerSummaryChartWithData:detailDict[@"data"]];
             } else {
                 [self setupResponseRateWithData:detailDict];
             }
             
             break;
-        case kELReportChartTypeHorizontalBar:
         case kELReportChartTypeHorizontalBarBlindspot:
         case kELReportChartTypeHorizontalBarBreakdown:
         case kELReportChartTypeHorizontalBarHighestLowest:
@@ -82,15 +90,13 @@
             
             [self.chartContainerView addSubview:self.horizontalBarChart];
             
-            if (type == kELReportChartTypeHorizontalBar) {
-                [self setupPerQuestionChartWithData:detailDict[@"data"]];
-            } else if (type == kELReportChartTypeHorizontalBarBlindspot) {
+            if (type == kELReportChartTypeHorizontalBarBlindspot) {
                 [self setupBlindspotChartWithData:detailDict[@"data"]];
             } else if (type == kELReportChartTypeHorizontalBarBreakdown) {
                 self.titleLabel.text = detailDict[@"data"][@"category"];
                 self.detailLabel.text = @"";
                 
-                [self setupPerParticipantChartWithData:detailDict[@"data"]];
+                [self setupBreakdownByParticipantChartWithData:detailDict[@"data"]];
             } else {
                 [self setupHighestLowestWithData:detailDict[@"data"] title:detailDict[@"title"]];
             }
@@ -138,6 +144,7 @@
     dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
     dataSet.colors = @[color];
     dataSet.highlightEnabled = NO;
+    dataSet.valueColors = @[color];
     dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
     
@@ -159,7 +166,6 @@
     barChart.extraTopOffset = 20.0f;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
-    barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
     barChart.leftAxis.axisMaximum = axisMax;
@@ -297,7 +303,7 @@
     entry = [[BarChartDataEntry alloc] initWithX:(double)1 y:blindspot.othersPercentage];
     
     [mEntries addObject:entry];
-    [mColors addObject:ThemeColor(kELOrangeColor)];
+    [mColors addObject:ThemeColor(kELOtherColor)];
     
     // NOTE Use supplied labels
 //    [mYLabels addObject:@"Candidates"];
@@ -313,7 +319,7 @@
     chartDataSet.colors = [mColors copy];
     chartDataSet.valueColors = [mColors copy];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        int percentage = (int)ceil((value * 100));
+        int percentage = (int)floor((value * 100));
         
         return [NSString stringWithFormat:@"%@", @(percentage)];
     }];
@@ -390,6 +396,137 @@
     self.horizontalBarChart.data = chartData;
 }
 
+- (void)setupBreakdownByParticipantChartWithData:(NSDictionary *)data {
+    NSMutableArray *mColors,
+                   *mEntries,
+                   *mLabels;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    BarChartDataEntry *entry;
+    NSArray *items = data[@"dataPoints"];
+    
+    mColors = [[NSMutableArray alloc] init];
+    mEntries = [[NSMutableArray alloc] init];
+    mLabels = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < items.count; i++) {
+        ELDataPointBreakdown *dataPoint = [[ELDataPointBreakdown alloc] initWithDictionary:items[i] error:nil];
+        
+        //        entry = [[BarChartDataEntry alloc] initWithX:(double)(items.count - 1) - i y:dataPoint.percentage];
+        entry = [[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage];
+        
+        [mEntries addObject:entry];
+        [mLabels addObject:dataPoint.title];
+        [mColors addObject:ThemeColor(dataPoint.colorKey)];
+    }
+    
+    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
+    self.horizontalBarChart.legend.enabled = NO;
+    
+    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
+    
+    for (NSNumber *value in @[@(0.0f), @(0.7f), @(1.0f)]) {
+        ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0.0f;
+        
+        [self.horizontalBarChart.leftAxis addLimitLine:limitLine];
+    }
+    
+    self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)ceil((value * 100));
+        
+        switch (percentage) {
+            case 0:
+            case 70:
+            case 100:
+                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+            default:
+                return @"";
+        }
+    }];
+    
+    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
+    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELGreenColor];
+    chartDataSet.colors = [mColors copy];
+    chartDataSet.valueColors = [mColors copy];
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        int percentage = (int)floor((value * 100));
+        
+        return [NSString stringWithFormat:@"%@", @(percentage)];
+    }];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.horizontalBarChart.data = chartData;
+}
+
+- (void)setupDetailedAnswerSummaryChartWithData:(NSDictionary *)data {
+    NSMutableArray *mEntries;
+    ELDataPointSummary *dataPoint;
+    BarChartData *chartData;
+    BarChartDataSet *chartDataSet;
+    ChartLimitLine *limitLine;
+    ELAnswerSummary *summary = [[ELAnswerSummary alloc] initWithDictionary:data error:nil];
+    
+    // Content
+    self.titleLabel.text = summary.category;
+    
+    // Chart
+    mEntries = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < summary.dataPoints.count; i++) {
+        dataPoint = summary.dataPoints[i];
+        
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage]];
+    }
+    
+    chartDataSet = [self chartDataSetWithTitle:@""
+                                         items:[mEntries copy]
+                                      colorKey:kELLynxColor];
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+        int percentage = (int)floor((value * 100));
+        
+        return [NSString stringWithFormat:@"%@", @(percentage)];
+    }];
+    
+    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
+    chartData.barWidth = 0.5f;
+    
+    self.barChart = [self configureBarChart:self.barChart];
+    self.barChart.legend.enabled = NO;
+    
+    for (NSNumber *value in @[@(0.0f), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
+        limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
+        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
+        limitLine.lineWidth = 0.5f;
+        limitLine.xOffset = 0.0f;
+        
+        [self.barChart.leftAxis addLimitLine:limitLine];
+    }
+    
+    self.barChart.leftAxis.granularity = 0.25f;
+    self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
+        int percentage = (int)floor((value * 100));
+        
+        return [NSString stringWithFormat:@"%@%%", @(percentage)];
+    }];
+    
+    self.barChart.xAxis.labelCount = [[summary pointKeys] count];
+    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[summary pointKeys]];
+    
+    self.barChart.data = chartData;
+}
+
 - (void)setupHighestLowestWithData:(NSDictionary *)data title:(NSString *)title {
     BOOL isManager, isNumeric;
     NSMutableArray *mColors,
@@ -439,7 +576,7 @@
     chartDataSet.colors = [mColors copy];
     chartDataSet.valueColors = [mColors copy];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        int percentage = (int)ceil((value * 100));
+        int percentage = (int)floor((value * 100));
         
         return [NSString stringWithFormat:@"%@", @(percentage)];
     }];
@@ -517,178 +654,12 @@
     self.horizontalBarChart.data = chartData;
 }
 
-- (void)setupPerCategoryChartWithData:(NSDictionary *)data {
-    NSMutableArray *mEntries;
-    ELDataPointSummary *dataPoint;
-    BarChartData *chartData;
-    BarChartDataSet *chartDataSet;
-    ChartLimitLine *limitLine;
-    ELAnswerSummary *summary = [[ELAnswerSummary alloc] initWithDictionary:data error:nil];
-    
-    // Content
-    self.titleLabel.text = summary.category;
-    
-    // Chart
-    mEntries = [[NSMutableArray alloc] init];
-
-    for (int i = 0; i < summary.dataPoints.count; i++) {
-        dataPoint = summary.dataPoints[i];
-        
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage]];
-    }
-    
-    chartDataSet = [self chartDataSetWithTitle:@""
-                                         items:[mEntries copy]
-                                      colorKey:kELLynxColor];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        int percentage = (int)ceil((value * 100));
-        
-        return [NSString stringWithFormat:@"%@", @(percentage)];
-    }];
-    
-    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    chartData.barWidth = 0.5f;
-    
-    self.barChart = [self configureBarChart:self.barChart];
-    self.barChart.legend.enabled = NO;
-    
-    for (NSNumber *value in @[@(0.0f), @(0.25f), @(0.50f), @(0.75f), @(1.0f)]) {
-        limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
-        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
-        limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0.0f;
-        
-        [self.barChart.leftAxis addLimitLine:limitLine];
-    }
-    
-    self.barChart.leftAxis.granularity = 0.25f;
-    self.barChart.leftAxis.labelCount = 5;
-    self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
-        int percentage = (int)ceil((value * 100));
-        
-        return [NSString stringWithFormat:@"%@%%", @(percentage)];
-    }];
-    
-    self.barChart.xAxis.labelCount = [[summary pointKeys] count];
-    self.barChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:[summary pointKeys]];
-    
-    self.barChart.data = chartData;
-    
-    [self.barChart setVisibleXRangeMinimum:11];
-    [self.barChart setVisibleXRangeMinimum:0];
-}
-
-- (void)setupPerParticipantChartWithData:(NSDictionary *)data {
-    NSMutableArray *mColors,
-                   *mEntries,
-                   *mLabels;
-    BarChartData *chartData;
-    BarChartDataSet *chartDataSet;
-    BarChartDataEntry *entry;
-    NSArray *items = data[@"dataPoints"];
-    
-    mColors = [[NSMutableArray alloc] init];
-    mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < items.count; i++) {
-        ELDataPointBreakdown *dataPoint = [[ELDataPointBreakdown alloc] initWithDictionary:items[i] error:nil];
-        
-//        entry = [[BarChartDataEntry alloc] initWithX:(double)(items.count - 1) - i y:dataPoint.percentage];
-        entry = [[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage];
-        
-        [mEntries addObject:entry];
-        [mLabels addObject:dataPoint.title];
-        [mColors addObject:ThemeColor(dataPoint.colorKey)];
-    }
-    
-    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
-    self.horizontalBarChart.legend.enabled = NO;
-    
-    self.horizontalBarChart.leftAxis.drawGridLinesEnabled = NO;
-    
-    for (NSNumber *value in @[@(0.0f), @(0.7f), @(1.0f)]) {
-        ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
-        
-        limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-        limitLine.lineWidth = 0.5f;
-        limitLine.xOffset = 0.0f;
-        
-        [self.horizontalBarChart.leftAxis addLimitLine:limitLine];
-    }
-    
-    self.horizontalBarChart.rightAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
-        int percentage = (int)ceil((value * 100));
-        
-        switch (percentage) {
-            case 0:
-            case 70:
-            case 100:
-                return [NSString stringWithFormat:@"%@%%", @(percentage)];
-            default:
-                return @"";
-        }
-    }];
-    
-    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
-    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
-    
-    chartDataSet = [self chartDataSetWithTitle:@""
-                                         items:[mEntries copy]
-                                      colorKey:kELGreenColor];
-    chartDataSet.colors = [mColors copy];
-    chartDataSet.valueColors = [mColors copy];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        int percentage = (int)ceil((value * 100));
-        
-        return [NSString stringWithFormat:@"%@", @(percentage)];
-    }];
-    
-    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    chartData.barWidth = 0.5f;
-    
-    self.horizontalBarChart.data = chartData;
-}
-
-- (void)setupPerQuestionChartWithData:(NSDictionary *)data {
-    NSMutableArray *mEntries, *mLabels;
-    BarChartData *chartData;
-    BarChartDataSet *chartDataSet;
-    
-    mEntries = [[NSMutableArray alloc] init];
-    mLabels = [[NSMutableArray alloc] init];
-    
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)0 y:[data[@"Percentage"] doubleValue]]];
-    [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)1 y:[data[@"Percentage_1"] doubleValue]]];
-
-    // NOTE Use supplied labels
-//    [mLabels addObject:@"Others Combined"];
-//    [mLabels addObject:@"Candidates"];
-    
-    // NOTE Localized
-    [mLabels addObject:NSLocalizedString(@"kELReportInfoOthers", nil)];
-    [mLabels addObject:NSLocalizedString(@"kELReportInfoCandidates", nil)];
-    
-    self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
-    self.horizontalBarChart.legend.enabled = NO;
-    
-    self.horizontalBarChart.xAxis.labelCount = mLabels.count;
-    self.horizontalBarChart.xAxis.valueFormatter = [[ChartIndexAxisValueFormatter alloc] initWithValues:mLabels];
-    
-    chartDataSet = [self chartDataSetWithTitle:@""
-                                         items:[mEntries copy]
-                                      colorKey:kELGreenColor];
-    chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
-    chartData.barWidth = 0.5f;
-    
-    self.horizontalBarChart.data = chartData;
-}
-
 - (void)setupRadarChartWithData:(NSArray *)items {
     double axisMin;
-    NSMutableArray *mDataSets, *mEntries, *mEntries2, *mLabels;
+    NSMutableArray *mDataSets,
+                   *mEntries,
+                   *mEntries2,
+                   *mLabels;
     ELAverage *average;
     ELRadarDiagram *radarDiagram;
     RadarChartData *chartData;
@@ -810,6 +781,7 @@
                                          items:[mEntries copy]
                                       colorKey:kELLynxColor];
     chartDataSet.colors = [mColors copy];
+    chartDataSet.drawValuesEnabled = NO;
     chartDataSet.valueColors = [mColors copy];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         return [NSString stringWithFormat:@"%@", @(value)];
@@ -819,6 +791,7 @@
     chartData.barWidth = 0.5f;
     
     self.barChart = [self configureBarChart:self.barChart];
+    self.barChart.extraTopOffset = 0.0f;
     self.barChart.legend.enabled = NO;
     
     for (BarChartDataEntry *entry in [mEntries copy]) {

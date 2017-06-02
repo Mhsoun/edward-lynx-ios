@@ -27,13 +27,21 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    CGRect frame;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
     [self populatePage];
     
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.01f)];
+    frame = CGRectMake(0.0f,
+                       0.0f,
+                       CGRectGetWidth(self.tableView.bounds),
+                       CGFLOAT_MIN);
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
     self.tableView.emptyDataSetSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
@@ -124,7 +132,6 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
         case kELReportChartTypeHorizontalBarHighestLowest:
             return 150;
         case kELReportChartTypeBarCategory:
-        case kELReportChartTypeBarResponseRate:
             return 200;
         case kELReportChartTypePie:
             return 250;
