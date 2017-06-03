@@ -19,7 +19,8 @@
 
 @property (nonatomic) NSInteger pageCount, pageIndex;
 @property (nonatomic, strong) NSDictionary *responseDict;
-@property (nonatomic, strong) NSMutableArray *mControllers, *mReportKeys;
+@property (nonatomic, strong) NSArray *reportKeys;
+@property (nonatomic, strong) NSMutableArray *mControllers;
 @property (nonatomic, strong) UIPageViewController *pageController;
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
 
@@ -36,7 +37,6 @@
     // Intialization
     self.pageCount = 0, self.pageIndex = 0;
     self.mControllers = [[NSMutableArray alloc] init];
-    self.mReportKeys = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
@@ -107,25 +107,6 @@
 - (void)layoutPage {
     CGFloat iconSize = 15;
     
-    // Content
-    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
-        ELInstantFeedback *instantFeedback = (ELInstantFeedback *)self.selectedObject;
-        
-        self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
-        self.dateLabel.text = instantFeedback.dateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(instantFeedback.invited),
-                               @(instantFeedback.answered)];
-    } else {
-        ELSurvey *survey = (ELSurvey *)self.selectedObject;
-        
-        self.title = [survey.name uppercaseString];
-        self.dateLabel.text = survey.endDateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(survey.invited),
-                               @(survey.answered)];
-    }
-    
     // Buttons
     [self.prevButton setTintColor:ThemeColor(kELOrangeColor)];
     [self.prevButton setImage:[FontAwesome imageWithIcon:fa_chevron_left
@@ -155,36 +136,42 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    [self.indicatorView stopAnimating];
-    
-    DLog(@"%@", responseDict);
+    NSMutableArray *mReportKeys = [[NSMutableArray alloc] init];
     
     self.responseDict = responseDict;
     self.navigatorView.hidden = NO;
     
+    [self.indicatorView stopAnimating];
+    
     for (NSString *key in responseDict.allKeys) {
-        if ([@[@"_links", @"comments", @"frequencies", @"average", @"ioc", @"totalAnswers", @"highestLowestIndividual"] containsObject:key]) {
+        if ([@[@"_links", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
             continue;
         }
         
         if ([key isEqualToString:@"blindspot"]) {
-            [self.mReportKeys addObject:@"blindspot.overestimated"];
-            [self.mReportKeys addObject:@"blindspot.underestimated"];
+            [mReportKeys addObject:@"blindspot.overestimated"];
+            [mReportKeys addObject:@"blindspot.underestimated"];
             
             continue;
         }
         
         if ([key isEqualToString:@"highestLowestIndividual"]) {
-            [self.mReportKeys addObject:@"highestLowestIndividual.highest"];
-            [self.mReportKeys addObject:@"highestLowestIndividual.lowest"];
+            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.highest"] allKeys]) {
+                [mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.highest.%@", key]];
+            }
+            
+            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.lowest"] allKeys]) {
+                [mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.lowest.%@", key]];
+            }
             
             continue;
         }
         
-        [self.mReportKeys addObject:key];
+        [mReportKeys addObject:key];
     }
     
-    self.pageCount = self.mReportKeys.count + 1;
+    self.reportKeys = [ELUtils orderedReportKeysArray:mReportKeys];
+    self.pageCount = self.reportKeys.count + 1;
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                           navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                         options:nil];
@@ -194,6 +181,7 @@
     [self.pageView addSubview:self.pageController.view];
     [self setupPageController:self.pageController atView:self.pageView];
     
+    [self setupContent];
     [self setupNavigators];
 }
 
@@ -216,6 +204,26 @@
                                  completion:nil];
 }
 
+- (void)setupContent {
+    if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]]) {
+        ELInstantFeedback *instantFeedback = (ELInstantFeedback *)self.selectedObject;
+        
+        self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
+        self.dateLabel.text = instantFeedback.dateString;
+        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                               @(instantFeedback.invited),
+                               @(instantFeedback.answered)];
+    } else {
+        ELSurvey *survey = (ELSurvey *)self.selectedObject;
+        
+        self.title = [survey.name uppercaseString];
+        self.dateLabel.text = survey.endDateString;
+        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
+                               @(survey.invited),
+                               @(survey.answered)];
+    }
+}
+
 - (void)setupNavigators {
     self.pageControl.currentPage = 0;
     self.pageControl.numberOfPages = self.pageCount;
@@ -235,10 +243,14 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Report" bundle:nil];
     
     for (int i = 0; i < self.pageCount; i++) {
+        int index;
         BOOL isValueForKeypath;
         NSString *key;
+        NSArray *items;
         
-        if (i == 0) {
+        index = i == 0 ? 0 : i - 1;
+        
+        if (i == 1) {
             detailController = [storyboard instantiateViewControllerWithIdentifier:@"ReportDetails"];
             detailController.index = i;
             
@@ -255,15 +267,29 @@
             continue;
         }
         
-        key = self.mReportKeys[i - 1];
+        key = self.reportKeys[index];
         isValueForKeypath = [key containsString:@"blindspot"] || [key containsString:@"highestLowestIndividual"];
+        items = isValueForKeypath ? [self.responseDict valueForKeyPath:key] : self.responseDict[key];
+        
+        if (items.count == 0) {
+            continue;
+        }
         
         controller = [storyboard instantiateViewControllerWithIdentifier:@"ReportChildPage"];
-        controller.index = i;
-        controller.items = isValueForKeypath ? [self.responseDict valueForKeyPath:key] : self.responseDict[key];
-        controller.key = self.mReportKeys[i - 1];
+        controller.items = items;
+        controller.key = self.reportKeys[index];
         
         [self.mControllers addObject:controller];
+    }
+    
+    // Only consider report pages with actual data
+    self.pageCount = self.mControllers.count;
+    
+    // Second loop for assigning each controller's index
+    for (int i = 0; i < self.pageCount; i++) {
+        __kindof ELBasePageChildViewController *controller = self.mControllers[i];
+        
+        controller.index = i;
     }
     
     pageController.dataSource = self;

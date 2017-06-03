@@ -398,6 +398,60 @@
     return AppSingleton.loadingAlert;
 }
 
++ (NSArray *)orderedReportKeysArray:(NSArray *)keys {
+    NSMutableArray *mOrderedKeys = [[NSMutableArray alloc] init];
+    
+    if ([keys containsObject:@"response_rate"]) {
+        [mOrderedKeys addObject:@"response_rate"];
+    }
+    
+    if ([keys containsObject:@"radar_diagram"]) {
+        [mOrderedKeys addObject:@"radar_diagram"];
+    }
+    
+    if ([keys containsObject:@"comments"]) {
+        [mOrderedKeys addObject:@"comments"];
+    }
+    
+    if ([keys containsObject:@"highestLowestIndividual.highest.Manager"]) {
+        [mOrderedKeys addObject:@"highestLowestIndividual.highest.Manager"];
+    }
+    
+    if ([keys containsObject:@"highestLowestIndividual.lowest.Manager"]) {
+        [mOrderedKeys addObject:@"highestLowestIndividual.lowest.Manager"];
+    }
+    
+    if ([keys containsObject:@"highestLowestIndividual.highest.Others combined"]) {
+        [mOrderedKeys addObject:@"highestLowestIndividual.highest.Others combined"];
+    }
+    
+    if ([keys containsObject:@"highestLowestIndividual.lowest.Others combined"]) {
+        [mOrderedKeys addObject:@"highestLowestIndividual.lowest.Others combined"];
+    }
+    
+    if ([keys containsObject:@"blindspot.overestimated"]) {
+        [mOrderedKeys addObject:@"blindspot.overestimated"];
+    }
+    
+    if ([keys containsObject:@"blindspot.underestimated"]) {
+        [mOrderedKeys addObject:@"blindspot.underestimated"];
+    }
+    
+    if ([keys containsObject:@"breakdown"]) {
+        [mOrderedKeys addObject:@"breakdown"];
+    }
+    
+    if ([keys containsObject:@"detailed_answer_summary"]) {
+        [mOrderedKeys addObject:@"detailed_answer_summary"];
+    }
+    
+    if ([keys containsObject:@"yes_or_no"]) {
+        [mOrderedKeys addObject:@"yes_or_no"];
+    }
+    
+    return [mOrderedKeys copy];
+}
+
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {

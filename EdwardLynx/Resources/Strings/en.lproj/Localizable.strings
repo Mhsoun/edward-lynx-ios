@@ -175,8 +175,11 @@
 "kELReportInfoLabel" = "Invited: %@ | Answered: %@";
 "kELReportInfoCandidates" = "Candidates";
 "kELReportInfoOthers" = "Others combined";
+"kELReportInfoManager" = "Manager";
+
 "kELReportMoreDropdownAddMore" = "Add More Participants";
 "kELReportMoreDropdownShare" = "Share Report";
+
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Result";
@@ -190,12 +193,14 @@
 "kELReportTypeBreakdownHeader" = "Breakdown of answers by participant type";
 "kELReportTypeBreakdownDetail" = "The diagrams show an average of the answers of the competence areas for each participant category.";
 
+"kELReportTypeCommentsHeader" = "Participant's Comments";
+
 "kELReportTypeDetailPerCategoryHeader" = "Detailed answer\nsummary per category";
 
-"kELReportTypeHighestHeader" = "Five Highest Rated Questions";
+"kELReportTypeHighestHeader" = "Five Highest Rated Questions (%@)";
 "kELReportTypeHighestDetail" = "";
 
-"kELReportTypeLowestHeader" = "Five Lowest Rated Questions";
+"kELReportTypeLowestHeader" = "Five Lowest Rated Questions (%@)";
 "kELReportTypeLowestDetail" = "";
 
 "kELReportTypeRadarHeader" = "Radar Diagram";

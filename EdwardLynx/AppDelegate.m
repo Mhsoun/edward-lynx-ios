@@ -126,53 +126,13 @@
 #pragma mark - Deep Linking
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    if (app.applicationState == UIApplicationStateActive ||
-        app.applicationState == UIApplicationStateBackground ||
-        app.applicationState == UIApplicationStateInactive) {
-        if (self.emailInfoDict) {
-            return YES;
-        }
-        
-        [self parseURLString:url.absoluteString];
-        
-        switch (app.applicationState) {
-            case UIApplicationStateActive:
-            case UIApplicationStateInactive:
-                [self displayViewControllerByData:self.emailInfoDict];
-                
-                break;
-            default:
-                break;
-        }
-    }
-    
-    return YES;
+    return [self isDeepLinkProcessSuccessfulForURL:url.absoluteString application:app];
 }
 
 #pragma mark - Universal Linking
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
-    if (application.applicationState == UIApplicationStateActive ||
-        application.applicationState == UIApplicationStateBackground ||
-        application.applicationState == UIApplicationStateInactive) {
-        if (self.emailInfoDict) {
-            return YES;
-        }
-        
-        [self parseURLString:userActivity.webpageURL.absoluteString];
-        
-        switch (application.applicationState) {
-            case UIApplicationStateActive:
-            case UIApplicationStateInactive:
-                [self displayViewControllerByData:self.emailInfoDict];
-                
-                break;
-            default:
-                break;
-        }
-    }
-    
-    return YES;
+    return [self isDeepLinkProcessSuccessfulForURL:userActivity.webpageURL.absoluteString application:application];
 }
 
 #pragma mark - Notification Received Methods
@@ -413,45 +373,72 @@
     [self.notificationRootNavController pushViewController:controller animated:YES];
 }
 
-- (void)parseURLString:(NSString *)urlString {
-    NSInteger objectId;
-    NSArray *urlParts;
-    
-    if ([urlString containsString:kELAPIEmailLinkFeedback]) {
-        urlParts = [urlString componentsSeparatedByString:@"//"];
-        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][1] integerValue];
+- (BOOL)isDeepLinkProcessSuccessfulForURL:(NSString *)urlString application:(UIApplication *)application {
+    if (application.applicationState == UIApplicationStateActive ||
+        application.applicationState == UIApplicationStateBackground ||
+        application.applicationState == UIApplicationStateInactive) {
+        if (self.emailInfoDict) {
+            return YES;
+        }
         
-        self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeInstantFeedbackRequest};
+        [self parseURLString:urlString];
         
-        // TODO Same with surveys
-    } else if ([urlString containsString:kELAPIEmailLinkSurvey]) {
-        __weak typeof(self) weakSelf = self;
+        if (!self.emailInfoDict) {
+            return NO;
+        }
         
-        [[[ELAPIClient alloc] init] getRequestAtLink:urlString
-                                         queryParams:nil
-                                          completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            int64_t objectId;
-            
-            if (error) {
-                NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
-                NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                         message:message
-                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        switch (application.applicationState) {
+            case UIApplicationStateActive:
+            case UIApplicationStateInactive:
+                [self displayViewControllerByData:self.emailInfoDict];
                 
-                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
-                                                                    style:UIAlertActionStyleDefault
-                                                                  handler:nil]];
-                [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
-                                                                                                  animated:YES
-                                                                                                completion:nil];
-            }
-            
-            objectId = [responseDict[@"surveyId"] intValue];
-                                              
-            self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
-        }];
+                break;
+            default:
+                break;
+        }
     }
+    
+    return YES;
+}
+
+- (void)parseURLString:(NSString *)urlString {
+    BOOL isFeedback;
+    NSArray *urlParts;
+    NSString *key, *url;
+    __weak typeof(self) weakSelf = self;
+    
+    isFeedback = [urlString containsString:kELAPIEmailLinkFeedback];
+    urlParts = [urlString componentsSeparatedByString:@"//"];
+    key = [urlParts[1] componentsSeparatedByString:@"/"][3];
+    url = isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint;
+    url = [NSString stringWithFormat:url, [ELAPIClient hostURL], key];
+    
+    [[[ELAPIClient alloc] init] getRequestAtLink:url
+                                     queryParams:nil
+                                      completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        int64_t objectId;
+        
+        if (error.code == kELAPINotFoundStatusCode) {
+            NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
+            NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                     message:message
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:nil]];
+            [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
+                                                                                              animated:YES
+                                                                                            completion:nil];
+            
+            self.emailInfoDict = nil;
+        } else {
+            objectId = [responseDict[@"surveyId"] intValue];
+            
+            self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
+        }
+    }];
 }
 
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {

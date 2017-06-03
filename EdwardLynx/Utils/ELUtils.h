@@ -62,11 +62,12 @@
 + (NSString *)labelBySurveyType:(kELSurveyType)type;
 + (NSString *)labelByUserRole:(kELUserRole)role;
 + (UIAlertController *)loadingAlert;
-+ (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
++ (NSArray *)orderedReportKeysArray:(NSArray *)keys;
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion;
 + (ELQuestion *)questionTemplateForAnswerType:(kELAnswerType)answerType;
++ (__kindof ELBaseQuestionTypeView *)questionViewFromSuperview:(UIView *)view;
 + (void)registerValidators;
 + (NSArray *)removeDuplicateUsers:(NSArray *)subset
                          superset:(NSArray *)superset;

@@ -54,16 +54,21 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 #pragma mark - Email Link Paths
 
-NSString * const kELAPIEmailLinkFeedback = @"/instant-feedback/";  // TEMP
-NSString * const kELAPIEmailLinkSurvey = @"/surveys/exchange/";
+NSString * const kELAPIEmailLinkFeedback = @"/instant-feedbacks/answer/";  // TEMP
+NSString * const kELAPIEmailLinkSurvey = @"/surveys/answer/";
 
 #pragma mark - Endpoints
 
 NSString * const kELAPIRootEndpoint = @"https://edwardlynx.ingenuity.ph";
 NSString * const kELAPIVersionNamespace = @"api/v1";
 
+NSString * const kELAPILoginEndpoint = @"oauth/token";
+
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
 NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
+
+NSString * const kELAPIExchangeSurveyEndpoint = @"%@/surveys/exchange/%@";
+NSString * const kELAPIExchangeInstantFeedbackEndpoint = @"%@/instant-feedbacks/exchange/%@";
 
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
@@ -87,8 +92,6 @@ NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPIUserDashboardEndpoint = @"%@/user/dashboard";
 NSString * const kELAPIUserDeviceEndpoint = @"%@/user/devices";
 NSString * const kELAPIUsersEndpoint = @"%@/users?type=list";
-
-NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 #pragma mark - HTTP Methods
 
