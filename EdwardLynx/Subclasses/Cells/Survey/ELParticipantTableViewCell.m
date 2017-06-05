@@ -23,12 +23,12 @@
 }
 
 - (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
-    NSString *key = userInteractionEnabled ? kELWhiteColor : kELDarkGrayColor;
+    NSString *colorKey = userInteractionEnabled ? kELWhiteColor : kELDarkGrayColor;
     
     [super setUserInteractionEnabled:userInteractionEnabled];
     
-    self.nameLabel.textColor = [[RNThemeManager sharedManager] colorForKey:key];
-    self.emailLabel.textColor = [[RNThemeManager sharedManager] colorForKey:key];
+    self.nameLabel.textColor = ThemeColor(colorKey);
+    self.emailLabel.textColor = ThemeColor(colorKey);
 }
 
 #pragma mark - Protocol Methods

@@ -66,8 +66,8 @@
             break;
     }
     
-    self.typeLabel.textColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
-    self.statusView.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    self.typeLabel.textColor = ThemeColor(colorKey);
+    self.statusView.backgroundColor = ThemeColor(colorKey);
 }
 
 @end

@@ -22,7 +22,7 @@
                                                                                                         target:nil
                                                                                                         action:nil];
     
-    [[UIBarButtonItem appearance] setTintColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+    [[UIBarButtonItem appearance] setTintColor:ThemeColor(kELOrangeColor)];
     
     // Subclass-specific UI-related additions
     [self layoutPage];

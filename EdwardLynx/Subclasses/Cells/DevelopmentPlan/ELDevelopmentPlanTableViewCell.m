@@ -37,14 +37,14 @@
                                                     current:[NSNumber numberWithInt:0]
                                                   clockwise:YES
                                                      shadow:YES
-                                                shadowColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]
+                                                shadowColor:ThemeColor(kELHeaderColor)
                                        displayCountingLabel:YES
                                           overrideLineWidth:[NSNumber numberWithInteger:12]];
     
     [self.barChartView addSubview:self.barChart];
     [self.circleChartView addSubview:self.circleChart];
     
-    [self.moreBarChartButton setTintColor:[[RNThemeManager sharedManager] colorForKey:kELWhiteColor]];
+    [self.moreBarChartButton setTintColor:[UIColor whiteColor]];
     [self.moreBarChartButton setImage:[FontAwesome imageWithIcon:fa_angle_right
                                                        iconColor:nil
                                                         iconSize:20]
@@ -84,7 +84,7 @@
     // UI
     colorKey = devPlan.completed ? kELOrangeColor : kELBlueColor;
     
-    self.completedLabel.textColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    self.completedLabel.textColor = ThemeColor(colorKey);
     self.moreBarChartButton.hidden = CGRectGetWidth(self.scrollView.frame) >= CGRectGetWidth(self.barChartView.frame);
 }
 
@@ -113,7 +113,7 @@
         progress = [[goal progressDetails][@"value"] doubleValue];
         colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
         
-        [mColors addObject:[[RNThemeManager sharedManager] colorForKey:colorKey]];
+        [mColors addObject:ThemeColor(colorKey)];
         [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)(i + 1) y:progress]];
     }
     
@@ -169,7 +169,7 @@
     self.pnBarChart.barBackgroundColor = [UIColor clearColor];
     self.pnBarChart.barRadius = 0;
     self.pnBarChart.barWidth = 20;
-    self.pnBarChart.chartBorderColor = [[RNThemeManager sharedManager] colorForKey:kELHeaderColor];
+    self.pnBarChart.chartBorderColor = ThemeColor(kELHeaderColor);
     self.pnBarChart.chartMarginBottom = 0;
     self.pnBarChart.chartMarginTop = 0;
     self.pnBarChart.isGradientShow = NO;
@@ -193,7 +193,7 @@
         ELGoal *goal = devPlan.goals[i];
         NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELBlueColor;
         
-        [mColors addObject:[[RNThemeManager sharedManager] colorForKey:colorKey]];
+        [mColors addObject:ThemeColor(colorKey)];
         [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
         [mValues addObject:@([[goal progressDetails][@"value"] floatValue])];
     }

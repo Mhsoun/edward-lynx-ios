@@ -23,7 +23,7 @@
     // Change selected cell background color
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.selectedBackgroundView.frame];
     
-    [backgroundView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]];
+    [backgroundView setBackgroundColor:ThemeColor(kELDarkVioletColor)];
     [self setSelectedBackgroundView:backgroundView];
 }
 
@@ -36,7 +36,7 @@
     // Content
     self.textLabel.text = menuItem.name;
     self.imageView.image = [FontAwesome imageWithIcon:menuItem.iconIdentifier
-                                            iconColor:[[RNThemeManager sharedManager] colorForKey:kELVioletColor]
+                                            iconColor:ThemeColor(kELVioletColor)
                                              iconSize:iconHeight
                                             imageSize:CGSizeMake(iconHeight, iconHeight)];
 }

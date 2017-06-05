@@ -135,7 +135,7 @@
                                      items:(NSArray *)items
                                   colorKey:(NSString *)colorKey {
     BarChartDataSet *dataSet;
-    UIColor *color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    UIColor *color = ThemeColor(colorKey);
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     
     formatter.minimumFractionDigits = 0;
@@ -182,7 +182,7 @@
     barChart.noDataFont = dataFont;
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
                            @(kELParticipantsMinimumCount)];
-    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
     barChart.rightAxis.axisMinimum = axisMin;
@@ -235,7 +235,7 @@
     barChart.noDataFont = dataFont;
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
                            @(kELParticipantsMinimumCount)];
-    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
     barChart.rightAxis.axisMinimum = axisMin;
@@ -429,7 +429,7 @@
         ChartLimitLine *limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
         limitLine.xOffset = 0.0f;
         
@@ -699,7 +699,7 @@
                                    NSLocalizedString(@"kELReportInfoOthers", nil);
         
         chartDataSet = [[RadarChartDataSet alloc] initWithValues:i == 0 ? mEntries : mEntries2 label:label];
-        chartDataSet.colors = @[[[RNThemeManager sharedManager] colorForKey:i == 0 ? kELLynxColor : kELOrangeColor]];
+        chartDataSet.colors = @[ThemeColor(i == 0 ? kELLynxColor : kELOrangeColor)];
         chartDataSet.drawValuesEnabled = NO;
         chartDataSet.highlightEnabled = NO;
     

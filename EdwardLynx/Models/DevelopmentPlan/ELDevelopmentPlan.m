@@ -57,7 +57,7 @@
     NSString *format;
     NSMutableAttributedString *infoString;
     NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:12.0f],
-                                     NSForegroundColorAttributeName: [[RNThemeManager sharedManager] colorForKey:kELOrangeColor]};
+                                     NSForegroundColorAttributeName: ThemeColor(kELOrangeColor)};
     
     completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.progress == 1"]] count];
     format = [NSString stringWithFormat:@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count)];

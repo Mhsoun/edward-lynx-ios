@@ -18,8 +18,8 @@
     
     // UI
     self.nextIcon.image = [FontAwesome imageWithIcon:fa_chevron_right
-                                              iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
-                                               iconSize:50];
+                                           iconColor:ThemeColor(kELOrangeColor)
+                                            iconSize:50];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -74,11 +74,11 @@
     
     // UI
     self.invitedIcon.image = [FontAwesome imageWithIcon:fa_user
-                                              iconColor:[[RNThemeManager sharedManager] colorForKey:colorKey]
+                                              iconColor:ThemeColor(colorKey)
                                                iconSize:50];
-    self.invitedLabel.textColor = [[RNThemeManager sharedManager] colorForKey:colorKey];
-    self.timestampLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
-    self.typeLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:detailsDict[@"color"]];
+    self.invitedLabel.textColor = ThemeColor(colorKey);
+    self.timestampLabel.textColor = ThemeColor(kELTextFieldBGColor);
+    self.typeLabel.backgroundColor = ThemeColor(detailsDict[@"color"]);
     self.typeLabel.layer.cornerRadius = 2.0f;
 }
 

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -40,7 +41,7 @@
                                 </constraints>
                             </view>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDr-Xm-dhx">
-                                <rect key="frame" x="20" y="5" width="315" height="25"/>
+                                <rect key="frame" x="20" y="5" width="300" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="IeM-6i-5Wd"/>
@@ -49,8 +50,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-EN-pZM">
+                                <rect key="frame" x="320" y="5" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0yl-EN-pZM" secondAttribute="height" multiplier="1:1" id="0Uo-eb-2fY"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onMoreButtonClick:" destination="fC9-0R-6Me" eventType="touchUpInside" id="XCS-Jz-TN2"/>
+                                </connections>
+                            </button>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sXl-lv-dav">
-                                <rect key="frame" x="20" y="30" width="315" height="0.0"/>
+                                <rect key="frame" x="20" y="30" width="300" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,8 +104,8 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="2TA-rt-J8Y" firstAttribute="leading" secondItem="sXl-lv-dav" secondAttribute="leading" id="17l-WY-1uz"/>
-                            <constraint firstAttribute="trailing" secondItem="EDr-Xm-dhx" secondAttribute="trailing" constant="10" id="1u4-QV-ie8"/>
-                            <constraint firstItem="Mso-br-AKF" firstAttribute="trailing" secondItem="sXl-lv-dav" secondAttribute="trailing" id="6NK-lz-yxd"/>
+                            <constraint firstItem="2ST-6j-WdC" firstAttribute="trailing" secondItem="Mso-br-AKF" secondAttribute="trailing" id="7TC-e2-h4X"/>
+                            <constraint firstAttribute="trailing" secondItem="0yl-EN-pZM" secondAttribute="trailing" id="EMV-M1-1vC"/>
                             <constraint firstItem="EDr-Xm-dhx" firstAttribute="leading" secondItem="xIv-ac-zZR" secondAttribute="trailing" constant="10" id="FYu-IU-nSk"/>
                             <constraint firstAttribute="trailing" secondItem="vBe-pt-vUQ" secondAttribute="trailing" id="Fks-h9-h0v"/>
                             <constraint firstItem="Mso-br-AKF" firstAttribute="leading" secondItem="2TA-rt-J8Y" secondAttribute="trailing" constant="10" id="Lqn-VW-9MM"/>
@@ -109,10 +120,13 @@
                             <constraint firstItem="2ST-6j-WdC" firstAttribute="leading" secondItem="2TA-rt-J8Y" secondAttribute="leading" id="i2e-7A-c7r"/>
                             <constraint firstItem="EDr-Xm-dhx" firstAttribute="top" secondItem="oGH-14-6bO" secondAttribute="top" constant="5" id="ioy-Ga-V2m"/>
                             <constraint firstItem="sXl-lv-dav" firstAttribute="trailing" secondItem="EDr-Xm-dhx" secondAttribute="trailing" id="kSP-al-rjE"/>
+                            <constraint firstItem="0yl-EN-pZM" firstAttribute="height" secondItem="EDr-Xm-dhx" secondAttribute="height" id="lYt-y9-mLi"/>
                             <constraint firstItem="xIv-ac-zZR" firstAttribute="top" secondItem="oGH-14-6bO" secondAttribute="top" id="oLw-38-7S3"/>
-                            <constraint firstItem="2ST-6j-WdC" firstAttribute="trailing" secondItem="Mso-br-AKF" secondAttribute="trailing" id="q7f-T6-eBu"/>
+                            <constraint firstAttribute="trailing" secondItem="Mso-br-AKF" secondAttribute="trailing" constant="10" id="oOj-Ui-xjL"/>
                             <constraint firstItem="xIv-ac-zZR" firstAttribute="leading" secondItem="oGH-14-6bO" secondAttribute="leading" id="qZ9-vX-8Zn"/>
                             <constraint firstAttribute="bottom" secondItem="xIv-ac-zZR" secondAttribute="bottom" id="rl6-rB-KFH"/>
+                            <constraint firstItem="0yl-EN-pZM" firstAttribute="leading" secondItem="EDr-Xm-dhx" secondAttribute="trailing" id="vFQ-yy-z3V"/>
+                            <constraint firstItem="0yl-EN-pZM" firstAttribute="top" secondItem="EDr-Xm-dhx" secondAttribute="top" id="zex-Tw-gs3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="containerColor"/>
@@ -134,6 +148,7 @@
                 <outlet property="descriptionLabel" destination="sXl-lv-dav" id="BeS-DG-eEg"/>
                 <outlet property="goalLabel" destination="EDr-Xm-dhx" id="oAU-IJ-5tV"/>
                 <outlet property="leftView" destination="xIv-ac-zZR" id="chP-7a-ke6"/>
+                <outlet property="moreButton" destination="0yl-EN-pZM" id="nfQ-f7-qWH"/>
                 <outlet property="progressView" destination="2ST-6j-WdC" id="Fxh-Bo-pEU"/>
                 <outlet property="tableView" destination="vBe-pt-vUQ" id="Yyf-WF-gOB"/>
                 <outlet property="timestampLabel" destination="Mso-br-AKF" id="ee2-lW-jiF"/>

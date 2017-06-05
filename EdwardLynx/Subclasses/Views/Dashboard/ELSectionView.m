@@ -47,7 +47,7 @@
     self.button.hidden = !self.segueIdentifier;
     
     // UI
-    self.button.tintColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    self.button.tintColor = ThemeColor(kELOrangeColor);
     
     return self;
 }

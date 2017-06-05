@@ -101,13 +101,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // UI
     self.infoLabel.text = NSLocalizedString(@"kELInviteUsersInfoMessage", nil);
-    self.infoLabel.textColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+    self.infoLabel.textColor = ThemeColor(kELTextFieldBGColor);
     self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                      iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                      iconColor:ThemeColor(kELGreenColor)
                                        iconSize:kELIconSize
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     self.infoImageView.image = [FontAwesome imageWithIcon:fa_info_circle
-                                                iconColor:[[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor]
+                                                iconColor:ThemeColor(kELTextFieldBGColor)
                                                  iconSize:kELIconSize
                                                 imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     

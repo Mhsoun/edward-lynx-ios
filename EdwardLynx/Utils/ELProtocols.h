@@ -72,6 +72,7 @@
 @optional
 - (void)onGoalAddition:(__kindof ELModel *)object;
 
+- (void)onGoalOptions:(__kindof ELModel *)object sender:(UIButton *)sender;
 - (void)onGoalUpdate:(__kindof ELModel *)object;
 
 @end

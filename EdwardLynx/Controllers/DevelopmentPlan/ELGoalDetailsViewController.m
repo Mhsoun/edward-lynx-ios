@@ -122,7 +122,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         cell.tag = indexPath.row;
         cell.delegate = self;
         cell.optionLabel.text = action.title;
-        cell.userInteractionEnabled = !action.isAlreadyAdded;
         
         return cell;
     }
@@ -173,9 +172,37 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 #pragma mark - Protocol Methods (ELItemTableViewCell)
 
 - (void)onDeletionAtRow:(NSInteger)row {
-    [self.mActions removeObjectAtIndex:row];
-    [self.tableView reloadData];
-    [self adjustTableViewSize];
+    NSString *message, *title;
+    UIAlertController *alertController;
+    ELGoalAction *action = self.mActions[row];
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
+        // TODO API call
+    };
+    
+    if (!action.isAlreadyAdded) {
+        [self.mActions removeObjectAtIndex:row];
+        [self.tableView reloadData];
+        [self adjustTableViewSize];
+        
+        return;
+    }
+    
+    title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
+    message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
+    alertController = [UIAlertController alertControllerWithTitle:title
+                                                          message:[NSString localizedStringWithFormat:message, action.title]
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:deleteAPIBlock]];
+    
+    [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)

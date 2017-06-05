@@ -270,7 +270,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     for (NSNumber *value in @[@(0), @(0.70f), @(1.0f)]) {
         limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
         limitLine.xOffset = 0;
         
@@ -285,7 +285,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     
     barChart.noDataFont = dataFont;
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
-    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
     barChart.rightAxis.axisMinimum = axisMin;
@@ -389,12 +389,14 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (void)setupReportsWithData:(NSDictionary *)dataDict {
-    CGFloat height;
+    CGFloat defaultHeight, height;
     NSInteger answered;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     answered = isFeedback ? self.instantFeedback.answered : self.survey.answered;
+    defaultHeight = 150;
+    
     self.toDisplayData = isFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
@@ -409,9 +411,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
     height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
     
-    [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
+    [self.averageHeightConstraint setConstant:self.toDisplayData ? height + (kELBarHeight / 2) : defaultHeight];
     [self.averageContainerView layoutIfNeeded];
-    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 1.8)];
+    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (self.toDisplayData ? (height * 1.8) : defaultHeight)];
     [self.indexContainerView layoutIfNeeded];
     
     self.averageBarChart.frame = self.averageChartView.bounds;

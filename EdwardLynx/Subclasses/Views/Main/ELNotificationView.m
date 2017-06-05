@@ -156,7 +156,7 @@ static ELNotificationView *currentNotificationView = nil;
     self.titleLabel.text = notification.title;
     self.detailLabel.text = notification.body;
     self.rightImageView.image = [FontAwesome imageWithIcon:fa_chevron_right
-                                                 iconColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]
+                                                 iconColor:ThemeColor(kELHeaderColor)
                                                   iconSize:dimension
                                                  imageSize:CGSizeMake(dimension, dimension)];
 }

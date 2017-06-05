@@ -87,8 +87,7 @@
     
     // Icon
     [self.icon setImage:[self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    [self.icon setTintColor:isValid ? [[RNThemeManager sharedManager] colorForKey:kELDarkGrayColor] :
-                                      [UIColor redColor]];
+    [self.icon setTintColor:ThemeColor(isValid ? kELDarkGrayColor : kELRedColor)];
 }
 
 @end
@@ -235,7 +234,7 @@
 
 + (void)circleChart:(PNCircleChart *)chart developmentPlan:(ELDevelopmentPlan *)developmentPlan {
     chart.backgroundColor = [UIColor clearColor];
-    chart.strokeColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    chart.strokeColor = ThemeColor(kELOrangeColor);
     chart.current = [NSNumber numberWithFloat:(developmentPlan.progress * 100)];
     
     chart.countingLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20.0f];
@@ -601,7 +600,7 @@
     // Navigation Bar
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    [[UINavigationBar appearance] setBarTintColor:ThemeColor(kELHeaderColor)];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0],
                                                            NSForegroundColorAttributeName: [UIColor whiteColor]}];
@@ -610,7 +609,7 @@
                                           barMetrics:UIBarMetricsDefault];
     
     // Search Bar
-    [[UISearchBar appearance] setBarTintColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    [[UISearchBar appearance] setBarTintColor:ThemeColor(kELHeaderColor)];
     
     // Table View cell
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
@@ -653,10 +652,10 @@
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToFiveScale", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeOneToTenScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenScale", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeAgreementScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
@@ -674,7 +673,7 @@
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeOneToTenWithExplanation:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenWithExplanation", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeCustomScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];

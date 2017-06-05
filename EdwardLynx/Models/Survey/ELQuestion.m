@@ -22,7 +22,7 @@
 }
 
 - (NSString *)text {
-    return self.optional ? [NSString stringWithFormat:@"%@ (Optional)", _text] : _text;
+    return self.optional ? [NSString stringWithFormat:NSLocalizedString(@"kELAnswerOptionalMessage", nil), _text] : _text;
 }
 
 - (void)setText:(NSString *)text {
@@ -33,18 +33,17 @@
     switch (self.answer.type) {
         case kELAnswerTypeText:
             return 110;
-            
-            break;
+        case kELAnswerTypeOneToFiveScale:
+        case kELAnswerTypeOneToTenScale:
         case kELAnswerTypeOneToTenWithExplanation:
-            return ((self.answer.options.count * kELCustomScaleItemHeight) +
-                    (self.isNA ? kELCustomScaleItemHeight : 0) + 100);
+            if (self.answer.type == kELAnswerTypeOneToTenWithExplanation) {
+                return 175 + (self.isNA ? kELCustomScaleItemHeight : 0);
+            }
             
-            break;
+            return 75 + (self.isNA ? kELCustomScaleItemHeight : 0);
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
                     (self.isNA ? kELCustomScaleItemHeight : 0) + kELCustomScaleItemHeight);
-            
-            break;
     }
 }
 

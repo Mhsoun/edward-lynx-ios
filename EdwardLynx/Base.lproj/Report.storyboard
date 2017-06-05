@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nQ-7R-h2h" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="395"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzC-S5-oZd">
                                                 <rect key="frame" x="15" y="15" width="345" height="115"/>
@@ -184,16 +184,42 @@
                                                     <constraint firstAttribute="bottom" secondItem="KSk-mx-nSW" secondAttribute="bottom" id="zCv-KA-cTg"/>
                                                 </constraints>
                                             </view>
+                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u88-CK-S5j">
+                                                <rect key="frame" x="0.0" y="350" width="375" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="5yp-9q-o4C"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmn-Wr-JWV">
+                                                <rect key="frame" x="0.0" y="370" width="375" height="15"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="yG4-Ag-p0q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="fmn-Wr-JWV" firstAttribute="leading" secondItem="8nQ-7R-h2h" secondAttribute="leading" id="0nA-8Y-Zta"/>
                                             <constraint firstItem="gzC-S5-oZd" firstAttribute="top" secondItem="8nQ-7R-h2h" secondAttribute="top" constant="15" id="MGQ-Qs-GIR"/>
                                             <constraint firstAttribute="trailing" secondItem="gzC-S5-oZd" secondAttribute="trailing" constant="15" id="P8d-QR-8KD"/>
                                             <constraint firstItem="mrn-rD-3PB" firstAttribute="trailing" secondItem="gzC-S5-oZd" secondAttribute="trailing" id="PuR-zh-Yhl"/>
                                             <constraint firstItem="mrn-rD-3PB" firstAttribute="leading" secondItem="gzC-S5-oZd" secondAttribute="leading" id="S0S-II-Uik"/>
                                             <constraint firstItem="mrn-rD-3PB" firstAttribute="top" secondItem="gzC-S5-oZd" secondAttribute="bottom" constant="10" id="Tij-4y-WXg"/>
+                                            <constraint firstAttribute="trailing" secondItem="u88-CK-S5j" secondAttribute="trailing" id="XSq-8l-cay"/>
+                                            <constraint firstAttribute="trailing" secondItem="fmn-Wr-JWV" secondAttribute="trailing" id="aty-df-lPy"/>
                                             <constraint firstItem="gzC-S5-oZd" firstAttribute="leading" secondItem="8nQ-7R-h2h" secondAttribute="leading" constant="15" id="ekw-O7-3kL"/>
-                                            <constraint firstAttribute="bottom" secondItem="mrn-rD-3PB" secondAttribute="bottom" constant="10" id="yA4-H8-h6T"/>
+                                            <constraint firstItem="u88-CK-S5j" firstAttribute="top" secondItem="mrn-rD-3PB" secondAttribute="bottom" constant="10" id="kjQ-Wx-vC8"/>
+                                            <constraint firstAttribute="bottom" secondItem="fmn-Wr-JWV" secondAttribute="bottom" constant="10" id="kux-eD-qt9"/>
+                                            <constraint firstItem="fmn-Wr-JWV" firstAttribute="top" secondItem="u88-CK-S5j" secondAttribute="bottom" id="udu-QQ-k7L"/>
+                                            <constraint firstItem="u88-CK-S5j" firstAttribute="leading" secondItem="8nQ-7R-h2h" secondAttribute="leading" id="vYb-S2-rFq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -238,12 +264,14 @@
                         <outlet property="averageContainerView" destination="gzC-S5-oZd" id="BcQ-xu-8ei"/>
                         <outlet property="averageHeightConstraint" destination="KmL-Id-uDx" id="Jts-UH-bAx"/>
                         <outlet property="bgView" destination="TEd-JO-o1i" id="C2P-W6-m87"/>
+                        <outlet property="dateLabel" destination="u88-CK-S5j" id="JRw-Y0-QbI"/>
                         <outlet property="detailLabel" destination="L61-gO-7n1" id="jwg-If-8hy"/>
                         <outlet property="headerLabel" destination="beJ-dZ-msV" id="2xq-cH-KJO"/>
                         <outlet property="indexChartView" destination="KSk-mx-nSW" id="6Zi-8S-cXT"/>
                         <outlet property="indexContainerView" destination="mrn-rD-3PB" id="mAa-2p-O9j"/>
                         <outlet property="indexHeightConstraint" destination="Sfb-hu-Xsq" id="ooZ-q0-p50"/>
                         <outlet property="indicatorView" destination="YLr-hf-3Cr" id="Q9R-jv-BSF"/>
+                        <outlet property="infoLabel" destination="fmn-Wr-JWV" id="h1U-TN-n3A"/>
                         <outlet property="moreBarButton" destination="lT7-AG-ENN" id="r81-0i-NYC"/>
                         <outlet property="scrollView" destination="z8o-oh-hUX" id="euJ-qr-RuZ"/>
                         <segue destination="aHG-bx-ulF" kind="show" identifier="ShareReport" id="Vh9-EP-Xss"/>

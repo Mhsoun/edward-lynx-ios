@@ -12,7 +12,6 @@
 "kELLogoutAlertMessage" = "Logging out will require the app for your credentials next time.";
 "kELServerMessage" = "Can't connect to server. Please try again later.";
 
-
 "kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
 "kELInstantFeedbackTitle" = "Instant Feedback";
 
@@ -20,6 +19,7 @@
 "kELCancelButton" = "Cancel";
 "kELCloseButton" = "Close";
 "kELCompleteButton" = "Complete";
+"kELDeleteButton" = "Delete";
 "kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
@@ -78,8 +78,12 @@
 
 /* Development Plans */
 
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
+
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
-"kELDevelopmentPlanGoalActionCompleteDetaislMessage" = "Complete the action, %@?";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Complete this action, %@?";
+
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Delete this action, %@?";
 
 "kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 
@@ -92,6 +96,7 @@
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";
 
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
+"kELDevelopmentPlanGoalButtonDelete" = "Delete Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
@@ -213,9 +218,11 @@
 
 /* Surveys */
 
-"kELAnswerSurveyTitle"  = "Answer Survey";
+"kELAnswerSurveyTitle" = "Answer Survey";
 
-"kELSurveyEmptyMessage"  = "No Surveys";
+"kELAnswerOptionalMessage" = "%@ (Optional)";
+
+"kELSurveyEmptyMessage" = "No Surveys";
 
 "kELSurveyCompleteHeader" = "Survey Completed!";
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";

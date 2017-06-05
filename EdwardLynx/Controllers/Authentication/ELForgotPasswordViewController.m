@@ -63,11 +63,11 @@ static CGFloat const kELCornerRadius = 2.0f;
     gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:
-                       (id)[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor].CGColor,
-                       (id)[[RNThemeManager sharedManager] colorForKey:kELVioletColor].CGColor,
+                       (id)ThemeColor(kELDarkVioletColor).CGColor,
+                       (id)ThemeColor(kELVioletColor).CGColor,
                        nil];
     
-    [self.view setTintColor:[[RNThemeManager sharedManager] colorForKey:kELLightVioletColor]];
+    [self.view setTintColor:ThemeColor(kELLightVioletColor)];
     [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
