@@ -122,7 +122,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         cell.tag = indexPath.row;
         cell.delegate = self;
         cell.optionLabel.text = action.title;
-//        cell.userInteractionEnabled = !action.isAlreadyAdded;
         
         return cell;
     }

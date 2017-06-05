@@ -389,12 +389,14 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (void)setupReportsWithData:(NSDictionary *)dataDict {
-    CGFloat height;
+    CGFloat defaultHeight, height;
     NSInteger answered;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
     answered = isFeedback ? self.instantFeedback.answered : self.survey.answered;
+    defaultHeight = 150;
+    
     self.toDisplayData = isFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
@@ -409,9 +411,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
     height += self.instantFeedback && self.instantFeedback.anonymous ? 20 : 0;
     
-    [self.averageHeightConstraint setConstant:height + (kELBarHeight / 2)];
+    [self.averageHeightConstraint setConstant:self.toDisplayData ? height + (kELBarHeight / 2) : defaultHeight];
     [self.averageContainerView layoutIfNeeded];
-    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (height * 1.8)];
+    [self.indexHeightConstraint setConstant:isFeedback ? 0 : (self.toDisplayData ? (height * 1.8) : defaultHeight)];
     [self.indexContainerView layoutIfNeeded];
     
     self.averageBarChart.frame = self.averageChartView.bounds;

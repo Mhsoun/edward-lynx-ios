@@ -87,7 +87,7 @@
     
     // Icon
     [self.icon setImage:[self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    [self.icon setTintColor:isValid ? ThemeColor(kELDarkGrayColor) : [UIColor redColor]];
+    [self.icon setTintColor:ThemeColor(isValid ? kELDarkGrayColor : kELRedColor)];
 }
 
 @end
@@ -652,10 +652,10 @@
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToFiveScale", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeOneToTenScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenScale", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeAgreeementScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeAgreementScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
@@ -673,7 +673,7 @@
                                                             [[ELQuestionTypeRadioGroupView alloc] init];
         case kELAnswerTypeOneToTenWithExplanation:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeOneToTenWithExplanation", nil) :
-                                                            [[ELQuestionTypeRadioGroupView alloc] init];
+                                                            [[ELQuestionTypeScaleView alloc] init];
         case kELAnswerTypeCustomScale:
             return [objectType isEqualToString:@"string"] ? NSLocalizedString(@"kELFeedbackAnswerTypeCustomScale", nil) :
                                                             [[ELQuestionTypeRadioGroupView alloc] init];

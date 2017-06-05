@@ -357,7 +357,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ai-2E6">
+                            <tableView contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ai-2E6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -461,7 +461,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7V3-ui-vgo">
-                                <rect key="frame" x="16" y="30" width="343" height="487"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-jk-UgG">
@@ -551,20 +551,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7V3-ui-vgo" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="0fB-Bs-Jew"/>
-                            <constraint firstItem="LJx-IR-Vfi" firstAttribute="trailing" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="9IV-LA-rn4"/>
                             <constraint firstItem="8Po-jk-UgG" firstAttribute="top" secondItem="3K2-7N-VBZ" secondAttribute="bottom" id="9dx-Zl-m5Z"/>
                             <constraint firstItem="LJx-IR-Vfi" firstAttribute="top" secondItem="7V3-ui-vgo" secondAttribute="bottom" constant="10" id="E7D-QR-GDs"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="height" secondItem="DCb-8E-7PX" secondAttribute="height" id="Lqf-wH-3U3"/>
                             <constraint firstAttribute="bottom" secondItem="LJx-IR-Vfi" secondAttribute="bottom" constant="10" id="Mwv-4K-Smm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="NqD-fd-wYL"/>
                             <constraint firstItem="8Po-jk-UgG" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="SqJ-Ko-ERJ"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="width" secondItem="DCb-8E-7PX" secondAttribute="width" id="ckG-Z3-Uv3"/>
+                            <constraint firstItem="7V3-ui-vgo" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leading" id="csF-h4-2M1"/>
+                            <constraint firstItem="LJx-IR-Vfi" firstAttribute="trailing" secondItem="DCb-8E-7PX" secondAttribute="trailingMargin" id="fhT-b9-hKY"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerX" secondItem="DCb-8E-7PX" secondAttribute="centerX" id="lDO-l5-Sni"/>
+                            <constraint firstAttribute="trailing" secondItem="7V3-ui-vgo" secondAttribute="trailing" id="lNX-GR-Wa3"/>
                             <constraint firstItem="8Po-jk-UgG" firstAttribute="trailing" secondItem="DCb-8E-7PX" secondAttribute="trailingMargin" id="ncf-a0-4Gt"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8Po-jk-UgG" secondAttribute="bottom" id="pSj-Dc-bGf"/>
-                            <constraint firstItem="LJx-IR-Vfi" firstAttribute="leading" secondItem="7V3-ui-vgo" secondAttribute="leading" id="q9g-QN-cjF"/>
                             <constraint firstItem="7V3-ui-vgo" firstAttribute="top" secondItem="3K2-7N-VBZ" secondAttribute="bottom" constant="10" id="s7B-UQ-x5N"/>
+                            <constraint firstItem="LJx-IR-Vfi" firstAttribute="leading" secondItem="DCb-8E-7PX" secondAttribute="leadingMargin" id="tho-HD-OHq"/>
                             <constraint firstItem="kK7-xI-2V5" firstAttribute="centerY" secondItem="DCb-8E-7PX" secondAttribute="centerY" id="zUP-t2-04T"/>
                         </constraints>
                     </view>
