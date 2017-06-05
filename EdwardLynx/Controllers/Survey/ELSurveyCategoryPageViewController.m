@@ -268,6 +268,8 @@
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
     self.saved = YES;
+    
+    AppSingleton.needsPageReload = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -285,8 +287,6 @@
         
         return;
     }
-    
-    AppSingleton.needsPageReload = YES;
     
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
@@ -423,8 +423,6 @@
 #pragma mark - Notification
 
 - (void)onClosePopup:(NSNotification *)notification {
-    AppSingleton.needsPageReload = YES;
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

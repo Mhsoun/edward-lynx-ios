@@ -97,7 +97,7 @@
 }
 
 - (void)processRetrievalOfSurveys {
-    [self.surveyClient currentUserSurveysWithQueryParams:nil
+    [self.surveyClient currentUserSurveysWithQueryParams:@{@"filter": @"answerable"}
                                               completion:self.requestCompletionBlock];
 }
 

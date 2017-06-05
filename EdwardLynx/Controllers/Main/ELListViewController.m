@@ -116,10 +116,16 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 #pragma mark - Protocol Methods (UIScrollView)
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    BOOL atBottom;
-    BOOL isContentLarger = scrollView.contentSize.height > CGRectGetHeight(scrollView.frame);
-    CGFloat viewableHeight = isContentLarger ? CGRectGetHeight(scrollView.frame) : scrollView.contentSize.height;
+    BOOL atBottom, isContentLarger;
+    CGFloat scrollHeight, viewableHeight;
     
+    if (self.listType != kELListTypeSurveys) {
+        return;
+    }
+    
+    scrollHeight = CGRectGetHeight(scrollView.frame);
+    isContentLarger = scrollView.contentSize.height > scrollHeight;
+    viewableHeight = isContentLarger ? scrollHeight : scrollView.contentSize.height;
     atBottom = (scrollView.contentOffset.y >= scrollView.contentSize.height - viewableHeight + CGRectGetHeight(self.tableIndicatorView.frame));
     
     if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView] && !(self.page > self.pages)) {
@@ -128,8 +134,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         self.isPaginated = YES;
         self.tableView.tableFooterView = self.tableIndicatorView;
         
-        [self.tableIndicatorView startAnimating];
         [scrollView setScrollEnabled:NO];
+        [self.tableIndicatorView startAnimating];
         [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
     }
 }
@@ -207,7 +213,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             
             if (!surveyDict) {
                 for (NSDictionary *detailDict in responseDict[@"items"]) {
-                    [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                    if (self.listFilter == kELListFilterInstantFeedback) {
+                        [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
+                    } else {
+                        [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                    }
                 }
                 
                 // Store values
@@ -406,10 +416,26 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     switch (self.listType) {
         case kELListTypeSurveys:
             self.cellIdentifier = kELSurveyCellIdentifier;
+            
             [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
                  forCellReuseIdentifier:self.cellIdentifier];
             
-            [self.viewManager processRetrievalOfInstantFeedbacksAndSurveys];
+            switch (self.listFilter) {
+                case kELListFilterAll:
+                    [self.viewManager processRetrievalOfInstantFeedbacksAndSurveys];
+                    
+                    break;
+                case kELListFilterInstantFeedback:
+                    [self.viewManager processRetrievalOfInstantFeedbacks];
+                    
+                    break;
+                case kELListFilterLynxMeasurement:
+                    [self.viewManager processRetrievalOfSurveys];
+                    
+                    break;
+                default:
+                    break;
+            }
             
             break;
         case kELListTypeReports:
