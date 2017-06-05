@@ -35,6 +35,7 @@
     self.user = nil;
     self.participants = nil;
     self.hasLoadedApplication = NO;
+    self.needsPageReload = NO;
     self.searchText = @"";
     self.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     self.validationDict = @{@"com.REValidation.presence": @"%@ can't be blank.",

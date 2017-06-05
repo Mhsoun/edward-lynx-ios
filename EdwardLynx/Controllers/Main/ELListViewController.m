@@ -51,9 +51,12 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.page = 1;
     self.isPaginated = NO;
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0,
                                                                                         CGRectGetWidth(self.tableView.frame),
@@ -63,6 +66,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     if (self.listType == kELListTypeReports) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
+    
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,19 +76,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // Prepare for loading
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
     
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    self.page = 1;
-    self.isPaginated = NO;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // Search Notification
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -97,9 +98,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                                                             object:nil
                                                           userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
     }
-    
-    // Load list type's corresponding data set
-    [self loadListByType];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -116,61 +114,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 #pragma mark - Protocol Methods (UIScrollView)
-
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
-//    
-//    if (self.listFilter != kELListFilterLynxMeasurement) {
-//        return;
-//    }
-//    
-//    if ((scrollView == self.tableView) && (endScrolling >= scrollView.contentSize.height)) {
-//        self.page++;
-//        
-//        // Proceed to reloading
-//        self.isPaginated = YES;
-//        
-//        [scrollView setScrollEnabled:NO];
-//        [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
-//    }
-//}
-
-// TODO Disable UI indicator for now
-
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    if (self.listFilter != kELListFilterLynxMeasurement) {
-//        return;
-//    }
-//    
-//    self.page++;
-//    
-//    if (!self.tableView.tableFooterView || self.page > self.pages) {
-//        self.tableView.tableFooterView = nil;
-//        self.page--;
-//        
-//        return;
-//    }
-//    
-//    // Proceed to reloading
-//    self.isPaginated = YES;
-//    
-//    [scrollView setScrollEnabled:NO];
-//    [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
-//}
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
-//    
-//    if (self.listFilter != kELListFilterLynxMeasurement) {
-//        return;
-//    }
-//    
-//    if (endScrolling >= scrollView.contentSize.height - CGRectGetHeight(self.tableIndicatorView.frame)) {
-//        self.tableView.tableFooterView = self.tableIndicatorView;
-//        
-//        [self.tableIndicatorView startAnimating];
-//    }
-//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     BOOL atBottom;
@@ -488,6 +431,17 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         default:
             break;
     }
+}
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    // Load list type's corresponding data set
+    [self loadListByType];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 @end

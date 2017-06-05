@@ -48,6 +48,8 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
+    
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,12 +58,11 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
     
-    // Refresh Instant Feedback items
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
-    [self.viewManager processRetrievalOfInstantFeedbacks];
+    [super viewWillAppear:animated];
 }
 
 - (void)dealloc {
@@ -118,6 +119,19 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     [self.tableView setHidden:NO];
     [self.tableView setDelegate:self];
     [self.tableView reloadData];
+}
+
+#pragma mark - Private Methods
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    // Load Instant Feedback items
+    [self.viewManager processRetrievalOfInstantFeedbacks];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 @end

@@ -13,6 +13,7 @@
 @interface ELAppSingleton : NSObject
 
 @property (nonatomic) BOOL hasLoadedApplication;
+@property (nonatomic) BOOL needsPageReload;
 @property (nonatomic, strong) ELUser *user;
 @property (nonatomic, strong) NSArray *categories, *participants;
 @property (nonatomic, strong) NSString *searchText;

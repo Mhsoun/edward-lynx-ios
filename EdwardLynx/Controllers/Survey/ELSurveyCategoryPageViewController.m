@@ -286,6 +286,8 @@
         return;
     }
     
+    AppSingleton.needsPageReload = YES;
+    
     // Back to the Surveys list
     [ELUtils presentToastAtView:self.view
                         message:successMessage
@@ -421,6 +423,8 @@
 #pragma mark - Notification
 
 - (void)onClosePopup:(NSNotification *)notification {
+    AppSingleton.needsPageReload = YES;
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
