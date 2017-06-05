@@ -20,6 +20,7 @@
 "kELCancelButton" = "Cancel";
 "kELCloseButton" = "Close";
 "kELCompleteButton" = "Complete";
+"kELDeleteButton" = "Delete";
 "kELInviteParticipantsButton" = "Invite";
 "kELLogoutButton" = "Logout";
 "kELOkButton" = "Ok";
@@ -79,7 +80,9 @@
 /* Development Plans */
 
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
-"kELDevelopmentPlanGoalActionCompleteDetaislMessage" = "Complete the action, %@?";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Complete this action, %@?";
+
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Delete this action, %@?";
 
 "kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 
@@ -92,6 +95,7 @@
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";
 
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
+"kELDevelopmentPlanGoalButtonDelete" = "Delete Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";

@@ -142,7 +142,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onUpdateDevPlanButtonClick:" destination="fHP-1B-U5H" eventType="touchUpInside" id="gaI-nM-pgD"/>
+                                    <action selector="onAddGoalButtonClick:" destination="fHP-1B-U5H" eventType="touchUpInside" id="66F-GB-qSa"/>
                                 </connections>
                             </button>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-07-KT4">
@@ -170,11 +170,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addGoalButton" destination="ioe-91-D3m" id="kvu-Y0-0sG"/>
                         <outlet property="chartLabel" destination="dZ1-3s-hUS" id="Goz-Zd-dDV"/>
                         <outlet property="circleChartView" destination="vI8-a4-Fh4" id="JCV-sR-7sQ"/>
                         <outlet property="indicatorView" destination="J3W-07-KT4" id="Ajj-zo-YZh"/>
                         <outlet property="tableView" destination="p5v-jx-qA0" id="yz0-o2-tHg"/>
-                        <outlet property="updateDevPlanButton" destination="ioe-91-D3m" id="JmQ-Cl-hnH"/>
                         <segue destination="29G-Ie-uzu" kind="show" identifier="UpdateDevPlan" id="Tad-H7-tmM"/>
                     </connections>
                 </viewController>

@@ -160,11 +160,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     CGFloat iconHeight = 15;
     
     // Button
-    [self.updateDevPlanButton setImage:[FontAwesome imageWithIcon:fa_plus
-                                                        iconColor:[UIColor blackColor]
-                                                         iconSize:iconHeight
-                                                        imageSize:CGSizeMake(iconHeight, iconHeight)]
-                              forState:UIControlStateNormal];
+    [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                                  iconColor:[UIColor blackColor]
+                                                   iconSize:iconHeight
+                                                  imageSize:CGSizeMake(iconHeight, iconHeight)]
+                        forState:UIControlStateNormal];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -190,6 +190,57 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 #pragma mark - Protocol Methods (ELDevelopmentPlan)
 
+- (void)onGoalOptions:(__kindof ELModel *)object sender:(UIButton *)sender {
+    UIAlertController *alertController;
+    __weak typeof(self) weakSelf = self;
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
+        // TODO API call
+    };
+    void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
+        NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
+        NSString *message = @"Are you sure you want to delete selected goal?";
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
+                                                                            message:message
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
+                                                       style:UIAlertActionStyleDestructive
+                                                     handler:deleteAPIBlock]];
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil]];
+        
+        [weakSelf presentViewController:controller
+                               animated:YES
+                             completion:nil];
+    };
+    
+    alertController = [UIAlertController alertControllerWithTitle:nil
+                                                          message:nil
+                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil)
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          [self addUpdateGoal:(ELGoal *)object];
+                                                      }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonDelete", nil)
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:deleteAlertActionBlock]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alertController.modalPresentationStyle = UIModalPresentationPopover;
+        alertController.popoverPresentationController.sourceView = sender;
+    }
+    
+    [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
 - (void)onGoalUpdate:(__kindof ELModel *)object {
     ELGoal *goal = (ELGoal *)object;
     
@@ -202,6 +253,16 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 }
 
 #pragma mark - Private Methods
+
+- (void)addUpdateGoal:(ELGoal *)goal {
+    ELGoalDetailsViewController *controller = [[UIStoryboard storyboardWithName:@"CreateDevelopmentPlan" bundle:nil]
+                                               instantiateViewControllerWithIdentifier:kELCreateDevPlanGoalStoryboardIdentifier];
+    
+    controller.goal = goal;
+    controller.toAddNew = !goal;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 - (void)setupChart {
     self.chartLabel.attributedText = self.devPlan.attributedProgressText;
@@ -224,12 +285,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 #pragma mark - Interface Builder Actions
 
-- (IBAction)onUpdateDevPlanButtonClick:(id)sender {
-    ELGoalDetailsViewController *controller = [[UIStoryboard storyboardWithName:@"CreateDevelopmentPlan" bundle:nil]
-                                               instantiateViewControllerWithIdentifier:kELCreateDevPlanGoalStoryboardIdentifier];
-    controller.toAddNew = YES;
-    
-    [self.navigationController pushViewController:controller animated:YES];
+- (IBAction)onAddGoalButtonClick:(id)sender {
+    [self addUpdateGoal:nil];
 }
 
 @end

@@ -28,10 +28,19 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 @implementation ELGoalTableViewCell
 
 - (void)awakeFromNib {
+    CGFloat size;
+    
     [super awakeFromNib];
     // Initialization code
     
-    self.tintColor = [[RNThemeManager sharedManager] colorForKey:kELGreenColor];
+    size = 20;
+    self.tintColor = ThemeColor(kELWhiteColor);
+    
+    [self.moreButton setImage:[FontAwesome imageWithIcon:fa_ellipsis_vertical
+                                               iconColor:[UIColor whiteColor]
+                                                iconSize:size
+                                               imageSize:CGSizeMake(size, size)]
+                     forState:UIControlStateNormal];
     
     self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDevPlanSeparatorColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -161,7 +170,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         return;
     }
     
-    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetaislMessage", nil), goalAction.title];
+    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetailsMessage", nil), goalAction.title];
     controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
                                                      message:detailMessage
                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -187,14 +196,6 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     
     color = [[RNThemeManager sharedManager] colorForKey:colorKey];
     
-    // TODO Handling today
-//    if (days == 0) {
-//        timestamp = NSLocalizedString(@"kELDevelopmentPlanGoalTimestampToday", nil);
-//    } else  {
-//        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : @"kELListFilterCompleted";
-//        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), self.goal.dueDateString];
-//    }
-    
     if (!self.goal.dueDate)  {
         timestamp = @"";
     } else {
@@ -207,8 +208,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     self.completedLabel.text = [self.goal progressDetails][@"text"];
     self.completedLabel.textColor = color;
     self.timestampLabel.text = timestamp;
-    self.descriptionLabel.text = self.goal.shortDescription.length == 0 ? NSLocalizedString(@"kELNoDescriptionLabel", nil) :
-                                                                          self.goal.shortDescription;
+    self.descriptionLabel.text = self.goal.shortDescription;
     
     // Progress
     self.leftView.backgroundColor = color;
@@ -217,8 +217,15 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     self.progressView.progress = self.goal.progress;
     self.progressView.progressTintColor = color;
     self.progressView.progressViewStyle = UIProgressViewStyleBar;
+    self.progressView.trackTintColor = HEXCOLORALPHA(0x995db, 0.3);
     
     [self.tableView reloadData];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onMoreButtonClick:(id)sender {
+    [self.delegate onGoalOptions:self.goal sender:(UIButton *)sender];
 }
 
 @end
