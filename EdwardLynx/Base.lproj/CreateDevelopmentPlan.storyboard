@@ -238,7 +238,7 @@
         <!--GOAL DETAILS-->
         <scene sceneID="RL4-uI-IED">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5p5-cO-Rg3" customClass="ELGoalDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateDevPlanGoal" automaticallyAdjustsScrollViewInsets="NO" id="5p5-cO-Rg3" customClass="ELGoalDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V1t-XC-Oe3"/>
                         <viewControllerLayoutGuide type="bottom" id="3zE-KD-4qG"/>
@@ -593,13 +593,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBE-3Z-bCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.60000000000002" y="160.56971514242881"/>
+            <point key="canvasLocation" x="649" y="161"/>
         </scene>
     </scenes>
     <resources>
         <image name="Background" width="247" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9ey-bf-37v"/>
+        <segue reference="BdF-Gr-x80"/>
     </inferredMetricsTieBreakers>
 </document>

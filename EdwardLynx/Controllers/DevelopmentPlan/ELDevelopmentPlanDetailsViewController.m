@@ -13,6 +13,7 @@
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELGoalDetailsViewController.h"
 #import "ELGoalTableViewCell.h"
 
 #pragma mark - Private Constants
@@ -20,6 +21,7 @@
 static CGFloat const kELGoalCellHeight = 105;
 
 static NSString * const kELCellIdentifier = @"GoalCell";
+static NSString * const kELCreateDevPlanGoalStoryboardIdentifier = @"CreateDevPlanGoal";
 static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 #pragma mark - Class Extension
@@ -223,7 +225,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onUpdateDevPlanButtonClick:(id)sender {
-    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
+    ELGoalDetailsViewController *controller = [[UIStoryboard storyboardWithName:@"CreateDevelopmentPlan" bundle:nil]
+                                               instantiateViewControllerWithIdentifier:kELCreateDevPlanGoalStoryboardIdentifier];
+    controller.toAddNew = YES;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
