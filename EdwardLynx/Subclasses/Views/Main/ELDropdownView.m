@@ -159,11 +159,11 @@ static CGFloat const kELIconSize = 15;
     
     // UI
     [self.button setImage:[FontAwesome imageWithIcon:fa_chevron_down
-                                           iconColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]
+                                           iconColor:ThemeColor(kELDarkVioletColor)
                                             iconSize:kELIconSize
                                            imageSize:CGSizeMake(kELIconSize, kELIconSize)]
                  forState:UIControlStateNormal];
-    [self.button setTintColor:[[RNThemeManager sharedManager] colorForKey:kELDarkVioletColor]];
+    [self.button setTintColor:ThemeColor(kELDarkVioletColor)];
 }
 
 #pragma mark - Interface Builder Actions

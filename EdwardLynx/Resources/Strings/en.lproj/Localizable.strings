@@ -79,6 +79,8 @@
 
 /* Development Plans */
 
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
+
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
 "kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Complete this action, %@?";
 

@@ -37,7 +37,7 @@
     
     if ([[info string] isEqualToString:NSLocalizedString(@"kELDashboardDueDateNow", nil)]) {
         [info addAttribute:NSForegroundColorAttributeName
-                     value:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                     value:ThemeColor(kELOrangeColor)
                      range:NSMakeRange(0, info.length)];
     } else {
         [info addAttribute:NSFontAttributeName

@@ -202,7 +202,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     ELDevelopmentPlan *devPlan;
     NSMutableArray *mItems = [[NSMutableArray alloc] init];
     
-    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELSurveySeparatorColor];
+    self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     
     switch (self.listType) {
         case kELListTypeSurveys:

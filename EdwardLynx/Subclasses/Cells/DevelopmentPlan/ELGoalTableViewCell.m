@@ -42,7 +42,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
                                                imageSize:CGSizeMake(size, size)]
                      forState:UIControlStateNormal];
     
-    self.tableView.separatorColor = [[RNThemeManager sharedManager] colorForKey:kELDevPlanSeparatorColor];
+    self.tableView.separatorColor = ThemeColor(kELDevPlanSeparatorColor);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELActionCellHeight;
     self.tableView.scrollEnabled = NO;
@@ -77,7 +77,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     ELGoalAction *action = self.goal.actions[indexPath.row];
     NSString *colorKey = action.checked ? kELGreenColor : kELWhiteColor;
     UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
-                                          iconColor:[[RNThemeManager sharedManager] colorForKey:colorKey]
+                                          iconColor:ThemeColor(colorKey)
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
@@ -124,7 +124,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             
             if (error) {
                 checkIcon = [FontAwesome imageWithIcon:fa_circle_o
-                                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELWhiteColor]
+                                             iconColor:[UIColor whiteColor]
                                               iconSize:kELIconSize
                                              imageSize:CGSizeMake(kELIconSize, kELIconSize)];
                 
@@ -135,7 +135,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
             
             goalAction.checked = YES;
             checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                         iconColor:[[RNThemeManager sharedManager] colorForKey:kELGreenColor]
+                                         iconColor:ThemeColor(kELGreenColor)
                                           iconSize:kELIconSize
                                          imageSize:CGSizeMake(kELIconSize, kELIconSize)];
             
@@ -194,7 +194,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     BOOL completed = self.goal.progress == 1;
     NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
     
-    color = [[RNThemeManager sharedManager] colorForKey:colorKey];
+    color = ThemeColor(colorKey);
     
     if (!self.goal.dueDate)  {
         timestamp = @"";

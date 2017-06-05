@@ -154,7 +154,7 @@
 
 - (void)layoutPage {
     CGFloat iconSize = 15;
-    UIColor *color = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    UIColor *color = ThemeColor(kELOrangeColor);
     
     // Buttons
     self.draftsButton.hidden = YES;

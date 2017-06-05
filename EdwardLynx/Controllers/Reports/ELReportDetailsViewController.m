@@ -270,7 +270,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     for (NSNumber *value in @[@(0), @(0.70f), @(1.0f)]) {
         limitLine = [[ChartLimitLine alloc] initWithLimit:[value doubleValue]];
         limitLine.labelPosition = ChartLimitLabelPositionLeftBottom;
-        limitLine.lineColor = [[RNThemeManager sharedManager] colorForKey:kELTextFieldBGColor];
+        limitLine.lineColor = ThemeColor(kELTextFieldBGColor);
         limitLine.lineWidth = 0.5f;
         limitLine.xOffset = 0;
         
@@ -285,7 +285,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     
     barChart.noDataFont = dataFont;
     barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
-    barChart.noDataTextColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+    barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
     barChart.rightAxis.axisMinimum = axisMin;

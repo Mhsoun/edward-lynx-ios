@@ -66,7 +66,7 @@
                                         iconSize:iconHeight
                                        imageSize:CGSizeMake(iconHeight, iconHeight)];
     self.titleLabel.text = contentDict[@"title"];
-    self.backgroundColor = [[RNThemeManager sharedManager] colorForKey:contentDict[@"color"]];
+    self.backgroundColor = ThemeColor(contentDict[@"color"]);
     
 //    [self toggleAccessiblityByUserPermissions:[NSSet setWithArray:contentDict[@"permissions"]]];
 }

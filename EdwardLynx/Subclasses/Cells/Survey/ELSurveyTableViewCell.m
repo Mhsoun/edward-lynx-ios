@@ -28,7 +28,7 @@
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     if ([object isKindOfClass:[ELSurvey class]]) {
         ELSurvey *survey = (ELSurvey *)object;
-        NSString *colorString = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
+        NSString *colorKey = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
         
         [self configureWithDetails:@{@"title": survey.name,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
@@ -37,7 +37,7 @@
                                      @"date": survey.endDate}];
         
         self.reactivateLabel.hidden = ![[NSDate date] mt_isAfter:survey.endDate];
-        self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
+        self.statusLabel.backgroundColor = ThemeColor(colorKey);
     } else {
         kELSurveyStatus status;
         ELInstantFeedback *feedback = (ELInstantFeedback *)object;
@@ -50,7 +50,7 @@
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];
         
-        self.monthLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELOrangeColor];
+        self.monthLabel.backgroundColor = ThemeColor(kELOrangeColor);
     }
 }
 
@@ -75,7 +75,7 @@
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
     self.reactivateLabel.hidden = YES;
-    self.statusLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELDarkGrayColor];
+    self.statusLabel.backgroundColor = ThemeColor(kELDarkGrayColor);
     self.statusLabel.layer.cornerRadius = 2.0f;
     
     [self toggleCalendarStateForEndDate:date status:[detailsDict[@"status"] integerValue]];
@@ -83,24 +83,24 @@
 
 - (void)toggleCalendarStateForEndDate:(NSDate *)endDate status:(kELSurveyStatus)status {
     BOOL beforeExpiration;
-    NSString *colorString;
+    NSString *colorKey;
     NSDate *currentDate = [NSDate date];
     
     beforeExpiration = [currentDate mt_isOnOrBefore:endDate];
         
     if (status == kELSurveyStatusCompleted) {
-        colorString = kELGreenColor;
+        colorKey = kELGreenColor;
     } else if (beforeExpiration &&
                [currentDate mt_daysUntilDate:endDate] <= 14 &&
                status != kELSurveyStatusNotInvited) {
-        colorString = kELRedColor;
+        colorKey = kELRedColor;
     } else if (!beforeExpiration) {
-        colorString = kELDarkGrayColor;
+        colorKey = kELDarkGrayColor;
     } else {
-        colorString = kELOrangeColor;
+        colorKey = kELOrangeColor;
     }
     
-    self.monthLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:colorString];
+    self.monthLabel.backgroundColor = ThemeColor(colorKey);
 }
 
 @end

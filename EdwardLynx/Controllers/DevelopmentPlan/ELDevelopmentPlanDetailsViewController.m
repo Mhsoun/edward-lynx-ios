@@ -192,15 +192,16 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (void)onGoalOptions:(__kindof ELModel *)object sender:(UIButton *)sender {
     UIAlertController *alertController;
+    ELGoal *goal = (ELGoal *)object;
     __weak typeof(self) weakSelf = self;
     void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
         // TODO API call
     };
     void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
-        NSString *message = @"Are you sure you want to delete selected goal?";
+        NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalDeleteDetailsMessage", nil);
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
-                                                                            message:message
+                                                                            message:[NSString stringWithFormat:message, goal.title]
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
@@ -222,7 +223,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil)
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                          [self addUpdateGoal:(ELGoal *)object];
+                                                          [self addUpdateGoal:goal];
                                                       }]];
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonDelete", nil)
                                                         style:UIAlertActionStyleDestructive

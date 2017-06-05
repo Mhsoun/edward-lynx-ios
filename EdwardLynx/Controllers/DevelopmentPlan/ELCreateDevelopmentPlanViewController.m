@@ -115,7 +115,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     goalTitleRange = [title rangeOfString:goal.title];
     
     [attributedText addAttribute:NSForegroundColorAttributeName
-                           value:[[RNThemeManager sharedManager] colorForKey:kELVioletColor]
+                           value:ThemeColor(kELVioletColor)
                            range:indexRange];
     [attributedText addAttribute:NSForegroundColorAttributeName
                            value:[UIColor whiteColor]
@@ -126,7 +126,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     
     // UI
     image = [FontAwesome imageWithIcon:fa_chevron_right
-                             iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                             iconColor:ThemeColor(kELOrangeColor)
                               iconSize:kELIconSize
                              imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     cell.accessoryView = [[UIImageView alloc] initWithImage:image];

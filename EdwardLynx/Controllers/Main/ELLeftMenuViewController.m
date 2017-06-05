@@ -80,7 +80,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.image = [UIImage imageNamed:@"Logo2"];
     
-    [self.tableView setBackgroundColor:[[RNThemeManager sharedManager] colorForKey:kELHeaderColor]];
+    [self.tableView setBackgroundColor:ThemeColor(kELHeaderColor)];
     [self.tableView.tableHeaderView addSubview:imageView];
 }
 

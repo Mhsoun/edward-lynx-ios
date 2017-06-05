@@ -100,8 +100,8 @@
             
             [oldCell.label setFont:font];
             [newCell.label setFont:font];
-            [oldCell.label setTextColor:[[RNThemeManager sharedManager] colorForKey:kELInactiveColor]];
-            [newCell.label setTextColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]];
+            [oldCell.label setTextColor:ThemeColor(kELInactiveColor)];
+            [newCell.label setTextColor:ThemeColor(kELOrangeColor)];
         }
     };
     

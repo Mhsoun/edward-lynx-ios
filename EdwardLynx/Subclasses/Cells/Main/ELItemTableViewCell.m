@@ -22,7 +22,7 @@ static CGFloat const kELIconSize = 15;
     
     // UI
     [self.deleteButton setImage:[FontAwesome imageWithIcon:fa_times
-                                                 iconColor:[[RNThemeManager sharedManager] colorForKey:kELOrangeColor]
+                                                 iconColor:ThemeColor(kELOrangeColor)
                                                   iconSize:kELIconSize
                                                  imageSize:CGSizeMake(kELIconSize, kELIconSize)]
                        forState:UIControlStateNormal];

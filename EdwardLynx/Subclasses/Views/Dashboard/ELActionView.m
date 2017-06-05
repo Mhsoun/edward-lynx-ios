@@ -68,7 +68,7 @@
     // UI
     self.bgView.layer.cornerRadius = 5.0f;
     self.countLabel.layer.cornerRadius = 10.0f;
-    self.countLabel.backgroundColor = [[RNThemeManager sharedManager] colorForKey:kELRedColor];
+    self.countLabel.backgroundColor = ThemeColor(kELRedColor);
     self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
     
     if (countString.length > 2) {
