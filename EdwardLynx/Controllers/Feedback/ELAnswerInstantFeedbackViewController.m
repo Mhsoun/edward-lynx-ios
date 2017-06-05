@@ -90,6 +90,8 @@
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     __weak typeof(self) weakSelf = self;
     
+    AppSingleton.needsPageReload = YES;
+    
     [self dismissViewControllerAnimated:YES completion:^{
         // Back to the Feedbacks list
         [ELUtils presentToastAtView:weakSelf.view

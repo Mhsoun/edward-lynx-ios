@@ -192,8 +192,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     __weak typeof(self) weakSelf = self;
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    AppSingleton.needsPageReload = YES;
     
+    [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDevelopmentPlanCreateSuccess", nil)
                      completion:^{

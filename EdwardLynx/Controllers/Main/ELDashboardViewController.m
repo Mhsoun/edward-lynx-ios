@@ -61,6 +61,8 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
 #endif
+    
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,9 +71,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // Prepare for loading
-    [self.tableView setHidden:YES];
-    [self.indicatorView startAnimating];
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
     
     [super viewWillAppear:animated];
 }
@@ -92,9 +94,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         return;
     }
 #endif
-    
-    // Load Dashboard details
-    [self loadDashboardData];
 }
 
 - (void)dealloc {
@@ -337,6 +336,17 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
             [weakSelf.tableView reloadData];
         });
     }];
+}
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    // Load Dashboard details
+    [self loadDashboardData];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 - (void)triggerRegisterForNotifications {

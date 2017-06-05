@@ -247,6 +247,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         if (weakSelf.inviteType != kELInviteUsersInstantFeedback) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         } else {
+            AppSingleton.needsPageReload = YES;
+            
             [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
                                              instantiateInitialViewController]
                                    animated:YES

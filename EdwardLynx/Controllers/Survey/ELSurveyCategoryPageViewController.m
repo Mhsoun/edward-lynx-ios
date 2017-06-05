@@ -268,6 +268,8 @@
                                                                       @"kELSurveySaveToDraftSuccess", nil);
     
     self.saved = YES;
+    
+    AppSingleton.needsPageReload = YES;
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     [self dismissViewControllerAnimated:YES completion:nil];
