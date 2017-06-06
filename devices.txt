@@ -9,3 +9,5 @@ E32426097A774976853C91697AB4751852B02CE7	Edward Lynx - Larisa Turculet
 C4DCC6A4F103364FBF6366AEB6D80B9A3FDF5C94	Edward Lynx - soderlund@edwardlynx.com
 67cc935d788126d68d6aef32f399609da9b0d140	Edward Lynx - ericsson@edwardlynx.com
 70c6fff204963b2b4747c5edaf99d0f0aa2f8cd6	Edward Lynx - alexandr@edwardlynx.com
+aff81102b4f19a98a3f82bb51eb5086794993ae4	Ingenuity - iPhone 6
+03cbf682745ee751b724250378bde13b508093ff	Ingenuity - iPod Touch

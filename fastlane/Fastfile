@@ -56,7 +56,7 @@ platform :ios do
   lane :devices do
     register_devices(
       devices_file: "devices.txt",
-      team_id: ENV["DEV_TEAM_ID"]
+      team_id: "KGZFZP3DEA"
     )
     # match(
       # type: "development",
