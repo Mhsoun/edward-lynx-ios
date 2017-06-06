@@ -90,6 +90,10 @@
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
+"kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
+
+"kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
+
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";

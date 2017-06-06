@@ -10,6 +10,9 @@
 
 @interface ELDevelopmentPlanAPIClient : ELAPIClient
 
+- (void)addDevelopmentPlanGoalWithId:(int64_t)devPlanId
+                              params:(NSDictionary *)params
+                              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)createDevelopmentPlansWithParams:(NSDictionary *)params
                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;

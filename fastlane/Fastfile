@@ -25,7 +25,7 @@ platform :ios do
     ENV["XCODE_PROJECT"] = "EdwardLynx.xcworkspace"    
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     ENV["EL_APP_IDENTIFIER"] = "com.mobileapp.edwardlynx"
-    ENV["HOCKEYAPP_API_TOKEN"] = "364498ffcf3c4552b382d28dcc2eafc8"
+    ENV["HOCKEYAPP_API_TOKEN"] = "f8b92a273b984c619c19962405076faa"
     ENV["CRASHLYTICS_API_TOKEN"] = "7c67a5365060930052205dfdf95102678ef19047"
     ENV["CRASHLYTICS_BUILD_SECRET"] = "5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672"
 

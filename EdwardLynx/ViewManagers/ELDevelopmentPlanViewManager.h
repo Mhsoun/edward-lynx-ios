@@ -10,7 +10,13 @@
 
 @property (nonatomic, weak) id<ELAPIPostResponseDelegate> delegate;
 
+- (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
+- (instancetype)initWithObjectId:(int64_t)objectId;
+
+- (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict;
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
+- (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict;
+
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict;
 - (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict;
 

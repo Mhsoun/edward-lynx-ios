@@ -10,6 +10,21 @@
 
 @implementation ELDevelopmentPlanAPIClient
 
+- (void)addDevelopmentPlanGoalWithId:(int64_t)devPlanId
+                              params:(NSDictionary *)params
+                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanGoalsEndpoint,
+                          kELAPIVersionNamespace,
+                          @(devPlanId)];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace];
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];

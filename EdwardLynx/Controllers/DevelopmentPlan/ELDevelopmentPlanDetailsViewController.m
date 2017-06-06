@@ -261,6 +261,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     controller.goal = goal;
     controller.toAddNew = !goal;
+    controller.addThruAPI = YES;
     
     [self.navigationController pushViewController:controller animated:YES];
 }

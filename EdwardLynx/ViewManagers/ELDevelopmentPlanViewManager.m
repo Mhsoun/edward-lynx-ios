@@ -15,6 +15,8 @@
 
 @interface ELDevelopmentPlanViewManager  ()
 
+@property (nonatomic) int64_t objectId;
+@property (nonatomic, strong) __kindof ELModel *detailObject;
 @property (nonatomic, strong) ELDevelopmentPlanAPIClient *client;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
@@ -52,10 +54,78 @@
     return self;
 }
 
+- (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _client = [[ELDevelopmentPlanAPIClient alloc] init];
+    _detailObject = detailObject;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
+        });
+    };
+    
+    [ELUtils registerValidators];
+    
+    return self;
+}
+
+- (instancetype)initWithObjectId:(int64_t)objectId {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _client = [[ELDevelopmentPlanAPIClient alloc] init];
+    _objectId = objectId;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
+        });
+    };
+    
+    [ELUtils registerValidators];
+    
+    return self;
+}
+
 #pragma mark - Public Methods
+
+- (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict {
+    [self.client addDevelopmentPlanGoalWithId:self.detailObject ? self.detailObject.objectId : self.objectId
+                                       params:formDict
+                                   completion:self.requestCompletionBlock];
+}
 
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict {
     [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
+}
+
+- (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict {
+    
 }
 
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict {

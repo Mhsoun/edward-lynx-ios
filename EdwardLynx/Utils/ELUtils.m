@@ -178,7 +178,9 @@
 }
 
 + (void)setupHockeyApp {
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"3ff19c0df1f644b4ad09312c812c59d1"];
+    NSString *appId = [[[NSBundle mainBundle] objectForInfoDictionaryKey:kELHockeyAppPlistKey] objectForKey:kELAppIdPlistKey];
+    
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:appId];
     [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
     [[BITHockeyManager sharedHockeyManager] startManager];
 }

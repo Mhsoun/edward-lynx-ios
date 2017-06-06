@@ -48,7 +48,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Initialization
     self.hasCreatedGoal = NO;
     self.mActions = [[NSMutableArray alloc] init];
+    
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.emptyDataSetDelegate = self;
@@ -89,10 +91,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         return;
     }
     
-    if (self.toAddNew) {
-        [self.delegate onGoalAddition:self.goal];
-    } else {
-        [self.delegate onGoalUpdate:self.goal];
+    if (!self.addThruAPI) {
+        if (self.toAddNew) {
+            [self.delegate onGoalAddition:self.goal];
+        } else {
+            [self.delegate onGoalUpdate:self.goal];
+        }
     }
 }
 
@@ -135,6 +139,30 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [addCell becomeFirstResponder];
         }
     }
+}
+
+#pragma mark - Protocol Methods (ELAPIResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    __weak typeof(self) weakSelf = self;
+    
+    AppSingleton.needsPageReload = YES;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Back to the Development Plan Details page
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil)
+                     completion:^{
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELAddItem)
@@ -374,12 +402,19 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     self.hasCreatedGoal = YES;
     
-    self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
-    self.goal.category = self.selectedCategory;
-    self.goal.categoryChecked = self.categorySwitch.on;
-    self.goal.dueDateChecked = self.remindSwitch.on;
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.addThruAPI) {
+        [self presentViewController:[ELUtils loadingAlert]
+                           animated:YES
+                         completion:nil];        
+        [self.viewManager processAddDevelopmentPlanGoal:[mGoalDict copy]];
+    } else {
+        self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
+        self.goal.category = self.selectedCategory;
+        self.goal.categoryChecked = self.categorySwitch.on;
+        self.goal.dueDateChecked = self.remindSwitch.on;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

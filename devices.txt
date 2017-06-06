@@ -6,7 +6,7 @@ E32426097A774976853C91697AB4751852B02CE7	Edward Lynx - Larisa Turculet
 07C27683B28EFB30735A986AE8C0DC05F48E767B	Edward Lynx - Mats Rudal
 3eca0f028f2aca40e9d7d2f2c46bef1b1db76d1b	Edward Lynx - Noxy Midonzi
 7617327EF2206934983877BC59177AD96BDBFE3E	Edward Lynx - Ola Wretling
-3564849fa318f1f22ca85a03b4adf3f9089a4033	Edward Lynx - Lorena Mindi
+3564849fa318f1f22ca85a03b4adf3f9089a4033	Edward Lynx - Lorena Mandi
 C4DCC6A4F103364FBF6366AEB6D80B9A3FDF5C94	Edward Lynx - soderlund@edwardlynx.com
 67cc935d788126d68d6aef32f399609da9b0d140	Edward Lynx - ericsson@edwardlynx.com
 70c6fff204963b2b4747c5edaf99d0f0aa2f8cd6	Edward Lynx - alexandr@edwardlynx.com
