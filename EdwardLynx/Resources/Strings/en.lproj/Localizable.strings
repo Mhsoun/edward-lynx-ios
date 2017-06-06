@@ -91,10 +91,10 @@
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Successfully updated goal";
 
 "kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
-
-"kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Successfully updated goal action";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";

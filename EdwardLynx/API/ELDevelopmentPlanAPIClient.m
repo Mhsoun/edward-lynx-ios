@@ -10,20 +10,7 @@
 
 @implementation ELDevelopmentPlanAPIClient
 
-- (void)addDevelopmentPlanGoalWithId:(int64_t)devPlanId
-                              params:(NSDictionary *)params
-                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanGoalsEndpoint,
-                          kELAPIVersionNamespace,
-                          @(devPlanId)];
-    NSMutableURLRequest *request = [self requestFor:endpoint
-                                             method:kELAPIPostHTTPMethod
-                                         bodyParams:params];
-    
-    [self performAuthenticatedTask:YES
-                       withRequest:request
-                        completion:completion];
-}
+#pragma mark - Development Plan Goal
 
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace];
@@ -58,10 +45,38 @@
                         completion:completion];
 }
 
+#pragma mark - Development Plan Goals
+
+- (void)addDevelopmentPlanGoalWithParams:(NSDictionary *)params
+                                    link:(NSString *)link
+                              completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSMutableURLRequest *request = [self requestFor:link
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+- (void)updateDevelopmentPlanGoalWithParams:(NSDictionary *)params
+                                       link:(NSString *)link
+                                 completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSMutableURLRequest *request = [self requestFor:link
+                                             method:kELAPIPatchHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+#pragma mark - Development Plan Goal Actions
+
 - (void)updateGoalActionWithParams:(NSDictionary *)params
                               link:(NSString *)link
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSMutableURLRequest *request = [self requestFor:@""
+    NSMutableURLRequest *request = [self requestFor:link
                                              method:kELAPIPatchHTTPMethod
                                          bodyParams:params];
     

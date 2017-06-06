@@ -91,7 +91,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         return;
     }
     
-    if (!self.addThruAPI) {
+    if (!self.withAPIProcess) {
         if (self.toAddNew) {
             [self.delegate onGoalAddition:self.goal];
         } else {
@@ -152,6 +152,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     __weak typeof(self) weakSelf = self;
+    NSString *message = self.goal ? NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil) :
+                                    NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil);
     
     AppSingleton.needsPageReload = YES;
     
@@ -159,7 +161,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     // Back to the Development Plan Details page
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil)
+                        message:message
                      completion:^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
@@ -388,6 +390,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     if (self.categorySwitch.isOn) {
         hasSelection = self.dropdown.hasSelection;
+        
+        // TODO Add categoryId to mGoalDict
     }
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
@@ -400,14 +404,32 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
     
-    self.hasCreatedGoal = YES;
-    
-    if (self.addThruAPI) {
+    if (self.withAPIProcess) {
         [self presentViewController:[ELUtils loadingAlert]
                            animated:YES
-                         completion:nil];        
-        [self.viewManager processAddDevelopmentPlanGoal:[mGoalDict copy]];
+                         completion:nil];
+        
+        if (!self.goal) {
+            [mGoalDict setObject:self.requestLink forKey:@"link"];
+            
+            [self.viewManager processAddDevelopmentPlanGoal:[mGoalDict copy]];
+        } else {
+            NSMutableDictionary *mDict = [[self.goal toDictionary] mutableCopy];
+            
+            [mDict removeObjectForKey:@"actions"];
+            [mDict setObject:self.requestLink forKey:@"link"];
+            [mDict setObject:self.nameTextField.text forKey:@"title"];
+            [mDict setObject:self.descriptionTextView.text forKey:@"description"];
+            
+            if ([[mGoalDict allKeys] containsObject:@"dueDate"]) {
+                [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
+            }
+            
+            [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
+        }
     } else {
+        self.hasCreatedGoal = YES;
+        
         self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
         self.goal.category = self.selectedCategory;
         self.goal.categoryChecked = self.categorySwitch.on;

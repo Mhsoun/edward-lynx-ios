@@ -261,7 +261,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     controller.goal = goal;
     controller.toAddNew = !goal;
-    controller.addThruAPI = YES;
+    controller.requestLink = goal ? goal.urlLink : [NSString stringWithFormat:@"%@/goals", self.devPlan.urlLink];
+    controller.withAPIProcess = YES;
     
     [self.navigationController pushViewController:controller animated:YES];
 }

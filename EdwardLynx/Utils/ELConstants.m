@@ -67,7 +67,6 @@ NSString * const kELAPILoginEndpoint = @"oauth/token";
 
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
 NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
-NSString * const kELAPIDevelopmentPlanGoalsEndpoint = @"%@/dev-plans/%@/goals";
 
 NSString * const kELAPIExchangeSurveyEndpoint = @"%@/surveys/exchange/%@";
 NSString * const kELAPIExchangeInstantFeedbackEndpoint = @"%@/instant-feedbacks/exchange/%@";
