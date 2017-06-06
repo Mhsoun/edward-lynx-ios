@@ -1509,8 +1509,8 @@
 				TargetAttributes = {
 					A9308BCD1DED74B5007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4XE8MVRXHY;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = KGZFZP3DEA;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2671,16 +2671,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				DEVELOPMENT_TEAM = KGZFZP3DEA;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "5027a686-c2c8-4643-8fee-2d3cd4b401cd";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2693,16 +2694,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4XE8MVRXHY;
+				DEVELOPMENT_TEAM = KGZFZP3DEA;
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "5027a686-c2c8-4643-8fee-2d3cd4b401cd";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -7,15 +7,17 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>770226922406-rklfcejv6ps45thepe6ck44jb9eqv3s0.apps.googleusercontent.com</string>
+	<string>770226922406-vo88pf0dpnqrs47qd6q9h9kk1fjbgie2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.770226922406-rklfcejv6ps45thepe6ck44jb9eqv3s0</string>
+	<string>com.googleusercontent.apps.770226922406-vo88pf0dpnqrs47qd6q9h9kk1fjbgie2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBRV0BOwQWFv8jPtv5CT8ELxLlO7Bz0rLQ</string>
 	<key>GCM_SENDER_ID</key>
 	<string>770226922406</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ingenuitymobile.EdwardLynx</string>
+	<string>com.mobileapp.edwardlynx</string>
 	<key>PROJECT_ID</key>
 	<string>edwardlynx-7019f</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:770226922406:ios:9ea8f0125f450abc</string>
+	<string>1:770226922406:ios:2d6def874bf3cd35</string>
 	<key>DATABASE_URL</key>
 	<string>https://edwardlynx-7019f.firebaseio.com</string>
 </dict>
