@@ -151,7 +151,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 }
 
 - (Boolean)disableContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return NO;
 }
 
 - (Boolean)disablePanGestureForIndexPath:(NSIndexPath *)indexPath {

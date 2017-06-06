@@ -27,11 +27,14 @@
 - (void)setupNumberScale {
     NSInteger index;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
+    BOOL isOneToTen = _question.answer.type == kELAnswerTypeOneToTenScale;
     BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
+    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:isOneToTen ? 10.0f : 13.0f];
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     // Segmented Control
     [self.scaleChoices removeAllSegments];
+    [self.scaleChoices setTitleTextAttributes:@{NSFontAttributeName: font} forState:UIControlStateNormal];
     
     if (_question.isNA) {
         [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}

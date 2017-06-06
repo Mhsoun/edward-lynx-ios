@@ -52,13 +52,8 @@
     self.questionLabel.text = question.text;
     self.helpText = question.answer.help;
     
-    // UI
-    if (!questionView) {
-        return;
-    }
-    
-    // Check if subview as already been added
-    if ([self hasQuestionViewAsSubview]) {
+    // Check if subview has already been added
+    if (!questionView || [self hasQuestionViewAsSubview]) {
         return;
     }
     
