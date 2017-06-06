@@ -20,9 +20,11 @@ platform :ios do
     ENV["APPLE_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:apple_id)
     ENV["SLACK_URL"] = "<your Slack Hook URL here>"
     ENV["DEV_TEAM_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    ENV["EL_DEV_TEAM_ID"] = "KGZFZP3DEA"
     ENV["GIT_CERTS_URL"] = "<your repository URL for certificates>"
     ENV["XCODE_PROJECT"] = "EdwardLynx.xcworkspace"    
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    ENV["EL_APP_IDENTIFIER"] = "com.mobileapp.edwardlynx"
     ENV["HOCKEYAPP_API_TOKEN"] = "364498ffcf3c4552b382d28dcc2eafc8"
     ENV["CRASHLYTICS_API_TOKEN"] = "7c67a5365060930052205dfdf95102678ef19047"
     ENV["CRASHLYTICS_BUILD_SECRET"] = "5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672"
@@ -56,7 +58,7 @@ platform :ios do
   lane :devices do
     register_devices(
       devices_file: "devices.txt",
-      team_id: "KGZFZP3DEA"
+      team_id: ENV["EL_DEV_TEAM_ID"],
     )
     # match(
       # type: "development",
@@ -89,8 +91,8 @@ platform :ios do
     pem(
       development: true,
       username: ENV["APPLE_ID"],
-      team_id: ENV["DEV_TEAM_ID"],
-      app_identifier: ENV["APP_IDENTIFIER"]
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
     )
   end       
 
@@ -99,7 +101,8 @@ platform :ios do
     sigh(
       development: true,
       username: ENV["APPLE_ID"],
-      team_id: ENV["DEV_TEAM_ID"]
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
     )
   end
 

@@ -24,6 +24,7 @@
     _title = dict[@"aps"][@"alert"][@"title"];
     _body = dict[@"aps"][@"alert"][@"body"];
     _type = dict[@"type"];
+    
     _objectId = [dict[@"id"] intValue];
     _badge = !dict[@"badge"] ? 0 : [dict[@"badge"] intValue];
     
