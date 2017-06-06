@@ -212,7 +212,10 @@ displayCountingLabel:(BOOL)displayCountingLabel
     double totalPercentageValue = [current floatValue]/([total floatValue]/100.0);
     
     if (_strokeColorGradientStart) {
-        self.gradientMask.strokeEnd = _circle.strokeEnd;
+//        self.gradientMask.strokeEnd = _circle.strokeEnd;
+        
+        // NOTE Some workaround from https://github.com/kevinzhow/PNChart/issues/301
+        self.gradientMask.strokeEnd = [current floatValue] / [total floatValue];
     }
     
     // Add animation

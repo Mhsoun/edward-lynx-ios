@@ -15,6 +15,7 @@
 
 - (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict;
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
+- (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link;
 - (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict;
 
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict;

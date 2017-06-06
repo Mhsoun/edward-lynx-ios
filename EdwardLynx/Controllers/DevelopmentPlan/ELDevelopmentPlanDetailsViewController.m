@@ -87,6 +87,14 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
+    
+    [super viewWillAppear:animated];
+}
+
 - (void)dealloc {
     DLog(@"%@", [self class]);
 }
@@ -185,6 +193,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self setupChart];
     [self setupDevPlan];
     [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
     [self.tableView reloadData];
 }
 
@@ -265,6 +274,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     controller.withAPIProcess = YES;
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)reloadPage {
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
 }
 
 - (void)setupChart {

@@ -129,6 +129,10 @@
     [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
 }
 
+- (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link {    
+    [self.client deleteGoalActionWithLink:link completion:self.requestCompletionBlock];
+}
+
 - (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict {
     NSString *link = formDict[@"link"];
     NSMutableDictionary *mFormDict = [formDict mutableCopy];

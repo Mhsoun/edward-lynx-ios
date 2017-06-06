@@ -23,6 +23,8 @@
                                        link:(NSString *)link
                                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
+- (void)deleteGoalActionWithLink:(NSString *)link
+                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateGoalActionWithParams:(NSDictionary *)params
                               link:(NSString *)link
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;

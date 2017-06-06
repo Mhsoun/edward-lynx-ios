@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELGoalDetailsViewController.h"
 #import "ELAddObjectTableViewCell.h"
 #import "ELCategory.h"
@@ -29,9 +31,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 @interface ELGoalDetailsViewController ()
 
-@property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic) BOOL hasCreatedGoal, toDeleteAction;
 @property (nonatomic, strong) NSString *selectedCategory;
 @property (nonatomic, strong) NSMutableArray *mActions;
+@property (nonatomic, strong) UIAlertAction *updateAction;
+@property (nonatomic, strong) UIAlertController *actionAlert;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 @property (nonatomic, strong) ELDropdownView *dropdown;
 
@@ -46,7 +50,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.hasCreatedGoal = NO;
+    self.hasCreatedGoal = NO, self.toDeleteAction = NO;
     self.mActions = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
@@ -125,7 +129,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
+        
         cell.optionLabel.text = action.title;
+        cell.editButton.hidden = YES;
+//        cell.editButton.hidden = !action.isAlreadyAdded;  // NOTE: For update
         
         return cell;
     }
@@ -141,7 +148,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     }
 }
 
-#pragma mark - Protocol Methods (ELAPIResponse)
+#pragma mark - Protocol Methods (ELAPIPostResponse)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -151,9 +158,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
     __weak typeof(self) weakSelf = self;
-    NSString *message = self.goal ? NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil) :
+    
+    message = self.goal ? NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil) :
                                     NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil);
+    message = self.toDeleteAction ? NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteSuccess", nil) : message;
     
     AppSingleton.needsPageReload = YES;
     
@@ -205,8 +215,14 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     NSString *message, *title;
     UIAlertController *alertController;
     ELGoalAction *action = self.mActions[row];
-    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
-        // TODO API call
+    __weak typeof(self) weakSelf = self;
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        self.toDeleteAction = YES;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.viewManager processDeleteDevelopmentPlanGoalActionWithLink:action.urlLink];
     };
     
     if (!action.isAlreadyAdded) {
@@ -231,6 +247,41 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                       handler:deleteAPIBlock]];
     
     [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)onUpdateAtRow:(NSInteger)row {
+    __weak typeof(self) weakSelf = self;
+    ELGoalAction *action = self.mActions[row];
+    NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
+                         action.title];
+    
+    self.actionAlert = [UIAlertController alertControllerWithTitle:title
+                                                           message:message
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.updateAction = [UIAlertAction actionWithTitle:@"Update" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // TODO
+    }];
+    self.updateAction.enabled = NO;
+    
+    [self.actionAlert addAction:self.updateAction];
+    [self.actionAlert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:nil]];
+    [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    [self presentViewController:self.actionAlert
                        animated:YES
                      completion:nil];
 }
@@ -437,6 +488,19 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+#pragma mark - Targets
+
+- (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    NSArray *nameErrors;
+    NSArray<UITextField *> *textFields = self.actionAlert.textFields;
+    
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
+                                         name:@"Name"
+                                   validators:@[@"presence"]];
+    
+    [self.updateAction setEnabled:(nameErrors.count == 0)];
 }
 
 @end
