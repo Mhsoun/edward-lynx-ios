@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <REValidation/REValidation.h>
+
 #import "ELGoalDetailsViewController.h"
 #import "ELAddObjectTableViewCell.h"
 #import "ELCategory.h"
@@ -29,9 +31,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 @interface ELGoalDetailsViewController ()
 
-@property (nonatomic) BOOL hasCreatedGoal;
+@property (nonatomic) BOOL hasCreatedGoal, toDeleteAction;
 @property (nonatomic, strong) NSString *selectedCategory;
 @property (nonatomic, strong) NSMutableArray *mActions;
+@property (nonatomic, strong) UIAlertAction *updateAction;
+@property (nonatomic, strong) UIAlertController *actionAlert;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *viewManager;
 @property (nonatomic, strong) ELDropdownView *dropdown;
 
@@ -46,9 +50,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.hasCreatedGoal = NO;
+    self.hasCreatedGoal = NO, self.toDeleteAction = NO;
     self.mActions = [[NSMutableArray alloc] init];
+    
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.emptyDataSetDelegate = self;
@@ -89,10 +95,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         return;
     }
     
-    if (self.toAddNew) {
-        [self.delegate onGoalAddition:self.goal];
-    } else {
-        [self.delegate onGoalUpdate:self.goal];
+    if (!self.withAPIProcess) {
+        if (self.toAddNew) {
+            [self.delegate onGoalAddition:self.goal];
+        } else {
+            [self.delegate onGoalUpdate:self.goal];
+        }
     }
 }
 
@@ -121,7 +129,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         cell.tag = indexPath.row;
         cell.delegate = self;
+        
         cell.optionLabel.text = action.title;
+        cell.editButton.hidden = YES;
+//        cell.editButton.hidden = !action.isAlreadyAdded;  // NOTE: For update
         
         return cell;
     }
@@ -135,6 +146,35 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [addCell becomeFirstResponder];
         }
     }
+}
+
+#pragma mark - Protocol Methods (ELAPIPostResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
+    __weak typeof(self) weakSelf = self;
+    
+    message = self.goal ? NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil) :
+                                    NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil);
+    message = self.toDeleteAction ? NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteSuccess", nil) : message;
+    
+    AppSingleton.needsPageReload = YES;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Back to the Development Plan Details page
+    [ELUtils presentToastAtView:self.view
+                        message:message
+                     completion:^{
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELAddItem)
@@ -175,8 +215,14 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     NSString *message, *title;
     UIAlertController *alertController;
     ELGoalAction *action = self.mActions[row];
-    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
-        // TODO API call
+    __weak typeof(self) weakSelf = self;
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        self.toDeleteAction = YES;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.viewManager processDeleteDevelopmentPlanGoalActionWithLink:action.urlLink];
     };
     
     if (!action.isAlreadyAdded) {
@@ -201,6 +247,41 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                       handler:deleteAPIBlock]];
     
     [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)onUpdateAtRow:(NSInteger)row {
+    __weak typeof(self) weakSelf = self;
+    ELGoalAction *action = self.mActions[row];
+    NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
+                         action.title];
+    
+    self.actionAlert = [UIAlertController alertControllerWithTitle:title
+                                                           message:message
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.updateAction = [UIAlertAction actionWithTitle:@"Update" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // TODO
+    }];
+    self.updateAction.enabled = NO;
+    
+    [self.actionAlert addAction:self.updateAction];
+    [self.actionAlert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:nil]];
+    [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    [self presentViewController:self.actionAlert
                        animated:YES
                      completion:nil];
 }
@@ -360,6 +441,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     if (self.categorySwitch.isOn) {
         hasSelection = self.dropdown.hasSelection;
+        
+        // TODO Add categoryId to mGoalDict
     }
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
@@ -372,14 +455,52 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
     
-    self.hasCreatedGoal = YES;
+    if (self.withAPIProcess) {
+        [self presentViewController:[ELUtils loadingAlert]
+                           animated:YES
+                         completion:nil];
+        
+        if (!self.goal) {
+            [mGoalDict setObject:self.requestLink forKey:@"link"];
+            
+            [self.viewManager processAddDevelopmentPlanGoal:[mGoalDict copy]];
+        } else {
+            NSMutableDictionary *mDict = [[self.goal toDictionary] mutableCopy];
+            
+            [mDict removeObjectForKey:@"actions"];
+            [mDict setObject:self.requestLink forKey:@"link"];
+            [mDict setObject:self.nameTextField.text forKey:@"title"];
+            [mDict setObject:self.descriptionTextView.text forKey:@"description"];
+            
+            if ([[mGoalDict allKeys] containsObject:@"dueDate"]) {
+                [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
+            }
+            
+            [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
+        }
+    } else {
+        self.hasCreatedGoal = YES;
+        
+        self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
+        self.goal.category = self.selectedCategory;
+        self.goal.categoryChecked = self.categorySwitch.on;
+        self.goal.dueDateChecked = self.remindSwitch.on;
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark - Targets
+
+- (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    NSArray *nameErrors;
+    NSArray<UITextField *> *textFields = self.actionAlert.textFields;
     
-    self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
-    self.goal.category = self.selectedCategory;
-    self.goal.categoryChecked = self.categorySwitch.on;
-    self.goal.dueDateChecked = self.remindSwitch.on;
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
+                                         name:@"Name"
+                                   validators:@[@"presence"]];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.updateAction setEnabled:(nameErrors.count == 0)];
 }
 
 @end

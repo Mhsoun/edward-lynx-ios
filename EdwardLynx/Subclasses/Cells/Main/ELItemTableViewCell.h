@@ -11,6 +11,8 @@
 @property (weak, nonatomic) id<ELItemCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *optionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 - (IBAction)onDeleteButtonClick:(id)sender;
+- (IBAction)onEditButtonClick:(id)sender;
 
 @end

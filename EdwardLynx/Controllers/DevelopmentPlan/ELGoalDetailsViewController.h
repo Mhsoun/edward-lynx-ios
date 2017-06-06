@@ -12,10 +12,12 @@
 
 @class ELGoal;
 
-@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAddItemDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface ELGoalDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate, ELAddItemDelegate, ELDropdownDelegate, ELItemCellDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic) BOOL toAddNew;
+@property (nonatomic) BOOL withAPIProcess;
 
+@property (strong, nonatomic) NSString *requestLink;
 @property (strong, nonatomic) ELGoal *goal;
 
 @property (weak, nonatomic) id<ELDevelopmentPlanGoalDelegate> delegate;

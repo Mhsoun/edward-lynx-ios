@@ -90,7 +90,14 @@
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
-"kELDevelopmentPlanGoalActionUpdateSuccess" = "Goal Action successfully updated";
+"kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Successfully updated goal";
+
+"kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
+"kELDevelopmentPlanGoalActionDeleteSuccess" = "Successfully deleted goal action";
+"kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Update Action";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Enter new name for %@";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Successfully updated goal action";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";

@@ -26,6 +26,11 @@ static CGFloat const kELIconSize = 15;
                                                   iconSize:kELIconSize
                                                  imageSize:CGSizeMake(kELIconSize, kELIconSize)]
                        forState:UIControlStateNormal];
+    [self.editButton setImage:[FontAwesome imageWithIcon:fa_pencil
+                                               iconColor:ThemeColor(kELOrangeColor)
+                                                iconSize:kELIconSize
+                                               imageSize:CGSizeMake(kELIconSize, kELIconSize)]
+                     forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,6 +43,10 @@ static CGFloat const kELIconSize = 15;
 
 - (IBAction)onDeleteButtonClick:(id)sender {
     [self.delegate onDeletionAtRow:self.tag];
+}
+
+- (IBAction)onEditButtonClick:(id)sender {
+    [self.delegate onUpdateAtRow:self.tag];
 }
 
 @end

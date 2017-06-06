@@ -126,6 +126,7 @@ extern NSString * const kELHockeyAppPlistKey;
 #pragma mark - .plist Keys (Dictionary Keys)
 
 extern NSString * const kELAPITokenPlistKey;
+extern NSString * const kELAppIdPlistKey;
 
 #pragma mark - Constants
 

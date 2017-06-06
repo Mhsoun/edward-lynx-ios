@@ -17,6 +17,7 @@ NSString * const kELHockeyAppPlistKey = @"HockeyApp";
 #pragma mark - .plist Keys (Dictionary Keys)
 
 NSString * const kELAPITokenPlistKey = @"APIKey";
+NSString * const kELAppIdPlistKey = @"AppId";
 
 #pragma mark - Constants
 
@@ -54,7 +55,7 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 
 #pragma mark - Email Link Paths
 
-NSString * const kELAPIEmailLinkFeedback = @"/instant-feedbacks/answer/";  // TEMP
+NSString * const kELAPIEmailLinkFeedback = @"/instant-feedbacks/answer/";
 NSString * const kELAPIEmailLinkSurvey = @"/surveys/answer/";
 
 #pragma mark - Endpoints

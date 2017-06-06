@@ -15,6 +15,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELInvalidCredentials = @"invalid_credentials";
+static NSString * const kELApplicationJSON = @"application/json";
 
 @implementation ELAPIClient
 
@@ -155,11 +156,15 @@ static NSString * const kELInvalidCredentials = @"invalid_credentials";
                                                                     error:nil];
     }
     
+    if ([method isEqualToString:kELAPIDeleteHTTPMethod]) {
+        [request setValue:kELApplicationJSON forHTTPHeaderField:@"Content-Type"];
+    }
+    
     [request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
     [request setHTTPMethod:method];
     [request setHTTPShouldHandleCookies:NO];
     [request setTimeoutInterval:30.0];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:kELApplicationJSON forHTTPHeaderField:@"Accept"];
                             
     if (oauthInstance) {
         [request setValue:oauthInstance.authHeader forHTTPHeaderField:@"Authorization"];

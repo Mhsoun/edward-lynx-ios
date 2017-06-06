@@ -20,7 +20,7 @@
 @property (nonatomic) BOOL categoryChecked;
 @property (nonatomic) BOOL dueDateChecked;
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString<Ignore> *category;
+@property (nonatomic) NSString<Ignore> *category;  // TODO Change to id
 @property (nonatomic) NSString<Ignore> *urlLink;
 @property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSDate<Optional> *dueDate;
