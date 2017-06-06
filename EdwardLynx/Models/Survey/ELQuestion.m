@@ -36,11 +36,7 @@
         case kELAnswerTypeOneToFiveScale:
         case kELAnswerTypeOneToTenScale:
         case kELAnswerTypeOneToTenWithExplanation:
-            if (self.answer.type == kELAnswerTypeOneToTenWithExplanation) {
-                return 175 + (self.isNA ? kELCustomScaleItemHeight : 0);
-            }
-            
-            return 75 + (self.isNA ? kELCustomScaleItemHeight : 0);
+            return 100;
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
                     (self.isNA ? kELCustomScaleItemHeight : 0) + kELCustomScaleItemHeight);
