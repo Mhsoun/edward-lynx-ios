@@ -129,14 +129,19 @@
                                        completion:self.requestCompletionBlock];
 }
 
+- (void)processDeleteDevelopmentPlanGoalWithLink:(NSString *)link {
+    [self.client deleteDevelopmentPlanGoalWithLink:link completion:self.requestCompletionBlock];
+}
+
 - (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict {
     NSString *link = formDict[@"link"];
     NSMutableDictionary *mFormDict = [formDict mutableCopy];
     
     [mFormDict removeObjectForKey:@"link"];
-    [self.client updateGoalActionWithParams:[mFormDict copy]
-                                       link:link
-                                 completion:self.requestCompletionBlock];
+    
+    [self.client updateDevelopmentPlanGoalWithParams:[mFormDict copy]
+                                                link:link
+                                          completion:self.requestCompletionBlock];
 }
 
 - (void)processAddDevelopmentPlanGoalAction:(NSDictionary *)formDict {
@@ -151,7 +156,7 @@
 }
 
 - (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link {    
-    [self.client deleteGoalActionWithLink:link completion:self.requestCompletionBlock];
+    [self.client deleteDevelopmentPlanGoalActionWithLink:link completion:self.requestCompletionBlock];
 }
 
 - (void)processUpdateDevelopmentPlanGoalAction:(NSDictionary *)formDict {
@@ -160,9 +165,9 @@
     
     [mFormDict removeObjectForKey:@"link"];
     
-    [self.client updateGoalActionWithParams:[mFormDict copy]
-                                       link:link
-                                 completion:self.requestCompletionBlock];
+    [self.client updateDevelopmentPlanGoalActionWithParams:[mFormDict copy]
+                                                      link:link
+                                                completion:self.requestCompletionBlock];
 }
 
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict {

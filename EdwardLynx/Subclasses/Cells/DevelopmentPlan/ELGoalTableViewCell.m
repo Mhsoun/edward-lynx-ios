@@ -134,9 +134,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         [cell updateStatusView:indicatorView];
                 
         // API Call to update action
-        [client updateGoalActionWithParams:[goalAction apiPatchDictionary]
-                                      link:goalAction.urlLink
-                                completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        [client updateDevelopmentPlanGoalActionWithParams:[goalAction apiPatchDictionary]
+                                                     link:goalAction.urlLink
+                                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
             
             if (error) {

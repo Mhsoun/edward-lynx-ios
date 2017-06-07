@@ -23,7 +23,8 @@
 typedef NS_ENUM(NSInteger, kELActionOption) {
     kELActionOptionAdd,
     kELActionOptionDelete,
-    kELActionOptionUpdate
+    kELActionOptionUpdate,
+    kELActionOptionGoalDelete
 };
 
 static CGFloat const kELGoalCellHeight = 105;
@@ -261,6 +262,10 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil);
             
             break;
+        case kELActionOptionGoalDelete:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil);
+            
+            break;
         default:
             message = @"";
             
@@ -283,7 +288,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     ELGoal *goal = (ELGoal *)object;
     __weak typeof(self) weakSelf = self;
     void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
-        // TODO API call
+        weakSelf.actionOptionType = kELActionOptionGoalDelete;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processDeleteDevelopmentPlanGoalWithLink:goal.urlLink];
     };
     void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
@@ -388,7 +398,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
                                                     preferredStyle:UIAlertControllerStyleAlert];
-    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateButton", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull alertAction) {
+    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull alertAction) {
         NSString *name = [self.actionAlert.textFields[0] text];
         NSDictionary *formDict = @{@"title": name, @"link": action.urlLink};
         

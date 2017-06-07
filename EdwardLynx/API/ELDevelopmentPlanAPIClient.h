@@ -19,6 +19,8 @@
 - (void)addDevelopmentPlanGoalWithParams:(NSDictionary *)params
                                     link:(NSString *)link
                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)deleteDevelopmentPlanGoalWithLink:(NSString *)link
+                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateDevelopmentPlanGoalWithParams:(NSDictionary *)params
                                        link:(NSString *)link
                                  completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
@@ -26,11 +28,11 @@
 - (void)addDevelopmentPlanGoalActionWithParams:(NSDictionary *)params
                                           link:(NSString *)link
                                     completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
-- (void)deleteGoalActionWithLink:(NSString *)link
-                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
-- (void)updateGoalActionWithParams:(NSDictionary *)params
-                              link:(NSString *)link
-                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)deleteDevelopmentPlanGoalActionWithLink:(NSString *)link
+                                     completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)updateDevelopmentPlanGoalActionWithParams:(NSDictionary *)params
+                                             link:(NSString *)link
+                                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 
 @end
