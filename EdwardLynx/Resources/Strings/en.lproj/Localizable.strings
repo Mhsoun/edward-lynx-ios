@@ -90,10 +90,12 @@
 "kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Successfully updated goal";
 
+"kELDevelopmentPlanGoalActionCreateAlertHeader" = "Create Action";
+"kELDevelopmentPlanGoalActionCreateAlertDetail" = "Enter name for new action";
 "kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
 "kELDevelopmentPlanGoalActionDeleteSuccess" = "Successfully deleted goal action";
 "kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Update Action";
-"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Enter new name for %@";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Enter new name for action";
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Successfully updated goal action";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";

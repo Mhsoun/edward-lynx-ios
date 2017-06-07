@@ -104,6 +104,7 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 #pragma mark - NSNotificationCenter Names
 
+NSString * const kELGoalActionAddNotification = @"GoalActionAddNotification";
 NSString * const kELGoalActionOptionsNotification = @"GoalActionOptionsNotification";
 
 #pragma mark - NSUserDefaults Keys

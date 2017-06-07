@@ -73,6 +73,18 @@
 
 #pragma mark - Development Plan Goal Actions
 
+- (void)addDevelopmentPlanGoalActionWithParams:(NSDictionary *)params
+                                          link:(NSString *)link
+                                    completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSMutableURLRequest *request = [self requestFor:link
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)deleteGoalActionWithLink:(NSString *)link
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSMutableURLRequest *request = [self requestFor:link method:kELAPIDeleteHTTPMethod];

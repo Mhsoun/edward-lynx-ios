@@ -114,6 +114,10 @@
 
 #pragma mark - Public Methods
 
+- (void)processCreateDevelopmentPlan:(NSDictionary *)formDict {
+    [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
+}
+
 - (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict {
     NSString *link = formDict[@"link"];
     NSMutableDictionary *mFormDict = [formDict mutableCopy];
@@ -125,10 +129,6 @@
                                        completion:self.requestCompletionBlock];
 }
 
-- (void)processCreateDevelopmentPlan:(NSDictionary *)formDict {
-    [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
-}
-
 - (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict {
     NSString *link = formDict[@"link"];
     NSMutableDictionary *mFormDict = [formDict mutableCopy];
@@ -137,6 +137,17 @@
     [self.client updateGoalActionWithParams:[mFormDict copy]
                                        link:link
                                  completion:self.requestCompletionBlock];
+}
+
+- (void)processAddDevelopmentPlanGoalAction:(NSDictionary *)formDict {
+    NSString *link = formDict[@"link"];
+    NSMutableDictionary *mFormDict = [formDict mutableCopy];
+    
+    [mFormDict removeObjectForKey:@"link"];
+    
+    [self.client addDevelopmentPlanGoalActionWithParams:[mFormDict copy]
+                                                   link:link
+                                             completion:self.requestCompletionBlock];
 }
 
 - (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link {    

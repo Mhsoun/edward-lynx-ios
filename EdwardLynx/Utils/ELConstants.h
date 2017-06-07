@@ -213,6 +213,7 @@ extern NSString * const kELAPIPutHTTPMethod;
 
 #pragma mark - NSNotificationCenter Names
 
+extern NSString * const kELGoalActionAddNotification;
 extern NSString * const kELGoalActionOptionsNotification;
 
 #pragma mark - NSUserDefaults Keys

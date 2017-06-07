@@ -85,8 +85,10 @@
 
 @protocol ELItemCellDelegate <NSObject>
 
-- (void)onDeletionAtRow:(NSInteger)row;
+@optional
 - (void)onUpdateAtRow:(NSInteger)row;
+
+- (void)onDeletionAtRow:(NSInteger)row;
 
 @end
 

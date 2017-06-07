@@ -39,7 +39,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic) kELActionOption actionOptionType;
 @property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
-@property (nonatomic, strong) UIAlertAction *updateAction;
+@property (nonatomic, strong) UIAlertAction *addAction, *updateAction;
 @property (nonatomic, strong) UIAlertController *actionAlert;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) ELDevelopmentPlanViewManager *devPlanViewManager;
@@ -111,6 +111,10 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     // Notifications
     [NotificationCenter addObserver:self
+                           selector:@selector(onGoalActionAddition:)
+                               name:kELGoalActionAddNotification
+                             object:nil];
+    [NotificationCenter addObserver:self
                            selector:@selector(onGoalActionOptions:)
                                name:kELGoalActionOptionsNotification
                              object:nil];
@@ -119,6 +123,10 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    // Remove observers
+    [NotificationCenter removeObserver:self
+                                  name:kELGoalActionAddNotification
+                                object:nil];
     [NotificationCenter removeObserver:self
                                   name:kELGoalActionOptionsNotification
                                 object:nil];
@@ -186,7 +194,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    CGFloat expandedHeight = (kELActionCellHeight * goal.actions.count) + kELGoalCellHeight;
+    CGFloat expandedHeight = (kELActionCellHeight * (goal.actions.count + 1)) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
 }
@@ -242,7 +250,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     switch (self.actionOptionType) {
         case kELActionOptionAdd:
-            message = NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil);
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateSuccess", nil);
             
             break;
         case kELActionOptionDelete:
@@ -250,7 +258,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             
             break;
         case kELActionOptionUpdate:
-            message = NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil);
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil);
             
             break;
         default:
@@ -375,8 +383,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 - (void)updateGoalAction:(ELGoalAction *)action {
     __weak typeof(self) weakSelf = self;
     NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
-                         action.title];
+    NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil);
     
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
@@ -399,6 +406,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                          style:UIAlertActionStyleCancel
                                                        handler:nil]];
     [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = action.title;
         textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
         textField.keyboardType = UIKeyboardTypeDefault;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -415,6 +423,51 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 }
 
 #pragma mark - Notifications
+
+- (void)onGoalActionAddition:(NSNotification *)notification {
+    __weak typeof(self) weakSelf = self;
+    NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertHeader", nil);
+    NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertDetail", nil);
+    
+    self.actionAlert = [UIAlertController alertControllerWithTitle:title
+                                                           message:message
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.addAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonAdd", nil)
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull alertAction) {
+        NSString *name = [self.actionAlert.textFields[0] text];
+        NSDictionary *formDict = @{@"title": name,
+                                   @"position": notification.userInfo[@"index"],
+                                   @"link": notification.userInfo[@"link"]};
+        
+        weakSelf.actionOptionType = kELActionOptionAdd;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processAddDevelopmentPlanGoalAction:formDict];
+    }];
+    self.updateAction.enabled = NO;
+    
+    [self.actionAlert addAction:self.addAction];
+    [self.actionAlert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:nil]];
+    [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    [self presentViewController:self.actionAlert
+                       animated:YES
+                     completion:nil];
+}
 
 - (void)onGoalActionOptions:(NSNotification *)notification {
     UIAlertController *alertController;
