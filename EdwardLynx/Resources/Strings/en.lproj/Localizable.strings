@@ -28,6 +28,7 @@
 "kELSaveToDraftButton" = "Save to Drafts";
 "kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
+"kELUpdateButton" = "Update";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
 "kELFilterLabel" = "Filter";
