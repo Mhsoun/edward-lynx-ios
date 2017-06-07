@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,26 +31,50 @@
                             <constraint firstAttribute="width" constant="10" id="yWh-Cg-yYA"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN2-bi-Hqn">
+                        <rect key="frame" x="20" y="12" width="20" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="FTo-PV-gZW"/>
+                            <constraint firstAttribute="width" secondItem="HN2-bi-Hqn" secondAttribute="height" multiplier="1:1" id="b6c-2K-xBd"/>
+                        </constraints>
+                    </view>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-QJ-FZ9">
-                        <rect key="frame" x="20" y="5" width="280" height="33.5"/>
+                        <rect key="frame" x="45" y="5" width="240" height="33.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bna-zw-v8O">
+                        <rect key="frame" x="285" y="9" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bna-zw-v8O" secondAttribute="height" multiplier="1:1" id="CJM-FV-tcF"/>
+                            <constraint firstAttribute="width" constant="25" id="xZB-Pv-JWC"/>
+                        </constraints>
+                        <connections>
+                            <action selector="onMoreButtonClick:" destination="l2d-f6-K7v" eventType="touchUpInside" id="ZnR-ma-JAE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="f1q-QJ-FZ9" firstAttribute="top" secondItem="ada-g2-NSL" secondAttribute="top" constant="5" id="3cg-Ro-xG4"/>
+                    <constraint firstItem="f1q-QJ-FZ9" firstAttribute="leading" secondItem="HN2-bi-Hqn" secondAttribute="trailing" constant="5" id="610-SZ-CPk"/>
                     <constraint firstAttribute="bottom" secondItem="f1q-QJ-FZ9" secondAttribute="bottom" constant="5" id="9Co-h8-ouN"/>
-                    <constraint firstAttribute="trailing" secondItem="f1q-QJ-FZ9" secondAttribute="trailing" constant="10" id="Ozq-85-MWC"/>
+                    <constraint firstItem="bna-zw-v8O" firstAttribute="leading" secondItem="f1q-QJ-FZ9" secondAttribute="trailing" id="G7L-GW-pSj"/>
+                    <constraint firstItem="bna-zw-v8O" firstAttribute="centerY" secondItem="f1q-QJ-FZ9" secondAttribute="centerY" id="KDW-6z-Pc1"/>
+                    <constraint firstItem="HN2-bi-Hqn" firstAttribute="leading" secondItem="1pA-fu-MO8" secondAttribute="trailing" constant="10" id="Mmh-Cn-Vg8"/>
                     <constraint firstItem="1pA-fu-MO8" firstAttribute="leading" secondItem="ada-g2-NSL" secondAttribute="leading" id="aoG-Y2-ZpN"/>
+                    <constraint firstItem="HN2-bi-Hqn" firstAttribute="centerY" secondItem="f1q-QJ-FZ9" secondAttribute="centerY" id="gyr-wG-nce"/>
                     <constraint firstAttribute="bottom" secondItem="1pA-fu-MO8" secondAttribute="bottom" id="sHH-8H-rHb"/>
-                    <constraint firstItem="f1q-QJ-FZ9" firstAttribute="leading" secondItem="1pA-fu-MO8" secondAttribute="trailing" constant="10" id="wrW-la-LMu"/>
+                    <constraint firstAttribute="trailing" secondItem="bna-zw-v8O" secondAttribute="trailing" id="sS7-pC-lpm"/>
                     <constraint firstItem="1pA-fu-MO8" firstAttribute="top" secondItem="ada-g2-NSL" secondAttribute="top" id="zsE-S1-OWH"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="moreButton" destination="bna-zw-v8O" id="Xhm-EK-0a6"/>
+                <outlet property="statusView" destination="HN2-bi-Hqn" id="hhp-9e-1Is"/>
                 <outlet property="titleLabel" destination="f1q-QJ-FZ9" id="xum-0J-lQo"/>
             </connections>
         </tableViewCell>

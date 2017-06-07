@@ -14,7 +14,6 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELIconSize = 15;
 static NSString * const kELCellIdentifier = @"ActionCell";
 
 #pragma mark - Class Extension
@@ -75,20 +74,12 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoalActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELGoalAction *action = self.goal.actions[indexPath.row];
-    NSString *colorKey = action.checked ? kELGreenColor : kELWhiteColor;
-    UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
-                                          iconColor:ThemeColor(colorKey)
-                                           iconSize:kELIconSize
-                                          imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
     action.urlLink = [NSString stringWithFormat:@"%@/actions/%@",
                       self.goal.urlLink,
                       @(action.objectId)];
     
-    cell.accessoryView = [[UIImageView alloc] initWithImage:checkIcon];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.titleLabel.text = action.title;
+    [cell configure:action atIndexPath:indexPath];
     
     return cell;
 }
@@ -101,45 +92,45 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     ELGoalAction *goalAction = mActions[indexPath.row];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        UITableViewCell *cell;
+        ELGoalActionTableViewCell *cell;
         UIActivityIndicatorView *indicatorView;
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         
         goalAction.checked = YES;
+        cell = [tableView cellForRowAtIndexPath:indexPath];
         
         // Action indicator
-        cell = [tableView cellForRowAtIndexPath:indexPath];
-        indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kELIconSize, kELIconSize)];
+        indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:cell.statusView.bounds];
         indicatorView.backgroundColor = [UIColor clearColor];
         indicatorView.tintColor = [UIColor whiteColor];
         
-        [cell setAccessoryView:indicatorView];
-        [indicatorView startAnimating];
-        
+        [indicatorView startAnimating];        
+        [cell updateStatusView:indicatorView];
+                
         // API Call to update action
         [client updateGoalActionWithParams:[goalAction apiPatchDictionary]
                                       link:goalAction.urlLink
                                 completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            UIImage *checkIcon;
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
             
             if (error) {
-                checkIcon = [FontAwesome imageWithIcon:fa_circle_o
-                                             iconColor:[UIColor whiteColor]
-                                              iconSize:kELIconSize
-                                             imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+                imageView.image = [FontAwesome imageWithIcon:fa_circle_o
+                                                   iconColor:[UIColor whiteColor]
+                                                    iconSize:kELIconSize
+                                                   imageSize:CGSizeMake(kELIconSize, kELIconSize)];
                 
-                [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
+                [cell updateStatusView:imageView];
                 
                 return;
             }
             
             goalAction.checked = YES;
-            checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                         iconColor:ThemeColor(kELGreenColor)
-                                          iconSize:kELIconSize
-                                         imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+            imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                               iconColor:ThemeColor(kELGreenColor)
+                                                iconSize:kELIconSize
+                                               imageSize:CGSizeMake(kELIconSize, kELIconSize)];
             
-            [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
+            [cell updateStatusView:imageView];
             [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
             
             [weakSelf.goal setActions:[mActions copy]];
