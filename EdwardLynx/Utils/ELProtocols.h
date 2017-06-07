@@ -79,7 +79,7 @@
 
 @protocol ELDropdownDelegate <NSObject>
 
-- (void)onDropdownSelectionValueChange:(NSString *)value;
+- (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index;
 
 @end
 
@@ -94,7 +94,7 @@
 
 @protocol ELListPopupDelegate <NSObject>
 
-- (void)onItemSelection:(NSString *)item;
+- (void)onItemSelection:(NSString *)item index:(NSInteger)index;
 
 @end
 

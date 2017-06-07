@@ -123,7 +123,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Protocol Methods (ELDropdown)
 
-- (void)onDropdownSelectionValueChange:(NSString *)value {
+- (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index {
     self.selectedRole = [ELUtils userRoleByLabel:value];
 }
 

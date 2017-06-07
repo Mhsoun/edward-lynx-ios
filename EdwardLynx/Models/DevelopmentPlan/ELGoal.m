@@ -12,6 +12,8 @@
 
 @synthesize checked = _checked;
 @synthesize progress = _progress;
+@synthesize category = _category;
+@synthesize categoryChecked = _categoryChecked;
 @synthesize dueDateChecked = _dueDateChecked;
 @synthesize dueDateString = _dueDateString;
 
@@ -28,7 +30,7 @@
 }
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"objectId"];
+    return [propertyName isEqualToString:@"objectId"] || [propertyName isEqualToString:@"categoryId"];
 }
 
 - (NSDictionary *)toDictionary {
@@ -51,6 +53,21 @@
     return [mDict copy];
 }
 
+- (ELCategory<Ignore> *)category {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", @(_categoryId)];
+    NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
+    
+    if (filteredArray.count == 0) {
+        return nil;
+    }
+    
+    return filteredArray[0];
+}
+
+- (void)setCategory:(ELCategory<Ignore> *)category {
+    _category = category;
+}
+
 - (BOOL)checked {
     if (_checked) {
         return _checked;
@@ -61,6 +78,14 @@
 
 - (void)setChecked:(BOOL)checked {
     _checked = checked;
+}
+
+- (BOOL)categoryChecked {
+    return self.categoryId && self.categoryId > 0;
+}
+
+- (void)setCategoryChecked:(BOOL)categoryChecked {
+    _categoryChecked = categoryChecked;
 }
 
 - (BOOL)dueDateChecked {
