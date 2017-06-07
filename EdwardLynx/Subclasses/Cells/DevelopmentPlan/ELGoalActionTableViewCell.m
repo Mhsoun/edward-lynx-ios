@@ -46,7 +46,7 @@
     imageView = [[UIImageView alloc] initWithFrame:self.statusView.bounds];
     imageView.image = checkIcon;
     
-    [self.statusView addSubview:imageView];
+    [self updateStatusView:imageView];
     [self.titleLabel setText:action.title];
 }
 

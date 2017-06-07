@@ -104,7 +104,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         indicatorView.backgroundColor = [UIColor clearColor];
         indicatorView.tintColor = [UIColor whiteColor];
         
-        [indicatorView startAnimating];        
+        [indicatorView startAnimating];
         [cell updateStatusView:indicatorView];
                 
         // API Call to update action

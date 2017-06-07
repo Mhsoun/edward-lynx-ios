@@ -31,7 +31,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 @interface ELGoalDetailsViewController ()
 
-@property (nonatomic) BOOL hasCreatedGoal, toDeleteAction;
+@property (nonatomic) BOOL hasCreatedGoal,
+                           hideActionSection,
+                           toDeleteAction;
 @property (nonatomic, strong) NSString *selectedCategory;
 @property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) UIAlertAction *updateAction;
@@ -50,7 +52,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.hasCreatedGoal = NO, self.toDeleteAction = NO;
+    self.hasCreatedGoal = NO;
+    self.hideActionSection = self.goal && self.withAPIProcess;
+    self.toDeleteAction = NO;
     self.mActions = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
@@ -321,7 +325,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 - (void)adjustTableViewSize {
     CGFloat tableViewContentSizeHeight = (kELCellHeight * (self.mActions.count == 0 ? 1: self.mActions.count)) + kELCellHeight;
     
-    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight + kELSectionHeight];
+    [self.tableViewHeightConstraint setConstant:self.hideActionSection ? 0 : (tableViewContentSizeHeight + kELSectionHeight)];
     [self.tableView updateConstraints];
 }
 
@@ -354,6 +358,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     if (self.goal.actions.count == 0) {
         return;
     }
+    
+    [self.bottomSeparatorView setHidden:self.hideActionSection];
+    [self.addActionTopConstraint setConstant:self.hideActionSection ? 0 : 20];
+    [self.addActionWidthConstraint setConstant:self.hideActionSection ? 0 : 50];
+    [self.addActionButton updateConstraints];
     
     [self.mActions removeAllObjects];
     [self.mActions addObjectsFromArray:self.goal.actions];

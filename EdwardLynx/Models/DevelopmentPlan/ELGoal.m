@@ -12,6 +12,7 @@
 
 @synthesize checked = _checked;
 @synthesize progress = _progress;
+@synthesize dueDateChecked = _dueDateChecked;
 @synthesize dueDateString = _dueDateString;
 
 + (JSONKeyMapper *)keyMapper {
@@ -60,6 +61,14 @@
 
 - (void)setChecked:(BOOL)checked {
     _checked = checked;
+}
+
+- (BOOL)dueDateChecked {
+    return self.dueDate;
+}
+
+- (void)setDueDateChecked:(BOOL)dueDateChecked {
+    _dueDateChecked = dueDateChecked;
 }
 
 - (NSString<Ignore> *)dueDateString {

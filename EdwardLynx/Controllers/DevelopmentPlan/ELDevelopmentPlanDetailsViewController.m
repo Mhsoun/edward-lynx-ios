@@ -280,6 +280,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView setHidden:YES];
     [self.indicatorView startAnimating];
     [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 - (void)setupChart {

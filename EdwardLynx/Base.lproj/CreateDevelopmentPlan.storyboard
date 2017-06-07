@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T2w-k7-xfI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -574,7 +574,10 @@
                     <navigationItem key="navigationItem" title="GOAL DETAILS" id="O5J-gr-nQK"/>
                     <connections>
                         <outlet property="addActionButton" destination="PGd-0n-bXu" id="oae-5v-2JY"/>
+                        <outlet property="addActionTopConstraint" destination="bmg-NF-3t8" id="OQv-cZ-0bP"/>
+                        <outlet property="addActionWidthConstraint" destination="LOs-U8-kB3" id="10E-bo-IPT"/>
                         <outlet property="addGoalButton" destination="0mI-Vz-p3Z" id="ISL-yb-DbS"/>
+                        <outlet property="bottomSeparatorView" destination="1r7-GT-mLr" id="ib7-Ha-nj8"/>
                         <outlet property="categorySwitch" destination="r19-J0-Bx3" id="Bbb-yK-r9q"/>
                         <outlet property="dateErrorLabel" destination="qjQ-Yg-Nwr" id="pcz-H3-6F4"/>
                         <outlet property="datePicker" destination="LVL-fr-n0x" id="JNp-Ea-Hcy"/>
@@ -593,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBE-3Z-bCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="161"/>
+            <point key="canvasLocation" x="895" y="161"/>
         </scene>
     </scenes>
     <resources>
