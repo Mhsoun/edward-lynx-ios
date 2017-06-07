@@ -8,6 +8,12 @@
 
 #import "ELGoalActionTableViewCell.h"
 
+@interface ELGoalActionTableViewCell ()
+
+@property (nonatomic, strong) ELGoalAction *action;
+
+@end
+
 @implementation ELGoalActionTableViewCell
 
 - (void)awakeFromNib {
@@ -43,6 +49,8 @@
                                            iconSize:kELIconSize
                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
+    self.action = action;
+    
     imageView = [[UIImageView alloc] initWithFrame:self.statusView.bounds];
     imageView.image = checkIcon;
     
@@ -61,7 +69,10 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onMoreButtonClick:(id)sender {
-    
+    [NotificationCenter postNotificationName:kELGoalActionOptionsNotification
+                                      object:nil
+                                    userInfo:@{@"action": self.action,
+                                               @"sender": (UIButton *)sender}];
 }
 
 @end

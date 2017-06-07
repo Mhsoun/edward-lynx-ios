@@ -13,10 +13,17 @@
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELDevelopmentPlanViewManager.h"
 #import "ELGoalDetailsViewController.h"
 #import "ELGoalTableViewCell.h"
 
 #pragma mark - Private Constants
+
+typedef NS_ENUM(NSInteger, kELActionOption) {
+    kELActionOptionAdd,
+    kELActionOptionDelete,
+    kELActionOptionUpdate
+};
 
 static CGFloat const kELGoalCellHeight = 105;
 
@@ -29,8 +36,10 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 @interface ELDevelopmentPlanDetailsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic) kELActionOption actionOptionType;
 @property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELDevelopmentPlanViewManager *devPlanViewManager;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
@@ -55,6 +64,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                           overrideLineWidth:[NSNumber numberWithInteger:12]];
     
     [self.circleChartView addSubview:self.circleChart];
+    
+    self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.devPlanViewManager.delegate = self;
     
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
@@ -93,6 +105,27 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     }
     
     [super viewWillAppear:animated];
+    
+    // Notifications
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGoalActionOptions:)
+                               name:kELGoalActionOptionsNotification
+                             object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGoalActionUpdate:)
+                               name:kELGoalActionUpdateNotification
+                             object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [NotificationCenter removeObserver:self
+                                  name:kELGoalActionOptionsNotification
+                                object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELGoalActionUpdateNotification
+                                object:nil];
 }
 
 - (void)dealloc {
@@ -197,6 +230,48 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView reloadData];
 }
 
+#pragma mark - Protocol Methods (ELAPIPostResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
+    
+    AppSingleton.needsPageReload = YES;
+    
+    switch (self.actionOptionType) {
+        case kELActionOptionAdd:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalCreateSuccess", nil);
+            
+            break;
+        case kELActionOptionDelete:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteSuccess", nil);
+            
+            break;
+        case kELActionOptionUpdate:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil);
+            
+            break;
+        default:
+            message = @"";
+            
+            break;
+    }
+    
+    [self reloadPage];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Back to the Development Plan Details page
+    [ELUtils presentToastAtView:self.view
+                        message:message
+                     completion:nil];
+}
+
 #pragma mark - Protocol Methods (ELDevelopmentPlan)
 
 - (void)onGoalOptions:(__kindof ELModel *)object sender:(UIButton *)sender {
@@ -280,8 +355,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView setHidden:YES];
     [self.indicatorView startAnimating];
     [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
-    
-    AppSingleton.needsPageReload = NO;
 }
 
 - (void)setupChart {
@@ -301,6 +374,69 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             action.isAlreadyAdded = YES;
         }
     }
+}
+
+#pragma mark - Notifications
+
+- (void)onGoalActionOptions:(NSNotification *)notification {
+    UIAlertController *alertController;
+    ELGoalAction *action = notification.userInfo[@"action"];
+    __weak typeof(self) weakSelf = self;
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        weakSelf.actionOptionType = kELActionOptionDelete;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processDeleteDevelopmentPlanGoalActionWithLink:action.urlLink];
+    };
+    void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
+        NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
+                                                                            message:[NSString stringWithFormat:message, action.title]
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
+                                                       style:UIAlertActionStyleDestructive
+                                                     handler:deleteAPIBlock]];
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil]];
+        
+        [weakSelf presentViewController:controller
+                               animated:YES
+                             completion:nil];
+    };
+    
+    alertController = [UIAlertController alertControllerWithTitle:nil
+                                                          message:nil
+                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          //
+                                                      }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonDelete", nil)
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:deleteAlertActionBlock]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alertController.modalPresentationStyle = UIModalPresentationPopover;
+        alertController.popoverPresentationController.sourceView = notification.userInfo[@"sender"];
+    }
+    
+    [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)onGoalActionUpdate:(NSNotification *)notification {
+    
 }
 
 #pragma mark - Interface Builder Actions

@@ -78,14 +78,10 @@
 
 /* Development Plans */
 
-"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
-
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
 "kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Complete this action, %@?";
 
 "kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Delete this action, %@?";
-
-"kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
@@ -102,13 +98,20 @@
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";
 
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
+
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonDelete" = "Delete Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
+"kELDevelopmentPlanGoalActionButtonAdd" = "Add Action";
+"kELDevelopmentPlanGoalActionButtonDelete" = "Delete Action";
+"kELDevelopmentPlanGoalActionButtonUpdate" = "Update Action";
+
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
 "kELDevelopmentPlanGoalTimestampToday" = "Today";
 
+"kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 "kELDevelopmentPlanTitle" = "Development Plan";
 
 /* Feedback */
