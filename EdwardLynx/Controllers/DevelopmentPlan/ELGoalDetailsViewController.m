@@ -411,8 +411,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     BOOL isValid, hasSelection;
-    NSString *dateString;
     NSMutableDictionary *mFormItems, *mGoalDict;
+    NSString *dateString = @"";
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                                    icon:nil
@@ -445,7 +445,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                icon:nil
                                                          errorLabel:self.dateErrorLabel]
                        forKey:@"date"];
-        [mGoalDict setObject:dateString forKey:@"dueDate"];
     }
     
     if (self.categorySwitch.isOn) {
@@ -463,6 +462,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
+    [mGoalDict setObject:dateString forKey:@"dueDate"];
     
     if (self.withAPIProcess) {
         [self presentViewController:[ELUtils loadingAlert]
@@ -480,10 +480,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [mDict setObject:self.requestLink forKey:@"link"];
             [mDict setObject:self.nameTextField.text forKey:@"title"];
             [mDict setObject:self.descriptionTextView.text forKey:@"description"];
-            
-            if ([[mGoalDict allKeys] containsObject:@"dueDate"]) {
-                [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
-            }
+            [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
             
             [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
         }
