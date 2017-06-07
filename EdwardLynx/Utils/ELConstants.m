@@ -102,6 +102,11 @@ NSString * const kELAPIPatchHTTPMethod = @"PATCH";
 NSString * const kELAPIPostHTTPMethod = @"POST";
 NSString * const kELAPIPutHTTPMethod = @"PUT";
 
+#pragma mark - NSNotificationCenter Names
+
+NSString * const kELGoalActionAddNotification = @"GoalActionAddNotification";
+NSString * const kELGoalActionOptionsNotification = @"GoalActionOptionsNotification";
+
 #pragma mark - NSUserDefaults Keys
 
 NSString * const kELAuthInstanceUserDefaultsKey = @"AuthInstanceUserDefaults";

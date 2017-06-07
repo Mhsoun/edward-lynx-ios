@@ -31,8 +31,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 @interface ELGoalDetailsViewController ()
 
-@property (nonatomic) BOOL hasCreatedGoal, toDeleteAction;
-@property (nonatomic, strong) NSString *selectedCategory;
+@property (nonatomic) BOOL hasCreatedGoal,
+                           hideActionSection,
+                           toDeleteAction;
+@property (nonatomic, strong) ELCategory *selectedCategory;
 @property (nonatomic, strong) NSMutableArray *mActions;
 @property (nonatomic, strong) UIAlertAction *updateAction;
 @property (nonatomic, strong) UIAlertController *actionAlert;
@@ -50,7 +52,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.hasCreatedGoal = NO, self.toDeleteAction = NO;
+    self.hasCreatedGoal = NO;
+    self.hideActionSection = self.goal && self.withAPIProcess;
+    self.toDeleteAction = NO;
     self.mActions = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
@@ -132,7 +136,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         cell.optionLabel.text = action.title;
         cell.editButton.hidden = YES;
-//        cell.editButton.hidden = !action.isAlreadyAdded;  // NOTE: For update
         
         return cell;
     }
@@ -187,8 +190,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (void)layoutPage {
     CGFloat iconHeight = 15;
-    NSString *buttonLabel = NSLocalizedString(self.toAddNew ? @"kELDevelopmentPlanGoalButtonAdd" :
-                                                              @"kELDevelopmentPlanGoalButtonUpdate", nil);
+    NSString *buttonLabel = self.toAddNew ? NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil) :
+                                            NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
     
     // Button
     [self.addGoalButton setTitle:buttonLabel forState:UIControlStateNormal];
@@ -205,8 +208,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 #pragma mark - Protocol Methods (ELDropdown)
 
-- (void)onDropdownSelectionValueChange:(NSString *)value {
-    self.selectedCategory = value;
+- (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index {
+    self.selectedCategory = AppSingleton.categories[index];
 }
 
 #pragma mark - Protocol Methods (ELItemTableViewCell)
@@ -321,7 +324,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 - (void)adjustTableViewSize {
     CGFloat tableViewContentSizeHeight = (kELCellHeight * (self.mActions.count == 0 ? 1: self.mActions.count)) + kELCellHeight;
     
-    [self.tableViewHeightConstraint setConstant:tableViewContentSizeHeight + kELSectionHeight];
+    [self.tableViewHeightConstraint setConstant:self.hideActionSection ? 0 : (tableViewContentSizeHeight + kELSectionHeight)];
     [self.tableView updateConstraints];
 }
 
@@ -346,7 +349,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     // Category
     [self.categorySwitch setOn:self.goal.categoryChecked];
     [self.dropdown setFrame:self.dropdownView.bounds];
-    [self.dropdown setDefaultValue:self.selectedCategory];
+    [self.dropdown setDefaultValue:self.selectedCategory.title];
     [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
@@ -354,6 +357,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     if (self.goal.actions.count == 0) {
         return;
     }
+    
+    [self.bottomSeparatorView setHidden:self.hideActionSection];
+    [self.addActionTopConstraint setConstant:self.hideActionSection ? 0 : 20];
+    [self.addActionWidthConstraint setConstant:self.hideActionSection ? 0 : 50];
+    [self.addActionButton updateConstraints];
     
     [self.mActions removeAllObjects];
     [self.mActions addObjectsFromArray:self.goal.actions];
@@ -401,14 +409,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 }
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
+    int64_t categoryId;
     BOOL isValid, hasSelection;
-    NSString *dateString;
     NSMutableDictionary *mFormItems, *mGoalDict;
+    NSString *dateString = @"";
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
     ELFormItemGroup *nameGroup = [[ELFormItemGroup alloc] initWithInput:self.nameTextField
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
+    categoryId = 0;
     hasSelection = YES;
     
     [self.mActions removeObject:@""];
@@ -436,13 +446,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                icon:nil
                                                          errorLabel:self.dateErrorLabel]
                        forKey:@"date"];
-        [mGoalDict setObject:dateString forKey:@"dueDate"];
     }
     
     if (self.categorySwitch.isOn) {
+        categoryId = self.selectedCategory.objectId;
         hasSelection = self.dropdown.hasSelection;
-        
-        // TODO Add categoryId to mGoalDict
     }
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
@@ -454,6 +462,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
+    
+    [mGoalDict setObject:dateString forKey:@"dueDate"];
+    [mGoalDict setObject:@(categoryId) forKey:@"categoryId"];
     
     if (self.withAPIProcess) {
         [self presentViewController:[ELUtils loadingAlert]
@@ -471,10 +482,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [mDict setObject:self.requestLink forKey:@"link"];
             [mDict setObject:self.nameTextField.text forKey:@"title"];
             [mDict setObject:self.descriptionTextView.text forKey:@"description"];
-            
-            if ([[mGoalDict allKeys] containsObject:@"dueDate"]) {
-                [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
-            }
+            [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
+            [mDict setObject:mGoalDict[@"categoryId"] forKey:@"categoryId"];
             
             [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
         }

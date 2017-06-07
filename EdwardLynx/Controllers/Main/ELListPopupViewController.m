@@ -76,7 +76,7 @@ static NSString * const kELCellIdentifier = @"ListCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate onItemSelection:[self.provider rowObjectAtIndexPath:indexPath]];
+    [self.delegate onItemSelection:[self.provider rowObjectAtIndexPath:indexPath] index:indexPath.row];
     
     if (!self.controller.popupViewController) {
         return;

@@ -7,16 +7,25 @@
 //
 
 #import <PNChart/PNCircleChart.h>
+#import <REValidation/REValidation.h>
 
 #import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELCreateDevelopmentPlanViewController.h"
 #import "ELDetailViewManager.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELDevelopmentPlanViewManager.h"
 #import "ELGoalDetailsViewController.h"
 #import "ELGoalTableViewCell.h"
 
 #pragma mark - Private Constants
+
+typedef NS_ENUM(NSInteger, kELActionOption) {
+    kELActionOptionAdd,
+    kELActionOptionDelete,
+    kELActionOptionUpdate,
+    kELActionOptionGoalDelete
+};
 
 static CGFloat const kELGoalCellHeight = 105;
 
@@ -29,8 +38,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 @interface ELDevelopmentPlanDetailsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic) kELActionOption actionOptionType;
 @property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
+@property (nonatomic, strong) UIAlertAction *addAction, *updateAction;
+@property (nonatomic, strong) UIAlertController *actionAlert;
 @property (nonatomic, strong) ELDetailViewManager *detailViewManager;
+@property (nonatomic, strong) ELDevelopmentPlanViewManager *devPlanViewManager;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
@@ -55,6 +68,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                           overrideLineWidth:[NSNumber numberWithInteger:12]];
     
     [self.circleChartView addSubview:self.circleChart];
+    
+    self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] init];
+    self.devPlanViewManager.delegate = self;
     
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
@@ -93,6 +109,28 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     }
     
     [super viewWillAppear:animated];
+    
+    // Notifications
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGoalActionAddition:)
+                               name:kELGoalActionAddNotification
+                             object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGoalActionOptions:)
+                               name:kELGoalActionOptionsNotification
+                             object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Remove observers
+    [NotificationCenter removeObserver:self
+                                  name:kELGoalActionAddNotification
+                                object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELGoalActionOptionsNotification
+                                object:nil];
 }
 
 - (void)dealloc {
@@ -157,7 +195,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    CGFloat expandedHeight = (kELActionCellHeight * goal.actions.count) + kELGoalCellHeight;
+    CGFloat expandedHeight = (kELActionCellHeight * (goal.actions.count + 1)) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
 }
@@ -197,6 +235,52 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView reloadData];
 }
 
+#pragma mark - Protocol Methods (ELAPIPostResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
+    
+    AppSingleton.needsPageReload = YES;
+    
+    switch (self.actionOptionType) {
+        case kELActionOptionAdd:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateSuccess", nil);
+            
+            break;
+        case kELActionOptionDelete:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteSuccess", nil);
+            
+            break;
+        case kELActionOptionUpdate:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil);
+            
+            break;
+        case kELActionOptionGoalDelete:
+            message = NSLocalizedString(@"kELDevelopmentPlanGoalUpdateSuccess", nil);
+            
+            break;
+        default:
+            message = @"";
+            
+            break;
+    }
+    
+    [self reloadPage];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Back to the Development Plan Details page
+    [ELUtils presentToastAtView:self.view
+                        message:message
+                     completion:nil];
+}
+
 #pragma mark - Protocol Methods (ELDevelopmentPlan)
 
 - (void)onGoalOptions:(__kindof ELModel *)object sender:(UIButton *)sender {
@@ -204,7 +288,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     ELGoal *goal = (ELGoal *)object;
     __weak typeof(self) weakSelf = self;
     void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
-        // TODO API call
+        weakSelf.actionOptionType = kELActionOptionGoalDelete;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processDeleteDevelopmentPlanGoalWithLink:goal.urlLink];
     };
     void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
@@ -301,10 +390,171 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     }
 }
 
+- (void)updateGoalAction:(ELGoalAction *)action {
+    __weak typeof(self) weakSelf = self;
+    NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
+    NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil);
+    
+    self.actionAlert = [UIAlertController alertControllerWithTitle:title
+                                                           message:message
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull alertAction) {
+        NSString *name = [self.actionAlert.textFields[0] text];
+        NSDictionary *formDict = @{@"title": name, @"link": action.urlLink};
+        
+        weakSelf.actionOptionType = kELActionOptionUpdate;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processUpdateDevelopmentPlanGoalAction:formDict];
+    }];
+    self.updateAction.enabled = NO;
+    
+    [self.actionAlert addAction:self.updateAction];
+    [self.actionAlert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:nil]];
+    [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = action.title;
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    [self presentViewController:self.actionAlert
+                       animated:YES
+                     completion:nil];
+}
+
+#pragma mark - Notifications
+
+- (void)onGoalActionAddition:(NSNotification *)notification {
+    __weak typeof(self) weakSelf = self;
+    NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertHeader", nil);
+    NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertDetail", nil);
+    
+    self.actionAlert = [UIAlertController alertControllerWithTitle:title
+                                                           message:message
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.addAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonAdd", nil)
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull alertAction) {
+        NSString *name = [self.actionAlert.textFields[0] text];
+        NSDictionary *formDict = @{@"title": name,
+                                   @"position": notification.userInfo[@"index"],
+                                   @"link": notification.userInfo[@"link"]};
+        
+        weakSelf.actionOptionType = kELActionOptionAdd;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processAddDevelopmentPlanGoalAction:formDict];
+    }];
+    self.updateAction.enabled = NO;
+    
+    [self.actionAlert addAction:self.addAction];
+    [self.actionAlert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:nil]];
+    [self.actionAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"kELNameLabel", nil);
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        
+        [textField addTarget:weakSelf
+                      action:@selector(onAlertControllerTextsChanged:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    
+    [self presentViewController:self.actionAlert
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)onGoalActionOptions:(NSNotification *)notification {
+    UIAlertController *alertController;
+    ELGoalAction *action = notification.userInfo[@"action"];
+    __weak typeof(self) weakSelf = self;
+    void (^deleteAPIBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        weakSelf.actionOptionType = kELActionOptionDelete;
+        
+        [weakSelf presentViewController:[ELUtils loadingAlert]
+                               animated:YES
+                             completion:nil];
+        [weakSelf.devPlanViewManager processDeleteDevelopmentPlanGoalActionWithLink:action.urlLink];
+    };
+    void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
+        NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
+        NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
+                                                                            message:[NSString stringWithFormat:message, action.title]
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
+                                                       style:UIAlertActionStyleDestructive
+                                                     handler:deleteAPIBlock]];
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil]];
+        
+        [weakSelf presentViewController:controller
+                               animated:YES
+                             completion:nil];
+    };
+    
+    alertController = [UIAlertController alertControllerWithTitle:nil
+                                                          message:nil
+                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull alertAction) {
+                                                          [self updateGoalAction:action];
+                                                      }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonDelete", nil)
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:deleteAlertActionBlock]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alertController.modalPresentationStyle = UIModalPresentationPopover;
+        alertController.popoverPresentationController.sourceView = notification.userInfo[@"sender"];
+    }
+    
+    [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     [self addUpdateGoal:nil];
+}
+
+#pragma mark - Targets
+
+- (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    NSArray *nameErrors;
+    NSArray<UITextField *> *textFields = self.actionAlert.textFields;
+    
+    nameErrors = [REValidation validateObject:textFields.firstObject.text
+                                         name:@"Name"
+                                   validators:@[@"presence"]];
+    
+    [self.updateAction setEnabled:(nameErrors.count == 0)];
 }
 
 @end

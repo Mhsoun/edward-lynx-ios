@@ -162,7 +162,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 #pragma mark - Protocol Methods (ELDropdown)
 
-- (void)onDropdownSelectionValueChange:(NSString *)value {
+- (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index {
     self.selectedAnswerType = value;
     
     [self toggleOptionsTable];

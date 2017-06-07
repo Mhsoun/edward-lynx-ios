@@ -107,13 +107,13 @@ static CGFloat const kELIconSize = 15;
 
 #pragma mark - Protocol Methods (ELListPopup)
 
-- (void)onItemSelection:(NSString *)item {
+- (void)onItemSelection:(NSString *)item index:(NSInteger)index {
     self.titleLabel.text = item;
     self.selectedItem = item;
     
     _hasSelection = self.hasValidation ? ![self.selectedItem isEqualToString:self.items[0]] : YES;
     
-    [self.delegate onDropdownSelectionValueChange:self.selectedItem];
+    [self.delegate onDropdownSelectionValueChange:self.selectedItem index:index];
 }
 
 #pragma mark - Private Methods
@@ -129,7 +129,8 @@ static CGFloat const kELIconSize = 15;
         
         _hasSelection = weakSelf.hasValidation ? ![weakSelf.selectedItem isEqualToString:weakSelf.items[0]] : YES;
         
-        [weakSelf.delegate onDropdownSelectionValueChange:weakSelf.selectedItem];
+        [weakSelf.delegate onDropdownSelectionValueChange:weakSelf.selectedItem
+                                                    index:[self.items indexOfObject:weakSelf.selectedItem]];
     };
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)

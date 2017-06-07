@@ -78,37 +78,43 @@
 
 /* Development Plans */
 
-"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
-
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
 "kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Complete this action, %@?";
 
 "kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Delete this action, %@?";
 
-"kELDevelopmentPlanEmptyMessage" = "No Development Plans";
-
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Successfully deleted goal";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Successfully updated goal";
 
+"kELDevelopmentPlanGoalActionCreateAlertHeader" = "Create Action";
+"kELDevelopmentPlanGoalActionCreateAlertDetail" = "Enter name for new action";
 "kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
 "kELDevelopmentPlanGoalActionDeleteSuccess" = "Successfully deleted goal action";
 "kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Update Action";
-"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Enter new name for %@";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Enter new name for action";
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Successfully updated goal action";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Goal Completed!";
 "kELDevelopmentPlanGoalCompleteDetail" = "You've got the right mix of dedication and enthusiasm. Keep it up!";
 
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Delete this goal, %@?";
+
 "kELDevelopmentPlanGoalButtonAdd" = "Add Goal";
 "kELDevelopmentPlanGoalButtonDelete" = "Delete Goal";
 "kELDevelopmentPlanGoalButtonUpdate" = "Update Goal";
 
+"kELDevelopmentPlanGoalActionButtonAdd" = "Add Action";
+"kELDevelopmentPlanGoalActionButtonDelete" = "Delete Action";
+"kELDevelopmentPlanGoalActionButtonUpdate" = "Update Action";
+
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
 "kELDevelopmentPlanGoalTimestampToday" = "Today";
 
+"kELDevelopmentPlanEmptyMessage" = "No Development Plans";
 "kELDevelopmentPlanTitle" = "Development Plan";
 
 /* Feedback */

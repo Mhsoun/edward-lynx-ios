@@ -8,14 +8,15 @@
 
 #import "ELGoalTableViewCell.h"
 #import "AppDelegate.h"
+#import "ELAddGoalActionTableViewCell.h"
 #import "ELDevelopmentPlanAPIClient.h"
 #import "ELGoal.h"
 #import "ELGoalActionTableViewCell.h"
 
 #pragma mark - Private Constants
 
-static CGFloat const kELIconSize = 15;
 static NSString * const kELCellIdentifier = @"ActionCell";
+static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
 
 #pragma mark - Class Extension
 
@@ -51,6 +52,8 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
          forCellReuseIdentifier:kELCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:kELAddActionCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELAddActionCellIdentifier];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -69,26 +72,33 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.goal.actions.count;
+    return self.goal.actions.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELGoalActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
-    ELGoalAction *action = self.goal.actions[indexPath.row];
-    NSString *colorKey = action.checked ? kELGreenColor : kELWhiteColor;
-    UIImage *checkIcon = [FontAwesome imageWithIcon:action.checked ? fa_check_circle : fa_circle_o
-                                          iconColor:ThemeColor(colorKey)
-                                           iconSize:kELIconSize
-                                          imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+    ELGoalAction *action;
+    ELGoalActionTableViewCell *cell;
+    ELAddGoalActionTableViewCell *addCell;
     
+    if (indexPath.row == self.goal.actions.count) {
+        addCell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier
+                                                  forIndexPath:indexPath];
+        
+        addCell.addLink = [NSString stringWithFormat:@"%@/actions", self.goal.urlLink];
+        addCell.tag = indexPath.row;
+        
+        return addCell;
+    }
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+                                           forIndexPath:indexPath];
+    
+    action = self.goal.actions[indexPath.row];
     action.urlLink = [NSString stringWithFormat:@"%@/actions/%@",
                       self.goal.urlLink,
                       @(action.objectId)];
     
-    cell.accessoryView = [[UIImageView alloc] initWithImage:checkIcon];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.titleLabel.text = action.title;
+    [cell configure:action atIndexPath:indexPath];
     
     return cell;
 }
@@ -96,50 +106,57 @@ static NSString * const kELCellIdentifier = @"ActionCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *detailMessage;
     UIAlertController *controller;
+    ELGoalAction *goalAction;
     __weak typeof(self) weakSelf = self;
+    void (^actionBlock)(UIAlertAction *);
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
-    ELGoalAction *goalAction = mActions[indexPath.row];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
-    void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
-        UITableViewCell *cell;
+    
+    if (indexPath.row == mActions.count) {
+        return;
+    }
+    
+    goalAction = mActions[indexPath.row];
+    actionBlock = ^(UIAlertAction *action) {
+        ELGoalActionTableViewCell *cell;
         UIActivityIndicatorView *indicatorView;
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         
         goalAction.checked = YES;
+        cell = [tableView cellForRowAtIndexPath:indexPath];
         
         // Action indicator
-        cell = [tableView cellForRowAtIndexPath:indexPath];
-        indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kELIconSize, kELIconSize)];
+        indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:cell.statusView.bounds];
         indicatorView.backgroundColor = [UIColor clearColor];
         indicatorView.tintColor = [UIColor whiteColor];
         
-        [cell setAccessoryView:indicatorView];
         [indicatorView startAnimating];
-        
+        [cell updateStatusView:indicatorView];
+                
         // API Call to update action
-        [client updateGoalActionWithParams:[goalAction apiPatchDictionary]
-                                      link:goalAction.urlLink
-                                completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            UIImage *checkIcon;
+        [client updateDevelopmentPlanGoalActionWithParams:[goalAction apiPatchDictionary]
+                                                     link:goalAction.urlLink
+                                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
             
             if (error) {
-                checkIcon = [FontAwesome imageWithIcon:fa_circle_o
-                                             iconColor:[UIColor whiteColor]
-                                              iconSize:kELIconSize
-                                             imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+                imageView.image = [FontAwesome imageWithIcon:fa_circle_o
+                                                   iconColor:[UIColor whiteColor]
+                                                    iconSize:kELIconSize
+                                                   imageSize:CGSizeMake(kELIconSize, kELIconSize)];
                 
-                [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
+                [cell updateStatusView:imageView];
                 
                 return;
             }
             
             goalAction.checked = YES;
-            checkIcon = [FontAwesome imageWithIcon:fa_check_circle
-                                         iconColor:ThemeColor(kELGreenColor)
-                                          iconSize:kELIconSize
-                                         imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+            imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                               iconColor:ThemeColor(kELGreenColor)
+                                                iconSize:kELIconSize
+                                               imageSize:CGSizeMake(kELIconSize, kELIconSize)];
             
-            [cell setAccessoryView:[[UIImageView alloc] initWithImage:checkIcon]];
+            [cell updateStatusView:imageView];
             [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
             
             [weakSelf.goal setActions:[mActions copy]];
@@ -163,7 +180,6 @@ static NSString * const kELCellIdentifier = @"ActionCell";
         }];
     };
     
-    // FIX Cell being need to be clicked twice to invoke method
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (goalAction.checked) {
@@ -181,6 +197,7 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                    style:UIAlertActionStyleCancel
                                                  handler:nil]];
+    
     [visibleController presentViewController:controller
                                     animated:YES
                                   completion:nil];

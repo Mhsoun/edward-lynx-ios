@@ -13,10 +13,15 @@
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 - (instancetype)initWithObjectId:(int64_t)objectId;
 
-- (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict;
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
-- (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link;
+
+- (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict;
+- (void)processDeleteDevelopmentPlanGoalWithLink:(NSString *)link;
 - (void)processUpdateDevelopmentPlanGoal:(NSDictionary *)formDict;
+
+- (void)processAddDevelopmentPlanGoalAction:(NSDictionary *)formDict;
+- (void)processDeleteDevelopmentPlanGoalActionWithLink:(NSString *)link;
+- (void)processUpdateDevelopmentPlanGoalAction:(NSDictionary *)formDict;
 
 - (BOOL)validateAddGoalFormValues:(NSDictionary *)formDict;
 - (BOOL)validateDevelopmentPlanFormValues:(NSDictionary *)formDict;

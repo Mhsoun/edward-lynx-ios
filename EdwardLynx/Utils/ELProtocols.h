@@ -79,20 +79,22 @@
 
 @protocol ELDropdownDelegate <NSObject>
 
-- (void)onDropdownSelectionValueChange:(NSString *)value;
+- (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index;
 
 @end
 
 @protocol ELItemCellDelegate <NSObject>
 
-- (void)onDeletionAtRow:(NSInteger)row;
+@optional
 - (void)onUpdateAtRow:(NSInteger)row;
+
+- (void)onDeletionAtRow:(NSInteger)row;
 
 @end
 
 @protocol ELListPopupDelegate <NSObject>
 
-- (void)onItemSelection:(NSString *)item;
+- (void)onItemSelection:(NSString *)item index:(NSInteger)index;
 
 @end
 
