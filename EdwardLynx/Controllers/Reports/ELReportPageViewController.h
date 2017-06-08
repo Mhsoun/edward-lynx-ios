@@ -13,6 +13,7 @@
 @property (strong, nonatomic) __kindof ELModel *selectedObject;
 
 @property (weak, nonatomic) IBOutlet UIView *pageView;
+@property (weak, nonatomic) IBOutlet UIView *noDataView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;

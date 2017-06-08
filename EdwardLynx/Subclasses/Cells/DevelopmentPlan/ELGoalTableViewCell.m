@@ -206,18 +206,19 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
 #pragma mark - Private Methods
 
 - (void)updateContent {
-    NSString *stringKey, *timestamp;
-    UIColor *color;
+    NSString *timestamp;
     BOOL completed = self.goal.progress == 1;
-    NSString *colorKey = completed ? kELOrangeColor : kELBlueColor;
+    UIColor *color = ThemeColor(completed ? kELOrangeColor : kELBlueColor);
     
-    color = ThemeColor(colorKey);
-    
-    if (!self.goal.dueDate)  {
-        timestamp = @"";
+    if (completed) {
+        timestamp = NSLocalizedString(@"kELListFilterCompleted", nil);
     } else {
-        stringKey = !completed ? @"kELDevelopmentPlanGoalTimestampDueDate" : @"kELListFilterCompleted";
-        timestamp = [NSString stringWithFormat:NSLocalizedString(stringKey, nil), self.goal.dueDateString];
+        if (self.goal.dueDateChecked) {
+            timestamp = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalTimestampDueDate", nil),
+                         self.goal.dueDateString];
+        } else {
+            timestamp = @"";
+        }
     }
     
     // Content

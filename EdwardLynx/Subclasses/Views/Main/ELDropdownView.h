@@ -18,6 +18,8 @@
 - (instancetype)initWithItems:(NSMutableArray *)items
                baseController:(__kindof ELBaseViewController *)controller
              defaultSelection:(NSString *)defaultSelection;
+
+- (NSString *)currentItem;
 - (void)reset;
 - (void)setDefaultValue:(NSString *)value;
 

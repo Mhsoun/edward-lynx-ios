@@ -221,7 +221,6 @@
     barChart.extraRightOffset = 30.0f;
     barChart.highlightPerDragEnabled = NO;
     barChart.highlightPerTapEnabled = NO;
-    barChart.maxVisibleCount = 10;
     barChart.pinchZoomEnabled = NO;
     
     barChart.leftAxis.axisMaximum = axisMax;

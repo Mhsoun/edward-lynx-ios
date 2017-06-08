@@ -131,7 +131,6 @@
     self.barChart.drawBarShadowEnabled = NO;
     self.barChart.drawGridBackgroundEnabled = NO;
     self.barChart.highlightPerTapEnabled = NO;
-    self.barChart.maxVisibleCount = visibleCount;
     self.barChart.pinchZoomEnabled = NO;
     
     self.barChart.leftAxis.axisLineColor = [UIColor blackColor];

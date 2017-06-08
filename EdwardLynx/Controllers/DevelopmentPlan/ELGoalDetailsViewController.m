@@ -329,6 +329,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 }
 
 - (void)populatePage {
+    NSString *defaultValue;
     NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
     for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
@@ -337,7 +338,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                            baseController:self
                                          defaultSelection:nil];
     
-    self.selectedCategory = self.goal ? self.goal.category : (mCategories.count > 0 ? mCategories[0] : @"");
+    self.selectedCategory = self.goal ? self.goal.category : nil;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;
     
@@ -347,21 +348,28 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self toggleBasedOnSwitchValue:self.remindSwitch];
     
     // Category
+    defaultValue = self.selectedCategory ? self.selectedCategory.title : (mCategories.count > 0 ? mCategories[0] : @"");
+    
     [self.categorySwitch setOn:self.goal.categoryChecked];
     [self.dropdown setFrame:self.dropdownView.bounds];
-    [self.dropdown setDefaultValue:self.selectedCategory.title];
+    [self.dropdown setDefaultValue:defaultValue];
     [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
+    
+    // Action section
+    [self.bottomSeparatorView setHidden:self.hideActionSection];
+    [self.addActionTopConstraint setConstant:self.hideActionSection ? 0 : 20];
+    [self.addActionWidthConstraint setConstant:self.hideActionSection ? 0 : 50];
+    [self.addActionButton updateConstraints];
+    
+    if (self.hideActionSection) {
+        [self adjustTableViewSize];
+    }
     
     // Actions
     if (self.goal.actions.count == 0) {
         return;
     }
-    
-    [self.bottomSeparatorView setHidden:self.hideActionSection];
-    [self.addActionTopConstraint setConstant:self.hideActionSection ? 0 : 20];
-    [self.addActionWidthConstraint setConstant:self.hideActionSection ? 0 : 50];
-    [self.addActionButton updateConstraints];
     
     [self.mActions removeAllObjects];
     [self.mActions addObjectsFromArray:self.goal.actions];
@@ -372,13 +380,18 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 - (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
     if ([switchButton isEqual:self.remindSwitch]) {
         self.dateErrorLabel.hidden = YES;
-        self.datePickerViewHeightConstraint.constant = switchButton.isOn ? kELDatePickerViewInitialHeight : 0;
         
+        [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        self.dropdownHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
+        NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
         
+        [self.dropdownHeightConstraint setConstant:switchButton.isOn ? kELCategoryViewInitialHeight : 0];
         [self.dropdownView updateConstraints];
+        
+        // Store current dropdown value
+        self.selectedCategory = filteredArray.count == 0 ? nil : filteredArray[0];
     }
 }
 
@@ -418,18 +431,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    categoryId = 0;
+    categoryId = -1;
     hasSelection = YES;
     
     [self.mActions removeObject:@""];
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    if (self.mActions.count == 0) {
+    if (self.mActions.count == 0 && !self.withAPIProcess) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:nil];
-        
-        return;
     }
     
     mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": nameGroup}];
@@ -462,9 +473,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
-    
     [mGoalDict setObject:dateString forKey:@"dueDate"];
-    [mGoalDict setObject:@(categoryId) forKey:@"categoryId"];
+    
+    if (categoryId > 0) {
+        [mGoalDict setObject:@(categoryId) forKey:@"categoryId"];
+    }
     
     if (self.withAPIProcess) {
         [self presentViewController:[ELUtils loadingAlert]
@@ -483,7 +496,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [mDict setObject:self.nameTextField.text forKey:@"title"];
             [mDict setObject:self.descriptionTextView.text forKey:@"description"];
             [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
-            [mDict setObject:mGoalDict[@"categoryId"] forKey:@"categoryId"];
+            
+            if (categoryId > 0) {
+                [mDict setObject:@(categoryId) forKey:@"categoryId"];
+            }
             
             [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
         }
@@ -491,7 +507,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         self.hasCreatedGoal = YES;
         
         self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
-        self.goal.category = self.selectedCategory;
         self.goal.categoryChecked = self.categorySwitch.on;
         self.goal.dueDateChecked = self.remindSwitch.on;
         

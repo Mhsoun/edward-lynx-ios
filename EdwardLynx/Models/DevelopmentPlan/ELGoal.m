@@ -44,6 +44,10 @@
         [mDict setObject:[AppSingleton.apiDateFormatter stringFromDate:self.dueDate] forKey:@"dueDate"];
     }
     
+    if (self.categoryId) {
+        [mDict setObject:@(self.categoryId) forKey:@"categoryId"];
+    }
+    
     if (self.position) {
         [mDict setObject:@(self.position) forKey:@"position"];
     }
@@ -54,7 +58,7 @@
 }
 
 - (ELCategory<Ignore> *)category {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", @(_categoryId)];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", @(self.categoryId)];
     NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
     
     if (filteredArray.count == 0) {

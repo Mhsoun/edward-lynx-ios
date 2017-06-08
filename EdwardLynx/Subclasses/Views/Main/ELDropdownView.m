@@ -85,6 +85,10 @@ static CGFloat const kELIconSize = 15;
 
 #pragma mark - Getters/Setters
 
+- (NSString *)currentItem {
+    return self.selectedItem;
+}
+
 - (BOOL)enabled {
     return _enabled;
 }

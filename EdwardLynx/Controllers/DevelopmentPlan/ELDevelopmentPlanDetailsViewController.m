@@ -105,7 +105,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (void)viewWillAppear:(BOOL)animated {
     if (AppSingleton.needsPageReload) {
-        [self reloadPage];
+        [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
     }
     
     [super viewWillAppear:animated];

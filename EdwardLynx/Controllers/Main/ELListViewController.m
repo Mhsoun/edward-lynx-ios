@@ -26,12 +26,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 @interface ELListViewController ()
 
-@property (nonatomic) BOOL isPaginated;
+@property (nonatomic) BOOL isPaginated, isUpdated;
 @property (nonatomic) NSInteger countPerPage,
                                 page,
                                 pages,
                                 total;
-
 @property (nonatomic, strong) NSArray *defaultListItems;
 @property (nonatomic, strong) NSString *cellIdentifier, *paginationLink;
 @property (nonatomic, strong) UIActivityIndicatorView *tableIndicatorView;
@@ -53,6 +52,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Initialization
     self.page = 1;
     self.isPaginated = NO;
+    self.isUpdated = NO;
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -77,6 +77,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     if (AppSingleton.needsPageReload) {
+        self.isUpdated = AppSingleton.needsPageReload;
+        
         [self reloadPage];
     }
     
@@ -102,6 +104,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    // To handle updating of Dashboard
+    AppSingleton.needsPageReload = self.isUpdated;
     
     // Remove Search Notification
     [[NSNotificationCenter defaultCenter] removeObserver:self

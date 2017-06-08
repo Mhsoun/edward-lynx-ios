@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vJQ-t1-0zN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,10 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qGm-JT-xDh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-b1-q6b">
                                 <rect key="frame" x="0.0" y="30" width="375" height="637"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -46,14 +42,9 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qGm-JT-xDh" firstAttribute="centerY" secondItem="CP3-W7-7Kf" secondAttribute="centerY" id="9Qs-Cd-cbE"/>
-                            <constraint firstItem="qGm-JT-xDh" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="HIh-AZ-jlJ"/>
                             <constraint firstItem="qPU-YK-kM5" firstAttribute="top" secondItem="6hD-b1-q6b" secondAttribute="bottom" id="MVb-Yr-060"/>
-                            <constraint firstItem="qGm-JT-xDh" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="SVJ-u0-ov9"/>
                             <constraint firstItem="6hD-b1-q6b" firstAttribute="centerX" secondItem="CP3-W7-7Kf" secondAttribute="centerX" id="XV6-pD-jG3"/>
-                            <constraint firstItem="qGm-JT-xDh" firstAttribute="height" secondItem="CP3-W7-7Kf" secondAttribute="height" id="jOZ-mW-UYf"/>
                             <constraint firstItem="6hD-b1-q6b" firstAttribute="top" secondItem="Qyc-Fx-Ved" secondAttribute="bottom" constant="10" id="miz-xn-qxP"/>
                             <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="ubc-TN-ace"/>
                         </constraints>
@@ -363,6 +354,22 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="542"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-1Q-ykH">
+                                <rect key="frame" x="-0.5" y="20" width="375" height="542"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No chart data available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-hf-c8a">
+                                        <rect key="frame" x="128" y="263.5" width="120.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                        <color key="textColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KYZ-hf-c8a" firstAttribute="centerX" secondItem="Ia4-1Q-ykH" secondAttribute="centerX" id="Dkg-Ue-fVr"/>
+                                    <constraint firstItem="KYZ-hf-c8a" firstAttribute="centerY" secondItem="Ia4-1Q-ykH" secondAttribute="centerY" id="fET-du-ZXi"/>
+                                </constraints>
+                            </view>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frb-Ju-lk5">
                                 <rect key="frame" x="0.0" y="572" width="375" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -392,6 +399,7 @@
                         <constraints>
                             <constraint firstItem="frb-Ju-lk5" firstAttribute="trailing" secondItem="A4z-UI-jcw" secondAttribute="trailing" id="0Xf-do-MWc"/>
                             <constraint firstItem="684-3J-Q04" firstAttribute="trailing" secondItem="frb-Ju-lk5" secondAttribute="trailing" id="7LD-gp-vmm"/>
+                            <constraint firstItem="Ia4-1Q-ykH" firstAttribute="height" secondItem="A4z-UI-jcw" secondAttribute="height" id="88a-RH-mxr"/>
                             <constraint firstItem="A4z-UI-jcw" firstAttribute="top" secondItem="pAl-du-MPE" secondAttribute="bottom" id="8tD-D9-beV"/>
                             <constraint firstItem="bWo-CV-vIP" firstAttribute="centerY" secondItem="Yg1-1w-GqN" secondAttribute="centerY" id="9i5-Qc-wOH"/>
                             <constraint firstItem="frb-Ju-lk5" firstAttribute="leading" secondItem="A4z-UI-jcw" secondAttribute="leading" id="Bs4-1i-K4b"/>
@@ -401,6 +409,7 @@
                             <constraint firstItem="frb-Ju-lk5" firstAttribute="top" secondItem="A4z-UI-jcw" secondAttribute="bottom" constant="10" id="NKc-6d-Yqf"/>
                             <constraint firstItem="NMl-US-L8x" firstAttribute="centerY" secondItem="Yg1-1w-GqN" secondAttribute="centerY" id="NaS-VW-JCM"/>
                             <constraint firstItem="684-3J-Q04" firstAttribute="leading" secondItem="frb-Ju-lk5" secondAttribute="leading" id="QTl-kd-4FL"/>
+                            <constraint firstItem="Ia4-1Q-ykH" firstAttribute="centerY" secondItem="A4z-UI-jcw" secondAttribute="centerY" id="SAl-4U-zaM"/>
                             <constraint firstItem="NMl-US-L8x" firstAttribute="height" secondItem="Yg1-1w-GqN" secondAttribute="height" id="bIx-Rf-eic"/>
                             <constraint firstItem="NMl-US-L8x" firstAttribute="centerX" secondItem="Yg1-1w-GqN" secondAttribute="centerX" id="dMI-Oa-QBB"/>
                             <constraint firstItem="RAr-tA-flN" firstAttribute="leading" secondItem="Yg1-1w-GqN" secondAttribute="leadingMargin" id="hQl-e1-hWU"/>
@@ -408,7 +417,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RAr-tA-flN" secondAttribute="trailing" id="jPD-HI-i07"/>
                             <constraint firstItem="B9X-ao-H2d" firstAttribute="top" secondItem="RAr-tA-flN" secondAttribute="bottom" constant="10" id="lFd-pI-l2S"/>
                             <constraint firstAttribute="trailing" secondItem="A4z-UI-jcw" secondAttribute="trailing" id="lR2-wL-db4"/>
+                            <constraint firstItem="Ia4-1Q-ykH" firstAttribute="width" secondItem="A4z-UI-jcw" secondAttribute="width" id="mpU-Iw-5dS"/>
                             <constraint firstItem="RAr-tA-flN" firstAttribute="top" secondItem="684-3J-Q04" secondAttribute="bottom" constant="10" id="qPW-J5-lnM"/>
+                            <constraint firstItem="Ia4-1Q-ykH" firstAttribute="centerX" secondItem="A4z-UI-jcw" secondAttribute="centerX" id="uZB-UA-ZV8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -417,6 +428,7 @@
                         <outlet property="infoLabel" destination="684-3J-Q04" id="af6-Zz-Ue2"/>
                         <outlet property="navigatorView" destination="RAr-tA-flN" id="03k-YP-udY"/>
                         <outlet property="nextButton" destination="EC0-lf-NSg" id="P3F-cB-wsk"/>
+                        <outlet property="noDataView" destination="Ia4-1Q-ykH" id="yiA-OB-uQ9"/>
                         <outlet property="pageControl" destination="aZv-ei-LtX" id="c2S-GA-0a2"/>
                         <outlet property="pageView" destination="A4z-UI-jcw" id="Ylx-05-XCt"/>
                         <outlet property="prevButton" destination="uvo-Id-IiJ" id="GZ0-57-jCv"/>
