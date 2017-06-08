@@ -380,13 +380,18 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 - (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
     if ([switchButton isEqual:self.remindSwitch]) {
         self.dateErrorLabel.hidden = YES;
-        self.datePickerViewHeightConstraint.constant = switchButton.isOn ? kELDatePickerViewInitialHeight : 0;
         
+        [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        self.dropdownHeightConstraint.constant = switchButton.isOn ? kELCategoryViewInitialHeight : 0;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
+        NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
         
+        [self.dropdownHeightConstraint setConstant:switchButton.isOn ? kELCategoryViewInitialHeight : 0];
         [self.dropdownView updateConstraints];
+        
+        // Store current dropdown value
+        self.selectedCategory = filteredArray.count == 0 ? nil : filteredArray[0];
     }
 }
 

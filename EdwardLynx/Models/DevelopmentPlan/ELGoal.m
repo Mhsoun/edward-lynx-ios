@@ -44,6 +44,10 @@
         [mDict setObject:[AppSingleton.apiDateFormatter stringFromDate:self.dueDate] forKey:@"dueDate"];
     }
     
+    if (self.categoryId) {
+        [mDict setObject:@(self.categoryId) forKey:@"categoryId"];
+    }
+    
     if (self.position) {
         [mDict setObject:@(self.position) forKey:@"position"];
     }

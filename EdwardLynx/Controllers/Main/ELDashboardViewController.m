@@ -195,7 +195,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
         controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
                       instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
-        controller.devPlan = (ELDevelopmentPlan *)value;
+        controller.objectId = [(ELDevelopmentPlan *)value objectId];
         
         [self.navigationController pushViewController:controller animated:YES];
     } else {
