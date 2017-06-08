@@ -27,10 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gyz-hb-emz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Td-pFX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -39,16 +35,11 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gyz-hb-emz" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="17X-7V-ZXe"/>
-                            <constraint firstItem="gyz-hb-emz" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="1tc-dU-JF2"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="width" secondItem="T6L-h1-8Z0" secondAttribute="width" id="IX0-GB-yR1"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="top" secondItem="bm3-XA-YF7" secondAttribute="bottom" id="KTs-VJ-eNW"/>
                             <constraint firstItem="3ah-Td-pFX" firstAttribute="centerX" secondItem="T6L-h1-8Z0" secondAttribute="centerX" id="Kuo-Xn-Kce"/>
                             <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="3ah-Td-pFX" secondAttribute="bottom" id="dbg-md-d9H"/>
-                            <constraint firstItem="gyz-hb-emz" firstAttribute="height" secondItem="T6L-h1-8Z0" secondAttribute="height" id="hV7-E8-JcL"/>
-                            <constraint firstItem="gyz-hb-emz" firstAttribute="centerY" secondItem="T6L-h1-8Z0" secondAttribute="centerY" id="mC6-7Z-hNx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DEVELOPMENT PLANS" id="AZJ-jF-NaL"/>
