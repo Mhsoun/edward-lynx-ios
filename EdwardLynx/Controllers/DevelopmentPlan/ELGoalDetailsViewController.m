@@ -329,6 +329,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 }
 
 - (void)populatePage {
+    NSString *defaultValue;
     NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
     for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
@@ -337,7 +338,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                            baseController:self
                                          defaultSelection:nil];
     
-    self.selectedCategory = self.goal ? self.goal.category : (mCategories.count > 0 ? mCategories[0] : @"");
+    self.selectedCategory = self.goal ? self.goal.category : nil;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;
     
@@ -347,9 +348,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self toggleBasedOnSwitchValue:self.remindSwitch];
     
     // Category
+    defaultValue = self.selectedCategory ? self.selectedCategory.title : (mCategories.count > 0 ? mCategories[0] : @"");
+    
     [self.categorySwitch setOn:self.goal.categoryChecked];
     [self.dropdown setFrame:self.dropdownView.bounds];
-    [self.dropdown setDefaultValue:self.selectedCategory.title];
+    [self.dropdown setDefaultValue:defaultValue];
     [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
