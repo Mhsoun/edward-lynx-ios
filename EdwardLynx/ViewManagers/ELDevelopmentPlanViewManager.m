@@ -195,7 +195,7 @@
         
         formFieldGroup = formDict[key];
         date = [AppSingleton.apiDateFormatter dateFromString:[formFieldGroup textValue]];
-        dateErrors = [date mt_isBefore:[NSDate date]] ? @[NSLocalizedString(@"kELGoalReminderValidationMessage", nil)] :
+        dateErrors = [date mt_isBefore:[NSDate date]] ? @[NSLocalizedString(@"kELGoalDueDateValidationMessage", nil)] :
  nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:dateErrors];

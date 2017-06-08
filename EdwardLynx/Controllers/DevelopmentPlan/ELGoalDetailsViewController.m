@@ -436,8 +436,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:nil];
-        
-        return;
     }
     
     mFormItems = [[NSMutableDictionary alloc] initWithDictionary:@{@"name": nameGroup}];
