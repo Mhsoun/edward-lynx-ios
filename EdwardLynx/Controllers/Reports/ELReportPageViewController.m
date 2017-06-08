@@ -136,12 +136,26 @@
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    ELSurvey *survey;
     NSMutableArray *mReportKeys = [[NSMutableArray alloc] init];
     
     self.responseDict = responseDict;
     self.navigatorView.hidden = NO;
     
     [self.indicatorView stopAnimating];
+    
+    if (self.selectedObject && [self.selectedObject isKindOfClass:[ELSurvey class]]) {
+        survey = (ELSurvey *)self.selectedObject;
+    }
+
+    if (survey && survey.answered == 0) {
+        self.noDataView.hidden = NO;
+        
+        [self setupContent];
+        [self setupNavigators];
+        
+        return;
+    }
     
     for (NSString *key in responseDict.allKeys) {
         if ([@[@"_links", @"frequencies", @"average", @"ioc", @"totalAnswers"] containsObject:key]) {
@@ -229,7 +243,7 @@
     self.pageControl.numberOfPages = self.pageCount;
     
     self.prevButton.hidden = YES;
-    self.nextButton.hidden = NO;
+    self.nextButton.hidden = self.pageCount == 0;
 }
 
 - (void)setupPageController:(UIPageViewController *)pageController {
