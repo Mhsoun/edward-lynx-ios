@@ -431,7 +431,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                                                                    icon:nil
                                                              errorLabel:self.nameErrorLabel];
     
-    categoryId = 0;
+    categoryId = -1;
     hasSelection = YES;
     
     [self.mActions removeObject:@""];
@@ -473,9 +473,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     for (ELGoalAction *action in self.mActions) [mActions addObject:[action toDictionary]];
     
     [mGoalDict setObject:[mActions copy] forKey:@"actions"];
-    
     [mGoalDict setObject:dateString forKey:@"dueDate"];
-    [mGoalDict setObject:@(categoryId) forKey:@"categoryId"];
+    
+    if (categoryId > 0) {
+        [mGoalDict setObject:@(categoryId) forKey:@"categoryId"];
+    }
     
     if (self.withAPIProcess) {
         [self presentViewController:[ELUtils loadingAlert]
@@ -494,7 +496,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
             [mDict setObject:self.nameTextField.text forKey:@"title"];
             [mDict setObject:self.descriptionTextView.text forKey:@"description"];
             [mDict setObject:mGoalDict[@"dueDate"] forKey:@"dueDate"];
-            [mDict setObject:mGoalDict[@"categoryId"] forKey:@"categoryId"];
+            
+            if (categoryId > 0) {
+                [mDict setObject:@(categoryId) forKey:@"categoryId"];
+            }
             
             [self.viewManager processUpdateDevelopmentPlanGoal:[mDict copy]];
         }
