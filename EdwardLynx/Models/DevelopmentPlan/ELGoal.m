@@ -54,7 +54,7 @@
 }
 
 - (ELCategory<Ignore> *)category {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", @(_categoryId)];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", @(self.categoryId)];
     NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
     
     if (filteredArray.count == 0) {

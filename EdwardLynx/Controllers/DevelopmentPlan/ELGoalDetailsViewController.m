@@ -356,15 +356,20 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self.dropdownView addSubview:self.dropdown];
     [self toggleBasedOnSwitchValue:self.categorySwitch];
     
-    // Actions
-    if (self.goal.actions.count == 0) {
-        return;
-    }
-    
+    // Action section
     [self.bottomSeparatorView setHidden:self.hideActionSection];
     [self.addActionTopConstraint setConstant:self.hideActionSection ? 0 : 20];
     [self.addActionWidthConstraint setConstant:self.hideActionSection ? 0 : 50];
     [self.addActionButton updateConstraints];
+    
+    if (self.hideActionSection) {
+        [self adjustTableViewSize];
+    }
+    
+    // Actions
+    if (self.goal.actions.count == 0) {
+        return;
+    }
     
     [self.mActions removeAllObjects];
     [self.mActions addObjectsFromArray:self.goal.actions];
@@ -427,7 +432,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self.mActions removeObject:@""];
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    if (self.mActions.count == 0) {
+    if (self.mActions.count == 0 && !self.withAPIProcess) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:nil];
@@ -494,7 +499,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         self.hasCreatedGoal = YES;
         
         self.goal = [[ELGoal alloc] initWithDictionary:[mGoalDict copy] error:nil];
-        self.goal.category = self.selectedCategory;
         self.goal.categoryChecked = self.categorySwitch.on;
         self.goal.dueDateChecked = self.remindSwitch.on;
         
