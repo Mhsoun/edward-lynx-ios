@@ -401,23 +401,34 @@
     return YES;
 }
 
-- (void)parseURLString:(NSString *)urlString {
+- (void)parseURLString:(NSString *)emailUrlString {
     BOOL isFeedback;
+    __block int64_t objectId;
     NSArray *urlParts;
     NSString *key, *url;
     __weak typeof(self) weakSelf = self;
     
-    isFeedback = [urlString containsString:kELAPIEmailLinkFeedback];
-    urlParts = [urlString componentsSeparatedByString:@"//"];
+    urlParts = [emailUrlString componentsSeparatedByString:@"//"];
+    
+    // Handle Development Plans
+    if ([emailUrlString containsString:kELNotificationTypeDevPlan]) {
+        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][3] intValue];
+        
+        self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeDevPlan};
+        
+        return;
+    }
+    
+    // Handle Instant Feedback/Surveys
+    isFeedback = [emailUrlString containsString:kELAPIEmailLinkFeedback];
     key = [urlParts[1] componentsSeparatedByString:@"/"][3];
-    url = isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint;
-    url = [NSString stringWithFormat:url, [ELAPIClient hostURL], key];
+    url = [NSString stringWithFormat:isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
+           [ELAPIClient hostURL],
+           key];
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:nil
                                       completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-        int64_t objectId;
-        
         if (error.code == kELAPINotFoundStatusCode) {
             NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
             NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);

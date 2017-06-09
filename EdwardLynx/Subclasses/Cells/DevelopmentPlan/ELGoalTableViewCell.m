@@ -107,8 +107,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     NSString *detailMessage;
     UIAlertController *controller;
     ELGoalAction *goalAction;
+    ELGoalActionTableViewCell *cell;
     __weak typeof(self) weakSelf = self;
     void (^actionBlock)(UIAlertAction *);
+    void (^completionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
     
@@ -117,13 +119,56 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     }
     
     goalAction = mActions[indexPath.row];
+    cell = [tableView cellForRowAtIndexPath:indexPath];
+    completionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
+        
+        if (error) {
+            imageView.image = [FontAwesome imageWithIcon:fa_circle_o
+                                               iconColor:[UIColor whiteColor]
+                                                iconSize:kELIconSize
+                                               imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+            
+            [cell updateStatusView:imageView];
+            
+            return;
+        }
+        
+        AppSingleton.needsPageReload = YES;
+        
+        goalAction.checked = YES;
+        imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                           iconColor:ThemeColor(kELGreenColor)
+                                            iconSize:kELIconSize
+                                           imageSize:CGSizeMake(kELIconSize, kELIconSize)];
+        
+        [cell updateStatusView:imageView];
+        [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
+        
+        [weakSelf.goal setActions:[mActions copy]];
+        [weakSelf.delegate onGoalUpdate:weakSelf.goal];
+        
+        if ([[weakSelf.goal progressDetails][@"value"] floatValue] == 1.0f) {
+            NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
+                                          @"header": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteHeader", nil),
+                                          @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
+                                          @"image": @"Ribbon"};
+            
+            // Display popup
+            [ELUtils displayPopupForViewController:visibleController
+                                              type:kELPopupTypeMessage
+                                           details:detailsDict];
+        } else {
+            [ELUtils presentToastAtView:visibleController.view
+                                message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
+                             completion:nil];
+        }
+    };
     actionBlock = ^(UIAlertAction *action) {
-        ELGoalActionTableViewCell *cell;
         UIActivityIndicatorView *indicatorView;
         ELDevelopmentPlanAPIClient *client = [[ELDevelopmentPlanAPIClient alloc] init];
         
         goalAction.checked = YES;
-        cell = [tableView cellForRowAtIndexPath:indexPath];
         
         // Action indicator
         indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:cell.statusView.bounds];
@@ -132,52 +177,11 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         
         [indicatorView startAnimating];
         [cell updateStatusView:indicatorView];
-                
+        
         // API Call to update action
         [client updateDevelopmentPlanGoalActionWithParams:[goalAction apiPatchDictionary]
                                                      link:goalAction.urlLink
-                                               completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
-            
-            if (error) {
-                imageView.image = [FontAwesome imageWithIcon:fa_circle_o
-                                                   iconColor:[UIColor whiteColor]
-                                                    iconSize:kELIconSize
-                                                   imageSize:CGSizeMake(kELIconSize, kELIconSize)];
-                
-                [cell updateStatusView:imageView];
-                
-                return;
-            }
-            
-            goalAction.checked = YES;
-            imageView.image = [FontAwesome imageWithIcon:fa_check_circle
-                                               iconColor:ThemeColor(kELGreenColor)
-                                                iconSize:kELIconSize
-                                               imageSize:CGSizeMake(kELIconSize, kELIconSize)];
-            
-            [cell updateStatusView:imageView];
-            [mActions replaceObjectAtIndex:indexPath.row withObject:goalAction];
-            
-            [weakSelf.goal setActions:[mActions copy]];
-            [weakSelf.delegate onGoalUpdate:weakSelf.goal];
-            
-            if ([[weakSelf.goal progressDetails][@"value"] floatValue] == 1.0f) {
-                NSDictionary *detailsDict = @{@"title": [self.devPlanName uppercaseString],
-                                              @"header": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteHeader", nil),
-                                              @"details": NSLocalizedString(@"kELDevelopmentPlanGoalCompleteDetail", nil),
-                                              @"image": @"Ribbon"};
-                
-                // Display popup
-                [ELUtils displayPopupForViewController:visibleController
-                                                  type:kELPopupTypeMessage
-                                               details:detailsDict];
-            } else {
-                [ELUtils presentToastAtView:visibleController.view
-                                    message:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateSuccess", nil)
-                                 completion:nil];
-            }
-        }];
+                                               completion:completionBlock];
     };
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

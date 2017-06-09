@@ -116,6 +116,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)dealloc {
     DLog(@"%@", [self class]);
+    
+    AppSingleton.searchText = @"";
 }
 
 #pragma mark - Protocol Methods (UIScrollView)
