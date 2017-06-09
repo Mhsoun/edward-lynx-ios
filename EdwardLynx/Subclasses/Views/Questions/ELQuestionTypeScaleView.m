@@ -27,7 +27,7 @@
 - (void)setupNumberScale {
     NSInteger index;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
-    BOOL isOneToTen = _question.answer.type == kELAnswerTypeOneToTenScale;
+    BOOL isOneToTen = _question.answer.type != kELAnswerTypeOneToFiveScale;
     BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
     UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:isOneToTen ? 10.0f : 13.0f];
     NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
