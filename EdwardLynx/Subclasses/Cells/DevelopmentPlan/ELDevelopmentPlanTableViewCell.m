@@ -103,6 +103,7 @@
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     NSMutableArray *mColors = [[NSMutableArray alloc] init];
+    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < devPlan.goals.count; i++) {
@@ -114,7 +115,8 @@
         colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
         
         [mColors addObject:ThemeColor(colorKey)];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)(i + 1) y:progress]];
+        [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
     }
     
     chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
@@ -131,6 +133,7 @@
     self.barChart.drawBarShadowEnabled = NO;
     self.barChart.drawGridBackgroundEnabled = NO;
     self.barChart.highlightPerTapEnabled = NO;
+    self.barChart.maxVisibleCount = visibleCount;
     self.barChart.pinchZoomEnabled = NO;
     
     self.barChart.leftAxis.axisLineColor = [UIColor blackColor];
@@ -148,8 +151,10 @@
     self.barChart.xAxis.drawGridLinesEnabled = NO;
     self.barChart.xAxis.granularity = 1;
     self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.barChart.xAxis.labelCount = [mLabels count];
     self.barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     self.barChart.xAxis.labelTextColor = [UIColor whiteColor];
+    self.barChart.xAxis.valueFormatter = [ChartIndexAxisValueFormatter withValues:[mLabels copy]];
     
     self.barChart.data = chartData;
     

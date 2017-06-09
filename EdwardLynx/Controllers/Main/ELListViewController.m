@@ -53,11 +53,11 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.page = 1;
     self.isPaginated = NO;
     self.isUpdated = NO;
+    
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
     self.tableIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0,
                                                                                         CGRectGetWidth(self.tableView.frame),
                                                                                         50)];
@@ -155,12 +155,13 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
+    ELDevelopmentPlanTableViewCell *devPlanCell;
     __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     
     value = [self.provider rowObjectAtIndexPath:indexPath];
     
     if ([self.cellIdentifier isEqualToString:kELDevPlanCellIdentifier]) {
-        ELDevelopmentPlanTableViewCell *devPlanCell = (ELDevelopmentPlanTableViewCell *)cell;
+        devPlanCell = (ELDevelopmentPlanTableViewCell *)cell;
         devPlanCell.tableView = self.tableView;
         
         [devPlanCell configure:value atIndexPath:indexPath];

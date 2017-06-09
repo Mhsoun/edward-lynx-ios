@@ -8,6 +8,14 @@
 
 #import "ELQuestionTypeScaleView.h"
 
+#pragma mark - Class Extension
+
+@interface ELQuestionTypeScaleView ()
+
+@property (nonatomic, strong) NSMutableArray *mOptions;
+
+@end
+
 @implementation ELQuestionTypeScaleView
 
 @synthesize question = _question;
@@ -27,22 +35,23 @@
 - (void)setupNumberScale {
     NSInteger index;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
-    BOOL isOneToTen = _question.answer.type == kELAnswerTypeOneToTenScale;
+    BOOL isOneToTen = _question.answer.type != kELAnswerTypeOneToFiveScale;
     BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
     UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:isOneToTen ? 10.0f : 13.0f];
-    NSMutableArray *mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
+    
+    self.mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     // Segmented Control
     [self.scaleChoices removeAllSegments];
     [self.scaleChoices setTitleTextAttributes:@{NSFontAttributeName: font} forState:UIControlStateNormal];
     
     if (_question.isNA) {
-        [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
+        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
                                                                  error:nil]];
     }
     
-    for (int i = 0; i < [mOptions count]; i++) {
-        ELAnswerOption *option = mOptions[i];
+    for (int i = 0; i < [self.mOptions count]; i++) {
+        ELAnswerOption *option = self.mOptions[i];
         
         [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
                                           atIndex:i
@@ -72,7 +81,7 @@
         return nil;
     }
     
-    option = _question.answer.options[self.scaleChoices.selectedSegmentIndex];
+    option = self.mOptions[self.scaleChoices.selectedSegmentIndex];
     
     return @{@"question": @(_question.objectId),
              @"answer": (NSNumber *)option.value};

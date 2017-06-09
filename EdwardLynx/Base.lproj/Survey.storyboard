@@ -31,6 +31,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="WeV-ti-ZUF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hny-fN-KMS">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,11 +47,16 @@
                             <constraint firstItem="hny-fN-KMS" firstAttribute="width" secondItem="2ER-dR-ZIR" secondAttribute="width" id="Oc8-M8-nDO"/>
                             <constraint firstItem="hny-fN-KMS" firstAttribute="centerX" secondItem="2ER-dR-ZIR" secondAttribute="centerX" id="SnM-ZV-3xM"/>
                             <constraint firstItem="hny-fN-KMS" firstAttribute="top" secondItem="XZc-ax-756" secondAttribute="bottom" id="X2j-JW-GLd"/>
+                            <constraint firstAttribute="trailing" secondItem="WeV-ti-ZUF" secondAttribute="trailing" id="e7O-vZ-0Ii"/>
                             <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="hny-fN-KMS" secondAttribute="bottom" id="iJN-GV-RXk"/>
+                            <constraint firstItem="7rK-a5-TH7" firstAttribute="top" secondItem="WeV-ti-ZUF" secondAttribute="bottom" id="kDf-yf-euQ"/>
+                            <constraint firstItem="WeV-ti-ZUF" firstAttribute="leading" secondItem="2ER-dR-ZIR" secondAttribute="leading" id="ngL-ch-3qw"/>
+                            <constraint firstItem="WeV-ti-ZUF" firstAttribute="top" secondItem="2ER-dR-ZIR" secondAttribute="top" id="u2w-hU-pa4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
                     <connections>
+                        <outlet property="bgView" destination="WeV-ti-ZUF" id="lns-nU-an7"/>
                         <segue destination="Oe3-tM-qcI" kind="show" identifier="SurveyDetails" id="GE1-NU-ghW"/>
                         <segue destination="p5u-xV-9LF" kind="show" identifier="Invite" id="5Dv-VC-1Hk"/>
                     </connections>

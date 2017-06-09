@@ -28,17 +28,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-2y-1a9">
-                        <rect key="frame" x="5" y="5" width="271" height="39.5"/>
+                        <rect key="frame" x="5" y="5" width="310" height="35"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="trf-Zd-nbM">
-                        <rect key="frame" x="276" y="7.5" width="69" height="34.5"/>
+                        <rect key="frame" x="315" y="7.5" width="30" height="30"/>
                         <subviews>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-FL-C9Q" userLabel="Edit Button">
-                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="34.5"/>
+                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-FL-C9Q" userLabel="Edit Button">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bkH-FL-C9Q" secondAttribute="height" multiplier="1:1" id="CV7-FE-32w"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-u3-fyR" userLabel="Delete Button">
-                                <rect key="frame" x="34.5" y="0.0" width="34.5" height="34.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w8h-u3-fyR" secondAttribute="height" multiplier="1:1" id="VpO-BH-iYg"/>
