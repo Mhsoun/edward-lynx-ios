@@ -93,7 +93,7 @@
 }
 
 - (BOOL)dueDateChecked {
-    return self.dueDate;
+    return self.dueDate ? YES : NO;
 }
 
 - (void)setDueDateChecked:(BOOL)dueDateChecked {

@@ -8,7 +8,7 @@
 
 /* General */
 
-"kELDefaultAlertMessage" = "%@. Please try again later.";
+"kELDefaultAlertMessage" = "%@ Please try again later.";
 "kELLogoutAlertMessage" = "Logging out will require the app for your credentials next time.";
 "kELServerMessage" = "Can't connect to server. Please try again later.";
 
