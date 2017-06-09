@@ -38,6 +38,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     
     // Initialization
     self.title = [NSLocalizedString(@"kELDashboardActionInvite", nil) uppercaseString];
+    self.bgView.hidden = self.tabs && self.tabs.count > 0;
 }
 
 - (void)didReceiveMemoryWarning {

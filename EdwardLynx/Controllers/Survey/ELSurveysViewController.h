@@ -14,4 +14,6 @@
 
 @property (nonatomic) BOOL toInvite;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
+
 @end
