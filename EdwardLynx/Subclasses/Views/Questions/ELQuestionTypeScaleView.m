@@ -70,6 +70,11 @@
     
     // Text View
     self.textView.hidden = !isOneToTenWithExplanation;
+    
+    // Update global form values for corresponding question
+    if ([self formValues]) {
+        [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
+    }
 }
 
 #pragma mark - Public Methods
@@ -84,7 +89,8 @@
     option = self.mOptions[self.scaleChoices.selectedSegmentIndex];
     
     return @{@"question": @(_question.objectId),
-             @"answer": (NSNumber *)option.value};
+             @"type": @(_question.answer.type),
+             @"value": (NSNumber *)option.value};
 }
 
 #pragma mark - Getter/Setter Methods
@@ -97,6 +103,12 @@
     _question = question;
     
     [self setupNumberScale];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onScaleChoicesValueChange:(id)sender {
+    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
 }
 
 @end

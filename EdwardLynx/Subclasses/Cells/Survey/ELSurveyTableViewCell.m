@@ -64,7 +64,8 @@
     NSString *dayString;
     NSDate *date = detailsDict[@"date"];
     
-    dayString = date.mt_dayOfMonth < 10 ? [NSString stringWithFormat:@"0%@", @(date.mt_dayOfMonth)] : [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
+    dayString = date.mt_dayOfMonth < 10 ? [NSString stringWithFormat:@"0%@", @(date.mt_dayOfMonth)] :
+                                          [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
     
     // Content
     self.surveyLabel.text = detailsDict[@"title"];

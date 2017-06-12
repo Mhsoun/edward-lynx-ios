@@ -34,6 +34,9 @@
                         <segment title="5"/>
                     </segments>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="onScaleChoicesValueChange:" destination="iN0-l3-epB" eventType="valueChanged" id="kIf-Fm-HXU"/>
+                    </connections>
                 </segmentedControl>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ihh-VR-yln">
                     <rect key="frame" x="0.0" y="40" width="375" height="85"/>
