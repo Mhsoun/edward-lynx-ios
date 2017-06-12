@@ -30,10 +30,11 @@
 }
 
 - (NSMutableAttributedString<Ignore> *)attributedDueDateInfo {
+    NSMutableAttributedString *info;
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:14],
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
-    NSMutableAttributedString *info = [[NSMutableAttributedString alloc] initWithString:self.dueDateInfo
-                                                                            attributes:attributes];
+    
+    info = [[NSMutableAttributedString alloc] initWithString:self.dueDateInfo attributes:attributes];
     
     if ([[info string] isEqualToString:NSLocalizedString(@"kELDashboardDueDateNow", nil)]) {
         [info addAttribute:NSForegroundColorAttributeName
