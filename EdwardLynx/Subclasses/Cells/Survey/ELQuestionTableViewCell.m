@@ -53,7 +53,7 @@
     self.helpText = question.answer.help;
     
     // Check if subview has already been added
-    if (!questionView || [self hasQuestionViewAsSubview]) {
+    if (!questionView || [self hasQuestionViewAsSubview:[questionView class]]) {
         return;
     }
     
@@ -66,9 +66,9 @@
 
 #pragma mark - Private Methods
 
-- (BOOL)hasQuestionViewAsSubview {
+- (BOOL)hasQuestionViewAsSubview:(Class)class {
     for (UIView *subview in self.questionContainerView.subviews) {
-        if ([subview isKindOfClass:[ELBaseQuestionTypeView class]]) {
+        if ([subview isKindOfClass:class]) {
             return YES;
         }
     }

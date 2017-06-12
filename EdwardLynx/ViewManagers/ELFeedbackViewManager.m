@@ -78,9 +78,13 @@
 }
 
 - (BOOL)validateCreateInstantFeedbackFormValues:(NSDictionary *)formDict {
-    NSArray *errors;
+    BOOL isEmpty;
+    NSString *key;
+    NSArray *errors, *options;
     ELFormItemGroup *formFieldGroup;
-    NSString *key = @"question";
+    
+    isEmpty = NO;
+    key = @"question";
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
@@ -91,7 +95,14 @@
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
     }
     
-    return errors.count == 0;
+    key = @"options";
+    
+    if (formDict[key]) {
+        options = formDict[key];
+        isEmpty = options.count == 0;
+    }
+    
+    return errors.count == 0 && !isEmpty;
 }
 
 @end

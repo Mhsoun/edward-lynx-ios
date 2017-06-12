@@ -39,7 +39,7 @@
             return 100;
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
-                    (self.isNA ? kELCustomScaleItemHeight : 0) + kELCustomScaleItemHeight);
+                    (self.isNA ? kELCustomScaleItemHeight : 0));
     }
 }
 

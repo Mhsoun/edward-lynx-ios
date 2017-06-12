@@ -144,7 +144,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Dynamically adjust scroll view based on table view content
     [self updateOptionsTableView];
     [self toggleQuestionTypePreview];
-    [ELUtils scrollViewToBottom:self.scrollView];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -165,7 +164,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 - (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index {
     self.selectedAnswerType = value;
     
-    [self toggleOptionsTable];
+    // Update page
+    [self toggleOptionsTableView];
     [self toggleQuestionTypePreview];
 }
 
@@ -221,7 +221,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     // Custom Scale option
     [self toggleFormAccessibility];
-    [self toggleOptionsTable];
+    [self toggleOptionsTableView];
     
     if (self.instantFeedback.question.answer.type != kELAnswerTypeCustomScale) {
         return;
@@ -244,10 +244,13 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     [self.dropdown setEnabled:editable];
 }
 
-- (void)toggleOptionsTable {
+- (void)toggleOptionsTableView {
+    CGFloat height;
     BOOL isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
     
-    [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
+    height = (kELCellHeight * self.mCustomScaleOptions.count) + kELCellHeight;
+    
+    [self.tableViewHeightConstraint setConstant:isCustomScale ? height : 0];
     [self.tableView updateConstraints];
 }
 
@@ -274,15 +277,11 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
             }
         }
         
-        if (self.isNASwitch.isOn) {
-            [mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
-                                                                     error:nil]];
-        }
-        
+        question.isNA = self.isNASwitch.on;
         question.answer.options = [mOptions copy];
     }
     
-    // Setup QuestionView
+    // Setup ELQuestionView
     questionView = [ELUtils viewByAnswerType:[ELUtils answerTypeByLabel:self.selectedAnswerType]];
     questionView.frame = self.questionPreview.bounds;
     questionView.userInteractionEnabled = NO;
@@ -291,9 +290,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     height = question.answer.options.count == 0 && answerType != kELAnswerTypeText ? kELCellHeight :
                                                                                      question.heightForQuestionView;
     
-    [self.heightConstraint setConstant:height + (CGRectGetHeight(self.questionPreviewLabel.frame) * 1.5)];
-    [self.formView updateConstraints];
-    [self adjustScrollViewContentSize];
+    [self updateQuestionTypePreviewWithHeight:height];
     
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.questionPreview addSubview:questionView];
@@ -305,6 +302,11 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     // Dynamically adjust scroll view based on table view content
     [self adjustScrollViewContentSize];
+}
+
+- (void)updateQuestionTypePreviewWithHeight:(CGFloat)height {
+    [self.heightConstraint setConstant:height + CGRectGetHeight(self.questionPreviewLabel.frame) + 15];
+    [self.questionPreview updateConstraints];
 }
 
 #pragma mark - Interface Builder Actions
@@ -321,6 +323,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid, hasSelection;
+    NSArray *validOptions;
     ELFormItemGroup *questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
                                                                       icon:nil
                                                                 errorLabel:self.questionErrorLabel];
@@ -331,14 +334,21 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
-        [self.mInstantFeedbackDict setObject:[self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)]
-                                      forKey:@"options"];
+        validOptions = [self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)];
+        
+        [self.mInstantFeedbackDict setObject:validOptions forKey:@"options"];
     }
     
     hasSelection = self.dropdown.hasSelection;
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if (validOptions.count == 0) {
+        [ELUtils presentToastAtView:self.view
+                            message:NSLocalizedString(@"kELCustomScaleValidationMessage", nil)
+                         completion:nil];
+    }
     
     if (!(isValid && hasSelection)) {
         return;

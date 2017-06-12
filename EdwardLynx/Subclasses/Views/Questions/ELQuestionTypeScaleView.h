@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scaleChoices;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+- (IBAction)onScaleChoicesValueChange:(id)sender;
 
 @end
