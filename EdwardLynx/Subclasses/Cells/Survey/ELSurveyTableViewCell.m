@@ -61,7 +61,10 @@
 #pragma mark - Private Methods
 
 - (void)configureWithDetails:(NSDictionary *)detailsDict {
+    NSString *dayString;
     NSDate *date = detailsDict[@"date"];
+    
+    dayString = date.mt_dayOfMonth < 10 ? [NSString stringWithFormat:@"0%@", @(date.mt_dayOfMonth)] : [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
     
     // Content
     self.surveyLabel.text = detailsDict[@"title"];
@@ -71,7 +74,7 @@
     
     // UI
     self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][date.mt_monthOfYear - 1] uppercaseString];
-    self.dayLabel.text = [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
+    self.dayLabel.text =  dayString;
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
     self.reactivateLabel.hidden = YES;
