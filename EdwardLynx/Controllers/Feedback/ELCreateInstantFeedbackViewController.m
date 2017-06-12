@@ -245,9 +245,12 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 }
 
 - (void)toggleOptionsTableView {
+    CGFloat height;
     BOOL isCustomScale = [self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]];
     
-    [self.tableViewHeightConstraint setConstant:isCustomScale ? (kELCellHeight * 2) : 0];
+    height = (kELCellHeight * self.mCustomScaleOptions.count) + kELCellHeight;
+    
+    [self.tableViewHeightConstraint setConstant:isCustomScale ? height : 0];
     [self.tableView updateConstraints];
 }
 
@@ -289,10 +292,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     [self updateQuestionTypePreviewWithHeight:height];
     
-    if (answerType == kELAnswerTypeCustomScale) {
-        [self adjustScrollViewContentSize];
-    }
-    
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.questionPreview addSubview:questionView];
     [self.questionPreview.subviews makeObjectsPerformSelector:@selector(setNeedsDisplay)];
@@ -324,6 +323,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 - (IBAction)onInviteButtonClick:(id)sender {
     BOOL isValid, hasSelection;
+    NSArray *validOptions;
     ELFormItemGroup *questionGroup = [[ELFormItemGroup alloc] initWithText:self.questionTextView.text
                                                                       icon:nil
                                                                 errorLabel:self.questionErrorLabel];
@@ -334,14 +334,21 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                                                                                 @"isNA": @(self.isNASwitch.on)}];
     
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
-        [self.mInstantFeedbackDict setObject:[self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)]
-                                      forKey:@"options"];
+        validOptions = [self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)];
+        
+        [self.mInstantFeedbackDict setObject:validOptions forKey:@"options"];
     }
     
     hasSelection = self.dropdown.hasSelection;
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
+    
+    if (validOptions.count == 0) {
+        [ELUtils presentToastAtView:self.view
+                            message:NSLocalizedString(@"kELCustomScaleValidationMessage", nil)
+                         completion:nil];
+    }
     
     if (!(isValid && hasSelection)) {
         return;

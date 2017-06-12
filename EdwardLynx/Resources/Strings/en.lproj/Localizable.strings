@@ -288,6 +288,7 @@
 /* Validations */
 
 "kELAnswerTypeValidationMessage" = "No Answer type selected";
+"kELCustomScaleValidationMessage" = "Custom scale input is required";
 "kELGoalActionsValidationMessage" = "No Actions added";
 "kELGoalCategoryValidationMessage" = "No Category selected";
 "kELGoalCategoriesValidationMessage" = "No Categories available";
