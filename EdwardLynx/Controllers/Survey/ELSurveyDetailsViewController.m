@@ -71,8 +71,9 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELQuestion *question = self.category.questions[indexPath.row];
+    ELQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+                                                                    forIndexPath:indexPath];
     
     [cell configure:question atIndexPath:indexPath];
     [cell setUserInteractionEnabled:self.survey.status != kELSurveyStatusCompleted];
