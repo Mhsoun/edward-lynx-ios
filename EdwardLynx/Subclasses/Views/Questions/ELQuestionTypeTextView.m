@@ -27,8 +27,7 @@
 #pragma mark - Protocol Methods (UITextView)
 
 - (void)textViewDidChange:(UITextView *)textView {
-    [AppSingleton.mSurveyFormDict setObject:[self formValues]
-                                     forKey:@(_question.objectId)];
+    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
 }
 
 #pragma mark - Public Methods
@@ -46,11 +45,15 @@
 }
 
 - (void)setQuestion:(ELQuestion *)question {
+    NSDictionary *formValues;
+    
     _question = question;
     
     // Populate question answer
-    if (_question.value && _question.value.length > 0) {
-        self.textView.text = _question.value;
+    formValues = [AppSingleton.mSurveyFormDict objectForKey:@(_question.objectId)];
+    
+    if (formValues) {
+        self.textView.text = formValues[@"value"];
     }
 }
 

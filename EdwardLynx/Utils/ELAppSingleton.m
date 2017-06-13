@@ -38,20 +38,20 @@
     self.needsPageReload = NO;
     self.searchText = @"";
     self.mSurveyFormDict = [[NSMutableDictionary alloc] init];
-    self.validationDict = @{@"com.REValidation.presence": @"%@ can't be blank.",
-                            @"com.REValidation.email": @"%@ is not a valid email."};
+    self.validationDict = @{@"com.REValidation.email": NSLocalizedString(@"kELREValidationEmailMessage", nil),
+                            @"com.REValidation.presence": NSLocalizedString(@"kELREValidationPresenceMessage", nil)};
     
     self.apiDateFormatter = [[NSDateFormatter alloc] init];
     self.printDateFormatter = [[NSDateFormatter alloc] init];
     self.apiDateFormatter.dateFormat = kELAPIDateFormat;
     self.apiDateFormatter.timeZone = [NSTimeZone systemTimeZone];
     self.apiDateFormatter.locale = [NSLocale systemLocale];
+    self.printDateFormatter.dateFormat = kELPrintDateFormat;
     
     self.loadingAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELProcessingLabel", nil)
                                                             message:nil
                                                      preferredStyle:UIAlertControllerStyleAlert];
     self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    self.printDateFormatter.dateFormat = kELPrintDateFormat;
     
     return self;
 }
