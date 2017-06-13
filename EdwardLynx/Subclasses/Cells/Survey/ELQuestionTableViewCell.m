@@ -34,6 +34,13 @@
                           forState:UIControlStateNormal];
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    // Clear question view
+    [self.questionContainerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

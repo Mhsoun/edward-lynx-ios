@@ -34,21 +34,15 @@
 
 - (void)setupNumberScale {
     NSInteger index;
+    NSDictionary *formValues;
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
     BOOL isOneToTen = _question.answer.type != kELAnswerTypeOneToFiveScale;
     BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
     UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:isOneToTen ? 10.0f : 13.0f];
     
-    self.mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
-    
     // Segmented Control
     [self.scaleChoices removeAllSegments];
     [self.scaleChoices setTitleTextAttributes:@{NSFontAttributeName: font} forState:UIControlStateNormal];
-    
-    if (_question.isNA) {
-        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
-                                                                 error:nil]];
-    }
     
     for (int i = 0; i < [self.mOptions count]; i++) {
         ELAnswerOption *option = self.mOptions[i];
@@ -61,20 +55,19 @@
     [self.topConstraint setConstant:!isOneToTenWithExplanation ? 25 : 0];
     [self.scaleChoices updateConstraints];
     
-    // Populate question answer
-    if ([_question.value integerValue] > -1) {
-        index = [_question.value integerValue];
-        
-        [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
-    }
-    
     // Text View
     self.textView.hidden = !isOneToTenWithExplanation;
     
-    // Update global form values for corresponding question
-    if ([self formValues]) {
-        [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
+    // Populate question answer
+    formValues = [AppSingleton.mSurveyFormDict objectForKey:@(_question.objectId)];
+    
+    if (!formValues) {
+        return;
     }
+    
+    index = [formValues[@"value"] integerValue] == -1 ? self.mOptions.count : [formValues[@"value"] integerValue];
+    
+    [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
 }
 
 #pragma mark - Public Methods
@@ -101,6 +94,12 @@
 
 - (void)setQuestion:(ELQuestion *)question {
     _question = question;
+    self.mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
+    
+    if (_question.isNA) {
+        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
+                                                                      error:nil]];
+    }
     
     [self setupNumberScale];
 }

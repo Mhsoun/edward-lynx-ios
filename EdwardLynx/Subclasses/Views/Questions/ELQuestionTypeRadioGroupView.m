@@ -36,6 +36,7 @@
 #pragma mark - Private Methods
 
 - (void)setupRadioGroup {
+    NSDictionary *formValues = [AppSingleton.mSurveyFormDict objectForKey:@(_question.objectId)];
     NSMutableArray *mRadioButtons = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.mOptions.count; i++) {
@@ -45,7 +46,7 @@
         data.identifier = [NSString stringWithFormat:@"%@", (NSNumber *)option.value];
         
         if (!_question.optional) {
-            data.selected = _question.value ? [_question.value isEqualToString:data.identifier] : NO;
+            data.selected = formValues ? [formValues[@"value"] isEqualToString:data.identifier] : NO;
         } else {
             data.selected = NO;
         }
@@ -70,12 +71,7 @@
     
     [self.group create];
     [self.radioGroupView addSubview:self.group];
-    
-    // Update global form values for corresponding question
-    if ([self formValues]) {
-        [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
-    }
-    
+        
     // Notification to handle selection changes
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onSelectionUpdate:)
@@ -92,7 +88,7 @@
     
     return @{@"question": @(_question.objectId),
              @"type": @(_question.answer.type),
-             @"value": @([self.group.selectedRadioButton.data.identifier integerValue])};
+             @"value": self.group.selectedRadioButton.data.identifier};
 }
 
 #pragma mark - Getter/Setter Methods
