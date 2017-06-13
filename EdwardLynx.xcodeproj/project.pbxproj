@@ -294,6 +294,7 @@
 		A92B266C1EEFA033007858B6 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A92B26711EEFA033007858B6 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A92B26791EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
+		A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
 		A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
@@ -644,6 +645,8 @@
 		A92B26761EEFA033007858B6 /* EdwardLynxIngenuity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxIngenuity-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxIngenuity-Info.plist"; sourceTree = "<absolute>"; };
 		A92B26771EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+CustomNSDate.h"; sourceTree = "<group>"; };
 		A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+CustomNSDate.m"; sourceTree = "<group>"; };
+		A92B267A1EEFB1F1007858B6 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF01DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1638,6 +1641,8 @@
 			children = (
 				A92B26771EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.h */,
 				A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */,
+				A92B267A1EEFB1F1007858B6 /* NSDate+Utils.h */,
+				A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */,
 				A9DB71101EDEDC11006BA0AE /* NSString+HTML.h */,
 				A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */,
 			);
@@ -2324,6 +2329,7 @@
 				A99EC4351EDE9B0D001A99F6 /* ELAnswerSummary.m in Sources */,
 				A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */,
 				A91312461E8642D30042C91F /* ELCreateDevelopmentPlanViewController.m in Sources */,
+				A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */,
 				A97C29831E8B8CC300EBC5CE /* ELGoalAction.m in Sources */,
 				A913121A1E8642D30042C91F /* ELDevelopmentPlanAPIClient.m in Sources */,
 				A913128C1E8642D30042C91F /* ELAddObjectTableViewCell.m in Sources */,
