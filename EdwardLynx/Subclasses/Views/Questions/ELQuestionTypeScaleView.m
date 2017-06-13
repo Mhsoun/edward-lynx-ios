@@ -68,6 +68,7 @@
     index = [formValues[@"value"] integerValue] == -1 ? self.mOptions.count : [formValues[@"value"] integerValue];
     
     [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
+    [self.textView setText:formValues[@"explanation"]];
 }
 
 #pragma mark - Public Methods
@@ -83,7 +84,8 @@
     
     return @{@"question": @(_question.objectId),
              @"type": @(_question.answer.type),
-             @"value": (NSNumber *)option.value};
+             @"value": (NSNumber *)option.value,
+             @"explanation": self.textView.text};
 }
 
 #pragma mark - Getter/Setter Methods

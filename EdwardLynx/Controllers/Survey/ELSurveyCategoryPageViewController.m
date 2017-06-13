@@ -216,8 +216,9 @@
                     }
                     
                     [AppSingleton.mSurveyFormDict setObject:@{@"question": @(question.objectId),
+                                                              @"type": @(question.answer.type),
                                                               @"value": question.value,
-                                                              @"type": @(question.answer.type)}
+                                                              @"explanation": question.explanation}
                                                      forKey:@(question.objectId)];
                 }
             }

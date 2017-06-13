@@ -19,6 +19,7 @@
 @property (nonatomic) BOOL optional;
 @property (nonatomic) BOOL isFollowUpQuestion;
 @property (nonatomic) ELAnswer *answer;
+@property (nonatomic) NSString<Optional> *explanation;
 @property (nonatomic) NSString<Optional> *value;
 
 @property (nonatomic) NSString *text;
