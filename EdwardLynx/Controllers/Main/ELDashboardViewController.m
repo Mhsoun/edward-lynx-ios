@@ -219,9 +219,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     // NOTE Removed ads section for now
-//    return section != [self.dashboardData sections].count - 1 ? 0 : kELAdsViewHeight;
+//    return section != [self.dashboardData sections].count - 1 ? CGFLOAT_MIN : kELAdsViewHeight;
     
-    return 0;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
