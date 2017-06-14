@@ -126,7 +126,7 @@
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     chartData.barWidth = 0.9f;
     
-    visibleCount = 10;
+    visibleCount = 15;
     
     self.barChart.chartDescription.enabled = NO;
     self.barChart.doubleTapToZoomEnabled = NO;
