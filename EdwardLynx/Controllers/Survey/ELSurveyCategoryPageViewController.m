@@ -79,9 +79,12 @@
     
     if ((self.survey && self.survey.key) &&
         (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
-        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
-                                                                            @"final": @(NO),
-                                                                            @"answers": [self formItems]}];
+        return;
+
+        // NOTE Save to draft on back
+//        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
+//                                                                            @"final": @(NO),
+//                                                                            @"answers": [self formItems]}];
     }
     
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
@@ -218,7 +221,7 @@
                     [AppSingleton.mSurveyFormDict setObject:@{@"question": @(question.objectId),
                                                               @"type": @(question.answer.type),
                                                               @"value": question.value,
-                                                              @"explanation": question.explanation}
+                                                              @"explanation": !question.explanation ? @"" : question.explanation}
                                                      forKey:@(question.objectId)];
                 }
             }
