@@ -106,27 +106,35 @@
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < devPlan.goals.count; i++) {
-        double progress;
-        NSString *colorKey;
-        ELGoal *goal = devPlan.goals[i];
-
-        progress = [[goal progressDetails][@"value"] doubleValue];
-        colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
+    if (devPlan.goals.count > 0) {
+        for (int i = 0; i < devPlan.goals.count; i++) {
+            double progress;
+            NSString *colorKey;
+            ELGoal *goal = devPlan.goals[i];
+            
+            progress = [[goal progressDetails][@"value"] doubleValue];
+            colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
+            
+            [mColors addObject:ThemeColor(colorKey)];
+            [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+            [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
+        }
         
-        [mColors addObject:ThemeColor(colorKey)];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
-        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
+        chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
+        chartDataSet.colors = [mColors copy];
+        chartDataSet.drawValuesEnabled = NO;
+    } else {
+        [mLabels addObject:@""];
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:0.0 y:0.0]];
+        
+        chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
+        chartDataSet.drawValuesEnabled = NO;
     }
-    
-    chartDataSet = [[BarChartDataSet alloc] initWithValues:[mEntries copy] label:@"Dev Plan"];
-    chartDataSet.colors = [mColors copy];
-    chartDataSet.drawValuesEnabled = NO;
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
     chartData.barWidth = 0.9f;
     
-    visibleCount = 10;
+    visibleCount = 15;
     
     self.barChart.chartDescription.enabled = NO;
     self.barChart.doubleTapToZoomEnabled = NO;
@@ -150,7 +158,7 @@
     self.barChart.xAxis.axisLineColor = [UIColor blackColor];
     self.barChart.xAxis.drawGridLinesEnabled = NO;
     self.barChart.xAxis.granularity = 1;
-    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     self.barChart.xAxis.labelCount = [mLabels count];
     self.barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     self.barChart.xAxis.labelTextColor = [UIColor whiteColor];

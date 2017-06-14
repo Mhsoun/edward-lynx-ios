@@ -86,6 +86,14 @@
     }
 }
 
+- (void)sendSearchTextToNotification:(NSString *)searchText {
+    AppSingleton.searchText = searchText;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kELTabPageSearchNotification
+                                                        object:self
+                                                      userInfo:@{@"search": searchText}];
+}
+
 - (void)setupButtonBarView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
@@ -162,11 +170,7 @@
 #pragma mark - Protocol Methods (UISearchBar)
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    AppSingleton.searchText = searchText;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kELTabPageSearchNotification
-                                                        object:self
-                                                      userInfo:@{@"search": searchText}];
+    [self sendSearchTextToNotification:searchText];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -179,6 +183,11 @@
     [searchBar setText:@""];
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar endEditing:YES];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    [self sendSearchTextToNotification:searchBar.text];
 }
 
 #pragma mark - Protocol Methods (XLButtonBarPagerTabStripViewController)

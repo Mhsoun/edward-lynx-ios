@@ -48,7 +48,7 @@ static NSString * const kELDetailsSegueIdentifier = @"DevelopmentPlanDetail";
     if ([segue.identifier isEqualToString:kELDetailsSegueIdentifier]) {
         ELDevelopmentPlanDetailsViewController *controller = (ELDevelopmentPlanDetailsViewController *)[segue destinationViewController];
         
-        controller.devPlan = self.selectedDevPlan;
+        controller.objectId = self.selectedDevPlan.objectId;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         

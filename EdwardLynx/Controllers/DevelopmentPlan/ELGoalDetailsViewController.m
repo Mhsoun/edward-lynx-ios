@@ -423,7 +423,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     int64_t categoryId;
-    BOOL isValid, hasSelection;
+    BOOL isValid,
+         hasSelection,
+         noActions;
     NSMutableDictionary *mFormItems, *mGoalDict;
     NSString *dateString = @"";
     NSMutableArray *mActions = [[NSMutableArray alloc] init];
@@ -433,11 +435,12 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     categoryId = -1;
     hasSelection = YES;
+    noActions = self.mActions.count == 0;
     
     [self.mActions removeObject:@""];
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
-    if (self.mActions.count == 0 && !self.withAPIProcess) {
+    if (noActions) {
         [ELUtils presentToastAtView:self.view
                             message:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
                          completion:nil];
@@ -466,7 +469,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     isValid = [self.viewManager validateAddGoalFormValues:[mFormItems copy]];
     
-    if (!(isValid && hasSelection)) {
+    if (!isValid || (self.categorySwitch.isOn && !hasSelection) || noActions) {
         return;
     }
     
