@@ -105,7 +105,7 @@
     NSMutableArray *mColors = [[NSMutableArray alloc] init];
     NSMutableArray *mLabels = [[NSMutableArray alloc] init];
     NSMutableArray<BarChartDataEntry *> *mEntries = [[NSMutableArray alloc] init];
-    
+        
     for (int i = 0; i < devPlan.goals.count; i++) {
         double progress;
         NSString *colorKey;
@@ -150,7 +150,7 @@
     self.barChart.xAxis.axisLineColor = [UIColor blackColor];
     self.barChart.xAxis.drawGridLinesEnabled = NO;
     self.barChart.xAxis.granularity = 1;
-    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
     self.barChart.xAxis.labelCount = [mLabels count];
     self.barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     self.barChart.xAxis.labelTextColor = [UIColor whiteColor];
