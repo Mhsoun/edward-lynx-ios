@@ -315,7 +315,10 @@
                                       colorKey:kELGreenColor];
     chartDataSet.colors = [mColors copy];
     chartDataSet.valueColors = [mColors copy];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                             ChartDataEntry * _Nonnull entry,
+                                                                                             NSInteger i,
+                                                                                             ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
         return Format(@"%@", @(percentage));
@@ -454,7 +457,10 @@
                                       colorKey:kELGreenColor];
     chartDataSet.colors = [mColors copy];
     chartDataSet.valueColors = [mColors copy];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                             ChartDataEntry * _Nonnull entry,
+                                                                                             NSInteger i,
+                                                                                             ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
         return Format(@"%@", @(percentage));
@@ -489,7 +495,10 @@
     chartDataSet = [self chartDataSetWithTitle:@""
                                          items:[mEntries copy]
                                       colorKey:kELLynxColor];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                             ChartDataEntry * _Nonnull entry,
+                                                                                             NSInteger i,
+                                                                                             ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
         return Format(@"%@", @(percentage));
@@ -572,7 +581,10 @@
                                       colorKey:kELGreenColor];
     chartDataSet.colors = [mColors copy];
     chartDataSet.valueColors = [mColors copy];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                             ChartDataEntry * _Nonnull entry,
+                                                                                             NSInteger i,
+                                                                                             ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
         return Format(@"%@", @(percentage));
@@ -780,7 +792,10 @@
     chartDataSet.colors = [mColors copy];
     chartDataSet.drawValuesEnabled = NO;
     chartDataSet.valueColors = [mColors copy];
-    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                             ChartDataEntry * _Nonnull entry,
+                                                                                             NSInteger i,
+                                                                                             ChartViewPortHandler * _Nullable handler) {
         return Format(@"%@", @(value));
     }];
     
@@ -854,7 +869,10 @@
     self.pieChart.drawEntryLabelsEnabled = NO;
     self.pieChart.drawHoleEnabled = NO;
     
-    self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
+    self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value,
+                                                                                                      ChartDataEntry * _Nonnull entry,
+                                                                                                      NSInteger i,
+                                                                                                      ChartViewPortHandler * _Nullable handler) {
         return Format(@"%@%%", @(value));
     }];
     

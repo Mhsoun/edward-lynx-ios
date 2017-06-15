@@ -43,7 +43,9 @@ static NSString * const kELApplicationJSON = @"application/json";
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSURLSessionDataTask *dataTask = [AppSingleton.manager dataTaskWithRequest:request
-                                                             completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                                                             completionHandler:^(NSURLResponse *response,
+                                                                                 id responseObject,
+                                                                                 NSError *error) {
         NSString *errorMessage;
         UIAlertController *alertController;
         __kindof UIViewController *visibleViewController;

@@ -38,7 +38,9 @@
     
     __weak typeof(self) weakSelf = self;
     
-    self.requestCompletionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    self.requestCompletionBlock = ^(NSURLResponse *response,
+                                    NSDictionary *responseDict,
+                                    NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [weakSelf.delegate onAPIPostResponseError:error.userInfo];

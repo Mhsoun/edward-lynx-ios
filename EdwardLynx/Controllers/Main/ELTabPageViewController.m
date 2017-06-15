@@ -45,18 +45,18 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onInstantFeedbackTab:)
-                                                 name:kELInstantFeedbackTabNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onInstantFeedbackTab:)
+                               name:kELInstantFeedbackTabNotification
+                             object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kELInstantFeedbackTabNotification
-                                                  object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELInstantFeedbackTabNotification
+                                object:nil];
 }
 
 - (void)dealloc {
@@ -89,9 +89,9 @@
 - (void)sendSearchTextToNotification:(NSString *)searchText {
     AppSingleton.searchText = searchText;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kELTabPageSearchNotification
-                                                        object:self
-                                                      userInfo:@{@"search": searchText}];
+    [NotificationCenter postNotificationName:kELTabPageSearchNotification
+                                      object:self
+                                    userInfo:@{@"search": searchText}];
 }
 
 - (void)setupButtonBarView {

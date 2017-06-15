@@ -67,8 +67,7 @@
     }
     
     // Close Notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:kELPopupCloseNotification object:nil];
-    
+    [NotificationCenter postNotificationName:kELPopupCloseNotification object:nil];    
     [self.controller dismissPopupViewControllerAnimated:YES completion:nil];
 }
 

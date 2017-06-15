@@ -63,10 +63,10 @@
     self.detailViewManager.delegate = self;
     
     // Register observer for notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onClosePopup:)
-                                                 name:kELPopupCloseNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onClosePopup:)
+                               name:kELPopupCloseNotification
+                             object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,9 +89,9 @@
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Remove observer
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kELPopupCloseNotification
-                                                  object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELPopupCloseNotification
+                                object:nil];
 }
 
 - (void)dealloc {

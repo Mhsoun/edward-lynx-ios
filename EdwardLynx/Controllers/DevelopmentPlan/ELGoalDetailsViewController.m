@@ -264,7 +264,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
                                                     preferredStyle:UIAlertControllerStyleAlert];
-    self.updateAction = [UIAlertAction actionWithTitle:@"Update" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateLabel", nil)
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action) {
         // TODO
     }];
     self.updateAction.enabled = NO;

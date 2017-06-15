@@ -234,7 +234,9 @@
             } else {
                 [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                               deviceId:deviceId
-                                                        withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                                        withCompletion:^(NSURLResponse *response,
+                                                                         NSDictionary *responseDict,
+                                                                         NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (!error) {
                             DLog(@"Device registered for notifications.");
@@ -246,7 +248,9 @@
     } else {
         [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                       deviceId:deviceId
-                                                withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                                withCompletion:^(NSURLResponse *response,
+                                                                 NSDictionary *responseDict,
+                                                                 NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!error) {
                     DLog(@"Device registered for notifications.");
@@ -426,7 +430,9 @@
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:nil
-                                      completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                      completion:^(NSURLResponse *response,
+                                                   NSDictionary *responseDict,
+                                                   NSError *error) {
         if (error.code == kELAPINotFoundStatusCode) {
             NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
             NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
@@ -504,10 +510,10 @@
     DLog(@"Firebase token: %@", self.firebaseToken);
     
     // Observer for Token refresh
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(tokenRefreshNotification:)
-                                                 name:kFIRInstanceIDTokenRefreshNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(tokenRefreshNotification:)
+                               name:kFIRInstanceIDTokenRefreshNotification
+                             object:nil];
 }
 
 - (void)tokenRefreshNotification:(NSNotification *)notification {

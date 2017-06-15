@@ -40,6 +40,7 @@
 "kELProcessingLabel" = "Processing...";
 "kELSortLabel" = "Sort";
 "kELSortByLabel" = "Sort By";
+"kELUpdateLabel" = "Update";
 
 "kELDetailsPageLoadError" = "Failed to load details";
 "kELPostMethodError" = "Failed to process request";

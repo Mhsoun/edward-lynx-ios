@@ -151,10 +151,10 @@
     [self.radioGroupView addSubview:self.radioGroup];
     
     // Notification to handle selection changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onGenderTypeGroupUpdate:)
-                                                 name:SELECTED_RADIO_BUTTON_CHANGED
-                                               object:self.radioGroup];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGenderTypeGroupUpdate:)
+                               name:SELECTED_RADIO_BUTTON_CHANGED
+                             object:self.radioGroup];
 }
 
 #pragma mark - Private Methods

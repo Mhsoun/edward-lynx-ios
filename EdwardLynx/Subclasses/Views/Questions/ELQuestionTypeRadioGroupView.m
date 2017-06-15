@@ -73,10 +73,10 @@
     [self.radioGroupView addSubview:self.group];
         
     // Notification to handle selection changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onSelectionUpdate:)
-                                                 name:SELECTED_RADIO_BUTTON_CHANGED
-                                               object:self.group];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onSelectionUpdate:)
+                               name:SELECTED_RADIO_BUTTON_CHANGED
+                             object:self.group];
 }
 
 #pragma mark - Public Methods

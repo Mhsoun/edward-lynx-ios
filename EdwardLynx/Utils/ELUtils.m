@@ -137,7 +137,9 @@
 #pragma mark - API Helper Methods
 
 + (void)processReauthenticationWithCompletion:(void (^)(NSError *error))completion {
-    [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELUsersAPIClient alloc] init] reauthenticateWithCompletion:^(NSURLResponse *response,
+                                                                    NSDictionary *responseDict,
+                                                                    NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 completion(error);

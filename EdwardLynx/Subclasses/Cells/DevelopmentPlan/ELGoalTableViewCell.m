@@ -120,7 +120,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     
     goalAction = mActions[indexPath.row];
     cell = [tableView cellForRowAtIndexPath:indexPath];
-    completionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    completionBlock = ^(NSURLResponse *response,
+                        NSDictionary *responseDict,
+                        NSError *error) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
         
         if (error) {

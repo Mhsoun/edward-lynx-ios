@@ -315,7 +315,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (void)loadDashboardData {
     __weak typeof(self) weakSelf = self;
     
-    [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response,
+                                                                   NSDictionary *responseDict,
+                                                                   NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *dict = responseDict;
             

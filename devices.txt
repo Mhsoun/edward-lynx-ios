@@ -7,8 +7,9 @@ E32426097A774976853C91697AB4751852B02CE7	Edward Lynx - Larisa Turculet
 3eca0f028f2aca40e9d7d2f2c46bef1b1db76d1b	Edward Lynx - Noxy Midonzi
 7617327EF2206934983877BC59177AD96BDBFE3E	Edward Lynx - Ola Wretling
 3564849fa318f1f22ca85a03b4adf3f9089a4033	Edward Lynx - Lorena Mandi
-FFFFFFFFF937490A624644A379F07C54A4BBB9ECF	Edward Lynx - Marianne Taflin
-C4DCC6A4F103364FBF6366AEB6D80B9A3FDF5C94	Edward Lynx - soderlund@edwardlynx.com
+FFFFFFFF937490A624644A379F07C54A4BBB9ECF	Edward Lynx - Marianne Taflin
+FFFFFFFFD84D646094424D648C72617CFD923CCF	Edward Lynx - Lina Vettegard
+FFFFFFFF845A095447FD44BC96E251BC8456BE74	Edward Lynx - soderlund@edwardlynx.com
 67cc935d788126d68d6aef32f399609da9b0d140	Edward Lynx - ericsson@edwardlynx.com
 70c6fff204963b2b4747c5edaf99d0f0aa2f8cd6	Edward Lynx - alexandr@edwardlynx.com
 aff81102b4f19a98a3f82bb51eb5086794993ae4	Ingenuity - iPhone 6
