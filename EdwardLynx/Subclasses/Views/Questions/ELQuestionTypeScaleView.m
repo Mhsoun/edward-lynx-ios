@@ -38,7 +38,7 @@
     BOOL isYesOrNo = _question.answer.type == kELAnswerTypeYesNoScale;
     BOOL isOneToTen = _question.answer.type != kELAnswerTypeOneToFiveScale;
     BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
-    UIFont *font = [UIFont fontWithName:@"Lato-Regular" size:isOneToTen ? 10.0f : 13.0f];
+    UIFont *font = Font(@"Lato-Regular", isOneToTen ? 10.0f : 13.0f);
     
     // Segmented Control
     [self.scaleChoices removeAllSegments];

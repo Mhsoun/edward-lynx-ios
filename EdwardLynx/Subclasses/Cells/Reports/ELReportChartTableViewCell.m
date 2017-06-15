@@ -145,7 +145,7 @@
     dataSet.colors = @[color];
     dataSet.highlightEnabled = NO;
     dataSet.valueColors = @[color];
-    dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    dataSet.valueFont = Font(@"Lato-Regular", 10.0f);
     dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
     
     return dataSet;
@@ -153,8 +153,8 @@
 
 - (BarChartView *)configureBarChart:(BarChartView *)barChart {
     double axisMax, axisMin;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *dataFont = Font(@"Lato-Regular", 12.0f);
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     
     axisMax = 1.0f, axisMin = 0.0f;
     
@@ -206,8 +206,8 @@
 
 - (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
     double axisMax, axisMin;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *dataFont = Font(@"Lato-Regular", 12.0f);
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     
     axisMax = 1.0f, axisMin = 0.0f;
     
@@ -278,7 +278,7 @@
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     BarChartDataEntry *entry;
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     ELBlindspot *blindspot = [[ELBlindspot alloc] initWithDictionary:data error:nil];
     
     // Content
@@ -379,7 +379,7 @@
         blindspot.answerType.type == kELAnswerTypeCustomScale ||
         blindspot.answerType.type == kELAnswerTypeInvertedAgreementScale ||
         blindspot.answerType.type == kELAnswerTypeStrongAgreeementScale) {
-        labelFont = [UIFont fontWithName:@"Lato-Regular" size:8.5f];
+        labelFont = Font(@"Lato-Regular", 8.5f);
         
         self.horizontalBarChart.rightAxis.labelFont = labelFont;
     }
@@ -533,7 +533,7 @@
     BarChartData *chartData;
     BarChartDataSet *chartDataSet;
     BarChartDataEntry *entry;
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     ELQuestionRate *rate = [[ELQuestionRate alloc] initWithDictionary:data error:nil];
     
     // Content
@@ -637,7 +637,7 @@
         rate.answerType.type == kELAnswerTypeCustomScale ||
         rate.answerType.type == kELAnswerTypeInvertedAgreementScale ||
         rate.answerType.type == kELAnswerTypeStrongAgreeementScale) {
-        labelFont = [UIFont fontWithName:@"Lato-Regular" size:8.5f];
+        labelFont = Font(@"Lato-Regular", 8.5f);
 
         self.horizontalBarChart.rightAxis.labelFont = labelFont;
     }
@@ -662,7 +662,7 @@
     RadarChartData *chartData;
     RadarChartDataSet *chartDataSet;
     RadarChartDataEntry *entry;
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     
     axisMin = 0.0f;
     
@@ -821,8 +821,8 @@
 - (void)setupYesOrNoChartWithData:(NSDictionary *)data {
     PieChartDataEntry *entry;
     PieChartDataSet *chartDataSet;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *dataFont = Font(@"Lato-Regular", 12.0f);
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     NSMutableArray *mEntries = [[NSMutableArray alloc] init];
     ELYesNoData *yesNoData = [[ELYesNoData alloc] initWithDictionary:data error:nil];
     

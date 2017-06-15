@@ -56,7 +56,7 @@
     NSInteger completedGoals;
     NSString *format;
     NSMutableAttributedString *infoString;
-    NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:12.0f],
+    NSDictionary *attributesDict = @{NSFontAttributeName: Font(@"Lato-Bold", 12.0f),
                                      NSForegroundColorAttributeName: ThemeColor(kELOrangeColor)};
     
     completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.progress == 1"]] count];
@@ -67,7 +67,7 @@
                        value:[UIColor whiteColor]
                        range:[format rangeOfString:@"completed"]];
     [infoString addAttribute:NSFontAttributeName
-                       value:[UIFont fontWithName:@"Lato-Regular" size:12.0f]
+                       value:Font(@"Lato-Regular", 12.0f)
                        range:[format rangeOfString:@"completed"]];
     
     return infoString;

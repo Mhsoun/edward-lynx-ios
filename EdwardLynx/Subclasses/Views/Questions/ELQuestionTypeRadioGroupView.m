@@ -52,7 +52,7 @@
         }
         
         data.labelText = option.shortDescription;
-        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+        data.labelFont = Font(@"Lato-Regular", 14.0f);
         data.labelColor = [UIColor whiteColor];
         
         data.borderColor = [UIColor whiteColor];

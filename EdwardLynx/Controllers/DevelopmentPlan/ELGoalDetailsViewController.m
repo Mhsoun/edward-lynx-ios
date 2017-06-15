@@ -293,7 +293,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
-                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
+                                           attributes:@{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
 

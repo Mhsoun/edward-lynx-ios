@@ -95,7 +95,7 @@
         
         // Appearance
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
+        label.font = Font(@"HelveticaNeue", 18.0f);
         label.text = [self.mOptions[row] shortDescription];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];

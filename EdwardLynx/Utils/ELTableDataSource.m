@@ -93,7 +93,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = self.emptyText;
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18],
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 18.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -107,7 +107,7 @@
     paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;    
-    attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
+    attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                    NSForegroundColorAttributeName: [UIColor whiteColor],
                    NSParagraphStyleAttributeName: paragraph};
     

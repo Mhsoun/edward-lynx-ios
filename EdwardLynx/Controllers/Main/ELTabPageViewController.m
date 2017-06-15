@@ -104,7 +104,7 @@
                                                     BOOL changeCurrentIndex,
                                                     BOOL animated) {
         if (changeCurrentIndex) {
-            UIFont *font = [UIFont fontWithName:@"Lato-Bold" size:13];
+            UIFont *font = Font(@"Lato-Bold", 13.0f);
             
             [oldCell.label setFont:font];
             [newCell.label setFont:font];

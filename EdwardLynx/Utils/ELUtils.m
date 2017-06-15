@@ -239,7 +239,7 @@
     chart.strokeColor = ThemeColor(kELOrangeColor);
     chart.current = [NSNumber numberWithFloat:(developmentPlan.progress * 100)];
     
-    chart.countingLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20.0f];
+    chart.countingLabel.font = Font(@"Lato-Bold", 20.0f);
     chart.countingLabel.textColor = [UIColor whiteColor];
 }
 
@@ -604,7 +604,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:ThemeColor(kELHeaderColor)];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0],
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: Font(@"HelveticaNeue-Bold", 14.0f),
                                                            NSForegroundColorAttributeName: [UIColor whiteColor]}];
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
                                       forBarPosition:UIBarPositionAny

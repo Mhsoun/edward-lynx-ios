@@ -38,7 +38,7 @@
     [self addSubview:lineView];
     
     // Text Field
-    font = [UIFont fontWithName:@"Lato-Regular" size:16];
+    font = Font(@"Lato-Regular", 16.0f);
     searchTextField = [self valueForKey:@"_searchField"];
     
     [searchTextField setFont:font];

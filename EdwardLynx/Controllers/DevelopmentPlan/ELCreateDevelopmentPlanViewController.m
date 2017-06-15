@@ -106,7 +106,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     UITableViewCell *cell;
     ELGoal *goal = self.mGoals[indexPath.row];
     NSString *title = Format(@"%@. %@", @(indexPath.row + 1), goal.title);
-    NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:16.0f]};
+    NSDictionary *attributesDict = @{NSFontAttributeName: Font(@"Lato-Regular", 16.0f)};
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:title
                                                                                        attributes:attributesDict];
     
@@ -223,7 +223,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELGoalsValidationMessage", nil)
-                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
+                                           attributes:@{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
 

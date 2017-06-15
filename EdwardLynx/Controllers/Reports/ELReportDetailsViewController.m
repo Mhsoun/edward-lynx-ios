@@ -158,7 +158,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     dataSet = [[BarChartDataSet alloc] initWithValues:items label:title];
     dataSet.colors = @[ThemeColor(colorKey)];
     dataSet.highlightEnabled = NO;
-    dataSet.valueFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    dataSet.valueFont = Font(@"Lato-Regular", 10.0f);
     dataSet.valueFormatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:formatter];
     dataSet.valueTextColor = ThemeColor(colorKey);
     
@@ -239,8 +239,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 - (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
     double axisMax, axisMin;
     ChartLimitLine *limitLine;
-    UIFont *dataFont = [UIFont fontWithName:@"Lato-Regular" size:12];
-    UIFont *labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    UIFont *dataFont = Font(@"Lato-Regular", 12.0f);
+    UIFont *labelFont = Font(@"Lato-Regular", 10.0f);
     
     axisMax = 1.0f, axisMin = 0.0f;
     

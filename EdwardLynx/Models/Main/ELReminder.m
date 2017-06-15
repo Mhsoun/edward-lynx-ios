@@ -31,7 +31,7 @@
 
 - (NSMutableAttributedString<Ignore> *)attributedDueDateInfo {
     NSMutableAttributedString *info;
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:14],
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     info = [[NSMutableAttributedString alloc] initWithString:self.dueDateInfo attributes:attributes];
@@ -42,7 +42,7 @@
                      range:NSMakeRange(0, info.length)];
     } else {
         [info addAttribute:NSFontAttributeName
-                     value:[UIFont fontWithName:@"Lato-Regular" size:10]
+                     value:Font(@"Lato-Regular", 10.0f)
                      range:[[info string] rangeOfString:@"Due in"]];
     }
     
