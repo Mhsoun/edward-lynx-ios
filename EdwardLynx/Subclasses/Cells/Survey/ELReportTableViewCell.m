@@ -39,9 +39,9 @@
                                      @"timestamp": feedback.dateString,
                                      @"type": @"Instant Feedback",
                                      @"color": kELFeedbackColor,
-                                     @"invited": [NSString stringWithFormat:@"%@/%@",
-                                                  @(feedback.answered),
-                                                  @(feedback.invited)]}];
+                                     @"invited": Format(@"%@/%@",
+                                                        @(feedback.answered),
+                                                        @(feedback.invited))}];
     } else {
         ELSurvey *survey = (ELSurvey *)object;
         
@@ -50,14 +50,14 @@
                                      @"timestamp": survey.endDateString,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"color": kELLynxColor,
-                                     @"invited": [NSString stringWithFormat:@"%@/%@",
-                                                  @(survey.answered),
-                                                  @(survey.invited)]}];
+                                     @"invited": Format(@"%@/%@",
+                                                        @(survey.answered),
+                                                        @(survey.invited))}];
     }
 }
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //
 }
 
 #pragma mark - Private Methods

@@ -43,7 +43,9 @@ static NSString * const kELApplicationJSON = @"application/json";
                      withRequest:(NSMutableURLRequest *)request
                       completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSURLSessionDataTask *dataTask = [AppSingleton.manager dataTaskWithRequest:request
-                                                             completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                                                             completionHandler:^(NSURLResponse *response,
+                                                                                 id responseObject,
+                                                                                 NSError *error) {
         NSString *errorMessage;
         UIAlertController *alertController;
         __kindof UIViewController *visibleViewController;
@@ -88,7 +90,7 @@ static NSString * const kELApplicationJSON = @"application/json";
                 return;
             }
             
-            errorMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDefaultAlertMessage", nil), error.localizedDescription];
+            errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil), error.localizedDescription);
             visibleViewController = [ApplicationDelegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
                                                                   message:errorMessage
@@ -141,7 +143,7 @@ static NSString * const kELApplicationJSON = @"application/json";
     ELOAuthInstance *oauthInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     
     if (![endpoint containsString:[[self class] hostURL]]) {
-        endpoint = [NSString stringWithFormat:@"%@/%@", [[self class] hostURL], endpoint];
+        endpoint = Format(@"%@/%@", [[self class] hostURL], endpoint);
     }    
     
     if (![method isEqualToString:kELAPIGetHTTPMethod]) {

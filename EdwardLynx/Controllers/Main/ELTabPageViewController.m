@@ -45,18 +45,18 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onInstantFeedbackTab:)
-                                                 name:kELInstantFeedbackTabNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onInstantFeedbackTab:)
+                               name:kELInstantFeedbackTabNotification
+                             object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kELInstantFeedbackTabNotification
-                                                  object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELInstantFeedbackTabNotification
+                                object:nil];
 }
 
 - (void)dealloc {
@@ -89,9 +89,9 @@
 - (void)sendSearchTextToNotification:(NSString *)searchText {
     AppSingleton.searchText = searchText;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kELTabPageSearchNotification
-                                                        object:self
-                                                      userInfo:@{@"search": searchText}];
+    [NotificationCenter postNotificationName:kELTabPageSearchNotification
+                                      object:self
+                                    userInfo:@{@"search": searchText}];
 }
 
 - (void)setupButtonBarView {
@@ -104,7 +104,7 @@
                                                     BOOL changeCurrentIndex,
                                                     BOOL animated) {
         if (changeCurrentIndex) {
-            UIFont *font = [UIFont fontWithName:@"Lato-Bold" size:13];
+            UIFont *font = Font(@"Lato-Bold", 13.0f);
             
             [oldCell.label setFont:font];
             [newCell.label setFont:font];
@@ -164,7 +164,7 @@
     }
     
     self.title = [identifier uppercaseString];
-    self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
+    self.searchBar.placeholder = Format(format, identifier);
 }
 
 #pragma mark - Protocol Methods (UISearchBar)
@@ -198,8 +198,7 @@
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.tabs.count; i++) {
-        controller = [[UIStoryboard storyboardWithName:identifier bundle:nil]
-                      instantiateViewControllerWithIdentifier:identifier];
+        controller = StoryboardController(identifier, identifier);
         controller.index = i;
         controller.tabs = self.tabs;
         
@@ -229,8 +228,7 @@
             break;
     }
     
-    controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
-                  instantiateInitialViewController];
+    controller = StoryboardController(storyboard, nil);
     
     [self.navigationController pushViewController:controller animated:YES];
 }

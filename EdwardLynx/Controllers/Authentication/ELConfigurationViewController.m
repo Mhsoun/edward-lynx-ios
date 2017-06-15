@@ -48,8 +48,7 @@ static NSInteger const kELAPICallsNumber = 3;
             [weakSelf.indicatorView stopAnimating];
             
             [ELUtils presentToastAtView:weakSelf.view
-                                message:[NSString stringWithFormat:NSLocalizedString(@"kELServerMessage", nil),
-                                         error.localizedDescription]
+                                message:Format(NSLocalizedString(@"kELServerMessage", nil), error.localizedDescription)
                              completion:nil];
             
             return;
@@ -63,8 +62,7 @@ static NSInteger const kELAPICallsNumber = 3;
             return;
         }
         
-        controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                      instantiateInitialViewController];
+        controller = StoryboardController(@"LeftMenu", nil);
         
         [weakSelf presentViewController:controller
                                animated:YES
@@ -108,7 +106,9 @@ static NSInteger const kELAPICallsNumber = 3;
 }
 
 - (void)fetchQuestionCategoriesFromAPIWithCompletion:(void (^)(NSError *))completion {
-    [[[ELQuestionCategoriesAPIClient alloc] init] categoriesOfUserWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELQuestionCategoriesAPIClient alloc] init] categoriesOfUserWithCompletion:^(NSURLResponse *response,
+                                                                                   NSDictionary *responseDict,
+                                                                                   NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSMutableArray *mCategories;
             
@@ -134,7 +134,9 @@ static NSInteger const kELAPICallsNumber = 3;
 }
 
 - (void)fetchUserProfileFromAPIWithCompletion:(void (^)(NSError *))completion {
-    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELUsersAPIClient alloc] init] userInfoWithCompletion:^(NSURLResponse *response,
+                                                              NSDictionary *responseDict,
+                                                              NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 completion(error);
@@ -152,7 +154,9 @@ static NSInteger const kELAPICallsNumber = 3;
 }
 
 - (void)fetchUsersFromAPIWithCompletion:(void (^)(NSError *))completion {
-    [[[ELUsersAPIClient alloc] init] retrieveUsersWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELUsersAPIClient alloc] init] retrieveUsersWithCompletion:^(NSURLResponse *response,
+                                                                   NSDictionary *responseDict,
+                                                                   NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSMutableArray *mParticipants;
             
@@ -187,7 +191,9 @@ static NSInteger const kELAPICallsNumber = 3;
     
     [[[ELUsersAPIClient alloc] init] loginWithUsername:credentials[@"username"]
                                               password:credentials[@"password"]
-                                            completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                            completion:^(NSURLResponse *response,
+                                                         NSDictionary *responseDict,
+                                                         NSError *error) {
         // Store authentication details in a custom object
         [ELUtils setUserDefaultsCustomObject:[[ELOAuthInstance alloc] initWithDictionary:responseDict error:nil]
                                          key:kELAuthInstanceUserDefaultsKey];

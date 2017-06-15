@@ -63,10 +63,10 @@
     self.detailViewManager.delegate = self;
     
     // Register observer for notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onClosePopup:)
-                                                 name:kELPopupCloseNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onClosePopup:)
+                               name:kELPopupCloseNotification
+                             object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,22 +77,21 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if ((self.survey && self.survey.key) &&
-        (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
-        return;
-
-        // NOTE Save to draft on back
+    // NOTE Save to draft on back
+//    if ((self.survey && self.survey.key) &&
+//        (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
 //        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
 //                                                                            @"final": @(NO),
 //                                                                            @"answers": [self formItems]}];
-    }
+//    }
     
+    // Clear answers
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Remove observer
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kELPopupCloseNotification
-                                                  object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELPopupCloseNotification
+                                object:nil];
 }
 
 - (void)dealloc {
@@ -355,15 +354,14 @@
 - (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
     ELSurveyDetailsViewController *controller;
     ELSurveyInfoViewController *infoController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Survey" bundle:nil];
     
     for (int i = 0; i < self.pageCount; i++) {
         if (i == 0) {
-            infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
+            infoController = StoryboardController(@"Survey", @"SurveyInfo");
             infoController.index = i;
-            infoController.infoDict = @{@"title": [NSString stringWithFormat:@"%@: %@",
-                                                   [ELUtils labelBySurveyType:self.survey.type],
-                                                   self.survey.name],
+            infoController.infoDict = @{@"title": Format(@"%@: %@",
+                                                         [ELUtils labelBySurveyType:self.survey.type],
+                                                         self.survey.name),
                                         @"description": self.survey.shortDescription,
                                         @"evaluation": self.survey.evaluationText};
             
@@ -372,7 +370,7 @@
             continue;
         }
         
-        controller = [storyboard instantiateViewControllerWithIdentifier:@"SurveyPage"];
+        controller = StoryboardController(@"Survey", @"SurveyPage");
         controller.index = i;
         controller.survey = self.survey;
         controller.category = self.items[i - 1];

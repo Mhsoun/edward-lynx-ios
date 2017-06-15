@@ -43,7 +43,7 @@
         ELAnswerOption *option = self.mOptions[i];
         TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
         
-        data.identifier = [NSString stringWithFormat:@"%@", (NSNumber *)option.value];
+        data.identifier = Format(@"%@", (NSNumber *)option.value);
         
         if (!_question.optional) {
             data.selected = formValues ? [formValues[@"value"] isEqualToString:data.identifier] : NO;
@@ -52,7 +52,7 @@
         }
         
         data.labelText = option.shortDescription;
-        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+        data.labelFont = Font(@"Lato-Regular", 14.0f);
         data.labelColor = [UIColor whiteColor];
         
         data.borderColor = [UIColor whiteColor];
@@ -73,10 +73,10 @@
     [self.radioGroupView addSubview:self.group];
         
     // Notification to handle selection changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onSelectionUpdate:)
-                                                 name:SELECTED_RADIO_BUTTON_CHANGED
-                                               object:self.group];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onSelectionUpdate:)
+                               name:SELECTED_RADIO_BUTTON_CHANGED
+                             object:self.group];
 }
 
 #pragma mark - Public Methods

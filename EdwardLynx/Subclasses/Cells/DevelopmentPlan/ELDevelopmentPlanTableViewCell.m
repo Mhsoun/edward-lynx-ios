@@ -116,7 +116,7 @@
             colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
             
             [mColors addObject:ThemeColor(colorKey)];
-            [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+            [mLabels addObject:Format(@"%@", @(i + 1)]);
             [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
         }
         
@@ -158,7 +158,7 @@
     self.barChart.xAxis.axisLineColor = [UIColor blackColor];
     self.barChart.xAxis.drawGridLinesEnabled = NO;
     self.barChart.xAxis.granularity = 1;
-    self.barChart.xAxis.labelFont = [UIFont fontWithName:@"Lato-Regular" size:10];
+    self.barChart.xAxis.labelFont = Font(@"Lato-Regular", 10.0f);
     self.barChart.xAxis.labelCount = [mLabels count];
     self.barChart.xAxis.labelPosition = XAxisLabelPositionBottom;
     self.barChart.xAxis.labelTextColor = [UIColor whiteColor];
@@ -186,7 +186,7 @@
     self.pnBarChart.chartMarginTop = 0;
     self.pnBarChart.isGradientShow = NO;
     self.pnBarChart.isShowNumbers = NO;
-    self.pnBarChart.labelFont = [UIFont fontWithName:@"Lato-Regular" size:8];
+    self.pnBarChart.labelFont = Font(@"Lato-Regular", 8.0f);
     self.pnBarChart.labelMarginTop = 0;
     self.pnBarChart.labelTextColor = [UIColor whiteColor];
     self.pnBarChart.showChartBorder = YES;
@@ -206,7 +206,7 @@
         NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELBlueColor;
         
         [mColors addObject:ThemeColor(colorKey)];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+        [mLabels addObject:Format(@"%@", @(i + 1)]);
         [mValues addObject:@([[goal progressDetails][@"value"] floatValue])];
     }
     

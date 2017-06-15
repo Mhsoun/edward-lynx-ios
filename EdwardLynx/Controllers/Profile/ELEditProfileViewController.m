@@ -130,7 +130,7 @@
         data.identifier = [genderType lowercaseString];
         
         data.labelText = genderType;
-        data.labelFont = [UIFont fontWithName:@"Lato-Regular" size:14];
+        data.labelFont = Font(@"Lato-Regular", 14.0f);
         data.labelColor = [UIColor whiteColor];
         
         data.borderColor = [UIColor whiteColor];
@@ -151,10 +151,10 @@
     [self.radioGroupView addSubview:self.radioGroup];
     
     // Notification to handle selection changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onGenderTypeGroupUpdate:)
-                                                 name:SELECTED_RADIO_BUTTON_CHANGED
-                                               object:self.radioGroup];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGenderTypeGroupUpdate:)
+                               name:SELECTED_RADIO_BUTTON_CHANGED
+                             object:self.radioGroup];
 }
 
 #pragma mark - Private Methods

@@ -38,7 +38,7 @@
 #pragma mark - Public Methods
 
 - (void)dashboardDataWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIUserDashboardEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIUserDashboardEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
     
@@ -69,7 +69,7 @@
 - (void)registerFirebaseToken:(NSString *)token
                      deviceId:(NSString *)deviceId
                withCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIUserDeviceEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIUserDeviceEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                          bodyParams:@{@"token": token,
@@ -81,7 +81,7 @@
 }
 
 - (void)retrieveUsersWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIUsersEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIUsersEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIGetHTTPMethod];
     
@@ -92,7 +92,7 @@
 
 - (void)updateUserInfoWithParams:(NSDictionary *)params
                       completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIUserEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPatchHTTPMethod
                                          bodyParams:params];
@@ -103,7 +103,7 @@
 }
 
 - (void)userInfoWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIUserEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIUserEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
         
     [self performAuthenticatedTask:YES

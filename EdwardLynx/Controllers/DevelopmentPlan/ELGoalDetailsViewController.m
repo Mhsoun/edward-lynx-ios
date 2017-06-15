@@ -258,13 +258,15 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     __weak typeof(self) weakSelf = self;
     ELGoalAction *action = self.mActions[row];
     NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
-                         action.title];
+    NSString *message = Format(NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
+                               action.title);
     
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
                                                     preferredStyle:UIAlertControllerStyleAlert];
-    self.updateAction = [UIAlertAction actionWithTitle:@"Update" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateLabel", nil)
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action) {
         // TODO
     }];
     self.updateAction.enabled = NO;
@@ -293,7 +295,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELGoalActionsValidationMessage", nil)
-                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14.0f],
+                                           attributes:@{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
 
@@ -384,8 +386,21 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
-        NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
+        NSPredicate *predicate;
+        NSArray *filteredArray;
+        
+        if (switchButton.isOn && (!AppSingleton.categories.count || AppSingleton.categories.count == 0)) {
+            [ELUtils presentToastAtView:self.view
+                                message:NSLocalizedString(@"kELGoalCategoriesValidationMessage", nil)
+                             completion:nil];
+            
+            [switchButton setOn:NO animated:YES];
+            
+            return;
+        }
+        
+        predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
+        filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
         
         [self.dropdownHeightConstraint setConstant:switchButton.isOn ? kELCategoryViewInitialHeight : 0];
         [self.dropdownView updateConstraints];

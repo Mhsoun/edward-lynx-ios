@@ -186,15 +186,13 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                 break;
         }
         
-        identifier = [NSString stringWithFormat:@"%@Details", storyboard];
-        controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
-                      instantiateViewControllerWithIdentifier:identifier];
+        identifier = Format(@"%@Details", storyboard);
+        controller = StoryboardController(storyboard, identifier);
         controller.objectId = reminder.objectId;
         
         [self.navigationController pushViewController:controller animated:YES];
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
-        controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
-                      instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
+        controller = StoryboardController(@"DevelopmentPlan", @"DevelopmentPlanDetails");
         controller.objectId = [(ELDevelopmentPlan *)value objectId];
         
         [self.navigationController pushViewController:controller animated:YES];
@@ -280,8 +278,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         [self performSegueWithIdentifier:identifier sender:self];
     } else {
         ELTabPageViewController *controller;
-        UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
-                                                 instantiateInitialViewController];
+        UINavigationController *navController = StoryboardController(@"TabPage", nil);
         
         controller = navController.viewControllers[0];
         
@@ -318,7 +315,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 - (void)loadDashboardData {
     __weak typeof(self) weakSelf = self;
     
-    [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [[[ELUsersAPIClient alloc] init] dashboardDataWithCompletion:^(NSURLResponse *response,
+                                                                   NSDictionary *responseDict,
+                                                                   NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *dict = responseDict;
             

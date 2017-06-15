@@ -158,7 +158,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     
     goal.createdAt = self.devPlan.createdAt;
-    goal.urlLink = [NSString stringWithFormat:@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId)];
+    goal.urlLink = Format(@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId));
     
     cell.delegate = self;
     cell.devPlanName = self.devPlan.name;
@@ -299,7 +299,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
         NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalDeleteDetailsMessage", nil);
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
-                                                                            message:[NSString stringWithFormat:message, goal.title]
+                                                                            message:Format(message, goal.title)
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
@@ -354,12 +354,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 #pragma mark - Private Methods
 
 - (void)addUpdateGoal:(ELGoal *)goal {
-    ELGoalDetailsViewController *controller = [[UIStoryboard storyboardWithName:@"CreateDevelopmentPlan" bundle:nil]
-                                               instantiateViewControllerWithIdentifier:kELCreateDevPlanGoalStoryboardIdentifier];
+    ELGoalDetailsViewController *controller = StoryboardController(@"CreateDevelopmentPlan",
+                                                                   kELCreateDevPlanGoalStoryboardIdentifier);
     
     controller.goal = goal;
     controller.toAddNew = !goal;
-    controller.requestLink = goal ? goal.urlLink : [NSString stringWithFormat:@"%@/goals", self.devPlan.urlLink];
+    controller.requestLink = goal ? goal.urlLink : Format(@"%@/goals", self.devPlan.urlLink);
     controller.withAPIProcess = YES;
     
     [self.navigationController pushViewController:controller animated:YES];
@@ -497,7 +497,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
         NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
-                                                                            message:[NSString stringWithFormat:message, action.title]
+                                                                            message:Format(message, action.title)
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)

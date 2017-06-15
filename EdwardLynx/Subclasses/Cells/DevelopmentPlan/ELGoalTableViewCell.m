@@ -84,7 +84,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         addCell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier
                                                   forIndexPath:indexPath];
         
-        addCell.addLink = [NSString stringWithFormat:@"%@/actions", self.goal.urlLink];
+        addCell.addLink = Format(@"%@/actions", self.goal.urlLink);
         addCell.tag = indexPath.row;
         
         return addCell;
@@ -94,9 +94,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
                                            forIndexPath:indexPath];
     
     action = self.goal.actions[indexPath.row];
-    action.urlLink = [NSString stringWithFormat:@"%@/actions/%@",
-                      self.goal.urlLink,
-                      @(action.objectId)];
+    action.urlLink = Format(@"%@/actions/%@",
+                            self.goal.urlLink,
+                            @(action.objectId));
     
     [cell configure:action atIndexPath:indexPath];
     
@@ -120,7 +120,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     
     goalAction = mActions[indexPath.row];
     cell = [tableView cellForRowAtIndexPath:indexPath];
-    completionBlock = ^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    completionBlock = ^(NSURLResponse *response,
+                        NSDictionary *responseDict,
+                        NSError *error) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.statusView.bounds];
         
         if (error) {
@@ -190,7 +192,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         return;
     }
     
-    detailMessage = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetailsMessage", nil), goalAction.title];
+    detailMessage = Format(NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetailsMessage", nil), goalAction.title);
     controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
                                                      message:detailMessage
                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -218,8 +220,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         timestamp = NSLocalizedString(@"kELListFilterCompleted", nil);
     } else {
         if (self.goal.dueDateChecked) {
-            timestamp = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalTimestampDueDate", nil),
-                         self.goal.dueDateString];
+            timestamp = Format(NSLocalizedString(@"kELDevelopmentPlanGoalTimestampDueDate", nil),
+                               self.goal.dueDateString);
         } else {
             timestamp = @"";
         }

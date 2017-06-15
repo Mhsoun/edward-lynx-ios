@@ -89,16 +89,16 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     [super viewDidAppear:animated];
     
     // Search Notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onSearchTextUpdate:)
-                                                 name:kELTabPageSearchNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onSearchTextUpdate:)
+                               name:kELTabPageSearchNotification
+                             object:nil];
     
     if (self.listType == kELListTypeSurveys) {
         // Toggle Add Button Notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kELInstantFeedbackTabNotification
-                                                            object:nil
-                                                          userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
+        [NotificationCenter postNotificationName:kELInstantFeedbackTabNotification
+                                          object:nil
+                                        userInfo:@{@"hidden": @(self.listFilter != kELListFilterInstantFeedback)}];
     }
 }
 
@@ -109,9 +109,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     AppSingleton.needsPageReload = self.isUpdated;
     
     // Remove Search Notification
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kELTabPageSearchNotification
-                                                  object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELTabPageSearchNotification
+                                object:nil];
 }
 
 - (void)dealloc {

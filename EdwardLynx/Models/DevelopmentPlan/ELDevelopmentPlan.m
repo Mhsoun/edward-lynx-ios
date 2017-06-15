@@ -56,18 +56,18 @@
     NSInteger completedGoals;
     NSString *format;
     NSMutableAttributedString *infoString;
-    NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:12.0f],
+    NSDictionary *attributesDict = @{NSFontAttributeName: Font(@"Lato-Bold", 12.0f),
                                      NSForegroundColorAttributeName: ThemeColor(kELOrangeColor)};
     
     completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.progress == 1"]] count];
-    format = [NSString stringWithFormat:@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count)];
+    format = Format(@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count));
     infoString = [[NSMutableAttributedString alloc] initWithString:format attributes:attributesDict];
     
     [infoString addAttribute:NSForegroundColorAttributeName
                        value:[UIColor whiteColor]
                        range:[format rangeOfString:@"completed"]];
     [infoString addAttribute:NSFontAttributeName
-                       value:[UIFont fontWithName:@"Lato-Regular" size:12.0f]
+                       value:Font(@"Lato-Regular", 12.0f)
                        range:[format rangeOfString:@"completed"]];
     
     return infoString;
@@ -77,9 +77,9 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.progress == 1"];
     NSInteger completedGoals = [[self.goals filteredArrayUsingPredicate:predicate] count];
     
-    return [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
-            @(completedGoals),
-            @(self.goals.count)];
+    return Format(NSLocalizedString(@"kELCompletedLabel", nil),
+                  @(completedGoals),
+                  @(self.goals.count));
 }
 
 - (NSArray<Ignore> *)sortedGoals {

@@ -95,7 +95,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
     
-    label.font = [UIFont fontWithName:@"Lato-Medium" size:18];
+    label.font = Font(@"Lato-Medium", 18.0f);
     label.text = self.category.title;
     label.textColor = [UIColor whiteColor];
     label.lineBreakMode = NSLineBreakByClipping;

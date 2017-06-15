@@ -22,18 +22,21 @@
 
 #define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define AppSingleton [ELAppSingleton sharedInstance]
+#define Font(n, s) [UIFont fontWithName:(n) size:(s)]
+#define Format(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define NotificationCenter [NSNotificationCenter defaultCenter]
 #define SharedApplication [UIApplication sharedApplication]
-#define ThemeColor(key) [[RNThemeManager sharedManager] colorForKey:key]
+#define StoryboardController(s, i) i ? [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateViewControllerWithIdentifier:(i)] : [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateInitialViewController]
+#define ThemeColor(key) [[RNThemeManager sharedManager] colorForKey:(key)]
 
 #define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0];
-#define HEXCOLORALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a];
+#define HEXCOLORALPHA(c, a) [UIColor colorWithRed:(((c)>>16)&0xFF)/255.0 green:(((c)>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0 alpha:(a)];
 #define IDIOM UI_USER_INTERFACE_IDIOM()
 #define IPAD UIUserInterfaceIdiomPad
 #define RGB(r, g, b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:a]
-#define SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_GREATERTHAN_OR_EQUALTO(v) ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma mark - FontAwesome
 

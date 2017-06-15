@@ -219,9 +219,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:
-                                 NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
-                                 @(self.mParticipants.count)];
+    self.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                       @(self.mParticipants.count));
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -249,8 +248,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         } else {
             AppSingleton.needsPageReload = YES;
             
-            [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                             instantiateInitialViewController]
+            [weakSelf presentViewController:StoryboardController(@"LeftMenu", nil)
                                    animated:YES
                                  completion:nil];
         }
@@ -464,8 +462,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         [ELUtils scrollViewToBottom:weakSelf.scrollView];
         
         // Updated selected users label
-        weakSelf.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
-                                     @(weakSelf.mParticipants.count)];
+        weakSelf.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                               @(weakSelf.mParticipants.count));
     }];
     self.inviteAction.enabled = NO;
     

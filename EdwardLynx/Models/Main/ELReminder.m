@@ -31,7 +31,7 @@
 
 - (NSMutableAttributedString<Ignore> *)attributedDueDateInfo {
     NSMutableAttributedString *info;
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Bold" size:14],
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     info = [[NSMutableAttributedString alloc] initWithString:self.dueDateInfo attributes:attributes];
@@ -42,7 +42,7 @@
                      range:NSMakeRange(0, info.length)];
     } else {
         [info addAttribute:NSFontAttributeName
-                     value:[UIFont fontWithName:@"Lato-Regular" size:10]
+                     value:Font(@"Lato-Regular", 10.0f)
                      range:[[info string] rangeOfString:@"Due in"]];
     }
     
@@ -60,15 +60,16 @@
     days = [currentDate mt_daysUntilDate:self.dueDate];
     
     if ([currentDate mt_isOnOrBefore:self.dueDate]) {
-        NSString *key;
+        NSString *text;
         
         if (days == 0) {
             return NSLocalizedString(@"kELDashboardDueDateNow", nil);
         }
         
-        key = days == 1 ? @"kELDashboardDueDateMessageSingular" : @"kELDashboardDueDateMessagePlural";
+        text = days == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageSingular", nil) :
+                           NSLocalizedString(@"kELDashboardDueDateMessagePlural", nil);
         
-        return [NSString stringWithFormat:NSLocalizedString(key, nil), @(days)];
+        return Format(text, @(days));
     }
     
     return @"";

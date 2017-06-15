@@ -86,8 +86,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     }
     
     instantFeedback = (ELInstantFeedback *)object;
-    controller = [[UIStoryboard storyboardWithName:@"InstantFeedback" bundle:nil]
-                  instantiateViewControllerWithIdentifier:@"InstantFeedbackDetails"];
+    controller = StoryboardController(@"InstantFeedback", @"InstantFeedbackDetails");
     controller.objectId = instantFeedback.objectId;
     
     [self.navigationController pushViewController:controller animated:YES];

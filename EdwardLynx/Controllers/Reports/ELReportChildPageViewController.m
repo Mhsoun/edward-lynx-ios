@@ -103,7 +103,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
                                                  iconSize:5
                                                 imageSize:CGSizeMake(5, 5)];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.font = [UIFont fontWithName:@"Lato-Regular" size:12];
+        cell.textLabel.font = Font(@"Lato-Regular", 12.0f);
         cell.textLabel.lineBreakMode = NSLineBreakByClipping;
         cell.textLabel.numberOfLines = 2;
         cell.textLabel.text = dataDict[@"text"];
@@ -159,7 +159,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
     view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 35)];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, CGRectGetWidth(self.tableView.frame), 30)];
-    label.font = [UIFont fontWithName:@"Lato-Italic" size:14];
+    label.font = Font(@"Lato-Italic", 14.0f);
     label.textColor = [UIColor whiteColor];
     label.text = self.items[section][@"question"];
     
@@ -171,7 +171,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:14],
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELReportEmptyMessage", nil)
@@ -221,7 +221,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeLowestDetail", nil);
         }
         
-        self.headerLabel.text = [NSString stringWithFormat:headerText, title];
+        self.headerLabel.text = Format(headerText, title);
     } else if ([self.key isEqualToString:@"radar_diagram"]) {
         self.type = kELReportChartTypeRadar;
         self.items = @[self.items];

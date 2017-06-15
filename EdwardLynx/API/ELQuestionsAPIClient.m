@@ -24,7 +24,7 @@
 - (void)updateQuestionWithId:(int64_t)questionId
                       params:(NSDictionary *)params
                   completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {
-    NSMutableURLRequest *request = [self requestFor:[NSString stringWithFormat:kELAPIQuestionEndpoint, @(questionId)]
+    NSMutableURLRequest *request = [self requestFor:Format(kELAPIQuestionEndpoint, @(questionId))
                                              method:kELAPIPutHTTPMethod
                                          bodyParams:params];
     
@@ -38,7 +38,7 @@
 @implementation ELQuestionCategoriesAPIClient
 
 - (void)categoriesOfUserWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIQuestionCategoriesEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIQuestionCategoriesEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
@@ -58,7 +58,7 @@
 - (void)updateQuestionCategoryForId:(int64_t)categoryId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSMutableURLRequest *request = [self requestFor:[NSString stringWithFormat:kELAPIQuestionCategoryEndpoint, categoryId]
+    NSMutableURLRequest *request = [self requestFor:Format(kELAPIQuestionCategoryEndpoint, categoryId)
                                              method:kELAPIPutHTTPMethod];
     
     [self performAuthenticatedTask:YES

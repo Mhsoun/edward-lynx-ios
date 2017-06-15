@@ -56,8 +56,7 @@
     
     // Check if user is already authenticated to the app
     if ([ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey]) {
-        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
-                                          instantiateViewControllerWithIdentifier:@"Configuration"];
+        self.window.rootViewController = StoryboardController(@"Authentication", @"Configuration");
     }
     
     // Check if app is launched due to user tapping to a notification while app is closed
@@ -216,13 +215,13 @@
 
 - (void)registerDeviceToFirebaseAndAPI {
     NSString *deviceToken = [ELUtils getUserDefaultsValueForKey:kELDeviceTokenUserDefaultsKey];
-    NSString *deviceId = [NSString stringWithFormat:@"%@-%@-%@-%@-%lld-%@",
-                          [UIDevice currentDevice].name,
-                          [UIDevice currentDevice].model,
-                          [UIDevice currentDevice].systemName,
-                          [UIDevice currentDevice].systemVersion,
-                          AppSingleton.user.objectId,
-                          deviceToken];
+    NSString *deviceId = Format(@"%@-%@-%@-%@-%lld-%@",
+                                [UIDevice currentDevice].name,
+                                [UIDevice currentDevice].model,
+                                [UIDevice currentDevice].systemName,
+                                [UIDevice currentDevice].systemVersion,
+                                AppSingleton.user.objectId,
+                                deviceToken);
     
     if (!self.firebaseToken) {
         // Renew Firebase token
@@ -235,7 +234,9 @@
             } else {
                 [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                               deviceId:deviceId
-                                                        withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                                        withCompletion:^(NSURLResponse *response,
+                                                                         NSDictionary *responseDict,
+                                                                         NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (!error) {
                             DLog(@"Device registered for notifications.");
@@ -247,7 +248,9 @@
     } else {
         [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                       deviceId:deviceId
-                                                withCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                                withCompletion:^(NSURLResponse *response,
+                                                                 NSDictionary *responseDict,
+                                                                 NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!error) {
                     DLog(@"Device registered for notifications.");
@@ -365,9 +368,8 @@
         storyboardName = @"Survey";
     }
     
-    identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
-    controller = [[UIStoryboard storyboardWithName:storyboardName bundle:nil]
-                  instantiateViewControllerWithIdentifier:identifier];
+    identifier = Format(@"%@Details", storyboardName);
+    controller = StoryboardController(storyboardName, identifier);
     controller.objectId = objectId;
     
     [self.notificationRootNavController pushViewController:controller animated:YES];
@@ -422,13 +424,15 @@
     // Handle Instant Feedback/Surveys
     isFeedback = [emailUrlString containsString:kELAPIEmailLinkFeedback];
     key = [urlParts[1] componentsSeparatedByString:@"/"][3];
-    url = [NSString stringWithFormat:isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
-           [ELAPIClient hostURL],
-           key];
+    url = Format(isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
+                 [ELAPIClient hostURL],
+                 key);
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:nil
-                                      completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+                                      completion:^(NSURLResponse *response,
+                                                   NSDictionary *responseDict,
+                                                   NSError *error) {
         if (error.code == kELAPINotFoundStatusCode) {
             NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
             NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
@@ -503,11 +507,13 @@
         self.firebaseToken = [FIRInstanceID instanceID].token;
     }
     
+    DLog(@"Firebase token: %@", self.firebaseToken);
+    
     // Observer for Token refresh
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(tokenRefreshNotification:)
-                                                 name:kFIRInstanceIDTokenRefreshNotification
-                                               object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(tokenRefreshNotification:)
+                               name:kFIRInstanceIDTokenRefreshNotification
+                             object:nil];
 }
 
 - (void)tokenRefreshNotification:(NSNotification *)notification {
