@@ -386,8 +386,21 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
-        NSArray *filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
+        NSPredicate *predicate;
+        NSArray *filteredArray;
+        
+        if (switchButton.isOn && (!AppSingleton.categories.count || AppSingleton.categories.count == 0)) {
+            [ELUtils presentToastAtView:self.view
+                                message:NSLocalizedString(@"kELGoalCategoriesValidationMessage", nil)
+                             completion:nil];
+            
+            [switchButton setOn:NO animated:YES];
+            
+            return;
+        }
+        
+        predicate = [NSPredicate predicateWithFormat:@"title == %@", [self.dropdown currentItem]];
+        filteredArray = [AppSingleton.categories filteredArrayUsingPredicate:predicate];
         
         [self.dropdownHeightConstraint setConstant:switchButton.isOn ? kELCategoryViewInitialHeight : 0];
         [self.dropdownView updateConstraints];
