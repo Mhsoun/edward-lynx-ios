@@ -24,6 +24,7 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 @interface ELInstantFeedbacksViewController ()
 
+@property (nonatomic) BOOL isUpdated;
 @property (nonatomic, strong) ELInstantFeedback *selectedInstantFeedback;
 @property (nonatomic, strong) ELListViewManager *viewManager;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -40,6 +41,8 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.isUpdated = NO;
+    
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -59,10 +62,19 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 - (void)viewWillAppear:(BOOL)animated {
     if (AppSingleton.needsPageReload) {
+        self.isUpdated = AppSingleton.needsPageReload;
+        
         [self reloadPage];
     }
     
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // To handle updating of Dashboard
+    AppSingleton.needsPageReload = self.isUpdated;
 }
 
 - (void)dealloc {
