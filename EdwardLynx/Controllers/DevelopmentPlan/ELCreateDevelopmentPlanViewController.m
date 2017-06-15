@@ -105,13 +105,13 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     UIImage *image;
     UITableViewCell *cell;
     ELGoal *goal = self.mGoals[indexPath.row];
-    NSString *title = [NSString stringWithFormat:@"%@. %@", @(indexPath.row + 1), goal.title];
+    NSString *title = Format(@"%@. %@", @(indexPath.row + 1), goal.title);
     NSDictionary *attributesDict = @{NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:16.0f]};
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:title
                                                                                        attributes:attributesDict];
     
     // Content
-    indexRange = [title rangeOfString:[NSString stringWithFormat:@"%@.", @(indexPath.row + 1)]];
+    indexRange = [title rangeOfString:Format(@"%@.", @(indexPath.row + 1))];
     goalTitleRange = [title rangeOfString:goal.title];
     
     [attributedText addAttribute:NSForegroundColorAttributeName

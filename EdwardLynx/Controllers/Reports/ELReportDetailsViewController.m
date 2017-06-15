@@ -114,9 +114,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         self.headerLabel.text = self.instantFeedback.question.text;
         self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
         self.dateLabel.text = self.instantFeedback.dateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(self.instantFeedback.invited),
-                               @(self.instantFeedback.answered)];
+        self.infoLabel.text = Format(NSLocalizedString(@"kELReportInfoLabel", nil),
+                                     @(self.instantFeedback.invited),
+                                     @(self.instantFeedback.answered));
     } else {
         self.survey = (ELSurvey *)self.selectedObject;
         
@@ -279,7 +279,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     barChart.legend.yEntrySpace = 0.0f;
     
     barChart.noDataFont = dataFont;
-    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount)];
+    barChart.noDataText = Format(NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount));
     barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
@@ -297,7 +297,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             case 0:
             case 70:
             case 100:
-                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                return Format(@"%@%%", @(percentage));
             default:
                 return @"";
         }

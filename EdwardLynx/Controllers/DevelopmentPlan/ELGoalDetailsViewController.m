@@ -258,8 +258,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     __weak typeof(self) weakSelf = self;
     ELGoalAction *action = self.mActions[row];
     NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
-                         action.title];
+    NSString *message = Format(NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
+                               action.title);
     
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message

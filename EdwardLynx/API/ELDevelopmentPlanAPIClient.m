@@ -13,7 +13,7 @@
 #pragma mark - Development Plan Goal
 
 - (void)currentUserDevelopmentPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES
@@ -23,7 +23,7 @@
 
 - (void)createDevelopmentPlansWithParams:(NSDictionary *)params
                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace];
+    NSString *endpoint = Format(kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace);
     NSMutableURLRequest *request = [self requestFor:endpoint
                                              method:kELAPIPostHTTPMethod
                                          bodyParams:params];
@@ -35,9 +35,9 @@
 
 - (void)developmentPlanWithId:(int64_t)devPlanId
                withCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
-    NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanEndpoint,
-                          kELAPIVersionNamespace,
-                          @(devPlanId)];
+    NSString *endpoint = Format(kELAPIDevelopmentPlanEndpoint,
+                                kELAPIVersionNamespace,
+                                @(devPlanId));
     NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
     
     [self performAuthenticatedTask:YES

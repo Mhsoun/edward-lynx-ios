@@ -43,7 +43,7 @@
         ELAnswerOption *option = self.mOptions[i];
         TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
         
-        data.identifier = [NSString stringWithFormat:@"%@", (NSNumber *)option.value];
+        data.identifier = Format(@"%@", (NSNumber *)option.value);
         
         if (!_question.optional) {
             data.selected = formValues ? [formValues[@"value"] isEqualToString:data.identifier] : NO;

@@ -47,7 +47,7 @@
     for (int i = 0; i < [self.mOptions count]; i++) {
         ELAnswerOption *option = self.mOptions[i];
         
-        [self.scaleChoices insertSegmentWithTitle:[NSString stringWithFormat:@"%@", option.shortDescription]
+        [self.scaleChoices insertSegmentWithTitle:Format(@"%@", option.shortDescription)
                                           atIndex:i
                                          animated:NO];
     }

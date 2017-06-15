@@ -180,8 +180,7 @@
     barChart.leftAxis.labelTextColor = [UIColor whiteColor];
     
     barChart.noDataFont = dataFont;
-    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
-                           @(kELParticipantsMinimumCount)];
+    barChart.noDataText = Format(NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount));
     barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
@@ -232,8 +231,7 @@
     barChart.leftAxis.drawTopYLabelEntryEnabled = YES;
     
     barChart.noDataFont = dataFont;
-    barChart.noDataText = [NSString stringWithFormat:NSLocalizedString(@"kELReportRestrictedData", nil),
-                           @(kELParticipantsMinimumCount)];
+    barChart.noDataText = Format(NSLocalizedString(@"kELReportRestrictedData", nil), @(kELParticipantsMinimumCount));
     barChart.noDataTextColor = ThemeColor(kELOrangeColor);
     
     barChart.rightAxis.axisMaximum = axisMax;
@@ -320,7 +318,7 @@
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
-        return [NSString stringWithFormat:@"%@", @(percentage)];
+        return Format(@"%@", @(percentage));
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -358,7 +356,7 @@
                 case 0:
                 case 70:
                 case 100:
-                    return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                    return Format(@"%@%%", @(percentage));
                 default:
                     return @"";
             }
@@ -442,7 +440,7 @@
             case 0:
             case 70:
             case 100:
-                return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                return Format(@"%@%%", @(percentage));
             default:
                 return @"";
         }
@@ -459,7 +457,7 @@
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
-        return [NSString stringWithFormat:@"%@", @(percentage)];
+        return Format(@"%@", @(percentage));
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -494,7 +492,7 @@
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
-        return [NSString stringWithFormat:@"%@", @(percentage)];
+        return Format(@"%@", @(percentage));
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -517,7 +515,7 @@
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         int percentage = (int)floor((value * 100));
         
-        return [NSString stringWithFormat:@"%@%%", @(percentage)];
+        return Format(@"%@%%", @(percentage));
     }];
     
     self.barChart.xAxis.labelCount = [[summary pointKeys] count];
@@ -577,7 +575,7 @@
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
         int percentage = (int)floor((value * 100));
         
-        return [NSString stringWithFormat:@"%@", @(percentage)];
+        return Format(@"%@", @(percentage));
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -616,7 +614,7 @@
                 case 0:
                 case 70:
                 case 100:
-                    return [NSString stringWithFormat:@"%@%%", @(percentage)];
+                    return Format(@"%@%%", @(percentage));
                 default:
                     return @"";
             }
@@ -746,7 +744,7 @@
     self.radarChart.yAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable axisBase) {
         int percentage = (int)floorf((value * 100));
         
-        return [NSString stringWithFormat:@"%@", @(percentage)];
+        return Format(@"%@", @(percentage));
     }];
     self.radarChart.yAxis.xOffset = 0.0f;
     self.radarChart.yAxis.yOffset = 0.0f;
@@ -783,7 +781,7 @@
     chartDataSet.drawValuesEnabled = NO;
     chartDataSet.valueColors = [mColors copy];
     chartDataSet.valueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        return [NSString stringWithFormat:@"%@", @(value)];
+        return Format(@"%@", @(value));
     }];
     
     chartData = [[BarChartData alloc] initWithDataSet:chartDataSet];
@@ -808,7 +806,7 @@
     self.barChart.leftAxis.labelCount = responseRate.maxValue;
     self.barChart.leftAxis.valueFormatter = [ChartDefaultAxisValueFormatter withBlock:^NSString * _Nonnull(double value, ChartAxisBase * _Nullable base) {
         if ([responseRate.values containsObject:@(value)] || value == 0) {
-            return [NSString stringWithFormat:@"%@", @(value)];
+            return Format(@"%@", @(value));
         }
         
         return @"";
@@ -857,7 +855,7 @@
     self.pieChart.drawHoleEnabled = NO;
     
     self.pieChart._defaultValueFormatter = [ChartDefaultValueFormatter withBlock:^NSString * _Nonnull(double value, ChartDataEntry * _Nonnull entry, NSInteger i, ChartViewPortHandler * _Nullable handler) {
-        return [NSString stringWithFormat:@"%@%%", @(value)];
+        return Format(@"%@%%", @(value));
     }];
     
     self.pieChart.legend.font = labelFont;

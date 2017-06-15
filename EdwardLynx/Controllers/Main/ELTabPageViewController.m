@@ -164,7 +164,7 @@
     }
     
     self.title = [identifier uppercaseString];
-    self.searchBar.placeholder = [NSString stringWithFormat:format, identifier];
+    self.searchBar.placeholder = Format(format, identifier);
 }
 
 #pragma mark - Protocol Methods (UISearchBar)

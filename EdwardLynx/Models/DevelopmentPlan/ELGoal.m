@@ -151,9 +151,9 @@
     NSInteger completedActions = [[self.actions filteredArrayUsingPredicate:predicate] count];
     
     return @{@"value": @(self.progress),
-             @"text": [NSString stringWithFormat:NSLocalizedString(@"kELCompletedLabel", nil),
-                       @(completedActions),
-                       @(self.actions.count)]};
+             @"text": Format(NSLocalizedString(@"kELCompletedLabel", nil),
+                             @(completedActions),
+                             @(self.actions.count))};
 }
 
 

@@ -116,7 +116,7 @@
             colorKey = progress == 1 ? kELOrangeColor : kELBlueColor;
             
             [mColors addObject:ThemeColor(colorKey)];
-            [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+            [mLabels addObject:Format(@"%@", @(i + 1)]);
             [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:progress]];
         }
         
@@ -206,7 +206,7 @@
         NSString *colorKey = [[goal progressDetails][@"value"] floatValue] == 1 ? kELOrangeColor : kELBlueColor;
         
         [mColors addObject:ThemeColor(colorKey)];
-        [mLabels addObject:[NSString stringWithFormat:@"%@", @(i + 1)]];
+        [mLabels addObject:Format(@"%@", @(i + 1)]);
         [mValues addObject:@([[goal progressDetails][@"value"] floatValue])];
     }
     

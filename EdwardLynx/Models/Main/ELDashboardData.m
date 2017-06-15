@@ -15,11 +15,11 @@
     
     for (NSDictionary *devPlanDict in developmentPlans) {
         ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:devPlanDict error:nil];
-        NSString *endpoint = [NSString stringWithFormat:kELAPIDevelopmentPlanEndpoint,
-                              kELAPIVersionNamespace,
-                              @(devPlan.objectId)];
+        NSString *endpoint = Format(kELAPIDevelopmentPlanEndpoint,
+                                    kELAPIVersionNamespace,
+                                    @(devPlan.objectId));
         
-        devPlan.urlLink = [NSString stringWithFormat:@"%@/%@", kELAPIRootEndpoint, endpoint];
+        devPlan.urlLink = Format(@"%@/%@", kELAPIRootEndpoint, endpoint);
         
         [mDevPlans addObject:devPlan];
     }

@@ -221,7 +221,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
             self.detailLabel.text = NSLocalizedString(@"kELReportTypeLowestDetail", nil);
         }
         
-        self.headerLabel.text = [NSString stringWithFormat:headerText, title];
+        self.headerLabel.text = Format(headerText, title);
     } else if ([self.key isEqualToString:@"radar_diagram"]) {
         self.type = kELReportChartTypeRadar;
         self.items = @[self.items];

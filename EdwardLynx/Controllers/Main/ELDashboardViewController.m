@@ -186,7 +186,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
                 break;
         }
         
-        identifier = [NSString stringWithFormat:@"%@Details", storyboard];
+        identifier = Format(@"%@Details", storyboard);
         controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
                       instantiateViewControllerWithIdentifier:identifier];
         controller.objectId = reminder.objectId;

@@ -22,6 +22,7 @@
 
 #define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define AppSingleton [ELAppSingleton sharedInstance]
+#define Format(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define NotificationCenter [NSNotificationCenter defaultCenter]
 #define SharedApplication [UIApplication sharedApplication]

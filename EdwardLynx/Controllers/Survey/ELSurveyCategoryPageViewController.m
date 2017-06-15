@@ -360,9 +360,9 @@
         if (i == 0) {
             infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
             infoController.index = i;
-            infoController.infoDict = @{@"title": [NSString stringWithFormat:@"%@: %@",
-                                                   [ELUtils labelBySurveyType:self.survey.type],
-                                                   self.survey.name],
+            infoController.infoDict = @{@"title": Format(@"%@: %@",
+                                                         [ELUtils labelBySurveyType:self.survey.type],
+                                                         self.survey.name),
                                         @"description": self.survey.shortDescription,
                                         @"evaluation": self.survey.evaluationText};
             

@@ -48,8 +48,7 @@ static NSInteger const kELAPICallsNumber = 3;
             [weakSelf.indicatorView stopAnimating];
             
             [ELUtils presentToastAtView:weakSelf.view
-                                message:[NSString stringWithFormat:NSLocalizedString(@"kELServerMessage", nil),
-                                         error.localizedDescription]
+                                message:Format(NSLocalizedString(@"kELServerMessage", nil), error.localizedDescription)
                              completion:nil];
             
             return;

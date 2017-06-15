@@ -46,7 +46,7 @@
         
         [self configureWithDetails:@{@"title": feedback.question.text,
                                      @"type": NSLocalizedString(@"kELInstantFeedbackTitle", nil),
-                                     @"description": [NSString stringWithFormat:NSLocalizedString(@"kELFeedbackCellAuthor", nil), feedback.createdBy],
+                                     @"description": Format(NSLocalizedString(@"kELFeedbackCellAuthor", nil), feedback.createdBy),
                                      @"status": @(status),
                                      @"date": feedback.createdAt}];
         
@@ -64,7 +64,7 @@
     NSString *dayString;
     NSDate *date = detailsDict[@"date"];
     
-    dayString = date.mt_dayOfMonth < 10 ? [NSString stringWithFormat:@"0%@", @(date.mt_dayOfMonth)] :
+    dayString = date.mt_dayOfMonth < 10 ? Format(@"0%@", @(date.mt_dayOfMonth)) :
                                           [[NSNumber numberWithInteger:date.mt_dayOfMonth] stringValue];
     
     // Content

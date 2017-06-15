@@ -22,7 +22,7 @@
 }
 
 - (NSString *)text {
-    return self.optional ? [NSString stringWithFormat:NSLocalizedString(@"kELAnswerOptionalMessage", nil), _text] : _text;
+    return self.optional ? Format(NSLocalizedString(@"kELAnswerOptionalMessage", nil), _text) : _text;
 }
 
 - (void)setText:(NSString *)text {

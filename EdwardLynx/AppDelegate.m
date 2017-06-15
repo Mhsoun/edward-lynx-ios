@@ -216,13 +216,13 @@
 
 - (void)registerDeviceToFirebaseAndAPI {
     NSString *deviceToken = [ELUtils getUserDefaultsValueForKey:kELDeviceTokenUserDefaultsKey];
-    NSString *deviceId = [NSString stringWithFormat:@"%@-%@-%@-%@-%lld-%@",
-                          [UIDevice currentDevice].name,
-                          [UIDevice currentDevice].model,
-                          [UIDevice currentDevice].systemName,
-                          [UIDevice currentDevice].systemVersion,
-                          AppSingleton.user.objectId,
-                          deviceToken];
+    NSString *deviceId = Format(@"%@-%@-%@-%@-%lld-%@",
+                                [UIDevice currentDevice].name,
+                                [UIDevice currentDevice].model,
+                                [UIDevice currentDevice].systemName,
+                                [UIDevice currentDevice].systemVersion,
+                                AppSingleton.user.objectId,
+                                deviceToken);
     
     if (!self.firebaseToken) {
         // Renew Firebase token
@@ -365,7 +365,7 @@
         storyboardName = @"Survey";
     }
     
-    identifier = [NSString stringWithFormat:@"%@Details", storyboardName];
+    identifier = Format(@"%@Details", storyboardName);
     controller = [[UIStoryboard storyboardWithName:storyboardName bundle:nil]
                   instantiateViewControllerWithIdentifier:identifier];
     controller.objectId = objectId;
@@ -422,9 +422,9 @@
     // Handle Instant Feedback/Surveys
     isFeedback = [emailUrlString containsString:kELAPIEmailLinkFeedback];
     key = [urlParts[1] componentsSeparatedByString:@"/"][3];
-    url = [NSString stringWithFormat:isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
-           [ELAPIClient hostURL],
-           key];
+    url = Format(isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
+                 [ELAPIClient hostURL],
+                 key);
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:nil

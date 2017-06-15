@@ -60,15 +60,16 @@
     days = [currentDate mt_daysUntilDate:self.dueDate];
     
     if ([currentDate mt_isOnOrBefore:self.dueDate]) {
-        NSString *key;
+        NSString *text;
         
         if (days == 0) {
             return NSLocalizedString(@"kELDashboardDueDateNow", nil);
         }
         
-        key = days == 1 ? @"kELDashboardDueDateMessageSingular" : @"kELDashboardDueDateMessagePlural";
+        text = days == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageSingular", nil) :
+                           NSLocalizedString(@"kELDashboardDueDateMessagePlural", nil);
         
-        return [NSString stringWithFormat:NSLocalizedString(key, nil), @(days)];
+        return Format(text, @(days));
     }
     
     return @"";

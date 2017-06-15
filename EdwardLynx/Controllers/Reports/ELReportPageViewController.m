@@ -171,11 +171,11 @@
         
         if ([key isEqualToString:@"highestLowestIndividual"]) {
             for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.highest"] allKeys]) {
-                [mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.highest.%@", key]];
+                [mReportKeys addObject:Format(@"highestLowestIndividual.highest.%@", key)];
             }
             
             for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.lowest"] allKeys]) {
-                [mReportKeys addObject:[NSString stringWithFormat:@"highestLowestIndividual.lowest.%@", key]];
+                [mReportKeys addObject:Format(@"highestLowestIndividual.lowest.%@", key)];
             }
             
             continue;
@@ -224,17 +224,17 @@
         
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.dateLabel.text = instantFeedback.dateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(instantFeedback.invited),
-                               @(instantFeedback.answered)];
+        self.infoLabel.text = Format(NSLocalizedString(@"kELReportInfoLabel", nil),
+                                     @(instantFeedback.invited),
+                                     @(instantFeedback.answered));
     } else {
         ELSurvey *survey = (ELSurvey *)self.selectedObject;
         
         self.title = [survey.name uppercaseString];
         self.dateLabel.text = survey.endDateString;
-        self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELReportInfoLabel", nil),
-                               @(survey.invited),
-                               @(survey.answered)];
+        self.infoLabel.text = Format(NSLocalizedString(@"kELReportInfoLabel", nil),
+                                     @(survey.invited),
+                                     @(survey.answered));
     }
 }
 

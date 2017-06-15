@@ -17,7 +17,7 @@
 }
 
 - (NSString *)authHeader {
-    return [NSString stringWithFormat:@"%@ %@", self.tokenType, self.accessToken];
+    return Format(@"%@ %@", self.tokenType, self.accessToken);
 }
 
 - (void)setAuthHeader:(NSString<Ignore> *)authHeader {

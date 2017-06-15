@@ -219,9 +219,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self updateSelectAllButtonForIndexPath:indexPath];
 
     // Updated selected users label
-    self.noOfPeopleLabel.text = [NSString stringWithFormat:
-                                 NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
-                                 @(self.mParticipants.count)];
+    self.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                       @(self.mParticipants.count));
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
@@ -464,8 +463,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         [ELUtils scrollViewToBottom:weakSelf.scrollView];
         
         // Updated selected users label
-        weakSelf.noOfPeopleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
-                                     @(weakSelf.mParticipants.count)];
+        weakSelf.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                               @(weakSelf.mParticipants.count));
     }];
     self.inviteAction.enabled = NO;
     
