@@ -354,11 +354,10 @@
 - (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
     ELSurveyDetailsViewController *controller;
     ELSurveyInfoViewController *infoController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Survey" bundle:nil];
     
     for (int i = 0; i < self.pageCount; i++) {
         if (i == 0) {
-            infoController = [storyboard instantiateViewControllerWithIdentifier:@"SurveyInfo"];
+            infoController = StoryboardController(@"Survey", @"SurveyInfo");
             infoController.index = i;
             infoController.infoDict = @{@"title": Format(@"%@: %@",
                                                          [ELUtils labelBySurveyType:self.survey.type],
@@ -371,7 +370,7 @@
             continue;
         }
         
-        controller = [storyboard instantiateViewControllerWithIdentifier:@"SurveyPage"];
+        controller = StoryboardController(@"Survey", @"SurveyPage");
         controller.index = i;
         controller.survey = self.survey;
         controller.category = self.items[i - 1];

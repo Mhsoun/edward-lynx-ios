@@ -354,8 +354,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 #pragma mark - Private Methods
 
 - (void)addUpdateGoal:(ELGoal *)goal {
-    ELGoalDetailsViewController *controller = [[UIStoryboard storyboardWithName:@"CreateDevelopmentPlan" bundle:nil]
-                                               instantiateViewControllerWithIdentifier:kELCreateDevPlanGoalStoryboardIdentifier];
+    ELGoalDetailsViewController *controller = StoryboardController(@"CreateDevelopmentPlan",
+                                                                   kELCreateDevPlanGoalStoryboardIdentifier);
     
     controller.goal = goal;
     controller.toAddNew = !goal;

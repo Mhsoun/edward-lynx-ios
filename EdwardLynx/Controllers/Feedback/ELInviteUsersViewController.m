@@ -248,8 +248,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         } else {
             AppSingleton.needsPageReload = YES;
             
-            [weakSelf presentViewController:[[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                                             instantiateInitialViewController]
+            [weakSelf presentViewController:StoryboardController(@"LeftMenu", nil)
                                    animated:YES
                                  completion:nil];
         }

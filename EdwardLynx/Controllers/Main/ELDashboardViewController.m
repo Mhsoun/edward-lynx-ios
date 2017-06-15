@@ -187,14 +187,12 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         }
         
         identifier = Format(@"%@Details", storyboard);
-        controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
-                      instantiateViewControllerWithIdentifier:identifier];
+        controller = StoryboardController(storyboard, identifier);
         controller.objectId = reminder.objectId;
         
         [self.navigationController pushViewController:controller animated:YES];
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
-        controller = [[UIStoryboard storyboardWithName:@"DevelopmentPlan" bundle:nil]
-                      instantiateViewControllerWithIdentifier:@"DevelopmentPlanDetails"];
+        controller = StoryboardController(@"DevelopmentPlan", @"DevelopmentPlanDetails");
         controller.objectId = [(ELDevelopmentPlan *)value objectId];
         
         [self.navigationController pushViewController:controller animated:YES];
@@ -280,8 +278,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         [self performSegueWithIdentifier:identifier sender:self];
     } else {
         ELTabPageViewController *controller;
-        UINavigationController *navController = [[UIStoryboard storyboardWithName:@"TabPage" bundle:nil]
-                                                 instantiateInitialViewController];
+        UINavigationController *navController = StoryboardController(@"TabPage", nil);
         
         controller = navController.viewControllers[0];
         

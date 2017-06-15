@@ -254,8 +254,7 @@
     ELReportChildPageViewController *controller;
     ELReportDetailsViewController *detailController;
     NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:@{@"frequencies": self.responseDict[@"frequencies"]}];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Report" bundle:nil];
-    
+        
     for (int i = 0; i < self.pageCount; i++) {
         int index;
         BOOL isValueForKeypath;
@@ -265,7 +264,7 @@
         index = i == 0 ? 0 : i - 1;
         
         if (i == 1) {
-            detailController = [storyboard instantiateViewControllerWithIdentifier:@"ReportDetails"];
+            detailController = StoryboardController(@"Report", @"ReportDetails");
             detailController.index = i;
             
             if ([self.selectedObject isKindOfClass:[ELSurvey class]]) {
@@ -289,7 +288,7 @@
             continue;
         }
         
-        controller = [storyboard instantiateViewControllerWithIdentifier:@"ReportChildPage"];
+        controller = StoryboardController(@"Report", @"ReportChildPage");
         controller.items = items;
         controller.key = self.reportKeys[index];
         

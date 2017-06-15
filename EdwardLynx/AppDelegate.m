@@ -56,8 +56,7 @@
     
     // Check if user is already authenticated to the app
     if ([ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey]) {
-        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil]
-                                          instantiateViewControllerWithIdentifier:@"Configuration"];
+        self.window.rootViewController = StoryboardController(@"Authentication", @"Configuration");
     }
     
     // Check if app is launched due to user tapping to a notification while app is closed
@@ -366,8 +365,7 @@
     }
     
     identifier = Format(@"%@Details", storyboardName);
-    controller = [[UIStoryboard storyboardWithName:storyboardName bundle:nil]
-                  instantiateViewControllerWithIdentifier:identifier];
+    controller = StoryboardController(storyboardName, identifier);
     controller.objectId = objectId;
     
     [self.notificationRootNavController pushViewController:controller animated:YES];

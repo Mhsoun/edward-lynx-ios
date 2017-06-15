@@ -198,8 +198,7 @@
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.tabs.count; i++) {
-        controller = [[UIStoryboard storyboardWithName:identifier bundle:nil]
-                      instantiateViewControllerWithIdentifier:identifier];
+        controller = StoryboardController(identifier, identifier);
         controller.index = i;
         controller.tabs = self.tabs;
         
@@ -229,8 +228,7 @@
             break;
     }
     
-    controller = [[UIStoryboard storyboardWithName:storyboard bundle:nil]
-                  instantiateInitialViewController];
+    controller = StoryboardController(storyboard, nil);
     
     [self.navigationController pushViewController:controller animated:YES];
 }

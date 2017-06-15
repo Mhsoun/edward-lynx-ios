@@ -62,8 +62,7 @@ static NSInteger const kELAPICallsNumber = 3;
             return;
         }
         
-        controller = [[UIStoryboard storyboardWithName:@"LeftMenu" bundle:nil]
-                      instantiateInitialViewController];
+        controller = StoryboardController(@"LeftMenu", nil);
         
         [weakSelf presentViewController:controller
                                animated:YES
