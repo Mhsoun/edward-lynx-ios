@@ -77,16 +77,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    if ((self.survey && self.survey.key) &&
-        (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
-        return;
-
-        // NOTE Save to draft on back
+    // NOTE Save to draft on back
+//    if ((self.survey && self.survey.key) &&
+//        (!self.saved && self.survey.status != kELSurveyStatusCompleted)) {
 //        [self.surveyViewManager processSurveyAnswerSubmissionWithFormData:@{@"key": self.survey.key,
 //                                                                            @"final": @(NO),
 //                                                                            @"answers": [self formItems]}];
-    }
+//    }
     
+    // Clear answers
     AppSingleton.mSurveyFormDict = [[NSMutableDictionary alloc] init];
     
     // Remove observer

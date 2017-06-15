@@ -503,6 +503,8 @@
         self.firebaseToken = [FIRInstanceID instanceID].token;
     }
     
+    DLog(@"Firebase token: %@", self.firebaseToken);
+    
     // Observer for Token refresh
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(tokenRefreshNotification:)
