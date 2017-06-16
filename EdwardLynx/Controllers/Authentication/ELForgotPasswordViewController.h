@@ -6,10 +6,13 @@
 //  Copyright © 2016 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <RNThemeManager/RNThemeLabel.h>
+
 #import "ELBaseViewController.h"
 
 @interface ELForgotPasswordViewController : ELBaseViewController<UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet RNThemeLabel *recoverPasswordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *usernameEmailTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *usernameEmailIcon;
 @property (weak, nonatomic) IBOutlet UILabel *usernameEmailErrorLabel;

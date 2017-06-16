@@ -31,6 +31,9 @@ static NSString * const kELDetailsSegueIdentifier = @"DevelopmentPlanDetail";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialization
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
 }
 
 - (void)didReceiveMemoryWarning {

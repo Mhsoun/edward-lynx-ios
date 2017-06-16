@@ -105,6 +105,11 @@ static CGFloat const kELCornerRadius = 2.0f;
     // Button
     self.loginButton.layer.cornerRadius = kELCornerRadius;
     
+    [self.loginButton setTitle:NSLocalizedString(@"kELLoginButtonNormalText", nil)
+                      forState:UIControlStateNormal];
+    [self.loginButton setTitle:NSLocalizedString(@"kELLoginButtonDisabledText", nil)
+                      forState:UIControlStateDisabled];
+    
     // View
     gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;

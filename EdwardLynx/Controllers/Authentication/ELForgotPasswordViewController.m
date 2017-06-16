@@ -30,6 +30,7 @@ static CGFloat const kELCornerRadius = 2.0f;
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.recoverPasswordLabel.text = [self.recoverPasswordLabel.text uppercaseString];
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.usernameEmailTextField.delegate = self;
 }

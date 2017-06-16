@@ -45,6 +45,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     
     // Initialization
     AppSingleton.hasLoadedApplication = YES;
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     // Table view
     self.tableView.dataSource = self;

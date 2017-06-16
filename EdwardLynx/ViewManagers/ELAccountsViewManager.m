@@ -126,7 +126,7 @@
     if (formDict[key]) {
         formFieldGroup = formDict[key];
         emailErrors = [REValidation validateObject:[formFieldGroup textValue]
-                                              name:[formFieldGroup textValue]
+                                              name:NSLocalizedString(@"kELUsernameField", nil)
                                         validators:@[@"presence", @"email"]];
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];

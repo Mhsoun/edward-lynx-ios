@@ -2,8 +2,8 @@
 /* Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu"; */
 "33n-m2-WWu.text" = "Role";
 
-/* Class = "UINavigationItem"; title = "SURVEYS"; ObjectID = "B21-4l-6el"; */
-"B21-4l-6el.title" = "SURVEYS";
+/* Class = "UINavigationItem"; title = "Surveys"; ObjectID = "B21-4l-6el"; */
+"B21-4l-6el.title" = "Surveys";
 
 /* Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK"; */
 "OUg-ex-YkK.text" = "Users to invite";

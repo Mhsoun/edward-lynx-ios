@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vhD-8f-WAr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vhD-8f-WAr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--INSTANT FEEDBACK REQUESTS-->
+        <!--Instant Feedback Requests-->
         <scene sceneID="m8K-AB-WMe">
             <objects>
                 <viewController storyboardIdentifier="InstantFeedbacks" automaticallyAdjustsScrollViewInsets="NO" id="vhD-8f-WAr" customClass="ELInstantFeedbacksViewController" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <constraint firstItem="APF-Tg-14y" firstAttribute="centerX" secondItem="QBI-Yj-DiI" secondAttribute="centerX" id="wZu-Bc-BhO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="INSTANT FEEDBACK REQUESTS" id="abA-ak-a58"/>
+                    <navigationItem key="navigationItem" title="Instant Feedback Requests" id="abA-ak-a58"/>
                     <connections>
                         <outlet property="indicatorView" destination="APF-Tg-14y" id="b1U-3j-8y7"/>
                         <outlet property="tableView" destination="QBI-Yj-DiI" id="9kB-QA-MDG"/>
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="916" y="869"/>
         </scene>
-        <!--INSTANT FEEDBACK-->
+        <!--Instant Feedback-->
         <scene sceneID="Z66-Xd-JIP">
             <objects>
                 <viewController storyboardIdentifier="InstantFeedbackDetails" automaticallyAdjustsScrollViewInsets="NO" id="bqt-Nj-koZ" customClass="ELAnswerInstantFeedbackViewController" sceneMemberID="viewController">
@@ -177,7 +177,7 @@
                             <constraint firstItem="Cwa-BI-yGr" firstAttribute="top" secondItem="E6c-FH-tuU" secondAttribute="bottom" constant="20" id="utV-w8-9yy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="INSTANT FEEDBACK" id="2ww-PD-LlL"/>
+                    <navigationItem key="navigationItem" title="Instant Feedback" id="2ww-PD-LlL"/>
                     <connections>
                         <outlet property="anonymousLabel" destination="Hj6-Sj-Bdt" id="xBt-lM-zZi"/>
                         <outlet property="heightConstraint" destination="Nev-rQ-aQV" id="BPL-es-nsT"/>

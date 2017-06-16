@@ -32,6 +32,8 @@
     // Do any additional setup after loading the view.
         
     // Initialization
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     if (!self.instantFeedback) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
         self.submitButton.hidden = YES;

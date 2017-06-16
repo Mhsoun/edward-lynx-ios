@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--CREATE INSTANT FEEDBACK-->
+        <!--Create Instant Feedback-->
         <scene sceneID="brb-OX-bKd">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="RPK-Zk-nOa" customClass="ELCreateInstantFeedbackViewController" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                             <constraint firstItem="QDT-HF-7gS" firstAttribute="centerX" secondItem="pl3-u0-15y" secondAttribute="centerX" id="xKB-EU-s8f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CREATE INSTANT FEEDBACK" id="ZYd-Wg-Okj"/>
+                    <navigationItem key="navigationItem" title="Create Instant Feedback" id="ZYd-Wg-Okj"/>
                     <connections>
                         <outlet property="dropdownView" destination="UF7-8U-W7m" id="rUR-SW-wVk"/>
                         <outlet property="formView" destination="Jt1-nM-ccJ" id="YAZ-CP-EnM"/>

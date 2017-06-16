@@ -42,6 +42,7 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     
     // Initialization
     self.isUpdated = NO;
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;

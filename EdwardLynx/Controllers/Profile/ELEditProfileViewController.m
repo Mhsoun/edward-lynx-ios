@@ -119,6 +119,8 @@
     NSArray *genders = @[NSLocalizedString(@"kELProfileGenderMale", nil),
                          NSLocalizedString(@"kELProfileGenderFemale", nil)];
     
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     self.selectedGender = user.gender.length > 0 ? user.gender : genders[0];
     
     // Radio Group

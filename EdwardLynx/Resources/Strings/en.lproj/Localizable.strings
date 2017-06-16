@@ -47,6 +47,11 @@
 
 "kELErrorDetailsMessage" = "Please try again later";
 
+/* Authentication */
+
+"kELLoginButtonDisabledText" = "Processing...";
+"kELLoginButtonNormalText" = "Login";
+
 /* Dashboard/Menu */
 
 "kELDashboardAddNew" = "Answer New";
@@ -150,7 +155,7 @@
 "kELNameField" = "Name";
 "kELPasswordField" = "Password";
 "kELQuestionField" = "Question";
-"kELUsernameField" = "Username";
+"kELUsernameField" = "Username/Email";
 
 /* Invite/Share */
 

@@ -27,8 +27,11 @@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     self.viewManager = [[ELAccountsViewManager alloc] init];
     self.viewManager.delegate = self;
+    
     self.currentPasswordTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;

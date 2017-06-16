@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--CHANGE PASSWORD-->
+        <!--Change Password-->
         <scene sceneID="cKB-B9-J2W">
             <objects>
                 <viewController storyboardIdentifier="ChangePassword" id="M86-6F-w42" customClass="ELChangePassViewController" sceneMemberID="viewController">
@@ -224,7 +224,7 @@
                             <constraint firstItem="BjN-OE-GdF" firstAttribute="leading" secondItem="QPz-VZ-UFz" secondAttribute="leadingMargin" id="ylH-y6-KgG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CHANGE PASSWORD" id="nWU-44-xh5"/>
+                    <navigationItem key="navigationItem" title="Change Password" id="nWU-44-xh5"/>
                     <connections>
                         <outlet property="confirmPasswordErrorLabel" destination="ixd-lA-okg" id="4UE-WH-7Jp"/>
                         <outlet property="confirmPasswordTextField" destination="hYm-dk-bKX" id="Bfu-Xl-X56"/>
