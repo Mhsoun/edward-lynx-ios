@@ -69,6 +69,13 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.dropdown.delegate = self;
+    self.dropdown.baseController = self;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -338,6 +345,12 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     if ([self.selectedAnswerType isEqualToString:[ELUtils labelByAnswerType:kELAnswerTypeCustomScale]]) {
         validOptions = [self.mCustomScaleOptions subarrayWithRange:NSMakeRange(0, self.mCustomScaleOptions.count - 1)];
         
+        if (validOptions.count == 0 ) {
+            [ELUtils presentToastAtView:self.view
+                                message:NSLocalizedString(@"kELCustomScaleValidationMessage", nil)
+                             completion:nil];
+        }
+        
         [self.mInstantFeedbackDict setObject:validOptions forKey:@"options"];
     }
     
@@ -345,12 +358,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     isValid = [self.viewManager validateCreateInstantFeedbackFormValues:self.mInstantFeedbackDict];
     
     [[IQKeyboardManager sharedManager] resignFirstResponder];
-    
-    if (validOptions.count == 0) {
-        [ELUtils presentToastAtView:self.view
-                            message:NSLocalizedString(@"kELCustomScaleValidationMessage", nil)
-                         completion:nil];
-    }
     
     if (!(isValid && hasSelection)) {
         return;
