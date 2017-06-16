@@ -15,6 +15,8 @@
 @property (nonatomic) BOOL enabled, hasSelection;
 @property (nonatomic, weak) id<ELDropdownDelegate> delegate;
 
+@property (nonatomic, strong) __kindof ELBaseViewController *baseController;
+
 - (instancetype)initWithItems:(NSMutableArray *)items
                baseController:(__kindof ELBaseViewController *)controller
              defaultSelection:(NSString *)defaultSelection;

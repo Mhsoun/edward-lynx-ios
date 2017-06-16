@@ -21,7 +21,6 @@ static CGFloat const kELIconSize = 15;
 
 @property (strong, nonatomic) NSArray *items;
 @property (strong, nonatomic) NSString *selectedItem;
-@property (strong, nonatomic) __kindof ELBaseViewController *baseController;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
