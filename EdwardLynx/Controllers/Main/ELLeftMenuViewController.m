@@ -103,7 +103,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
             // Remove auth header
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthInstanceUserDefaultsKey];
+            [UserDefaults removeObjectForKey:kELAuthInstanceUserDefaultsKey];
             
             [weakSelf presentViewController:StoryboardController(@"Authentication", nil)
                                    animated:YES
