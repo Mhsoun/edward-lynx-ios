@@ -22,6 +22,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELAdsViewHeight = 100;
+static NSString * const kELEmptyDataCell = @"EmptyCell";
 static NSString * const kELHeaderCellIdentifier = @"DashboardHeaderCell";
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
 static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
@@ -121,13 +122,39 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     NSString *key = [self.dashboardData sections][section];
     NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     
-    return section == 0 ? 1 : items.count;
+    return section == 0 ? 1 : (!items.count || items.count == 0) ? 1 : items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
     NSString *key = [self.dashboardData sections][indexPath.section];
     NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
+    
+    if (!items.count || items.count == 0) {
+        NSString *message;
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                       reuseIdentifier:kELEmptyDataCell];
+        
+        switch (indexPath.section) {
+            case 1:
+                message = NSLocalizedString(@"kELReminderEmptyMessage", nil);
+                
+                break;
+            case 2:
+                message = NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil);
+                
+                break;
+            default:
+                break;
+        }
+        
+        cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
+        cell.textLabel.text = message;
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+        return cell;
+    }
     
     value = items[indexPath.row];
     
@@ -207,6 +234,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     NSString *key = [self.dashboardData sections][indexPath.section];
     NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     
+    if (!items.count || items.count == 0) {
+        return 75;
+    }
+    
     value = items[indexPath.row];
     
     if (indexPath.section == 0) {
@@ -252,18 +283,23 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CGRect frame;
     ELSectionView *sectionView;
     NSString *key = [self.dashboardData sections][section];
+    NSArray *items = (NSArray *)[self.dashboardData itemsForSection:key];
     NSMutableDictionary *mSectionDict = [NSMutableDictionary dictionaryWithDictionary:@{@"title": key}];
+    
+    frame = CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 30);
     
     if (section == 0) {
         return nil;
     } else if ([key isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)]) {
-        [mSectionDict setObject:kELDashboardActionTypeDevPlan forKey:@"segue"];
+        if (items.count > 0) {
+            [mSectionDict setObject:kELDashboardActionTypeDevPlan forKey:@"segue"];
+        }
     }
     
-    sectionView = [[ELSectionView alloc] initWithDetails:[mSectionDict copy]
-                                                   frame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 30)];
+    sectionView = [[ELSectionView alloc] initWithDetails:[mSectionDict copy] frame:frame];
     sectionView.delegate = self;
     
     return sectionView;

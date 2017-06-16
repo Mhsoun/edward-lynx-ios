@@ -40,14 +40,20 @@
         [mSections addObject:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)];
     }
     
-    return [mSections copy];
+    // NOTE To display only the section with data
+//    return [mSections copy];
+    
+    return @[@"",
+             NSLocalizedString(@"kELDashboardSectionReminders", nil),
+             NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)];
 }
 
 - (NSArray *)itemsForSection:(NSString *)section {
     if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionReminders", nil)]) {
         return self.reminders;
     } else if ([section isEqualToString:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)]) {
-        return self.developmentPlans.count > 2 ? [self.developmentPlans subarrayWithRange:NSMakeRange(0, 2)] : self.developmentPlans;
+        return self.developmentPlans.count > 2 ? [self.developmentPlans subarrayWithRange:NSMakeRange(0, 2)] :
+                                                 self.developmentPlans;
     } else {
         NSInteger count = self.answerableCount ? [self.answerableCount integerValue] : 0;
         

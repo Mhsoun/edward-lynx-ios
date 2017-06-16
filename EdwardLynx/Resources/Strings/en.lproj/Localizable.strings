@@ -82,6 +82,8 @@
 "kELMenuItemSettings" = "Settings";
 "kELMenuItemSurveys" = "Surveys";
 
+"kELReminderEmptyMessage" = "No Reminders";
+
 /* Development Plans */
 
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Confirmation";
