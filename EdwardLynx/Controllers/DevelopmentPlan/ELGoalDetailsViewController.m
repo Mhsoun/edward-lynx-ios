@@ -193,6 +193,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     NSString *buttonLabel = self.toAddNew ? NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil) :
                                             NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
     
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     // Button
     [self.addGoalButton setTitle:buttonLabel forState:UIControlStateNormal];
     [self.addActionButton setImage:[FontAwesome imageWithIcon:fa_plus

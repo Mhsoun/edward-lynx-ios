@@ -17,11 +17,11 @@
 /* Class = "UILabel"; text = "Link to a category"; ObjectID = "Ei9-aC-MO4"; */
 "Ei9-aC-MO4.text" = "Link to a category";
 
-/* Class = "UINavigationItem"; title = "GOAL DETAILS"; ObjectID = "O5J-gr-nQK"; */
-"O5J-gr-nQK.title" = "GOAL DETAILS";
+/* Class = "UINavigationItem"; title = "Goal Details"; ObjectID = "O5J-gr-nQK"; */
+"O5J-gr-nQK.title" = "Goal Details";
 
-/* Class = "UINavigationItem"; title = "CREATE DEVELOPMENT PLAN"; ObjectID = "Vv2-Q3-oR2"; */
-"Vv2-Q3-oR2.title" = "CREATE DEVELOPMENT PLAN";
+/* Class = "UINavigationItem"; title = "Create Development Plan"; ObjectID = "Vv2-Q3-oR2"; */
+"Vv2-Q3-oR2.title" = "Create Development Plan";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "aRW-0g-O3z"; */
 "aRW-0g-O3z.text" = "Title";

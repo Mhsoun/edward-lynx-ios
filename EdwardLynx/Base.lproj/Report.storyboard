@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--RESULTS-->
+        <!--Results-->
         <scene sceneID="WVS-UR-LJn">
             <objects>
                 <viewController storyboardIdentifier="Report" id="vJQ-t1-0zN" customClass="ELReportsViewController" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                             <constraint firstItem="6hD-b1-q6b" firstAttribute="width" secondItem="CP3-W7-7Kf" secondAttribute="width" id="ubc-TN-ace"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="RESULTS" id="ecC-sn-zjy"/>
+                    <navigationItem key="navigationItem" title="Results" id="ecC-sn-zjy"/>
                     <connections>
                         <segue destination="4P0-Lz-7qb" kind="show" identifier="InstantFeedbackDetails" id="rHV-1k-SMv"/>
                         <segue destination="bfu-5v-FI2" kind="show" identifier="ReportDetailsSurvey" id="VvD-CG-5jO"/>
@@ -148,7 +148,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzL-Fa-l1a">
-                                                        <rect key="frame" x="0.0" y="24" width="345" height="43.5"/>
+                                                        <rect key="frame" x="0.0" y="24" width="345" height="56"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <string key="text">Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar.</string>
                                                         <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="12"/>
@@ -156,7 +156,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSk-mx-nSW">
-                                                        <rect key="frame" x="0.0" y="77.5" width="345" height="122.5"/>
+                                                        <rect key="frame" x="0.0" y="90" width="345" height="110"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>

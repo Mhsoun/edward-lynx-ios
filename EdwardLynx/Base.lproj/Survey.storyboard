@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--SURVEYS-->
+        <!--Surveys-->
         <scene sceneID="7UV-oZ-2b5">
             <objects>
                 <viewController storyboardIdentifier="Survey" id="VWd-5R-vaB" customClass="ELSurveysViewController" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                             <constraint firstItem="WeV-ti-ZUF" firstAttribute="top" secondItem="2ER-dR-ZIR" secondAttribute="top" id="u2w-hU-pa4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SURVEYS" id="B21-4l-6el"/>
+                    <navigationItem key="navigationItem" title="Surveys" id="B21-4l-6el"/>
                     <connections>
                         <outlet property="bgView" destination="WeV-ti-ZUF" id="lns-nU-an7"/>
                         <segue destination="Oe3-tM-qcI" kind="show" identifier="SurveyDetails" id="GE1-NU-ghW"/>

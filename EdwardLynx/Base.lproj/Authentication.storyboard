@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQv-J5-SIN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQv-J5-SIN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +45,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-1E-GBO" userLabel="Username View">
                                 <rect key="frame" x="26" y="296" width="323" height="35"/>
                                 <subviews>
-                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy" customClass="RNThemeTextField">
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy" customClass="RNThemeTextField">
                                         <rect key="frame" x="10" y="5" width="273" height="25"/>
                                         <color key="tintColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,10 +138,10 @@
                                     <constraint firstAttribute="height" constant="40" id="hSC-gh-Xqf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="LOGIN">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="PROCESSING..."/>
+                                <state key="disabled" title="Processing..."/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
@@ -245,7 +245,7 @@
                                     <constraint firstAttribute="width" secondItem="djq-Le-6iy" secondAttribute="height" multiplier="1:1" id="l9p-oK-gp4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECOVER PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recover Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
                                 <rect key="frame" x="26" y="296" width="323" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="MC0-VV-Yc3"/>
@@ -306,10 +306,10 @@
                                 <rect key="frame" x="26" y="396" width="323" height="35"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                <state key="normal" title="RECOVER">
+                                <state key="normal" title="Recover">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="PROCESSING..."/>
+                                <state key="disabled" title="Processing..."/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
@@ -360,6 +360,7 @@
                     </view>
                     <connections>
                         <outlet property="recoverButton" destination="Rls-Cu-J3h" id="EcU-6g-zF0"/>
+                        <outlet property="recoverPasswordLabel" destination="iY9-zi-6oy" id="wAh-nc-sSg"/>
                         <outlet property="usernameEmailErrorLabel" destination="jfX-mI-BPb" id="pgN-b0-bkn"/>
                         <outlet property="usernameEmailIcon" destination="dud-7A-Ds6" id="WXc-Op-p4J"/>
                         <outlet property="usernameEmailTextField" destination="0zg-eg-vpS" id="7o6-gI-WW4"/>

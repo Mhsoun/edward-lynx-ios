@@ -151,6 +151,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 - (void)layoutPage {
     NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
     
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     // Button
     [self.inviteButton setTitle:NSLocalizedString(@"kELInviteParticipantsButton", nil)
                        forState:UIControlStateNormal];

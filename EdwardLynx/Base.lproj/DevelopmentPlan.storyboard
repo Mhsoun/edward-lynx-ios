@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--DEVELOPMENT PLANS-->
+        <!--Development Plans-->
         <scene sceneID="SXH-FB-3pK">
             <objects>
                 <viewController storyboardIdentifier="DevelopmentPlan" automaticallyAdjustsScrollViewInsets="NO" id="OKY-to-Fl0" customClass="ELDevelopmentPlansViewController" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                             <constraint firstItem="xrl-lO-vif" firstAttribute="top" secondItem="3ah-Td-pFX" secondAttribute="bottom" id="dbg-md-d9H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DEVELOPMENT PLANS" id="AZJ-jF-NaL"/>
+                    <navigationItem key="navigationItem" title="Development Plans" id="AZJ-jF-NaL"/>
                     <connections>
                         <segue destination="fHP-1B-U5H" kind="show" identifier="DevelopmentPlanDetail" id="BlV-fo-hfp"/>
                     </connections>

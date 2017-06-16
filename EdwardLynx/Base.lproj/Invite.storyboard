@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omf-Pf-luc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omf-Pf-luc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--INVITE PEOPLE-->
+        <!--Invite People-->
         <scene sceneID="S7Z-eC-va8">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="omf-Pf-luc" customClass="ELInviteUsersViewController" sceneMemberID="viewController">
@@ -185,7 +185,7 @@
                             <constraint firstItem="b9s-4t-stq" firstAttribute="leading" secondItem="vah-jb-Lki" secondAttribute="leading" id="yzK-zc-5rl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="INVITE PEOPLE" id="zar-hO-SbN"/>
+                    <navigationItem key="navigationItem" title="Invite People" id="zar-hO-SbN"/>
                     <connections>
                         <outlet property="emailButton" destination="b9s-4t-stq" id="yp5-Xq-x43"/>
                         <outlet property="emailButtonHeightConstraint" destination="hFI-Yb-VCS" id="S9i-yN-bKo"/>

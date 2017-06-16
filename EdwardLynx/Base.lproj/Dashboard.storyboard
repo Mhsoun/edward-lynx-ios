@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--DASHBOARD-->
+        <!--Dashboard-->
         <scene sceneID="apw-ji-Yif">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="oFX-IJ-m8d" customClass="ELDashboardViewController" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <constraint firstItem="jak-j1-P2T" firstAttribute="top" secondItem="PHU-zc-u1l" secondAttribute="bottom" id="thn-QJ-cm8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DASHBOARD" id="Ta0-tH-txy"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="Ta0-tH-txy"/>
                     <connections>
                         <outlet property="indicatorView" destination="Rsz-BP-xk6" id="syK-Rz-hf8"/>
                         <outlet property="tableView" destination="jak-j1-P2T" id="vNA-G4-lDT"/>
@@ -99,7 +99,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-09-USD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23D-mn-fBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23D-mn-fBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

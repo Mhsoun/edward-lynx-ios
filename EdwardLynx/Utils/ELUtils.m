@@ -103,35 +103,35 @@
 #pragma mark - User Defaults Helper Methods
 
 + (id)getUserDefaultsCustomObjectForKey:(NSString *)key {
-    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSData *encodedObject = [UserDefaults objectForKey:key];
     __kindof NSObject *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     
     return object;
 }
 
 + (id)getUserDefaultsObjectForKey:(NSString *)key {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    return [UserDefaults objectForKey:key];
 }
 
 + (id)getUserDefaultsValueForKey:(NSString *)key {
-    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+    return [UserDefaults valueForKey:key];
 }
 
 + (void)setUserDefaultsCustomObject:(__kindof NSObject *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
     
-    [[NSUserDefaults standardUserDefaults] setObject:encodedObject forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [UserDefaults setObject:encodedObject forKey:key];
+    [UserDefaults synchronize];
 }
 
 + (void)setUserDefaultsObject:(__kindof NSObject *)object key:(NSString *)key {
-    [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [UserDefaults setObject:object forKey:key];
+    [UserDefaults synchronize];
 }
 
 + (void)setUserDefaultsValue:(id)value key:(NSString *)key {
-    [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [UserDefaults setValue:value forKey:key];
+    [UserDefaults synchronize];
 }
 
 #pragma mark - API Helper Methods

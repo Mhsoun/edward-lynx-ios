@@ -11,8 +11,8 @@
 /* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
 "WO5-DV-VLL.text" = "Is Anonymous";
 
-/* Class = "UINavigationItem"; title = "CREATE INSTANT FEEDBACK"; ObjectID = "ZYd-Wg-Okj"; */
-"ZYd-Wg-Okj.title" = "CREATE INSTANT FEEDBACK";
+/* Class = "UINavigationItem"; title = "Create Instant Feedback"; ObjectID = "ZYd-Wg-Okj"; */
+"ZYd-Wg-Okj.title" = "Create Instant Feedback";
 
 /* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
 "eM8-uf-ggi.text" = "Options";

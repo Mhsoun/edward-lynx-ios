@@ -54,6 +54,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.searchBar.delegate = self;
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [AppSingleton.participants mutableCopy];
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
     
     // To display only the not yet invited participants

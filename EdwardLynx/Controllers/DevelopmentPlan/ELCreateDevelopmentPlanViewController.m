@@ -171,6 +171,8 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 - (void)layoutPage {
     CGFloat iconHeight = 15;
     
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     // Button
     [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
                                                   iconColor:[UIColor blackColor]

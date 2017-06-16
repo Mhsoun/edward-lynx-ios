@@ -232,6 +232,8 @@
                 // Call method again to retry refreshing of Firebase token
                 [self registerDeviceToFirebaseAndAPI];
             } else {
+                DLog(@"Firebase token: %@", self.firebaseToken);
+                
                 [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                               deviceId:deviceId
                                                         withCompletion:^(NSURLResponse *response,

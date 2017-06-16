@@ -17,8 +17,8 @@
 /* Class = "UILabel"; text = "Country"; ObjectID = "KIE-Hp-b3o"; */
 "KIE-Hp-b3o.text" = "Country";
 
-/* Class = "UINavigationItem"; title = "PROFILE"; ObjectID = "KUQ-vm-yU0"; */
-"KUQ-vm-yU0.title" = "PROFILE";
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "KUQ-vm-yU0"; */
+"KUQ-vm-yU0.title" = "Profile";
 
 /* Class = "UILabel"; text = "Gender"; ObjectID = "aHy-DJ-e6N"; */
 "aHy-DJ-e6N.text" = "Gender";

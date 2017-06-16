@@ -8,8 +8,8 @@
 /* Class = "UILabel"; text = "Current Password"; ObjectID = "UV4-Hn-sih"; */
 "UV4-Hn-sih.text" = "Current Password";
 
-/* Class = "UINavigationItem"; title = "CHANGE PASSWORD"; ObjectID = "nWU-44-xh5"; */
-"nWU-44-xh5.title" = "CHANGE PASSWORD";
+/* Class = "UINavigationItem"; title = "Change Password"; ObjectID = "nWU-44-xh5"; */
+"nWU-44-xh5.title" = "Change Password";
 
 /* Class = "UILabel"; text = "New Password (Again)"; ObjectID = "ogE-JI-TFm"; */
 "ogE-JI-TFm.text" = "New Password (Again)";

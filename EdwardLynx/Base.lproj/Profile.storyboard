@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--PROFILE-->
+        <!--Profile-->
         <scene sceneID="iPi-dl-r70">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ggl-kA-jIJ" customClass="ELEditProfileViewController" sceneMemberID="viewController">
@@ -305,7 +305,7 @@
                                     <constraint firstAttribute="trailing" secondItem="gTG-cs-I3z" secondAttribute="trailing" id="tKO-b1-bal"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0qZ-vS-PTl">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0qZ-vS-PTl">
                                 <rect key="frame" x="16" y="572" width="343" height="85"/>
                                 <subviews>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfG-4u-dUc">
@@ -328,9 +328,6 @@
                                     <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC2-cE-mwR">
                                         <rect key="frame" x="0.0" y="45" width="343" height="40"/>
                                         <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="ExD-oy-0Ni"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.26666666666666666" green="0.12549019607843137" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
@@ -361,7 +358,7 @@
                             <constraint firstItem="0qZ-vS-PTl" firstAttribute="leading" secondItem="DVm-eg-BZu" secondAttribute="leadingMargin" id="zno-xb-fZU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PROFILE" id="KUQ-vm-yU0"/>
+                    <navigationItem key="navigationItem" title="Profile" id="KUQ-vm-yU0"/>
                     <connections>
                         <outlet property="cancelButton" destination="AC2-cE-mwR" id="LqX-2T-dZb"/>
                         <outlet property="cityTextField" destination="txP-qy-ruz" id="di1-ac-bo9"/>
@@ -384,7 +381,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeO-wN-6bl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hpx-WY-ILA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hpx-WY-ILA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
