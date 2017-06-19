@@ -76,17 +76,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mde-e0-Zaa" userLabel="Details View" customClass="RNThemeView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="125"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="160"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-a4-Fh4">
-                                        <rect key="frame" x="145.5" y="0.0" width="85" height="85"/>
+                                        <rect key="frame" x="143" y="0.0" width="90" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vI8-a4-Fh4" secondAttribute="height" multiplier="1:1" id="ejV-sv-mQy"/>
                                         </constraints>
                                     </view>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dZ1-3s-hUS">
-                                        <rect key="frame" x="10" y="95" width="355" height="20"/>
+                                        <rect key="frame" x="10" y="100" width="355" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="lgQ-VQ-BwV"/>
@@ -95,22 +95,58 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsS-3m-Q7R" userLabel="Share View">
+                                        <rect key="frame" x="112.5" y="125" width="150" height="30"/>
+                                        <subviews>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-DP-1c9">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="29"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                <state key="normal" title="Share to manager">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-Wv-5xt">
+                                                <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="yFc-Wv-5xt" secondAttribute="height" multiplier="1:1" id="6dV-HB-1qP"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="onShareButtonClick:" destination="fHP-1B-U5H" eventType="touchUpInside" id="Vkd-rx-Pvf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="leading" secondItem="e5Z-DP-1c9" secondAttribute="trailing" id="08x-uC-oJI"/>
+                                            <constraint firstItem="e5Z-DP-1c9" firstAttribute="leading" secondItem="PsS-3m-Q7R" secondAttribute="leading" id="DlV-HW-SaG"/>
+                                            <constraint firstAttribute="width" constant="150" id="HnO-GW-Vkd"/>
+                                            <constraint firstAttribute="trailing" secondItem="yFc-Wv-5xt" secondAttribute="trailing" id="Ogm-vp-9BB"/>
+                                            <constraint firstItem="e5Z-DP-1c9" firstAttribute="centerY" secondItem="yFc-Wv-5xt" secondAttribute="centerY" id="oft-qb-9MC"/>
+                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="top" secondItem="PsS-3m-Q7R" secondAttribute="top" id="qSb-4o-Jm9"/>
+                                            <constraint firstAttribute="bottom" secondItem="yFc-Wv-5xt" secondAttribute="bottom" id="sgv-Rw-gDY"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dZ1-3s-hUS" secondAttribute="trailing" constant="10" id="8z0-o2-MoU"/>
+                                    <constraint firstAttribute="bottom" secondItem="PsS-3m-Q7R" secondAttribute="bottom" constant="5" id="D3X-Rf-lXT"/>
                                     <constraint firstItem="vI8-a4-Fh4" firstAttribute="centerX" secondItem="mde-e0-Zaa" secondAttribute="centerX" id="KJx-2y-74C"/>
                                     <constraint firstItem="dZ1-3s-hUS" firstAttribute="top" secondItem="vI8-a4-Fh4" secondAttribute="bottom" constant="10" id="Od4-Eu-zKz"/>
-                                    <constraint firstAttribute="height" constant="125" id="Qhf-mX-Oap"/>
+                                    <constraint firstAttribute="height" constant="160" id="Qhf-mX-Oap"/>
                                     <constraint firstItem="dZ1-3s-hUS" firstAttribute="leading" secondItem="mde-e0-Zaa" secondAttribute="leading" constant="10" id="Td4-0O-LAu"/>
+                                    <constraint firstItem="PsS-3m-Q7R" firstAttribute="centerX" secondItem="mde-e0-Zaa" secondAttribute="centerX" id="ZGf-9s-8Yf"/>
                                     <constraint firstItem="vI8-a4-Fh4" firstAttribute="top" secondItem="mde-e0-Zaa" secondAttribute="top" id="bzp-Zw-w6K"/>
-                                    <constraint firstAttribute="bottom" secondItem="dZ1-3s-hUS" secondAttribute="bottom" constant="10" id="zYg-Cf-dRG"/>
+                                    <constraint firstItem="PsS-3m-Q7R" firstAttribute="top" secondItem="dZ1-3s-hUS" secondAttribute="bottom" constant="5" id="wVG-cd-G7k"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p5v-jx-qA0">
-                                <rect key="frame" x="0.0" y="155" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="190" width="375" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +173,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-07-KT4">
-                                <rect key="frame" x="178" y="396" width="20" height="20"/>
+                                <rect key="frame" x="178" y="413.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -165,6 +201,7 @@
                         <outlet property="chartLabel" destination="dZ1-3s-hUS" id="Goz-Zd-dDV"/>
                         <outlet property="circleChartView" destination="vI8-a4-Fh4" id="JCV-sR-7sQ"/>
                         <outlet property="indicatorView" destination="J3W-07-KT4" id="Ajj-zo-YZh"/>
+                        <outlet property="shareButton" destination="yFc-Wv-5xt" id="yT5-sr-dxr"/>
                         <outlet property="tableView" destination="p5v-jx-qA0" id="yz0-o2-tHg"/>
                         <segue destination="29G-Ie-uzu" kind="show" identifier="UpdateDevPlan" id="Tad-H7-tmM"/>
                     </connections>

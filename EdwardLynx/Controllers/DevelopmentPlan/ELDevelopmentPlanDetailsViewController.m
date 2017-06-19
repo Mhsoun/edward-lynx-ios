@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, kELActionOption) {
 };
 
 static CGFloat const kELGoalCellHeight = 105;
-
+static CGFloat const kELIconHeight = 20;
 static NSString * const kELCellIdentifier = @"GoalCell";
 static NSString * const kELCreateDevPlanGoalStoryboardIdentifier = @"CreateDevPlanGoal";
 static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
@@ -37,6 +37,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 @interface ELDevelopmentPlanDetailsViewController ()
 
+@property (nonatomic) BOOL shared;
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic) kELActionOption actionOptionType;
 @property (nonatomic, strong) NSMutableArray<ELGoal *> *mGoals;
@@ -57,6 +58,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.shared = NO;
     self.mGoals = [[NSMutableArray alloc] init];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
@@ -211,6 +213,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
+    [self.shareButton setImage:[FontAwesome imageWithIcon:fa_square_o
+                                                iconColor:ThemeColor(kELOrangeColor)
+                                                 iconSize:kELIconHeight
+                                                imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
+                      forState:UIControlStateNormal];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -539,6 +546,16 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 }
 
 #pragma mark - Interface Builder Actions
+
+- (IBAction)onShareButtonClick:(id)sender {
+    self.shared = !self.shared;
+    
+    [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square_o : fa_square_o
+                                                iconColor:ThemeColor(kELOrangeColor)
+                                                 iconSize:kELIconHeight
+                                                imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
+                      forState:UIControlStateNormal];
+}
 
 - (IBAction)onAddGoalButtonClick:(id)sender {
     [self addUpdateGoal:nil];

@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *chartLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+- (IBAction)onShareButtonClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *addGoalButton;
 - (IBAction)onAddGoalButtonClick:(id)sender;
 
