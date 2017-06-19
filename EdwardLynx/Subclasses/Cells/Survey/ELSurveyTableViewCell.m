@@ -34,6 +34,7 @@
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"description": survey.evaluationText,
                                      @"status": @(survey.status),
+                                     @"isExpired": @([survey.endDate mt_isAfter:[NSDate date]]),
                                      @"date": survey.endDate}];
         
         self.reactivateLabel.hidden = ![[NSDate date] mt_isAfter:survey.endDate];
@@ -78,7 +79,7 @@
     self.dayLabel.text =  dayString;
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
-    self.reactivateLabel.hidden = YES;
+    self.reactivateLabel.hidden = [detailsDict.allKeys containsObject:@"isExpired"] ? [detailsDict[@"isExpired"] boolValue] : YES;
     self.statusLabel.backgroundColor = ThemeColor(kELDarkGrayColor);
     self.statusLabel.layer.cornerRadius = 2.0f;
     

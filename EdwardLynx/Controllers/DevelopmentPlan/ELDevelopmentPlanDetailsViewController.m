@@ -398,7 +398,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
                                                     preferredStyle:UIAlertControllerStyleAlert];
-    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
+    self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateButton", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull alertAction) {
         NSString *name = [self.actionAlert.textFields[0] text];
@@ -444,7 +444,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.actionAlert = [UIAlertController alertControllerWithTitle:title
                                                            message:message
                                                     preferredStyle:UIAlertControllerStyleAlert];
-    self.addAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonAdd", nil)
+    self.addAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELAddButton", nil)
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull alertAction) {
         NSString *name = [self.actionAlert.textFields[0] text];

@@ -15,6 +15,7 @@
 "kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
 "kELInstantFeedbackTitle" = "Instant Feedback";
 
+"kELAddButton" = "Add";
 "kELAddMoreParticipantsButton" = "Add Participants";
 "kELCancelButton" = "Cancel";
 "kELCloseButton" = "Close";
@@ -28,6 +29,7 @@
 "kELSaveToDraftButton" = "Save to Drafts";
 "kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
+"kELUpdateButton" = "Update";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
 "kELFilterLabel" = "Filter";
@@ -64,6 +66,8 @@
 "kELDashboardActionResults" = "Results";
 "kELDashboardActionInvite" = "Invite";
 "kELDashboardActionCreate" = "Create";
+
+"kELDashboardDueDateMessage" = "Due in";
 
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
@@ -145,7 +149,7 @@
 
 "kELFeedbackCellAuthor" = "Created by: %@";
 
-"kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback.";
+"kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
@@ -170,14 +174,14 @@
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users";
 
-"kELInviteUsersAddEmailHeaderMessage" = "Add user";
+"kELInviteUsersAddEmailHeaderMessage" = "Add User";
 "kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
-"kELInviteUsersAddEmailButtonAdd" = "Add User";
 
 "kELInviteTitleFeedback" = "Invite People";
 "kELInviteTitleReport" = "Share Result";
 
 "kELInviteUsersSuccess" = "Successfully invited participants";
+"kELInviteUsersShareSuccess" = "Successfully shared result";
 
 "kELReportEmptyMessage" = "No Results";
 
@@ -204,7 +208,7 @@
 "kELReportInfoManager" = "Manager";
 
 "kELReportMoreDropdownAddMore" = "Add More Participants";
-"kELReportMoreDropdownShare" = "Share Report";
+"kELReportMoreDropdownShare" = "Share Result";
 
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
@@ -267,7 +271,7 @@
 "kELSurveyTypeSurvey" = "Lynx Survey";
 "kELSurveyTypeLTT" = "LTT";
 
-"kELSurveyUnauthorizedLabel" = "You are not authorized to answer this survey.";
+"kELSurveyUnauthorizedLabel" = "You are not authorized to answer this survey";
 
 /* Tabs */
 

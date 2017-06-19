@@ -436,11 +436,14 @@
                                                    NSDictionary *responseDict,
                                                    NSError *error) {
         if (error.code == kELAPINotFoundStatusCode) {
+            UIAlertController *alertController;
             NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
-            NSString *message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                     message:message
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            NSString *message = isFeedback ? NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil) :
+                                             NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+            
+            alertController = [UIAlertController alertControllerWithTitle:title
+                                                                  message:message
+                                                           preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
                                                                 style:UIAlertActionStyleDefault
