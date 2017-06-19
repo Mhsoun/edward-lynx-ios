@@ -11,6 +11,7 @@
 static NSString * const kELDashboardActionTypeDevPlan = @"TabDevPlan";
 static NSString * const kELDashboardActionTypeFeedback = @"TabFeedback";
 static NSString * const kELDashboardActionTypeLynx = @"TabLynx";
+static NSString * const kELDashboardActionTypeTeam = @"TabTeam";
 
 static NSString * const kELDashboardActionTypeAnswer = @"Feedback";
 static NSString * const kELDashboardActionTypeReport = @"Report";

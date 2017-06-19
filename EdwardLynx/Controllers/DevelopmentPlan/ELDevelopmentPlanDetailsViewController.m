@@ -550,7 +550,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 - (IBAction)onShareButtonClick:(id)sender {
     self.shared = !self.shared;
     
-    [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square_o : fa_square_o
+    [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square : fa_square_o
                                                 iconColor:ThemeColor(kELOrangeColor)
                                                  iconSize:kELIconHeight
                                                 imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]

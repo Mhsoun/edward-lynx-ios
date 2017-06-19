@@ -98,14 +98,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsS-3m-Q7R" userLabel="Share View">
                                         <rect key="frame" x="112.5" y="125" width="150" height="30"/>
                                         <subviews>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-DP-1c9">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="29"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share to manager" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-4M-3Ne">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                <state key="normal" title="Share to manager">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-Wv-5xt">
                                                 <rect key="frame" x="120" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -120,11 +118,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="leading" secondItem="e5Z-DP-1c9" secondAttribute="trailing" id="08x-uC-oJI"/>
-                                            <constraint firstItem="e5Z-DP-1c9" firstAttribute="leading" secondItem="PsS-3m-Q7R" secondAttribute="leading" id="DlV-HW-SaG"/>
+                                            <constraint firstItem="2dn-4M-3Ne" firstAttribute="leading" secondItem="PsS-3m-Q7R" secondAttribute="leading" id="FWT-OL-PsR"/>
                                             <constraint firstAttribute="width" constant="150" id="HnO-GW-Vkd"/>
+                                            <constraint firstAttribute="bottom" secondItem="2dn-4M-3Ne" secondAttribute="bottom" id="IPI-16-ji3"/>
                                             <constraint firstAttribute="trailing" secondItem="yFc-Wv-5xt" secondAttribute="trailing" id="Ogm-vp-9BB"/>
-                                            <constraint firstItem="e5Z-DP-1c9" firstAttribute="centerY" secondItem="yFc-Wv-5xt" secondAttribute="centerY" id="oft-qb-9MC"/>
+                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="leading" secondItem="2dn-4M-3Ne" secondAttribute="trailing" id="bSt-ss-kuT"/>
+                                            <constraint firstItem="2dn-4M-3Ne" firstAttribute="top" secondItem="PsS-3m-Q7R" secondAttribute="top" id="m8F-yf-0tm"/>
                                             <constraint firstItem="yFc-Wv-5xt" firstAttribute="top" secondItem="PsS-3m-Q7R" secondAttribute="top" id="qSb-4o-Jm9"/>
                                             <constraint firstAttribute="bottom" secondItem="yFc-Wv-5xt" secondAttribute="bottom" id="sgv-Rw-gDY"/>
                                         </constraints>

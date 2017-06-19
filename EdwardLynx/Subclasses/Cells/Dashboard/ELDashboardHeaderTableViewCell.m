@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *devPlanView;
 @property (weak, nonatomic) IBOutlet UIView *feedbackView;
 @property (weak, nonatomic) IBOutlet UIView *surveyView;
+@property (weak, nonatomic) IBOutlet UIView *teamView;
 
 @property (weak, nonatomic) IBOutlet UIView *answerActionView;
 @property (weak, nonatomic) IBOutlet UIView *resultsActionView;
@@ -71,6 +72,15 @@
     shortcutView.frame = self.surveyView.bounds;
     
     [self.surveyView addSubview:shortcutView];
+    
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionTeam", nil),
+                                                             @"color": kELLynxColor,
+                                                             @"icon": fa_edit,
+                                                             @"segue": kELDashboardActionTypeTeam}];
+    shortcutView.delegate = self;
+    shortcutView.frame = self.surveyView.bounds;
+    
+    [self.teamView addSubview:shortcutView];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionAnswer", nil),
                                                          @"count": contents[0],

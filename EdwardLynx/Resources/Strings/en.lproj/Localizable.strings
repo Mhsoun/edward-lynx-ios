@@ -59,9 +59,10 @@
 "kELDashboardAddNew" = "Answer New";
 "kELDashboardCreateNew" = "Create New";
 
-"kELDashboardActionDevelopmentPlan" = "Development \nPlans";
-"kELDashboardActionInstantFeedback" = "Instant \nFeedback";
+"kELDashboardActionDevelopmentPlan" = "Development\nPlans";
+"kELDashboardActionInstantFeedback" = "Instant\nFeedback";
 "kELDashboardActionLynxMeasurement" = "Lynx \nMeasurement";
+"kELDashboardActionTeam" = "Team\nView";
 "kELDashboardActionAnswer" = "Answer";
 "kELDashboardActionResults" = "Results";
 "kELDashboardActionInvite" = "Invite";
