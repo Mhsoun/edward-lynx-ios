@@ -235,14 +235,28 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
     __weak typeof(self) weakSelf = self;
+    
+    switch (self.inviteType) {
+        case kELInviteUsersInstantFeedback:
+            message = NSLocalizedString(@"kELInviteUsersSuccess", nil);
+            
+            break;
+        case kELInviteUsersReports:
+            message = NSLocalizedString(@"kELInviteUsersShareSuccess", nil);
+            
+            break;
+        default:
+            break;
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [self clearSelection];
     
     // Back to the Dashboard
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELInviteUsersSuccess", nil)
+                        message:message
                      completion:^{
         if (weakSelf.inviteType != kELInviteUsersInstantFeedback) {
             [weakSelf.navigationController popViewControllerAnimated:YES];

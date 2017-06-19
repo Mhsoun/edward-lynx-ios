@@ -67,6 +67,8 @@
 "kELDashboardActionInvite" = "Invite";
 "kELDashboardActionCreate" = "Create";
 
+"kELDashboardDueDateMessage" = "Due in";
+
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
 "kELDashboardDueDateNow" = "Now";
@@ -147,7 +149,7 @@
 
 "kELFeedbackCellAuthor" = "Created by: %@";
 
-"kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback.";
+"kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
@@ -179,6 +181,7 @@
 "kELInviteTitleReport" = "Share Result";
 
 "kELInviteUsersSuccess" = "Successfully invited participants";
+"kELInviteUsersShareSuccess" = "Successfully shared result";
 
 "kELReportEmptyMessage" = "No Results";
 
@@ -268,7 +271,7 @@
 "kELSurveyTypeSurvey" = "Lynx Survey";
 "kELSurveyTypeLTT" = "LTT";
 
-"kELSurveyUnauthorizedLabel" = "You are not authorized to answer this survey.";
+"kELSurveyUnauthorizedLabel" = "You are not authorized to answer this survey";
 
 /* Tabs */
 

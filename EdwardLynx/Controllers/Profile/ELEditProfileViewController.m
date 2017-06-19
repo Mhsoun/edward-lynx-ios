@@ -229,6 +229,9 @@
 }
 
 - (IBAction)onCancelButtonClick:(id)sender {
+    self.nameErrorLabel.text = @"";
+    
+    [self populatePage];
     [self toggleForm:NO];
 }
 
