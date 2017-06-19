@@ -1752,7 +1752,7 @@
 					A9308BCD1DED74B5007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = KGZFZP3DEA;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -3224,8 +3224,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1c09dafb-9fae-46c5-ac7c-6221cd6e36fc";
+				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -3247,8 +3247,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1c09dafb-9fae-46c5-ac7c-6221cd6e36fc";
+				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
