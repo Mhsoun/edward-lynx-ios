@@ -440,7 +440,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil)
                                                                message:NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil)
                                                         preferredStyle:UIAlertControllerStyleAlert];    
-    self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailButtonAdd", nil)
+    self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELAddButton", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {
         NSArray<UITextField *> *textFields = self.alertController.textFields;

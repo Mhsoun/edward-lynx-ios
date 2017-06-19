@@ -15,6 +15,7 @@
 "kELCreateInstantFeedbackTitle" = "Create Instant Feedback";
 "kELInstantFeedbackTitle" = "Instant Feedback";
 
+"kELAddButton" = "Add";
 "kELAddMoreParticipantsButton" = "Add Participants";
 "kELCancelButton" = "Cancel";
 "kELCloseButton" = "Close";
@@ -28,6 +29,7 @@
 "kELSaveToDraftButton" = "Save to Drafts";
 "kELSelectParticipantsButton" = "Select Participants";
 "kELSubmitButton" = "Submit";
+"kELUpdateButton" = "Update";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
 "kELFilterLabel" = "Filter";
@@ -170,9 +172,8 @@
 "kELInviteUsersRetrievalError" = "Failed to retrieve users";
 "kELInviteUsersRetrievalEmpty" = "No users";
 
-"kELInviteUsersAddEmailHeaderMessage" = "Add user";
+"kELInviteUsersAddEmailHeaderMessage" = "Add User";
 "kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
-"kELInviteUsersAddEmailButtonAdd" = "Add User";
 
 "kELInviteTitleFeedback" = "Invite People";
 "kELInviteTitleReport" = "Share Result";
@@ -204,7 +205,7 @@
 "kELReportInfoManager" = "Manager";
 
 "kELReportMoreDropdownAddMore" = "Add More Participants";
-"kELReportMoreDropdownShare" = "Share Report";
+"kELReportMoreDropdownShare" = "Share Result";
 
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
