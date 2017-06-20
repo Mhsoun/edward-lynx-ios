@@ -219,7 +219,7 @@
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
-    [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
+    [ELUtils circleChart:self.circleChart progress:devPlan.progress];
     
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];

@@ -236,10 +236,10 @@
     }
 }
 
-+ (void)circleChart:(PNCircleChart *)chart developmentPlan:(ELDevelopmentPlan *)developmentPlan {
++ (void)circleChart:(PNCircleChart *)chart progress:(CGFloat)progress {
     chart.backgroundColor = [UIColor clearColor];
     chart.strokeColor = ThemeColor(kELOrangeColor);
-    chart.current = [NSNumber numberWithFloat:(developmentPlan.progress * 100)];
+    chart.current = [NSNumber numberWithFloat:(progress * 100)];
     
     chart.countingLabel.font = Font(@"Lato-Bold", 20.0f);
     chart.countingLabel.textColor = [UIColor whiteColor];

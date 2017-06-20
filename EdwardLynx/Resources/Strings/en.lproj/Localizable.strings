@@ -289,6 +289,11 @@
 "kELTabTitleReports" = "Results";
 "kELTabTitleSurveys" = "Surveys";
 
+/* Team Tab Titles */
+
+"kELTabTitleIndividual" = "Individual";
+"kELTabTitleTeam" = "Team";
+
 /* User Roles */
 
 "kELUserRoleColleague" = "Colleague";

@@ -382,7 +382,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.chartLabel.attributedText = self.devPlan.attributedProgressText;
     
     // Chart
-    [ELUtils circleChart:self.circleChart developmentPlan:self.devPlan];
+    [ELUtils circleChart:self.circleChart progress:self.devPlan.progress];
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
 }
