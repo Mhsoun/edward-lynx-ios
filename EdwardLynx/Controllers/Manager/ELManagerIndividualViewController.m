@@ -7,7 +7,10 @@
 //
 
 #import "ELManagerIndividualViewController.h"
+#import "ELDevelopmentPlan.h"
+#import "ELDevelopmentPlanDetailsViewController.h"
 #import "ELManagerIndividualTableViewCell.h"
+#import "ELTabPageViewController.h"
 
 #pragma mark - Private Constants
 
@@ -52,6 +55,7 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     ELManagerIndividualTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                              forIndexPath:indexPath];
     
+    [cell setDelegate:self];
     [cell configure:@{@"name": @"Test User",
                       @"data": @[@{@"name": @"Public Speaking", @"percentage": @0.5},
                                  @{@"name": @"Leadership", @"percentage": @0.8},
@@ -59,6 +63,31 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
         atIndexPath:indexPath];
     
     return cell;
+}
+
+#pragma mark - Protocol Methods (ELManagerItemsDelegate)
+
+- (void)onSeeMore:(id)object {
+    UINavigationController *navController = StoryboardController(@"TabPage", nil);
+    ELTabPageViewController *controller = navController.viewControllers[0];
+    
+    controller.type = kELListTypeDevPlan;
+    controller.tabs = @[@(kELListFilterAll),
+                        @(kELListFilterInProgress),
+                        @(kELListFilterCompleted),
+                        @(kELListFilterExpired)];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)onChartSelection:(id)object {
+    ELDevelopmentPlan *devPlan = (ELDevelopmentPlan *)object;
+    ELDevelopmentPlanDetailsViewController *controller = StoryboardController(@"DevelopmentPlan",
+                                                                              @"DevelopmentPlanDetails");
+    
+    controller.objectId = devPlan.objectId;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

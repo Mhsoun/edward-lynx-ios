@@ -104,4 +104,11 @@
 
 @end
 
+@protocol ELManagerItemsDelegate <NSObject>
+
+- (void)onSeeMore:(id)object;
+- (void)onChartSelection:(id)object;
+
+@end
+
 #endif /* ELProtocols_h */

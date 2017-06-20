@@ -10,7 +10,9 @@
 
 @interface ELManagerIndividualTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
 
+@property (weak, nonatomic) id<ELManagerItemsDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *chartViews;
 - (IBAction)onSeeMoreButtonClick:(id)sender;
 

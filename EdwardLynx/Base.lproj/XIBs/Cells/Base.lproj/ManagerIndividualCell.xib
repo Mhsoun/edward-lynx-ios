@@ -51,16 +51,16 @@
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-Wj-L3T">
                         <rect key="frame" x="15" y="50" width="345" height="94.5"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-D6-XLX" customClass="ELCircleChart">
-                                <rect key="frame" x="0.0" y="0.0" width="108.5" height="94.5"/>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-D6-XLX" customClass="ELCircleChart">
+                                <rect key="frame" x="-15" y="-50" width="0.0" height="94.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOy-sE-Oec" customClass="ELCircleChart">
-                                <rect key="frame" x="118.5" y="0.0" width="108" height="94.5"/>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOy-sE-Oec" customClass="ELCircleChart">
+                                <rect key="frame" x="-15" y="-50" width="0.0" height="94.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hci-6r-ntd" customClass="ELCircleChart">
-                                <rect key="frame" x="236.5" y="0.0" width="108.5" height="94.5"/>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hci-6r-ntd" customClass="ELCircleChart">
+                                <rect key="frame" x="-15" y="-50" width="0.0" height="94.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
