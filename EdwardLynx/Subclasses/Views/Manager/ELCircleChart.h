@@ -11,7 +11,7 @@
 
 @interface ELCircleChart : UIView
 
-@property (weak, nonatomic) IBOutlet UIView *toplevelSubView;
+@property (weak, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIView *chartView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 

@@ -361,6 +361,7 @@
 		A9B6589B1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
 		A9B6589E1EE7DE7A00621EFB /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
 		A9BDC79D1EF8FADA00D4E5E2 /* ELCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79C1EF8FADA00D4E5E2 /* ELCircleChart.m */; };
+		A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */; };
 		A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
 		A9C403611E9B8D3F008DD7C8 /* ELDashboardData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
@@ -940,6 +941,8 @@
 		A9B6589D1EE7DE7A00621EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddGoalActionCell.xib; sourceTree = "<group>"; };
 		A9BDC79B1EF8FADA00D4E5E2 /* ELCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCircleChart.h; sourceTree = "<group>"; };
 		A9BDC79C1EF8FADA00D4E5E2 /* ELCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCircleChart.m; sourceTree = "<group>"; };
+		A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerTeamViewController.h; sourceTree = "<group>"; };
+		A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerTeamViewController.m; sourceTree = "<group>"; };
 		A9BF28321E94FA6F00BE54BC /* ELLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLabel.h; sourceTree = "<group>"; };
 		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
 		A9C4035F1E9B8D3F008DD7C8 /* ELDashboardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardData.h; sourceTree = "<group>"; };
@@ -1565,6 +1568,8 @@
 			children = (
 				A95CECBA1EF8C8020028BDD4 /* ELManagerIndividualViewController.h */,
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
+				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
+				A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2404,6 +2409,7 @@
 				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,
 				A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */,
 				A91312AB1E8642D30042C91F /* ELSurveyViewManager.m in Sources */,
+				A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */,
 				A91312501E8642D30042C91F /* ELBasePopupViewController.m in Sources */,
 				A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */,
 				A913124C1E8642D30042C91F /* ELInstantFeedbacksViewController.m in Sources */,

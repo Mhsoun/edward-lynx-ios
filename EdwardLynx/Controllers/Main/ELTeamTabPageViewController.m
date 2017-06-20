@@ -8,7 +8,6 @@
 
 #import "ELTeamTabPageViewController.h"
 #import "ELBasePageChildViewController.h"
-#import "ELManagerIndividualViewController.h"
 
 #pragma mark - Class Extension
 
@@ -27,6 +26,8 @@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
     [self setupButtonBarView];
     [self moveToViewControllerAtIndex:0];
 }
@@ -39,14 +40,10 @@
 #pragma mark - Protocol Methods (XLButtonBarPagerTabStripViewController)
 
 - (NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
-    ELManagerIndividualViewController *controller;
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < self.tabs.count; i++) {
-        controller = StoryboardController(@"TeamTabPage", @"ManagerIndividual");
-        
-        [mControllers addObject:controller];
-    }
+    [mControllers addObject:StoryboardController(@"TeamTabPage", @"ManagerIndividual")];
+    [mControllers addObject:StoryboardController(@"TeamTabPage", @"ManagerTeam")];
     
     return [mControllers copy];
 }

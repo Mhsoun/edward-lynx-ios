@@ -61,8 +61,8 @@
 
 "kELDashboardActionDevelopmentPlan" = "Development\nPlans";
 "kELDashboardActionInstantFeedback" = "Instant\nFeedback";
-"kELDashboardActionLynxMeasurement" = "Lynx \nMeasurement";
-"kELDashboardActionTeam" = "Team\nView";
+"kELDashboardActionLynxMeasurement" = "Lynx\nMeasurement";
+"kELDashboardActionTeam" = "Manager\nView";
 "kELDashboardActionAnswer" = "Answer";
 "kELDashboardActionResults" = "Results";
 "kELDashboardActionInvite" = "Invite";

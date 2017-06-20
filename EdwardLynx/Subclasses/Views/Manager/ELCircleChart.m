@@ -27,9 +27,19 @@
         return nil;
     }
     
-    [[NSBundle mainBundle] loadNibNamed:@"CircleChart" owner:self options:nil];
+    [self customInit];
     
-    [self addSubview:self.toplevelSubView];
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    [self customInit];
     
     return self;
 }
@@ -49,6 +59,13 @@
                                           overrideLineWidth:[NSNumber numberWithInteger:12]];
     
     [self.chartView addSubview:self.circleChart];
+}
+
+- (void)customInit {
+    [[NSBundle mainBundle] loadNibNamed:@"CircleChart" owner:self options:nil];
+    [self addSubview:self.view];
+    
+    self.view.frame = self.bounds;
 }
 
 - (void)renderChart {
