@@ -8,6 +8,8 @@
 	<string>009688</string>
 	<key>lynxColor</key>
 	<string>c845dc</string>
+	<key>teamColor</key>
+	<string>dfb65d</string>
 	<key>otherColor</key>
 	<string>f44336</string>
 	<key>containerColor</key>

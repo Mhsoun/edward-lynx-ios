@@ -74,7 +74,7 @@
     [self.surveyView addSubview:shortcutView];
     
     shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionTeam", nil),
-                                                             @"color": kELLynxColor,
+                                                             @"color": kELTeamColor,
                                                              @"icon": fa_edit,
                                                              @"segue": kELDashboardActionTypeTeam}];
     shortcutView.delegate = self;

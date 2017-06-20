@@ -62,7 +62,7 @@
 "kELDashboardActionDevelopmentPlan" = "Development\nPlans";
 "kELDashboardActionInstantFeedback" = "Instant\nFeedback";
 "kELDashboardActionLynxMeasurement" = "Lynx\nMeasurement";
-"kELDashboardActionTeam" = "Manager\nView";
+"kELDashboardActionTeam" = "Team";
 "kELDashboardActionAnswer" = "Answer";
 "kELDashboardActionResults" = "Results";
 "kELDashboardActionInvite" = "Invite";
@@ -98,6 +98,8 @@
 
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
+
+"kELDevelopmentPlanUpdateSuccess" = "Successfully shared Development Plan to manager";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Successfully deleted goal";
@@ -292,7 +294,7 @@
 /* Team Tab Titles */
 
 "kELTabTitleIndividual" = "Individual";
-"kELTabTitleTeam" = "Team";
+"kELTabTitleTeam" = "Team Progress";
 
 /* User Roles */
 

@@ -45,6 +45,21 @@
                         completion:completion];
 }
 
+- (void)updateDevelopmentPlanWithId:(int64_t)devPlanId
+                             params:(NSDictionary *)params
+                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = Format(kELAPIDevelopmentPlanEndpoint,
+                                kELAPIVersionNamespace,
+                                @(devPlanId));
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPatchHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 #pragma mark - Development Plan Goals
 
 - (void)addDevelopmentPlanGoalWithParams:(NSDictionary *)params

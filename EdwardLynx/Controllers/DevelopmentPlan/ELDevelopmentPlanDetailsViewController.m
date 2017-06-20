@@ -274,7 +274,15 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             
             break;
         default:
-            message = @"";
+            message = NSLocalizedString(@"kELDevelopmentPlanUpdateSuccess", nil);
+            
+            // Update shared status
+            [self setShared:!self.shared];
+            [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square : fa_square_o
+                                                        iconColor:ThemeColor(kELOrangeColor)
+                                                         iconSize:kELIconHeight
+                                                        imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
+                              forState:UIControlStateNormal];
             
             break;
     }
@@ -548,6 +556,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onShareButtonClick:(id)sender {
+    // Update shared status
     self.shared = !self.shared;
     
     [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square : fa_square_o
@@ -555,6 +564,13 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                  iconSize:kELIconHeight
                                                 imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
                       forState:UIControlStateNormal];
+    
+    // NOTE For API process
+//    [self presentViewController:[ELUtils loadingAlert]
+//                       animated:YES
+//                     completion:nil];
+//    
+//    [self.devPlanViewManager processUpdateDevelopmentPlan:@{@"shared": @(!self.shared)}];
 }
 
 - (IBAction)onAddGoalButtonClick:(id)sender {

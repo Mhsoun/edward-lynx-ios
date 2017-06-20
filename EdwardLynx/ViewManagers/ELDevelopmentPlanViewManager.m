@@ -124,6 +124,12 @@
     [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];
 }
 
+- (void)processUpdateDevelopmentPlan:(NSDictionary *)formDict {
+    [self.client updateDevelopmentPlanWithId:self.detailObject ? self.detailObject.objectId : self.objectId
+                                      params:formDict
+                                  completion:self.requestCompletionBlock];
+}
+
 - (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict {
     NSString *link = formDict[@"link"];
     NSMutableDictionary *mFormDict = [formDict mutableCopy];

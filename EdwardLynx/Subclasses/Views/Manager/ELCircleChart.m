@@ -45,18 +45,23 @@
 }
 
 - (void)awakeFromNib {
+    CGFloat size;
+    
     [super awakeFromNib];
     
+    size = CGRectGetWidth(self.bounds) / 1.75;
+    
     // Initialization
-    // NOTE Fix frame
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
+    // NOTE Workaroud for subview frame not adjusting
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0,
+                                                                       CGRectGetWidth(self.bounds), size)
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
                                                   clockwise:YES
                                                      shadow:YES
                                                 shadowColor:ThemeColor(kELHeaderColor)
                                        displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+                                          overrideLineWidth:[NSNumber numberWithInteger:7]];
     
     [self.chartView addSubview:self.circleChart];
 }
@@ -75,6 +80,7 @@
 
 - (void)setupContent:(NSDictionary *)detailsDict {
     self.nameLabel.text = detailsDict[@"name"];
+    self.circleChart.countingLabel.font = Font(@"Lato-Bold", 10.0f);
     
     [ELUtils circleChart:self.circleChart progress:[detailsDict[@"percentage"] floatValue]];
 }
