@@ -10,6 +10,8 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerTeamViewController : ELBaseViewController
+@interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

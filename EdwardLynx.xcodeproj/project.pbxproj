@@ -350,6 +350,7 @@
 		A983717B1ED42C1100C05594 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9979ECD1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -922,6 +923,8 @@
 		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerTeamCollectionViewCell.h; sourceTree = "<group>"; };
+		A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerTeamCollectionViewCell.m; sourceTree = "<group>"; };
 		A99B51011ED6B007000690FD /* ELReportPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportPageViewController.h; sourceTree = "<group>"; };
 		A99B51021ED6B007000690FD /* ELReportPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportPageViewController.m; sourceTree = "<group>"; };
 		A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportChartTableViewCell.h; sourceTree = "<group>"; };
@@ -1579,6 +1582,8 @@
 			children = (
 				A95CECC11EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.h */,
 				A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */,
+				A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */,
+				A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2389,6 +2394,7 @@
 				A91312A71E8642D30042C91F /* ELDetailViewManager.m in Sources */,
 				A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */,
 				A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */,
+				A9979ECD1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m in Sources */,
 				A99EC4381EDEA11B001A99F6 /* ELYesNoData.m in Sources */,
 				A91312A91E8642D30042C91F /* ELFeedbackViewManager.m in Sources */,
 				A99EC4351EDE9B0D001A99F6 /* ELAnswerSummary.m in Sources */,

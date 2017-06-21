@@ -29,7 +29,7 @@
     
     [super awakeFromNib];
     
-    // Initialization code
+    // Initialization
     self.pnBarChart = [[PNBarChart alloc] init];
     self.barChart = [[BarChartView alloc] initWithFrame:self.scrollView.bounds];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds

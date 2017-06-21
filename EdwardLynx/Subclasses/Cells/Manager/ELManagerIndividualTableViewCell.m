@@ -38,7 +38,6 @@
         
         [chartView setHidden:NO];
         [chartView setupContent:items[i]];
-        [chartView renderChart];
         [chartView addGestureRecognizer:tap];
     }
 }
