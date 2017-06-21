@@ -59,6 +59,47 @@
             </objects>
             <point key="canvasLocation" x="729" y="295"/>
         </scene>
+        <!--Team Dev Plan Details View Controller-->
+        <scene sceneID="Fdl-4k-6r9">
+            <objects>
+                <viewController storyboardIdentifier="TeamDevPlanDetails" automaticallyAdjustsScrollViewInsets="NO" id="ckd-wA-wzF" customClass="ELTeamDevPlanDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T65-Kh-Uai"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fr2-Fi-GKw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RWW-yQ-jXe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="NtI-bq-64h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KZG-CU-L3a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NtI-bq-64h" secondAttribute="trailing" id="2lF-uk-QSu"/>
+                            <constraint firstAttribute="trailing" secondItem="KZG-CU-L3a" secondAttribute="trailing" id="CHd-Gp-glK"/>
+                            <constraint firstItem="NtI-bq-64h" firstAttribute="leading" secondItem="RWW-yQ-jXe" secondAttribute="leading" id="G4r-BL-HVL"/>
+                            <constraint firstItem="NtI-bq-64h" firstAttribute="top" secondItem="RWW-yQ-jXe" secondAttribute="top" id="MAz-AJ-8oo"/>
+                            <constraint firstItem="Fr2-Fi-GKw" firstAttribute="top" secondItem="NtI-bq-64h" secondAttribute="bottom" id="XHe-Pc-phH"/>
+                            <constraint firstItem="KZG-CU-L3a" firstAttribute="top" secondItem="RWW-yQ-jXe" secondAttribute="top" id="k5J-dj-TTU"/>
+                            <constraint firstItem="Fr2-Fi-GKw" firstAttribute="top" secondItem="KZG-CU-L3a" secondAttribute="bottom" id="uWJ-1S-EmD"/>
+                            <constraint firstItem="KZG-CU-L3a" firstAttribute="leading" secondItem="RWW-yQ-jXe" secondAttribute="leading" id="zzK-Re-DiC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="KZG-CU-L3a" id="JFY-zg-YPz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Li8-Im-1Y2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="480"/>
+        </scene>
         <!--Development Plan Details View Controller-->
         <scene sceneID="KJ5-8Z-dJw">
             <objects>

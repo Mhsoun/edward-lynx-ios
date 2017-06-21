@@ -351,6 +351,9 @@
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9979ECD1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */; };
+		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
+		A9979ED21EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */; };
+		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -925,6 +928,11 @@
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerTeamCollectionViewCell.h; sourceTree = "<group>"; };
 		A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerTeamCollectionViewCell.m; sourceTree = "<group>"; };
+		A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevPlanDetailsViewController.h; sourceTree = "<group>"; };
+		A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevPlanDetailsViewController.m; sourceTree = "<group>"; };
+		A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberGoalCell.xib; sourceTree = "<group>"; };
+		A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamMemberGoalTableViewCell.h; sourceTree = "<group>"; };
+		A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamMemberGoalTableViewCell.m; sourceTree = "<group>"; };
 		A99B51011ED6B007000690FD /* ELReportPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportPageViewController.h; sourceTree = "<group>"; };
 		A99B51021ED6B007000690FD /* ELReportPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportPageViewController.m; sourceTree = "<group>"; };
 		A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportChartTableViewCell.h; sourceTree = "<group>"; };
@@ -1090,6 +1098,7 @@
 				A98370D51ED427B900C05594 /* ReportCell.xib */,
 				A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */,
 				A98370E21ED4288200C05594 /* SurveyCell.xib */,
+				A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1573,6 +1582,8 @@
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
 				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
 				A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */,
+				A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */,
+				A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1584,6 +1595,8 @@
 				A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */,
 				A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */,
 				A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */,
+				A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */,
+				A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1972,6 +1985,7 @@
 				A91312691E8642D30042C91F /* Report.strings in Resources */,
 				A913126B1E8642D30042C91F /* Survey.strings in Resources */,
 				A91312681E8642D30042C91F /* Profile.strings in Resources */,
+				A9979ED21EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib in Resources */,
 				A91312291E8642D30042C91F /* List.storyboard in Resources */,
 				A98370B91ED4268400C05594 /* ParticipantCell.xib in Resources */,
 				A98370E01ED4288200C05594 /* SurveyCell.xib in Resources */,
@@ -2410,6 +2424,8 @@
 				A91312531E8642D30042C91F /* ELLeftMenuViewController.m in Sources */,
 				A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */,
 				A91312571E8642D30042C91F /* ELTabPageViewController.m in Sources */,
+				A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */,
+				A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */,
 				A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */,
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,
 				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,

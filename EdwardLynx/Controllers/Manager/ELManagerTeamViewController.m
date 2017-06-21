@@ -8,11 +8,11 @@
 
 #import "ELManagerTeamViewController.h"
 #import "ELManagerTeamCollectionViewCell.h"
+#import "ELTeamDevPlanDetailsViewController.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kELSpacing = 5;
-static NSString * const kELCellIdentifier = @"ManagerTeamCell";
 
 #pragma mark - Class Extension
 
@@ -52,7 +52,7 @@ static NSString * const kELCellIdentifier = @"ManagerTeamCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ELManagerTeamCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
+    ELManagerTeamCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ManagerTeamCell"
                                                                                       forIndexPath:indexPath];
     
     [cell configure:self.items[indexPath.row] atIndexPath:indexPath];
@@ -61,7 +61,9 @@ static NSString * const kELCellIdentifier = @"ManagerTeamCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ELTeamDevPlanDetailsViewController *controller = StoryboardController(@"DevelopmentPlan", @"TeamDevPlanDetails");
     
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
