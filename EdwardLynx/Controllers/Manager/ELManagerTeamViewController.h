@@ -13,5 +13,7 @@
 @interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
+- (IBAction)onAddCategoryButtonClick:(id)sender;
 
 @end

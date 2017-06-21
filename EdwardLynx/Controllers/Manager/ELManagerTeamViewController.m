@@ -11,6 +11,7 @@
 
 #pragma mark - Private Constants
 
+static CGFloat const kELSpacing = 5;
 static NSString * const kELCellIdentifier = @"ManagerTeamCell";
 
 #pragma mark - Class Extension
@@ -59,24 +60,47 @@ static NSString * const kELCellIdentifier = @"ManagerTeamCell";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((CGRectGetWidth(collectionView.frame) / 3) - 1, 110);
+    return CGSizeMake((CGRectGetWidth(collectionView.frame) / 3) - kELSpacing, 110);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 1;
+    return kELSpacing;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 1;
+    return kELSpacing;
+}
+
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    CGFloat iconHeight = 15;
+    
+    // Button
+    [self.addCategoryButton setImage:[FontAwesome imageWithIcon:fa_plus
+                                                      iconColor:[UIColor blackColor]
+                                                       iconSize:iconHeight
+                                                      imageSize:CGSizeMake(iconHeight, iconHeight)]
+                            forState:UIControlStateNormal];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)
 
 - (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
     return [NSLocalizedString(@"kELTabTitleTeam", nil) uppercaseString];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onAddCategoryButtonClick:(id)sender {
+    
 }
 
 @end
