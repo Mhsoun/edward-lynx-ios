@@ -17,6 +17,7 @@
 #import "ELSectionView.h"
 #import "ELSurveysViewController.h"
 #import "ELTabPageViewController.h"
+#import "ELTeamTabPageViewController.h"
 #import "ELUsersAPIClient.h"
 
 #pragma mark - Private Constants
@@ -314,9 +315,23 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
            kELDashboardActionTypeCreateFeedback] containsObject:identifier]) {
         [self performSegueWithIdentifier:identifier sender:self];
     } else {
+        UINavigationController *navController;
         ELTabPageViewController *controller;
-        UINavigationController *navController = StoryboardController(@"TabPage", nil);
+        ELTeamTabPageViewController *teamController;
         
+        // Team View Tabs
+        if ([identifier isEqualToString:kELDashboardActionTypeTeam]) {
+            navController = StoryboardController(@"TeamTabPage", nil);
+            teamController = navController.viewControllers[0];
+            teamController.tabs = @[@"kELTabTitleIndividual"];
+            
+            [self.navigationController pushViewController:teamController animated:YES];
+            
+            return;
+        }
+        
+        // Tabs
+        navController = StoryboardController(@"TabPage", nil);
         controller = navController.viewControllers[0];
         
         if ([identifier isEqualToString:kELDashboardActionTypeDevPlan]) {

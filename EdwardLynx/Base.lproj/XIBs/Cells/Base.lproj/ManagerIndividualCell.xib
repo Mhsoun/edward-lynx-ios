@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ManagerIndividualCell" id="GAX-zq-dbT" customClass="ELManagerIndividualTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAX-zq-dbT" id="TCN-li-V81">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIn-j5-5TV">
+                        <rect key="frame" x="15" y="5" width="265" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEa-rt-rfF">
+                        <rect key="frame" x="285" y="5" width="75" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="7bb-Iv-hbx"/>
+                            <constraint firstAttribute="width" constant="75" id="zQj-J0-uaS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <state key="normal" title="See More">
+                            <color key="titleColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onSeeMoreButtonClick:" destination="GAX-zq-dbT" eventType="touchUpInside" id="uD5-Aj-SBB"/>
+                        </connections>
+                    </button>
+                    <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-Wj-L3T">
+                        <rect key="frame" x="15" y="50" width="345" height="94.5"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-D6-XLX" customClass="ELCircleChart">
+                                <rect key="frame" x="0.0" y="0.0" width="108.5" height="94.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOy-sE-Oec" customClass="ELCircleChart">
+                                <rect key="frame" x="118.5" y="0.0" width="108" height="94.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hci-6r-ntd" customClass="ELCircleChart">
+                                <rect key="frame" x="236.5" y="0.0" width="108.5" height="94.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="xIn-j5-5TV" firstAttribute="top" secondItem="TCN-li-V81" secondAttribute="top" constant="5" id="BzC-FP-fKP"/>
+                    <constraint firstItem="xIn-j5-5TV" firstAttribute="leading" secondItem="TCN-li-V81" secondAttribute="leading" constant="15" id="DC4-fx-E0r"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="height" secondItem="xIn-j5-5TV" secondAttribute="height" id="GNV-4q-zun"/>
+                    <constraint firstAttribute="trailing" secondItem="aEa-rt-rfF" secondAttribute="trailing" constant="15" id="NKC-WE-swB"/>
+                    <constraint firstItem="qhZ-Wj-L3T" firstAttribute="trailing" secondItem="aEa-rt-rfF" secondAttribute="trailing" id="bbW-Cr-Gi4"/>
+                    <constraint firstAttribute="bottom" secondItem="qhZ-Wj-L3T" secondAttribute="bottom" constant="5" id="cnu-00-E00"/>
+                    <constraint firstItem="qhZ-Wj-L3T" firstAttribute="leading" secondItem="xIn-j5-5TV" secondAttribute="leading" id="eEU-SK-7Mz"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="leading" secondItem="xIn-j5-5TV" secondAttribute="trailing" constant="5" id="g6q-ay-zft"/>
+                    <constraint firstItem="qhZ-Wj-L3T" firstAttribute="top" secondItem="aEa-rt-rfF" secondAttribute="bottom" constant="10" id="l4D-Qy-hXW"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="top" secondItem="TCN-li-V81" secondAttribute="top" constant="5" id="tR8-rX-6Q5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="nameLabel" destination="xIn-j5-5TV" id="zYj-eS-ZMi"/>
+                <outletCollection property="chartViews" destination="hci-6r-ntd" id="1t0-3f-3iG"/>
+                <outletCollection property="chartViews" destination="UOy-sE-Oec" id="6ec-Gl-554"/>
+                <outletCollection property="chartViews" destination="MCe-D6-XLX" id="yWu-Oe-cOx"/>
+            </connections>
+            <point key="canvasLocation" x="-93.5" y="-45"/>
+        </tableViewCell>
+    </objects>
+</document>

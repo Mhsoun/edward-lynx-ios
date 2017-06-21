@@ -29,7 +29,7 @@
     
     [super awakeFromNib];
     
-    // Initialization code
+    // Initialization
     self.pnBarChart = [[PNBarChart alloc] init];
     self.barChart = [[BarChartView alloc] initWithFrame:self.scrollView.bounds];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
@@ -219,7 +219,7 @@
 }
 
 - (void)setupCircleChartForDevelopmentPlan:(ELDevelopmentPlan *)devPlan {
-    [ELUtils circleChart:self.circleChart developmentPlan:devPlan];
+    [ELUtils circleChart:self.circleChart progress:devPlan.progress];
     
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];

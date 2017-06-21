@@ -14,6 +14,7 @@
 - (instancetype)initWithObjectId:(int64_t)objectId;
 
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
+- (void)processUpdateDevelopmentPlan:(NSDictionary *)formDict;
 
 - (void)processAddDevelopmentPlanGoal:(NSDictionary *)formDict;
 - (void)processDeleteDevelopmentPlanGoalWithLink:(NSString *)link;
