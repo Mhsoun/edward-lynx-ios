@@ -242,7 +242,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     value = items[indexPath.row];
     
     if (indexPath.section == 0) {
-        return IDIOM == UIUserInterfaceIdiomPad ? 230 : 155;
+        return IDIOM == UIUserInterfaceIdiomPad ? 250 : 175;
     }
     
     return [value isKindOfClass:[ELReminder class]] ? 55 : 225;

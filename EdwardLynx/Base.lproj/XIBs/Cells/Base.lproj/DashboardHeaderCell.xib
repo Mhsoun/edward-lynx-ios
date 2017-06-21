@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-P5-FTm">
-                        <rect key="frame" x="10" y="10.5" width="488" height="184"/>
+                        <rect key="frame" x="10" y="10.5" width="488" height="181.5"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-MY-f6X" customClass="RNThemeView">
-                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="184"/>
+                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="181.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -32,7 +32,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-Hq-WJW" customClass="RNThemeView">
-                                <rect key="frame" x="124.5" y="0.0" width="114.5" height="184"/>
+                                <rect key="frame" x="124.5" y="0.0" width="114.5" height="181.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -41,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udV-tp-T7A" customClass="RNThemeView">
-                                <rect key="frame" x="249" y="0.0" width="114.5" height="184"/>
+                                <rect key="frame" x="249" y="0.0" width="114.5" height="181.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -49,8 +49,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIx-GY-8Jf" customClass="RNThemeView">
-                                <rect key="frame" x="373.5" y="0.0" width="114.5" height="184"/>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIx-GY-8Jf" customClass="RNThemeView">
+                                <rect key="frame" x="373.5" y="0.0" width="114.5" height="181.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -120,7 +120,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Wun-P5-FTm" secondAttribute="trailing" constant="2" id="TTD-uz-s6H"/>
                     <constraint firstItem="Wun-P5-FTm" firstAttribute="top" secondItem="RRa-Lp-oBU" secondAttribute="topMargin" constant="2" id="X4e-rk-DOe"/>
                     <constraint firstItem="mXg-dI-AVq" firstAttribute="leading" secondItem="RRa-Lp-oBU" secondAttribute="leadingMargin" constant="2" id="aAA-Mi-jXN"/>
-                    <constraint firstItem="mXg-dI-AVq" firstAttribute="top" secondItem="Wun-P5-FTm" secondAttribute="bottom" constant="5" id="aDD-ic-kDt"/>
+                    <constraint firstItem="mXg-dI-AVq" firstAttribute="top" secondItem="Wun-P5-FTm" secondAttribute="bottom" constant="7.5" id="aDD-ic-kDt"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

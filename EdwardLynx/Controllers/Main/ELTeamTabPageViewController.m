@@ -43,7 +43,7 @@
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
     [mControllers addObject:StoryboardController(@"TeamTabPage", @"ManagerIndividual")];
-    [mControllers addObject:StoryboardController(@"TeamTabPage", @"ManagerTeam")];
+    [mControllers addObject:StoryboardController(@"TeamProgress", nil)];
     
     return [mControllers copy];
 }

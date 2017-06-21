@@ -6,14 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Manager View-->
         <scene sceneID="PQ7-vN-P2P">
@@ -70,6 +64,24 @@
             </objects>
             <point key="canvasLocation" x="828" y="148.87556221889056"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="p5L-75-D7g">
+            <objects>
+                <viewController id="XTU-gp-Hp2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yHm-VN-Fdn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jnf-TM-7ys"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kmh-KS-gC0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KcQ-Og-dGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539" y="145"/>
+        </scene>
         <!--Manager Individual View Controller-->
         <scene sceneID="4S9-cX-ZmZ">
             <objects>
@@ -102,109 +114,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aI-NP-3oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="492" y="816"/>
-        </scene>
-        <!--Manager Team View Controller-->
-        <scene sceneID="dEf-An-H65">
-            <objects>
-                <viewController storyboardIdentifier="ManagerTeam" automaticallyAdjustsScrollViewInsets="NO" id="oLZ-Fm-NoS" customClass="ELManagerTeamViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Wot-al-tfD"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Qz-Cn-MXt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uff-z4-Igy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jsb-xa-mI6">
-                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3dL-wG-T5a">
-                                    <size key="itemSize" width="172" height="198"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManagerTeamCell" id="G50-IX-eUV" customClass="ELManagerTeamCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhh-WR-UkH">
-                                                    <rect key="frame" x="5" y="5" width="162" height="120"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-4P-bSh">
-                                                    <rect key="frame" x="5" y="130" width="162" height="15"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="CuL-jB-cfD"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="uhh-WR-UkH" firstAttribute="top" secondItem="G50-IX-eUV" secondAttribute="top" constant="5" id="C40-LY-Znm"/>
-                                            <constraint firstAttribute="trailing" secondItem="Goe-4P-bSh" secondAttribute="trailing" constant="5" id="Qmi-gK-yGe"/>
-                                            <constraint firstItem="Goe-4P-bSh" firstAttribute="top" secondItem="uhh-WR-UkH" secondAttribute="bottom" constant="5" id="Wle-zq-NFw"/>
-                                            <constraint firstItem="Goe-4P-bSh" firstAttribute="leading" secondItem="G50-IX-eUV" secondAttribute="leading" constant="5" id="cRN-jf-dZ3"/>
-                                            <constraint firstAttribute="trailing" secondItem="uhh-WR-UkH" secondAttribute="trailing" constant="5" id="g63-ft-fUF"/>
-                                            <constraint firstItem="uhh-WR-UkH" firstAttribute="leading" secondItem="G50-IX-eUV" secondAttribute="leading" constant="5" id="hVZ-kX-TbO"/>
-                                            <constraint firstAttribute="bottom" secondItem="Goe-4P-bSh" secondAttribute="bottom" constant="5" id="wSV-OP-m00"/>
-                                        </constraints>
-                                        <size key="customSize" width="172" height="150"/>
-                                        <connections>
-                                            <outlet property="chartView" destination="uhh-WR-UkH" id="KDN-5Q-1u9"/>
-                                            <outlet property="nameLabel" destination="Goe-4P-bSh" id="nsZ-Gj-6lg"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELn-zV-3AB">
-                                <rect key="frame" x="305" y="597" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="uK7-wd-5x1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onAddCategoryButtonClick:" destination="oLZ-Fm-NoS" eventType="touchUpInside" id="2ck-3b-Uxz"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ELn-zV-3AB" secondAttribute="trailing" constant="20" id="8Ho-ib-hJW"/>
-                            <constraint firstItem="5Qz-Cn-MXt" firstAttribute="top" secondItem="ELn-zV-3AB" secondAttribute="bottom" constant="20" id="8z2-TW-c31"/>
-                            <constraint firstItem="jsb-xa-mI6" firstAttribute="top" secondItem="uff-z4-Igy" secondAttribute="top" constant="10" id="9JL-Wv-qOQ"/>
-                            <constraint firstItem="5Qz-Cn-MXt" firstAttribute="top" secondItem="jsb-xa-mI6" secondAttribute="bottom" id="A2R-JX-5sd"/>
-                            <constraint firstItem="ELn-zV-3AB" firstAttribute="width" secondItem="ELn-zV-3AB" secondAttribute="height" multiplier="1:1" id="apJ-Mc-B50"/>
-                            <constraint firstItem="jsb-xa-mI6" firstAttribute="leading" secondItem="uff-z4-Igy" secondAttribute="leading" id="y7Q-gi-o2V"/>
-                            <constraint firstAttribute="trailing" secondItem="jsb-xa-mI6" secondAttribute="trailing" id="z8a-u9-1iw"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addCategoryButton" destination="ELn-zV-3AB" id="s7r-RD-NUw"/>
-                        <outlet property="collectionView" destination="jsb-xa-mI6" id="rwi-Lf-fzK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wUm-FT-dPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1164" y="815"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZ7-EP-Ncn">

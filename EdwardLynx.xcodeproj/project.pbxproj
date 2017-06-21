@@ -354,6 +354,8 @@
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
 		A9979ED21EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */; };
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
+		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
+		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -933,6 +935,9 @@
 		A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberGoalCell.xib; sourceTree = "<group>"; };
 		A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamMemberGoalTableViewCell.h; sourceTree = "<group>"; };
 		A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamMemberGoalTableViewCell.m; sourceTree = "<group>"; };
+		A9979ED61EFA71DF00A5BCA2 /* ELManagerCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerCategoryViewController.h; sourceTree = "<group>"; };
+		A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerCategoryViewController.m; sourceTree = "<group>"; };
+		A9979EDA1EFA72FA00A5BCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamProgress.storyboard; sourceTree = "<group>"; };
 		A99B51011ED6B007000690FD /* ELReportPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportPageViewController.h; sourceTree = "<group>"; };
 		A99B51021ED6B007000690FD /* ELReportPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportPageViewController.m; sourceTree = "<group>"; };
 		A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportChartTableViewCell.h; sourceTree = "<group>"; };
@@ -1525,6 +1530,7 @@
 				A91310EC1E8642D20042C91F /* Settings.storyboard */,
 				A91310EE1E8642D20042C91F /* Survey.storyboard */,
 				A91310F01E8642D20042C91F /* TabPage.storyboard */,
+				A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */,
 				A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */,
 			);
 			name = Layouts;
@@ -1578,6 +1584,8 @@
 		A95CECB91EF8C7E60028BDD4 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				A9979ED61EFA71DF00A5BCA2 /* ELManagerCategoryViewController.h */,
+				A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */,
 				A95CECBA1EF8C8020028BDD4 /* ELManagerIndividualViewController.h */,
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
 				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
@@ -2003,6 +2011,7 @@
 				A983710C1ED42A3000C05594 /* DropdownView.xib in Resources */,
 				A98371261ED42AD600C05594 /* NotificationView.xib in Resources */,
 				A9B6589E1EE7DE7A00621EFB /* AddGoalActionCell.xib in Resources */,
+				A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */,
 				A98370C61ED426CB00C05594 /* QuestionCell.xib in Resources */,
 				A91312671E8642D30042C91F /* List.strings in Resources */,
 				A98370D31ED427B900C05594 /* ReportCell.xib in Resources */,
@@ -2427,6 +2436,7 @@
 				A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */,
 				A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */,
 				A97C29901E8B8CC300EBC5CE /* ELQuestion.m in Sources */,
+				A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */,
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,
 				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,
 				A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */,
@@ -3156,6 +3166,14 @@
 				A98371871ED42C1900C05594 /* zh-Hans */,
 			);
 			name = SectionView.xib;
+			sourceTree = "<group>";
+		};
+		A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9979EDA1EFA72FA00A5BCA2 /* Base */,
+			);
+			name = TeamProgress.storyboard;
 			sourceTree = "<group>";
 		};
 		A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */ = {

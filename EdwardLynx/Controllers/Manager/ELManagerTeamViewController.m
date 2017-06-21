@@ -13,6 +13,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELSpacing = 5;
+static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 #pragma mark - Class Extension
 
@@ -44,6 +45,15 @@ static CGFloat const kELSpacing = 5;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Navigation
+
+// TODO
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
+//        
+//    }
+//}
 
 #pragma mark - Protocol Methods (UICollectionView)
 
@@ -102,7 +112,7 @@ static CGFloat const kELSpacing = 5;
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onAddCategoryButtonClick:(id)sender {
-    
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 @end
