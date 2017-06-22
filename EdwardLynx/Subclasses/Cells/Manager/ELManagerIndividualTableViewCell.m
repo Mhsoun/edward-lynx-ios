@@ -20,6 +20,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 
 @interface ELManagerIndividualTableViewCell ()
 
+@property (nonatomic, strong) NSDictionary *detailsDict;
 @property (nonatomic, strong) NSMutableArray<ELDevelopmentPlan *> *mDevPlans;
 
 @end
@@ -48,11 +49,10 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *individualDict = (NSDictionary *)object;
+    self.detailsDict = (NSDictionary *)object;
+    self.nameLabel.text = self.detailsDict[@"name"];
     
-    self.nameLabel.text = individualDict[@"name"];
-    
-    for (NSDictionary *dict in individualDict[@"devPlans"]) {
+    for (NSDictionary *dict in self.detailsDict[@"devPlans"]) {
         [self.mDevPlans addObject:[[ELDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
     }
     
@@ -97,7 +97,9 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSeeMoreButtonClick:(id)sender {
-    // TODO
+    [NotificationCenter postNotificationName:kELTeamSeeMoreNotification
+                                      object:nil
+                                    userInfo:@{@"id": self.detailsDict[@"id"]}];
 }
 
 @end

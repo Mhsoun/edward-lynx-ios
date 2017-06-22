@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 #import "ELManagerIndividualViewController.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanDetailsViewController.h"
@@ -38,6 +40,7 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
@@ -98,13 +101,28 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
 #pragma mark - Protocol Methods (ELTeamViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    
+    [self.indicatorView stopAnimating];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.items = responseDict[@"items"];
     
+    [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
     [self.tableView reloadData];
+}
+
+#pragma mark - Protocol Methods (DZNEmptyDataSet)
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 18.0f),
+                                 NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil)
+                                           attributes:attributes];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)
