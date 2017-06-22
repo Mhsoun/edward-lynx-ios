@@ -39,47 +39,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManagerTeamCell" id="wcm-Fv-x0e" customClass="ELManagerTeamCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnZ-ZR-HUx">
-                                                    <rect key="frame" x="5" y="5" width="162" height="120"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jF-u7-0Jg">
-                                                    <rect key="frame" x="5" y="130" width="162" height="15"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="M8B-4x-UWE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="3jF-u7-0Jg" secondAttribute="trailing" constant="5" id="QIZ-c8-oSJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="GnZ-ZR-HUx" secondAttribute="trailing" constant="5" id="aw6-wc-fku"/>
-                                            <constraint firstAttribute="bottom" secondItem="3jF-u7-0Jg" secondAttribute="bottom" constant="5" id="h4o-y4-R8B"/>
-                                            <constraint firstItem="3jF-u7-0Jg" firstAttribute="leading" secondItem="wcm-Fv-x0e" secondAttribute="leading" constant="5" id="hkA-Qv-LXz"/>
-                                            <constraint firstItem="GnZ-ZR-HUx" firstAttribute="top" secondItem="wcm-Fv-x0e" secondAttribute="top" constant="5" id="nYT-TI-EXp"/>
-                                            <constraint firstItem="3jF-u7-0Jg" firstAttribute="top" secondItem="GnZ-ZR-HUx" secondAttribute="bottom" constant="5" id="vxz-iu-qBv"/>
-                                            <constraint firstItem="GnZ-ZR-HUx" firstAttribute="leading" secondItem="wcm-Fv-x0e" secondAttribute="leading" constant="5" id="yn1-AE-i4w"/>
-                                        </constraints>
-                                        <size key="customSize" width="172" height="150"/>
-                                        <connections>
-                                            <outlet property="chartView" destination="GnZ-ZR-HUx" id="Bbg-HO-OYX"/>
-                                            <outlet property="nameLabel" destination="3jF-u7-0Jg" id="Eqf-Rn-NKm"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oj3-Zd-Pf7">
                                 <rect key="frame" x="305" y="597" width="50" height="50"/>

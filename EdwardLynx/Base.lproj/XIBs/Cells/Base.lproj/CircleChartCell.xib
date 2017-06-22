@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CircleChartCell" id="Kmf-93-6N0" customClass="ELCircleChartCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-dR-hEh">
+                        <rect key="frame" x="5" y="5" width="162" height="105"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dos-AH-MPj">
+                        <rect key="frame" x="5" y="115" width="162" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="I0V-7a-faR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dos-AH-MPj" secondAttribute="bottom" constant="5" id="6VO-CN-Lbg"/>
+                <constraint firstAttribute="trailing" secondItem="yfn-dR-hEh" secondAttribute="trailing" constant="5" id="D4N-OQ-snS"/>
+                <constraint firstItem="dos-AH-MPj" firstAttribute="top" secondItem="yfn-dR-hEh" secondAttribute="bottom" constant="5" id="GHZ-Og-Oq7"/>
+                <constraint firstItem="yfn-dR-hEh" firstAttribute="leading" secondItem="Kmf-93-6N0" secondAttribute="leading" constant="5" id="Hw0-CF-h9g"/>
+                <constraint firstItem="yfn-dR-hEh" firstAttribute="top" secondItem="Kmf-93-6N0" secondAttribute="top" constant="5" id="YDv-EX-eLy"/>
+                <constraint firstItem="dos-AH-MPj" firstAttribute="leading" secondItem="Kmf-93-6N0" secondAttribute="leading" constant="5" id="cya-qh-6Cp"/>
+                <constraint firstAttribute="trailing" secondItem="dos-AH-MPj" secondAttribute="trailing" constant="5" id="e8n-pc-Iug"/>
+            </constraints>
+            <size key="customSize" width="172" height="150"/>
+            <connections>
+                <outlet property="chartView" destination="yfn-dR-hEh" id="ANb-47-heo"/>
+                <outlet property="nameLabel" destination="dos-AH-MPj" id="Pei-IH-FUj"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
