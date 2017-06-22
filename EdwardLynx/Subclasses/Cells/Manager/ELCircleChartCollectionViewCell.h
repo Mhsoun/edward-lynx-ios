@@ -1,5 +1,5 @@
 //
-//  ELManagerTeamCollectionViewCell.h
+//  ELCircleChartCollectionViewCell.h
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 21/06/2017.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ELCircleChart.h"
-
-@interface ELManagerTeamCollectionViewCell : UICollectionViewCell<ELConfigurableCellDelegate>
+@interface ELCircleChartCollectionViewCell : UICollectionViewCell<ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *chartView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

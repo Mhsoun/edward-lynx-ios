@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ELManagerIndividualTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
+@interface ELManagerIndividualTableViewCell : UITableViewCell<UICollectionViewDataSource, UICollectionViewDelegate, ELConfigurableCellDelegate>
 
-@property (weak, nonatomic) id<ELManagerItemsDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *chartViews;
 - (IBAction)onSeeMoreButtonClick:(id)sender;
 
 @end

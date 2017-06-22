@@ -7,12 +7,13 @@
 //
 
 #import "ELManagerTeamViewController.h"
-#import "ELManagerTeamCollectionViewCell.h"
+#import "ELCircleChartCollectionViewCell.h"
 #import "ELTeamDevPlanDetailsViewController.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kELSpacing = 5;
+static NSString * const kELCellIdentifier = @"CircleChartCell";
 static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 #pragma mark - Class Extension
@@ -39,6 +40,9 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+          forCellWithReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +66,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ELManagerTeamCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ManagerTeamCell"
+    ELCircleChartCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
                                                                                       forIndexPath:indexPath];
     
     [cell configure:self.items[indexPath.row] atIndexPath:indexPath];

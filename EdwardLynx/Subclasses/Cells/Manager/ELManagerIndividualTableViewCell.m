@@ -7,7 +7,23 @@
 //
 
 #import "ELManagerIndividualTableViewCell.h"
-#import "ELCircleChart.h"
+#import "ELCircleChartCollectionViewCell.h"
+#import "ELDevelopmentPlan.h"
+
+#pragma mark - Private Constants
+
+static CGFloat const kELColumnCount = 3;
+static CGFloat const kELSpacing = 5;
+static NSString * const kELCellIdentifier = @"CircleChartCell";
+
+#pragma mark - Class Extension
+
+@interface ELManagerIndividualTableViewCell ()
+
+@property (nonatomic, strong) NSDictionary *detailsDict;
+@property (nonatomic, strong) NSMutableArray<ELDevelopmentPlan *> *mDevPlans;
+
+@end
 
 @implementation ELManagerIndividualTableViewCell
 
@@ -15,7 +31,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    // Initialization
+    self.mDevPlans = [[NSMutableArray alloc] init];
+    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
+          forCellWithReuseIdentifier:kELCellIdentifier];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,35 +49,57 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    UITapGestureRecognizer *tap;
-    NSDictionary *individualDict = (NSDictionary *)object;
-    NSArray *items = individualDict[@"data"];
+    self.detailsDict = (NSDictionary *)object;
+    self.nameLabel.text = self.detailsDict[@"name"];
     
-    self.nameLabel.text = individualDict[@"name"];
-    
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onChartSelection:)];
-    
-    for (int i = 0; i < items.count; i++) {
-        ELCircleChart *chartView = self.chartViews[i];
-        
-        [chartView setHidden:NO];
-        [chartView setupContent:items[i]];
-        [chartView addGestureRecognizer:tap];
+    for (NSDictionary *dict in self.detailsDict[@"devPlans"]) {
+        [self.mDevPlans addObject:[[ELDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
     }
+    
+    [self.collectionView reloadData];
+}
+
+#pragma mark - Protocol Methods (UICollectionView)
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.mDevPlans.count > kELColumnCount ? kELColumnCount : self.mDevPlans.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ELCircleChartCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
+                                                                                      forIndexPath:indexPath];
+    
+    [cell configure:self.mDevPlans[indexPath.row] atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake((CGRectGetWidth(collectionView.frame) / kELColumnCount) - kELSpacing, 110);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [NotificationCenter postNotificationName:kELTeamChartSelectionNotification
+                                      object:nil
+                                    userInfo:@{@"id": @([self.mDevPlans[indexPath.row] objectId])}];
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return kELSpacing;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return kELSpacing;
 }
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSeeMoreButtonClick:(id)sender {
-    // NOTE Disable for now
-//    [self.delegate onSeeMore:nil];  // TODO Should be id of dev plan selected
-}
-
-#pragma mark - Selectors
-
-- (void)onChartSelection:(UIGestureRecognizer *)recognizer {
-    // NOTE Disable for now
-//    [self.delegate onChartSelection:nil];  // TODO Should be instance of dev plan
+    [NotificationCenter postNotificationName:kELTeamSeeMoreNotification
+                                      object:nil
+                                    userInfo:@{@"id": self.detailsDict[@"id"]}];
 }
 
 @end

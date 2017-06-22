@@ -15,6 +15,7 @@
 
 @interface ELDevelopmentPlan : ELSearcheableModel
 
+@property (nonatomic) BOOL shared;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString<Ignore> *urlLink;
 @property (nonatomic) NSDate *createdAt;

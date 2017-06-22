@@ -42,10 +42,6 @@ CGFloat const kELQuestionTypeExpandedHeight = 80;
 
 NSInteger const kELParticipantsMinimumCount = 3;
 
-NSString * const kELInstantFeedbackTabNotification = @"ELInstantFeedbackTabNotification";
-NSString * const kELPopupCloseNotification = @"ELPopupClosehNotification";
-NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
-
 NSString * const kELUserRoleAdmin = @"admin";
 NSString * const kELUserRoleAnalyst = @"analyst";
 NSString * const kELUserRoleFeedbackProvider = @"feedback-provider";
@@ -68,8 +64,8 @@ NSString * const kELAPILoginEndpoint = @"oauth/token";
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
 NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
 
-NSString * const kELAPIExchangeSurveyEndpoint = @"%@/surveys/exchange/%@";
-NSString * const kELAPIExchangeInstantFeedbackEndpoint = @"%@/instant-feedbacks/exchange/%@";
+NSString * const kELAPIExchangeSurveyEndpoint = @"%@/%@/surveys/exchange/%@";
+NSString * const kELAPIExchangeInstantFeedbackEndpoint = @"%@/%@/instant-feedbacks/exchange/%@";
 
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";
@@ -89,6 +85,8 @@ NSString * const kELAPISurveyQuestionsEndpoint = @"%@/surveys/%@/questions";
 NSString * const kELAPISurveyRecipientsEndpoint = @"%@/surveys/%@/recipients";
 NSString * const kELAPISurveyResultsEndpoint = @"%@/surveys/%@/results";
 
+NSString * const kELAPITeamUsersEndpoint = @"%@/dev-plans-manager/users";
+
 NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPIUserDashboardEndpoint = @"%@/user/dashboard";
 NSString * const kELAPIUserDeviceEndpoint = @"%@/user/devices";
@@ -106,6 +104,11 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 NSString * const kELGoalActionAddNotification = @"GoalActionAddNotification";
 NSString * const kELGoalActionOptionsNotification = @"GoalActionOptionsNotification";
+NSString * const kELInstantFeedbackTabNotification = @"ELInstantFeedbackTabNotification";
+NSString * const kELPopupCloseNotification = @"ELPopupClosehNotification";
+NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
+NSString * const kELTeamChartSelectionNotification = @"TeamChartSelectionNotification";
+NSString * const kELTeamSeeMoreNotification = @"TeamSeeMoreNotification";
 
 #pragma mark - NSUserDefaults Keys
 

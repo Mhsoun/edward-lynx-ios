@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Manager View-->
+        <!--Team-->
         <scene sceneID="PQ7-vN-P2P">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="m1A-C7-oYv" customClass="ELTeamTabPageViewController" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                             <constraint firstItem="23u-SO-eOX" firstAttribute="leading" secondItem="95s-7S-lEi" secondAttribute="leading" id="zVL-Ma-pqa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Manager View" id="Tfx-dE-jG2"/>
+                    <navigationItem key="navigationItem" title="Team" id="Tfx-dE-jG2"/>
                     <connections>
                         <outlet property="tabView" destination="yIj-Hd-Jha" id="Cdk-Gi-j1i"/>
                     </connections>
@@ -63,24 +63,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c78-FW-fPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="828" y="148.87556221889056"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="p5L-75-D7g">
-            <objects>
-                <viewController id="XTU-gp-Hp2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yHm-VN-Fdn"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jnf-TM-7ys"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kmh-KS-gC0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KcQ-Og-dGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1539" y="145"/>
         </scene>
         <!--Manager Individual View Controller-->
         <scene sceneID="4S9-cX-ZmZ">
@@ -94,26 +76,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJe-vd-VIc">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJe-vd-VIc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="QZM-Wi-Ux5">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="QZz-De-Agf" firstAttribute="top" secondItem="HJe-vd-VIc" secondAttribute="bottom" id="Bcg-R7-17S"/>
                             <constraint firstAttribute="trailing" secondItem="HJe-vd-VIc" secondAttribute="trailing" id="KJZ-bq-z4a"/>
+                            <constraint firstItem="QZM-Wi-Ux5" firstAttribute="centerY" secondItem="nLg-Wz-tUi" secondAttribute="centerY" id="Khq-ir-aYl"/>
+                            <constraint firstItem="QZM-Wi-Ux5" firstAttribute="centerX" secondItem="nLg-Wz-tUi" secondAttribute="centerX" id="O1w-ot-sMa"/>
                             <constraint firstItem="HJe-vd-VIc" firstAttribute="leading" secondItem="nLg-Wz-tUi" secondAttribute="leading" id="v9Z-b0-syz"/>
                             <constraint firstItem="HJe-vd-VIc" firstAttribute="top" secondItem="nLg-Wz-tUi" secondAttribute="top" id="xt1-AJ-a7k"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="QZM-Wi-Ux5" id="fZp-AS-aRp"/>
                         <outlet property="tableView" destination="HJe-vd-VIc" id="Qvq-dF-qDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aI-NP-3oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="816"/>
+            <point key="canvasLocation" x="1470" y="149"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZ7-EP-Ncn">

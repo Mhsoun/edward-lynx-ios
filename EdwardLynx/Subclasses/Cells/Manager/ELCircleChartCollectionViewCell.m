@@ -1,5 +1,5 @@
 //
-//  ELManagerTeamCollectionViewCell.m
+//  ELCircleChartCollectionViewCell.m
 //  EdwardLynx
 //
 //  Created by Jason Jon E. Carreos on 21/06/2017.
@@ -8,16 +8,17 @@
 
 #import <PNChart/PNChart.h>
 
-#import "ELManagerTeamCollectionViewCell.h"
+#import "ELCircleChartCollectionViewCell.h"
+#import "ELDevelopmentPlan.h"
 
-@interface ELManagerTeamCollectionViewCell ()
+@interface ELCircleChartCollectionViewCell ()
 
-@property (nonatomic, strong) NSDictionary *detailsDict;
+@property (nonatomic, strong) ELDevelopmentPlan *devPlan;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
 
-@implementation ELManagerTeamCollectionViewCell
+@implementation ELCircleChartCollectionViewCell
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -28,11 +29,11 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    self.detailsDict = (NSDictionary *)object;
+    self.devPlan = (ELDevelopmentPlan *)object;
 }
 
 - (void)setupContent {
-    self.nameLabel.text = self.detailsDict[@"name"];
+    self.nameLabel.text = self.devPlan.name;
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
@@ -42,10 +43,9 @@
                                        displayCountingLabel:YES
                                           overrideLineWidth:[NSNumber numberWithInteger:8]];
     
-    [ELUtils circleChart:self.circleChart progress:[self.detailsDict[@"percentage"] floatValue]];
+    [ELUtils circleChart:self.circleChart progress:self.devPlan.progress];
     
-    self.circleChart.countingLabel.font = Font(@"Lato-Bold", 12.0f);
-    
+    [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
     

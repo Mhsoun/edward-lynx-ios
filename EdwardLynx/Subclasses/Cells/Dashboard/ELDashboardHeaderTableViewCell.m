@@ -81,6 +81,9 @@
     shortcutView.frame = self.surveyView.bounds;
     
     [self.teamView addSubview:shortcutView];
+    [self.teamView setHidden:![@[kELUserRoleSuperAdmin,
+                                 kELUserRoleAdmin,
+                                 kELUserRoleSupervisor] containsObject:AppSingleton.user.type]];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionAnswer", nil),
                                                          @"count": contents[0],

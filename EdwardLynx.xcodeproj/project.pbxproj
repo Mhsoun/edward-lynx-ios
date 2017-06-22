@@ -303,7 +303,6 @@
 		A95CECBC1EF8C8020028BDD4 /* ELManagerIndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */; };
 		A95CECBF1EF8C87A0028BDD4 /* ManagerIndividualCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95CECBD1EF8C87A0028BDD4 /* ManagerIndividualCell.xib */; };
 		A95CECC31EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */; };
-		A95CECC61EF8D33A0028BDD4 /* CircleChart.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95CECC41EF8D33A0028BDD4 /* CircleChart.xib */; };
 		A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
 		A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96125191EDFBA11004F2119 /* ELQuestionRate.m */; };
 		A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
@@ -350,9 +349,8 @@
 		A983717B1ED42C1100C05594 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9979ECD1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */; };
+		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
-		A9979ED21EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */; };
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
 		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
 		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
@@ -362,11 +360,14 @@
 		A99B511F1ED6CEBF000690FD /* ReportChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */; };
 		A99EC4351EDE9B0D001A99F6 /* ELAnswerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4341EDE9B0D001A99F6 /* ELAnswerSummary.m */; };
 		A99EC4381EDEA11B001A99F6 /* ELYesNoData.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */; };
+		A9A25BF11EFB844A00A1972D /* CircleChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BEF1EFB844A00A1972D /* CircleChartCell.xib */; };
+		A9A25BF41EFB848300A1972D /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */; };
+		A9A25BF71EFB979D00A1972D /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF61EFB979D00A1972D /* ELTeamViewManager.m */; };
+		A9A25BFA1EFB981800A1972D /* ELTeamAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */; };
 		A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9B6589B1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
 		A9B6589E1EE7DE7A00621EFB /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
-		A9BDC79D1EF8FADA00D4E5E2 /* ELCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79C1EF8FADA00D4E5E2 /* ELCircleChart.m */; };
 		A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */; };
 		A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
 		A9C403611E9B8D3F008DD7C8 /* ELDashboardData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */; };
@@ -679,7 +680,6 @@
 		A95CECBE1EF8C87A0028BDD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ManagerIndividualCell.xib; sourceTree = "<group>"; };
 		A95CECC11EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerIndividualTableViewCell.h; sourceTree = "<group>"; };
 		A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerIndividualTableViewCell.m; sourceTree = "<group>"; };
-		A95CECC51EF8D33A0028BDD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CircleChart.xib; sourceTree = "<group>"; };
 		A960BB841ED55E2B00242346 /* ELSurveyRateOthersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyRateOthersViewController.h; sourceTree = "<group>"; };
 		A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyRateOthersViewController.m; sourceTree = "<group>"; };
 		A96125181EDFBA11004F2119 /* ELQuestionRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionRate.h; sourceTree = "<group>"; };
@@ -928,11 +928,10 @@
 		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerTeamCollectionViewCell.h; sourceTree = "<group>"; };
-		A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerTeamCollectionViewCell.m; sourceTree = "<group>"; };
+		A9979ECB1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCircleChartCollectionViewCell.h; sourceTree = "<group>"; };
+		A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCircleChartCollectionViewCell.m; sourceTree = "<group>"; };
 		A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevPlanDetailsViewController.h; sourceTree = "<group>"; };
 		A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevPlanDetailsViewController.m; sourceTree = "<group>"; };
-		A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberGoalCell.xib; sourceTree = "<group>"; };
 		A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamMemberGoalTableViewCell.h; sourceTree = "<group>"; };
 		A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamMemberGoalTableViewCell.m; sourceTree = "<group>"; };
 		A9979ED61EFA71DF00A5BCA2 /* ELManagerCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerCategoryViewController.h; sourceTree = "<group>"; };
@@ -949,14 +948,18 @@
 		A99EC4341EDE9B0D001A99F6 /* ELAnswerSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAnswerSummary.m; sourceTree = "<group>"; };
 		A99EC4361EDEA11B001A99F6 /* ELYesNoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELYesNoData.h; sourceTree = "<group>"; };
 		A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELYesNoData.m; sourceTree = "<group>"; };
+		A9A25BF01EFB844A00A1972D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CircleChartCell.xib; sourceTree = "<group>"; };
+		A9A25BF31EFB848300A1972D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeamMemberGoalCell.xib; sourceTree = "<group>"; };
+		A9A25BF51EFB979D00A1972D /* ELTeamViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamViewManager.h; sourceTree = "<group>"; };
+		A9A25BF61EFB979D00A1972D /* ELTeamViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamViewManager.m; sourceTree = "<group>"; };
+		A9A25BF81EFB981800A1972D /* ELTeamAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamAPIClient.h; sourceTree = "<group>"; };
+		A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamAPIClient.m; sourceTree = "<group>"; };
 		A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearcheableModel.h; sourceTree = "<group>"; };
 		A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearcheableModel.m; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9B658991EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddGoalActionTableViewCell.h; sourceTree = "<group>"; };
 		A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAddGoalActionTableViewCell.m; sourceTree = "<group>"; };
 		A9B6589D1EE7DE7A00621EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddGoalActionCell.xib; sourceTree = "<group>"; };
-		A9BDC79B1EF8FADA00D4E5E2 /* ELCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCircleChart.h; sourceTree = "<group>"; };
-		A9BDC79C1EF8FADA00D4E5E2 /* ELCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCircleChart.m; sourceTree = "<group>"; };
 		A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerTeamViewController.h; sourceTree = "<group>"; };
 		A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerTeamViewController.m; sourceTree = "<group>"; };
 		A9BF28321E94FA6F00BE54BC /* ELLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLabel.h; sourceTree = "<group>"; };
@@ -1069,6 +1072,8 @@
 				A91310CC1E8642D20042C91F /* ELQuestionsAPIClient.m */,
 				A91310CD1E8642D20042C91F /* ELSurveysAPIClient.h */,
 				A91310CE1E8642D20042C91F /* ELSurveysAPIClient.m */,
+				A9A25BF81EFB981800A1972D /* ELTeamAPIClient.h */,
+				A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */,
 				A91310CF1E8642D20042C91F /* ELUsersAPIClient.h */,
 				A91310D01E8642D20042C91F /* ELUsersAPIClient.m */,
 			);
@@ -1091,6 +1096,7 @@
 				A983703F1ED4239A00C05594 /* ActionCell.xib */,
 				A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */,
 				A983704C1ED423B600C05594 /* AddOptionCell.xib */,
+				A9A25BEF1EFB844A00A1972D /* CircleChartCell.xib */,
 				A98370591ED423C800C05594 /* DashboardHeaderCell.xib */,
 				A98370661ED423DB00C05594 /* DashboardReminderCell.xib */,
 				A98370731ED423E900C05594 /* DevelopmentPlanCell.xib */,
@@ -1103,7 +1109,7 @@
 				A98370D51ED427B900C05594 /* ReportCell.xib */,
 				A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */,
 				A98370E21ED4288200C05594 /* SurveyCell.xib */,
-				A9979ED11EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib */,
+				A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1112,7 +1118,6 @@
 			isa = PBXGroup;
 			children = (
 				A98371011ED42A1700C05594 /* ActionView.xib */,
-				A95CECC41EF8D33A0028BDD4 /* CircleChart.xib */,
 				A983710E1ED42A3000C05594 /* DropdownView.xib */,
 				A983711B1ED42A9300C05594 /* ListPopupView.xib */,
 				A98371281ED42AD600C05594 /* NotificationView.xib */,
@@ -1385,7 +1390,6 @@
 			children = (
 				A91311CB1E8642D30042C91F /* Dashboard */,
 				A91311D21E8642D30042C91F /* Main */,
-				A9BDC79A1EF8FAC900D4E5E2 /* Manager */,
 				A91311D71E8642D30042C91F /* Questions */,
 			);
 			path = Views;
@@ -1473,6 +1477,8 @@
 				A91312081E8642D30042C91F /* ELListViewManager.m */,
 				A91312091E8642D30042C91F /* ELSurveyViewManager.h */,
 				A913120A1E8642D30042C91F /* ELSurveyViewManager.m */,
+				A9A25BF51EFB979D00A1972D /* ELTeamViewManager.h */,
+				A9A25BF61EFB979D00A1972D /* ELTeamViewManager.m */,
 			);
 			path = ViewManagers;
 			sourceTree = "<group>";
@@ -1601,8 +1607,8 @@
 			children = (
 				A95CECC11EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.h */,
 				A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */,
-				A9979ECB1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.h */,
-				A9979ECC1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m */,
+				A9979ECB1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.h */,
+				A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */,
 				A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */,
 				A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */,
 			);
@@ -1709,15 +1715,6 @@
 				A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */,
 			);
 			path = Reports;
-			sourceTree = "<group>";
-		};
-		A9BDC79A1EF8FAC900D4E5E2 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				A9BDC79B1EF8FADA00D4E5E2 /* ELCircleChart.h */,
-				A9BDC79C1EF8FADA00D4E5E2 /* ELCircleChart.m */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		A9DB71091EDEDAC4006BA0AE /* Categories */ = {
@@ -1969,6 +1966,7 @@
 				A913122D1E8642D30042C91F /* Survey.storyboard in Resources */,
 				A91312271E8642D30042C91F /* LaunchScreen.storyboard in Resources */,
 				A91312201E8642D30042C91F /* Authentication.storyboard in Resources */,
+				A9A25BF41EFB848300A1972D /* TeamMemberGoalCell.xib in Resources */,
 				A91312241E8642D30042C91F /* DevelopmentPlan.storyboard in Resources */,
 				A983704A1ED423B600C05594 /* AddOptionCell.xib in Resources */,
 				A98370921ED425EE00C05594 /* GoalCell.xib in Resources */,
@@ -1993,11 +1991,9 @@
 				A91312691E8642D30042C91F /* Report.strings in Resources */,
 				A913126B1E8642D30042C91F /* Survey.strings in Resources */,
 				A91312681E8642D30042C91F /* Profile.strings in Resources */,
-				A9979ED21EFA5E8400A5BCA2 /* TeamMemberGoalCell.xib in Resources */,
 				A91312291E8642D30042C91F /* List.storyboard in Resources */,
 				A98370B91ED4268400C05594 /* ParticipantCell.xib in Resources */,
 				A98370E01ED4288200C05594 /* SurveyCell.xib in Resources */,
-				A95CECC61EF8D33A0028BDD4 /* CircleChart.xib in Resources */,
 				A983709F1ED4263D00C05594 /* ListCell.xib in Resources */,
 				A98371191ED42A9300C05594 /* ListPopupView.xib in Resources */,
 				A91312651E8642D30042C91F /* LaunchScreen.strings in Resources */,
@@ -2016,6 +2012,7 @@
 				A91312671E8642D30042C91F /* List.strings in Resources */,
 				A98370D31ED427B900C05594 /* ReportCell.xib in Resources */,
 				A91312621E8642D30042C91F /* DevelopmentPlan.strings in Resources */,
+				A9A25BF11EFB844A00A1972D /* CircleChartCell.xib in Resources */,
 				A983703D1ED4239A00C05594 /* ActionCell.xib in Resources */,
 				A91312261E8642D30042C91F /* Invite.storyboard in Resources */,
 				A91312661E8642D30042C91F /* LeftMenu.strings in Resources */,
@@ -2342,7 +2339,6 @@
 				A91312B31E8644380042C91F /* ELSectionView.m in Sources */,
 				A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */,
 				A91312911E8642D30042C91F /* ELQuestionTableViewCell.m in Sources */,
-				A9BDC79D1EF8FADA00D4E5E2 /* ELCircleChart.m in Sources */,
 				A91312551E8642D30042C91F /* ELListViewController.m in Sources */,
 				A913128D1E8642D30042C91F /* ELItemTableViewCell.m in Sources */,
 				A91312521E8642D30042C91F /* ELDashboardViewController.m in Sources */,
@@ -2402,6 +2398,7 @@
 				A913121C1E8642D30042C91F /* ELSurveysAPIClient.m in Sources */,
 				A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */,
 				A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */,
+				A9A25BF71EFB979D00A1972D /* ELTeamViewManager.m in Sources */,
 				A91312A11E8642D30042C91F /* ELAppSingleton.m in Sources */,
 				A913125B1E8642D30042C91F /* ELReportsViewController.m in Sources */,
 				A9DB71121EDEDC11006BA0AE /* NSString+HTML.m in Sources */,
@@ -2417,10 +2414,11 @@
 				A91312A71E8642D30042C91F /* ELDetailViewManager.m in Sources */,
 				A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */,
 				A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */,
-				A9979ECD1EFA267600A5BCA2 /* ELManagerTeamCollectionViewCell.m in Sources */,
+				A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */,
 				A99EC4381EDEA11B001A99F6 /* ELYesNoData.m in Sources */,
 				A91312A91E8642D30042C91F /* ELFeedbackViewManager.m in Sources */,
 				A99EC4351EDE9B0D001A99F6 /* ELAnswerSummary.m in Sources */,
+				A9A25BFA1EFB981800A1972D /* ELTeamAPIClient.m in Sources */,
 				A97C29821E8B8CC300EBC5CE /* ELGoal.m in Sources */,
 				A91312461E8642D30042C91F /* ELCreateDevelopmentPlanViewController.m in Sources */,
 				A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */,
@@ -2864,14 +2862,6 @@
 			name = ManagerIndividualCell.xib;
 			sourceTree = "<group>";
 		};
-		A95CECC41EF8D33A0028BDD4 /* CircleChart.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A95CECC51EF8D33A0028BDD4 /* Base */,
-			);
-			name = CircleChart.xib;
-			sourceTree = "<group>";
-		};
 		A983703F1ED4239A00C05594 /* ActionCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3182,6 +3172,22 @@
 				A99B511E1ED6CEBF000690FD /* Base */,
 			);
 			name = ReportChartCell.xib;
+			sourceTree = "<group>";
+		};
+		A9A25BEF1EFB844A00A1972D /* CircleChartCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9A25BF01EFB844A00A1972D /* Base */,
+			);
+			name = CircleChartCell.xib;
+			sourceTree = "<group>";
+		};
+		A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9A25BF31EFB848300A1972D /* Base */,
+			);
+			name = TeamMemberGoalCell.xib;
 			sourceTree = "<group>";
 		};
 		A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */ = {

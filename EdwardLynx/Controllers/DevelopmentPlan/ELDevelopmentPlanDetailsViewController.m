@@ -21,10 +21,10 @@
 #pragma mark - Private Constants
 
 typedef NS_ENUM(NSInteger, kELActionOption) {
-    kELActionOptionAdd,
-    kELActionOptionDelete,
-    kELActionOptionUpdate,
-    kELActionOptionGoalDelete
+    kELActionOptionAdd = 1,
+    kELActionOptionDelete = 2,
+    kELActionOptionUpdate = 3,
+    kELActionOptionGoalDelete = 4
 };
 
 static CGFloat const kELGoalCellHeight = 105;
@@ -59,6 +59,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     // Initialization
     self.shared = NO;
+    self.actionOptionType = -1;
     self.mGoals = [[NSMutableArray alloc] init];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
@@ -71,17 +72,19 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     [self.circleChartView addSubview:self.circleChart];
     
-    self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] init];
-    self.devPlanViewManager.delegate = self;
-    
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] initWithObjectId:self.objectId];
+        self.devPlanViewManager.delegate = self;
                 
         [self.detailViewManager processRetrievalOfDevelopmentPlanDetails];
     } else {
+        self.shared = self.devPlan.shared;
         self.title = [self.devPlan.name uppercaseString];
         self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
+        self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] initWithDetailObject:self.devPlan];
+        self.devPlanViewManager.delegate = self;
         
         [self setupChart];
         [self setupDevPlan];
@@ -213,11 +216,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
-    [self.shareButton setImage:[FontAwesome imageWithIcon:fa_square_o
-                                                iconColor:ThemeColor(kELOrangeColor)
-                                                 iconSize:kELIconHeight
-                                                imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
-                      forState:UIControlStateNormal];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -232,6 +230,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
     self.devPlan.urlLink = responseDict[@"_links"][@"self"][@"href"];
     
+    self.shared = self.devPlan.shared;
     self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
     self.title = [self.devPlan.name uppercaseString];
     
@@ -252,8 +251,10 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    BOOL toReload;
     NSString *message;
     
+    toReload = YES;
     AppSingleton.needsPageReload = YES;
     
     switch (self.actionOptionType) {
@@ -274,6 +275,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             
             break;
         default:
+            toReload = NO;
             message = NSLocalizedString(@"kELDevelopmentPlanUpdateSuccess", nil);
             
             // Update shared status
@@ -287,13 +289,14 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             break;
     }
     
-    [self reloadPage];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    // Back to the Development Plan Details page
     [ELUtils presentToastAtView:self.view
                         message:message
                      completion:nil];
+    
+    if (toReload) {
+        [self reloadPage];
+    }
 }
 
 #pragma mark - Protocol Methods (ELDevelopmentPlan)
@@ -393,6 +396,13 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [ELUtils circleChart:self.circleChart progress:self.devPlan.progress];
     [self.circleChart setDisplayAnimated:NO];
     [self.circleChart strokeChart];
+    
+    // Share to manager
+    [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square : fa_square_o
+                                                iconColor:ThemeColor(kELOrangeColor)
+                                                 iconSize:kELIconHeight
+                                                imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
+                      forState:UIControlStateNormal];
 }
 
 - (void)setupDevPlan {
@@ -556,21 +566,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onShareButtonClick:(id)sender {
-    // Update shared status
-    self.shared = !self.shared;
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
     
-    [self.shareButton setImage:[FontAwesome imageWithIcon:self.shared ? fa_check_square : fa_square_o
-                                                iconColor:ThemeColor(kELOrangeColor)
-                                                 iconSize:kELIconHeight
-                                                imageSize:CGSizeMake(kELIconHeight, kELIconHeight)]
-                      forState:UIControlStateNormal];
-    
-    // NOTE For API process
-//    [self presentViewController:[ELUtils loadingAlert]
-//                       animated:YES
-//                     completion:nil];
-//    
-//    [self.devPlanViewManager processUpdateDevelopmentPlan:@{@"shared": @(!self.shared)}];
+    [self.devPlanViewManager processUpdateDevelopmentPlan:@{@"shared": @(!self.shared)}];
 }
 
 - (IBAction)onAddGoalButtonClick:(id)sender {

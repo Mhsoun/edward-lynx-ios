@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -36,47 +39,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManagerTeamCell" id="wcm-Fv-x0e" customClass="ELManagerTeamCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="172" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnZ-ZR-HUx">
-                                                    <rect key="frame" x="5" y="5" width="162" height="120"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jF-u7-0Jg">
-                                                    <rect key="frame" x="5" y="130" width="162" height="15"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="M8B-4x-UWE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="3jF-u7-0Jg" secondAttribute="trailing" constant="5" id="QIZ-c8-oSJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="GnZ-ZR-HUx" secondAttribute="trailing" constant="5" id="aw6-wc-fku"/>
-                                            <constraint firstAttribute="bottom" secondItem="3jF-u7-0Jg" secondAttribute="bottom" constant="5" id="h4o-y4-R8B"/>
-                                            <constraint firstItem="3jF-u7-0Jg" firstAttribute="leading" secondItem="wcm-Fv-x0e" secondAttribute="leading" constant="5" id="hkA-Qv-LXz"/>
-                                            <constraint firstItem="GnZ-ZR-HUx" firstAttribute="top" secondItem="wcm-Fv-x0e" secondAttribute="top" constant="5" id="nYT-TI-EXp"/>
-                                            <constraint firstItem="3jF-u7-0Jg" firstAttribute="top" secondItem="GnZ-ZR-HUx" secondAttribute="bottom" constant="5" id="vxz-iu-qBv"/>
-                                            <constraint firstItem="GnZ-ZR-HUx" firstAttribute="leading" secondItem="wcm-Fv-x0e" secondAttribute="leading" constant="5" id="yn1-AE-i4w"/>
-                                        </constraints>
-                                        <size key="customSize" width="172" height="150"/>
-                                        <connections>
-                                            <outlet property="chartView" destination="GnZ-ZR-HUx" id="Bbg-HO-OYX"/>
-                                            <outlet property="nameLabel" destination="3jF-u7-0Jg" id="Eqf-Rn-NKm"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oj3-Zd-Pf7">
                                 <rect key="frame" x="305" y="597" width="50" height="50"/>
@@ -135,8 +98,95 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4q-vR-7zI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="125"/>
+                                <subviews>
+                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-YD-bP9">
+                                        <rect key="frame" x="10" y="10" width="355" height="17"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4Q-HR-n8g" userLabel="Name View">
+                                        <rect key="frame" x="10" y="32" width="355" height="35"/>
+                                        <subviews>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lAO-C4-ICv">
+                                                <rect key="frame" x="10" y="5" width="340" height="25"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="lAO-C4-ICv" secondAttribute="bottom" constant="5" id="1lg-XH-u1q"/>
+                                            <constraint firstAttribute="trailing" secondItem="lAO-C4-ICv" secondAttribute="trailing" constant="5" id="HWY-ze-jSt"/>
+                                            <constraint firstAttribute="height" constant="35" id="JeN-Pp-V4p"/>
+                                            <constraint firstItem="lAO-C4-ICv" firstAttribute="leading" secondItem="S4Q-HR-n8g" secondAttribute="leading" constant="10" id="VXu-xD-1Y9"/>
+                                            <constraint firstItem="lAO-C4-ICv" firstAttribute="top" secondItem="S4Q-HR-n8g" secondAttribute="top" constant="5" id="aEs-v8-Kdk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name can't be blank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-bK-nh1">
+                                        <rect key="frame" x="10" y="69.5" width="355" height="15"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="tgk-b3-V81"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T54-hl-hg7">
+                                        <rect key="frame" x="310" y="92" width="55" height="29"/>
+                                        <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="YZY-Z7-gpQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.08235294118" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAddButtonClick:" destination="SQO-aW-oQV" eventType="touchUpInside" id="UcP-ef-8GZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="T54-hl-hg7" firstAttribute="trailing" secondItem="Obi-bK-nh1" secondAttribute="trailing" id="BxK-yg-xTn"/>
+                                    <constraint firstItem="T54-hl-hg7" firstAttribute="top" secondItem="Obi-bK-nh1" secondAttribute="bottom" constant="7.5" id="DwF-7d-2Yn"/>
+                                    <constraint firstItem="Obi-bK-nh1" firstAttribute="leading" secondItem="S4Q-HR-n8g" secondAttribute="leading" id="Fc1-HQ-TxR"/>
+                                    <constraint firstItem="Obi-bK-nh1" firstAttribute="trailing" secondItem="S4Q-HR-n8g" secondAttribute="trailing" id="LJS-YL-HMx"/>
+                                    <constraint firstItem="Obi-bK-nh1" firstAttribute="top" secondItem="S4Q-HR-n8g" secondAttribute="bottom" constant="2.5" id="Tfc-qa-qzI"/>
+                                    <constraint firstItem="FWe-YD-bP9" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="top" constant="10" id="XVP-Zb-Dga"/>
+                                    <constraint firstItem="FWe-YD-bP9" firstAttribute="leading" secondItem="V4q-vR-7zI" secondAttribute="leading" constant="10" id="nGi-NL-BOd"/>
+                                    <constraint firstAttribute="height" constant="125" id="obq-O3-0ah"/>
+                                    <constraint firstItem="S4Q-HR-n8g" firstAttribute="top" secondItem="FWe-YD-bP9" secondAttribute="bottom" constant="5" id="pE0-1Q-s0c"/>
+                                    <constraint firstItem="S4Q-HR-n8g" firstAttribute="leading" secondItem="FWe-YD-bP9" secondAttribute="leading" id="q0r-sq-7vZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" constant="10" id="q9H-jq-Pbh"/>
+                                    <constraint firstItem="S4Q-HR-n8g" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="sD1-uh-7a1"/>
+                                </constraints>
+                            </view>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Development Plans" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-iz-KLR">
+                                <rect key="frame" x="10" y="155" width="355" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-og-mJb">
-                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="485"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ManagerCategoryCell" id="luM-tv-Ewl">
@@ -151,22 +201,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4q-vR-7zI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="150"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="obq-O3-0ah"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="V4q-vR-7zI" secondAttribute="trailing" id="1w6-Ri-0bN"/>
-                            <constraint firstItem="WmB-og-mJb" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="bottom" id="2ai-MH-btx"/>
                             <constraint firstItem="WmB-og-mJb" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="AGp-9g-c61"/>
                             <constraint firstItem="V4q-vR-7zI" firstAttribute="top" secondItem="yzI-Bt-hnN" secondAttribute="bottom" id="Fzl-ct-zWh"/>
+                            <constraint firstItem="DcM-iz-KLR" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="MDo-bk-d4Z"/>
                             <constraint firstAttribute="trailing" secondItem="qW1-ym-Jq7" secondAttribute="trailing" id="NIM-Tx-PSm"/>
+                            <constraint firstItem="DcM-iz-KLR" firstAttribute="leading" secondItem="FWe-YD-bP9" secondAttribute="leading" id="NOj-Jh-1mS"/>
                             <constraint firstItem="RFZ-QI-Y7s" firstAttribute="top" secondItem="WmB-og-mJb" secondAttribute="bottom" id="V2A-hH-qyp"/>
+                            <constraint firstItem="WmB-og-mJb" firstAttribute="top" secondItem="DcM-iz-KLR" secondAttribute="bottom" constant="10" id="afu-ou-caA"/>
+                            <constraint firstItem="DcM-iz-KLR" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="bottom" constant="10" id="htF-0P-JtQ"/>
                             <constraint firstItem="V4q-vR-7zI" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="ovy-pd-kkk"/>
                             <constraint firstItem="qW1-ym-Jq7" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="rhX-5R-i9l"/>
                             <constraint firstItem="qW1-ym-Jq7" firstAttribute="top" secondItem="NAE-Qh-LlD" secondAttribute="top" id="s6D-0h-8fW"/>
@@ -175,6 +221,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameErrorLabel" destination="Obi-bK-nh1" id="ttI-bB-nXQ"/>
+                        <outlet property="nameField" destination="lAO-C4-ICv" id="7VC-W9-HOQ"/>
                         <outlet property="tableView" destination="WmB-og-mJb" id="LZF-s6-WA7"/>
                     </connections>
                 </viewController>
