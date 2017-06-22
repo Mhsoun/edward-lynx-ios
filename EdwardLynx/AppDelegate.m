@@ -428,6 +428,7 @@
     key = [urlParts[1] componentsSeparatedByString:@"/"][3];
     url = Format(isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
                  [ELAPIClient hostURL],
+                 kELAPIVersionNamespace,
                  key);
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
@@ -454,9 +455,11 @@
             
             self.emailInfoDict = nil;
         } else {
-            objectId = [responseDict[@"surveyId"] intValue];
+            objectId = [responseDict[@"survey_id"] intValue];
             
             self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
+            
+            [self displayViewControllerByData:self.emailInfoDict];
         }
     }];
 }

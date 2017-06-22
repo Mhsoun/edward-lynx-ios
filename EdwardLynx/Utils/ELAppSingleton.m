@@ -32,6 +32,7 @@
         return nil;
     }
     
+    self.devPlanUserId = -1;
     self.user = nil;
     self.participants = nil;
     self.hasLoadedApplication = NO;
