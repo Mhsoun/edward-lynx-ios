@@ -10,6 +10,9 @@
 
 @interface ELManagerCategoryViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)onAddButtonClick:(id)sender;
 
 @end

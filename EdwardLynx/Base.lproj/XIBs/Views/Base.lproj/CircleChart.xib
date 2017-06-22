@@ -43,10 +43,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="toe-y8-Hw4" firstAttribute="width" secondItem="VHH-9c-VNN" secondAttribute="width" id="1GT-yH-1X6"/>
                 <constraint firstItem="Lr5-q2-m8v" firstAttribute="top" secondItem="toe-y8-Hw4" secondAttribute="bottom" constant="5" id="B0T-a7-FRk"/>
                 <constraint firstAttribute="trailing" secondItem="Lr5-q2-m8v" secondAttribute="trailing" constant="5" id="BGq-B6-lGK"/>
                 <constraint firstItem="toe-y8-Hw4" firstAttribute="centerX" secondItem="VHH-9c-VNN" secondAttribute="centerX" id="BcG-9K-2TO"/>
+                <constraint firstItem="toe-y8-Hw4" firstAttribute="width" secondItem="VHH-9c-VNN" secondAttribute="width" id="Rv8-SN-RvE"/>
                 <constraint firstAttribute="bottom" secondItem="Lr5-q2-m8v" secondAttribute="bottom" constant="5" id="Vgd-G7-2uv"/>
                 <constraint firstItem="Lr5-q2-m8v" firstAttribute="leading" secondItem="VHH-9c-VNN" secondAttribute="leading" constant="5" id="mVh-uw-ph8"/>
                 <constraint firstItem="toe-y8-Hw4" firstAttribute="top" secondItem="VHH-9c-VNN" secondAttribute="top" id="yPE-JK-CQJ"/>

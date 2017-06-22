@@ -49,6 +49,12 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                             forIndexPath:indexPath];
     
+//    cell.imageView.image = [FontAwesome imageWithIcon:fa_check
+//                                            iconColor:ThemeColor(kELGreenColor)
+//                                             iconSize:15
+//                                            imageSize:CGSizeMake(15, 15)];
+    cell.imageView.image = nil;
+    
     cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
     cell.textLabel.text = self.mCategories[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -73,6 +79,18 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     
     [self.mCategories removeObjectAtIndex:sourceIndexPath.row];
     [self.mCategories insertObject:category atIndex:destinationIndexPath.row];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onAddButtonClick:(id)sender {
+    self.nameErrorLabel.hidden = self.nameField.text.length > 0;
+    
+    if (self.nameField.text == 0) {
+        return;
+    }
+    
+    // TODO Either API call or just add to list
 }
 
 @end

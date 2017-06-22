@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *chartView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
-- (void)renderChart;
 - (void)setupContent:(NSDictionary *)detailsDict;
 
 @end
