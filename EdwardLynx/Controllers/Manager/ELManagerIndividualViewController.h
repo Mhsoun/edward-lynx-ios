@@ -10,7 +10,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerIndividualViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELManagerItemsDelegate>
+@interface ELManagerIndividualViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

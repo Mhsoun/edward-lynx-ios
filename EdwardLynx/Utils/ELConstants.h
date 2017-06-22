@@ -154,10 +154,6 @@ extern CGFloat const kELQuestionTypeExpandedHeight;
 
 extern NSInteger const kELParticipantsMinimumCount;
 
-extern NSString * const kELInstantFeedbackTabNotification;
-extern NSString * const kELPopupCloseNotification;
-extern NSString * const kELTabPageSearchNotification;
-
 extern NSString * const kELUserRoleAdmin;
 extern NSString * const kELUserRoleAnalyst;
 extern NSString * const kELUserRoleFeedbackProvider;
@@ -201,6 +197,8 @@ extern NSString * const kELAPISurveyQuestionsEndpoint;
 extern NSString * const kELAPISurveyRecipientsEndpoint;
 extern NSString * const kELAPISurveyResultsEndpoint;
 
+extern NSString * const kELAPITeamUsersEndpoint;
+
 extern NSString * const kELAPIUserEndpoint;
 extern NSString * const kELAPIUserDashboardEndpoint;
 extern NSString * const kELAPIUserDeviceEndpoint;
@@ -218,6 +216,11 @@ extern NSString * const kELAPIPutHTTPMethod;
 
 extern NSString * const kELGoalActionAddNotification;
 extern NSString * const kELGoalActionOptionsNotification;
+extern NSString * const kELInstantFeedbackTabNotification;
+extern NSString * const kELPopupCloseNotification;
+extern NSString * const kELTabPageSearchNotification;
+extern NSString * const kELTeamChartSelectionNotification;
+extern NSString * const kELTeamSeeMoreNotification;
 
 #pragma mark - NSUserDefaults Keys
 

@@ -10,7 +10,6 @@
 
 @interface ELManagerIndividualTableViewCell : UITableViewCell<UICollectionViewDataSource, UICollectionViewDelegate, ELConfigurableCellDelegate>
 
-@property (weak, nonatomic) id<ELManagerItemsDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

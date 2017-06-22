@@ -8,9 +8,11 @@
 
 #import "ELManagerIndividualTableViewCell.h"
 #import "ELCircleChartCollectionViewCell.h"
+#import "ELDevelopmentPlan.h"
 
 #pragma mark - Private Constants
 
+static CGFloat const kELColumnCount = 3;
 static CGFloat const kELSpacing = 5;
 static NSString * const kELCellIdentifier = @"CircleChartCell";
 
@@ -18,7 +20,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 
 @interface ELManagerIndividualTableViewCell ()
 
-@property (nonatomic, strong) NSArray *devPlans;
+@property (nonatomic, strong) NSMutableArray<ELDevelopmentPlan *> *mDevPlans;
 
 @end
 
@@ -28,9 +30,10 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
     
     // Initialization
+    self.mDevPlans = [[NSMutableArray alloc] init];
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -48,7 +51,10 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     NSDictionary *individualDict = (NSDictionary *)object;
     
     self.nameLabel.text = individualDict[@"name"];
-    self.devPlans = individualDict[@"data"];
+    
+    for (NSDictionary *dict in individualDict[@"devPlans"]) {
+        [self.mDevPlans addObject:[[ELDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
+    }
     
     [self.collectionView reloadData];
 }
@@ -56,14 +62,14 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 #pragma mark - Protocol Methods (UICollectionView)
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.devPlans.count;
+    return self.mDevPlans.count > kELColumnCount ? kELColumnCount : self.mDevPlans.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ELCircleChartCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
                                                                                       forIndexPath:indexPath];
     
-    [cell configure:self.devPlans[indexPath.row] atIndexPath:indexPath];
+    [cell configure:self.mDevPlans[indexPath.row] atIndexPath:indexPath];
     
     return cell;
 }
@@ -71,12 +77,13 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((CGRectGetWidth(collectionView.frame) / 3) - kELSpacing, 110);
+    return CGSizeMake((CGRectGetWidth(collectionView.frame) / kELColumnCount) - kELSpacing, 110);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // NOTE Disable for now
-//    [self.delegate onChartSelection:nil];  // TODO Should be instance of dev plan
+    [NotificationCenter postNotificationName:kELTeamChartSelectionNotification
+                                      object:nil
+                                    userInfo:@{@"id": @([self.mDevPlans[indexPath.row] objectId])}];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -90,8 +97,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSeeMoreButtonClick:(id)sender {
-    // NOTE Disable for now
-//    [self.delegate onSeeMore:nil];  // TODO Should be id of dev plan selected
+    // TODO
 }
 
 @end
