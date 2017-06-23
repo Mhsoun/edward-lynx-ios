@@ -215,6 +215,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
+    
+    // Share View
+    [self.shareView setHidden:[@[kELUserRoleSuperAdmin,
+                                 kELUserRoleAdmin,
+                                 kELUserRoleSupervisor] containsObject:AppSingleton.user.type]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
