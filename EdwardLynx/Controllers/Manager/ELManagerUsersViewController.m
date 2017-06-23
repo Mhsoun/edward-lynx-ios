@@ -49,12 +49,11 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                        iconSize:kELIconSize
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
+    self.searchBar.delegate = self;
+    
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
     
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     self.tableView.hidden = YES;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -66,6 +65,35 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSMutableArray *mFilteredParticipants = [self.mInitialParticipants mutableCopy];
+    NSString *condition = @"SELF.name CONTAINS [cd]%@ || SELF.email CONTAINS [cd]%@";
+    
+    if (searchText.length > 0) {
+        [mFilteredParticipants filterUsingPredicate:[NSPredicate predicateWithFormat:condition,
+                                                     searchText,
+                                                     searchText]];
+    }
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:[mFilteredParticipants copy]];
+    
+    [self.tableView reloadData];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
 }
 
 #pragma mark - Protocol Methods (UITableView)
@@ -137,6 +165,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
+    
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     [self.tableView reloadData];
 }
