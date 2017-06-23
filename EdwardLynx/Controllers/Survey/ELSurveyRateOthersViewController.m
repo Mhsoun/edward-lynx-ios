@@ -63,8 +63,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self.heightConstraint setConstant:kELCellHeight];
     [self.tableView updateConstraints];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
     
     [self.dropdown setFrame:self.dropdownView.bounds];
     [self.dropdownView addSubview:self.dropdown];

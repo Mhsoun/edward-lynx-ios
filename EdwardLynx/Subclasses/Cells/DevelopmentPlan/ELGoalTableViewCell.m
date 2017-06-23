@@ -50,10 +50,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:kELAddActionCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELAddActionCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
+    RegisterNib(self.tableView, kELAddActionCellIdentifier);    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

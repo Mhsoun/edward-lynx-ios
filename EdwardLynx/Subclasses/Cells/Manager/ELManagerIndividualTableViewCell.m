@@ -38,8 +38,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    [self.collectionView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-          forCellWithReuseIdentifier:kELCellIdentifier];
+    RegisterCollectionNib(self.collectionView, kELCellIdentifier);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

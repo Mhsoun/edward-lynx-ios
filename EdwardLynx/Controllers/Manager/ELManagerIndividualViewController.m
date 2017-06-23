@@ -46,8 +46,7 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
     
     [self.viewManager processRetrieveSharedUserDevPlans];
 }

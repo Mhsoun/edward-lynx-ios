@@ -53,12 +53,9 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELHeaderCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELHeaderCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:kELReminderCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELReminderCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:kELDevPlanCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELDevPlanCellIdentifier];
+    RegisterNib(self.tableView, kELHeaderCellIdentifier);
+    RegisterNib(self.tableView, kELReminderCellIdentifier);
+    RegisterNib(self.tableView, kELDevPlanCellIdentifier);
     
     // Register for Remote Notifications
 #if !(TARGET_OS_SIMULATOR)

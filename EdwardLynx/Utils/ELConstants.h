@@ -26,6 +26,8 @@
 #define Format(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define NotificationCenter [NSNotificationCenter defaultCenter]
+#define RegisterCollectionNib(collection, n) [(collection) registerNib:[UINib nibWithNibName:(n) bundle:nil] forCellWithReuseIdentifier:(n)];
+#define RegisterNib(table, n) [(table) registerNib:[UINib nibWithNibName:(n) bundle:nil] forCellReuseIdentifier:(n)];
 #define SharedApplication [UIApplication sharedApplication]
 #define StoryboardController(s, i) i ? [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateViewControllerWithIdentifier:(i)] : [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateInitialViewController]
 #define ThemeColor(key) [[RNThemeManager sharedManager] colorForKey:(key)]

@@ -431,8 +431,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         case kELListTypeSurveys:
             self.cellIdentifier = kELSurveyCellIdentifier;
             
-            [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
-                 forCellReuseIdentifier:self.cellIdentifier];
+            RegisterNib(self.tableView, self.cellIdentifier);
             
             switch (self.listFilter) {
                 case kELListFilterAll:
@@ -455,16 +454,16 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         case kELListTypeReports:
             self.cellIdentifier = kELReportCellIdentifier;
             
-            [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
-                 forCellReuseIdentifier:self.cellIdentifier];
+            RegisterNib(self.tableView, self.cellIdentifier);
+            
             [self.viewManager processRetrievalOfReports];
             
             break;
         case kELListTypeDevPlan:
             self.cellIdentifier = kELDevPlanCellIdentifier;
             
-            [self.tableView registerNib:[UINib nibWithNibName:self.cellIdentifier bundle:nil]
-                 forCellReuseIdentifier:self.cellIdentifier];
+            RegisterNib(self.tableView, self.cellIdentifier);
+            
             [self.viewManager processRetrievalOfDevelopmentPlans];
             
             break;

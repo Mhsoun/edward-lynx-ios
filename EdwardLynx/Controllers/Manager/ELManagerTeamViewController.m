@@ -8,6 +8,7 @@
 
 #import "ELManagerTeamViewController.h"
 #import "ELCircleChartCollectionViewCell.h"
+#import "ELDevelopmentPlan.h"
 #import "ELTeamDevPlanDetailsViewController.h"
 
 #pragma mark - Private Constants
@@ -20,7 +21,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 @interface ELManagerTeamViewController ()
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray<ELDevelopmentPlan *> *items;
 
 @end
 
@@ -33,16 +34,34 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.items = @[@{@"name": @"Public Speaking", @"percentage": @0.5},
-                   @{@"name": @"Leadership", @"percentage": @0.8},
-                   @{@"name": @"Excellence", @"percentage": @0.3},
-                   @{@"name": @"Faith", @"percentage": @0.4}];
+    self.items = @[[[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @195,
+                                                                   @"name": @"A",
+                                                                   @"createdAt": @"2017-06-21T10:06:00+02:00",
+                                                                   @"updatedAt": @"2017-06-22T07:45:21+02:00",
+                                                                   @"checked": @0,
+                                                                   @"shared": @1,
+                                                                   @"goals": @[@{@"id": @406,
+                                                                                 @"title": @"Test",
+                                                                                 @"description": @"",
+                                                                                 @"checked": @0,
+                                                                                 @"position": @0,
+                                                                                 @"dueDate": @"<nil>",
+                                                                                 @"reminderSent": @0,
+                                                                                 @"categoryId": @"<nil>",
+                                                                                 @"actions": @[@{@"id": @879,
+                                                                                                 @"title": @"Test",
+                                                                                                 @"checked": @1,
+                                                                                                 @"position": @0},
+                                                                                               @{@"id": @879,
+                                                                                                 @"title": @"Test",
+                                                                                                 @"checked": @0,
+                                                                                                 @"position": @0}]}]}
+                                                           error:nil]];
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    [self.collectionView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-          forCellWithReuseIdentifier:kELCellIdentifier];
+    RegisterCollectionNib(self.collectionView, kELCellIdentifier);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +102,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((CGRectGetWidth(collectionView.frame) / 3) - kELSpacing, 110);
+    return CGSizeMake((CGRectGetWidth(collectionView.frame) / 3) - kELSpacing, 130);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
