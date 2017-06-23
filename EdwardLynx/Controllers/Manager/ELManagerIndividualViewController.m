@@ -98,6 +98,20 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
     return cell;
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    CGFloat iconHeight = 15;
+    
+    // Button
+    [self.displayUsersButton.imageView setClipsToBounds:NO];
+    [self.displayUsersButton setImage:[FontAwesome imageWithIcon:fa_user
+                                                       iconColor:[UIColor blackColor]
+                                                        iconSize:iconHeight
+                                                       imageSize:CGSizeMake(iconHeight, iconHeight)]
+                             forState:UIControlStateNormal];
+}
+
 #pragma mark - Protocol Methods (ELTeamViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {

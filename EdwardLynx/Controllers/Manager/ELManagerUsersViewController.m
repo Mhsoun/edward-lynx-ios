@@ -13,6 +13,7 @@
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
 #import "ELTableDataSource.h"
+#import "ELTeamViewManager.h"
 
 #pragma mark - Private Constants
 
@@ -27,6 +28,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @property (nonatomic, strong) UIImage *checkIcon;
 @property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
+@property (nonatomic, strong) ELTeamViewManager *viewManager;
 @property (nonatomic, strong) ELDataProvider<ELParticipant *> *provider;
 
 @end
@@ -41,22 +43,24 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     // Initialization
     self.mParticipants = [[NSMutableArray alloc] init];
-    self.mInitialParticipants = [AppSingleton.participants mutableCopy];  // TODO Should be the initial list
-    self.provider = [[ELDataProvider alloc] initWithDataArray:self.mInitialParticipants];
-    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
-                                                      dataProvider:self.provider
-                                                    cellIdentifier:kELCellIdentifier];
+    self.mInitialParticipants = [[NSMutableArray alloc] init];
     self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
                                       iconColor:ThemeColor(kELGreenColor)
                                        iconSize:kELIconSize
                                       imageSize:CGSizeMake(kELIconSize, kELIconSize)];
     
+    self.viewManager = [[ELTeamViewManager alloc] init];
+    self.viewManager.delegate = self;
+    
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.hidden = YES;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     RegisterNib(self.tableView, kELCellIdentifier);
+    
+    [self.viewManager processRetrieveUsersWithSharedDevPlans];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +116,29 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     // Updated selected users label
     self.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
                                        @(self.mParticipants.count));
+}
+
+#pragma mark - Protocol Methods (ELAPIResponse)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
+    
+    for (NSDictionary *dict in responseDict[@"items"]) {
+        [self.mInitialParticipants addObject:[[ELParticipant alloc] initWithDictionary:dict error:nil]];
+    }
+    
+    self.provider = [[ELDataProvider alloc] initWithDataArray:self.mInitialParticipants];
+    self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
+                                                      dataProvider:self.provider
+                                                    cellIdentifier:kELCellIdentifier];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)

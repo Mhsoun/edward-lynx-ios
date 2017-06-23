@@ -9,12 +9,13 @@
 #import "ELBaseViewController.h"
 #import "ELSearchBar.h"
 
-@interface ELManagerUsersViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource>
+@interface ELManagerUsersViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *noOfPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectAllButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 - (IBAction)onSelectAllButtonClick:(id)sender;
 - (IBAction)onSubmitButtonClick:(id)sender;

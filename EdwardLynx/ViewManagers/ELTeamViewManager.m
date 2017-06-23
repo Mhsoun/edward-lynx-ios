@@ -55,7 +55,11 @@
 #pragma mark - Public Methods
 
 - (void)processRetrieveSharedUserDevPlans {
-    [self.client linkedUsersDevPlans:self.requestCompletionBlock];
+    [self.client linkedUsersDevPlansWithParams:nil completion:self.requestCompletionBlock];
+}
+
+- (void)processRetrieveUsersWithSharedDevPlans {
+    [self.client linkedUsersDevPlansWithParams:@{@"type": @"sharing"} completion:self.requestCompletionBlock];
 }
 
 @end

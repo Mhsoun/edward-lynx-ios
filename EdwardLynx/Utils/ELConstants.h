@@ -46,6 +46,8 @@
 #define fa_paper_plane_o @"\uf1d9"
 #define fa_share_alt @"\uf1e0"
 #define fa_user_circle_o @"\uf2be"
+#define fa_user_plus @"\uf234"
+#define fa_users @"\uf0c0"
 
 #pragma mark - Enums
 

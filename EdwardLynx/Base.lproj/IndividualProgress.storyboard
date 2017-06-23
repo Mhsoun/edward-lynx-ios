@@ -151,6 +151,10 @@
                                 <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qua-3N-Hbr">
+                                <rect key="frame" x="177.5" y="343.5" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryu-zM-Q46">
                                 <rect key="frame" x="16" y="617" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -172,9 +176,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0P1-fK-Fpd" secondAttribute="trailing" id="4sM-1y-a1t"/>
+                            <constraint firstItem="qua-3N-Hbr" firstAttribute="centerY" secondItem="PkN-vy-Ce6" secondAttribute="centerY" id="9bb-RB-A06"/>
                             <constraint firstItem="Ryu-zM-Q46" firstAttribute="trailing" secondItem="TqV-Lp-lbl" secondAttribute="trailingMargin" id="ABl-P5-Js4"/>
                             <constraint firstItem="PkN-vy-Ce6" firstAttribute="top" secondItem="3eJ-hu-vT0" secondAttribute="bottom" id="Aig-XU-mAM"/>
                             <constraint firstItem="0P1-fK-Fpd" firstAttribute="top" secondItem="TqV-Lp-lbl" secondAttribute="top" id="Kw6-rY-2NM"/>
+                            <constraint firstItem="qua-3N-Hbr" firstAttribute="centerX" secondItem="PkN-vy-Ce6" secondAttribute="centerX" id="Lor-jh-1iB"/>
                             <constraint firstItem="fsr-Qo-2xt" firstAttribute="leading" secondItem="TqV-Lp-lbl" secondAttribute="leading" id="Onq-xT-YmH"/>
                             <constraint firstItem="3eJ-hu-vT0" firstAttribute="top" secondItem="fsr-Qo-2xt" secondAttribute="bottom" id="b0N-Kx-U2n"/>
                             <constraint firstAttribute="trailing" secondItem="PkN-vy-Ce6" secondAttribute="trailing" id="cFJ-bV-LsN"/>
@@ -191,6 +197,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="qua-3N-Hbr" id="vGn-7a-H4M"/>
                         <outlet property="noOfPeopleLabel" destination="yRW-VT-5Sj" id="g2q-GW-VG5"/>
                         <outlet property="searchBar" destination="fsr-Qo-2xt" id="WuS-xO-1zw"/>
                         <outlet property="selectAllButton" destination="WmB-tW-Vem" id="QbZ-QJ-O5x"/>

@@ -11,5 +11,6 @@
 @property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
 
 - (void)processRetrieveSharedUserDevPlans;
+- (void)processRetrieveUsersWithSharedDevPlans;
 
 @end
