@@ -143,6 +143,8 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
                         @(kELListFilterCompleted),
                         @(kELListFilterExpired)];
     
+    AppSingleton.devPlanUserId = [notification.userInfo[@"id"] intValue];
+    
     [self.navigationController pushViewController:controller animated:YES];
 }
 

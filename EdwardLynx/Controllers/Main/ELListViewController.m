@@ -105,9 +105,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    // To handle updating of Dashboard
-    AppSingleton.needsPageReload = self.isUpdated;
-    
     // Remove Search Notification
     [NotificationCenter removeObserver:self
                                   name:kELTabPageSearchNotification
@@ -117,7 +114,16 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)dealloc {
     DLog(@"%@", [self class]);
     
+    // To handle updating of Dashboard
+    AppSingleton.needsPageReload = self.isUpdated;
+    
+    // Reset search text
     AppSingleton.searchText = @"";
+    
+    // Reset User ID for filtering Dev Plans
+    if (AppSingleton.devPlanUserId > -1) {
+        AppSingleton.devPlanUserId = -1;
+    }
 }
 
 #pragma mark - Protocol Methods (UIScrollView)

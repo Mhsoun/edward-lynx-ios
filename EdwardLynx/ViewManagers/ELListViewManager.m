@@ -48,7 +48,7 @@
                 
                 return;
             }
-            
+        
             [weakSelf.delegate onAPIResponseSuccess:responseDict];
         });
     };
@@ -57,7 +57,15 @@
 }
 
 - (void)processRetrievalOfDevelopmentPlans {
-    [self.devPlanClient currentUserDevelopmentPlansWithCompletion:self.requestCompletionBlock];
+    NSDictionary *queryParams;
+    
+    if (AppSingleton.devPlanUserId == -1) {
+        [self.devPlanClient currentUserDevelopmentPlansWithCompletion:self.requestCompletionBlock];
+    } else {
+        queryParams = @{@"user": @(AppSingleton.devPlanUserId)};
+        
+        [self.devPlanClient developmentPlansWithParams:queryParams completion:self.requestCompletionBlock];
+    }
 }
 
 - (void)processRetrievalOfInstantFeedbacks {
