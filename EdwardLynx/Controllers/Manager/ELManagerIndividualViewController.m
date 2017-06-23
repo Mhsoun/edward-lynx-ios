@@ -18,6 +18,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
+static NSString * const kELSegueIdentifier = @"DisplayUsers";
 
 #pragma mark - Class Extension
 
@@ -154,6 +155,12 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     controller.objectId = [notification.userInfo[@"id"] intValue];
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onDisplayUsersButtonClick:(id)sender {
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 @end

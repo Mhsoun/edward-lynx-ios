@@ -298,6 +298,8 @@
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
 		A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
+		A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */; };
+		A958618B1EFCFB0B00BCEE16 /* IndividualProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */; };
 		A95CECB51EF8C0560028BDD4 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
 		A95CECB81EF8C15B0028BDD4 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
 		A95CECBC1EF8C8020028BDD4 /* ELManagerIndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */; };
@@ -672,6 +674,9 @@
 		A94227FB1EDD4CE200730F00 /* ELDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataPoint.m; sourceTree = "<group>"; };
 		A94227FD1EDD5ED100730F00 /* ELBlindspot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBlindspot.h; sourceTree = "<group>"; };
 		A94227FE1EDD5ED100730F00 /* ELBlindspot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBlindspot.m; sourceTree = "<group>"; };
+		A95861861EFCFADF00BCEE16 /* ELManagerUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerUsersViewController.h; sourceTree = "<group>"; };
+		A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerUsersViewController.m; sourceTree = "<group>"; };
+		A958618A1EFCFB0B00BCEE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IndividualProgress.storyboard; sourceTree = "<group>"; };
 		A95CECB31EF8C0560028BDD4 /* ELTeamTabPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamTabPageViewController.h; sourceTree = "<group>"; };
 		A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamTabPageViewController.m; sourceTree = "<group>"; };
 		A95CECB71EF8C15B0028BDD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamTabPage.storyboard; sourceTree = "<group>"; };
@@ -1526,6 +1531,7 @@
 				A91310D81E8642D20042C91F /* CreateInstantFeedback.storyboard */,
 				A91310DA1E8642D20042C91F /* Dashboard.storyboard */,
 				A91310DC1E8642D20042C91F /* DevelopmentPlan.storyboard */,
+				A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */,
 				A91310DE1E8642D20042C91F /* InstantFeedback.storyboard */,
 				A91310E01E8642D20042C91F /* Invite.storyboard */,
 				A91310E21E8642D20042C91F /* LaunchScreen.storyboard */,
@@ -1596,6 +1602,8 @@
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
 				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
 				A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */,
+				A95861861EFCFADF00BCEE16 /* ELManagerUsersViewController.h */,
+				A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */,
 				A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */,
 				A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */,
 			);
@@ -2019,6 +2027,7 @@
 				A913125E1E8642D30042C91F /* Authentication.strings in Resources */,
 				A98370AC1ED4265E00C05594 /* OptionCell.xib in Resources */,
 				A98370641ED423DB00C05594 /* DashboardReminderCell.xib in Resources */,
+				A958618B1EFCFB0B00BCEE16 /* IndividualProgress.storyboard in Resources */,
 				A983716E1ED42BEC00C05594 /* ShortcutView.xib in Resources */,
 				A95CECBF1EF8C87A0028BDD4 /* ManagerIndividualCell.xib in Resources */,
 				A91312861E8642D30042C91F /* Lato-Regular.ttf in Resources */,
@@ -2410,6 +2419,7 @@
 				A91312961E8642D30042C91F /* ELActionView.m in Sources */,
 				A91312511E8642D30042C91F /* ELBaseViewController.m in Sources */,
 				A913128E1E8642D30042C91F /* ELListTableViewCell.m in Sources */,
+				A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */,
 				A91312A61E8642D30042C91F /* ELAccountsViewManager.m in Sources */,
 				A91312A71E8642D30042C91F /* ELDetailViewManager.m in Sources */,
 				A91312441E8642D30042C91F /* ELForgotPasswordViewController.m in Sources */,
@@ -2844,6 +2854,14 @@
 				A91311981E8642D20042C91F /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A958618A1EFCFB0B00BCEE16 /* Base */,
+			);
+			name = IndividualProgress.storyboard;
 			sourceTree = "<group>";
 		};
 		A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */ = {

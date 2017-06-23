@@ -21,7 +21,7 @@
         <!--Manager Team View Controller-->
         <scene sceneID="umw-VT-T3y">
             <objects>
-                <viewController storyboardIdentifier="ManagerTeam" automaticallyAdjustsScrollViewInsets="NO" id="5Ym-Ex-jHL" customClass="ELManagerTeamViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5Ym-Ex-jHL" customClass="ELManagerTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qY5-bi-JJj"/>
                         <viewControllerLayoutGuide type="bottom" id="LfR-Qd-sCs"/>
