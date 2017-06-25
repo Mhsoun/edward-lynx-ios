@@ -53,6 +53,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
+    self.viewManager.postDelegate = self;
     
     self.tableView.hidden = YES;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -108,8 +109,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                                        forIndexPath:indexPath];
     
     [cell configure:participant atIndexPath:indexPath];
-    [cell setUserInteractionEnabled:!participant.isAlreadyInvited];
-    [cell setAccessoryView:cell.participant.isSelected ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
+    [cell setAccessoryView:cell.participant.managed ? [[UIImageView alloc] initWithImage:self.checkIcon] : nil];
     
     return cell;
 }
@@ -120,22 +120,22 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (self.allCellsAction) {
-        cell.participant.isSelected = self.selected;
+        cell.participant.managed = self.selected;
     } else {
         [cell handleObject:[self.provider rowObjectAtIndexPath:indexPath] selectionActionAtIndexPath:indexPath];
     }
     
     // Toggle selected state
-    if (cell.participant.isSelected) {
+    if (cell.participant.managed) {
         cell.accessoryView = [[UIImageView alloc] initWithImage:self.checkIcon];
         
-        if (![self.mParticipants containsObject:cell.participant]) {
-            [self.mParticipants addObject:cell.participant];
+        if (![self.mParticipants containsObject:[cell.participant apiPostDictionary]]) {
+            [self.mParticipants addObject:[cell.participant apiPostDictionary]];
         }
     } else {
         cell.accessoryView = nil;
         
-        [self.mParticipants removeObject:cell.participant];
+        [self.mParticipants removeObject:[cell.participant apiPostDictionary]];
     }
     
     // Button state
@@ -146,20 +146,67 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                        @(self.mParticipants.count));
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    NSString *title = self.mParticipants.count == self.mInitialParticipants.count ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+                                                                                    NSLocalizedString(@"kELSelectAllButton", nil);
+    
+    // Button
+    [self.selectAllButton setTitle:title forState:UIControlStateNormal];
+    
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+}
+
+#pragma mark - Protocol Methods (ELAPIPostResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    AppSingleton.needsPageReload = YES;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELManagerUsersEnableSuccess", nil)
+                     completion:^{
+                         [self.navigationController popViewControllerAnimated:YES];
+                     }];
+}
+
 #pragma mark - Protocol Methods (ELAPIResponse)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
     [self.indicatorView stopAnimating];
     [self.tableView setHidden:NO];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    ELParticipant *participant;
+    
     [self.indicatorView stopAnimating];
     [self.tableView setHidden:NO];
     
     for (NSDictionary *dict in responseDict[@"items"]) {
-        [self.mInitialParticipants addObject:[[ELParticipant alloc] initWithDictionary:dict error:nil]];
+        participant = [[ELParticipant alloc] initWithDictionary:dict error:nil];
+        
+        [self.mInitialParticipants addObject:participant];
+        
+        if (participant.managed) {
+            [self.mParticipants addObject:[participant apiPostDictionary]];
+        }
     }
+    
+    // Updated selected users label
+    self.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
+                                       @(self.mParticipants.count));
     
     self.provider = [[ELDataProvider alloc] initWithDataArray:self.mInitialParticipants];
     self.dataSource = [[ELTableDataSource alloc] initWithTableView:self.tableView
@@ -171,6 +218,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.tableView.delegate = self;
     
     [self.tableView reloadData];
+    [self layoutPage];
 }
 
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
@@ -186,7 +234,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Private Methods
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
-    NSString *key;
+    NSString *title;
     NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];
     
     // Traverse cells to get count of currently selected rows
@@ -194,24 +242,24 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         ELParticipantTableViewCell *cell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
-        cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        cell = [self.tableView cellForRowAtIndexPath:indexPath];
         
-        if (cell.participant.isSelected && cell.isUserInteractionEnabled) {
+        if (cell.participant.managed) {
             selectedCount++;
         }
     }
     
     if (selectedCount == 0 || !selectedCount) {
-        key = @"kELSelectAllButton";
+        title = NSLocalizedString(@"kELSelectAllButton", nil);
     } else if (selectedCount >= rowsCount) {
-        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+        title = self.mInitialParticipants.count ? NSLocalizedString(@"kELDeselectAllButton", nil) : nil;
     }
     
-    if (!key) {
+    if (!title) {
         return;
     }
     
-    [self.selectAllButton setTitle:NSLocalizedString(key, nil) forState:UIControlStateNormal];
+    [self.selectAllButton setTitle:title forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions
@@ -222,12 +270,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     UIButton *button = (UIButton *)sender;
     
     isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
-    title = isSelected ? @"kELDeselectAllButton" : @"kELSelectAllButton";
+    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+                         NSLocalizedString(@"kELSelectAllButton", nil);
     
     self.allCellsAction = YES;
     self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:NSLocalizedString(title, nil) forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
@@ -241,7 +290,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
-    
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    [self.viewManager processEnableUsersForManagerDashboard:@{@"users": [self.mParticipants copy]}];
 }
 
 @end

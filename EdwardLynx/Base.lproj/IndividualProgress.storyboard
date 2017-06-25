@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="1470" y="149"/>
         </scene>
-        <!--Manager Users View Controller-->
+        <!--Enable Users-->
         <scene sceneID="Nlp-BE-uos">
             <objects>
                 <viewController id="VwG-SJ-PZX" customClass="ELManagerUsersViewController" sceneMemberID="viewController">
@@ -196,6 +196,7 @@
                             <constraint firstItem="Rpr-1s-bCa" firstAttribute="top" secondItem="0P1-fK-Fpd" secondAttribute="bottom" id="tDR-O0-pEY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Enable Users" id="1K6-IE-BTG"/>
                     <connections>
                         <outlet property="indicatorView" destination="qua-3N-Hbr" id="vGn-7a-H4M"/>
                         <outlet property="noOfPeopleLabel" destination="yRW-VT-5Sj" id="g2q-GW-VG5"/>

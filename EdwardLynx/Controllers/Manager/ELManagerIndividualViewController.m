@@ -49,7 +49,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
     
     RegisterNib(self.tableView, kELCellIdentifier);
     
-    [self.viewManager processRetrieveSharedUserDevPlans];
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +58,10 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
+    
     [super viewDidAppear:animated];
     
     // Observers
@@ -101,14 +105,11 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat iconHeight = 15;
-    
-    // Button
     [self.displayUsersButton.imageView setClipsToBounds:NO];
-    [self.displayUsersButton setImage:[FontAwesome imageWithIcon:fa_user
+    [self.displayUsersButton setImage:[FontAwesome imageWithIcon:fa_user_plus
                                                        iconColor:[UIColor blackColor]
-                                                        iconSize:iconHeight
-                                                       imageSize:CGSizeMake(iconHeight, iconHeight)]
+                                                        iconSize:15
+                                                       imageSize:CGSizeMake(20, 20)]
                              forState:UIControlStateNormal];
 }
 
@@ -143,6 +144,18 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
 
 - (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
     return [NSLocalizedString(@"kELTabTitleIndividual", nil) uppercaseString];
+}
+
+#pragma mark - Private Methods
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    [self.viewManager processRetrieveSharedUserDevPlans];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 #pragma mark - Selectors

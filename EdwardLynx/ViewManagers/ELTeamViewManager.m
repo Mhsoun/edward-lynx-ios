@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) ELTeamAPIClient *client;
 @property (nonatomic, strong) void (^requestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
+@property (nonatomic, strong) void (^postRequestCompletionBlock)(NSURLResponse *response, NSDictionary *responseDict, NSError *error);
 
 @end
 
@@ -46,6 +47,19 @@
             [weakSelf.delegate onAPIResponseSuccess:responseDict];
         });
     };
+    self.postRequestCompletionBlock = ^(NSURLResponse *response,
+                                        NSDictionary *responseDict,
+                                        NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf.postDelegate onAPIPostResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            [weakSelf.postDelegate onAPIPostResponseSuccess:responseDict];
+        });
+    };
     
     [ELUtils registerValidators];
     
@@ -53,6 +67,10 @@
 }
 
 #pragma mark - Public Methods
+
+- (void)processEnableUsersForManagerDashboard:(NSDictionary *)params {
+    [self.client enableUsersWithParams:params completion:self.postRequestCompletionBlock];
+}
 
 - (void)processRetrieveSharedUserDevPlans {
     [self.client linkedUsersDevPlansWithParams:nil completion:self.requestCompletionBlock];

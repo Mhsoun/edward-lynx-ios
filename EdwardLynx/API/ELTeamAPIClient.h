@@ -10,6 +10,8 @@
 
 @interface ELTeamAPIClient : ELAPIClient
 
+- (void)enableUsersWithParams:(NSDictionary *)params
+                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)linkedUsersDevPlansWithParams:(NSDictionary *)params
                            completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 

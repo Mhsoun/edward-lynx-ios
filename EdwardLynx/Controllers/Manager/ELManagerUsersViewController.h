@@ -9,7 +9,7 @@
 #import "ELBaseViewController.h"
 #import "ELSearchBar.h"
 
-@interface ELManagerUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
+@interface ELManagerUsersViewController : ELBaseViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *noOfPeopleLabel;

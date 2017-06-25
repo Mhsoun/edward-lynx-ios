@@ -44,6 +44,7 @@
 
 - (void)handleObject:(id)object selectionActionAtIndexPath:(NSIndexPath *)indexPath {
     self.participant.isSelected = !self.participant.isSelected;
+    self.participant.managed = !self.participant.managed;
 }
 
 @end

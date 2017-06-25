@@ -372,12 +372,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     UIButton *button = (UIButton *)sender;
     
     isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
-    title = isSelected ? @"kELDeselectAllButton" : @"kELSelectAllButton";
+    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+                         NSLocalizedString(@"kELSelectAllButton", nil);
     
     self.allCellsAction = YES;
     self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:NSLocalizedString(title, nil) forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
