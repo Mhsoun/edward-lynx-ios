@@ -24,6 +24,7 @@
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSDate *registeredOn;
 
+- (BOOL)isAdmin;
 - (NSSet *)permissionsByRole;
 
 @end

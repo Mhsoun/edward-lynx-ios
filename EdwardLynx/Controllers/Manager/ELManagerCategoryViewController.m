@@ -8,26 +8,34 @@
 
 #import "ELManagerCategoryViewController.h"
 
+#pragma mark - Private Constants
+
 static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
+
+#pragma mark - Class Extension
 
 @interface ELManagerCategoryViewController ()
 
-@property (nonatomic, strong) NSMutableArray *mCategories;
+@property (nonatomic, strong) NSMutableArray *mCategories, *mInitialCategories;
 
 @end
 
 @implementation ELManagerCategoryViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.mCategories = [[NSMutableArray alloc] initWithArray:@[@"Test 1",
-                                                               @"Test 2",
-                                                               @"Test 3",
-                                                               @"Test 4"]];
+    self.mCategories = [[NSMutableArray alloc] init];
+    self.mInitialCategories = [[NSMutableArray alloc] initWithArray:@[@"Test 1",
+                                                                      @"Test 2",
+                                                                      @"Test 3",
+                                                                      @"Test 4"]];
     
+    self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.editing = YES;
@@ -42,24 +50,38 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.mCategories.count;
+    return self.mInitialCategories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                             forIndexPath:indexPath];
     
-//    cell.imageView.image = [FontAwesome imageWithIcon:fa_check
-//                                            iconColor:ThemeColor(kELGreenColor)
-//                                             iconSize:15
-//                                            imageSize:CGSizeMake(15, 15)];
-    cell.imageView.image = nil;
-    
     cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.text = self.mCategories[indexPath.row];
+    cell.textLabel.text = self.mInitialCategories[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id object = self.mInitialCategories[indexPath.row];  // TEMP
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if ([self.mCategories containsObject:object]) {
+        cell.imageView.image = nil;
+        
+        [self.mCategories removeObject:object];
+    } else {
+        cell.imageView.image = [FontAwesome imageWithIcon:fa_check
+                                                iconColor:ThemeColor(kELGreenColor)
+                                                 iconSize:15
+                                                imageSize:CGSizeMake(15, 15)];
+        
+        [self.mCategories addObject:object];
+    }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,10 +97,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSString *category = self.mCategories[sourceIndexPath.row];
+    NSString *category = self.mInitialCategories[sourceIndexPath.row];
     
-    [self.mCategories removeObjectAtIndex:sourceIndexPath.row];
-    [self.mCategories insertObject:category atIndex:destinationIndexPath.row];
+    [self.mInitialCategories removeObjectAtIndex:sourceIndexPath.row];
+    [self.mInitialCategories insertObject:category atIndex:destinationIndexPath.row];
 }
 
 #pragma mark - Interface Builder Actions

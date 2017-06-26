@@ -14,6 +14,12 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
+- (BOOL)isAdmin {
+    return [@[kELUserRoleSuperAdmin,
+              kELUserRoleAdmin,
+              kELUserRoleSupervisor] containsObject:self.type];
+}
+
 - (NSSet *)permissionsByRole {
     NSArray *permissionsList;
     

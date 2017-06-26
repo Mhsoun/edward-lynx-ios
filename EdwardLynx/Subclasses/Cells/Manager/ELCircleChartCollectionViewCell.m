@@ -43,6 +43,11 @@
                                        displayCountingLabel:YES
                                           overrideLineWidth:[NSNumber numberWithInteger:8]];
     
+    // Check if subview has already been added
+    if ([self hasQuestionViewAsSubview:[self.circleChart class]]) {
+        return;
+    }
+    
     [ELUtils circleChart:self.circleChart progress:self.devPlan.progress];
     
     [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
@@ -50,6 +55,18 @@
     [self.circleChart strokeChart];
     
     [self.chartView addSubview:self.circleChart];
+}
+
+#pragma mark - Private Methods
+
+- (BOOL)hasQuestionViewAsSubview:(Class)class {
+    for (UIView *subview in self.chartView.subviews) {
+        if ([subview isKindOfClass:class]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end

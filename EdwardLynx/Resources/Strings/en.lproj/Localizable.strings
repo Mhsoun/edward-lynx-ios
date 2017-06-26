@@ -72,6 +72,8 @@
 
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
+"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
+"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
 "kELDashboardDueDateNow" = "Now";
 
 "kELDashboardReminderFeedback" = "Instant Feedback";
@@ -99,7 +101,8 @@
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Successfully created Development Plan";
 
-"kELDevelopmentPlanUpdateSuccess" = "Successfully shared Development Plan to manager";
+"kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "Development Plan no longer shared to manager";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Successfully added goal";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Successfully deleted goal";

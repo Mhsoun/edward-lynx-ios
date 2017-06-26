@@ -199,7 +199,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    CGFloat expandedHeight = (kELActionCellHeight * (goal.actions.count + 1)) + kELGoalCellHeight;
+    NSInteger actionCount = [AppSingleton.user isAdmin] ? goal.actions.count : goal.actions.count + 1;
+    CGFloat expandedHeight = (kELActionCellHeight * actionCount) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
 }
@@ -210,6 +211,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     CGFloat iconHeight = 15;
     
     // Button
+    [self.addGoalButton setHidden:[AppSingleton.user isAdmin]];
     [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
                                                   iconColor:[UIColor blackColor]
                                                    iconSize:iconHeight
@@ -217,9 +219,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                         forState:UIControlStateNormal];
     
     // Share View
-    [self.shareView setHidden:[@[kELUserRoleSuperAdmin,
-                                 kELUserRoleAdmin,
-                                 kELUserRoleSupervisor] containsObject:AppSingleton.user.type]];
+    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -280,7 +280,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             break;
         default:
             toReload = NO;
-            message = NSLocalizedString(@"kELDevelopmentPlanUpdateSuccess", nil);
+            message = self.shared ? NSLocalizedString(@"kELDevelopmentPlanUnshareUpdateSuccess", nil) :
+                                    NSLocalizedString(@"kELDevelopmentPlanShareUpdateSuccess", nil);
             
             // Update shared status
             [self setShared:!self.shared];
