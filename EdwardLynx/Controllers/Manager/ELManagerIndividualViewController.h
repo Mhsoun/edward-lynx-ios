@@ -14,5 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIButton *displayUsersButton;
+- (IBAction)onDisplayUsersButtonClick:(id)sender;
 
 @end

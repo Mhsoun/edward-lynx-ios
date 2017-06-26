@@ -60,8 +60,8 @@ static NSString * const kELCellIdentifier = @"ListCell";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.dataSource dataSetEmptyText:@"" description:@""];
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+        
+    RegisterNib(self.tableView, kELCellIdentifier);
 }
 
 - (void)didReceiveMemoryWarning {

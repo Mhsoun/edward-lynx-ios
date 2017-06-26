@@ -21,7 +21,7 @@
         <!--Manager Team View Controller-->
         <scene sceneID="umw-VT-T3y">
             <objects>
-                <viewController storyboardIdentifier="ManagerTeam" automaticallyAdjustsScrollViewInsets="NO" id="5Ym-Ex-jHL" customClass="ELManagerTeamViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5Ym-Ex-jHL" customClass="ELManagerTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qY5-bi-JJj"/>
                         <viewControllerLayoutGuide type="bottom" id="LfR-Qd-sCs"/>
@@ -102,17 +102,17 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="125"/>
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-YD-bP9">
-                                        <rect key="frame" x="10" y="10" width="355" height="17"/>
+                                        <rect key="frame" x="15" y="10" width="345" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4Q-HR-n8g" userLabel="Name View">
-                                        <rect key="frame" x="10" y="32" width="355" height="35"/>
+                                        <rect key="frame" x="15" y="32" width="345" height="35"/>
                                         <subviews>
                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lAO-C4-ICv">
-                                                <rect key="frame" x="10" y="5" width="340" height="25"/>
+                                                <rect key="frame" x="10" y="5" width="330" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,7 +133,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name can't be blank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-bK-nh1">
-                                        <rect key="frame" x="10" y="69.5" width="355" height="15"/>
+                                        <rect key="frame" x="15" y="69.5" width="345" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="tgk-b3-V81"/>
@@ -143,7 +143,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T54-hl-hg7">
-                                        <rect key="frame" x="310" y="92" width="55" height="29"/>
+                                        <rect key="frame" x="305" y="92" width="55" height="29"/>
                                         <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="YZY-Z7-gpQ"/>
@@ -170,16 +170,16 @@
                                     <constraint firstItem="Obi-bK-nh1" firstAttribute="trailing" secondItem="S4Q-HR-n8g" secondAttribute="trailing" id="LJS-YL-HMx"/>
                                     <constraint firstItem="Obi-bK-nh1" firstAttribute="top" secondItem="S4Q-HR-n8g" secondAttribute="bottom" constant="2.5" id="Tfc-qa-qzI"/>
                                     <constraint firstItem="FWe-YD-bP9" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="top" constant="10" id="XVP-Zb-Dga"/>
-                                    <constraint firstItem="FWe-YD-bP9" firstAttribute="leading" secondItem="V4q-vR-7zI" secondAttribute="leading" constant="10" id="nGi-NL-BOd"/>
+                                    <constraint firstItem="FWe-YD-bP9" firstAttribute="leading" secondItem="V4q-vR-7zI" secondAttribute="leading" constant="15" id="nGi-NL-BOd"/>
                                     <constraint firstAttribute="height" constant="125" id="obq-O3-0ah"/>
                                     <constraint firstItem="S4Q-HR-n8g" firstAttribute="top" secondItem="FWe-YD-bP9" secondAttribute="bottom" constant="5" id="pE0-1Q-s0c"/>
                                     <constraint firstItem="S4Q-HR-n8g" firstAttribute="leading" secondItem="FWe-YD-bP9" secondAttribute="leading" id="q0r-sq-7vZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" constant="10" id="q9H-jq-Pbh"/>
+                                    <constraint firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" constant="15" id="q9H-jq-Pbh"/>
                                     <constraint firstItem="S4Q-HR-n8g" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="sD1-uh-7a1"/>
                                 </constraints>
                             </view>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Development Plans" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-iz-KLR">
-                                <rect key="frame" x="10" y="155" width="355" height="17"/>
+                                <rect key="frame" x="15" y="155" width="345" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

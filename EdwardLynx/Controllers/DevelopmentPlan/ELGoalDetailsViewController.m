@@ -66,10 +66,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELActionCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:kELAddActionCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELAddActionCellIdentifier];
+    RegisterNib(self.tableView, kELActionCellIdentifier);
+    RegisterNib(self.tableView, kELAddActionCellIdentifier);
     
     // Goal details
     [self populatePage];

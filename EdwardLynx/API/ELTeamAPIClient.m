@@ -10,9 +10,30 @@
 
 @implementation ELTeamAPIClient
 
-- (void)linkedUsersDevPlans:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+- (void)enableUsersWithParams:(NSDictionary *)params
+                   completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = Format(kELAPITeamUsersEndpoint, kELAPIVersionNamespace);
-    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPutHTTPMethod
+                                         bodyParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
+- (void)linkedUsersDevPlansWithParams:(NSDictionary *)params
+                           completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSMutableURLRequest *request;
+    NSString *endpoint = Format(kELAPITeamUsersEndpoint, kELAPIVersionNamespace);
+    
+    if (params) {
+        request = [self requestFor:endpoint
+                            method:kELAPIGetHTTPMethod
+                       queryParams:params];
+    } else {
+        request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    }
     
     [self performAuthenticatedTask:YES
                        withRequest:request

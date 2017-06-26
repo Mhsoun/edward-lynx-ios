@@ -18,6 +18,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
+static NSString * const kELSegueIdentifier = @"DisplayUsers";
 
 #pragma mark - Class Extension
 
@@ -46,10 +47,9 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
     
-    [self.viewManager processRetrieveSharedUserDevPlans];
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +58,10 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    if (AppSingleton.needsPageReload) {
+        [self reloadPage];
+    }
+    
     [super viewDidAppear:animated];
     
     // Observers
@@ -98,6 +102,17 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     return cell;
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    [self.displayUsersButton.imageView setClipsToBounds:NO];
+    [self.displayUsersButton setImage:[FontAwesome imageWithIcon:fa_user_plus
+                                                       iconColor:[UIColor blackColor]
+                                                        iconSize:15
+                                                       imageSize:CGSizeMake(20, 20)]
+                             forState:UIControlStateNormal];
+}
+
 #pragma mark - Protocol Methods (ELTeamViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
@@ -131,6 +146,18 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     return [NSLocalizedString(@"kELTabTitleIndividual", nil) uppercaseString];
 }
 
+#pragma mark - Private Methods
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.tableView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    [self.viewManager processRetrieveSharedUserDevPlans];
+    
+    AppSingleton.needsPageReload = NO;
+}
+
 #pragma mark - Selectors
 
 - (void)onSeeMore:(NSNotification *)notification {
@@ -143,6 +170,8 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
                         @(kELListFilterCompleted),
                         @(kELListFilterExpired)];
     
+    AppSingleton.devPlanUserId = [notification.userInfo[@"id"] intValue];
+    
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -153,6 +182,12 @@ static NSString * const kELCellIdentifier = @"ManagerIndividualCell";
     controller.objectId = [notification.userInfo[@"id"] intValue];
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onDisplayUsersButtonClick:(id)sender {
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 @end

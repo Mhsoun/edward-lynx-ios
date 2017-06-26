@@ -21,7 +21,7 @@
 }
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"role"];
+    return [propertyName isEqualToString:@"role"] || [propertyName isEqualToString:@"managed"];
 }
 
 - (BOOL)isEqual:(id)object {

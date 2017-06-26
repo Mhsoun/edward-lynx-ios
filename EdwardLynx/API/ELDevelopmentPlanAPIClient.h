@@ -15,6 +15,8 @@
                               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)developmentPlanWithId:(int64_t)devPlanId
                withCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)developmentPlansWithParams:(NSDictionary *)params
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)updateDevelopmentPlanWithId:(int64_t)devPlanId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;

@@ -56,10 +56,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELAddOptionCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELAddOptionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:kELOptionCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELOptionCellIdentifier];
+    RegisterNib(self.tableView, kELAddOptionCellIdentifier);
+    RegisterNib(self.tableView, kELOptionCellIdentifier);
     
     [self populatePage];
 }

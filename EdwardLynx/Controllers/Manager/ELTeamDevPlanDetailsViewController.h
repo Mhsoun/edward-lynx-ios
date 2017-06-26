@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSArray *goals;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end

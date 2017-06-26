@@ -9,7 +9,10 @@
 @interface ELTeamViewManager : NSObject
 
 @property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIPostResponseDelegate> postDelegate;
 
+- (void)processEnableUsersForManagerDashboard:(NSDictionary *)params;
 - (void)processRetrieveSharedUserDevPlans;
+- (void)processRetrieveUsersWithSharedDevPlans;
 
 @end

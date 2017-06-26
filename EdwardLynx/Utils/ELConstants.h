@@ -26,6 +26,8 @@
 #define Format(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define NotificationCenter [NSNotificationCenter defaultCenter]
+#define RegisterCollectionNib(collection, n) [(collection) registerNib:[UINib nibWithNibName:(n) bundle:nil] forCellWithReuseIdentifier:(n)];
+#define RegisterNib(table, n) [(table) registerNib:[UINib nibWithNibName:(n) bundle:nil] forCellReuseIdentifier:(n)];
 #define SharedApplication [UIApplication sharedApplication]
 #define StoryboardController(s, i) i ? [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateViewControllerWithIdentifier:(i)] : [[UIStoryboard storyboardWithName:(s) bundle:nil] instantiateInitialViewController]
 #define ThemeColor(key) [[RNThemeManager sharedManager] colorForKey:(key)]
@@ -44,6 +46,8 @@
 #define fa_paper_plane_o @"\uf1d9"
 #define fa_share_alt @"\uf1e0"
 #define fa_user_circle_o @"\uf2be"
+#define fa_user_plus @"\uf234"
+#define fa_users @"\uf0c0"
 
 #pragma mark - Enums
 

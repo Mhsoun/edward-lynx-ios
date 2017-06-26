@@ -99,8 +99,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -216,6 +215,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
+    
+    // Share View
+    [self.shareView setHidden:[@[kELUserRoleSuperAdmin,
+                                 kELUserRoleAdmin,
+                                 kELUserRoleSupervisor] containsObject:AppSingleton.user.type]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)

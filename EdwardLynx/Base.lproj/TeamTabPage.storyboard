@@ -64,46 +64,6 @@
             </objects>
             <point key="canvasLocation" x="828" y="148.87556221889056"/>
         </scene>
-        <!--Manager Individual View Controller-->
-        <scene sceneID="4S9-cX-ZmZ">
-            <objects>
-                <viewController storyboardIdentifier="ManagerIndividual" automaticallyAdjustsScrollViewInsets="NO" id="gAu-kq-oPl" customClass="ELManagerIndividualViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0x2-NG-bCq"/>
-                        <viewControllerLayoutGuide type="bottom" id="QZz-De-Agf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nLg-Wz-tUi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJe-vd-VIc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableView>
-                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="QZM-Wi-Ux5">
-                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="QZz-De-Agf" firstAttribute="top" secondItem="HJe-vd-VIc" secondAttribute="bottom" id="Bcg-R7-17S"/>
-                            <constraint firstAttribute="trailing" secondItem="HJe-vd-VIc" secondAttribute="trailing" id="KJZ-bq-z4a"/>
-                            <constraint firstItem="QZM-Wi-Ux5" firstAttribute="centerY" secondItem="nLg-Wz-tUi" secondAttribute="centerY" id="Khq-ir-aYl"/>
-                            <constraint firstItem="QZM-Wi-Ux5" firstAttribute="centerX" secondItem="nLg-Wz-tUi" secondAttribute="centerX" id="O1w-ot-sMa"/>
-                            <constraint firstItem="HJe-vd-VIc" firstAttribute="leading" secondItem="nLg-Wz-tUi" secondAttribute="leading" id="v9Z-b0-syz"/>
-                            <constraint firstItem="HJe-vd-VIc" firstAttribute="top" secondItem="nLg-Wz-tUi" secondAttribute="top" id="xt1-AJ-a7k"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="indicatorView" destination="QZM-Wi-Ux5" id="fZp-AS-aRp"/>
-                        <outlet property="tableView" destination="HJe-vd-VIc" id="Qvq-dF-qDw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9aI-NP-3oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1470" y="149"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZ7-EP-Ncn">
             <objects>

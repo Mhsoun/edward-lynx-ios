@@ -42,7 +42,7 @@
 - (NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
-    [mControllers addObject:StoryboardController(@"TeamTabPage", @"ManagerIndividual")];
+    [mControllers addObject:StoryboardController(@"IndividualProgress", nil)];
 //    [mControllers addObject:StoryboardController(@"TeamProgress", nil)];
     
     return [mControllers copy];

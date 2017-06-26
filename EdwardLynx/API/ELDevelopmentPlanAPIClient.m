@@ -45,6 +45,18 @@
                         completion:completion];
 }
 
+- (void)developmentPlansWithParams:(NSDictionary *)params
+                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = Format(kELAPIDevelopmentPlansEndpoint, kELAPIVersionNamespace);
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIGetHTTPMethod
+                                        queryParams:params];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)updateDevelopmentPlanWithId:(int64_t)devPlanId
                              params:(NSDictionary *)params
                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {

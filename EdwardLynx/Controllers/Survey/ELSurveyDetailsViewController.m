@@ -47,8 +47,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+    RegisterNib(self.tableView, kELCellIdentifier);
 }
 
 - (void)didReceiveMemoryWarning {

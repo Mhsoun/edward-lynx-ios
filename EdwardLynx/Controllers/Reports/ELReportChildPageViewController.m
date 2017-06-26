@@ -46,9 +46,8 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:kELCellIdentifier bundle:nil]
-         forCellReuseIdentifier:kELCellIdentifier];
+        
+    RegisterNib(self.tableView, kELCellIdentifier);
 }
 
 - (void)didReceiveMemoryWarning {
