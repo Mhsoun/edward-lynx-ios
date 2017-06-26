@@ -280,7 +280,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
             break;
         default:
             toReload = NO;
-            message = NSLocalizedString(@"kELDevelopmentPlanUpdateSuccess", nil);
+            message = self.shared ? NSLocalizedString(@"kELDevelopmentPlanUnshareUpdateSuccess", nil) :
+                                    NSLocalizedString(@"kELDevelopmentPlanShareUpdateSuccess", nil);
             
             // Update shared status
             [self setShared:!self.shared];

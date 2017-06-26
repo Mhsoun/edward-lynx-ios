@@ -28,12 +28,6 @@
     [self setupContent];
 }
 
-//- (void)prepareForReuse {
-//    [super prepareForReuse];
-//    
-//    [self.chartView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-//}
-
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     self.devPlan = (ELDevelopmentPlan *)object;
 }
