@@ -61,6 +61,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
         [self.mDevPlans addObject:[[ELDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
     }
     
+    [self.seeMoreButton setHidden:self.mDevPlans.count <= kELColumnCount];
     [self.collectionView reloadData];
 }
 

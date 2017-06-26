@@ -50,26 +50,29 @@
 }
 
 - (NSString<Ignore> *)dueDateInfo {
-    NSInteger days;
+    NSInteger unit;
     NSDate *currentDate = [NSDate date];
     
     if (!self.dueDate) {
         return @"";
     }
     
-    days = [currentDate mt_daysUntilDate:self.dueDate];
+    unit = [currentDate mt_daysUntilDate:self.dueDate];
     
     if ([currentDate mt_isOnOrBefore:self.dueDate]) {
         NSString *text;
         
-        if (days == 0) {
-            return NSLocalizedString(@"kELDashboardDueDateNow", nil);
+        if (unit == 0) {
+            unit = [currentDate mt_hourOfDay];
+            
+            text = unit == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageHoursSingular", nil) :
+                               NSLocalizedString(@"kELDashboardDueDateMessageHoursPlural", nil);
+        } else {
+            text = unit == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageSingular", nil) :
+                               NSLocalizedString(@"kELDashboardDueDateMessagePlural", nil);
         }
         
-        text = days == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageSingular", nil) :
-                           NSLocalizedString(@"kELDashboardDueDateMessagePlural", nil);
-        
-        return Format(text, @(days));
+        return Format(text, @(unit));
     }
     
     return @"";

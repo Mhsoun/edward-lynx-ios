@@ -72,6 +72,8 @@
 
 "kELDashboardDueDateMessageSingular" = "Due in \n%@ Day";
 "kELDashboardDueDateMessagePlural" = "Due in \n%@ Days";
+"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
+"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
 "kELDashboardDueDateNow" = "Now";
 
 "kELDashboardReminderFeedback" = "Instant Feedback";
