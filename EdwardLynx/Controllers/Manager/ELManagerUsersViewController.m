@@ -25,6 +25,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 @interface ELManagerUsersViewController ()
 
 @property (nonatomic) BOOL selected, allCellsAction;
+@property (nonatomic) NSInteger currentCount, initialCount;
 @property (nonatomic, strong) UIImage *checkIcon;
 @property (nonatomic, strong) NSMutableArray *mInitialParticipants, *mParticipants;
 @property (nonatomic, strong) ELTableDataSource *dataSource;
@@ -42,6 +43,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.currentCount = 0, self.initialCount = 0;
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [[NSMutableArray alloc] init];
     self.checkIcon = [FontAwesome imageWithIcon:fa_check_circle
@@ -134,9 +136,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         cell.accessoryView = [[UIImageView alloc] initWithImage:self.checkIcon];
         
         if (![self.mParticipants containsObject:[cell.participant apiPostDictionary]]) {
+            self.currentCount++;
+            
             [self.mParticipants addObject:[cell.participant apiPostDictionary]];
         }
     } else {
+        self.currentCount--;
+        
         cell.accessoryView = nil;
         
         [self.mParticipants removeObject:[cell.participant apiPostDictionary]];
@@ -172,11 +178,14 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message = self.currentCount < self.initialCount ? NSLocalizedString(@"kELManagerUsersDisableSuccess", nil) :
+                                                                NSLocalizedString(@"kELManagerUsersEnableSuccess", nil);
+    
     AppSingleton.needsPageReload = YES;
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELManagerUsersEnableSuccess", nil)
+                        message:message
                      completion:^{
                          [self.navigationController popViewControllerAnimated:YES];
                      }];
@@ -207,6 +216,9 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
             [self.mParticipants addObject:[participant apiPostDictionary]];
         }
     }
+    
+    self.currentCount = self.mParticipants.count;
+    self.initialCount = self.mParticipants.count;
     
     // Updated selected users label
     self.noOfPeopleLabel.text = Format(NSLocalizedString(@"kELUsersNumberSelectedLabel", nil),
