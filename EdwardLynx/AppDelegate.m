@@ -455,9 +455,11 @@
             
             self.emailInfoDict = nil;
         } else {
-            objectId = [responseDict[@"survey_id"] intValue];
+            NSString *type = isFeedback ? kELNotificationTypeInstantFeedbackRequest : kELNotificationTypeSurvey;
             
-            self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeSurvey};
+            objectId = [responseDict[isFeedback ? @"instant_feedback_id" : @"survey_id"] intValue];
+            
+            self.emailInfoDict = @{@"id": @(objectId), @"type": type};
             
             [self displayViewControllerByData:self.emailInfoDict];
         }
