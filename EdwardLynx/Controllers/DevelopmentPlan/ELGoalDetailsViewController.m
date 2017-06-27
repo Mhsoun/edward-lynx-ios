@@ -120,14 +120,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     id value = self.mActions[indexPath.row];
     
     if ([value isKindOfClass:[NSString class]]) {
-        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier];
+        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier
+                                                                         forIndexPath:indexPath];
         
         cell.delegate = self;
         
         return cell;
     } else {
         ELGoalAction *action  = (ELGoalAction *)value;
-        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier];
+        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELActionCellIdentifier
+                                                                    forIndexPath:indexPath];
         
         cell.tag = indexPath.row;
         cell.delegate = self;

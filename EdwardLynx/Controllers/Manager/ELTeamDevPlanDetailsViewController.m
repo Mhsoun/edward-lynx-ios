@@ -65,6 +65,8 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
     ELTeamMemberGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                           forIndexPath:indexPath];
     
+    // TODO Populate
+    
     return cell;
 }
 

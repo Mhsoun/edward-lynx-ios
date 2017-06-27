@@ -59,8 +59,7 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
-                                                            forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
                                             iconColor:[UIColor clearColor]

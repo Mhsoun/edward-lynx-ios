@@ -80,8 +80,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     ELAddGoalActionTableViewCell *addCell;
     
     if (indexPath.row == self.goal.actions.count) {
-        addCell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier
-                                                  forIndexPath:indexPath];
+        addCell = [tableView dequeueReusableCellWithIdentifier:kELAddActionCellIdentifier forIndexPath:indexPath];
         
         addCell.addLink = Format(@"%@/actions", self.goal.urlLink);
         addCell.tag = indexPath.row;
@@ -89,8 +88,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         return addCell;
     }
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
-                                           forIndexPath:indexPath];
+    cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     action = self.goal.actions[indexPath.row];
     action.urlLink = Format(@"%@/actions/%@",

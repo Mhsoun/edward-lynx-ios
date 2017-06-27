@@ -162,8 +162,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id value;
     ELDevelopmentPlanTableViewCell *devPlanCell;
-    __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    __kindof UITableViewCell<ELConfigurableCellDelegate> *cell;
     
+    cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     value = [self.provider rowObjectAtIndexPath:indexPath];
     
     if ([self.cellIdentifier isEqualToString:kELDevPlanCellIdentifier]) {

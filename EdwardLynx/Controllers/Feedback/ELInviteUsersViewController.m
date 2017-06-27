@@ -175,8 +175,9 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELParticipant *participant = (ELParticipant *)[self.provider rowObjectAtIndexPath:indexPath];
+    ELParticipantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+                                                                       forIndexPath:indexPath];
     
     [cell configure:participant atIndexPath:indexPath];
     [cell setUserInteractionEnabled:!participant.isAlreadyInvited];

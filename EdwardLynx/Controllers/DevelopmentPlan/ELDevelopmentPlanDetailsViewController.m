@@ -159,7 +159,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     goal.createdAt = self.devPlan.createdAt;
     goal.urlLink = Format(@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId));

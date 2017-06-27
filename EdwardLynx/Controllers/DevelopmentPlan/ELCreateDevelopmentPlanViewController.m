@@ -121,7 +121,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                            value:[UIColor whiteColor]
                            range:goalTitleRange];
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
+    cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier forIndexPath:indexPath];
     cell.textLabel.attributedText = attributedText;
     
     // UI
