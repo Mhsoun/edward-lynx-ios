@@ -43,7 +43,7 @@
     NSMutableArray *mControllers = [[NSMutableArray alloc] init];
     
     [mControllers addObject:StoryboardController(@"IndividualProgress", nil)];
-//    [mControllers addObject:StoryboardController(@"TeamProgress", nil)];
+    [mControllers addObject:StoryboardController(@"TeamProgress", nil)];
     
     return [mControllers copy];
 }

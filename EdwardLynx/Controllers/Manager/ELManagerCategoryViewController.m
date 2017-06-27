@@ -29,6 +29,7 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     self.mCategories = [[NSMutableArray alloc] init];
     self.mInitialCategories = [[NSMutableArray alloc] initWithArray:@[@"Test 1",
                                                                       @"Test 2",
@@ -57,6 +58,11 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                             forIndexPath:indexPath];
     
+    cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                            iconColor:[UIColor clearColor]
+                                             iconSize:15
+                                            imageSize:CGSizeMake(15, 15)];
+    
     cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
     cell.textLabel.text = self.mInitialCategories[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -71,11 +77,14 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if ([self.mCategories containsObject:object]) {
-        cell.imageView.image = nil;
+        cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                                iconColor:[UIColor clearColor]
+                                                 iconSize:15
+                                                imageSize:CGSizeMake(15, 15)];
         
         [self.mCategories removeObject:object];
     } else {
-        cell.imageView.image = [FontAwesome imageWithIcon:fa_check
+        cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
                                                 iconColor:ThemeColor(kELGreenColor)
                                                  iconSize:15
                                                 imageSize:CGSizeMake(15, 15)];
@@ -88,12 +97,12 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     return UITableViewCellEditingStyleNone;
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -113,6 +122,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     }
     
     // TODO Either API call or just add to list
+}
+
+- (IBAction)onSubmitButtonClick:(id)sender {
+    // TODO API call depending on Add button behavior
 }
 
 @end
