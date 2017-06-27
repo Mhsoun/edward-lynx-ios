@@ -10,9 +10,10 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
 - (IBAction)onAddCategoryButtonClick:(id)sender;
 

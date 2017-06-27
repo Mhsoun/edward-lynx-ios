@@ -10,6 +10,7 @@
 #import "ELCircleChartCollectionViewCell.h"
 #import "ELDevelopmentPlan.h"
 #import "ELTeamDevPlanDetailsViewController.h"
+#import "ELTeamViewManager.h"
 
 #pragma mark - Private Constants
 
@@ -22,6 +23,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 @interface ELManagerTeamViewController ()
 
 @property (nonatomic, strong) NSArray<ELDevelopmentPlan *> *items;
+@property (nonatomic, strong) ELTeamViewManager *viewManager;
 
 @end
 
@@ -34,6 +36,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     // Do any additional setup after loading the view.
     
     // Initialization
+    // NOTE Sample data
     self.items = @[[[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @195,
                                                                    @"name": @"A",
                                                                    @"createdAt": @"2017-06-21T10:06:00+02:00",
@@ -58,15 +61,32 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
                                                                                                  @"position": @0}]}]}
                                                            error:nil]];
     
+    self.viewManager = [[ELTeamViewManager alloc] init];
+    self.viewManager.delegate = self;
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
     RegisterCollectionNib(self.collectionView, kELCellIdentifier);
+    
+//    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (AppSingleton.needsPageReload) {
+//        [self reloadPage];
+    }
+    
+    [super viewDidAppear:animated];
+}
+
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Navigation
@@ -126,10 +146,39 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
                             forState:UIControlStateNormal];
 }
 
+#pragma mark - Protocol Methods (ELTeamViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.indicatorView stopAnimating];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.items = responseDict[@"items"];
+    
+    [self.indicatorView stopAnimating];
+    [self.collectionView setHidden:NO];
+    [self.collectionView reloadData];
+}
+
 #pragma mark - Protocol Methods (XLPagerTabStrip)
 
 - (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
     return [NSLocalizedString(@"kELTabTitleTeam", nil) uppercaseString];
+}
+
+#pragma mark - Private Methods
+
+- (void)reloadPage {
+    // Prepare for loading
+    [self.collectionView setHidden:YES];
+    [self.indicatorView startAnimating];
+    
+    [self.viewManager processRetrieveTeamDevPlans];
+    
+    AppSingleton.needsPageReload = NO;
 }
 
 #pragma mark - Interface Builder Actions

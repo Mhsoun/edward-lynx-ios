@@ -40,4 +40,13 @@
                         completion:completion];
 }
 
+- (void)teamDevPlansWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = Format(kELAPITeamDevelopmentPlansEndpoint, kELAPIVersionNamespace);
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 @end

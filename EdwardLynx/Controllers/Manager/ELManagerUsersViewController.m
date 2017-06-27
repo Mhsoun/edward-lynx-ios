@@ -68,6 +68,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UISearchBar)
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

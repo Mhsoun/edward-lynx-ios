@@ -13,6 +13,7 @@
 
 - (void)processEnableUsersForManagerDashboard:(NSDictionary *)params;
 - (void)processRetrieveSharedUserDevPlans;
+- (void)processRetrieveTeamDevPlans;
 - (void)processRetrieveUsersWithSharedDevPlans;
 
 @end

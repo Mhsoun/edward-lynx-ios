@@ -41,6 +41,10 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="i8E-bE-qce">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oj3-Zd-Pf7">
                                 <rect key="frame" x="305" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,18 +67,21 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="i8E-bE-qce" firstAttribute="centerX" secondItem="juU-or-gSI" secondAttribute="centerX" id="7kJ-GA-omw"/>
                             <constraint firstAttribute="trailing" secondItem="oj3-Zd-Pf7" secondAttribute="trailing" constant="20" id="GbY-4f-iSM"/>
                             <constraint firstItem="LfR-Qd-sCs" firstAttribute="top" secondItem="fHP-nZ-mGR" secondAttribute="bottom" id="KF3-8u-qfx"/>
                             <constraint firstAttribute="trailing" secondItem="fHP-nZ-mGR" secondAttribute="trailing" id="LXK-ST-7o5"/>
                             <constraint firstItem="oj3-Zd-Pf7" firstAttribute="width" secondItem="oj3-Zd-Pf7" secondAttribute="height" multiplier="1:1" id="Og8-Zb-7M1"/>
                             <constraint firstItem="fHP-nZ-mGR" firstAttribute="top" secondItem="juU-or-gSI" secondAttribute="top" constant="10" id="gZZ-6m-meh"/>
                             <constraint firstItem="fHP-nZ-mGR" firstAttribute="leading" secondItem="juU-or-gSI" secondAttribute="leading" id="kAg-X2-EzZ"/>
+                            <constraint firstItem="i8E-bE-qce" firstAttribute="centerY" secondItem="juU-or-gSI" secondAttribute="centerY" id="ngZ-bk-RWW"/>
                             <constraint firstItem="LfR-Qd-sCs" firstAttribute="top" secondItem="oj3-Zd-Pf7" secondAttribute="bottom" constant="20" id="si7-zy-wUC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addCategoryButton" destination="oj3-Zd-Pf7" id="BCx-hB-MKy"/>
                         <outlet property="collectionView" destination="fHP-nZ-mGR" id="zHS-bT-vTA"/>
+                        <outlet property="indicatorView" destination="i8E-bE-qce" id="P0n-ed-W86"/>
                         <segue destination="SQO-aW-oQV" kind="show" identifier="ManagerCategory" id="qxP-6G-hzP"/>
                     </connections>
                 </viewController>

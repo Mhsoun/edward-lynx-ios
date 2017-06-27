@@ -76,6 +76,10 @@
     [self.client linkedUsersDevPlansWithParams:nil completion:self.requestCompletionBlock];
 }
 
+- (void)processRetrieveTeamDevPlans {
+    [self.client teamDevPlansWithCompletion:self.requestCompletionBlock];
+}
+
 - (void)processRetrieveUsersWithSharedDevPlans {
     [self.client linkedUsersDevPlansWithParams:@{@"type": @"sharing"} completion:self.requestCompletionBlock];
 }

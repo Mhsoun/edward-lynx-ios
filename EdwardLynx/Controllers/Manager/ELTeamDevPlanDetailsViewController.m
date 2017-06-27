@@ -47,6 +47,10 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    DLog(@"%@", [self class]);
+}
+
 #pragma mark - Protocol Methods (UITableViewCell)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
