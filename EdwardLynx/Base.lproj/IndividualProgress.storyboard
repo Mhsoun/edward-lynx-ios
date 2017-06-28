@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -112,14 +111,14 @@
                                 <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People selected: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRW-VT-5Sj">
-                                        <rect key="frame" x="20" y="5" width="230" height="40"/>
+                                        <rect key="frame" x="15" y="5" width="240" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-tW-Vem">
-                                        <rect key="frame" x="255" y="5" width="100" height="40"/>
+                                        <rect key="frame" x="260" y="5" width="100" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="q7C-Fx-e3B"/>
                                         </constraints>
@@ -139,9 +138,9 @@
                                     <constraint firstItem="yRW-VT-5Sj" firstAttribute="centerY" secondItem="WmB-tW-Vem" secondAttribute="centerY" id="Lkc-Ev-KRU"/>
                                     <constraint firstItem="yRW-VT-5Sj" firstAttribute="height" secondItem="WmB-tW-Vem" secondAttribute="height" id="MuB-kt-gdO"/>
                                     <constraint firstItem="WmB-tW-Vem" firstAttribute="top" secondItem="3eJ-hu-vT0" secondAttribute="top" constant="5" id="QFn-ij-jue"/>
-                                    <constraint firstAttribute="trailing" secondItem="WmB-tW-Vem" secondAttribute="trailing" constant="20" id="TvL-BK-PDm"/>
+                                    <constraint firstAttribute="trailing" secondItem="WmB-tW-Vem" secondAttribute="trailing" constant="15" id="TvL-BK-PDm"/>
                                     <constraint firstAttribute="bottom" secondItem="WmB-tW-Vem" secondAttribute="bottom" constant="5" id="ohk-AU-5uy"/>
-                                    <constraint firstItem="yRW-VT-5Sj" firstAttribute="leading" secondItem="3eJ-hu-vT0" secondAttribute="leading" constant="20" id="sxu-g9-Ig5"/>
+                                    <constraint firstItem="yRW-VT-5Sj" firstAttribute="leading" secondItem="3eJ-hu-vT0" secondAttribute="leading" constant="15" id="sxu-g9-Ig5"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PkN-vy-Ce6">
@@ -156,7 +155,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryu-zM-Q46">
-                                <rect key="frame" x="16" y="617" width="343" height="40"/>
+                                <rect key="frame" x="15" y="617" width="345" height="40"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TOA-EQ-Bq5"/>
@@ -176,9 +175,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0P1-fK-Fpd" secondAttribute="trailing" id="4sM-1y-a1t"/>
+                            <constraint firstItem="Ryu-zM-Q46" firstAttribute="leading" secondItem="yRW-VT-5Sj" secondAttribute="leading" id="78X-xN-rZd"/>
                             <constraint firstItem="qua-3N-Hbr" firstAttribute="centerY" secondItem="PkN-vy-Ce6" secondAttribute="centerY" id="9bb-RB-A06"/>
-                            <constraint firstItem="Ryu-zM-Q46" firstAttribute="trailing" secondItem="TqV-Lp-lbl" secondAttribute="trailingMargin" id="ABl-P5-Js4"/>
                             <constraint firstItem="PkN-vy-Ce6" firstAttribute="top" secondItem="3eJ-hu-vT0" secondAttribute="bottom" id="Aig-XU-mAM"/>
+                            <constraint firstItem="Ryu-zM-Q46" firstAttribute="trailing" secondItem="WmB-tW-Vem" secondAttribute="trailing" id="COn-tS-OyH"/>
                             <constraint firstItem="0P1-fK-Fpd" firstAttribute="top" secondItem="TqV-Lp-lbl" secondAttribute="top" id="Kw6-rY-2NM"/>
                             <constraint firstItem="qua-3N-Hbr" firstAttribute="centerX" secondItem="PkN-vy-Ce6" secondAttribute="centerX" id="Lor-jh-1iB"/>
                             <constraint firstItem="fsr-Qo-2xt" firstAttribute="leading" secondItem="TqV-Lp-lbl" secondAttribute="leading" id="Onq-xT-YmH"/>
@@ -192,7 +192,6 @@
                             <constraint firstItem="Ryu-zM-Q46" firstAttribute="top" secondItem="PkN-vy-Ce6" secondAttribute="bottom" constant="10" id="m9L-SY-eqE"/>
                             <constraint firstItem="PkN-vy-Ce6" firstAttribute="leading" secondItem="TqV-Lp-lbl" secondAttribute="leading" id="qCy-w6-K7h"/>
                             <constraint firstAttribute="trailing" secondItem="3eJ-hu-vT0" secondAttribute="trailing" id="r3P-tc-GKB"/>
-                            <constraint firstItem="Ryu-zM-Q46" firstAttribute="leading" secondItem="TqV-Lp-lbl" secondAttribute="leadingMargin" id="sNK-51-ajw"/>
                             <constraint firstItem="Rpr-1s-bCa" firstAttribute="top" secondItem="0P1-fK-Fpd" secondAttribute="bottom" id="tDR-O0-pEY"/>
                         </constraints>
                     </view>

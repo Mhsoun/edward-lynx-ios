@@ -200,7 +200,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="luM-tv-Ewl" id="rvU-fA-tRN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
@@ -209,7 +209,7 @@
                                 </prototypes>
                             </tableView>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3I-ms-mMA">
-                                <rect key="frame" x="10" y="617" width="355" height="40"/>
+                                <rect key="frame" x="15" y="617" width="345" height="40"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FWm-25-yDe"/>
@@ -230,12 +230,13 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="V4q-vR-7zI" secondAttribute="trailing" id="1w6-Ri-0bN"/>
                             <constraint firstItem="WmB-og-mJb" firstAttribute="top" secondItem="DcM-iz-KLR" secondAttribute="bottom" constant="10" id="80o-pk-ESN"/>
+                            <constraint firstItem="b3I-ms-mMA" firstAttribute="leading" secondItem="FWe-YD-bP9" secondAttribute="leading" id="9dU-jV-xvB"/>
                             <constraint firstItem="WmB-og-mJb" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="AGp-9g-c61"/>
                             <constraint firstItem="V4q-vR-7zI" firstAttribute="top" secondItem="yzI-Bt-hnN" secondAttribute="bottom" id="Fzl-ct-zWh"/>
                             <constraint firstItem="DcM-iz-KLR" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="MDo-bk-d4Z"/>
                             <constraint firstAttribute="trailing" secondItem="qW1-ym-Jq7" secondAttribute="trailing" id="NIM-Tx-PSm"/>
                             <constraint firstItem="DcM-iz-KLR" firstAttribute="leading" secondItem="FWe-YD-bP9" secondAttribute="leading" id="NOj-Jh-1mS"/>
-                            <constraint firstItem="b3I-ms-mMA" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" constant="10" id="c3d-18-3xo"/>
+                            <constraint firstItem="b3I-ms-mMA" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="XaB-XR-NZA"/>
                             <constraint firstItem="DcM-iz-KLR" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="bottom" constant="10" id="htF-0P-JtQ"/>
                             <constraint firstItem="V4q-vR-7zI" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="ovy-pd-kkk"/>
                             <constraint firstItem="RFZ-QI-Y7s" firstAttribute="top" secondItem="b3I-ms-mMA" secondAttribute="bottom" constant="10" id="paz-Ga-ydK"/>
@@ -243,7 +244,6 @@
                             <constraint firstItem="qW1-ym-Jq7" firstAttribute="top" secondItem="NAE-Qh-LlD" secondAttribute="top" id="s6D-0h-8fW"/>
                             <constraint firstItem="b3I-ms-mMA" firstAttribute="top" secondItem="WmB-og-mJb" secondAttribute="bottom" constant="10" id="tVd-aG-PVv"/>
                             <constraint firstItem="RFZ-QI-Y7s" firstAttribute="top" secondItem="qW1-ym-Jq7" secondAttribute="bottom" id="yBO-Ot-laO"/>
-                            <constraint firstAttribute="trailing" secondItem="b3I-ms-mMA" secondAttribute="trailing" constant="10" id="z6C-ob-5Lb"/>
                             <constraint firstAttribute="trailing" secondItem="WmB-og-mJb" secondAttribute="trailing" id="zwz-dS-Vd8"/>
                         </constraints>
                     </view>
