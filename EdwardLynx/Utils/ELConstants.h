@@ -20,6 +20,7 @@
     #define DLog(...)
 #endif
 
+#define Application [UIApplication sharedApplication]
 #define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define AppSingleton [ELAppSingleton sharedInstance]
 #define Font(n, s) [UIFont fontWithName:(n) size:(s)]

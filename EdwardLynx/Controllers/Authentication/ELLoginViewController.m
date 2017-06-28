@@ -144,7 +144,7 @@ static CGFloat const kELCornerRadius = 2.0f;
 }
 
 - (IBAction)onContactUsButtonClick:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kELEdwardLynxContactUsURL]];
+    [Application openURL:[NSURL URLWithString:kELEdwardLynxContactUsURL]];
 }
 
 @end
