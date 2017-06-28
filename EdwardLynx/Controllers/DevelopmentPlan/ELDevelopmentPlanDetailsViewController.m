@@ -61,16 +61,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.shared = NO;
     self.actionOptionType = -1;
     self.mGoals = [[NSMutableArray alloc] init];
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
-                                                  clockwise:YES
-                                                     shadow:YES
-                                                shadowColor:[UIColor blackColor]
-                                       displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
-    
-    [self.circleChartView addSubview:self.circleChart];
     
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
@@ -139,6 +129,32 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [NotificationCenter removeObserver:self
                                   name:kELGoalActionOptionsNotification
                                 object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
+                                                      total:[NSNumber numberWithInt:100]
+                                                    current:[NSNumber numberWithInt:0]
+                                                  clockwise:YES
+                                                     shadow:YES
+                                                shadowColor:[UIColor blackColor]
+                                       displayCountingLabel:YES
+                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+    
+    [self.circleChartView addSubview:self.circleChart];
+    
+    if (self.devPlan) {
+        [self setupChart];
+        [self setupDevPlan];
+        [self.indicatorView stopAnimating];
+        [self.tableView setHidden:NO];
+        [self.tableView reloadData];
+        
+        // Share View
+        [self.shareView setHidden:[AppSingleton.user isAdmin]];
+    }
 }
 
 - (void)dealloc {
@@ -243,15 +259,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.shared = self.devPlan.shared;
     self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
     self.title = [self.devPlan.name uppercaseString];
-    
-    [self setupChart];
-    [self setupDevPlan];
-    [self.indicatorView stopAnimating];
-    [self.tableView setHidden:NO];
-    [self.tableView reloadData];
-    
-    // Share View
-    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)

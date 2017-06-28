@@ -416,7 +416,7 @@
     
     // Handle Development Plans
     if ([emailUrlString containsString:kELNotificationTypeDevPlan]) {
-        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][3] intValue];
+        objectId = [[urlParts[1] componentsSeparatedByString:@"/"][2] intValue];
         
         self.emailInfoDict = @{@"id": @(objectId), @"type": kELNotificationTypeDevPlan};
         
