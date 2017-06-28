@@ -36,6 +36,7 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
                                                                       @"Test 3",
                                                                       @"Test 4"]];
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

@@ -44,6 +44,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
                                                imageSize:CGSizeMake(size, size)]
                      forState:UIControlStateNormal];
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.separatorColor = ThemeColor(kELDevPlanSeparatorColor);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELActionCellHeight;

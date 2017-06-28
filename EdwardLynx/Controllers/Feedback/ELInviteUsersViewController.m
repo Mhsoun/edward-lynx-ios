@@ -79,6 +79,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.alwaysBounceVertical = NO;
     
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil) description:@""];
     

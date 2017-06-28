@@ -35,6 +35,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     // Initialization
     self.mDevPlans = [[NSMutableArray alloc] init];
     
+    self.collectionView.alwaysBounceVertical = NO;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     

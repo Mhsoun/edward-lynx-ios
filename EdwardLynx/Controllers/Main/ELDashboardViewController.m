@@ -50,6 +50,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     // Table view
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     

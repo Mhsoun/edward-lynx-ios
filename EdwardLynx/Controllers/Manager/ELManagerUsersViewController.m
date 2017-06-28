@@ -229,6 +229,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

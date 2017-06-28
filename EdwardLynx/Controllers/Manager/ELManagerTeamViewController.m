@@ -64,6 +64,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.collectionView.alwaysBounceVertical = NO;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     

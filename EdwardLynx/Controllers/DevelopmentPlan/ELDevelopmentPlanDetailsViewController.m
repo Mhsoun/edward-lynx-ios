@@ -98,6 +98,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.detailViewManager.delegate = self;
     
     // Table View
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

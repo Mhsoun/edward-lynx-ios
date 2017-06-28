@@ -325,6 +325,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = YES;
+    self.tableView.alwaysBounceVertical = NO;
     
     [self.tableView reloadData];
     

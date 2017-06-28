@@ -41,6 +41,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

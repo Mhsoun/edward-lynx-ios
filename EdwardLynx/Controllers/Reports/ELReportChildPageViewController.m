@@ -40,10 +40,10 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
                        CGRectGetWidth(self.tableView.bounds),
                        CGFLOAT_MIN);
     
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
     self.tableView.emptyDataSetSource = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
         

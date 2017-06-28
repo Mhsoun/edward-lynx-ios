@@ -51,6 +51,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     self.questionTextView.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

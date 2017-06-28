@@ -60,6 +60,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.emptyDataSetSource = self;

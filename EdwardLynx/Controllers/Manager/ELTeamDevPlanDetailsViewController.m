@@ -36,6 +36,7 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
     self.selectedIndex = -1;
     self.selectedSection = -1;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
