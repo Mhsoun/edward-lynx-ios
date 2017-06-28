@@ -89,7 +89,8 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [NotificationCenter postNotificationName:kELTeamChartSelectionNotification
                                       object:nil
-                                    userInfo:@{@"id": @([self.mDevPlans[indexPath.row] objectId])}];
+                                    userInfo:@{@"id": @([self.mDevPlans[indexPath.row] objectId]),
+                                               @"userId": self.detailsDict[@"id"]}];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {

@@ -139,6 +139,11 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (void)dealloc {
     DLog(@"%@", [self class]);
+    
+    // Reset User ID for filtering Dev Plans
+    if (AppSingleton.devPlanUserId > -1) {
+        AppSingleton.devPlanUserId = -1;
+    }
 }
 
 #pragma mark - Navigation
@@ -199,7 +204,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    NSInteger actionCount = [AppSingleton.user isAdmin] ? goal.actions.count : goal.actions.count + 1;
+    NSInteger actionCount = [AppSingleton.user isNotAdminDevPlan] ? goal.actions.count : goal.actions.count + 1;
     CGFloat expandedHeight = (kELActionCellHeight * actionCount) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
@@ -211,7 +216,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     CGFloat iconHeight = 15;
     
     // Button
-    [self.addGoalButton setHidden:[AppSingleton.user isAdmin]];
+    [self.addGoalButton setHidden:[AppSingleton.user isNotAdminDevPlan]];
     [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
                                                   iconColor:[UIColor blackColor]
                                                    iconSize:iconHeight

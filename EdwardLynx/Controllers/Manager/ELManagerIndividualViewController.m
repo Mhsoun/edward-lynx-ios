@@ -184,6 +184,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
                                                                               @"DevelopmentPlanDetails");
     
     controller.objectId = [notification.userInfo[@"id"] intValue];
+    AppSingleton.devPlanUserId = [notification.userInfo[@"userId"] intValue];
     
     [self.navigationController pushViewController:controller animated:YES];
 }

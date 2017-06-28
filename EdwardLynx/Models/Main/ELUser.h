@@ -25,6 +25,7 @@
 @property (nonatomic) NSDate *registeredOn;
 
 - (BOOL)isAdmin;
+- (BOOL)isNotAdminDevPlan;
 - (NSSet *)permissionsByRole;
 
 @end

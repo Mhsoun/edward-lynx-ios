@@ -144,7 +144,7 @@
         case kELListTypeDevPlan:
             identifier = NSLocalizedString(@"kELTabTitleDevPlan", nil);
             
-            self.addButton.hidden = [AppSingleton.user isAdmin] && AppSingleton.devPlanUserId > -1;
+            self.addButton.hidden = [AppSingleton.user isNotAdminDevPlan];
             
             break;
         case kELListTypeReports:

@@ -20,6 +20,10 @@
               kELUserRoleSupervisor] containsObject:self.type];
 }
 
+- (BOOL)isNotAdminDevPlan {
+    return [self isAdmin] && AppSingleton.devPlanUserId > -1;
+}
+
 - (NSSet *)permissionsByRole {
     NSArray *permissionsList;
     

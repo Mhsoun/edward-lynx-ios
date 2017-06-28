@@ -37,7 +37,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     size = 20;
     self.tintColor = ThemeColor(kELWhiteColor);
     
-    [self.moreButton setHidden:[AppSingleton.user isAdmin]];
+    [self.moreButton setHidden:[AppSingleton.user isNotAdminDevPlan]];
     [self.moreButton setImage:[FontAwesome imageWithIcon:fa_ellipsis_vertical
                                                iconColor:[UIColor whiteColor]
                                                 iconSize:size
@@ -71,7 +71,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [AppSingleton.user isAdmin] ? self.goal.actions.count : self.goal.actions.count + 1;
+    return [AppSingleton.user isNotAdminDevPlan] ? self.goal.actions.count : self.goal.actions.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,12 +88,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
         return addCell;
     }
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
-    
     action = self.goal.actions[indexPath.row];
-    action.urlLink = Format(@"%@/actions/%@",
-                            self.goal.urlLink,
-                            @(action.objectId));
+    action.urlLink = Format(@"%@/actions/%@", self.goal.urlLink, @(action.objectId));
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     [cell configure:action atIndexPath:indexPath];
     
@@ -111,7 +109,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     NSMutableArray *mActions = [[NSMutableArray alloc] initWithArray:self.goal.actions];
     __kindof UIViewController *visibleController = [ApplicationDelegate visibleViewController:self.window.rootViewController];
     
-    if (indexPath.row == mActions.count || [AppSingleton.user isAdmin]) {
+    if (indexPath.row == mActions.count || [AppSingleton.user isNotAdminDevPlan]) {
         return;
     }
     
