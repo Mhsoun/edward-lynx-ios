@@ -89,6 +89,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         [self setupChart];
         [self setupDevPlan];
         [self.indicatorView stopAnimating];
+        
+        // Share View
+        [self.shareView setHidden:[AppSingleton.user isAdmin]];
     }
 
     self.selectedIndex = -1;
@@ -222,9 +225,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
-    
-    // Share View
-    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -248,6 +248,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.indicatorView stopAnimating];
     [self.tableView setHidden:NO];
     [self.tableView reloadData];
+    
+    // Share View
+    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)
