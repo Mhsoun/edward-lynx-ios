@@ -70,7 +70,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    __kindof UITableViewCell<ELConfigurableCellDelegate> *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+                                                                                                 forIndexPath:indexPath];
     
     [cell configure:[self.dataProvider rowObjectAtIndexPath:indexPath] atIndexPath:indexPath];
     

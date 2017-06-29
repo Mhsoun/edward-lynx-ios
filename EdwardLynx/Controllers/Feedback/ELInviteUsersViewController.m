@@ -79,6 +79,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.alwaysBounceVertical = NO;
     
     [self.dataSource dataSetEmptyText:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil) description:@""];
     
@@ -175,8 +176,9 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELParticipantTableViewCell *cell = (ELParticipantTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
     ELParticipant *participant = (ELParticipant *)[self.provider rowObjectAtIndexPath:indexPath];
+    ELParticipantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+                                                                       forIndexPath:indexPath];
     
     [cell configure:participant atIndexPath:indexPath];
     [cell setUserInteractionEnabled:!participant.isAlreadyInvited];

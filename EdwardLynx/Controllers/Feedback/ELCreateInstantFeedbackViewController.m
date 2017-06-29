@@ -51,6 +51,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     
     self.questionTextView.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -109,13 +110,15 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     id option = self.mCustomScaleOptions[indexPath.row];
     
     if ([option isKindOfClass:[NSString class]] && [(NSString *)option length] == 0) {
-        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier];
+        ELAddObjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELAddOptionCellIdentifier
+                                                                         forIndexPath:indexPath];
         
         cell.delegate = self;
         
         return cell;
     } else {
-        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier];
+        ELItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELOptionCellIdentifier
+                                                                    forIndexPath:indexPath];
         
         cell.tag = indexPath.row;
         cell.delegate = self;

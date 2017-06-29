@@ -68,6 +68,14 @@
 
 #pragma mark - Public Methods
 
+- (void)processCreateTeamDevPlan:(NSDictionary *)params {
+    [self.client createTeamDevPlanWithParams:params completion:self.postRequestCompletionBlock];
+}
+
+- (void)processDeleteTeamDevPlan:(int64_t)objectId {
+    [self.client deleteTeamDevPlanDetailsWithId:objectId completion:self.postRequestCompletionBlock];
+}
+
 - (void)processEnableUsersForManagerDashboard:(NSDictionary *)params {
     [self.client enableUsersWithParams:params completion:self.postRequestCompletionBlock];
 }
@@ -76,8 +84,26 @@
     [self.client linkedUsersDevPlansWithParams:nil completion:self.requestCompletionBlock];
 }
 
+- (void)processRetrieveTeamDevPlanDetails:(int64_t)objectId {
+    [self.client teamDevPlanDetailsWithId:objectId completion:self.requestCompletionBlock];
+}
+
+- (void)processRetrieveTeamDevPlans {
+    [self.client teamDevPlansWithCompletion:self.requestCompletionBlock];
+}
+
 - (void)processRetrieveUsersWithSharedDevPlans {
     [self.client linkedUsersDevPlansWithParams:@{@"type": @"sharing"} completion:self.requestCompletionBlock];
+}
+
+- (void)processUpdateTeamDevPlan:(NSDictionary *)params {
+    int64_t objectId = [params[@"id"] intValue];
+    NSMutableDictionary *mDict = [params copy];
+    
+    [mDict removeObjectForKey:@"id"];
+    [self.client updateTeamDevPlanDetailsWithId:objectId
+                                         params:[mDict copy]
+                                     completion:self.postRequestCompletionBlock];
 }
 
 @end

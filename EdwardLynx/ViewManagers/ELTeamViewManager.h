@@ -11,8 +11,13 @@
 @property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
 @property (nonatomic, weak) id<ELAPIPostResponseDelegate> postDelegate;
 
+- (void)processCreateTeamDevPlan:(NSDictionary *)params;
+- (void)processDeleteTeamDevPlan:(int64_t)objectId;
 - (void)processEnableUsersForManagerDashboard:(NSDictionary *)params;
 - (void)processRetrieveSharedUserDevPlans;
+- (void)processRetrieveTeamDevPlanDetails:(int64_t)objectId;
+- (void)processRetrieveTeamDevPlans;
 - (void)processRetrieveUsersWithSharedDevPlans;
+- (void)processUpdateTeamDevPlan:(NSDictionary *)params;
 
 @end

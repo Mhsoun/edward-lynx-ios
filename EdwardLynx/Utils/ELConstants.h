@@ -20,6 +20,7 @@
     #define DLog(...)
 #endif
 
+#define Application [UIApplication sharedApplication]
 #define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define AppSingleton [ELAppSingleton sharedInstance]
 #define Font(n, s) [UIFont fontWithName:(n) size:(s)]
@@ -201,6 +202,8 @@ extern NSString * const kELAPISurveyQuestionsEndpoint;
 extern NSString * const kELAPISurveyRecipientsEndpoint;
 extern NSString * const kELAPISurveyResultsEndpoint;
 
+extern NSString * const kELAPITeamDevelopmentPlanEndpoint;
+extern NSString * const kELAPITeamDevelopmentPlansEndpoint;
 extern NSString * const kELAPITeamUsersEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;

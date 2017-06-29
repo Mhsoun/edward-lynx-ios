@@ -7,6 +7,8 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:edwardlynx.ingenuity.ph</string>
+		<string>applinks:stage.lynxtool.edwardlynx.com</string>
+		<string>applinks:lynxtool.edwardlynx.com</string>
 	</array>
 </dict>
 </plist>

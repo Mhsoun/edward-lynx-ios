@@ -36,6 +36,7 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
     self.selectedIndex = -1;
     self.selectedSection = -1;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -45,6 +46,10 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    DLog(@"%@", [self class]);
 }
 
 #pragma mark - Protocol Methods (UITableViewCell)
@@ -60,6 +65,8 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELTeamMemberGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                           forIndexPath:indexPath];
+    
+    // TODO Populate
     
     return cell;
 }

@@ -46,7 +46,7 @@ static ELNotificationView *currentNotificationView = nil;
     notificationView = [self notificationView];
     notificationView.tapped = tapped;
     
-    [[[UIApplication sharedApplication] keyWindow] addSubview:notificationView];
+    [Application.keyWindow addSubview:notificationView];
     [notificationView addConstraints];
     [notificationView addTapGesture];
     [notificationView setupContent:notification];

@@ -27,8 +27,8 @@
     
     self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
-    
-    [self.moreButton setHidden:[AppSingleton.user isAdmin]];
+        
+    [self.moreButton setHidden:[AppSingleton.user isNotAdminDevPlan]];
     [self.moreButton setImage:[FontAwesome imageWithIcon:fa_ellipsis_vertical
                                                iconColor:[UIColor whiteColor]
                                                 iconSize:iconSize

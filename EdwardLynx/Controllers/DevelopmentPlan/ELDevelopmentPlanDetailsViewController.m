@@ -61,16 +61,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.shared = NO;
     self.actionOptionType = -1;
     self.mGoals = [[NSMutableArray alloc] init];
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
-                                                  clockwise:YES
-                                                     shadow:YES
-                                                shadowColor:[UIColor blackColor]
-                                       displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
-    
-    [self.circleChartView addSubview:self.circleChart];
     
     if (!self.devPlan) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
@@ -85,16 +75,13 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] initWithDetailObject:self.devPlan];
         self.devPlanViewManager.delegate = self;
-        
-        [self setupChart];
-        [self setupDevPlan];
-        [self.indicatorView stopAnimating];
     }
 
     self.selectedIndex = -1;
     self.detailViewManager.delegate = self;
     
     // Table View
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -137,8 +124,42 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                                 object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Render circle chart
+    [self.circleChart removeFromSuperview];
+    
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
+                                                      total:[NSNumber numberWithInt:100]
+                                                    current:[NSNumber numberWithInt:0]
+                                                  clockwise:YES
+                                                     shadow:YES
+                                                shadowColor:[UIColor blackColor]
+                                       displayCountingLabel:YES
+                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+    
+    [self.circleChartView addSubview:self.circleChart];
+    
+    if (self.devPlan) {
+        [self setupChart];
+        [self setupDevPlan];
+        [self.indicatorView stopAnimating];
+        [self.tableView setHidden:NO];
+        [self.tableView reloadData];
+        
+        // Share View
+        [self.shareView setHidden:[AppSingleton.user isAdmin]];
+    }
+}
+
 - (void)dealloc {
     DLog(@"%@", [self class]);
+    
+    // Reset User ID for filtering Dev Plans
+    if (AppSingleton.devPlanUserId > -1) {
+        AppSingleton.devPlanUserId = -1;
+    }
 }
 
 #pragma mark - Navigation
@@ -159,7 +180,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    ELGoalTableViewCell *cell = (ELGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kELCellIdentifier];
+    ELGoalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     goal.createdAt = self.devPlan.createdAt;
     goal.urlLink = Format(@"%@/goals/%@", self.devPlan.urlLink, @(goal.objectId));
@@ -199,7 +220,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELGoal *goal = self.devPlan.goals[indexPath.row];
-    NSInteger actionCount = [AppSingleton.user isAdmin] ? goal.actions.count : goal.actions.count + 1;
+    NSInteger actionCount = [AppSingleton.user isNotAdminDevPlan] ? goal.actions.count : goal.actions.count + 1;
     CGFloat expandedHeight = (kELActionCellHeight * actionCount) + kELGoalCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELGoalCellHeight;
@@ -211,15 +232,12 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     CGFloat iconHeight = 15;
     
     // Button
-    [self.addGoalButton setHidden:[AppSingleton.user isAdmin]];
+    [self.addGoalButton setHidden:[AppSingleton.user isNotAdminDevPlan]];
     [self.addGoalButton setImage:[FontAwesome imageWithIcon:fa_plus
                                                   iconColor:[UIColor blackColor]
                                                    iconSize:iconHeight
                                                   imageSize:CGSizeMake(iconHeight, iconHeight)]
                         forState:UIControlStateNormal];
-    
-    // Share View
-    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELDetailViewManager)
@@ -243,6 +261,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.indicatorView stopAnimating];
     [self.tableView setHidden:NO];
     [self.tableView reloadData];
+    
+    // Share View
+    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)

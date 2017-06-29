@@ -50,6 +50,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.viewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELCellHeight;
     self.tableView.emptyDataSetSource = self;

@@ -43,9 +43,10 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         [self.detailViewManager processRetrievalOfSurveyDetails];
     }
     
+    self.tableView.alwaysBounceVertical = NO;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     RegisterNib(self.tableView, kELCellIdentifier);
 }
@@ -83,11 +84,15 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELQuestion *question = self.category.questions[indexPath.row];
     
-    return question.heightForQuestionView + kELCustomScaleItemHeight;
+    return question.heightForQuestionView + (kELCustomScaleItemHeight * 2);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

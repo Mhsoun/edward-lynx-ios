@@ -189,6 +189,7 @@
 "kELInviteUsersSuccess" = "Successfully invited participants";
 "kELInviteUsersShareSuccess" = "Successfully shared result";
 
+"kELManagerUsersDisableSuccess" = "Successfully disabled users to Manager View";
 "kELManagerUsersEnableSuccess" = "Successfully enabled users to Manager View";
 
 "kELReportEmptyMessage" = "No Results";

@@ -50,6 +50,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = kELCellHeight;
     self.tableView.delegate = self;
@@ -121,7 +122,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
                            value:[UIColor whiteColor]
                            range:goalTitleRange];
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier];
+    cell = [tableView dequeueReusableCellWithIdentifier:kELGoalCellIdentifier forIndexPath:indexPath];
     cell.textLabel.attributedText = attributedText;
     
     // UI

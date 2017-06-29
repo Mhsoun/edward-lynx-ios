@@ -90,8 +90,14 @@ static NSString * const kELApplicationJSON = @"application/json";
                 return;
             }
             
+            // For handling overlapping UIAlertController instances
+            if (visibleViewController.presentedViewController &&
+                [visibleViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+                [visibleViewController dismissViewControllerAnimated:YES completion:nil];
+            }
+            
             errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil), error.localizedDescription);
-            visibleViewController = [ApplicationDelegate visibleViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+            visibleViewController = [ApplicationDelegate visibleViewController:Application.keyWindow.rootViewController];
             alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
                                                                   message:errorMessage
                                                            preferredStyle:UIAlertControllerStyleAlert];
