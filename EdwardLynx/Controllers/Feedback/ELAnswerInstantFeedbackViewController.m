@@ -82,6 +82,9 @@
     [self.submitButton setHidden:NO];
     [self.indicatorView stopAnimating];
     [self populatePage];
+    
+    // Decrement badge count
+    Application.applicationIconBadgeNumber--;
 }
 
 #pragma mark - Protocol Methods (ELFeedbackViewManager)

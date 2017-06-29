@@ -264,6 +264,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     // Share View
     [self.shareView setHidden:[AppSingleton.user isAdmin]];
+    
+    // Decrement badge count
+    Application.applicationIconBadgeNumber--;
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)

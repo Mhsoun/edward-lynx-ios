@@ -239,6 +239,9 @@
             [self setupNavigators];
             [self.indicatorView stopAnimating];
             
+            // Decrement badge count
+            Application.applicationIconBadgeNumber--;
+            
             break;
         default:
             break;
