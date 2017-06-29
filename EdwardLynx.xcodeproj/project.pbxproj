@@ -351,6 +351,199 @@
 		A983717B1ED42C1100C05594 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
 		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A993591B1F04FF92003EC659 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913113B1E8642D20042C91F /* ELChangePassViewController.m */; };
+		A993591C1F04FF92003EC659 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
+		A993591D1F04FF92003EC659 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
+		A993591E1F04FF92003EC659 /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A91311651E8642D20042C91F /* EdwardLynx.xcdatamodeld */; };
+		A993591F1F04FF92003EC659 /* ELSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B21E8644380042C91F /* ELSectionView.m */; };
+		A99359201F04FF92003EC659 /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
+		A99359211F04FF92003EC659 /* ELQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C01E8642D30042C91F /* ELQuestionTableViewCell.m */; };
+		A99359221F04FF92003EC659 /* ELListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311341E8642D20042C91F /* ELListViewController.m */; };
+		A99359231F04FF92003EC659 /* ELItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B71E8642D30042C91F /* ELItemTableViewCell.m */; };
+		A99359241F04FF92003EC659 /* ELDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112E1E8642D20042C91F /* ELDashboardViewController.m */; };
+		A99359251F04FF92003EC659 /* ELInviteUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311231E8642D20042C91F /* ELInviteUsersViewController.m */; };
+		A99359261F04FF92003EC659 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311691E8642D20042C91F /* main.m */; };
+		A99359271F04FF92003EC659 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F61E8642D30042C91F /* ELConstants.m */; };
+		A99359281F04FF92003EC659 /* ELDashboardHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311AB1E8642D30042C91F /* ELDashboardHeaderTableViewCell.m */; };
+		A99359291F04FF92003EC659 /* ELGoalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111A1E8642D20042C91F /* ELGoalDetailsViewController.m */; };
+		A993592A1F04FF92003EC659 /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111F1E8642D20042C91F /* ELCreateInstantFeedbackViewController.m */; };
+		A993592B1F04FF92003EC659 /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913113D1E8642D20042C91F /* ELEditProfileViewController.m */; };
+		A993592C1F04FF92003EC659 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
+		A993592D1F04FF92003EC659 /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */; };
+		A993592E1F04FF92003EC659 /* ELParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */; };
+		A993592F1F04FF92003EC659 /* ELDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D41E8642D30042C91F /* ELDropdownView.m */; };
+		A99359301F04FF92003EC659 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
+		A99359311F04FF92003EC659 /* ELMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */; };
+		A99359321F04FF92003EC659 /* ELBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311261E8642D20042C91F /* ELBaseDetailViewController.m */; };
+		A99359331F04FF92003EC659 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FD1E8642D30042C91F /* ELUtils.m */; };
+		A99359341F04FF92003EC659 /* ELManagerIndividualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */; };
+		A99359351F04FF92003EC659 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
+		A99359361F04FF92003EC659 /* ELGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B21E8642D30042C91F /* ELGoalTableViewCell.m */; };
+		A99359371F04FF92003EC659 /* ELReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C21E8642D30042C91F /* ELReportTableViewCell.m */; };
+		A99359381F04FF92003EC659 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310C81E8642D20042C91F /* ELAPIClient.m */; };
+		A99359391F04FF92003EC659 /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C41E8642D30042C91F /* ELSurveyTableViewCell.m */; };
+		A993593A1F04FF92003EC659 /* ELGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B01E8642D30042C91F /* ELGoalActionTableViewCell.m */; };
+		A993593B1F04FF92003EC659 /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
+		A993593C1F04FF92003EC659 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29781E8B8CC300EBC5CE /* ELAnswerOption.m */; };
+		A993593D1F04FF92003EC659 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110D1E8642D20042C91F /* ELConfigurationViewController.m */; };
+		A993593E1F04FF92003EC659 /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310D01E8642D20042C91F /* ELUsersAPIClient.m */; };
+		A993593F1F04FF92003EC659 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C91E8642D30042C91F /* ELSearchBar.m */; };
+		A99359401F04FF92003EC659 /* ELQuestionTypeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311E11E8642D30042C91F /* ELQuestionTypeTextView.m */; };
+		A99359411F04FF92003EC659 /* ELBasePageChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311281E8642D20042C91F /* ELBasePageChildViewController.m */; };
+		A99359421F04FF92003EC659 /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312041E8642D30042C91F /* ELDevelopmentPlanViewManager.m */; };
+		A99359431F04FF92003EC659 /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29631E8B8CC300EBC5CE /* ELCategory.m */; };
+		A99359441F04FF92003EC659 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311111E8642D20042C91F /* ELLoginViewController.m */; };
+		A99359451F04FF92003EC659 /* ELDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F81E8642D30042C91F /* ELDataProvider.m */; };
+		A99359461F04FF92003EC659 /* ELQuestionTypeRadioGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DD1E8642D30042C91F /* ELQuestionTypeRadioGroupView.m */; };
+		A99359471F04FF92003EC659 /* ELManagerIndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */; };
+		A99359481F04FF92003EC659 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310D21E8642D20042C91F /* AppDelegate.m */; };
+		A99359491F04FF92003EC659 /* ELDevelopmentPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311AE1E8642D30042C91F /* ELDevelopmentPlanTableViewCell.m */; };
+		A993594A1F04FF92003EC659 /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29691E8B8CC300EBC5CE /* ELModel.m */; };
+		A993594B1F04FF92003EC659 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312081E8642D30042C91F /* ELListViewManager.m */; };
+		A993594C1F04FF92003EC659 /* ELSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311471E8642D20042C91F /* ELSurveysViewController.m */; };
+		A993594D1F04FF92003EC659 /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
+		A993594E1F04FF92003EC659 /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
+		A993594F1F04FF92003EC659 /* ELReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29711E8B8CC300EBC5CE /* ELReminder.m */; };
+		A99359501F04FF92003EC659 /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CC1E8642D20042C91F /* ELQuestionsAPIClient.m */; };
+		A99359511F04FF92003EC659 /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29731E8B8CC300EBC5CE /* ELUser.m */; };
+		A99359521F04FF92003EC659 /* ELQuestionTypeScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DF1E8642D30042C91F /* ELQuestionTypeScaleView.m */; };
+		A99359531F04FF92003EC659 /* ELEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C71E8642D30042C91F /* ELEmailValidator.m */; };
+		A99359541F04FF92003EC659 /* ELDevelopmentPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311181E8642D20042C91F /* ELDevelopmentPlansViewController.m */; };
+		A99359551F04FF92003EC659 /* ELDashboardData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */; };
+		A99359561F04FF92003EC659 /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
+		A99359571F04FF92003EC659 /* ELResponseRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71031EDEC897006BA0AE /* ELResponseRate.m */; };
+		A99359581F04FF92003EC659 /* ELQuestionTypeAgreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DB1E8642D30042C91F /* ELQuestionTypeAgreementView.m */; };
+		A99359591F04FF92003EC659 /* ELAnswerInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111D1E8642D20042C91F /* ELAnswerInstantFeedbackViewController.m */; };
+		A993595A1F04FF92003EC659 /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CE1E8642D20042C91F /* ELSurveysAPIClient.m */; };
+		A993595B1F04FF92003EC659 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
+		A993595C1F04FF92003EC659 /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
+		A993595D1F04FF92003EC659 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF61EFB979D00A1972D /* ELTeamViewManager.m */; };
+		A993595E1F04FF92003EC659 /* ELAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F41E8642D30042C91F /* ELAppSingleton.m */; };
+		A993595F1F04FF92003EC659 /* ELReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311421E8642D20042C91F /* ELReportsViewController.m */; };
+		A99359601F04FF92003EC659 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */; };
+		A99359611F04FF92003EC659 /* ELMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311BB1E8642D30042C91F /* ELMenuTableViewCell.m */; };
+		A99359621F04FF92003EC659 /* ELParticipantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311BE1E8642D30042C91F /* ELParticipantTableViewCell.m */; };
+		A99359631F04FF92003EC659 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */; };
+		A99359641F04FF92003EC659 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D91E8642D30042C91F /* ELBaseQuestionTypeView.m */; };
+		A99359651F04FF92003EC659 /* ELShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CF1E8642D30042C91F /* ELShortcutView.m */; };
+		A99359661F04FF92003EC659 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CD1E8642D30042C91F /* ELActionView.m */; };
+		A99359671F04FF92003EC659 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112C1E8642D20042C91F /* ELBaseViewController.m */; };
+		A99359681F04FF92003EC659 /* ELListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B91E8642D30042C91F /* ELListTableViewCell.m */; };
+		A99359691F04FF92003EC659 /* ELManagerUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */; };
+		A993596A1F04FF92003EC659 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312001E8642D30042C91F /* ELAccountsViewManager.m */; };
+		A993596B1F04FF92003EC659 /* ELDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312021E8642D30042C91F /* ELDetailViewManager.m */; };
+		A993596C1F04FF92003EC659 /* ELForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110F1E8642D20042C91F /* ELForgotPasswordViewController.m */; };
+		A993596D1F04FF92003EC659 /* ELAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CE1EDD13D3001FD570 /* ELAverage.m */; };
+		A993596E1F04FF92003EC659 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
+		A993596F1F04FF92003EC659 /* ELYesNoData.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */; };
+		A99359701F04FF92003EC659 /* ELFeedbackViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312061E8642D30042C91F /* ELFeedbackViewManager.m */; };
+		A99359711F04FF92003EC659 /* ELAnswerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4341EDE9B0D001A99F6 /* ELAnswerSummary.m */; };
+		A99359721F04FF92003EC659 /* ELTeamAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */; };
+		A99359731F04FF92003EC659 /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295E1E8B8CC300EBC5CE /* ELGoal.m */; };
+		A99359741F04FF92003EC659 /* ELCreateDevelopmentPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311141E8642D20042C91F /* ELCreateDevelopmentPlanViewController.m */; };
+		A99359751F04FF92003EC659 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
+		A99359761F04FF92003EC659 /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */; };
+		A99359771F04FF92003EC659 /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CA1E8642D20042C91F /* ELDevelopmentPlanAPIClient.m */; };
+		A99359781F04FF92003EC659 /* ELAddObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B51E8642D30042C91F /* ELAddObjectTableViewCell.m */; };
+		A99359791F04FF92003EC659 /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
+		A993597A1F04FF92003EC659 /* ELReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311401E8642D20042C91F /* ELReportDetailsViewController.m */; };
+		A993597B1F04FF92003EC659 /* ELTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FB1E8642D30042C91F /* ELTableDataSource.m */; };
+		A993597C1F04FF92003EC659 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311301E8642D20042C91F /* ELLeftMenuViewController.m */; };
+		A993597D1F04FF92003EC659 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
+		A993597E1F04FF92003EC659 /* ELTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311381E8642D20042C91F /* ELTabPageViewController.m */; };
+		A993597F1F04FF92003EC659 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
+		A99359801F04FF92003EC659 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
+		A99359811F04FF92003EC659 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */; };
+		A99359821F04FF92003EC659 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
+		A99359831F04FF92003EC659 /* ELNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D61E8642D30042C91F /* ELNotificationView.m */; };
+		A99359841F04FF92003EC659 /* ELNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296B1E8B8CC300EBC5CE /* ELNotification.m */; };
+		A99359851F04FF92003EC659 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
+		A99359861F04FF92003EC659 /* ELSurveyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A913120A1E8642D30042C91F /* ELSurveyViewManager.m */; };
+		A99359871F04FF92003EC659 /* ELManagerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */; };
+		A99359881F04FF92003EC659 /* ELBasePopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112A1E8642D20042C91F /* ELBasePopupViewController.m */; };
+		A99359891F04FF92003EC659 /* ELQuestionRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96125191EDFBA11004F2119 /* ELQuestionRate.m */; };
+		A993598A1F04FF92003EC659 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311211E8642D20042C91F /* ELInstantFeedbacksViewController.m */; };
+		A993598B1F04FF92003EC659 /* ELListPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311321E8642D20042C91F /* ELListPopupViewController.m */; };
+		A993598C1F04FF92003EC659 /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
+		A993598D1F04FF92003EC659 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29761E8B8CC300EBC5CE /* ELAnswer.m */; };
+		A993598E1F04FF92003EC659 /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296D1E8B8CC300EBC5CE /* ELOAuthInstance.m */; };
+		A993598F1F04FF92003EC659 /* ELPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311361E8642D20042C91F /* ELPopupViewController.m */; };
+		A99359901F04FF92003EC659 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297A1E8B8CC300EBC5CE /* ELInstantFeedback.m */; };
+		A99359911F04FF92003EC659 /* ELSurveyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311451E8642D20042C91F /* ELSurveyDetailsViewController.m */; };
+		A99359921F04FF92003EC659 /* ELDevelopmentPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311161E8642D20042C91F /* ELDevelopmentPlanDetailsViewController.m */; };
+		A99359941F04FF92003EC659 /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A99359951F04FF92003EC659 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
+		A99359971F04FF92003EC659 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983714F1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib */; };
+		A99359981F04FF92003EC659 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311941E8642D20042C91F /* Lato-Medium.ttf */; };
+		A99359991F04FF92003EC659 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EE1E8642D20042C91F /* Survey.storyboard */; };
+		A993599A1F04FF92003EC659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E21E8642D20042C91F /* LaunchScreen.storyboard */; };
+		A993599B1F04FF92003EC659 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D41E8642D20042C91F /* Authentication.storyboard */; };
+		A993599C1F04FF92003EC659 /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */; };
+		A993599D1F04FF92003EC659 /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DC1E8642D20042C91F /* DevelopmentPlan.storyboard */; };
+		A993599E1F04FF92003EC659 /* AddOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983704C1ED423B600C05594 /* AddOptionCell.xib */; };
+		A993599F1F04FF92003EC659 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370941ED425EE00C05594 /* GoalCell.xib */; };
+		A99359A01F04FF92003EC659 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311911E8642D20042C91F /* Lato-Heavy.ttf */; };
+		A99359A11F04FF92003EC659 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DA1E8642D20042C91F /* Dashboard.storyboard */; };
+		A99359A21F04FF92003EC659 /* Invite.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311541E8642D20042C91F /* Invite.strings */; };
+		A99359A31F04FF92003EC659 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DE1E8642D20042C91F /* InstantFeedback.storyboard */; };
+		A99359A41F04FF92003EC659 /* CreateDevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D61E8642D20042C91F /* CreateDevelopmentPlan.storyboard */; };
+		A99359A51F04FF92003EC659 /* ReportChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */; };
+		A99359A61F04FF92003EC659 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311601E8642D20042C91F /* Settings.strings */; };
+		A99359A71F04FF92003EC659 /* Dashboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114E1E8642D20042C91F /* Dashboard.strings */; };
+		A99359A81F04FF92003EC659 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311971E8642D20042C91F /* Localizable.strings */; };
+		A99359A91F04FF92003EC659 /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371011ED42A1700C05594 /* ActionView.xib */; };
+		A99359AA1F04FF92003EC659 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311921E8642D20042C91F /* Lato-Italic.ttf */; };
+		A99359AB1F04FF92003EC659 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E81E8642D20042C91F /* Profile.storyboard */; };
+		A99359AC1F04FF92003EC659 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EA1E8642D20042C91F /* Report.storyboard */; };
+		A99359AD1F04FF92003EC659 /* InstantFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311521E8642D20042C91F /* InstantFeedback.strings */; };
+		A99359AE1F04FF92003EC659 /* CreateInstantFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114C1E8642D20042C91F /* CreateInstantFeedback.strings */; };
+		A99359AF1F04FF92003EC659 /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D81E8642D20042C91F /* CreateInstantFeedback.storyboard */; };
+		A99359B01F04FF92003EC659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91310D31E8642D20042C91F /* Assets.xcassets */; };
+		A99359B11F04FF92003EC659 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
+		A99359B21F04FF92003EC659 /* Report.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115E1E8642D20042C91F /* Report.strings */; };
+		A99359B31F04FF92003EC659 /* Survey.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311621E8642D20042C91F /* Survey.strings */; };
+		A99359B41F04FF92003EC659 /* Profile.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115C1E8642D20042C91F /* Profile.strings */; };
+		A99359B51F04FF92003EC659 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E61E8642D20042C91F /* List.storyboard */; };
+		A99359B61F04FF92003EC659 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370BB1ED4268400C05594 /* ParticipantCell.xib */; };
+		A99359B71F04FF92003EC659 /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370E21ED4288200C05594 /* SurveyCell.xib */; };
+		A99359B81F04FF92003EC659 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370A11ED4263D00C05594 /* ListCell.xib */; };
+		A99359B91F04FF92003EC659 /* ListPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983711B1ED42A9300C05594 /* ListPopupView.xib */; };
+		A99359BA1F04FF92003EC659 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311561E8642D20042C91F /* LaunchScreen.strings */; };
+		A99359BB1F04FF92003EC659 /* QuestionTypeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371421ED42B2B00C05594 /* QuestionTypeAgreementView.xib */; };
+		A99359BC1F04FF92003EC659 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311671E8642D20042C91F /* GoogleService-Info.plist */; };
+		A99359BD1F04FF92003EC659 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E41E8642D20042C91F /* LeftMenu.storyboard */; };
+		A99359BE1F04FF92003EC659 /* DashboardHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370591ED423C800C05594 /* DashboardHeaderCell.xib */; };
+		A99359BF1F04FF92003EC659 /* TabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310F01E8642D20042C91F /* TabPage.storyboard */; };
+		A99359C01F04FF92003EC659 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371631ED42BD200C05594 /* QuestionTypeTextView.xib */; };
+		A99359C11F04FF92003EC659 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311901E8642D20042C91F /* Lato-Bold.ttf */; };
+		A99359C21F04FF92003EC659 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983710E1ED42A3000C05594 /* DropdownView.xib */; };
+		A99359C31F04FF92003EC659 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371281ED42AD600C05594 /* NotificationView.xib */; };
+		A99359C41F04FF92003EC659 /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
+		A99359C51F04FF92003EC659 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
+		A99359C61F04FF92003EC659 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370C81ED426CB00C05594 /* QuestionCell.xib */; };
+		A99359C71F04FF92003EC659 /* List.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115A1E8642D20042C91F /* List.strings */; };
+		A99359C81F04FF92003EC659 /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370D51ED427B900C05594 /* ReportCell.xib */; };
+		A99359C91F04FF92003EC659 /* DevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311501E8642D20042C91F /* DevelopmentPlan.strings */; };
+		A99359CA1F04FF92003EC659 /* CircleChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BEF1EFB844A00A1972D /* CircleChartCell.xib */; };
+		A99359CB1F04FF92003EC659 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983703F1ED4239A00C05594 /* ActionCell.xib */; };
+		A99359CC1F04FF92003EC659 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E01E8642D20042C91F /* Invite.storyboard */; };
+		A99359CD1F04FF92003EC659 /* LeftMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311581E8642D20042C91F /* LeftMenu.strings */; };
+		A99359CE1F04FF92003EC659 /* Authentication.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311481E8642D20042C91F /* Authentication.strings */; };
+		A99359CF1F04FF92003EC659 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370AE1ED4265E00C05594 /* OptionCell.xib */; };
+		A99359D01F04FF92003EC659 /* DashboardReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370661ED423DB00C05594 /* DashboardReminderCell.xib */; };
+		A99359D11F04FF92003EC659 /* IndividualProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */; };
+		A99359D21F04FF92003EC659 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371701ED42BEC00C05594 /* ShortcutView.xib */; };
+		A99359D31F04FF92003EC659 /* ManagerIndividualCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95CECBD1EF8C87A0028BDD4 /* ManagerIndividualCell.xib */; };
+		A99359D41F04FF92003EC659 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311951E8642D20042C91F /* Lato-Regular.ttf */; };
+		A99359D51F04FF92003EC659 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371351ED42B1000C05594 /* PopupView.xib */; };
+		A99359D61F04FF92003EC659 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EC1E8642D20042C91F /* Settings.storyboard */; };
+		A99359D71F04FF92003EC659 /* QuestionTypeScaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983715C1ED42BAA00C05594 /* QuestionTypeScaleView.xib */; };
+		A99359D81F04FF92003EC659 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311F11E8642D30042C91F /* default.plist */; };
+		A99359D91F04FF92003EC659 /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370731ED423E900C05594 /* DevelopmentPlanCell.xib */; };
+		A99359DA1F04FF92003EC659 /* CreateDevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114A1E8642D20042C91F /* CreateDevelopmentPlan.strings */; };
+		A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
+		A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
+		A99359E11F04FF92003EC659 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
@@ -407,6 +600,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A92B26711EEFA033007858B6 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99359E01F04FF92003EC659 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A99359E11F04FF92003EC659 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,6 +1137,8 @@
 		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
 		A9979ECB1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCircleChartCollectionViewCell.h; sourceTree = "<group>"; };
 		A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCircleChartCollectionViewCell.m; sourceTree = "<group>"; };
 		A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevPlanDetailsViewController.h; sourceTree = "<group>"; };
@@ -1018,6 +1224,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99359931F04FF92003EC659 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99359941F04FF92003EC659 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+				A99359951F04FF92003EC659 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,6 +1730,7 @@
 				A91311641E8642D20042C91F /* Edward Lynx.entitlements */,
 				A91311651E8642D20042C91F /* EdwardLynx.xcdatamodeld */,
 				A92B26761EEFA033007858B6 /* EdwardLynxIngenuity-Info.plist */,
+				A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */,
 				A91311671E8642D20042C91F /* GoogleService-Info.plist */,
 				A91311681E8642D20042C91F /* Info.plist */,
 				A91311691E8642D20042C91F /* main.m */,
@@ -1568,6 +1784,7 @@
 				A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */,
 				A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */,
 				A92B26751EEFA033007858B6 /* EdwardLynxIngenuity.app */,
+				A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1824,6 +2041,28 @@
 			productReference = A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A99359181F04FF92003EC659 /* EdwardLynxAppStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99359E21F04FF92003EC659 /* Build configuration list for PBXNativeTarget "EdwardLynxAppStore" */;
+			buildPhases = (
+				A99359191F04FF92003EC659 /* [CP] Check Pods Manifest.lock */,
+				A993591A1F04FF92003EC659 /* Sources */,
+				A99359931F04FF92003EC659 /* Frameworks */,
+				A99359961F04FF92003EC659 /* Resources */,
+				A99359DD1F04FF92003EC659 /* [CP] Embed Pods Frameworks */,
+				A99359DE1F04FF92003EC659 /* [CP] Copy Pods Resources */,
+				A99359DF1F04FF92003EC659 /* ShellScript */,
+				A99359E01F04FF92003EC659 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EdwardLynxAppStore;
+			productName = EdwardLynx;
+			productReference = A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1866,6 +2105,9 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = A9308BCD1DED74B5007B4F9F;
 					};
+					A99359181F04FF92003EC659 = {
+						DevelopmentTeam = KGZFZP3DEA;
+					};
 				};
 			};
 			buildConfigurationList = A9308BC91DED74B5007B4F9F /* Build configuration list for PBXProject "EdwardLynx" */;
@@ -1887,6 +2129,7 @@
 			targets = (
 				A9308BCD1DED74B5007B4F9F /* EdwardLynx */,
 				A92B25BB1EEFA033007858B6 /* EdwardLynxIngenuity */,
+				A99359181F04FF92003EC659 /* EdwardLynxAppStore */,
 				A9308BE91DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF41DED74B6007B4F9F /* EdwardLynxUITests */,
 			);
@@ -2056,6 +2299,83 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A99359961F04FF92003EC659 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99359971F04FF92003EC659 /* QuestionTypeRadioGroupView.xib in Resources */,
+				A99359981F04FF92003EC659 /* Lato-Medium.ttf in Resources */,
+				A99359991F04FF92003EC659 /* Survey.storyboard in Resources */,
+				A993599A1F04FF92003EC659 /* LaunchScreen.storyboard in Resources */,
+				A993599B1F04FF92003EC659 /* Authentication.storyboard in Resources */,
+				A993599C1F04FF92003EC659 /* TeamMemberGoalCell.xib in Resources */,
+				A993599D1F04FF92003EC659 /* DevelopmentPlan.storyboard in Resources */,
+				A993599E1F04FF92003EC659 /* AddOptionCell.xib in Resources */,
+				A993599F1F04FF92003EC659 /* GoalCell.xib in Resources */,
+				A99359A01F04FF92003EC659 /* Lato-Heavy.ttf in Resources */,
+				A99359A11F04FF92003EC659 /* Dashboard.storyboard in Resources */,
+				A99359A21F04FF92003EC659 /* Invite.strings in Resources */,
+				A99359A31F04FF92003EC659 /* InstantFeedback.storyboard in Resources */,
+				A99359A41F04FF92003EC659 /* CreateDevelopmentPlan.storyboard in Resources */,
+				A99359A51F04FF92003EC659 /* ReportChartCell.xib in Resources */,
+				A99359A61F04FF92003EC659 /* Settings.strings in Resources */,
+				A99359A71F04FF92003EC659 /* Dashboard.strings in Resources */,
+				A99359A81F04FF92003EC659 /* Localizable.strings in Resources */,
+				A99359A91F04FF92003EC659 /* ActionView.xib in Resources */,
+				A99359AA1F04FF92003EC659 /* Lato-Italic.ttf in Resources */,
+				A99359AB1F04FF92003EC659 /* Profile.storyboard in Resources */,
+				A99359AC1F04FF92003EC659 /* Report.storyboard in Resources */,
+				A99359AD1F04FF92003EC659 /* InstantFeedback.strings in Resources */,
+				A99359AE1F04FF92003EC659 /* CreateInstantFeedback.strings in Resources */,
+				A99359AF1F04FF92003EC659 /* CreateInstantFeedback.storyboard in Resources */,
+				A99359B01F04FF92003EC659 /* Assets.xcassets in Resources */,
+				A99359B11F04FF92003EC659 /* SectionView.xib in Resources */,
+				A99359B21F04FF92003EC659 /* Report.strings in Resources */,
+				A99359B31F04FF92003EC659 /* Survey.strings in Resources */,
+				A99359B41F04FF92003EC659 /* Profile.strings in Resources */,
+				A99359B51F04FF92003EC659 /* List.storyboard in Resources */,
+				A99359B61F04FF92003EC659 /* ParticipantCell.xib in Resources */,
+				A99359B71F04FF92003EC659 /* SurveyCell.xib in Resources */,
+				A99359B81F04FF92003EC659 /* ListCell.xib in Resources */,
+				A99359B91F04FF92003EC659 /* ListPopupView.xib in Resources */,
+				A99359BA1F04FF92003EC659 /* LaunchScreen.strings in Resources */,
+				A99359BB1F04FF92003EC659 /* QuestionTypeAgreementView.xib in Resources */,
+				A99359BC1F04FF92003EC659 /* GoogleService-Info.plist in Resources */,
+				A99359BD1F04FF92003EC659 /* LeftMenu.storyboard in Resources */,
+				A99359BE1F04FF92003EC659 /* DashboardHeaderCell.xib in Resources */,
+				A99359BF1F04FF92003EC659 /* TabPage.storyboard in Resources */,
+				A99359C01F04FF92003EC659 /* QuestionTypeTextView.xib in Resources */,
+				A99359C11F04FF92003EC659 /* Lato-Bold.ttf in Resources */,
+				A99359C21F04FF92003EC659 /* DropdownView.xib in Resources */,
+				A99359C31F04FF92003EC659 /* NotificationView.xib in Resources */,
+				A99359C41F04FF92003EC659 /* AddGoalActionCell.xib in Resources */,
+				A99359C51F04FF92003EC659 /* TeamProgress.storyboard in Resources */,
+				A99359C61F04FF92003EC659 /* QuestionCell.xib in Resources */,
+				A99359C71F04FF92003EC659 /* List.strings in Resources */,
+				A99359C81F04FF92003EC659 /* ReportCell.xib in Resources */,
+				A99359C91F04FF92003EC659 /* DevelopmentPlan.strings in Resources */,
+				A99359CA1F04FF92003EC659 /* CircleChartCell.xib in Resources */,
+				A99359CB1F04FF92003EC659 /* ActionCell.xib in Resources */,
+				A99359CC1F04FF92003EC659 /* Invite.storyboard in Resources */,
+				A99359CD1F04FF92003EC659 /* LeftMenu.strings in Resources */,
+				A99359CE1F04FF92003EC659 /* Authentication.strings in Resources */,
+				A99359CF1F04FF92003EC659 /* OptionCell.xib in Resources */,
+				A99359D01F04FF92003EC659 /* DashboardReminderCell.xib in Resources */,
+				A99359D11F04FF92003EC659 /* IndividualProgress.storyboard in Resources */,
+				A99359D21F04FF92003EC659 /* ShortcutView.xib in Resources */,
+				A99359D31F04FF92003EC659 /* ManagerIndividualCell.xib in Resources */,
+				A99359D41F04FF92003EC659 /* Lato-Regular.ttf in Resources */,
+				A99359D51F04FF92003EC659 /* PopupView.xib in Resources */,
+				A99359D61F04FF92003EC659 /* Settings.storyboard in Resources */,
+				A99359D71F04FF92003EC659 /* QuestionTypeScaleView.xib in Resources */,
+				A99359D81F04FF92003EC659 /* default.plist in Resources */,
+				A99359D91F04FF92003EC659 /* DevelopmentPlanCell.xib in Resources */,
+				A99359DA1F04FF92003EC659 /* CreateDevelopmentPlan.strings in Resources */,
+				A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */,
+				A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2193,6 +2513,64 @@
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7c67a5365060930052205dfdf95102678ef19047 5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672";
 		};
 		A968F1871DF7A4FF0091997D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7c67a5365060930052205dfdf95102678ef19047 5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672";
+		};
+		A99359191F04FF92003EC659 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A99359DD1F04FF92003EC659 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A99359DE1F04FF92003EC659 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A99359DF1F04FF92003EC659 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
@@ -2480,6 +2858,133 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A993591A1F04FF92003EC659 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A993591B1F04FF92003EC659 /* ELChangePassViewController.m in Sources */,
+				A993591C1F04FF92003EC659 /* ELTeamTabPageViewController.m in Sources */,
+				A993591D1F04FF92003EC659 /* JSONValueTransformer+CustomNSDate.m in Sources */,
+				A993591E1F04FF92003EC659 /* EdwardLynx.xcdatamodeld in Sources */,
+				A993591F1F04FF92003EC659 /* ELSectionView.m in Sources */,
+				A99359201F04FF92003EC659 /* ELReportChildPageViewController.m in Sources */,
+				A99359211F04FF92003EC659 /* ELQuestionTableViewCell.m in Sources */,
+				A99359221F04FF92003EC659 /* ELListViewController.m in Sources */,
+				A99359231F04FF92003EC659 /* ELItemTableViewCell.m in Sources */,
+				A99359241F04FF92003EC659 /* ELDashboardViewController.m in Sources */,
+				A99359251F04FF92003EC659 /* ELInviteUsersViewController.m in Sources */,
+				A99359261F04FF92003EC659 /* main.m in Sources */,
+				A99359271F04FF92003EC659 /* ELConstants.m in Sources */,
+				A99359281F04FF92003EC659 /* ELDashboardHeaderTableViewCell.m in Sources */,
+				A99359291F04FF92003EC659 /* ELGoalDetailsViewController.m in Sources */,
+				A993592A1F04FF92003EC659 /* ELCreateInstantFeedbackViewController.m in Sources */,
+				A993592B1F04FF92003EC659 /* ELEditProfileViewController.m in Sources */,
+				A993592C1F04FF92003EC659 /* ELSurveyCategoryPageViewController.m in Sources */,
+				A993592D1F04FF92003EC659 /* ELDevelopmentPlan.m in Sources */,
+				A993592E1F04FF92003EC659 /* ELParticipant.m in Sources */,
+				A993592F1F04FF92003EC659 /* ELDropdownView.m in Sources */,
+				A99359301F04FF92003EC659 /* ELBlindspot.m in Sources */,
+				A99359311F04FF92003EC659 /* ELMenuItem.m in Sources */,
+				A99359321F04FF92003EC659 /* ELBaseDetailViewController.m in Sources */,
+				A99359331F04FF92003EC659 /* ELUtils.m in Sources */,
+				A99359341F04FF92003EC659 /* ELManagerIndividualTableViewCell.m in Sources */,
+				A99359351F04FF92003EC659 /* ELSurveyInfoViewController.m in Sources */,
+				A99359361F04FF92003EC659 /* ELGoalTableViewCell.m in Sources */,
+				A99359371F04FF92003EC659 /* ELReportTableViewCell.m in Sources */,
+				A99359381F04FF92003EC659 /* ELAPIClient.m in Sources */,
+				A99359391F04FF92003EC659 /* ELSurveyTableViewCell.m in Sources */,
+				A993593A1F04FF92003EC659 /* ELGoalActionTableViewCell.m in Sources */,
+				A993593B1F04FF92003EC659 /* ELSearcheableModel.m in Sources */,
+				A993593C1F04FF92003EC659 /* ELAnswerOption.m in Sources */,
+				A993593D1F04FF92003EC659 /* ELConfigurationViewController.m in Sources */,
+				A993593E1F04FF92003EC659 /* ELUsersAPIClient.m in Sources */,
+				A993593F1F04FF92003EC659 /* ELSearchBar.m in Sources */,
+				A99359401F04FF92003EC659 /* ELQuestionTypeTextView.m in Sources */,
+				A99359411F04FF92003EC659 /* ELBasePageChildViewController.m in Sources */,
+				A99359421F04FF92003EC659 /* ELDevelopmentPlanViewManager.m in Sources */,
+				A99359431F04FF92003EC659 /* ELCategory.m in Sources */,
+				A99359441F04FF92003EC659 /* ELLoginViewController.m in Sources */,
+				A99359451F04FF92003EC659 /* ELDataProvider.m in Sources */,
+				A99359461F04FF92003EC659 /* ELQuestionTypeRadioGroupView.m in Sources */,
+				A99359471F04FF92003EC659 /* ELManagerIndividualViewController.m in Sources */,
+				A99359481F04FF92003EC659 /* AppDelegate.m in Sources */,
+				A99359491F04FF92003EC659 /* ELDevelopmentPlanTableViewCell.m in Sources */,
+				A993594A1F04FF92003EC659 /* ELModel.m in Sources */,
+				A993594B1F04FF92003EC659 /* ELListViewManager.m in Sources */,
+				A993594C1F04FF92003EC659 /* ELSurveysViewController.m in Sources */,
+				A993594D1F04FF92003EC659 /* ELSurvey.m in Sources */,
+				A993594E1F04FF92003EC659 /* ELAddGoalActionTableViewCell.m in Sources */,
+				A993594F1F04FF92003EC659 /* ELReminder.m in Sources */,
+				A99359501F04FF92003EC659 /* ELQuestionsAPIClient.m in Sources */,
+				A99359511F04FF92003EC659 /* ELUser.m in Sources */,
+				A99359521F04FF92003EC659 /* ELQuestionTypeScaleView.m in Sources */,
+				A99359531F04FF92003EC659 /* ELEmailValidator.m in Sources */,
+				A99359541F04FF92003EC659 /* ELDevelopmentPlansViewController.m in Sources */,
+				A99359551F04FF92003EC659 /* ELDashboardData.m in Sources */,
+				A99359561F04FF92003EC659 /* ELReportPageViewController.m in Sources */,
+				A99359571F04FF92003EC659 /* ELResponseRate.m in Sources */,
+				A99359581F04FF92003EC659 /* ELQuestionTypeAgreementView.m in Sources */,
+				A99359591F04FF92003EC659 /* ELAnswerInstantFeedbackViewController.m in Sources */,
+				A993595A1F04FF92003EC659 /* ELSurveysAPIClient.m in Sources */,
+				A993595B1F04FF92003EC659 /* ELDataPoint.m in Sources */,
+				A993595C1F04FF92003EC659 /* ELLabel.m in Sources */,
+				A993595D1F04FF92003EC659 /* ELTeamViewManager.m in Sources */,
+				A993595E1F04FF92003EC659 /* ELAppSingleton.m in Sources */,
+				A993595F1F04FF92003EC659 /* ELReportsViewController.m in Sources */,
+				A99359601F04FF92003EC659 /* NSString+HTML.m in Sources */,
+				A99359611F04FF92003EC659 /* ELMenuTableViewCell.m in Sources */,
+				A99359621F04FF92003EC659 /* ELParticipantTableViewCell.m in Sources */,
+				A99359631F04FF92003EC659 /* ELQuestionCategory.m in Sources */,
+				A99359641F04FF92003EC659 /* ELBaseQuestionTypeView.m in Sources */,
+				A99359651F04FF92003EC659 /* ELShortcutView.m in Sources */,
+				A99359661F04FF92003EC659 /* ELActionView.m in Sources */,
+				A99359671F04FF92003EC659 /* ELBaseViewController.m in Sources */,
+				A99359681F04FF92003EC659 /* ELListTableViewCell.m in Sources */,
+				A99359691F04FF92003EC659 /* ELManagerUsersViewController.m in Sources */,
+				A993596A1F04FF92003EC659 /* ELAccountsViewManager.m in Sources */,
+				A993596B1F04FF92003EC659 /* ELDetailViewManager.m in Sources */,
+				A993596C1F04FF92003EC659 /* ELForgotPasswordViewController.m in Sources */,
+				A993596D1F04FF92003EC659 /* ELAverage.m in Sources */,
+				A993596E1F04FF92003EC659 /* ELCircleChartCollectionViewCell.m in Sources */,
+				A993596F1F04FF92003EC659 /* ELYesNoData.m in Sources */,
+				A99359701F04FF92003EC659 /* ELFeedbackViewManager.m in Sources */,
+				A99359711F04FF92003EC659 /* ELAnswerSummary.m in Sources */,
+				A99359721F04FF92003EC659 /* ELTeamAPIClient.m in Sources */,
+				A99359731F04FF92003EC659 /* ELGoal.m in Sources */,
+				A99359741F04FF92003EC659 /* ELCreateDevelopmentPlanViewController.m in Sources */,
+				A99359751F04FF92003EC659 /* NSDate+Utils.m in Sources */,
+				A99359761F04FF92003EC659 /* ELGoalAction.m in Sources */,
+				A99359771F04FF92003EC659 /* ELDevelopmentPlanAPIClient.m in Sources */,
+				A99359781F04FF92003EC659 /* ELAddObjectTableViewCell.m in Sources */,
+				A99359791F04FF92003EC659 /* ELReportChartTableViewCell.m in Sources */,
+				A993597A1F04FF92003EC659 /* ELReportDetailsViewController.m in Sources */,
+				A993597B1F04FF92003EC659 /* ELTableDataSource.m in Sources */,
+				A993597C1F04FF92003EC659 /* ELLeftMenuViewController.m in Sources */,
+				A993597D1F04FF92003EC659 /* ELRadarDiagram.m in Sources */,
+				A993597E1F04FF92003EC659 /* ELTabPageViewController.m in Sources */,
+				A993597F1F04FF92003EC659 /* ELTeamMemberGoalTableViewCell.m in Sources */,
+				A99359801F04FF92003EC659 /* ELTeamDevPlanDetailsViewController.m in Sources */,
+				A99359811F04FF92003EC659 /* ELQuestion.m in Sources */,
+				A99359821F04FF92003EC659 /* ELManagerCategoryViewController.m in Sources */,
+				A99359831F04FF92003EC659 /* ELNotificationView.m in Sources */,
+				A99359841F04FF92003EC659 /* ELNotification.m in Sources */,
+				A99359851F04FF92003EC659 /* ELSurveyRateOthersViewController.m in Sources */,
+				A99359861F04FF92003EC659 /* ELSurveyViewManager.m in Sources */,
+				A99359871F04FF92003EC659 /* ELManagerTeamViewController.m in Sources */,
+				A99359881F04FF92003EC659 /* ELBasePopupViewController.m in Sources */,
+				A99359891F04FF92003EC659 /* ELQuestionRate.m in Sources */,
+				A993598A1F04FF92003EC659 /* ELInstantFeedbacksViewController.m in Sources */,
+				A993598B1F04FF92003EC659 /* ELListPopupViewController.m in Sources */,
+				A993598C1F04FF92003EC659 /* ELDashboardReminderTableViewCell.m in Sources */,
+				A993598D1F04FF92003EC659 /* ELAnswer.m in Sources */,
+				A993598E1F04FF92003EC659 /* ELOAuthInstance.m in Sources */,
+				A993598F1F04FF92003EC659 /* ELPopupViewController.m in Sources */,
+				A99359901F04FF92003EC659 /* ELInstantFeedback.m in Sources */,
+				A99359911F04FF92003EC659 /* ELSurveyDetailsViewController.m in Sources */,
+				A99359921F04FF92003EC659 /* ELDevelopmentPlanDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3459,6 +3964,52 @@
 			};
 			name = Release;
 		};
+		A99359E31F04FF92003EC659 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KGZFZP3DEA;
+				INFOPLIST_FILE = "$(SRCROOT)/EdwardLynxRelease-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "71432368-8874-4176-95f9-1780b1a68b79";
+				PROVISIONING_PROFILE_SPECIFIER = "com.mobileapp.edwardlynx AppStore";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A99359E41F04FF92003EC659 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KGZFZP3DEA;
+				INFOPLIST_FILE = "$(SRCROOT)/EdwardLynxRelease-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "71432368-8874-4176-95f9-1780b1a68b79";
+				PROVISIONING_PROFILE_SPECIFIER = "com.mobileapp.edwardlynx AppStore";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3503,6 +4054,15 @@
 			buildConfigurations = (
 				A9308C051DED74B6007B4F9F /* Debug */,
 				A9308C061DED74B6007B4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A99359E21F04FF92003EC659 /* Build configuration list for PBXNativeTarget "EdwardLynxAppStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99359E31F04FF92003EC659 /* Debug */,
+				A99359E41F04FF92003EC659 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
