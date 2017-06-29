@@ -63,8 +63,7 @@
         NSString *text;
         
         if (unit == 0) {
-            unit = [self.dueDate mt_hourOfDay];
-            
+            unit = [currentDate mt_hoursUntilDate:self.dueDate];
             text = unit == 1 ? NSLocalizedString(@"kELDashboardDueDateMessageHoursSingular", nil) :
                                NSLocalizedString(@"kELDashboardDueDateMessageHoursPlural", nil);
         } else {

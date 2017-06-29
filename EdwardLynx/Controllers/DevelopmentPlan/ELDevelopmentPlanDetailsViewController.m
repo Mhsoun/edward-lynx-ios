@@ -75,13 +75,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.devPlan];
         self.devPlanViewManager = [[ELDevelopmentPlanViewManager alloc] initWithDetailObject:self.devPlan];
         self.devPlanViewManager.delegate = self;
-        
-        [self setupChart];
-        [self setupDevPlan];
-        [self.indicatorView stopAnimating];
-        
-        // Share View
-        [self.shareView setHidden:[AppSingleton.user isAdmin]];
     }
 
     self.selectedIndex = -1;
@@ -133,6 +126,9 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    // Render circle chart
+    [self.circleChart removeFromSuperview];
     
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
                                                       total:[NSNumber numberWithInt:100]
@@ -259,6 +255,15 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     self.shared = self.devPlan.shared;
     self.mGoals = [NSMutableArray arrayWithArray:self.devPlan.goals];
     self.title = [self.devPlan.name uppercaseString];
+    
+    [self setupChart];
+    [self setupDevPlan];
+    [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
+    [self.tableView reloadData];
+    
+    // Share View
+    [self.shareView setHidden:[AppSingleton.user isAdmin]];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)
