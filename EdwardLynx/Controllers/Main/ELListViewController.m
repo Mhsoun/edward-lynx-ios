@@ -141,7 +141,8 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     viewableHeight = isContentLarger ? scrollHeight : scrollView.contentSize.height;
     atBottom = (scrollView.contentOffset.y >= scrollView.contentSize.height - viewableHeight + CGRectGetHeight(self.tableIndicatorView.frame));
     
-    if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView] && !(self.page > self.pages)) {
+//    if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView] && !(self.page > self.pages)) {
+    if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView]) {
         self.page++;
         
         self.isPaginated = YES;

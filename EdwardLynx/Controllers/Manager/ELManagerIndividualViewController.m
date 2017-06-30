@@ -6,8 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-
 #import "ELManagerIndividualViewController.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanDetailsViewController.h"

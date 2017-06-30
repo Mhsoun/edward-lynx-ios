@@ -7,6 +7,7 @@
 //
 
 #import "ELManagerCategoryViewController.h"
+#import "ELTeamViewManager.h"
 
 #pragma mark - Private Constants
 
@@ -16,7 +17,8 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 @interface ELManagerCategoryViewController ()
 
-@property (nonatomic, strong) NSMutableArray *mCategories, *mInitialCategories;
+@property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mCategories, *mInitialCategories;
+@property (nonatomic, strong) ELTeamViewManager *viewManager;
 
 @end
 
@@ -29,12 +31,14 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     self.mCategories = [[NSMutableArray alloc] init];
-    self.mInitialCategories = [[NSMutableArray alloc] initWithArray:@[@"Test 1",
-                                                                      @"Test 2",
-                                                                      @"Test 3",
-                                                                      @"Test 4"]];
+    self.mInitialCategories = [[NSMutableArray alloc] init];
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
+    [self createSampleData];
+    
+    self.viewManager = [[ELTeamViewManager alloc] init];
+    self.viewManager.postDelegate = self;
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
@@ -68,7 +72,7 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
                                             imageSize:CGSizeMake(15, 15)];
     
     cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.text = self.mInitialCategories[indexPath.row];
+    cell.textLabel.text = [self.mInitialCategories[indexPath.row] name];
     cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
@@ -110,10 +114,66 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSString *category = self.mInitialCategories[sourceIndexPath.row];
+    ELTeamDevelopmentPlan *category = self.mInitialCategories[sourceIndexPath.row];
     
     [self.mInitialCategories removeObjectAtIndex:sourceIndexPath.row];
     [self.mInitialCategories insertObject:category atIndex:destinationIndexPath.row];
+}
+
+#pragma mark - Protocol Methods (ELAPIPostResponse)
+
+- (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELTeamDevelopmentPlanCreateError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil)
+                     completion:nil];
+}
+
+#pragma mark - Private Methods
+
+- (void)createSampleData {
+    ELTeamDevelopmentPlan *teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
+                                                                                             @"name": @"Dev Plan 1",
+                                                                                             @"position": @1}
+                                                                                     error:nil];
+    
+    [self.mInitialCategories addObject:teamDevPlan];
+    
+    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
+                                                                      @"name": @"Dev Plan 0",
+                                                                      @"position": @0}
+                                                              error:nil];
+    
+    [self.mInitialCategories addObject:teamDevPlan];
+    
+    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
+                                                                      @"name": @"Dev Plan 3",
+                                                                      @"position": @3}
+                                                              error:nil];
+    
+    [self.mInitialCategories addObject:teamDevPlan];
+    
+    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
+                                                                      @"name": @"Dev Plan 2",
+                                                                      @"position": @2}
+                                                              error:nil];
+    
+    [self.mInitialCategories addObject:teamDevPlan];
+    [self sortArrayByCategory:self.mInitialCategories];
+}
+
+- (void)sortArrayByCategory:(NSMutableArray *)mList {
+    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"position"
+                                                                    ascending:YES];
+    
+    [self.mInitialCategories sortUsingDescriptors:@[valueDescriptor]];
 }
 
 #pragma mark - Interface Builder Actions
@@ -126,6 +186,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     }
     
     // TODO Either API call or just add to list
+    
+//    [self.viewManager processCreateTeamDevPlan:@{@"id": @-1,
+//                                                 @"name": self.nameField.text,
+//                                                 @"position": @(self.mInitialCategories.count - 1)}];
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {

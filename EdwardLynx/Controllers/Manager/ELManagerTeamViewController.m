@@ -65,12 +65,13 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     self.viewManager.delegate = self;
     
     self.collectionView.alwaysBounceVertical = NO;
+    self.collectionView.emptyDataSetSource = self;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
     RegisterCollectionNib(self.collectionView, kELCellIdentifier);
     
-//    [self reloadPage];
+    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,6 +163,16 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     [self.indicatorView stopAnimating];
     [self.collectionView setHidden:NO];
     [self.collectionView reloadData];
+}
+
+#pragma mark - Protocol Methods (DZNEmptyDataSet)
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 18.0f),
+                                 NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELDevelopmentPlanEmptyMessage", nil)
+                                           attributes:attributes];
 }
 
 #pragma mark - Protocol Methods (XLPagerTabStrip)

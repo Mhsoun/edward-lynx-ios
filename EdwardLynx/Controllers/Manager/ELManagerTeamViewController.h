@@ -6,11 +6,12 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <XLPagerTabStrip-AnthonyMDev/XLBarPagerTabStripViewController.h>
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ELAPIResponseDelegate>
+@interface ELManagerTeamViewController : ELBaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ELAPIResponseDelegate, DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
