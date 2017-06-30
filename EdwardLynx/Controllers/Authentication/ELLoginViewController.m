@@ -101,10 +101,13 @@ static CGFloat const kELCornerRadius = 2.0f;
 
 - (void)layoutPage {
     CAGradientLayer *gradient;
+    
+    // Icons
+    self.usernameIcon.tintColor = [UIColor grayColor];
+    self.passwordIcon.tintColor = [UIColor grayColor];
         
     // Button
-    self.loginButton.layer.cornerRadius = kELCornerRadius;
-    
+    [self.loginButton.layer setCornerRadius:kELCornerRadius];
     [self.loginButton setTitle:NSLocalizedString(@"kELLoginButtonNormalText", nil)
                       forState:UIControlStateNormal];
     [self.loginButton setTitle:NSLocalizedString(@"kELLoginButtonDisabledText", nil)

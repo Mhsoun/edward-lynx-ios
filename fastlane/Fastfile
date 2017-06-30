@@ -106,12 +106,30 @@ platform :ios do
     )
   end
 
+  lane :provisioningprofileappstore do
+    sigh(
+      username: ENV["APPLE_ID"],
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
+    )
+  end
+
   desc "Deploys a new version to the App Store"
   lane :release do
     # match(type: "appstore")
     # snapshot
-    gym # Build your app - more options available
-    deliver(force: true)
+    gym(
+      scheme: "EdwardLynxAppStore",
+      export_method: "app-store"
+    )
+    deliver(
+      force: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"],
+      skip_screenshots: true,
+      skip_metadata: true
+    )
     # frameit
   end
 

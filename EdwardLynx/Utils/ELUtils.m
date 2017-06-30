@@ -87,7 +87,7 @@
     
     // Icon
     [self.icon setImage:[self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    [self.icon setTintColor:ThemeColor(isValid ? kELGrayColor : kELRedColor)];
+    [self.icon setTintColor:isValid ? [UIColor grayColor] : [UIColor redColor]];
 }
 
 @end
