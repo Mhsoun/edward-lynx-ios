@@ -135,7 +135,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
         case kELReportChartTypePie:
             return 250;
         default:
-            return 350;
+            return 330;
     }
 }
 

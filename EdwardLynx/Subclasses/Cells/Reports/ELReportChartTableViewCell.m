@@ -412,7 +412,7 @@
     for (int i = 0; i < items.count; i++) {
         ELDataPointBreakdown *dataPoint = [[ELDataPointBreakdown alloc] initWithDictionary:items[i] error:nil];
         
-        //        entry = [[BarChartDataEntry alloc] initWithX:(double)(items.count - 1) - i y:dataPoint.percentage];
+//        entry = [[BarChartDataEntry alloc] initWithX:(double)(items.count - 1) - i y:dataPoint.percentage];
         entry = [[BarChartDataEntry alloc] initWithX:(double)i y:dataPoint.percentage];
         
         [mEntries addObject:entry];
@@ -708,7 +708,7 @@
                                    NSLocalizedString(@"kELReportInfoOthers", nil);
         
         chartDataSet = [[RadarChartDataSet alloc] initWithValues:i == 0 ? mEntries : mEntries2 label:label];
-        chartDataSet.colors = @[ThemeColor(i == 0 ? kELLynxColor : kELOrangeColor)];
+        chartDataSet.colors = @[ThemeColor(i == 0 ? kELLynxColor : kELOtherColor)];
         chartDataSet.drawValuesEnabled = NO;
         chartDataSet.highlightEnabled = NO;
     

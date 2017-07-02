@@ -132,7 +132,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     BOOL atBottom, isContentLarger;
     CGFloat scrollHeight, viewableHeight;
     
-    if (self.listType != kELListTypeSurveys) {
+    if (self.listType == kELListTypeDevPlan) {
         return;
     }
     
