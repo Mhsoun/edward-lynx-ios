@@ -420,6 +420,12 @@
         [mColors addObject:ThemeColor(dataPoint.colorKey)];
     }
     
+    if (!items.count || items.count == 0) {
+        [mEntries addObject:[[BarChartDataEntry alloc] initWithX:0.0f y:0.0f]];
+        [mLabels addObject:@""];
+        [mColors addObject:[UIColor clearColor]];
+    }
+    
     self.horizontalBarChart = [self configureHorizontalBarChart:self.horizontalBarChart];
     self.horizontalBarChart.legend.enabled = NO;
     
