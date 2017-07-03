@@ -455,6 +455,23 @@
     return [mOrderedKeys copy];
 }
 
++ (void)PDFDownloadFromLink:(NSString *)link filename:(NSString *)filename {
+    NSString *filePath, *resourceDocPath;
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:link]];
+    
+    // Store the Data locally as PDF File
+    resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle] resourcePath]
+                                                         stringByDeletingLastPathComponent]
+                                                        stringByAppendingPathComponent:@"Documents"]];
+    filePath = [resourceDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", filename]];
+    
+    [data writeToFile:filePath atomically:YES];
+}
+
++ (NSURLRequest *)PDFViewRequestFromPath:(NSString *)path {
+    return [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]];
+}
+
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion {

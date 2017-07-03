@@ -63,6 +63,8 @@
 + (NSString *)labelByUserRole:(kELUserRole)role;
 + (UIAlertController *)loadingAlert;
 + (NSArray *)orderedReportKeysArray:(NSArray *)keys;
++ (void)PDFDownloadFromLink:(NSString *)link filename:(NSString *)filename;
++ (NSURLRequest *)PDFViewRequestFromPath:(NSString *)path;
 + (void)presentToastAtView:(UIView *)view
                    message:(NSString *)message
                 completion:(void (^)())completion;
