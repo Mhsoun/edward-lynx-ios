@@ -174,8 +174,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
             controller.type = kELListTypeDevPlan;
             controller.tabs = @[@(kELListFilterAll),
                                 @(kELListFilterInProgress),
-                                @(kELListFilterCompleted),
-                                @(kELListFilterExpired)];
+                                @(kELListFilterCompleted)];
             
             break;
         default:

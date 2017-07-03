@@ -170,8 +170,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
     controller.type = kELListTypeDevPlan;
     controller.tabs = @[@(kELListFilterAll),
                         @(kELListFilterInProgress),
-                        @(kELListFilterCompleted),
-                        @(kELListFilterExpired)];
+                        @(kELListFilterCompleted)];
     
     AppSingleton.devPlanUserId = [notification.userInfo[@"id"] intValue];
     
