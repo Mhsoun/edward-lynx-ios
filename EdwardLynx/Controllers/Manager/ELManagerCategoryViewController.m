@@ -35,8 +35,6 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     self.mInitialCategories = [[NSMutableArray alloc] init];
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
-    [self createSampleData];
-    
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.postDelegate = self;
     
@@ -79,26 +77,30 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id object = self.mInitialCategories[indexPath.row];  // TEMP
+    UIColor *color;
+    ELTeamDevelopmentPlan *teamDevPlan = self.mInitialCategories[indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if ([self.mCategories containsObject:object]) {
-        cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
-                                                iconColor:[UIColor clearColor]
-                                                 iconSize:15
-                                                imageSize:CGSizeMake(15, 15)];
-        
-        [self.mCategories removeObject:object];
+    if ([self.mCategories containsObject:teamDevPlan]) {
+        [self.mCategories removeObject:teamDevPlan];
     } else {
-        cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
-                                                iconColor:ThemeColor(kELGreenColor)
-                                                 iconSize:15
-                                                imageSize:CGSizeMake(15, 15)];
-        
-        [self.mCategories addObject:object];
+        [self.mCategories addObject:teamDevPlan];
     }
+    
+    teamDevPlan.visible = ![self.mCategories containsObject:teamDevPlan];
+    color = teamDevPlan.visible ? ThemeColor(kELGreenColor) : [UIColor clearColor];
+    cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
+                                            iconColor:color
+                                             iconSize:15
+                                            imageSize:CGSizeMake(15, 15)];
+    
+    // Process updating
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    [self.viewManager processUpdateTeamDevPlan:[teamDevPlan apiDictionary]];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,6 +120,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     
     [self.mInitialCategories removeObjectAtIndex:sourceIndexPath.row];
     [self.mInitialCategories insertObject:category atIndex:destinationIndexPath.row];
+    
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)
@@ -138,37 +144,6 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 #pragma mark - Private Methods
 
-- (void)createSampleData {
-    ELTeamDevelopmentPlan *teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
-                                                                                             @"name": @"Dev Plan 1",
-                                                                                             @"position": @1}
-                                                                                     error:nil];
-    
-    [self.mInitialCategories addObject:teamDevPlan];
-    
-    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
-                                                                      @"name": @"Dev Plan 0",
-                                                                      @"position": @0}
-                                                              error:nil];
-    
-    [self.mInitialCategories addObject:teamDevPlan];
-    
-    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
-                                                                      @"name": @"Dev Plan 3",
-                                                                      @"position": @3}
-                                                              error:nil];
-    
-    [self.mInitialCategories addObject:teamDevPlan];
-    
-    teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:@{@"id": @123,
-                                                                      @"name": @"Dev Plan 2",
-                                                                      @"position": @2}
-                                                              error:nil];
-    
-    [self.mInitialCategories addObject:teamDevPlan];
-    [self sortArrayByCategory:self.mInitialCategories];
-}
-
 - (void)sortArrayByCategory:(NSMutableArray *)mList {
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"position"
                                                                     ascending:YES];
@@ -185,11 +160,11 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
         return;
     }
     
-    // TODO Either API call or just add to list
-    
-//    [self.viewManager processCreateTeamDevPlan:@{@"id": @-1,
-//                                                 @"name": self.nameField.text,
-//                                                 @"position": @(self.mInitialCategories.count - 1)}];
+    // Process creation
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    [self.viewManager processCreateTeamDevPlan:@{@"name": self.nameField.text}];
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {

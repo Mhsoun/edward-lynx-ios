@@ -18,4 +18,10 @@
     return [propertyName isEqualToString:@"position"];
 }
 
+- (NSDictionary *)apiDictionary {
+    return @{@"name": self.name,
+             @"position": @(self.position),
+             @"visible": @(self.visible)};
+}
+
 @end

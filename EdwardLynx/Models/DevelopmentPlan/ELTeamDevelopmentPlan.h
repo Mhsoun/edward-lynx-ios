@@ -10,8 +10,12 @@
 
 @interface ELTeamDevelopmentPlan : ELModel
 
-@property (nonatomic) int position;
+@property (nonatomic) int64_t ownerId;
+@property (nonatomic) int64_t position;
+@property (nonatomic) BOOL checked;
+@property (nonatomic) BOOL visible;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString<Optional> *category;
+
+- (NSDictionary *)apiDictionary;
 
 @end
