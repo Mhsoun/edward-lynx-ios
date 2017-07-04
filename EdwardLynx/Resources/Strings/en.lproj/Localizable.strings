@@ -302,6 +302,11 @@
 "kELTabTitleIndividual" = "Individual";
 "kELTabTitleTeam" = "Team Progress";
 
+/* Team Dev Plan */
+
+"kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
+"kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
+
 /* User Roles */
 
 "kELUserRoleColleague" = "Colleague";

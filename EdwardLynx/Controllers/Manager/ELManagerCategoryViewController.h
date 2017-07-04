@@ -7,8 +7,9 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELTeamDevelopmentPlan.h"
 
-@interface ELManagerCategoryViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ELManagerCategoryViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;

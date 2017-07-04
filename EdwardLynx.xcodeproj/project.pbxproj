@@ -544,6 +544,7 @@
 		A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
 		A99359E11F04FF92003EC659 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
 		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
@@ -1139,6 +1140,8 @@
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
+		A9955E431F0644C0008FE4C2 /* ELTeamDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevelopmentPlan.h; sourceTree = "<group>"; };
+		A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevelopmentPlan.m; sourceTree = "<group>"; };
 		A9979ECB1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCircleChartCollectionViewCell.h; sourceTree = "<group>"; };
 		A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCircleChartCollectionViewCell.m; sourceTree = "<group>"; };
 		A9979ECE1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevPlanDetailsViewController.h; sourceTree = "<group>"; };
@@ -1883,6 +1886,8 @@
 				A97C295E1E8B8CC300EBC5CE /* ELGoal.m */,
 				A97C295F1E8B8CC300EBC5CE /* ELGoalAction.h */,
 				A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */,
+				A9955E431F0644C0008FE4C2 /* ELTeamDevelopmentPlan.h */,
+				A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */,
 			);
 			path = DevelopmentPlan;
 			sourceTree = "<group>";
@@ -2757,6 +2762,7 @@
 				A913121D1E8642D30042C91F /* ELUsersAPIClient.m in Sources */,
 				A91312951E8642D30042C91F /* ELSearchBar.m in Sources */,
 				A913129F1E8642D30042C91F /* ELQuestionTypeTextView.m in Sources */,
+				A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */,
 				A913124F1E8642D30042C91F /* ELBasePageChildViewController.m in Sources */,
 				A91312A81E8642D30042C91F /* ELDevelopmentPlanViewManager.m in Sources */,
 				A97C29841E8B8CC300EBC5CE /* ELCategory.m in Sources */,

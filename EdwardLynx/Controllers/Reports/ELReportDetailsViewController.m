@@ -358,7 +358,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
                                        colorKey:self.typeColorKey];
     chartDataSet2 = [self chartDataSetWithTitle:NSLocalizedString(@"kELReportInfoOthers", nil)
                                           items:infoDict[@"entries"][1]
-                                       colorKey:kELOrangeColor];
+                                       colorKey:kELOtherColor];
     
     chartData = [[BarChartData alloc] initWithDataSets:@[chartDataSet1, chartDataSet2]];
     chartData.barWidth = 0.4f;

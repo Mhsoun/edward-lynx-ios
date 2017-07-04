@@ -94,7 +94,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = self.emptyText;
-    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 18.0f),
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];

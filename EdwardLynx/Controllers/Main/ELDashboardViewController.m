@@ -348,8 +348,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
             controller.type = kELListTypeDevPlan;
             controller.tabs = @[@(kELListFilterAll),
                                 @(kELListFilterInProgress),
-                                @(kELListFilterCompleted),
-                                @(kELListFilterExpired)];
+                                @(kELListFilterCompleted)];
         } else if ([identifier isEqualToString:kELDashboardActionTypeFeedback]) {
             controller.initialIndex = 1;
         } else if ([identifier isEqualToString:kELDashboardActionTypeLynx]) {

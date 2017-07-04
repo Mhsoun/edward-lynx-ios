@@ -6,8 +6,6 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-
 #import "ELManagerIndividualViewController.h"
 #import "ELDevelopmentPlan.h"
 #import "ELDevelopmentPlanDetailsViewController.h"
@@ -138,7 +136,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
 #pragma mark - Protocol Methods (DZNEmptyDataSet)
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 18.0f),
+    NSDictionary *attributes = @{NSFontAttributeName: Font(@"Lato-Regular", 14.0f),
                                  NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"kELInviteUsersRetrievalEmpty", nil)
@@ -172,8 +170,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
     controller.type = kELListTypeDevPlan;
     controller.tabs = @[@(kELListFilterAll),
                         @(kELListFilterInProgress),
-                        @(kELListFilterCompleted),
-                        @(kELListFilterExpired)];
+                        @(kELListFilterCompleted)];
     
     AppSingleton.devPlanUserId = [notification.userInfo[@"id"] intValue];
     
