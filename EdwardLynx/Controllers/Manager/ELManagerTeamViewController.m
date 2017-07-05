@@ -8,6 +8,7 @@
 
 #import "ELManagerTeamViewController.h"
 #import "ELCircleChartCollectionViewCell.h"
+#import "ELManagerCategoryViewController.h"
 #import "ELTeamDevelopmentPlan.h"
 #import "ELTeamDevPlanDetailsViewController.h"
 #import "ELTeamViewManager.h"
@@ -22,6 +23,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 @interface ELManagerTeamViewController ()
 
+@property (nonatomic, strong) NSArray<ELTeamDevelopmentPlan *> *visibleItems;
 @property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mItems;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
 
@@ -36,8 +38,6 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.mItems = [[NSMutableArray alloc] init];
-    
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
     
@@ -70,24 +70,25 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 #pragma mark - Navigation
 
-// TODO
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
-//        
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
+        ELManagerCategoryViewController *controller = [segue destinationViewController];
+        
+        controller.mItems = self.mItems;
+    }
+}
 
 #pragma mark - Protocol Methods (UICollectionView)
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.mItems.count;
+    return self.visibleItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ELCircleChartCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
                                                                                       forIndexPath:indexPath];
     
-    [cell configure:self.mItems[indexPath.row] atIndexPath:indexPath];
+    [cell configure:self.visibleItems[indexPath.row] atIndexPath:indexPath];
     
     return cell;
 }
@@ -118,7 +119,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     CGFloat iconHeight = 15;
     
     // Button
-    [self.addCategoryButton setImage:[FontAwesome imageWithIcon:fa_plus
+    [self.addCategoryButton setImage:[FontAwesome imageWithIcon:fa_pencil
                                                       iconColor:[UIColor blackColor]
                                                        iconSize:iconHeight
                                                       imageSize:CGSizeMake(iconHeight, iconHeight)]
@@ -135,9 +136,13 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.visible == 1"];
+    
     for (NSDictionary *dict in responseDict[@"items"]) {
         [self.mItems addObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
     }
+    
+    self.visibleItems = [self.mItems filteredArrayUsingPredicate:predicate];
     
     [self.indicatorView stopAnimating];
     [self.collectionView setHidden:NO];
@@ -163,6 +168,8 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 #pragma mark - Private Methods
 
 - (void)reloadPage {
+    self.mItems = [[NSMutableArray alloc] init];
+    
     // Prepare for loading
     [self.collectionView setHidden:YES];
     [self.indicatorView startAnimating];

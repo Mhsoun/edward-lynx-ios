@@ -11,13 +11,19 @@
 
 #pragma mark - Private Constants
 
+typedef NS_ENUM(NSInteger, kELTeamDevPlanAction) {
+    kELTeamDevPlanActionCreate = 1,
+    kELTeamDevPlanActionUpdate = 2
+};
+
 static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 #pragma mark - Class Extension
 
 @interface ELManagerCategoryViewController ()
 
-@property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mCategories, *mInitialCategories;
+@property (nonatomic) kELTeamDevPlanAction action;
+@property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mCategories;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
 
 @end
@@ -31,12 +37,14 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.action = -1;
     self.mCategories = [[NSMutableArray alloc] init];
-    self.mInitialCategories = [[NSMutableArray alloc] init];
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.postDelegate = self;
+    
+    [self sortArrayByPosition:self.mItems];
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
@@ -58,19 +66,20 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.mInitialCategories.count;
+    return self.mItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELTeamDevelopmentPlan *teamDevPlan = self.mItems[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
     
     cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
-                                            iconColor:[UIColor clearColor]
+                                            iconColor:teamDevPlan.visible ? ThemeColor(kELGreenColor) : [UIColor clearColor]
                                              iconSize:15
                                             imageSize:CGSizeMake(15, 15)];
     
     cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.text = [self.mInitialCategories[indexPath.row] name];
+    cell.textLabel.text = teamDevPlan.name;
     cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
@@ -78,8 +87,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIColor *color;
-    ELTeamDevelopmentPlan *teamDevPlan = self.mInitialCategories[indexPath.row];
+    ELTeamDevelopmentPlan *teamDevPlan = self.mItems[indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    self.action = kELTeamDevPlanActionUpdate;
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -89,18 +100,14 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
         [self.mCategories addObject:teamDevPlan];
     }
     
-    teamDevPlan.visible = ![self.mCategories containsObject:teamDevPlan];
+    teamDevPlan.visible = !teamDevPlan.visible;
     color = teamDevPlan.visible ? ThemeColor(kELGreenColor) : [UIColor clearColor];
     cell.imageView.image = [FontAwesome imageWithIcon:fa_check_circle
                                             iconColor:color
                                              iconSize:15
                                             imageSize:CGSizeMake(15, 15)];
     
-    // Process updating
-    [self presentViewController:[ELUtils loadingAlert]
-                       animated:YES
-                     completion:nil];
-    [self.viewManager processUpdateTeamDevPlan:[teamDevPlan apiDictionary]];
+    [self.mItems replaceObjectAtIndex:indexPath.row withObject:teamDevPlan];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,39 +123,92 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    ELTeamDevelopmentPlan *category = self.mInitialCategories[sourceIndexPath.row];
+    ELTeamDevelopmentPlan *sourceCategory = self.mItems[sourceIndexPath.row];
+    ELTeamDevelopmentPlan *destinationCategory = self.mItems[destinationIndexPath.row];
     
-    [self.mInitialCategories removeObjectAtIndex:sourceIndexPath.row];
-    [self.mInitialCategories insertObject:category atIndex:destinationIndexPath.row];
+    self.action = kELTeamDevPlanActionUpdate;
     
-    [self presentViewController:[ELUtils loadingAlert]
-                       animated:YES
-                     completion:nil];
+    [self.mItems removeObjectAtIndex:sourceIndexPath.row];
+    [self.mItems insertObject:sourceCategory atIndex:destinationIndexPath.row];
+    
+    sourceCategory.position = [self.mItems indexOfObject:sourceCategory];
+    destinationCategory.position = [self.mItems indexOfObject:destinationCategory];
+    
+    [self.mItems replaceObjectAtIndex:sourceCategory.position withObject:sourceCategory];
+    [self.mItems replaceObjectAtIndex:destinationCategory.position withObject:destinationCategory];
 }
 
 #pragma mark - Protocol Methods (ELAPIPostResponse)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
+    NSString *message;
+    
+    switch (self.action) {
+        case kELTeamDevPlanActionCreate:
+            message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateError", nil);
+            
+            break;
+        case kELTeamDevPlanActionUpdate:
+            message = NSLocalizedString(@"kELTeamDevelopmentPlanUpdateError", nil);
+            
+            break;
+        default:
+            break;
+    }
+    
+    self.action = -1;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELTeamDevelopmentPlanCreateError", nil)
+                        message:message
                      completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSString *message;
+    
+    switch (self.action) {
+        case kELTeamDevPlanActionCreate:
+            self.nameField.text = @"";
+            
+            message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil);
+            
+            // Add new Team Dev Plan to current list
+            [self.mItems insertObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil]
+                              atIndex:self.mItems.count - 1];
+            
+            break;
+        case kELTeamDevPlanActionUpdate:
+            message = NSLocalizedString(@"kELTeamDevelopmentPlanUpdateSuccess", nil);
+            
+            break;
+        default:
+            break;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil)
-                     completion:nil];
+                        message:message
+                     completion:^{
+        if (self.action == kELTeamDevPlanActionUpdate) {
+            AppSingleton.needsPageReload = YES;
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            self.action = -1;
+            
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - Private Methods
 
-- (void)sortArrayByCategory:(NSMutableArray *)mList {
+- (void)sortArrayByPosition:(NSMutableArray *)mList {
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"position"
                                                                     ascending:YES];
     
-    [self.mInitialCategories sortUsingDescriptors:@[valueDescriptor]];
+    [mList sortUsingDescriptors:@[valueDescriptor]];
 }
 
 #pragma mark - Interface Builder Actions
@@ -161,6 +221,8 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     }
     
     // Process creation
+    self.action = kELTeamDevPlanActionCreate;
+    
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
                      completion:nil];
@@ -168,7 +230,17 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
-    // TODO API call depending on Add button behavior
+    NSMutableArray *mTeamDevPlans = [[NSMutableArray alloc] init];
+    
+    for (ELTeamDevelopmentPlan *teamDevPlan in self.mItems) {
+        [mTeamDevPlans addObject:[teamDevPlan putDictionary]];
+    }
+    
+    // Update Team Dev Plans
+    [self presentViewController:[ELUtils loadingAlert]
+                       animated:YES
+                     completion:nil];
+    [self.viewManager processUpdateTeamDevPlans:@{@"items": [mTeamDevPlans copy]}];
 }
 
 @end

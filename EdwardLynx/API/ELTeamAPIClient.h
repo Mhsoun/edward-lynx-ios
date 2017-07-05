@@ -25,5 +25,7 @@
 - (void)updateTeamDevPlanDetailsWithId:(int64_t)teamDevPlanId
                                 params:(NSDictionary *)params
                             completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (void)updateTeamDevPlansWithParams:(NSDictionary *)params
+                          completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 @end

@@ -98,12 +98,16 @@
 
 - (void)processUpdateTeamDevPlan:(NSDictionary *)params {
     int64_t objectId = [params[@"id"] intValue];
-    NSMutableDictionary *mDict = [params copy];
+    NSMutableDictionary *mDict = [params mutableCopy];
     
     [mDict removeObjectForKey:@"id"];
     [self.client updateTeamDevPlanDetailsWithId:objectId
                                          params:[mDict copy]
                                      completion:self.postRequestCompletionBlock];
+}
+
+- (void)processUpdateTeamDevPlans:(NSDictionary *)params {
+    [self.client updateTeamDevPlansWithParams:params completion:self.postRequestCompletionBlock];
 }
 
 @end

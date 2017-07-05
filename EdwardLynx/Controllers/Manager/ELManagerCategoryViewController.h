@@ -11,6 +11,8 @@
 
 @interface ELManagerCategoryViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate>
 
+@property (strong, nonatomic) NSMutableArray<ELTeamDevelopmentPlan *> *mItems;
+
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
