@@ -10,12 +10,28 @@
 
 @implementation ELTeamDevelopmentPlan
 
+@synthesize progress = _progress;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
-+ (BOOL)propertyIsOptional:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"position"];
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"progress"];
+}
+
+- (CGFloat)progress {
+    CGFloat averageProgress = 0;
+    
+    if (!self.goals || self.goals.count == 0) {
+        return averageProgress;
+    }
+    
+    for (ELGoal *goal in self.goals) {
+        averageProgress += goal.progress;
+    }
+    
+    return averageProgress / (CGFloat)self.goals.count;
 }
 
 - (NSDictionary *)apiDictionary {

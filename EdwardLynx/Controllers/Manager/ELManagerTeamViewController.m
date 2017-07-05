@@ -8,7 +8,7 @@
 
 #import "ELManagerTeamViewController.h"
 #import "ELCircleChartCollectionViewCell.h"
-#import "ELDevelopmentPlan.h"
+#import "ELTeamDevelopmentPlan.h"
 #import "ELTeamDevPlanDetailsViewController.h"
 #import "ELTeamViewManager.h"
 
@@ -22,7 +22,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 @interface ELManagerTeamViewController ()
 
-@property (nonatomic, strong) NSArray<ELDevelopmentPlan *> *items;
+@property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mItems;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
 
 @end
@@ -36,30 +36,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     // Do any additional setup after loading the view.
     
     // Initialization
-    // NOTE Sample data
-    self.items = @[[[ELDevelopmentPlan alloc] initWithDictionary:@{@"id": @195,
-                                                                   @"name": @"A",
-                                                                   @"createdAt": @"2017-06-21T10:06:00+02:00",
-                                                                   @"updatedAt": @"2017-06-22T07:45:21+02:00",
-                                                                   @"checked": @0,
-                                                                   @"shared": @1,
-                                                                   @"goals": @[@{@"id": @406,
-                                                                                 @"title": @"Test",
-                                                                                 @"description": @"",
-                                                                                 @"checked": @0,
-                                                                                 @"position": @0,
-                                                                                 @"dueDate": @"<nil>",
-                                                                                 @"reminderSent": @0,
-                                                                                 @"categoryId": @"<nil>",
-                                                                                 @"actions": @[@{@"id": @879,
-                                                                                                 @"title": @"Test",
-                                                                                                 @"checked": @1,
-                                                                                                 @"position": @0},
-                                                                                               @{@"id": @879,
-                                                                                                 @"title": @"Test",
-                                                                                                 @"checked": @0,
-                                                                                                 @"position": @0}]}]}
-                                                           error:nil]];
+    self.mItems = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -81,7 +58,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 
 - (void)viewWillAppear:(BOOL)animated {
     if (AppSingleton.needsPageReload) {
-//        [self reloadPage];
+        [self reloadPage];
     }
     
     [super viewDidAppear:animated];
@@ -103,14 +80,14 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 #pragma mark - Protocol Methods (UICollectionView)
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.items.count;
+    return self.mItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ELCircleChartCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kELCellIdentifier
                                                                                       forIndexPath:indexPath];
     
-    [cell configure:self.items[indexPath.row] atIndexPath:indexPath];
+    [cell configure:self.mItems[indexPath.row] atIndexPath:indexPath];
     
     return cell;
 }
@@ -158,7 +135,9 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    self.items = responseDict[@"items"];
+    for (NSDictionary *dict in responseDict[@"items"]) {
+        [self.mItems addObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
+    }
     
     [self.indicatorView stopAnimating];
     [self.collectionView setHidden:NO];

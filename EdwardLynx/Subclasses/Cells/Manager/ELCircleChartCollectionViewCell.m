@@ -10,10 +10,12 @@
 
 #import "ELCircleChartCollectionViewCell.h"
 #import "ELDevelopmentPlan.h"
+#import "ELTeamDevelopmentPlan.h"
 
 @interface ELCircleChartCollectionViewCell ()
 
 @property (nonatomic, strong) ELDevelopmentPlan *devPlan;
+@property (nonatomic, strong) ELTeamDevelopmentPlan *teamDevPlan;
 @property (nonatomic, strong) PNCircleChart *circleChart;
 
 @end
@@ -29,11 +31,18 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    self.devPlan = (ELDevelopmentPlan *)object;
+    if ([object isKindOfClass:[ELDevelopmentPlan class]]) {
+        self.devPlan = (ELDevelopmentPlan *)object;
+    } else {
+        self.teamDevPlan = (ELTeamDevelopmentPlan *)object;
+    }
 }
 
 - (void)setupContent {
-    self.nameLabel.text = self.devPlan.name;
+    CGFloat progress = self.devPlan ? self.devPlan.progress : self.teamDevPlan.progress;
+    NSString *name = self.devPlan ? self.devPlan.name : self.teamDevPlan.name;
+    
+    self.nameLabel.text = name;
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
                                                       total:[NSNumber numberWithInt:100]
                                                     current:[NSNumber numberWithInt:0]
@@ -48,7 +57,7 @@
         return;
     }
     
-    [ELUtils circleChart:self.circleChart progress:self.devPlan.progress];
+    [ELUtils circleChart:self.circleChart progress:progress];
     
     [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
     [self.circleChart setDisplayAnimated:NO];
