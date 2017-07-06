@@ -306,6 +306,8 @@
 
 "kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
 "kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
+"kELTeamDevelopmentPlanUpdateError" = "Failed to update Team Development Plan(s)";
+"kELTeamDevelopmentPlanUpdateSuccess" = "Successfully updated Team Development Plan(s)";
 
 /* User Roles */
 

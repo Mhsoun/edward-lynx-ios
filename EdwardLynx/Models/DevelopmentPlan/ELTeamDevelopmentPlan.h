@@ -7,6 +7,9 @@
 //
 
 #import "ELModel.h"
+#import "ELGoal.h"
+
+@protocol ELGoal;
 
 @interface ELTeamDevelopmentPlan : ELModel
 
@@ -14,8 +17,11 @@
 @property (nonatomic) int64_t position;
 @property (nonatomic) BOOL checked;
 @property (nonatomic) BOOL visible;
+@property (nonatomic) CGFloat progress;
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSArray<ELGoal> *goals;
 
 - (NSDictionary *)apiDictionary;
+- (NSDictionary *)putDictionary;
 
 @end

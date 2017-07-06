@@ -19,5 +19,6 @@
 - (void)processRetrieveTeamDevPlans;
 - (void)processRetrieveUsersWithSharedDevPlans;
 - (void)processUpdateTeamDevPlan:(NSDictionary *)params;
+- (void)processUpdateTeamDevPlans:(NSDictionary *)params;
 
 @end

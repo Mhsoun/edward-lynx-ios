@@ -14,12 +14,15 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
 }
 
-+ (BOOL)propertyIsOptional:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"position"];
+- (NSDictionary *)apiDictionary {
+    return @{@"id": @(self.objectId),
+             @"name": self.name,
+             @"position": @(self.position),
+             @"visible": @(self.visible)};
 }
 
-- (NSDictionary *)apiDictionary {
-    return @{@"name": self.name,
+- (NSDictionary *)putDictionary {
+    return @{@"id": @(self.objectId),
              @"position": @(self.position),
              @"visible": @(self.visible)};
 }
