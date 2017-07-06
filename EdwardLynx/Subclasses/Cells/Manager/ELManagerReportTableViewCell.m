@@ -8,6 +8,12 @@
 
 #import "ELManagerReportTableViewCell.h"
 
+@interface ELManagerReportTableViewCell ()
+
+@property (nonatomic, strong) NSDictionary *detailDict;
+
+@end
+
 @implementation ELManagerReportTableViewCell
 
 - (void)awakeFromNib {
@@ -29,13 +35,12 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *detailDict = (NSDictionary *)object;
-    
-    self.nameLabel.text = detailDict[@"name"];
+    self.detailDict = (NSDictionary *)object;
+    self.nameLabel.text = self.detailDict[@"name"];
 }
 
 - (IBAction)onDownloadButtonClick:(id)sender {
-    
+    // NOTE Limitation due to iOS structure
 }
 
 @end

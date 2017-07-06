@@ -43,11 +43,62 @@
                     <connections>
                         <outlet property="indicatorView" destination="IBO-Pg-cyR" id="SFZ-uO-dzP"/>
                         <outlet property="tableView" destination="fCb-FO-fUK" id="oYC-Pr-0Om"/>
+                        <segue destination="CqJ-Z3-iIc" kind="show" identifier="ReportDetails" id="Fkq-Mx-6Wm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMj-r4-PR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-58" y="128"/>
         </scene>
+        <!--Manager Report Details View Controller-->
+        <scene sceneID="OAy-Kh-kDg">
+            <objects>
+                <viewController id="CqJ-Z3-iIc" customClass="ELManagerReportDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Td7-dt-hNH"/>
+                        <viewControllerLayoutGuide type="bottom" id="dYZ-9l-jFY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Dr-af-P2N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="3dN-fJ-jmn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94O-J7-aBD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-4H-ld8">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3dN-fJ-jmn" secondAttribute="trailing" id="1ZJ-kg-QmS"/>
+                            <constraint firstItem="3dN-fJ-jmn" firstAttribute="top" secondItem="2Dr-af-P2N" secondAttribute="top" id="8hi-6s-qaE"/>
+                            <constraint firstItem="3dN-fJ-jmn" firstAttribute="leading" secondItem="2Dr-af-P2N" secondAttribute="leading" id="GMK-ij-1H2"/>
+                            <constraint firstItem="94O-J7-aBD" firstAttribute="leading" secondItem="2Dr-af-P2N" secondAttribute="leading" id="W1i-dD-jYr"/>
+                            <constraint firstItem="dYZ-9l-jFY" firstAttribute="top" secondItem="3dN-fJ-jmn" secondAttribute="bottom" id="aAv-Or-SKa"/>
+                            <constraint firstAttribute="trailing" secondItem="94O-J7-aBD" secondAttribute="trailing" id="aP8-QS-y1g"/>
+                            <constraint firstItem="94O-J7-aBD" firstAttribute="top" secondItem="2Dr-af-P2N" secondAttribute="top" id="hd5-Vm-agd"/>
+                            <constraint firstItem="dYZ-9l-jFY" firstAttribute="top" secondItem="94O-J7-aBD" secondAttribute="bottom" id="o9Z-kU-x1K"/>
+                            <constraint firstItem="qgu-4H-ld8" firstAttribute="centerX" secondItem="2Dr-af-P2N" secondAttribute="centerX" id="po3-74-QyQ"/>
+                            <constraint firstItem="qgu-4H-ld8" firstAttribute="centerY" secondItem="2Dr-af-P2N" secondAttribute="centerY" id="ur4-4u-xSx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicatorView" destination="qgu-4H-ld8" id="BeY-BV-c7q"/>
+                        <outlet property="webView" destination="94O-J7-aBD" id="tAR-Gg-v27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZeW-bm-ZxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="127"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="247" height="512"/>
+    </resources>
 </document>

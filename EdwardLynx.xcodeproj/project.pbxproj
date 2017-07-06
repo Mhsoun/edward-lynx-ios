@@ -14,6 +14,7 @@
 		A90DCB561F0DEE23004F724A /* ManagerReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */; };
 		A90DCB591F0DEFF5004F724A /* ELManagerReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */; };
 		A90DCB5C1F0DF115004F724A /* ELManagerSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */; };
+		A90DCB5F1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */; };
 		A91312191E8642D30042C91F /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310C81E8642D20042C91F /* ELAPIClient.m */; };
 		A913121A1E8642D30042C91F /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CA1E8642D20042C91F /* ELDevelopmentPlanAPIClient.m */; };
 		A913121B1E8642D30042C91F /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CC1E8642D20042C91F /* ELQuestionsAPIClient.m */; };
@@ -651,6 +652,8 @@
 		A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportTableViewCell.m; sourceTree = "<group>"; };
 		A90DCB5A1F0DF115004F724A /* ELManagerSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerSurveyTableViewCell.h; sourceTree = "<group>"; };
 		A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerSurveyTableViewCell.m; sourceTree = "<group>"; };
+		A90DCB5D1F0E3C0B004F724A /* ELManagerReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportDetailsViewController.h; sourceTree = "<group>"; };
+		A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportDetailsViewController.m; sourceTree = "<group>"; };
 		A91310C71E8642D20042C91F /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A91310C81E8642D20042C91F /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 		A91310C91E8642D20042C91F /* ELDevelopmentPlanAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanAPIClient.h; sourceTree = "<group>"; };
@@ -1845,6 +1848,8 @@
 				A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */,
 				A95CECBA1EF8C8020028BDD4 /* ELManagerIndividualViewController.h */,
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
+				A90DCB5D1F0E3C0B004F724A /* ELManagerReportDetailsViewController.h */,
+				A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */,
 				A90DCB4B1F0DE817004F724A /* ELManagerReportsViewController.h */,
 				A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */,
 				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
@@ -2769,6 +2774,7 @@
 				A913128D1E8642D30042C91F /* ELItemTableViewCell.m in Sources */,
 				A91312521E8642D30042C91F /* ELDashboardViewController.m in Sources */,
 				A913124D1E8642D30042C91F /* ELInviteUsersViewController.m in Sources */,
+				A90DCB5F1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m in Sources */,
 				A913126F1E8642D30042C91F /* main.m in Sources */,
 				A91312A21E8642D30042C91F /* ELConstants.m in Sources */,
 				A91312881E8642D30042C91F /* ELDashboardHeaderTableViewCell.m in Sources */,

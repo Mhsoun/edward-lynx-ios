@@ -31,6 +31,7 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
     
     RegisterNib(self.tableView, kELCellIdentifier);
 }
@@ -61,6 +62,12 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
     [cell configure:self.reports[indexPath.row] atIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [NotificationCenter postNotificationName:kELManagerReportDetailsNotification
+                                      object:nil
+                                    userInfo:@{@"link": self.reports[indexPath.row][@"link"]}];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

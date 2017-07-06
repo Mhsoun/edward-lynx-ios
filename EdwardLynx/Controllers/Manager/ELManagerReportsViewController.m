@@ -7,18 +7,21 @@
 //
 
 #import "ELManagerReportsViewController.h"
+#import "ELManagerReportDetailsViewController.h"
 #import "ELManagerSurveyTableViewCell.h"
 
 #pragma mark - Private Constants
 
 static NSInteger const kELCellHeight = 55;
 static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
+static NSString * const kELSegueIdentifier = @"ReportDetails";
 
 #pragma mark - Class Implementation
 
 @interface ELManagerReportsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSArray *surveys;
 
 @end
@@ -35,14 +38,14 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
     self.selectedIndex = -1;
     self.surveys = @[@{@"name": @"Test",
                        @"reports": @[@{@"name": @"Report 1",
-                                       @"link": @"somelink.com"},
+                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"},
                                      @{@"name": @"Report 2",
-                                       @"link": @"somelink.com"},
+                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"},
                                      @{@"name": @"Report 3",
-                                       @"link": @"somelink.com"}]},
+                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"}]},
                      @{@"name": @"Test 1",
                        @"reports": @[@{@"name": @"Report 1",
-                                       @"link": @"somelink.com"}]}];
+                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
     
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
@@ -60,15 +63,30 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [NotificationCenter addObserver:self
+                           selector:@selector(onReportDetailsSelection:)
+                               name:kELManagerReportDetailsNotification
+                             object:nil];
 }
-*/
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [NotificationCenter removeObserver:self
+                                  name:kELManagerReportDetailsNotification
+                                object:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
+        ELManagerReportDetailsViewController *controller = [segue destinationViewController];
+        
+        controller.link = self.link;
+    }
+}
 
 #pragma mark - Protocol Methods (UITableView)
 
@@ -138,6 +156,14 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
 
 - (NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
     return [NSLocalizedString(@"kELTabTitleReports", nil) uppercaseString];
+}
+     
+#pragma mark - Selectors
+     
+- (void)onReportDetailsSelection:(NSNotification *)notification {
+    self.link = notification.userInfo[@"link"];
+    
+    [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
 }
 
 @end
