@@ -44,6 +44,7 @@
     
     [mControllers addObject:StoryboardController(@"IndividualProgress", nil)];
     [mControllers addObject:StoryboardController(@"TeamProgress", nil)];
+    [mControllers addObject:StoryboardController(@"TeamReports", nil)];
     
     return [mControllers copy];
 }

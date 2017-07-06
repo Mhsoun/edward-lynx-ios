@@ -86,7 +86,7 @@
         <!--Users-->
         <scene sceneID="Nlp-BE-uos">
             <objects>
-                <viewController id="VwG-SJ-PZX" customClass="ELManagerUsersViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="VwG-SJ-PZX" customClass="ELManagerUsersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wmy-WG-6Fr"/>
                         <viewControllerLayoutGuide type="bottom" id="Rpr-1s-bCa"/>
