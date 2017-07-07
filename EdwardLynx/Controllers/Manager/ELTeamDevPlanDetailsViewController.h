@@ -6,11 +6,13 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 #import "ELBaseViewController.h"
 
-@interface ELTeamDevPlanDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ELTeamDevPlanDetailsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
 
-@property (strong, nonatomic) NSArray *goals;
+@property (nonatomic) int64_t devPlanId;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;

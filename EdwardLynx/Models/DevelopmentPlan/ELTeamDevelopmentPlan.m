@@ -28,3 +28,33 @@
 }
 
 @end
+
+@implementation ELTeamDevelopmentPlanUser
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
+@end
+
+@implementation ELTeamDevelopmentPlanGoal
+
+- (NSDictionary *)progressDetails {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.checked == YES"];
+    NSInteger completedActions = [[self.actions filteredArrayUsingPredicate:predicate] count];
+    
+    return @{@"value": @(self.progress),
+             @"text": Format(NSLocalizedString(@"kELCompletedLabel", nil),
+                             @(completedActions),
+                             @(self.actions.count))};
+}
+
+@end
+
+@implementation ELTeamDevelopmentPlanAction
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
+@end

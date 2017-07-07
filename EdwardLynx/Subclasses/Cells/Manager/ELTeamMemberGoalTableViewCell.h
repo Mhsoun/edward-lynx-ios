@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ELTeamDevelopmentPlan.h"
+
 static CGFloat const kELActionCellHeight = 60;
 
-@interface ELTeamMemberGoalTableViewCell : UITableViewCell<ELConfigurableCellDelegate>
+@interface ELTeamMemberGoalTableViewCell : UITableViewCell<UITableViewDataSource, UITableViewDelegate, ELConfigurableCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *chartView;
 @property (weak, nonatomic) IBOutlet UIView *leftView;

@@ -28,6 +28,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
 
 @implementation ELGoalTableViewCell
 
+#pragma mark - Lifecycle
+
 - (void)awakeFromNib {
     CGFloat size;
     
