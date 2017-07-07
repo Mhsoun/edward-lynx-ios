@@ -225,6 +225,7 @@ extern NSString * const kELGoalActionAddNotification;
 extern NSString * const kELGoalActionOptionsNotification;
 extern NSString * const kELInstantFeedbackTabNotification;
 extern NSString * const kELManagerReportDetailsNotification;
+extern NSString * const kELManagerReportEmailNotification;
 extern NSString * const kELPopupCloseNotification;
 extern NSString * const kELTabPageSearchNotification;
 extern NSString * const kELTeamChartSelectionNotification;

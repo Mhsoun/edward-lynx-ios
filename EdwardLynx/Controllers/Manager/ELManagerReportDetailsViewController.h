@@ -10,9 +10,11 @@
 
 @interface ELManagerReportDetailsViewController : ELBaseViewController<UIWebViewDelegate>
 
-@property (strong, nonatomic) NSString *link;
+@property (strong, nonatomic) NSDictionary *detailDict;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendEmailBarButtonItem;
+- (IBAction)onSendEmailBarButtonItemClick:(id)sender;
 
 @end

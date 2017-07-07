@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="-58" y="128"/>
         </scene>
-        <!--Manager Report Details View Controller-->
+        <!--Title-->
         <scene sceneID="OAy-Kh-kDg">
             <objects>
                 <viewController id="CqJ-Z3-iIc" customClass="ELManagerReportDetailsViewController" sceneMemberID="viewController">
@@ -88,8 +88,16 @@
                             <constraint firstItem="qgu-4H-ld8" firstAttribute="centerY" secondItem="2Dr-af-P2N" secondAttribute="centerY" id="ur4-4u-xSx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="glK-Ti-oXx">
+                        <barButtonItem key="rightBarButtonItem" id="FTY-sK-mPp">
+                            <connections>
+                                <action selector="onSendEmailBarButtonItemClick:" destination="CqJ-Z3-iIc" id="xgS-aj-6Jv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="indicatorView" destination="qgu-4H-ld8" id="BeY-BV-c7q"/>
+                        <outlet property="sendEmailBarButtonItem" destination="FTY-sK-mPp" id="oqn-Iu-Qmt"/>
                         <outlet property="webView" destination="94O-J7-aBD" id="tAR-Gg-v27"/>
                     </connections>
                 </viewController>

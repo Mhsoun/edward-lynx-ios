@@ -108,6 +108,7 @@ NSString * const kELGoalActionAddNotification = @"GoalActionAddNotification";
 NSString * const kELGoalActionOptionsNotification = @"GoalActionOptionsNotification";
 NSString * const kELInstantFeedbackTabNotification = @"InstantFeedbackTabNotification";
 NSString * const kELManagerReportDetailsNotification = @"ManagerReportDetailsNotification";
+NSString * const kELManagerReportEmailNotification = @"ManagerReportEmailNotification";
 NSString * const kELPopupCloseNotification = @"PopupClosehNotification";
 NSString * const kELTabPageSearchNotification = @"TabPageSearchNotification";
 NSString * const kELTeamChartSelectionNotification = @"TeamChartSelectionNotification";

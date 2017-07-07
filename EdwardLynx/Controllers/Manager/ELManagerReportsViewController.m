@@ -21,8 +21,8 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 @interface ELManagerReportsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
-@property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSArray *surveys;
+@property (nonatomic, strong) NSDictionary *detailDict;
 
 @end
 
@@ -38,14 +38,14 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     self.selectedIndex = -1;
     self.surveys = @[@{@"name": @"Test",
                        @"reports": @[@{@"name": @"Report 1",
-                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"},
+                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
                                      @{@"name": @"Report 2",
-                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"},
+                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
                                      @{@"name": @"Report 3",
-                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"}]},
+                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]},
                      @{@"name": @"Test 1",
                        @"reports": @[@{@"name": @"Report 1",
-                                       @"link": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
+                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
     
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
@@ -70,6 +70,10 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
                            selector:@selector(onReportDetailsSelection:)
                                name:kELManagerReportDetailsNotification
                              object:nil];
+    [NotificationCenter addObserver:self
+                           selector:@selector(onSendPDFToEmail:)
+                               name:kELManagerReportEmailNotification
+                             object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -78,13 +82,16 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     [NotificationCenter removeObserver:self
                                   name:kELManagerReportDetailsNotification
                                 object:nil];
+    [NotificationCenter removeObserver:self
+                                  name:kELManagerReportEmailNotification
+                                object:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kELSegueIdentifier]) {
         ELManagerReportDetailsViewController *controller = [segue destinationViewController];
         
-        controller.link = self.link;
+        controller.detailDict = self.detailDict;
     }
 }
 
@@ -159,11 +166,15 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
      
 #pragma mark - Selectors
-     
+
 - (void)onReportDetailsSelection:(NSNotification *)notification {
-    self.link = notification.userInfo[@"link"];
+    self.detailDict = notification.userInfo;
     
     [self performSegueWithIdentifier:kELSegueIdentifier sender:self];
+}
+
+- (void)onSendPDFToEmail:(NSNotification *)notification {
+    [ELUtils composeMailForController:self details:notification.userInfo];
 }
 
 @end

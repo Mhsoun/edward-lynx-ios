@@ -12,6 +12,8 @@
 @class ELPopupViewController;
 @class PNCircleChart;
 
+#import <MessageUI/MessageUI.h>
+
 #import "ELQuestion.h"
 
 @interface ELFormItemGroup : NSObject
@@ -53,6 +55,8 @@
 + (void)animateCell:(__kindof UITableViewCell *)cell;
 + (kELAnswerType)answerTypeByLabel:(NSString *)label;
 + (void)circleChart:(PNCircleChart *)chart progress:(CGFloat)progress;
++ (void)composeMailForController:(__kindof UIViewController *)controller
+                         details:(NSDictionary *)detailsDict;
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict;

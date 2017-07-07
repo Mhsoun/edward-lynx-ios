@@ -45,8 +45,8 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *detailDict = (NSDictionary *)object;
     
-    self.nameLabel.text = detailDict[@"name"];
     self.reports = detailDict[@"reports"];
+    self.nameLabel.text = detailDict[@"name"];
     
     [self.tableView reloadData];
 }
@@ -67,7 +67,7 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [NotificationCenter postNotificationName:kELManagerReportDetailsNotification
                                       object:nil
-                                    userInfo:@{@"link": self.reports[indexPath.row][@"link"]}];
+                                    userInfo:self.reports[indexPath.row]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

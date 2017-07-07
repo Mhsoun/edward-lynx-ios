@@ -13,13 +13,22 @@
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    CGFloat size;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.webView.delegate = self;
+    size = 20;
+    self.title = [self.detailDict[@"name"] uppercaseString];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.link]]];
+    [self.sendEmailBarButtonItem setImage:[FontAwesome imageWithIcon:fa_envelope
+                                                           iconColor:ThemeColor(kELOrangeColor)
+                                                            iconSize:size
+                                                           imageSize:CGSizeMake(size, size)]];
+    
+    [self.webView setDelegate:self];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDict[@"url"]]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +44,18 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [self.indicatorView stopAnimating];
+}
+
+#pragma mark - Interface Builder Actions
+
+- (IBAction)onSendEmailBarButtonItemClick:(id)sender {
+    NSDictionary *emailDict = @{@"title": self.detailDict[@"name"],
+                                @"body": self.detailDict[@"url"],
+                                @"recipients": @[AppSingleton.user.email]};
+    
+    [NotificationCenter postNotificationName:kELManagerReportEmailNotification
+                                      object:nil
+                                    userInfo:emailDict];
 }
 
 @end

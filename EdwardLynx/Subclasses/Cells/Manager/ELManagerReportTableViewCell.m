@@ -21,7 +21,7 @@
     // Initialization code
     
     [self.downloadButton setTintColor:ThemeColor(kELOrangeColor)];
-    [self.downloadButton setImage:[FontAwesome imageWithIcon:fa_download
+    [self.downloadButton setImage:[FontAwesome imageWithIcon:fa_envelope
                                                    iconColor:ThemeColor(kELOrangeColor)
                                                     iconSize:15
                                                    imageSize:CGSizeMake(15, 15)]
@@ -40,7 +40,13 @@
 }
 
 - (IBAction)onDownloadButtonClick:(id)sender {
-    // NOTE Limitation due to iOS structure
+    NSDictionary *emailDict = @{@"title": self.detailDict[@"name"],
+                                @"body": self.detailDict[@"url"],
+                                @"recipients": @[AppSingleton.user.email]};
+    
+    [NotificationCenter postNotificationName:kELManagerReportEmailNotification
+                                      object:nil
+                                    userInfo:emailDict];
 }
 
 @end

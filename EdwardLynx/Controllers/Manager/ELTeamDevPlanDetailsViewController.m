@@ -143,7 +143,7 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
 #pragma mark - Protocol Methods (ELTeamViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    [self.tableView setHidden:NO];    
+    [self.tableView setHidden:NO];
     [ELUtils presentToastAtView:self.view
                         message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
                      completion:nil];
