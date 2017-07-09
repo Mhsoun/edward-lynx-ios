@@ -9,6 +9,7 @@
 #import "ELManagerReportsViewController.h"
 #import "ELManagerReportDetailsViewController.h"
 #import "ELManagerSurveyTableViewCell.h"
+#import "ELTeamViewManager.h"
 
 #pragma mark - Private Constants
 
@@ -23,6 +24,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic, strong) NSArray *surveys;
 @property (nonatomic, strong) NSDictionary *detailDict;
+@property (nonatomic, strong) ELTeamViewManager *viewManager;
 
 @end
 
@@ -46,6 +48,9 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
                      @{@"name": @"Test 1",
                        @"reports": @[@{@"name": @"Report 1",
                                        @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
+    
+    self.viewManager = [[ELTeamViewManager alloc] init];
+    self.viewManager.delegate = self;
     
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
@@ -144,11 +149,17 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 #pragma mark - Protocol Methods (ELTeamViewManager)
 
 - (void)onAPIResponseError:(NSDictionary *)errorDict {
-    
+    [self.indicatorView stopAnimating];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.surveys = responseDict[@"items"];
     
+    [self.indicatorView stopAnimating];
+    [self.tableView reloadData];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {

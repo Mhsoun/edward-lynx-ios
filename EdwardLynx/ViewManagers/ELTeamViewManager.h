@@ -14,6 +14,7 @@
 - (void)processCreateTeamDevPlan:(NSDictionary *)params;
 - (void)processDeleteTeamDevPlan:(int64_t)objectId;
 - (void)processEnableUsersForManagerDashboard:(NSDictionary *)params;
+- (void)processRetrieveManagerReports;
 - (void)processRetrieveSharedUserDevPlans;
 - (void)processRetrieveTeamDevPlanDetails:(int64_t)objectId;
 - (void)processRetrieveTeamDevPlans;

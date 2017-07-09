@@ -204,6 +204,7 @@ extern NSString * const kELAPISurveyResultsEndpoint;
 
 extern NSString * const kELAPITeamDevelopmentPlanEndpoint;
 extern NSString * const kELAPITeamDevelopmentPlansEndpoint;
+extern NSString * const kELAPITeamReportsEndpoint;
 extern NSString * const kELAPITeamUsersEndpoint;
 
 extern NSString * const kELAPIUserEndpoint;
