@@ -1,21 +1,21 @@
 
 /* Class = "UIButton"; normalTitle = "Select all"; ObjectID = "DgO-U8-40k"; */
-"DgO-U8-40k.normalTitle" = "Select all";
+"DgO-U8-40k.normalTitle" = "Выбрать всех";
 
 /* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "IPk-wm-Q6F"; */
-"IPk-wm-Q6F.placeholder" = "Search";
+"IPk-wm-Q6F.placeholder" = "Поиск";
 
 /* Class = "UILabel"; text = "People selected: 0"; ObjectID = "VRi-ls-lhD"; */
-"VRi-ls-lhD.text" = "People selected: 0";
+"VRi-ls-lhD.text" = "Выбранные пользователи: 0";
 
 /* Class = "UIButton"; normalTitle = "Invite people by email address"; ObjectID = "b9s-4t-stq"; */
-"b9s-4t-stq.normalTitle" = "Invite people by email address";
+"b9s-4t-stq.normalTitle" = "Отправить приглашения по электронной почте";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "vah-jb-Lki"; */
-"vah-jb-Lki.disabledTitle" = "Processing...";
+"vah-jb-Lki.disabledTitle" = "Идет обработка...";
 
 /* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "vah-jb-Lki"; */
-"vah-jb-Lki.normalTitle" = "Send Invites";
+"vah-jb-Lki.normalTitle" = "Отправить приглашения";
 
 /* Class = "UINavigationItem"; title = "Invite People"; ObjectID = "zar-hO-SbN"; */
-"zar-hO-SbN.title" = "Invite People";
+"zar-hO-SbN.title" = "Пригласить участников";

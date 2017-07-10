@@ -29,7 +29,6 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type here..."/>
                     </userDefinedRuntimeAttributes>
                 </textView>
             </subviews>

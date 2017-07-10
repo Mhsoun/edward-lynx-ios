@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
+
 #import "ELQuestionTypeTextView.h"
 
 @implementation ELQuestionTypeTextView
@@ -22,6 +24,7 @@
     [super awakeFromNib];
     
     self.textView.delegate = self;
+    self.textView.placeholder = NSLocalizedString(@"kELTextViewPlaceholderLabel", nil);
 }
 
 #pragma mark - Protocol Methods (UITextView)

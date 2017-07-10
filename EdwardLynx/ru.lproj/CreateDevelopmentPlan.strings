@@ -3,34 +3,34 @@
 "0mI-Vz-p3Z.normalTitle" = "Save";
 
 /* Class = "UILabel"; text = "Enter Description"; ObjectID = "1sF-5k-Txc"; */
-"1sF-5k-Txc.text" = "Enter Description";
+"1sF-5k-Txc.text" = "Введите описание";
 
 /* Class = "UILabel"; text = "Enter Goal Name"; ObjectID = "6j0-UM-6if"; */
-"6j0-UM-6if.text" = "Enter Goal Name";
+"6j0-UM-6if.text" = "Введите название цели";
 
 /* Class = "UILabel"; text = "Enter Development Plan Name"; ObjectID = "76e-JE-FPl"; */
-"76e-JE-FPl.text" = "Enter Development Plan Name";
+"76e-JE-FPl.text" = "Введите название Плана развития";
 
 /* Class = "UIButton"; normalTitle = "Create"; ObjectID = "9wj-up-hY1"; */
-"9wj-up-hY1.normalTitle" = "Create";
+"9wj-up-hY1.normalTitle" = "Введите название цели";
 
 /* Class = "UILabel"; text = "Link to a category"; ObjectID = "Ei9-aC-MO4"; */
-"Ei9-aC-MO4.text" = "Link to a category";
+"Ei9-aC-MO4.text" = "Объединить в категорию";
 
 /* Class = "UINavigationItem"; title = "Goal Details"; ObjectID = "O5J-gr-nQK"; */
-"O5J-gr-nQK.title" = "Goal Details";
+"O5J-gr-nQK.title" = "Описание цели";
 
 /* Class = "UINavigationItem"; title = "Create Development Plan"; ObjectID = "Vv2-Q3-oR2"; */
-"Vv2-Q3-oR2.title" = "Create Development Plan";
+"Vv2-Q3-oR2.title" = "Создать план развития";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "aRW-0g-O3z"; */
 "aRW-0g-O3z.text" = "Title";
 
 /* Class = "UILabel"; text = "Actions"; ObjectID = "ec1-sT-EDz"; */
-"ec1-sT-EDz.text" = "Actions";
+"ec1-sT-EDz.text" = "Задача";
 
 /* Class = "UILabel"; text = "Due Date"; ObjectID = "k8P-kX-1PH"; */
-"k8P-kX-1PH.text" = "Due Date";
+"k8P-kX-1PH.text" = "Срок выполнения";
 
 /* Class = "UILabel"; text = "Goals"; ObjectID = "y2D-su-Kaj"; */
-"y2D-su-Kaj.text" = "Goals";
+"y2D-su-Kaj.text" = "Цели";

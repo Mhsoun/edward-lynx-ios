@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-C9-WhO">
-                        <rect key="frame" x="5" y="9" width="280" height="35"/>
+                        <rect key="frame" x="0.0" y="9" width="295" height="35"/>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -43,13 +43,13 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04e-dx-Z81">
-                        <rect key="frame" x="290" y="9" width="55" height="35"/>
+                        <rect key="frame" x="300" y="9" width="45" height="35"/>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="NAN-4F-PgJ"/>
+                            <constraint firstAttribute="width" constant="45" id="NAN-4F-PgJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                        <state key="normal" title="Add">
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                        <state key="normal" title="+">
                             <color key="titleColor" red="0.20000000000000001" green="0.08235294118" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -64,7 +64,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="dKO-C9-WhO" firstAttribute="leading" secondItem="ixc-gt-cPD" secondAttribute="leading" constant="5" id="BbO-68-Nw1"/>
+                    <constraint firstItem="dKO-C9-WhO" firstAttribute="leading" secondItem="ixc-gt-cPD" secondAttribute="leading" id="BbO-68-Nw1"/>
                     <constraint firstItem="04e-dx-Z81" firstAttribute="height" secondItem="dKO-C9-WhO" secondAttribute="height" id="YZN-7m-ap5"/>
                     <constraint firstItem="04e-dx-Z81" firstAttribute="leading" secondItem="dKO-C9-WhO" secondAttribute="trailing" constant="5" id="jPh-69-LU1"/>
                     <constraint firstAttribute="trailing" secondItem="04e-dx-Z81" secondAttribute="trailing" id="nmz-ns-Tzf"/>

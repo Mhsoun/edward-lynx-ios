@@ -131,7 +131,7 @@
 - (void)setupPageByType:(kELListType)type {
     NSString *identifier;
     CGFloat iconHeight = 15;
-    NSString *format = @"Search %@";
+    NSString *format = NSLocalizedString(@"kELSearchLabel", nil);
     
     // Button
     [self.addButton setImage:[FontAwesome imageWithIcon:fa_plus

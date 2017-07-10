@@ -193,9 +193,11 @@
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
-                                             name:@"Name"
-                                       validators:@[@"presence"]];
+//        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
+//                                             name:@"Name"
+//                                       validators:@[@"presence"]];
+
+        nameErrors = [[formFieldGroup textValue] length] == 0 ? @[NSLocalizedString(@"kELNameValidationMessage", nil)] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }
@@ -237,9 +239,11 @@
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
-                                             name:NSLocalizedString(@"kELNameField", nil)
-                                       validators:@[@"presence"]];
+//        nameErrors = [REValidation validateObject:[formFieldGroup textValue]
+//                                             name:NSLocalizedString(@"kELNameField", nil)
+//                                       validators:@[@"presence"]];
+        
+        nameErrors = [[formFieldGroup textValue] length] == 0 ? @[NSLocalizedString(@"kELNameValidationMessage", nil)] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:nameErrors];
     }

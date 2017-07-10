@@ -1,24 +1,24 @@
 
 /* Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41"; */
-"BvV-Tr-b41.text" = "Answer Type";
+"BvV-Tr-b41.text" = "Тип ответа";
 
 /* Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3"; */
-"LqK-pq-nP3.text" = "Question";
+"LqK-pq-nP3.text" = "Вопрос";
 
 /* Class = "UILabel"; text = "Question Type Preview"; ObjectID = "Tex-aE-SUX"; */
-"Tex-aE-SUX.text" = "Question Type Preview";
+"Tex-aE-SUX.text" = "Предварительный просмотр типа вопроса";
 
 /* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
-"WO5-DV-VLL.text" = "Is Anonymous";
+"WO5-DV-VLL.text" = "Анонимный";
 
 /* Class = "UINavigationItem"; title = "Create Instant Feedback"; ObjectID = "ZYd-Wg-Okj"; */
-"ZYd-Wg-Okj.title" = "Create Instant Feedback";
+"ZYd-Wg-Okj.title" = "Создать Мгновенную обратную связь";
 
 /* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
-"eM8-uf-ggi.text" = "Options";
+"eM8-uf-ggi.text" = "Дополнительные функции";
 
 /* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
-"tgA-52-d0c.text" = "Add a N/A option";
+"tgA-52-d0c.text" = "Добавить функцию ответа \"Незнаю\"";
 
 /* Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ"; */
-"vhu-w3-2iZ.normalTitle" = "Invite";
+"vhu-w3-2iZ.normalTitle" = "Пригласить";

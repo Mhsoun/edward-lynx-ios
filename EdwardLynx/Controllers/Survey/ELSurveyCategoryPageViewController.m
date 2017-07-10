@@ -344,7 +344,7 @@
     self.pageControl.numberOfPages = self.pageCount;
     
     self.prevButton.hidden = YES;
-    self.nextButton.hidden = NO;
+    self.nextButton.hidden = self.mControllers.count <= 1;
     
     self.draftsButton.hidden = YES;
     self.submitButton.hidden = YES;

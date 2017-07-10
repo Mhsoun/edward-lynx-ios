@@ -32,7 +32,6 @@
 "kELUpdateButton" = "Update";
 
 "kELCompletedLabel" = "%@ / %@ Completed";
-"kELCreateTextViewPlaceholderLabel" = "Content";
 "kELFilterLabel" = "Filter";
 "kELFilterByLabel" = "Filter By";
 "kELEmailLabel" = "E-mail";
@@ -41,10 +40,8 @@
 "kELNameLabel" = "Name";
 "kELNoDescriptionLabel" = "No description";
 "kELProcessingLabel" = "Processing...";
-"kELSearchLabel" = "Search %@";
 "kELSortLabel" = "Sort";
 "kELSortByLabel" = "Sort By";
-"kELTextViewPlaceholderLabel" = "Type here...";
 "kELUpdateLabel" = "Update";
 
 "kELDetailsPageLoadError" = "Failed to load details";
@@ -135,9 +132,7 @@
 "kELDevelopmentPlanGoalTimestampDueDate" = "Due Date: %@";
 "kELDevelopmentPlanGoalTimestampToday" = "Today";
 
-"kELDevelopmentPlanCompleted" = "completed";
 "kELDevelopmentPlanEmptyMessage" = "No Development Plans";
-"kELDevelopmentPlanGoalsCompleted" = "%@ of %@ goals completed";
 "kELDevelopmentPlanTitle" = "Development Plan";
 
 /* Feedback */
@@ -311,8 +306,6 @@
 
 "kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
 "kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
-"kELTeamDevelopmentPlanUpdateError" = "Failed to update Team Development Plan(s)";
-"kELTeamDevelopmentPlanUpdateSuccess" = "Successfully updated Team Development Plan(s)";
 
 /* User Roles */
 
@@ -335,10 +328,3 @@
 "kELPasswordValidationMessage" = "New Password fields must be the same";
 "kELREValidationEmailMessage" = "%@ is an invalid email";
 "kELREValidationPresenceMessage" = "%@ can't be blank";
-
-"kELFeedbackQuestionValidationMessage" = "Question can't be blank";
-
-"kELLoginPasswordValidationMessage" = "Password can't be blank";
-"kELLoginUsernameValidationMessage" = "Username can't be blank";
-
-"kELNameValidationMessage" = "Name can't be blank";

@@ -875,6 +875,11 @@
 		A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdwardLynxUITests.m; sourceTree = "<group>"; };
 		A9308BFB1DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93786241F1238DF00C8C22A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddGoalActionCell.strings; sourceTree = "<group>"; };
+		A93786261F1238E100C8C22A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/AddGoalActionCell.strings; sourceTree = "<group>"; };
+		A93786281F1238E200C8C22A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/AddGoalActionCell.strings; sourceTree = "<group>"; };
+		A937862A1F1238E300C8C22A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddGoalActionCell.strings; sourceTree = "<group>"; };
+		A937862C1F1238E500C8C22A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AddGoalActionCell.strings"; sourceTree = "<group>"; };
 		A94227FA1EDD4CE200730F00 /* ELDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDataPoint.h; sourceTree = "<group>"; };
 		A94227FB1EDD4CE200730F00 /* ELDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataPoint.m; sourceTree = "<group>"; };
 		A94227FD1EDD5ED100730F00 /* ELBlindspot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBlindspot.h; sourceTree = "<group>"; };
@@ -1137,6 +1142,10 @@
 		A98371831ED42C1700C05594 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
+		A988553C1F11EA020017DB87 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A988553D1F11EA040017DB87 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A988553E1F11EA050017DB87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A988553F1F11EA060017DB87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
@@ -3363,6 +3372,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				A91311981E8642D20042C91F /* en */,
+				A988553C1F11EA020017DB87 /* sv */,
+				A988553D1F11EA040017DB87 /* de */,
+				A988553E1F11EA050017DB87 /* ru */,
+				A988553F1F11EA060017DB87 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3723,6 +3736,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9B6589D1EE7DE7A00621EFB /* Base */,
+				A93786241F1238DF00C8C22A /* en */,
+				A93786261F1238E100C8C22A /* sv */,
+				A93786281F1238E200C8C22A /* de */,
+				A937862A1F1238E300C8C22A /* ru */,
+				A937862C1F1238E500C8C22A /* zh-Hans */,
 			);
 			name = AddGoalActionCell.xib;
 			sourceTree = "<group>";
