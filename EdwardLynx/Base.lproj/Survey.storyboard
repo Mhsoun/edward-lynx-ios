@@ -206,14 +206,14 @@
                                                 </constraints>
                                             </view>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptj-GZ-AdK">
-                                                <rect key="frame" x="285" y="307" width="75" height="35"/>
+                                                <rect key="frame" x="315" y="307" width="45" height="35"/>
                                                 <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="KtN-D5-wuE"/>
-                                                    <constraint firstAttribute="width" constant="75" id="fbx-Dc-zLK"/>
+                                                    <constraint firstAttribute="width" constant="45" id="fbx-Dc-zLK"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                                <state key="normal" title="Add User">
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                                <state key="normal" title="+">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.08235294118" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -226,7 +226,7 @@
                                                 </connections>
                                             </button>
                                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users to invite" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUg-ex-YkK">
-                                                <rect key="frame" x="15" y="315" width="265" height="19"/>
+                                                <rect key="frame" x="15" y="315" width="295" height="19"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,7 +474,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYu-hV-dci">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                         <subviews>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7C-H1-C7k">
+                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7C-H1-C7k">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -490,7 +490,7 @@
                                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="currentPageIndicatorTintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </pageControl>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-yK-667">
+                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-yK-667">
                                                 <rect key="frame" x="303" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>

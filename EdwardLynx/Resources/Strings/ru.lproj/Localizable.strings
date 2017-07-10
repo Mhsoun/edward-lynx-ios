@@ -330,13 +330,13 @@
 "kELGoalCategoriesValidationMessage" = "No Categories available";
 "kELGoalDueDateValidationMessage" = "Срок выполнения должен быть не ранее сегодняшнего дня";
 "kELGoalsValidationMessage" = "Нет добавленных целей";
-"kELPasswordValidationMessage" = "New Password fields must be the same";
+"kELPasswordValidationMessage" = "Пароли должны совпадать";
 "kELREValidationEmailMessage" = "%@ is an invalid email";
 "kELREValidationPresenceMessage" = "%@ can't be blank";
 
+"kELEmailValidationMessage" = "Графа Адреса не может быть пустой";
 "kELFeedbackQuestionValidationMessage" = "Графа \"Вопроса\" не может быть пустой";
-
+"kELFieldValidationMessage" = "Графа не может быть пустой";
 "kELLoginPasswordValidationMessage" = "Введите пароль";
 "kELLoginUsernameValidationMessage" = "Введите логин";
-
-"kELNameValidationMessage" = "Графа \"Название плана\" не может быть пустой";
+"kELNameValidationMessage" = "Графа Имя не может быть пустой";

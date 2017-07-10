@@ -33,7 +33,7 @@
 "bai-qk-Mib.normalTitle" = "Send Invites";
 
 /* Class = "UIButton"; normalTitle = "Add User"; ObjectID = "ptj-GZ-AdK"; */
-"ptj-GZ-AdK.normalTitle" = "Add User";
+"ptj-GZ-AdK.normalTitle" = "+";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED"; */
 "ya8-nY-aED.text" = "Name";

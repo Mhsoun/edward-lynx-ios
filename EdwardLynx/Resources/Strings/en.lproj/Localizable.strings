@@ -336,9 +336,9 @@
 "kELREValidationEmailMessage" = "%@ is an invalid email";
 "kELREValidationPresenceMessage" = "%@ can't be blank";
 
+"kELEmailValidationMessage" = "E-mail can't be blank";
 "kELFeedbackQuestionValidationMessage" = "Question can't be blank";
-
+"kELFieldValidationMessage" = "Field can't be blank";
 "kELLoginPasswordValidationMessage" = "Password can't be blank";
 "kELLoginUsernameValidationMessage" = "Username can't be blank";
-
 "kELNameValidationMessage" = "Name can't be blank";

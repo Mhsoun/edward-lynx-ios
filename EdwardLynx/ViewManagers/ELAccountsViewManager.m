@@ -170,9 +170,11 @@
     
     for (NSString *key in [formDict allKeys]) {
         formFieldGroup = formDict[key];
-        errors = [REValidation validateObject:[formFieldGroup textValue]
-                                         name:NSLocalizedString(@"kELDefaultField", nil)
-                                   validators:@[@"presence"]];
+//        errors = [REValidation validateObject:[formFieldGroup textValue]
+//                                         name:NSLocalizedString(@"kELDefaultField", nil)
+//                                   validators:@[@"presence"]];
+        
+        errors = [[formFieldGroup textValue] length] == 0 ? @[NSLocalizedString(@"kELFieldValidationMessage", nil)] : nil;
         isValid = isValid && errors.count == 0;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
