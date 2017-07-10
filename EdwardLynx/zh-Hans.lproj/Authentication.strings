@@ -1,12 +1,12 @@
 
 /* Class = "UITextField"; placeholder = "Username/Email"; ObjectID = "0zg-eg-vpS"; */
-"0zg-eg-vpS.placeholder" = "Username/Email";
+"0zg-eg-vpS.placeholder" = "用户名/邮箱";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "1hR-H6-4Zt"; */
-"1hR-H6-4Zt.placeholder" = "Password";
+"1hR-H6-4Zt.placeholder" = "密码";
 
 /* Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "95j-rQ-DgJ"; */
-"95j-rQ-DgJ.normalTitle" = "Forgot Password?";
+"95j-rQ-DgJ.normalTitle" = "忘记密码？";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Rls-Cu-J3h"; */
 "Rls-Cu-J3h.disabledTitle" = "Processing...";
@@ -18,7 +18,7 @@
 "T2j-yn-dSI.disabledTitle" = "Processing...";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "T2j-yn-dSI"; */
-"T2j-yn-dSI.normalTitle" = "Login";
+"T2j-yn-dSI.normalTitle" = "登录";
 
 /* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "UoZ-DP-lmZ"; */
 "UoZ-DP-lmZ.normalTitle" = "Login Now";
@@ -27,7 +27,7 @@
 "iY9-zi-6oy.text" = "Recover Password";
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm"; */
-"jZj-dI-Wdm.normalTitle" = "Contact Us";
+"jZj-dI-Wdm.normalTitle" = "联系我们";
 
 /* Class = "UITextField"; placeholder = "Username/Email"; ObjectID = "vhw-1P-ZZy"; */
-"vhw-1P-ZZy.placeholder" = "Username/Email";
+"vhw-1P-ZZy.placeholder" = "用户名/邮箱";

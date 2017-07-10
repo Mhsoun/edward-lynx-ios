@@ -949,6 +949,7 @@
 		A9654F691EF3B6EC007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Settings.strings; sourceTree = "<group>"; };
 		A9654F6B1EF3B6EE007EC68B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
 		A9654F6D1EF3B6F1007EC68B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
+		A96CE9AB1F13636C00BDAFF6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A96EA2CA1EDD13B8001FD570 /* ELRadarDiagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRadarDiagram.h; sourceTree = "<group>"; };
 		A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELRadarDiagram.m; sourceTree = "<group>"; };
 		A96EA2CD1EDD13D3001FD570 /* ELAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAverage.h; sourceTree = "<group>"; };
@@ -1142,10 +1143,7 @@
 		A98371831ED42C1700C05594 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
 		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
-		A988553C1F11EA020017DB87 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A988553D1F11EA040017DB87 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A988553E1F11EA050017DB87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A988553F1F11EA060017DB87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
@@ -3372,10 +3370,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A91311981E8642D20042C91F /* en */,
-				A988553C1F11EA020017DB87 /* sv */,
-				A988553D1F11EA040017DB87 /* de */,
 				A988553E1F11EA050017DB87 /* ru */,
-				A988553F1F11EA060017DB87 /* zh-Hans */,
+				A96CE9AB1F13636C00BDAFF6 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

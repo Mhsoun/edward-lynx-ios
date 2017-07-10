@@ -168,11 +168,11 @@
 /* Fields */
 
 "kELDefaultField" = "Field";
-"kELEmailField" = "E-mail";
-"kELNameField" = "Name";
-"kELPasswordField" = "Password";
-"kELQuestionField" = "Question";
-"kELUsernameField" = "Username/Email";
+"kELEmailField" = "Адрес электронной почты";
+"kELNameField" = "Имя ";
+"kELPasswordField" = "Пароль";
+"kELQuestionField" = "Вопрос";
+"kELUsernameField" = "Имя пользователя/Адрес электронной почты";
 
 /* Invite/Share */
 
@@ -261,7 +261,7 @@
 
 "kELAnswerOptionalMessage" = "%@ (необязательно)";
 
-"kELSurveyEmptyMessage" = "No Surveys";
+"kELSurveyEmptyMessage" = "Нет Опросники";
 
 "kELSurveyCompleteHeader" = "Опросник заполнен!";
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
@@ -327,7 +327,7 @@
 "kELCustomScaleValidationMessage" = "Введите данные для Индивидуальной шкалы";
 "kELGoalActionsValidationMessage" = "Нет задач для отображения";
 "kELGoalCategoryValidationMessage" = "No Category selected";
-"kELGoalCategoriesValidationMessage" = "No Categories available";
+"kELGoalCategoriesValidationMessage" = "Нет доступных категорий";
 "kELGoalDueDateValidationMessage" = "Срок выполнения должен быть не ранее сегодняшнего дня";
 "kELGoalsValidationMessage" = "Нет добавленных целей";
 "kELPasswordValidationMessage" = "Пароли должны совпадать";

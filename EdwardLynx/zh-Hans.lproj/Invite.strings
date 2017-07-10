@@ -1,21 +1,21 @@
 
 /* Class = "UIButton"; normalTitle = "Select all"; ObjectID = "DgO-U8-40k"; */
-"DgO-U8-40k.normalTitle" = "Select all";
+"DgO-U8-40k.normalTitle" = "选择所有";
 
 /* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "IPk-wm-Q6F"; */
-"IPk-wm-Q6F.placeholder" = "Search";
+"IPk-wm-Q6F.placeholder" = "搜索";
 
 /* Class = "UILabel"; text = "People selected: 0"; ObjectID = "VRi-ls-lhD"; */
-"VRi-ls-lhD.text" = "People selected: 0";
+"VRi-ls-lhD.text" = "选择用户: 0";
 
 /* Class = "UIButton"; normalTitle = "Invite people by email address"; ObjectID = "b9s-4t-stq"; */
-"b9s-4t-stq.normalTitle" = "Invite people by email address";
+"b9s-4t-stq.normalTitle" = "通过邮箱邀请他人";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "vah-jb-Lki"; */
 "vah-jb-Lki.disabledTitle" = "Processing...";
 
 /* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "vah-jb-Lki"; */
-"vah-jb-Lki.normalTitle" = "Send Invites";
+"vah-jb-Lki.normalTitle" = "发出邀请";
 
 /* Class = "UINavigationItem"; title = "Invite People"; ObjectID = "zar-hO-SbN"; */
-"zar-hO-SbN.title" = "Invite People";
+"zar-hO-SbN.title" = "邀请他人";
