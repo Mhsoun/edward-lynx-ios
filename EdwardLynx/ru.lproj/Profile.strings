@@ -1,30 +1,30 @@
 
 /* Class = "UILabel"; text = "About"; ObjectID = "0O3-sy-krY"; */
-"0O3-sy-krY.text" = "About";
+"0O3-sy-krY.text" = "Сведения о Вас";
 
 /* Class = "UILabel"; text = "Role"; ObjectID = "3VS-oh-Dyo"; */
-"3VS-oh-Dyo.text" = "Role";
+"3VS-oh-Dyo.text" = "Должность";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "AC2-cE-mwR"; */
-"AC2-cE-mwR.normalTitle" = "Cancel";
+"AC2-cE-mwR.normalTitle" = "Отменить";
 
 /* Class = "UILabel"; text = "City"; ObjectID = "B6X-dK-AVR"; */
-"B6X-dK-AVR.text" = "City";
+"B6X-dK-AVR.text" = "Город";
 
 /* Class = "UILabel"; text = "Department"; ObjectID = "IYD-Fd-0fI"; */
-"IYD-Fd-0fI.text" = "Department";
+"IYD-Fd-0fI.text" = "Подразделение";
 
 /* Class = "UILabel"; text = "Country"; ObjectID = "KIE-Hp-b3o"; */
-"KIE-Hp-b3o.text" = "Country";
+"KIE-Hp-b3o.text" = "Страна";
 
 /* Class = "UINavigationItem"; title = "Profile"; ObjectID = "KUQ-vm-yU0"; */
-"KUQ-vm-yU0.title" = "Profile";
+"KUQ-vm-yU0.title" = "Профиль";
 
 /* Class = "UILabel"; text = "Gender"; ObjectID = "aHy-DJ-e6N"; */
-"aHy-DJ-e6N.text" = "Gender";
+"aHy-DJ-e6N.text" = "Пол";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "dxl-P5-CHQ"; */
-"dxl-P5-CHQ.text" = "Name";
+"dxl-P5-CHQ.text" = "Имя";
 
 /* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "pfG-4u-dUc"; */
-"pfG-4u-dUc.normalTitle" = "Edit";
+"pfG-4u-dUc.normalTitle" = "Редактировать";

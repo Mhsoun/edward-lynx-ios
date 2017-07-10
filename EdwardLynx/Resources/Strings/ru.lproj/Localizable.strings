@@ -1,0 +1,342 @@
+/* 
+  Localizable.strings
+  EdwardLynx
+
+  Created by Jason Jon E. Carreos on 07/02/2017.
+  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
+*/
+
+/* General */
+
+"kELDefaultAlertMessage" = "%@ Please try again later.";
+"kELLogoutAlertMessage" = "В случае выхода из приложения вам понадобяться данные для входа.";
+"kELServerMessage" = "Невозможно связаться с сервером. Пожалуйста, повторите попытку позже ";
+
+"kELCreateInstantFeedbackTitle" = "Создать Мгновенную обратную связь";
+"kELInstantFeedbackTitle" = "Мгновенная обратная связь";
+
+"kELAddButton" = "Добавить";
+"kELAddMoreParticipantsButton" = "Add Participants";
+"kELCancelButton" = "Отменить";
+"kELCloseButton" = "Закрыть";
+"kELCompleteButton" = "Завершить";
+"kELDeleteButton" = "Удалить";
+"kELInviteParticipantsButton" = "Пригласить";
+"kELLogoutButton" = "Выход из системы";
+"kELOkButton" = "Ok";
+"kELProfileEditButton" = "Редактировать";
+"kELProfileSaveButton" = "Сохранить";
+"kELSaveToDraftButton" = "Сохранить как черновик";
+"kELSelectParticipantsButton" = "Select Participants";
+"kELSubmitButton" = "Отправить";
+"kELUpdateButton" = "Обновить";
+
+"kELCompletedLabel" = "%@ / %@ Завершено";
+"kELCreateTextViewPlaceholderLabel" = "Содержание";
+"kELFilterLabel" = "Filter";
+"kELFilterByLabel" = "Filter By";
+"kELEmailLabel" = "Адрес электронной почты";
+"kELErrorLabel" = "Ошибка";
+"kELExpiresOnLabel" = "Expires on %@";
+"kELNameLabel" = "Имя";
+"kELNoDescriptionLabel" = "No description";
+"kELProcessingLabel" = "Идет обработка...";
+"kELSearchLabel" = "Искать %@";
+"kELSortByLabel" = "Sort By";
+"kELSortLabel" = "Sort";
+"kELTextViewPlaceholderLabel" = "Ввведите здесь...";
+"kELUpdateLabel" = "Обновить";
+
+"kELDetailsPageLoadError" = "Failed to load details";
+"kELPostMethodError" = "Failed to process request";
+
+"kELErrorDetailsMessage" = "Please try again later";
+
+/* Authentication */
+
+"kELLoginButtonDisabledText" = "Идет обработка...";
+"kELLoginButtonNormalText" = "Логин";
+
+/* Dashboard/Menu */
+
+"kELDashboardAddNew" = "Answer New";
+"kELDashboardCreateNew" = "Создать новый план";
+
+"kELDashboardActionDevelopmentPlan" = "Планы\nразвития";
+"kELDashboardActionInstantFeedback" = "Мгновенная обратная связь";
+"kELDashboardActionLynxMeasurement" = "Инструменты\nЛинкс";
+"kELDashboardActionAnswer" = "Ответить";
+"kELDashboardActionResults" = "Результаты";
+"kELDashboardActionInvite" = "Пригласить";
+"kELDashboardActionCreate" = "Создать";
+"kELDashboardActionTeam" = "Team";
+
+"kELDashboardDueDateMessage" = "Срок истекает через";
+
+"kELDashboardDueDateMessageSingular" = "Срок истекает через\n%@ день";
+"kELDashboardDueDateMessagePlural" = "Срок истекает через\n%@ дня(ей)";
+"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
+"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
+"kELDashboardDueDateNow" = "Заполнить сейчас";
+
+"kELDashboardReminderFeedback" = "Мгновенная обратная связь";
+"kELDashboardReminderGoal" = "Цель";
+"kELDashboardReminderSurvey" = "Опросник";
+
+"kELDashboardSectionDevelopmentPlans" = "Планы развития";
+"kELDashboardSectionReminders" = "Напоминания";
+
+"kELMenuItemDashboard" = "Панель управления";
+"kELMenuItemDevelopmentPlan" = "Планы развития";
+"kELMenuItemProfile" = "Профиль";
+"kELMenuItemSettings" = "Настройки";
+"kELMenuItemSurveys" = "Опросники";
+
+"kELReminderEmptyMessage" = "Без напоминаний";
+
+/* Development Plans */
+
+"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Подтверждение";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Завершить это действие, %@?";
+
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Удалить эту задачу, %@?";
+
+"kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
+"kELDevelopmentPlanCreateSuccess" = "План развития успешно создан!";
+
+"kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "Development Plan no longer shared to manager";
+
+"kELDevelopmentPlanGoalCreateSuccess" = "Цель успешно добавлена";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Цель успешно удалена";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Цель успешно обновлена";
+
+"kELDevelopmentPlanGoalActionCreateAlertHeader" = "Создать Задачу";
+"kELDevelopmentPlanGoalActionCreateAlertDetail" = "Введите новую задачу";
+"kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
+"kELDevelopmentPlanGoalActionDeleteSuccess" = "Задача успешно удалена";
+"kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Обновить задачу";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Ввести новое имя задачи";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Действие по выполнению цели успешно обновлено";
+
+"kELDevelopmentPlanGoalCompleteHeader" = "Цель выполнена!";
+"kELDevelopmentPlanGoalCompleteDetail" = "Вы нашли удачный баланс между решительностью и энтузиазмом. Так держать!";
+
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Удалить эту цель, %@?";
+
+"kELDevelopmentPlanGoalButtonAdd" = "Добавить цель";
+"kELDevelopmentPlanGoalButtonDelete" = "Удалить цель";
+"kELDevelopmentPlanGoalButtonUpdate" = "Обновить цель";
+
+"kELDevelopmentPlanGoalActionButtonAdd" = "Добавить Задачу";
+"kELDevelopmentPlanGoalActionButtonDelete" = "Удалить задачу";
+"kELDevelopmentPlanGoalActionButtonUpdate" = "Обновить задачу";
+
+"kELDevelopmentPlanGoalTimestampDueDate" = "Дата выполнения: %@";
+"kELDevelopmentPlanGoalTimestampToday" = "Today";
+
+"kELDevelopmentPlanCompleted" = "выполнены";
+"kELDevelopmentPlanEmptyMessage" = "Нет планов для отображения";
+"kELDevelopmentPlanGoalsCompleted" = "%@ из %@ целей выполнены";
+"kELDevelopmentPlanTitle" = "План развития";
+
+/* Feedback */
+
+"kELFeedbackAnonymousLabel" = "Анонимная обратная связь";
+
+"kELFeedbackAnswerError" = "Failed answering Instant Feedback";
+"kELFeedbackAnswerRequired" = "Необходимо ответить на все вопросы";
+"kELFeedbackAnswerSuccess" = "Вы успешно предоставили обратную связь!";
+
+"kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
+"kELFeedbackAnswerTypeOneToTenScale" = "Шкала от 1 до 10";
+"kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
+"kELFeedbackAnswerTypeYesNoScale" = "Да или Нет";
+"kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
+"kELFeedbackAnswerTypeText" = "Текстовый ответ";
+"kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
+"kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
+"kELFeedbackAnswerTypeCustomScale" = "Индивидуальные настройки шкалы";
+
+"kELFeedbackCellAuthor" = "Создано: %@";
+
+"kELFeedbackUnauthorizedLabel" = "У вас нет доступа к данной обратной связи";
+
+"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+
+/* Fields */
+
+"kELDefaultField" = "Field";
+"kELEmailField" = "Адрес электронной почты";
+"kELNameField" = "Имя ";
+"kELPasswordField" = "Пароль";
+"kELQuestionField" = "Вопрос";
+"kELUsernameField" = "Имя пользователя/Адрес электронной почты";
+
+/* Invite/Share */
+
+"kELDeselectAllButton" = "Снять выбор";
+"kELSelectAllButton" = "Выбрать всех";
+
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed";
+"kELInviteUsersNoSelectionMessage" = "Пользователи не выбраны";
+
+"kELInviteUsersRetrievalError" = "Failed to retrieve users";
+"kELInviteUsersRetrievalEmpty" = "Нет пользователей для отображения";
+
+"kELInviteUsersAddEmailHeaderMessage" = "Добавить пользователя";
+"kELInviteUsersAddEmailDetailsMessage" = "Введите имя и адрес электронной почты";
+
+"kELInviteTitleFeedback" = "Пригласить участников";
+"kELInviteTitleReport" = "Поделиться результатом";
+
+"kELInviteUsersSuccess" = "Приглашения участникам успешно отправлены!";
+"kELInviteUsersShareSuccess" = "Successfully shared result";
+
+"kELManagerUsersDisableSuccess" = "Successfully disabled users to Manager View";
+"kELManagerUsersEnableSuccess" = "Successfully enabled users to Manager View";
+
+"kELReportEmptyMessage" = "Нет результатов для отображения";
+
+"kELShareButtonFeedback" = "Отправить приглашения";
+"kELShareButtonReport" = "Поделиться";
+
+"kELShareReportsHeaderMessage" = "Share result to users";
+
+"kELUsersNumberSelectedLabel" = "Выбранные пользователи: %@";
+
+/* Profile */
+
+"kELProfileChangePasswordSuccess" = "Пароль успешно обновлен";
+"kELProfileUpdateSuccess" = "Профиль успешно обновлен";
+"kELProfileGenderMale" = "Мужской";
+"kELProfileGenderFemale" = "Женский";
+"kELProfileGenderOther" = "Other";
+
+/* Reports */
+
+"kELReportInfoLabel" = "Приглашено: %@ | Получено ответов: %@";
+"kELReportInfoCandidates" = "Candidates";
+"kELReportInfoOthers" = "Others combined";
+"kELReportInfoManager" = "Manager";
+
+"kELReportMoreDropdownAddMore" = "Добавить участников";
+"kELReportMoreDropdownShare" = "Поделиться результатом";
+
+"kELReportNoData" = "График данных отсутствует";
+"kELReportRestrictedData" = "Чтобы посмотреть график необходимо не менее %@-х человек";
+"kELReportTitleFeedback" = "Результат обратной связи";
+
+"kELReportTypeBlindspotOverHeader" = "\"Слепые пятна\" (Переоцененные качества)";
+"kELReportTypeBlindspotOverDetail" = "Вопросы, где вы получили оценки ниже ваших собственных. Ваши области для развития.";
+
+"kELReportTypeBlindspotUnderHeader" = "\"Слепые пятна\" (Недооцененные качества)";
+"kELReportTypeBlindspotUnderDetail" = "Вопросы, где вы получили оценки выше ваших собственных. Ваши качества, ценные для окружающих.";
+
+"kELReportTypeBreakdownHeader" = "Распеределение ответов в соответствии с категорией участника";
+"kELReportTypeBreakdownDetail" = "Диаграмма отображает среднее значение оценок областей компетентности, для каждой категории участников.";
+
+"kELReportTypeCommentsHeader" = "Комментарии участников опроса";
+
+"kELReportTypeDetailPerCategoryHeader" = "Подробный суммарный ответ для каждой категории";
+
+"kELReportTypeHighestHeader" = "Пять вопросов, получивших наиболее высокую оценку (%@)";
+"kELReportTypeHighestDetail" = "";
+
+"kELReportTypeLowestHeader" = "Пять вопросов, получивших наименьшую оценку (%@)";
+"kELReportTypeLowestDetail" = "";
+
+"kELReportTypeRadarHeader" = "Круговая диаграмма";
+"kELReportTypeRadarDetail" = "Обзор результатов опроса обратной связи сравнивается с вашей собственной оценкой. В наибольшем радиусе круга показаны ваши сильные стороны. Данные соответствуют вашей собственной оценке или мнению группы, предоставившей обратную связь.";
+
+"kELReportTypeResponseRateHeader" = "Процент/доля ответивших";
+"kELReportTypeResponseRateDetail" = "Диаграмма отображает количество ответивших на запрос об обратной связи, данные отображены по категориям..";
+
+"kELReportTypeYesNoHeader" = "Вопросы \"да/нет\"";
+
+/* Surveys */
+
+"kELAnswerSurveyTitle" = "Заполнить опросник";
+
+"kELAnswerOptionalMessage" = "%@ (необязательно)";
+
+"kELSurveyEmptyMessage" = "Нет Опросники";
+
+"kELSurveyCompleteHeader" = "Опросник заполнен!";
+"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
+"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
+
+"kELSurveySubmissionSuccess" = "Successfully submitted answers";
+"kELSurveySaveToDraftSuccess" = "Ответы сохранены как черновик";
+"kELSurveyPostError" = "Failed to post answers";
+
+"kELSurveyRateError" = "Failed to invite others to rate you";
+"kELSurveyRateSuccess" = "Приглашения для опроса успешно отправлены!";
+
+"kELSurveyStatusOpen" = "Открыть";
+"kELSurveyStatusUnfinished" = "Не завершено";
+"kELSurveyStatusCompleted" = "Завершено";
+"kELSurveyStatusNotInvited" = "Нет приглашенных участников";
+
+"kELSurveyType360Individual" = "Линкс 360";
+"kELSurveyTypeLMTT" = "Линкс Инструмент Эффективности Команды управления";
+"kELSurveyTypeProgress" = "Линкс Прогресс";
+"kELSurveyTypeSurvey" = "Линкс Опросник";
+"kELSurveyTypeLTT" = "Линкс Инструмент Эффективности Команды";
+
+"kELSurveyUnauthorizedLabel" = "У вас нет доступа к данной опроснику";
+
+/* Tabs */
+
+"kELListFilterAll" = "Все";
+"kELListFilterInProgress" = "В процессе";
+"kELListFilterCompleted" = "Завершенные";
+"kELListFilterExpired" = "Срок выполнения истек";
+"kELListFilterInstantFeedback" = "Мгновенная обратная связь";
+"kELListFilterLynxMeasurement" = "Инструменты Линкс";
+
+/* Tab Titles */
+
+"kELTabTitleDevPlan" = "Планы развития";
+"kELTabTitleReports" = "Результаты";
+"kELTabTitleSurveys" = "Опросники";
+
+/* Team Tab Titles */
+
+"kELTabTitleIndividual" = "Individual";
+"kELTabTitleTeam" = "Team Progress";
+
+/* Team Dev Plan */
+
+"kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
+"kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
+
+/* User Roles */
+
+"kELUserRoleColleague" = "Коллега";
+"kELUserRoleManager" = "Руководитель";
+"kELUserRoleCustomer" = "Клиент";
+"kELUserRoleMatrixManager" = "Руководитель в организационной матрице";
+"kELUserRoleOtherStakeholder" = "Другие стейкхолдеры";
+"kELUserRoleDirectReport" = "Непосредственные подчиненные";
+
+/* Validations */
+
+"kELAnswerTypeValidationMessage" = "No Answer type selected";
+"kELCustomScaleValidationMessage" = "Введите данные для Индивидуальной шкалы";
+"kELGoalActionsValidationMessage" = "Нет задач для отображения";
+"kELGoalCategoryValidationMessage" = "No Category selected";
+"kELGoalCategoriesValidationMessage" = "Нет доступных категорий";
+"kELGoalDueDateValidationMessage" = "Срок выполнения должен быть не ранее сегодняшнего дня";
+"kELGoalsValidationMessage" = "Нет добавленных целей";
+"kELPasswordValidationMessage" = "Пароли должны совпадать";
+"kELREValidationEmailMessage" = "%@ is an invalid email";
+"kELREValidationPresenceMessage" = "%@ can't be blank";
+
+"kELEmailValidationMessage" = "Графа Адреса не может быть пустой";
+"kELFeedbackQuestionValidationMessage" = "Графа \"Вопроса\" не может быть пустой";
+"kELFieldValidationMessage" = "Графа не может быть пустой";
+"kELLoginPasswordValidationMessage" = "Введите пароль";
+"kELLoginUsernameValidationMessage" = "Введите логин";
+"kELNameValidationMessage" = "Графа Имя не может быть пустой";

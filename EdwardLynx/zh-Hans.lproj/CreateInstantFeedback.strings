@@ -1,24 +1,24 @@
 
 /* Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41"; */
-"BvV-Tr-b41.text" = "Answer Type";
+"BvV-Tr-b41.text" = "回答方式";
 
 /* Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3"; */
-"LqK-pq-nP3.text" = "Question";
+"LqK-pq-nP3.text" = "问题";
 
 /* Class = "UILabel"; text = "Question Type Preview"; ObjectID = "Tex-aE-SUX"; */
-"Tex-aE-SUX.text" = "Question Type Preview";
+"Tex-aE-SUX.text" = "问题类型预览";
 
 /* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
-"WO5-DV-VLL.text" = "Is Anonymous";
+"WO5-DV-VLL.text" = "匿名";
 
 /* Class = "UINavigationItem"; title = "Create Instant Feedback"; ObjectID = "ZYd-Wg-Okj"; */
-"ZYd-Wg-Okj.title" = "Create Instant Feedback";
+"ZYd-Wg-Okj.title" = "新建即时反馈";
 
 /* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
-"eM8-uf-ggi.text" = "Options";
+"eM8-uf-ggi.text" = "选项";
 
 /* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
-"tgA-52-d0c.text" = "Add a N/A option";
+"tgA-52-d0c.text" = "添加 N/A 选项";
 
 /* Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ"; */
-"vhu-w3-2iZ.normalTitle" = "Invite";
+"vhu-w3-2iZ.normalTitle" = "邀请";

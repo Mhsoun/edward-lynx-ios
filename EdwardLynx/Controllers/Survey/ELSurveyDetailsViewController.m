@@ -33,6 +33,8 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    CGRect frame;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -43,8 +45,11 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
         [self.detailViewManager processRetrievalOfSurveyDetails];
     }
     
+    frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);
+    
     self.tableView.alwaysBounceVertical = NO;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     

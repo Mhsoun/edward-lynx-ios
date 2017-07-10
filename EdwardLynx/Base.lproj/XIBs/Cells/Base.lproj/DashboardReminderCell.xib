@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-Aw-xkr" customClass="RNThemeView">
-                        <rect key="frame" x="15" y="3" width="345" height="54"/>
+                        <rect key="frame" x="10" y="3" width="355" height="54"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95d-Ra-A1s">
                                 <rect key="frame" x="0.0" y="0.0" width="10" height="54"/>
@@ -37,24 +37,24 @@
                                 </constraints>
                             </view>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-Ut-ts4">
-                                <rect key="frame" x="20" y="10" width="260" height="17"/>
+                                <rect key="frame" x="20" y="10" width="245" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUf-ZT-uMx">
-                                <rect key="frame" x="20" y="27" width="260" height="17"/>
+                                <rect key="frame" x="20" y="27" width="245" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VDe-2F-lIM">
-                                <rect key="frame" x="285" y="0.0" width="50" height="54"/>
+                                <rect key="frame" x="270" y="0.0" width="75" height="54"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="4HU-Jg-aeJ"/>
+                                    <constraint firstAttribute="width" constant="75" id="4HU-Jg-aeJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,10 +85,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="oAL-Aw-xkr" firstAttribute="leading" secondItem="ofA-di-238" secondAttribute="leading" constant="15" id="23T-RD-dXg"/>
+                    <constraint firstItem="oAL-Aw-xkr" firstAttribute="leading" secondItem="ofA-di-238" secondAttribute="leading" constant="10" id="23T-RD-dXg"/>
                     <constraint firstAttribute="bottom" secondItem="oAL-Aw-xkr" secondAttribute="bottom" constant="2.5" id="Niq-UF-l6K"/>
                     <constraint firstItem="oAL-Aw-xkr" firstAttribute="top" secondItem="ofA-di-238" secondAttribute="top" constant="2.5" id="dPL-IX-dio"/>
-                    <constraint firstAttribute="trailing" secondItem="oAL-Aw-xkr" secondAttribute="trailing" constant="15" id="f9B-iJ-Myr"/>
+                    <constraint firstAttribute="trailing" secondItem="oAL-Aw-xkr" secondAttribute="trailing" constant="10" id="f9B-iJ-Myr"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

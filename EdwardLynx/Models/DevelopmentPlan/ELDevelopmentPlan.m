@@ -60,15 +60,16 @@
                                      NSForegroundColorAttributeName: ThemeColor(kELOrangeColor)};
     
     completedGoals = [[self.goals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.progress == 1"]] count];
-    format = Format(@"%@ of %@ goals completed", @(completedGoals), @(self.goals.count));
+    format = Format(NSLocalizedString(@"kELDevelopmentPlanGoalsCompleted", nil), @(completedGoals), @(self.goals.count));
     infoString = [[NSMutableAttributedString alloc] initWithString:format attributes:attributesDict];
     
+    // TODO Change range due to localization
     [infoString addAttribute:NSForegroundColorAttributeName
                        value:[UIColor whiteColor]
-                       range:[format rangeOfString:@"completed"]];
+                       range:[format rangeOfString:NSLocalizedString(@"kELDevelopmentPlanCompleted", nil)]];
     [infoString addAttribute:NSFontAttributeName
                        value:Font(@"Lato-Regular", 12.0f)
-                       range:[format rangeOfString:@"completed"]];
+                       range:[format rangeOfString:NSLocalizedString(@"kELDevelopmentPlanCompleted", nil)]];
     
     return infoString;
 }

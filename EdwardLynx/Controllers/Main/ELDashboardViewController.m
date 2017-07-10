@@ -53,7 +53,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+        
     RegisterNib(self.tableView, kELHeaderCellIdentifier);
     RegisterNib(self.tableView, kELReminderCellIdentifier);
     RegisterNib(self.tableView, kELDevPlanCellIdentifier);

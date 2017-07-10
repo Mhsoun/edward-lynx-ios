@@ -52,7 +52,8 @@
                                          animated:NO];
     }
     
-    [self.topConstraint setConstant:!isOneToTenWithExplanation ? 25 : 0];
+//    [self.topConstraint setConstant:!isOneToTenWithExplanation ? 25 : 0];
+    [self.topConstraint setConstant:0];
     [self.scaleChoices updateConstraints];
     
     // Text View

@@ -90,9 +90,11 @@
     
     if (formDict[key]) {
         formFieldGroup = formDict[key];
-        errors = [REValidation validateObject:[formDict[key] textValue]
-                                         name:NSLocalizedString(@"kELQuestionField", nil)
-                                   validators:@[@"presence"]];
+//        errors = [REValidation validateObject:[formFieldGroup textValue]
+//                                         name:NSLocalizedString(@"kELQuestionField", nil)
+//                                   validators:@[@"presence"]];
+
+        errors = [[formFieldGroup textValue] length] == 0 ? @[NSLocalizedString(@"kELFeedbackQuestionValidationMessage", nil)] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:errors];
     }

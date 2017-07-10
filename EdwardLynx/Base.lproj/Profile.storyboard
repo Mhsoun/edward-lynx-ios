@@ -34,7 +34,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-3l-gDw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="498"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-cs-I3z" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
@@ -305,7 +305,7 @@
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0qZ-vS-PTl">
-                                <rect key="frame" x="15" y="572" width="345" height="85"/>
+                                <rect key="frame" x="15" y="617" width="345" height="40"/>
                                 <subviews>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfG-4u-dUc">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
@@ -325,7 +325,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC2-cE-mwR">
-                                        <rect key="frame" x="0.0" y="45" width="345" height="40"/>
+                                        <rect key="frame" x="0.0" y="40" width="345" height="0.0"/>
                                         <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                         <state key="normal" title="Cancel">

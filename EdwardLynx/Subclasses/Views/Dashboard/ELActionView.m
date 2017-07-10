@@ -71,6 +71,8 @@
     self.countLabel.backgroundColor = ThemeColor(kELRedColor);
     self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
     
+    [self bringSubviewToFront:self.countLabel];
+    
     if (countString.length > 2) {
         [self.widthConstraint setConstant:10 * countString.length];
         [self.countLabel updateConstraints];

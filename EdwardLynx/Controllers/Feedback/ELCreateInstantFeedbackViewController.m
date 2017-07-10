@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
+
 #import "ELCreateInstantFeedbackViewController.h"
 #import "ELAddObjectTableViewCell.h"
 #import "ELBaseQuestionTypeView.h"
@@ -50,6 +52,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     self.mInstantFeedbackDict = [[NSMutableDictionary alloc] init];
     
     self.questionTextView.delegate = self;
+    self.questionTextView.placeholder = NSLocalizedString(@"kELCreateTextViewPlaceholderLabel", nil);
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
