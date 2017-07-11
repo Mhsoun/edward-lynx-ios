@@ -10,7 +10,9 @@
 
 #import "ELReportDetailsViewController.h"
 #import "ELAnswerOption.h"
+#import "ELAverage.h"
 #import "ELDetailViewManager.h"
+#import "ELIndexOverCompetenciesData.h"
 #import "ELInstantFeedback.h"
 #import "ELInviteUsersViewController.h"
 #import "ELSurvey.h"
@@ -223,11 +225,11 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             count = self.survey.invited;
             
             for (int i = 0; i < answers.count; i++) {
-                NSDictionary *answerDict = answers[i];
+                ELAverageIndex *averageIndex = answers[i];
                 
-                y = [answerDict[@"average"] doubleValue];
+                y = averageIndex.average;
                 
-                [mLabels addObject:answerDict[@"name"]];
+                [mLabels addObject:averageIndex.name];
                 [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
             }
         }
@@ -388,6 +390,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     NSInteger answered;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    NSMutableArray *mAverage = [[NSMutableArray alloc] init];
+    NSMutableArray *mIndex = [[NSMutableArray alloc] init];
     
     answered = isFeedback ? self.instantFeedback.answered : self.survey.answered;
     defaultHeight = 150;
@@ -399,7 +403,16 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
         }
     } else {
-        [mAnswers addObject:dataDict[@"average"]];
+        for (NSDictionary *dict in dataDict[@"average"]) {
+            [mAverage addObject:[[ELAverageIndex alloc] initWithDictionary:dict error:nil]];
+        }
+        
+        for (NSDictionary *dict in dataDict[@"ioc"]) {
+            [mIndex addObject:[[ELIndexOverCompetenciesData alloc] initWithDictionary:dict error:nil]];
+        }
+        
+        [mAnswers addObject:[mAverage copy]];
+//        [mAnswers addObject:[mIndex copy]];
         [mAnswers addObject:dataDict[@"ioc"]];
     }
     

@@ -14,3 +14,10 @@
 @property (nonatomic) NSString *name;
 
 @end
+
+@interface ELAverageIndex : ELModel
+
+@property (nonatomic) double average;
+@property (nonatomic) NSString *name;
+
+@end

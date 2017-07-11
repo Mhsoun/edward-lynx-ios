@@ -16,3 +16,11 @@
 }
 
 @end
+
+@implementation ELAverageIndex
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
+@end

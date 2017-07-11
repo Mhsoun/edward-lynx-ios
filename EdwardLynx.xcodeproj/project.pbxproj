@@ -557,6 +557,7 @@
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
 		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
 		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
+		A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -1176,6 +1177,8 @@
 		A9979ED61EFA71DF00A5BCA2 /* ELManagerCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerCategoryViewController.h; sourceTree = "<group>"; };
 		A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerCategoryViewController.m; sourceTree = "<group>"; };
 		A9979EDA1EFA72FA00A5BCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamProgress.storyboard; sourceTree = "<group>"; };
+		A997B41D1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELIndexOverCompetenciesData.h; sourceTree = "<group>"; };
+		A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELIndexOverCompetenciesData.m; sourceTree = "<group>"; };
 		A99B51011ED6B007000690FD /* ELReportPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportPageViewController.h; sourceTree = "<group>"; };
 		A99B51021ED6B007000690FD /* ELReportPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportPageViewController.m; sourceTree = "<group>"; };
 		A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportChartTableViewCell.h; sourceTree = "<group>"; };
@@ -1898,6 +1901,8 @@
 				A9DB71031EDEC897006BA0AE /* ELResponseRate.m */,
 				A99EC4361EDEA11B001A99F6 /* ELYesNoData.h */,
 				A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */,
+				A997B41D1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.h */,
+				A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -2783,6 +2788,7 @@
 				A91312591E8642D30042C91F /* ELEditProfileViewController.m in Sources */,
 				A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */,
 				A97C29811E8B8CC300EBC5CE /* ELDevelopmentPlan.m in Sources */,
+				A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */,
 				A97C298A1E8B8CC300EBC5CE /* ELParticipant.m in Sources */,
 				A90DCB4D1F0DE817004F724A /* ELManagerReportsViewController.m in Sources */,
 				A91312991E8642D30042C91F /* ELDropdownView.m in Sources */,
