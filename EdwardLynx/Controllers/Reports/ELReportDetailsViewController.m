@@ -170,8 +170,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 - (NSDictionary *)chartInfoFromData:(NSArray *)answers grouping:(BOOL)forGrouping {
     double y;
     NSInteger count;
-    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
+    NSMutableArray *mColors = [[NSMutableArray alloc] init];
     NSMutableArray *mEntries = [[NSMutableArray alloc] init];
+    NSMutableArray *mLabels = [[NSMutableArray alloc] init];
+    
     
     if ([self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback) {
         count = self.instantFeedback.invited;
@@ -186,35 +188,54 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         }
     } else if (self.survey) {
         if (forGrouping) {
+            NSMutableArray<ELAverageIndex *> *mRoles;
+            ELAverageIndex *firstAverageIndex;
             NSMutableArray<BarChartDataEntry *> *mGroup = [[NSMutableArray alloc] init];
             NSMutableArray<BarChartDataEntry *> *mGroup2 = [[NSMutableArray alloc] init];
             
+            mColors = [[NSMutableArray alloc] initWithCapacity:answers.count];
+            
             for (int i = 0; i < answers.count; i++) {
-                NSString *name;
-                NSDictionary *firstAverageDict;
-                NSDictionary *answerDict = answers[i];
-                NSMutableArray *mRoles = [answerDict[@"roles"] mutableCopy];
+                ELIndexOverCompetenciesData *indexData = answers[i];
                 
-                [mLabels addObject:answerDict[@"name"]];
+                mRoles = [indexData.roles mutableCopy];
+                
+                [mLabels addObject:indexData.name];
                 
                 if (mRoles.count <= 1) {
-                    firstAverageDict = mRoles[0];
-                    name = [firstAverageDict[@"name"] isEqualToString:@"Others combined"] ? @"Candidate" : @"Others combined";
+                    NSString *color, *name;
                     
-                    [mRoles addObject:@{@"id": @(-1),
-                                        @"average": @0,
-                                        @"name": name}];
+                    firstAverageIndex = mRoles[0];
+                    
+                    // NOTE Should be dynamic
+                    name = [firstAverageIndex.name isEqualToString:@"Others combined"] ? @"Candidate" : @"Others combined";
+                    color = [firstAverageIndex.name isEqualToString:@"Others combined"] ? @"selfColor" : @"otherColor";
+                    
+                    [mRoles addObject:[[ELAverageIndex alloc] initWithDictionary:@{@"id": @(-1),
+                                                                                   @"name": name,
+                                                                                   @"color": color,
+                                                                                   @"average": @0}
+                                                                           error:nil]];
                 }
                 
-                for (int j = 0; j < 2; j++) {
-                    NSDictionary *averageDict = mRoles[j];
+                for (int j = 0; j < mRoles.count; j++) {
+                    ELAverageIndex *averageIndex = mRoles[j];
                     
-                    y = [averageDict[@"average"] doubleValue];
+                    y = averageIndex.value;
                     
-                    if ([averageDict[@"name"] isEqualToString:@"Others combined"]) {
-                        [mGroup2 addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
-                    } else {
-                        [mGroup addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+                    [mColors addObject:averageIndex.color];
+                    
+                    switch (j) {
+                        case 0:
+                            [mGroup2 addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+                            
+                            break;
+                        case 1:
+                            [mGroup addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
+                            
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -227,7 +248,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             for (int i = 0; i < answers.count; i++) {
                 ELAverageIndex *averageIndex = answers[i];
                 
-                y = averageIndex.average;
+                y = averageIndex.value;
                 
                 [mLabels addObject:averageIndex.name];
                 [mEntries addObject:[[BarChartDataEntry alloc] initWithX:(double)i y:y]];
@@ -235,7 +256,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         }
     }
     
-    return @{@"entries": [mEntries copy], @"labels": [mLabels copy]};
+    return @{@"colors": [mColors copy],
+             @"entries": [mEntries copy],
+             @"labels": [mLabels copy]};
 }
 
 - (HorizontalBarChartView *)configureHorizontalBarChart:(HorizontalBarChartView *)barChart {
@@ -349,7 +372,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     NSInteger count;
     BarChartData *chartData;
     BarChartDataSet *chartDataSet1, *chartDataSet2;
-    NSDictionary *infoDict = [self chartInfoFromData:answers[1] grouping:YES];
+    NSDictionary *infoDict = [self chartInfoFromData:answers[1] grouping:YES];  // NOTE Should use the `colors` key
     NSArray *labels = infoDict[@"labels"];
     
     count = labels.count;
@@ -412,8 +435,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         }
         
         [mAnswers addObject:[mAverage copy]];
-//        [mAnswers addObject:[mIndex copy]];
-        [mAnswers addObject:dataDict[@"ioc"]];
+        [mAnswers addObject:[mIndex copy]];
     }
     
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;

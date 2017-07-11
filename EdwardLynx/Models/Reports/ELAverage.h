@@ -17,7 +17,8 @@
 
 @interface ELAverageIndex : ELModel
 
-@property (nonatomic) double average;
+@property (nonatomic) double value;
 @property (nonatomic) NSString *name;
+@property (nonatomic) UIColor<Optional> *color;
 
 @end
