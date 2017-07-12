@@ -10,24 +10,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ManagerReportCell" rowHeight="87" id="fgW-yT-bKm" customClass="ELManagerReportTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="ManagerReportCell" rowHeight="87" id="fgW-yT-bKm" customClass="ELManagerReportTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="613" height="87"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgW-yT-bKm" id="3WM-iO-stG">
                 <rect key="frame" x="0.0" y="0.0" width="613" height="86.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY7-eZ-ab4">
-                        <rect key="frame" x="25" y="0.0" width="501.5" height="86.5"/>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY7-eZ-ab4">
+                        <rect key="frame" x="35" y="0.0" width="491.5" height="86.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,7 +48,7 @@
                     <constraint firstItem="Yek-dZ-Tbq" firstAttribute="leading" secondItem="mY7-eZ-ab4" secondAttribute="trailing" id="CSX-Ne-MF6"/>
                     <constraint firstAttribute="trailing" secondItem="Yek-dZ-Tbq" secondAttribute="trailing" id="DDA-To-KAt"/>
                     <constraint firstItem="Yek-dZ-Tbq" firstAttribute="top" secondItem="3WM-iO-stG" secondAttribute="top" id="Ig0-Qn-4PB"/>
-                    <constraint firstItem="mY7-eZ-ab4" firstAttribute="leading" secondItem="3WM-iO-stG" secondAttribute="leading" constant="25" id="SuZ-1b-jqf"/>
+                    <constraint firstItem="mY7-eZ-ab4" firstAttribute="leading" secondItem="3WM-iO-stG" secondAttribute="leading" constant="35" id="SuZ-1b-jqf"/>
                     <constraint firstItem="mY7-eZ-ab4" firstAttribute="top" secondItem="3WM-iO-stG" secondAttribute="top" id="n2c-qi-osv"/>
                     <constraint firstAttribute="bottom" secondItem="mY7-eZ-ab4" secondAttribute="bottom" id="wR8-Fb-bZx"/>
                 </constraints>

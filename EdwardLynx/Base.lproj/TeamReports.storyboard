@@ -21,9 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-FO-fUK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-FO-fUK">
+                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Pg-cyR">
@@ -34,7 +34,7 @@
                         <constraints>
                             <constraint firstItem="yzL-e7-m7e" firstAttribute="top" secondItem="fCb-FO-fUK" secondAttribute="bottom" id="2lq-7f-eVr"/>
                             <constraint firstItem="IBO-Pg-cyR" firstAttribute="centerY" secondItem="qdp-rk-lgw" secondAttribute="centerY" id="7kk-zm-VDg"/>
-                            <constraint firstItem="fCb-FO-fUK" firstAttribute="top" secondItem="qdp-rk-lgw" secondAttribute="top" id="BLc-lZ-2uf"/>
+                            <constraint firstItem="fCb-FO-fUK" firstAttribute="top" secondItem="qdp-rk-lgw" secondAttribute="top" constant="10" id="BLc-lZ-2uf"/>
                             <constraint firstItem="fCb-FO-fUK" firstAttribute="leading" secondItem="qdp-rk-lgw" secondAttribute="leading" id="SZl-cf-no7"/>
                             <constraint firstAttribute="trailing" secondItem="fCb-FO-fUK" secondAttribute="trailing" id="ZxD-ki-X9O"/>
                             <constraint firstItem="IBO-Pg-cyR" firstAttribute="centerX" secondItem="qdp-rk-lgw" secondAttribute="centerX" id="o56-p1-kF5"/>

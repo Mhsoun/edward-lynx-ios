@@ -21,7 +21,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 
 @interface ELManagerReportsViewController ()
 
-@property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic) NSInteger selectedIndex, selectedSection;
 @property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) NSDictionary *detailDict;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
@@ -41,22 +41,8 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     // Initialization
     frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);
     
-    self.selectedIndex = -1;
-    self.users = @[@{@"name": @"Test User",
-                     @"surveys": @[@{@"name": @"Test Survey 1",
-                                     @"reports": @[@{@"name": @"Report 1",
-                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
-                                                   @{@"name": @"Report 2",
-                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
-                                                   @{@"name": @"Report 3",
-                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}]},
-                   @{@"name": @"Test User Yeah",
-                     @"surveys": @[@{@"name": @"Report 1",
-                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
-    
-    self.viewManager = [[ELTeamViewManager alloc] init];
-    self.viewManager.delegate = self;
-    
+    self.selectedIndex = -1, self.selectedSection = -1;
+        
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -66,7 +52,10 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     
     RegisterNib(self.tableView, kELCellIdentifier);
     
-    [self.indicatorView stopAnimating];
+    self.viewManager = [[ELTeamViewManager alloc] init];
+    self.viewManager.delegate = self;
+    
+    [self.viewManager processRetrieveManagerReports];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,19 +118,22 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.selectedIndex == indexPath.row) {  // User taps expanded row
+    if (self.selectedIndex == indexPath.row && self.selectedSection == indexPath.section) {  // User taps expanded row
         self.selectedIndex = -1;
+        self.selectedSection = -1;
         
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (self.selectedIndex != -1) {  // User taps different row
         NSIndexPath *prevPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
         
         self.selectedIndex = indexPath.row;
+        self.selectedSection = indexPath.section;
         
         [tableView reloadRowsAtIndexPaths:@[prevPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else {  // User taps new row with none expanded
         self.selectedIndex = indexPath.row;
+        self.selectedSection = indexPath.section;
         
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -153,15 +145,18 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL isSelected;
     NSArray *surveys = self.users[indexPath.section][@"surveys"];
     NSArray *reports = surveys[indexPath.row][@"reports"];
     CGFloat expandedHeight = (kELManagerReportCellHeight * reports.count) + kELCellHeight;
     
-    return self.selectedIndex == indexPath.row ? expandedHeight : kELCellHeight;
+    isSelected = self.selectedSection == indexPath.section && self.selectedIndex == indexPath.row;
+    
+    return isSelected ? expandedHeight : kELCellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -171,9 +166,9 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSDictionary *userDict = self.users[section];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 25)];
     
-    label.font = Font(@"Lato-Medium", 18.0f);
+    label.font = Font(@"Lato-Medium", 16.0f);
     label.text = userDict[@"name"];
     label.textColor = [UIColor whiteColor];
     label.lineBreakMode = NSLineBreakByClipping;
@@ -199,6 +194,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     self.users = responseDict[@"items"];
     
     [self.indicatorView stopAnimating];
+    [self.tableView setHidden:NO];
     [self.tableView reloadData];
 }
 

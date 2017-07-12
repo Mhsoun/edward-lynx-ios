@@ -24,12 +24,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-DR-2nU">
-                        <rect key="frame" x="15" y="0.0" width="764" height="55"/>
+                        <rect key="frame" x="25" y="0.0" width="754" height="55"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="0TB-xC-KEb"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -38,15 +38,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3o2-yU-V0z">
+                        <rect key="frame" x="0.0" y="53.5" width="779" height="1"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.074509803920000006" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="7gI-Xy-YEO"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kiF-R4-Npu" secondAttribute="bottom" id="5z9-Y7-zHi"/>
                     <constraint firstAttribute="trailing" secondItem="kiF-R4-Npu" secondAttribute="trailing" id="7JG-G0-NxG"/>
+                    <constraint firstAttribute="bottom" secondItem="3o2-yU-V0z" secondAttribute="bottom" id="IEU-Bw-7id"/>
                     <constraint firstItem="kiF-R4-Npu" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" id="INq-zJ-s9X"/>
                     <constraint firstItem="kiF-R4-Npu" firstAttribute="top" secondItem="iLT-DR-2nU" secondAttribute="bottom" id="Kzq-GO-E6B"/>
                     <constraint firstAttribute="trailing" secondItem="iLT-DR-2nU" secondAttribute="trailing" id="PMs-hs-h35"/>
-                    <constraint firstItem="iLT-DR-2nU" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" constant="15" id="jZX-72-mdG"/>
+                    <constraint firstAttribute="trailing" secondItem="3o2-yU-V0z" secondAttribute="trailing" id="PeP-Rj-wi5"/>
+                    <constraint firstItem="3o2-yU-V0z" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" id="Pqd-dy-Qs4"/>
+                    <constraint firstItem="iLT-DR-2nU" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" constant="25" id="jZX-72-mdG"/>
                     <constraint firstItem="iLT-DR-2nU" firstAttribute="top" secondItem="i3w-gS-16P" secondAttribute="top" id="yMA-Xp-eZb"/>
                 </constraints>
             </tableViewCellContentView>

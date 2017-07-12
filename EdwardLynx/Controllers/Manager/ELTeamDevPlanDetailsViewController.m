@@ -85,7 +85,7 @@ static NSString * const kELCellIdentifier = @"TeamMemberGoalCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.selectedIndex == indexPath.row) {  // User taps expanded row
+    if (self.selectedIndex == indexPath.row && self.selectedSection == indexPath.section) {  // User taps expanded row
         self.selectedIndex = -1;
         self.selectedSection = -1;
         
