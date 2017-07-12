@@ -21,9 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-FO-fUK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-FO-fUK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Pg-cyR">
@@ -53,7 +53,7 @@
         <!--Title-->
         <scene sceneID="OAy-Kh-kDg">
             <objects>
-                <viewController id="CqJ-Z3-iIc" customClass="ELManagerReportDetailsViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="CqJ-Z3-iIc" customClass="ELManagerReportDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Td7-dt-hNH"/>
                         <viewControllerLayoutGuide type="bottom" id="dYZ-9l-jFY"/>

@@ -22,7 +22,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 @interface ELManagerReportsViewController ()
 
 @property (nonatomic) NSInteger selectedIndex;
-@property (nonatomic, strong) NSArray *surveys;
+@property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) NSDictionary *detailDict;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
 
@@ -33,21 +33,26 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
+    CGRect frame;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Initialization
+    frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);
+    
     self.selectedIndex = -1;
-    self.surveys = @[@{@"name": @"Test",
-                       @"reports": @[@{@"name": @"Report 1",
-                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
-                                     @{@"name": @"Report 2",
-                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
-                                     @{@"name": @"Report 3",
-                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]},
-                     @{@"name": @"Test 1",
-                       @"reports": @[@{@"name": @"Report 1",
-                                       @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
+    self.users = @[@{@"name": @"Test User",
+                     @"surveys": @[@{@"name": @"Test Survey 1",
+                                     @"reports": @[@{@"name": @"Report 1",
+                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
+                                                   @{@"name": @"Report 2",
+                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"},
+                                                   @{@"name": @"Report 3",
+                                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}]},
+                   @{@"name": @"Test User Yeah",
+                     @"surveys": @[@{@"name": @"Report 1",
+                                     @"url": @"http://www.pdf995.com/samples/pdf.pdf"}]}];
     
     self.viewManager = [[ELTeamViewManager alloc] init];
     self.viewManager.delegate = self;
@@ -56,7 +61,8 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorColor = ThemeColor(kELSurveySeparatorColor);
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
     
     RegisterNib(self.tableView, kELCellIdentifier);
     
@@ -102,15 +108,22 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 
 #pragma mark - Protocol Methods (UITableView)
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.users.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.surveys.count;
+    NSArray *surveys = self.users[section][@"surveys"];
+    
+    return surveys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *surveys = self.users[indexPath.section][@"surveys"];
     ELManagerSurveyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
                                                                          forIndexPath:indexPath];
     
-    [cell configure:self.surveys[indexPath.row] atIndexPath:indexPath];
+    [cell configure:surveys[indexPath.row] atIndexPath:indexPath];
     
     return cell;
 }
@@ -140,10 +153,37 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *reports = self.surveys[indexPath.row][@"reports"];
+    NSArray *surveys = self.users[indexPath.section][@"surveys"];
+    NSArray *reports = surveys[indexPath.row][@"reports"];
     CGFloat expandedHeight = (kELManagerReportCellHeight * reports.count) + kELCellHeight;
     
     return self.selectedIndex == indexPath.row ? expandedHeight : kELCellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSDictionary *userDict = self.users[section];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, 25)];
+    
+    label.font = Font(@"Lato-Medium", 18.0f);
+    label.text = userDict[@"name"];
+    label.textColor = [UIColor whiteColor];
+    label.lineBreakMode = NSLineBreakByClipping;
+    label.numberOfLines = 1;
+    label.minimumScaleFactor = 0.5;
+    
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor clearColor]];
+    
+    return view;
 }
 
 #pragma mark - Protocol Methods (ELTeamViewManager)
@@ -156,7 +196,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    self.surveys = responseDict[@"items"];
+    self.users = responseDict[@"items"];
     
     [self.indicatorView stopAnimating];
     [self.tableView reloadData];
