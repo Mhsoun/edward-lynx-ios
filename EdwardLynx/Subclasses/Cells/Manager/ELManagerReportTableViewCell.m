@@ -41,7 +41,7 @@
 
 - (IBAction)onDownloadButtonClick:(id)sender {
     NSDictionary *emailDict = @{@"title": self.detailDict[@"name"],
-                                @"body": self.detailDict[@"url"],
+                                @"body": self.detailDict[@"link"],
                                 @"recipients": @[AppSingleton.user.email]};
     
     [NotificationCenter postNotificationName:kELManagerReportEmailNotification

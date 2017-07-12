@@ -7,6 +7,7 @@
 //
 
 #import "ELManagerReportDetailsViewController.h"
+#import "ELAPIClient.h"
 
 @implementation ELManagerReportDetailsViewController
 
@@ -28,7 +29,7 @@
                                                            imageSize:CGSizeMake(size, size)]];
     
     [self.webView setDelegate:self];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDict[@"url"]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDict[@"link"]]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +51,7 @@
 
 - (IBAction)onSendEmailBarButtonItemClick:(id)sender {
     NSDictionary *emailDict = @{@"title": self.detailDict[@"name"],
-                                @"body": self.detailDict[@"url"],
+                                @"body": self.detailDict[@"link"],
                                 @"recipients": @[AppSingleton.user.email]};
     
     [NotificationCenter postNotificationName:kELManagerReportEmailNotification

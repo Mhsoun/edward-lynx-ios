@@ -170,7 +170,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     
     label.font = Font(@"Lato-Medium", 16.0f);
     label.text = userDict[@"name"];
-    label.textColor = [UIColor whiteColor];
+    label.textColor = ThemeColor(kELOrangeColor);
     label.lineBreakMode = NSLineBreakByClipping;
     label.numberOfLines = 1;
     label.minimumScaleFactor = 0.5;
