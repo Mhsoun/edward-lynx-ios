@@ -442,9 +442,7 @@
             NSString *message = isFeedback ? NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil) :
                                              NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
             
-            alertController = [UIAlertController alertControllerWithTitle:title
-                                                                  message:message
-                                                           preferredStyle:UIAlertControllerStyleAlert];
+            alertController = Alert(title, message);
             
             [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
                                                                 style:UIAlertActionStyleDefault

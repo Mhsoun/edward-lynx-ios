@@ -55,7 +55,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [AppSingleton.participants mutableCopy];
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
-    self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
     
     // To display only the not yet invited participants
     if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
@@ -313,6 +312,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self.emailButton updateConstraints];
 }
 
+- (void)layoutPage {
+    [self.selectAllButton setTitle:@"" forState:UIControlStateNormal];
+    [self toggleSelectAllButton:fa_square_o];
+    
+//    [self toggleSelectAllButton:@"kELSelectAllButton"];
+}
+
 - (void)layoutReportSharePage {
     self.title = [NSLocalizedString(@"kELInviteTitleReport", nil) uppercaseString];
     
@@ -324,39 +330,39 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self.emailButton updateConstraints];
 }
 
+- (void)toggleSelectAllButton:(NSString *)key {
+    CGFloat size = 20;
+
+//    [self.selectAllButton setTitle:NSLocalizedString(key, nil)
+//                          forState:UIControlStateNormal];
+    
+    [self.selectAllButton setTag:[key isEqualToString:fa_square_o] ? 0 : 1];
+    [self.selectAllButton setTintColor:ThemeColor(kELOrangeColor)];
+    [self.selectAllButton setImage:[FontAwesome imageWithIcon:key
+                                                    iconColor:ThemeColor(kELOrangeColor)
+                                                     iconSize:size
+                                                    imageSize:CGSizeMake(size, size)]
+                          forState:UIControlStateNormal];
+}
+
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
-    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];
-    
-    // Traverse cells to get count of currently selected rows
-    for (int i = 0; i < rowsCount; i++) {
-        ELParticipantTableViewCell *cell;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        
-        // Commented out since it scrolls down the list upon user selection
-//        [self.tableView scrollToRowAtIndexPath:indexPath
-//                              atScrollPosition:UITableViewScrollPositionTop
-//                                      animated:NO];
-        
-        cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        
-        if (cell.participant.isSelected && cell.isUserInteractionEnabled) {
-            selectedCount++;
-        }
-    }
+    NSInteger selectedCount = self.mParticipants.count, rowsCount = [self.provider numberOfRows];
     
     if (selectedCount == 0 || !selectedCount) {
-        key = @"kELSelectAllButton";
+//        key = @"kELSelectAllButton";
+        key = fa_square_o;
     } else if ((selectedCount >= rowsCount) ||
                (self.instantFeedback && selectedCount >= rowsCount - self.instantFeedback.participants.count)) {
-        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+//        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+        key = self.mInitialParticipants.count ? fa_check_square : nil;
     }
     
     if (!key) {
         return;
     }
     
-    [self.selectAllButton setTitle:NSLocalizedString(key, nil) forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
 }
 
 - (void)updateTableViewHeight {
@@ -370,17 +376,22 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
     BOOL isSelected;
-    NSString *title;
+    NSString *key;
     UIButton *button = (UIButton *)sender;
     
-    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
-    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                         NSLocalizedString(@"kELSelectAllButton", nil);
+//    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+//    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+//                         NSLocalizedString(@"kELSelectAllButton", nil);
     
+    isSelected = button.tag == 0;
+    key = isSelected ? fa_check_square : fa_square_o;
+
+//    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+    
+    self.selected = button.tag == 0;
     self.allCellsAction = YES;
-    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:title forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
@@ -454,9 +465,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (IBAction)onInviteByEmailButtonClick:(id)sender {
     __weak typeof(self) weakSelf = self;
-    self.alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil)
-                                                               message:NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil)
-                                                        preferredStyle:UIAlertControllerStyleAlert];    
+    self.alertController = Alert(NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil),
+                                 NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil));
     self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELAddButton", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {

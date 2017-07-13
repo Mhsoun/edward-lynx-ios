@@ -468,9 +468,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:nil
-                                                     message:nil
-                                              preferredStyle:UIAlertControllerStyleActionSheet];
+    controller = ActionSheet(nil, nil);
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELReportMoreDropdownShare", nil)
                                                    style:UIAlertActionStyleDefault

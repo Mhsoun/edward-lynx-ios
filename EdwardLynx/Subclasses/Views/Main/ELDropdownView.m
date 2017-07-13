@@ -123,9 +123,7 @@ static CGFloat const kELIconSize = 15;
 
 - (UIAlertController *)itemsAlertController {
     __weak typeof(self) weakSelf = self;
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:nil
-                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *controller = ActionSheet(nil, nil);
     void (^actionBlock)(UIAlertAction *) = ^(UIAlertAction *action) {
         weakSelf.titleLabel.text = action.title;
         weakSelf.selectedItem = action.title;

@@ -14,7 +14,7 @@
 
 @interface ELTabPageViewController ()
 
-@property (nonatomic) BOOL hideButton;
+@property (nonatomic) BOOL toHideButton;
 
 @property (weak, nonatomic) IBOutlet UIView *tabView;
 @property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.hideButton = NO;
+    self.toHideButton = NO;
     self.searchBar.delegate = self;
     
     self.skipIntermediateViewControllers = YES;
@@ -96,9 +96,11 @@
 - (void)pagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController didMoveToIndex:(NSInteger)toIndex {
     __weak typeof(self) weakSelf = self;
     
-    [UIView animateWithDuration:0.15 animations:^{
-        weakSelf.addButton.transform = self.hideButton ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
-    }];
+    self.addButton.hidden = self.toHideButton;
+    
+//    [UIView animateWithDuration:0.15 animations:^{
+//        weakSelf.addButton.transform = self.toHideButton ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
+//    }];
 }
 
 #pragma mark - Private Methods
@@ -251,8 +253,7 @@
 #pragma mark - Selectors
 
 - (void)onInstantFeedbackTab:(NSNotification *)notification {
-    self.hideButton = [notification.userInfo[@"hidden"] boolValue];
-    self.addButton.hidden = NO;
+    self.toHideButton = [notification.userInfo[@"hidden"] boolValue];
 }
 
 @end

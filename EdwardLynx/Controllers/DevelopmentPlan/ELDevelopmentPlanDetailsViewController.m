@@ -150,6 +150,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         
         // Share View
         [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+//        [self.shareView setHidden:YES];
     }
 }
 
@@ -264,6 +265,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     
     // Share View
     [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+//    [self.shareView setHidden:YES];
     
     // Decrement badge count
     Application.applicationIconBadgeNumber--;
@@ -345,9 +347,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
         NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalDeleteDetailsMessage", nil);
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
-                                                                            message:Format(message, goal.title)
-                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *controller = Alert(title, Format(message, goal.title));
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
                                                        style:UIAlertActionStyleDestructive
@@ -361,9 +361,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                              completion:nil];
     };
     
-    alertController = [UIAlertController alertControllerWithTitle:nil
-                                                          message:nil
-                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController = ActionSheet(nil, nil);
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil)
                                                         style:UIAlertActionStyleDefault
@@ -449,9 +447,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertHeader", nil);
     NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil);
     
-    self.actionAlert = [UIAlertController alertControllerWithTitle:title
-                                                           message:message
-                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.actionAlert = Alert(title, message);
     self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateButton", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull alertAction) {
@@ -495,9 +491,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertHeader", nil);
     NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionCreateAlertDetail", nil);
     
-    self.actionAlert = [UIAlertController alertControllerWithTitle:title
-                                                           message:message
-                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.actionAlert = Alert(title, message);
     self.addAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELAddButton", nil)
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull alertAction) {
@@ -550,9 +544,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     void (^deleteAlertActionBlock)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull alertAction) {
         NSString *title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
         NSString *message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
-                                                                            message:Format(message, action.title)
-                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *controller = Alert(title, Format(message, action.title));
         
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDeleteButton", nil)
                                                        style:UIAlertActionStyleDestructive
@@ -566,9 +558,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                              completion:nil];
     };
     
-    alertController = [UIAlertController alertControllerWithTitle:nil
-                                                          message:nil
-                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController = ActionSheet(nil, nil);
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
                                                         style:UIAlertActionStyleDefault

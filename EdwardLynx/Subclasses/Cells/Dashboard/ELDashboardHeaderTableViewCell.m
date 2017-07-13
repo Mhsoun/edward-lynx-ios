@@ -82,6 +82,7 @@
     
     [self.teamView addSubview:shortcutView];
     [self.teamView setHidden:![AppSingleton.user isAdmin]];
+//    [self.teamView setHidden:YES];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionAnswer", nil),
                                                          @"count": contents[0],
@@ -136,9 +137,7 @@
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDashboardCreateNew", nil)
-                                                     message:@""
-                                              preferredStyle:UIAlertControllerStyleAlert];
+    controller = Alert(NSLocalizedString(@"kELDashboardCreateNew", nil), nil);
     
     [controller addAction:createDevPlanAction];
     [controller addAction:createFeedbackAction];
