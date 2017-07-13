@@ -19,7 +19,7 @@
     
     // Initialization
     [self.titleLabel setText:self.infoDict[@"title"]];
-    [self.evaluationLabel setText:self.infoDict[@"evaluation"]];
+//    [self.evaluationLabel setText:self.infoDict[@"evaluation"]];
     [self.descriptionTextView setText:[self.infoDict[@"description"] htmlString]];
 }
 
