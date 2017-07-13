@@ -465,9 +465,8 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (IBAction)onInviteByEmailButtonClick:(id)sender {
     __weak typeof(self) weakSelf = self;
-    self.alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil)
-                                                               message:NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil)
-                                                        preferredStyle:UIAlertControllerStyleAlert];    
+    self.alertController = Alert(NSLocalizedString(@"kELInviteUsersAddEmailHeaderMessage", nil),
+                                 NSLocalizedString(@"kELInviteUsersAddEmailDetailsMessage", nil));
     self.inviteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELAddButton", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {

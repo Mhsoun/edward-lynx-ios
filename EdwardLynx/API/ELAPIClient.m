@@ -98,9 +98,7 @@ static NSString * const kELApplicationJSON = @"application/json";
             
             errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil), error.localizedDescription);
             visibleViewController = [ApplicationDelegate visibleViewController:Application.keyWindow.rootViewController];
-            alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELErrorLabel", nil)
-                                                                  message:errorMessage
-                                                           preferredStyle:UIAlertControllerStyleAlert];
+            alertController = Alert(NSLocalizedString(@"kELErrorLabel", nil), errorMessage);
           
             [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
                                                                 style:UIAlertActionStyleDefault

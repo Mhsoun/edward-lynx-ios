@@ -49,9 +49,7 @@
     self.apiDateFormatter.locale = [NSLocale systemLocale];
     self.printDateFormatter.dateFormat = kELPrintDateFormat;
     
-    self.loadingAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELProcessingLabel", nil)
-                                                            message:nil
-                                                     preferredStyle:UIAlertControllerStyleAlert];
+    self.loadingAlert = Alert(NSLocalizedString(@"kELProcessingLabel", nil), nil);
     self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     return self;

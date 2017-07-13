@@ -191,9 +191,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddGoalActionCell";
     }
     
     detailMessage = Format(NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteDetailsMessage", nil), goalAction.title);
-    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil)
-                                                     message:detailMessage
-                                              preferredStyle:UIAlertControllerStyleAlert];
+    controller = Alert(NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil), detailMessage);
     
     [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCompleteButton", nil)
                                                    style:UIAlertActionStyleDefault

@@ -20,6 +20,7 @@
     #define DLog(...)
 #endif
 
+#define Alert(alertTitle, alertMessage) [UIAlertController alertControllerWithTitle:(alertTitle) message:(alertMessage) preferredStyle:UIAlertControllerStyleAlert]
 #define Application [UIApplication sharedApplication]
 #define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define AppSingleton [ELAppSingleton sharedInstance]

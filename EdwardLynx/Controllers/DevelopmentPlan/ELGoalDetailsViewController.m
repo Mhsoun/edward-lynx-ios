@@ -241,9 +241,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     title = NSLocalizedString(@"kELDevelopmentPlanGoalActionCompleteHeaderMessage", nil);
     message = NSLocalizedString(@"kELDevelopmentPlanGoalActionDeleteDetailsMessage", nil);
-    alertController = [UIAlertController alertControllerWithTitle:title
-                                                          message:[NSString localizedStringWithFormat:message, action.title]
-                                                   preferredStyle:UIAlertControllerStyleAlert];
+    alertController = Alert(title, Format(message, action.title));
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELCancelButton", nil)
                                                         style:UIAlertActionStyleCancel
@@ -264,9 +262,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     NSString *message = Format(NSLocalizedString(@"kELDevelopmentPlanGoalActionUpdateAlertDetail", nil),
                                action.title);
     
-    self.actionAlert = [UIAlertController alertControllerWithTitle:title
-                                                           message:message
-                                                    preferredStyle:UIAlertControllerStyleAlert];
+    self.actionAlert = Alert(title, message);
     self.updateAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"kELUpdateLabel", nil)
                                                  style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction * _Nonnull action) {

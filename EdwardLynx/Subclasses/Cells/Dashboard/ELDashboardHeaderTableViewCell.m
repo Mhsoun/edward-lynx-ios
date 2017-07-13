@@ -137,9 +137,7 @@
         return;
     }
     
-    controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"kELDashboardCreateNew", nil)
-                                                     message:@""
-                                              preferredStyle:UIAlertControllerStyleAlert];
+    controller = Alert(NSLocalizedString(@"kELDashboardCreateNew", nil), nil);
     
     [controller addAction:createDevPlanAction];
     [controller addAction:createFeedbackAction];
