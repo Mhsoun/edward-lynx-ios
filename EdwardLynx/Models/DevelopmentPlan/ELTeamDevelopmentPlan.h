@@ -9,7 +9,9 @@
 #import "ELModel.h"
 #import "ELGoal.h"
 
-@protocol ELGoal;
+@protocol ELTeamDevelopmentPlanUser;
+@protocol ELTeamDevelopmentPlanGoal;
+@protocol ELTeamDevelopmentPlanAction;
 
 @interface ELTeamDevelopmentPlan : ELModel
 
@@ -19,9 +21,33 @@
 @property (nonatomic) BOOL visible;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSArray<ELGoal> *goals;
 
 - (NSDictionary *)apiDictionary;
 - (NSDictionary *)putDictionary;
+
+@end
+
+@interface ELTeamDevelopmentPlanUser : ELModel
+
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSArray<ELTeamDevelopmentPlanGoal> *goals;
+
+@end
+
+@interface ELTeamDevelopmentPlanGoal : JSONModel
+
+@property (nonatomic) CGFloat progress;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSArray<ELTeamDevelopmentPlanAction> *actions;
+
+- (NSDictionary *)progressDetails;
+
+@end
+
+@interface ELTeamDevelopmentPlanAction : ELModel
+
+@property (nonatomic) int64_t position;
+@property (nonatomic) BOOL checked;
+@property (nonatomic) NSString *title;
 
 @end

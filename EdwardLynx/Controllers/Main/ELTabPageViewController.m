@@ -14,6 +14,8 @@
 
 @interface ELTabPageViewController ()
 
+@property (nonatomic) BOOL hideButton;
+
 @property (weak, nonatomic) IBOutlet UIView *tabView;
 @property (weak, nonatomic) IBOutlet ELSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
@@ -30,7 +32,10 @@
     // Do any additional setup after loading the view.
     
     // Initialization
+    self.hideButton = NO;
     self.searchBar.delegate = self;
+    
+    self.skipIntermediateViewControllers = YES;
     
     [self setupButtonBarView];
     [self setupPageByType:self.type];
@@ -61,6 +66,39 @@
 
 - (void)dealloc {
     DLog(@"%@", [self class]);
+}
+
+#pragma mark - Protocol Methods (UISearchBar)
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self sendSearchTextToNotification:searchText];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
+    
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar endEditing:YES];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    [self sendSearchTextToNotification:searchBar.text];
+}
+
+#pragma mark - Protocol Methods (XLPagerTabStripViewController)
+
+- (void)pagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController didMoveToIndex:(NSInteger)toIndex {
+    __weak typeof(self) weakSelf = self;
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        weakSelf.addButton.transform = self.hideButton ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
+    }];
 }
 
 #pragma mark - Private Methods
@@ -167,29 +205,6 @@
     self.searchBar.placeholder = Format(format, identifier);
 }
 
-#pragma mark - Protocol Methods (UISearchBar)
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self sendSearchTextToNotification:searchText];
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [[searchBar delegate] searchBar:searchBar textDidChange:@""];
-    
-    [searchBar setText:@""];
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar endEditing:YES];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [[IQKeyboardManager sharedManager] resignFirstResponder];
-    [self sendSearchTextToNotification:searchBar.text];
-}
-
 #pragma mark - Protocol Methods (XLButtonBarPagerTabStripViewController)
 
 - (NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController {
@@ -236,14 +251,8 @@
 #pragma mark - Selectors
 
 - (void)onInstantFeedbackTab:(NSNotification *)notification {
-    BOOL hidden = [notification.userInfo[@"hidden"] boolValue];
-    __weak typeof(self) weakSelf = self;
-    
+    self.hideButton = [notification.userInfo[@"hidden"] boolValue];
     self.addButton.hidden = NO;
-    
-    [UIView animateWithDuration:0.15 animations:^{
-        weakSelf.addButton.transform = hidden ? CGAffineTransformMakeScale(0, 0) : CGAffineTransformIdentity;
-    }];
 }
 
 @end

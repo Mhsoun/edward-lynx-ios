@@ -14,3 +14,11 @@
 @property (nonatomic) NSString *name;
 
 @end
+
+@interface ELAverageIndex : ELModel
+
+@property (nonatomic) double value;
+@property (nonatomic) NSString *name;
+@property (nonatomic) UIColor<Optional> *color;
+
+@end

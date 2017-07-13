@@ -116,4 +116,15 @@
                         completion:completion];
 }
 
+#pragma mark - Reports
+
+- (void)managerReportsWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = Format(kELAPITeamReportsEndpoint, kELAPIVersionNamespace);
+    NSMutableURLRequest *request = [self requestFor:endpoint method:kELAPIGetHTTPMethod];
+    
+    [self performAuthenticatedTask:YES
+                       withRequest:request
+                        completion:completion];
+}
+
 @end

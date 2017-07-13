@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A90DCB4D1F0DE817004F724A /* ELManagerReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */; };
+		A90DCB501F0DE879004F724A /* TeamReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */; };
+		A90DCB531F0DEE15004F724A /* ManagerSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */; };
+		A90DCB561F0DEE23004F724A /* ManagerReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */; };
+		A90DCB591F0DEFF5004F724A /* ELManagerReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */; };
+		A90DCB5C1F0DF115004F724A /* ELManagerSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */; };
+		A90DCB5F1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */; };
 		A91312191E8642D30042C91F /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310C81E8642D20042C91F /* ELAPIClient.m */; };
 		A913121A1E8642D30042C91F /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CA1E8642D20042C91F /* ELDevelopmentPlanAPIClient.m */; };
 		A913121B1E8642D30042C91F /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CC1E8642D20042C91F /* ELQuestionsAPIClient.m */; };
@@ -550,6 +557,7 @@
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
 		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
 		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
+		A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -636,6 +644,17 @@
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
 		820937B7E0183218BBD34E71 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A90DCB4B1F0DE817004F724A /* ELManagerReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportsViewController.h; sourceTree = "<group>"; };
+		A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportsViewController.m; sourceTree = "<group>"; };
+		A90DCB4F1F0DE879004F724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamReports.storyboard; sourceTree = "<group>"; };
+		A90DCB521F0DEE15004F724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ManagerSurveyCell.xib; sourceTree = "<group>"; };
+		A90DCB551F0DEE23004F724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ManagerReportCell.xib; sourceTree = "<group>"; };
+		A90DCB571F0DEFF5004F724A /* ELManagerReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportTableViewCell.h; sourceTree = "<group>"; };
+		A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportTableViewCell.m; sourceTree = "<group>"; };
+		A90DCB5A1F0DF115004F724A /* ELManagerSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerSurveyTableViewCell.h; sourceTree = "<group>"; };
+		A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerSurveyTableViewCell.m; sourceTree = "<group>"; };
+		A90DCB5D1F0E3C0B004F724A /* ELManagerReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportDetailsViewController.h; sourceTree = "<group>"; };
+		A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportDetailsViewController.m; sourceTree = "<group>"; };
 		A91310C71E8642D20042C91F /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A91310C81E8642D20042C91F /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 		A91310C91E8642D20042C91F /* ELDevelopmentPlanAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanAPIClient.h; sourceTree = "<group>"; };
@@ -1158,6 +1177,8 @@
 		A9979ED61EFA71DF00A5BCA2 /* ELManagerCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerCategoryViewController.h; sourceTree = "<group>"; };
 		A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerCategoryViewController.m; sourceTree = "<group>"; };
 		A9979EDA1EFA72FA00A5BCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamProgress.storyboard; sourceTree = "<group>"; };
+		A997B41D1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELIndexOverCompetenciesData.h; sourceTree = "<group>"; };
+		A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELIndexOverCompetenciesData.m; sourceTree = "<group>"; };
 		A99B51011ED6B007000690FD /* ELReportPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportPageViewController.h; sourceTree = "<group>"; };
 		A99B51021ED6B007000690FD /* ELReportPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELReportPageViewController.m; sourceTree = "<group>"; };
 		A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELReportChartTableViewCell.h; sourceTree = "<group>"; };
@@ -1333,6 +1354,8 @@
 				A98370941ED425EE00C05594 /* GoalCell.xib */,
 				A98370A11ED4263D00C05594 /* ListCell.xib */,
 				A95CECBD1EF8C87A0028BDD4 /* ManagerIndividualCell.xib */,
+				A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */,
+				A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */,
 				A98370AE1ED4265E00C05594 /* OptionCell.xib */,
 				A98370BB1ED4268400C05594 /* ParticipantCell.xib */,
 				A98370C81ED426CB00C05594 /* QuestionCell.xib */,
@@ -1769,6 +1792,7 @@
 				A91310EE1E8642D20042C91F /* Survey.storyboard */,
 				A91310F01E8642D20042C91F /* TabPage.storyboard */,
 				A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */,
+				A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */,
 				A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */,
 			);
 			name = Layouts;
@@ -1827,6 +1851,10 @@
 				A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */,
 				A95CECBA1EF8C8020028BDD4 /* ELManagerIndividualViewController.h */,
 				A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */,
+				A90DCB5D1F0E3C0B004F724A /* ELManagerReportDetailsViewController.h */,
+				A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */,
+				A90DCB4B1F0DE817004F724A /* ELManagerReportsViewController.h */,
+				A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */,
 				A9BDC79E1EF917D200D4E5E2 /* ELManagerTeamViewController.h */,
 				A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */,
 				A95861861EFCFADF00BCEE16 /* ELManagerUsersViewController.h */,
@@ -1840,10 +1868,14 @@
 		A95CECC01EF8CA260028BDD4 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				A95CECC11EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.h */,
-				A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */,
 				A9979ECB1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.h */,
 				A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */,
+				A95CECC11EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.h */,
+				A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */,
+				A90DCB571F0DEFF5004F724A /* ELManagerReportTableViewCell.h */,
+				A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */,
+				A90DCB5A1F0DF115004F724A /* ELManagerSurveyTableViewCell.h */,
+				A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */,
 				A9979ED31EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.h */,
 				A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */,
 			);
@@ -1869,6 +1901,8 @@
 				A9DB71031EDEC897006BA0AE /* ELResponseRate.m */,
 				A99EC4361EDEA11B001A99F6 /* ELYesNoData.h */,
 				A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */,
+				A997B41D1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.h */,
+				A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -2254,6 +2288,7 @@
 				A91312691E8642D30042C91F /* Report.strings in Resources */,
 				A913126B1E8642D30042C91F /* Survey.strings in Resources */,
 				A91312681E8642D30042C91F /* Profile.strings in Resources */,
+				A90DCB561F0DEE23004F724A /* ManagerReportCell.xib in Resources */,
 				A91312291E8642D30042C91F /* List.storyboard in Resources */,
 				A98370B91ED4268400C05594 /* ParticipantCell.xib in Resources */,
 				A98370E01ED4288200C05594 /* SurveyCell.xib in Resources */,
@@ -2261,6 +2296,7 @@
 				A98371191ED42A9300C05594 /* ListPopupView.xib in Resources */,
 				A91312651E8642D30042C91F /* LaunchScreen.strings in Resources */,
 				A98371401ED42B2B00C05594 /* QuestionTypeAgreementView.xib in Resources */,
+				A90DCB501F0DE879004F724A /* TeamReports.storyboard in Resources */,
 				A913126D1E8642D30042C91F /* GoogleService-Info.plist in Resources */,
 				A91312281E8642D30042C91F /* LeftMenu.storyboard in Resources */,
 				A98370571ED423C800C05594 /* DashboardHeaderCell.xib in Resources */,
@@ -2278,6 +2314,7 @@
 				A9A25BF11EFB844A00A1972D /* CircleChartCell.xib in Resources */,
 				A983703D1ED4239A00C05594 /* ActionCell.xib in Resources */,
 				A91312261E8642D30042C91F /* Invite.storyboard in Resources */,
+				A90DCB531F0DEE15004F724A /* ManagerSurveyCell.xib in Resources */,
 				A91312661E8642D30042C91F /* LeftMenu.strings in Resources */,
 				A913125E1E8642D30042C91F /* Authentication.strings in Resources */,
 				A98370AC1ED4265E00C05594 /* OptionCell.xib in Resources */,
@@ -2742,6 +2779,7 @@
 				A913128D1E8642D30042C91F /* ELItemTableViewCell.m in Sources */,
 				A91312521E8642D30042C91F /* ELDashboardViewController.m in Sources */,
 				A913124D1E8642D30042C91F /* ELInviteUsersViewController.m in Sources */,
+				A90DCB5F1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m in Sources */,
 				A913126F1E8642D30042C91F /* main.m in Sources */,
 				A91312A21E8642D30042C91F /* ELConstants.m in Sources */,
 				A91312881E8642D30042C91F /* ELDashboardHeaderTableViewCell.m in Sources */,
@@ -2750,7 +2788,9 @@
 				A91312591E8642D30042C91F /* ELEditProfileViewController.m in Sources */,
 				A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */,
 				A97C29811E8B8CC300EBC5CE /* ELDevelopmentPlan.m in Sources */,
+				A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */,
 				A97C298A1E8B8CC300EBC5CE /* ELParticipant.m in Sources */,
+				A90DCB4D1F0DE817004F724A /* ELManagerReportsViewController.m in Sources */,
 				A91312991E8642D30042C91F /* ELDropdownView.m in Sources */,
 				A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */,
 				A97C29861E8B8CC300EBC5CE /* ELMenuItem.m in Sources */,
@@ -2784,10 +2824,12 @@
 				A913125D1E8642D30042C91F /* ELSurveysViewController.m in Sources */,
 				A97C29921E8B8CC300EBC5CE /* ELSurvey.m in Sources */,
 				A9B6589B1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m in Sources */,
+				A90DCB5C1F0DF115004F724A /* ELManagerSurveyTableViewCell.m in Sources */,
 				A97C298B1E8B8CC300EBC5CE /* ELReminder.m in Sources */,
 				A913121B1E8642D30042C91F /* ELQuestionsAPIClient.m in Sources */,
 				A97C298C1E8B8CC300EBC5CE /* ELUser.m in Sources */,
 				A913129E1E8642D30042C91F /* ELQuestionTypeScaleView.m in Sources */,
+				A90DCB591F0DEFF5004F724A /* ELManagerReportTableViewCell.m in Sources */,
 				A91312941E8642D30042C91F /* ELEmailValidator.m in Sources */,
 				A91312481E8642D30042C91F /* ELDevelopmentPlansViewController.m in Sources */,
 				A9C403611E9B8D3F008DD7C8 /* ELDashboardData.m in Sources */,
@@ -3017,6 +3059,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A90DCB4F1F0DE879004F724A /* Base */,
+			);
+			name = TeamReports.storyboard;
+			sourceTree = "<group>";
+		};
+		A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A90DCB521F0DEE15004F724A /* Base */,
+			);
+			name = ManagerSurveyCell.xib;
+			sourceTree = "<group>";
+		};
+		A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A90DCB551F0DEE23004F724A /* Base */,
+			);
+			name = ManagerReportCell.xib;
+			sourceTree = "<group>";
+		};
 		A91310D41E8642D20042C91F /* Authentication.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

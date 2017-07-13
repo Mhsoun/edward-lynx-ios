@@ -80,6 +80,10 @@
     [self.client enableUsersWithParams:params completion:self.postRequestCompletionBlock];
 }
 
+- (void)processRetrieveManagerReports {
+    [self.client managerReportsWithCompletion:self.requestCompletionBlock];
+}
+
 - (void)processRetrieveSharedUserDevPlans {
     [self.client linkedUsersDevPlansWithParams:nil completion:self.requestCompletionBlock];
 }

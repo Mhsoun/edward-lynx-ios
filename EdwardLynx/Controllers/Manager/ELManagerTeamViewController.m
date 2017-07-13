@@ -93,11 +93,13 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     return cell;
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    ELTeamDevPlanDetailsViewController *controller = StoryboardController(@"DevelopmentPlan", @"TeamDevPlanDetails");
-//    
-//    [self.navigationController pushViewController:controller animated:YES];
-//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ELTeamDevPlanDetailsViewController *controller = StoryboardController(@"DevelopmentPlan", @"TeamDevPlanDetails");
+    
+    controller.devPlanId = [self.visibleItems[indexPath.row] objectId];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout

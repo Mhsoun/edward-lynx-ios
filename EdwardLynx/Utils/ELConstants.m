@@ -87,6 +87,7 @@ NSString * const kELAPISurveyResultsEndpoint = @"%@/surveys/%@/results";
 
 NSString * const kELAPITeamDevelopmentPlanEndpoint = @"%@/dev-plans-manager/teams/%@";
 NSString * const kELAPITeamDevelopmentPlansEndpoint = @"%@/dev-plans-manager/teams";
+NSString * const kELAPITeamReportsEndpoint = @"%@/dev-plans-manager/reports";
 NSString * const kELAPITeamUsersEndpoint = @"%@/dev-plans-manager/users";
 
 NSString * const kELAPIUserEndpoint = @"%@/user";
@@ -106,9 +107,11 @@ NSString * const kELAPIPutHTTPMethod = @"PUT";
 
 NSString * const kELGoalActionAddNotification = @"GoalActionAddNotification";
 NSString * const kELGoalActionOptionsNotification = @"GoalActionOptionsNotification";
-NSString * const kELInstantFeedbackTabNotification = @"ELInstantFeedbackTabNotification";
-NSString * const kELPopupCloseNotification = @"ELPopupClosehNotification";
-NSString * const kELTabPageSearchNotification = @"ELTabPageSearchNotification";
+NSString * const kELInstantFeedbackTabNotification = @"InstantFeedbackTabNotification";
+NSString * const kELManagerReportDetailsNotification = @"ManagerReportDetailsNotification";
+NSString * const kELManagerReportEmailNotification = @"ManagerReportEmailNotification";
+NSString * const kELPopupCloseNotification = @"PopupClosehNotification";
+NSString * const kELTabPageSearchNotification = @"TabPageSearchNotification";
 NSString * const kELTeamChartSelectionNotification = @"TeamChartSelectionNotification";
 NSString * const kELTeamSeeMoreNotification = @"TeamSeeMoreNotification";
 

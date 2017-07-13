@@ -245,6 +245,24 @@
     chart.countingLabel.textColor = [UIColor whiteColor];
 }
 
++ (void)composeMailForController:(__kindof UIViewController *)controller
+                         details:(NSDictionary *)detailsDict {
+    MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+    
+    [mailController setMailComposeDelegate:controller];
+    [mailController setSubject:detailsDict[@"title"]];
+    [mailController setMessageBody:detailsDict[@"body"] isHTML:NO];
+    [mailController setToRecipients:detailsDict[@"recipients"]];
+    
+    if (!mailController) {
+        return;
+    }
+    
+    [controller presentViewController:mailController
+                             animated:YES
+                           completion:nil];
+}
+
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict {

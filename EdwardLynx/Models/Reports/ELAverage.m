@@ -16,3 +16,23 @@
 }
 
 @end
+
+@implementation ELAverageIndex
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id",
+                                                                  @"value": @"average",
+                                                                  @"color": @"role_style"}];
+}
+
+- (void)setColorWithNSString:(NSString *)colorKey {
+    if ([colorKey isEqualToString:@"otherColor"]) {
+        self.color = ThemeColor(kELOtherColor);
+    } else if ([colorKey isEqualToString:@"selfColor"]) {
+        self.color = ThemeColor(kELLynxColor);
+    } else {
+        self.color = ThemeColor(kELRedColor);
+    }
+}
+
+@end

@@ -52,7 +52,7 @@
     // Cancel Button
     barButtonAppearanceInSearchBar = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]];
     
-    [barButtonAppearanceInSearchBar setTitle:@"Cancel"];
+    [barButtonAppearanceInSearchBar setTitle:NSLocalizedString(@"kELCancelButton", nil)];
     [barButtonAppearanceInSearchBar setTitleTextAttributes:@{NSFontAttributeName:font,
                                                              NSForegroundColorAttributeName:[UIColor whiteColor]}
                                                   forState:UIControlStateNormal];

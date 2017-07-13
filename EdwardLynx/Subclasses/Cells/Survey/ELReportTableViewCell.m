@@ -37,7 +37,7 @@
         [self configureWithDetails:@{@"title": feedback.question.text ? feedback.question.text : @"",
                                      @"detail": [ELUtils labelByAnswerType:feedback.question.answer.type],
                                      @"timestamp": feedback.dateString,
-                                     @"type": @"Instant Feedback",
+                                     @"type": NSLocalizedString(@"kELInstantFeedbackTitle", nil),
                                      @"color": kELFeedbackColor,
                                      @"invited": Format(@"%@/%@",
                                                         @(feedback.answered),

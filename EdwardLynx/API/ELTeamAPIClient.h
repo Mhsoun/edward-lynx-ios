@@ -28,4 +28,6 @@
 - (void)updateTeamDevPlansWithParams:(NSDictionary *)params
                           completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
+- (void)managerReportsWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+
 @end
