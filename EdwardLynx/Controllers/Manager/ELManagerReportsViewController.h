@@ -11,7 +11,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerReportsViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
+@interface ELManagerReportsViewController : ELBaseViewController<MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, ELAPIResponseDelegate, DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;

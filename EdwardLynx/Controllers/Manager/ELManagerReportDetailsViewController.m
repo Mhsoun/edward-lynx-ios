@@ -37,6 +37,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Protocol Methods (MFMailComposeViewController)
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    [ELUtils handleMailResult:result fromParentController:self];
+}
+
 #pragma mark - Protocol Methods (UIWebView)
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -54,9 +62,7 @@
                                 @"body": self.detailDict[@"link"],
                                 @"recipients": @[AppSingleton.user.email]};
     
-    [NotificationCenter postNotificationName:kELManagerReportEmailNotification
-                                      object:nil
-                                    userInfo:emailDict];
+    [ELUtils composeMailForController:self details:emailDict];
 }
 
 @end

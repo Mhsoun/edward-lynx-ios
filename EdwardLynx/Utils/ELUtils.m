@@ -305,6 +305,31 @@
     
 }
 
++ (void)handleMailResult:(MFMailComposeResult)result fromParentController:(__kindof UIViewController *)controller {
+    switch (result) {
+        case MFMailComposeResultSent:
+            DLog(@"Mail sent");
+            
+            break;
+        case MFMailComposeResultFailed:
+            DLog(@"Mail sending failed");
+            
+            break;
+        case MFMailComposeResultSaved:
+            DLog(@"Mail saved");
+            
+            break;
+        case MFMailComposeResultCancelled:
+            DLog(@"Mail composition cancelled");
+            
+            break;
+        default:
+            break;
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
 + (NSString *)labelByAnswerType:(kELAnswerType)type {
     return [[self class] object:@"string" byAnswerType:type];
 }

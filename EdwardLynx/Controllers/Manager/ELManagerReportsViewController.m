@@ -95,6 +95,14 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     }
 }
 
+#pragma mark - Protocol Methods (MFMailComposeViewController)
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    [ELUtils handleMailResult:result fromParentController:self];
+}
+
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -8,7 +8,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELManagerReportDetailsViewController : ELBaseViewController<UIWebViewDelegate>
+@interface ELManagerReportDetailsViewController : ELBaseViewController<MFMailComposeViewControllerDelegate, UIWebViewDelegate>
 
 @property (strong, nonatomic) NSDictionary *detailDict;
 
