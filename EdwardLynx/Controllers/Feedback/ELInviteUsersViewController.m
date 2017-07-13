@@ -347,24 +347,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
     NSString *key;
-    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];
-    
-    // Traverse cells to get count of currently selected rows
-    for (int i = 0; i < rowsCount; i++) {
-        ELParticipantTableViewCell *cell;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        
-        // Commented out since it scrolls down the list upon user selection
-//        [self.tableView scrollToRowAtIndexPath:indexPath
-//                              atScrollPosition:UITableViewScrollPositionTop
-//                                      animated:NO];
-        
-        cell = (ELParticipantTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        
-        if (cell.participant.isSelected && cell.isUserInteractionEnabled) {
-            selectedCount++;
-        }
-    }
+    NSInteger selectedCount = self.mParticipants.count, rowsCount = [self.provider numberOfRows];
     
     if (selectedCount == 0 || !selectedCount) {
 //        key = @"kELSelectAllButton";
