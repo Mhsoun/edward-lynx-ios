@@ -55,7 +55,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.mParticipants = [[NSMutableArray alloc] init];
     self.mInitialParticipants = [AppSingleton.participants mutableCopy];
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
-    self.selectAllButton.titleLabel.text = NSLocalizedString(@"kELSelectAllButton", nil);
     
     // To display only the not yet invited participants
     if (self.instantFeedback && self.inviteType == kELInviteUsersInstantFeedback) {
@@ -313,6 +312,13 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     [self.emailButton updateConstraints];
 }
 
+- (void)layoutPage {
+    [self.selectAllButton setTitle:@"" forState:UIControlStateNormal];
+    [self toggleSelectAllButton:fa_square_o];
+    
+//    [self toggleSelectAllButton:@"kELSelectAllButton"];
+}
+
 - (void)layoutReportSharePage {
     self.title = [NSLocalizedString(@"kELInviteTitleReport", nil) uppercaseString];
     
@@ -322,6 +328,21 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     [self.emailButtonHeightConstraint setConstant:0];
     [self.emailButton updateConstraints];
+}
+
+- (void)toggleSelectAllButton:(NSString *)key {
+    CGFloat size = 20;
+
+//    [self.selectAllButton setTitle:NSLocalizedString(key, nil)
+//                          forState:UIControlStateNormal];
+    
+    [self.selectAllButton setTag:[key isEqualToString:fa_square_o] ? 0 : 1];
+    [self.selectAllButton setTintColor:ThemeColor(kELOrangeColor)];
+    [self.selectAllButton setImage:[FontAwesome imageWithIcon:key
+                                                    iconColor:ThemeColor(kELOrangeColor)
+                                                     iconSize:size
+                                                    imageSize:CGSizeMake(size, size)]
+                          forState:UIControlStateNormal];
 }
 
 - (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
@@ -346,17 +367,19 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     }
     
     if (selectedCount == 0 || !selectedCount) {
-        key = @"kELSelectAllButton";
+//        key = @"kELSelectAllButton";
+        key = fa_square_o;
     } else if ((selectedCount >= rowsCount) ||
                (self.instantFeedback && selectedCount >= rowsCount - self.instantFeedback.participants.count)) {
-        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+//        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+        key = self.mInitialParticipants.count ? fa_check_square : nil;
     }
     
     if (!key) {
         return;
     }
     
-    [self.selectAllButton setTitle:NSLocalizedString(key, nil) forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
 }
 
 - (void)updateTableViewHeight {
@@ -370,17 +393,22 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
     BOOL isSelected;
-    NSString *title;
+    NSString *key;
     UIButton *button = (UIButton *)sender;
     
-    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
-    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                         NSLocalizedString(@"kELSelectAllButton", nil);
+//    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+//    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+//                         NSLocalizedString(@"kELSelectAllButton", nil);
     
+    isSelected = button.tag == 0;
+    key = isSelected ? fa_check_square : fa_square_o;
+
+//    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+    
+    self.selected = button.tag == 0;
     self.allCellsAction = YES;
-    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:title forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
