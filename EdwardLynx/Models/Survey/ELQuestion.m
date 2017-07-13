@@ -36,7 +36,7 @@
             return 110;
         case kELAnswerTypeOneToFiveScale:
         case kELAnswerTypeOneToTenScale:
-            return 20;
+            return 50;
         default:
             return ((self.answer.options.count * kELCustomScaleItemHeight) +
                     (self.isNA ? kELCustomScaleItemHeight : 0));
