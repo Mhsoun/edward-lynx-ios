@@ -149,7 +149,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         [self.tableView reloadData];
         
         // Share View
-        [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+//        [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+        [self.shareView setHidden:YES];
     }
 }
 
@@ -263,7 +264,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView reloadData];
     
     // Share View
-    [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+//    [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
+    [self.shareView setHidden:YES];
     
     // Decrement badge count
     Application.applicationIconBadgeNumber--;
