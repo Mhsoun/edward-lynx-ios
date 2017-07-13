@@ -361,9 +361,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                              completion:nil];
     };
     
-    alertController = [UIAlertController alertControllerWithTitle:nil
-                                                          message:nil
-                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController = ActionSheet(nil, nil);
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil)
                                                         style:UIAlertActionStyleDefault
@@ -560,9 +558,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
                              completion:nil];
     };
     
-    alertController = [UIAlertController alertControllerWithTitle:nil
-                                                          message:nil
-                                                   preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController = ActionSheet(nil, nil);
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELDevelopmentPlanGoalActionButtonUpdate", nil)
                                                         style:UIAlertActionStyleDefault
