@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
+@property (weak, nonatomic) IBOutlet UIView *radioGroupView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onAddButtonClick:(id)sender;
 - (IBAction)onSubmitButtonClick:(id)sender;
