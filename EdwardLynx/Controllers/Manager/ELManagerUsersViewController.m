@@ -159,11 +159,10 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSString *title = self.mParticipants.count == self.mInitialParticipants.count ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                                                                                    NSLocalizedString(@"kELSelectAllButton", nil);
+    [self.selectAllButton setTitle:@"" forState:UIControlStateNormal];
+    [self toggleSelectAllButton:fa_square_o];
     
-    // Button
-    [self.selectAllButton setTitle:title forState:UIControlStateNormal];
+//    [self toggleSelectAllButton:@"kELSelectAllButton"];
     
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
 }
@@ -250,50 +249,60 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 #pragma mark - Private Methods
 
-- (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
-    NSString *title;
-    NSInteger selectedCount = 0, rowsCount = [self.provider numberOfRows];
+- (void)toggleSelectAllButton:(NSString *)key {
+    CGFloat size = 20;
     
-    // Traverse cells to get count of currently selected rows
-    for (int i = 0; i < rowsCount; i++) {
-        ELParticipantTableViewCell *cell;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        
-        cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        
-        if (cell.participant.managed) {
-            selectedCount++;
-        }
-    }
+//    [self.selectAllButton setTitle:NSLocalizedString(key, nil)
+//                          forState:UIControlStateNormal];
+    
+    [self.selectAllButton setTag:[key isEqualToString:fa_square_o] ? 0 : 1];
+    [self.selectAllButton setTintColor:ThemeColor(kELOrangeColor)];
+    [self.selectAllButton setImage:[FontAwesome imageWithIcon:key
+                                                    iconColor:ThemeColor(kELOrangeColor)
+                                                     iconSize:size
+                                                    imageSize:CGSizeMake(size, size)]
+                          forState:UIControlStateNormal];
+}
+
+- (void)updateSelectAllButtonForIndexPath:(NSIndexPath *)indexPath {
+    NSString *key;
+    NSInteger selectedCount = self.mParticipants.count, rowsCount = [self.provider numberOfRows];
     
     if (selectedCount == 0 || !selectedCount) {
-        title = NSLocalizedString(@"kELSelectAllButton", nil);
+//        key = @"kELSelectAllButton";
+        key = fa_square_o;
     } else if (selectedCount >= rowsCount) {
-        title = self.mInitialParticipants.count ? NSLocalizedString(@"kELDeselectAllButton", nil) : nil;
+//        key = self.mInitialParticipants.count ? @"kELDeselectAllButton" : nil;
+        key = self.mInitialParticipants.count ? fa_check_square : nil;
     }
     
-    if (!title) {
+    if (!key) {
         return;
     }
     
-    [self.selectAllButton setTitle:title forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
 }
 
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onSelectAllButtonClick:(id)sender {
     BOOL isSelected;
-    NSString *title;
+    NSString *key;
     UIButton *button = (UIButton *)sender;
     
-    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
-    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
-                         NSLocalizedString(@"kELSelectAllButton", nil);
+//    isSelected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+//    title = isSelected ? NSLocalizedString(@"kELDeselectAllButton", nil) :
+//                         NSLocalizedString(@"kELSelectAllButton", nil);
     
+    isSelected = button.tag == 0;
+    key = isSelected ? fa_check_square : fa_square_o;
+    
+//    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
+    
+    self.selected = button.tag == 0;
     self.allCellsAction = YES;
-    self.selected = [button.titleLabel.text isEqualToString:NSLocalizedString(@"kELSelectAllButton", nil)];
     
-    [button setTitle:title forState:UIControlStateNormal];
+    [self toggleSelectAllButton:key];
     
     for (int i = 0; i < [self.provider numberOfRows]; i++) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
