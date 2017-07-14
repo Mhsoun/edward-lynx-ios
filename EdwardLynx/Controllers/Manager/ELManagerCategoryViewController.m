@@ -170,17 +170,21 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     NSString *message;
+    ELTeamDevelopmentPlan *teamDevPlan;
     
     switch (self.action) {
         case kELTeamDevPlanActionCreate:
+            
             self.nameField.text = @"";
             self.radioGroup.selectedRadioButton = self.radioGroup.radioButtons[0];
             
             message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil);
+            teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
+            teamDevPlan.position = self.mItems.count;
             
             // Add new Team Dev Plan to current list
-            [self.mItems insertObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil]
-                              atIndex:self.mItems.count - 1];
+            [self.mItems addObject:teamDevPlan];
+            [self sortArrayByPosition:self.mItems];
             
             break;
         case kELTeamDevPlanActionUpdate:
