@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <TNRadioButtonGroup/TNRadioButtonGroup.h>
+
 #import "ELManagerCategoryViewController.h"
 #import "ELTeamViewManager.h"
 
@@ -23,8 +25,10 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 @interface ELManagerCategoryViewController ()
 
 @property (nonatomic) kELTeamDevPlanAction action;
+@property (nonatomic, strong) NSString *selectedLanguage;
 @property (nonatomic, strong) NSMutableArray<ELTeamDevelopmentPlan *> *mCategories;
 @property (nonatomic, strong) ELTeamViewManager *viewManager;
+@property (nonatomic, strong) TNRadioButtonGroup *radioGroup;
 
 @end
 
@@ -166,16 +170,21 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
     NSString *message;
+    ELTeamDevelopmentPlan *teamDevPlan;
     
     switch (self.action) {
         case kELTeamDevPlanActionCreate:
+            
             self.nameField.text = @"";
+            self.radioGroup.selectedRadioButton = self.radioGroup.radioButtons[0];
             
             message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil);
+            teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
+            teamDevPlan.position = self.mItems.count;
             
             // Add new Team Dev Plan to current list
-            [self.mItems insertObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil]
-                              atIndex:self.mItems.count - 1];
+            [self.mItems addObject:teamDevPlan];
+            [self sortArrayByPosition:self.mItems];
             
             break;
         case kELTeamDevPlanActionUpdate:
@@ -202,6 +211,50 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     }];
 }
 
+#pragma mark - Protocol Methods (ELBaseViewController)
+
+- (void)layoutPage {
+    NSArray *languages = @[@"en", @"sv", @"fn"];
+    NSMutableArray *mData = [[NSMutableArray alloc] init];
+    
+    self.selectedLanguage = languages[0];
+    
+    // Radio Group
+    for (int i = 0; i < languages.count; i++) {
+        NSString *language = languages[i];
+        TNCircularRadioButtonData *data = [TNCircularRadioButtonData new];
+        
+        data.selected = i == 0;
+        data.identifier = language;
+        
+        data.labelText = language;
+        data.labelFont = Font(@"Lato-Regular", 14.0f);
+        data.labelColor = [UIColor whiteColor];
+        
+        data.borderColor = [UIColor whiteColor];
+        data.circleColor = ThemeColor(kELOrangeColor);
+        data.borderRadius = 20;
+        data.circleRadius = 15;
+        
+        [mData addObject:data];
+    }
+    
+    self.radioGroup = [[TNRadioButtonGroup alloc] initWithRadioButtonData:[mData copy]
+                                                                   layout:TNRadioButtonGroupLayoutHorizontal];
+    
+    [self.radioGroup setIdentifier:@"Gender group"];
+    [self.radioGroup setMarginBetweenItems:15];
+    
+    [self.radioGroup create];
+    [self.radioGroupView addSubview:self.radioGroup];
+    
+    // Notification to handle selection changes
+    [NotificationCenter addObserver:self
+                           selector:@selector(onGenderTypeGroupUpdate:)
+                               name:SELECTED_RADIO_BUTTON_CHANGED
+                             object:self.radioGroup];
+}
+
 #pragma mark - Private Methods
 
 - (void)sortArrayByPosition:(NSMutableArray *)mList {
@@ -216,7 +269,7 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 - (IBAction)onAddButtonClick:(id)sender {
     self.nameErrorLabel.hidden = self.nameField.text.length > 0;
     
-    if (self.nameField.text == 0) {
+    if (self.nameField.text.length == 0) {
         return;
     }
     
@@ -226,7 +279,8 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
                      completion:nil];
-    [self.viewManager processCreateTeamDevPlan:@{@"name": self.nameField.text}];
+    [self.viewManager processCreateTeamDevPlan:@{@"name": self.nameField.text,
+                                                 @"lang": self.selectedLanguage}];
 }
 
 - (IBAction)onSubmitButtonClick:(id)sender {
@@ -241,6 +295,12 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
                        animated:YES
                      completion:nil];
     [self.viewManager processUpdateTeamDevPlans:@{@"items": [mTeamDevPlans copy]}];
+}
+
+#pragma mark - Notifications
+
+- (void)onGenderTypeGroupUpdate:(NSNotification *)notification {
+    self.selectedLanguage = self.radioGroup.selectedRadioButton.data.identifier;
 }
 
 @end

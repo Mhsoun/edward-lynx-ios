@@ -60,6 +60,8 @@
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict;
++ (void)handleMailResult:(MFMailComposeResult)result
+    fromParentController:(__kindof UIViewController *)controller;
 + (NSString *)labelByAnswerType:(kELAnswerType)type;
 + (NSString *)labelByListFilter:(kELListFilter)filter;
 + (NSString *)labelBySurveyStatus:(kELSurveyStatus)status;

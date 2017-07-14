@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.toHideButton = NO;
+    self.toHideButton = !(self.initialIndex == 1 && self.type == kELListTypeSurveys);
     self.searchBar.delegate = self;
     
     self.skipIntermediateViewControllers = YES;
@@ -47,21 +47,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [NotificationCenter addObserver:self
-                           selector:@selector(onInstantFeedbackTab:)
-                               name:kELInstantFeedbackTabNotification
-                             object:nil];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [NotificationCenter removeObserver:self
                                   name:kELInstantFeedbackTabNotification
                                 object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.addButton.hidden = self.toHideButton;
+    
+    [NotificationCenter addObserver:self
+                           selector:@selector(onInstantFeedbackTab:)
+                               name:kELInstantFeedbackTabNotification
+                             object:nil];
 }
 
 - (void)dealloc {
@@ -93,9 +95,8 @@
 
 #pragma mark - Protocol Methods (XLPagerTabStripViewController)
 
-- (void)pagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController didMoveToIndex:(NSInteger)toIndex {
-    __weak typeof(self) weakSelf = self;
-    
+- (void)pagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController
+                     didMoveToIndex:(NSInteger)toIndex {
     self.addButton.hidden = self.toHideButton;
     
 //    [UIView animateWithDuration:0.15 animations:^{
