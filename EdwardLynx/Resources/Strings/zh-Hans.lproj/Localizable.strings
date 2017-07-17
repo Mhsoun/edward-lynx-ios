@@ -65,6 +65,7 @@
 "kELDashboardActionDevelopmentPlan" = "发展计划";
 "kELDashboardActionInstantFeedback" = "即时反馈";
 "kELDashboardActionLynxMeasurement" = "Lynx测评工具";
+"kELDashboardActionManagerView" = "Manager\nView";
 "kELDashboardActionTeam" = "Team";
 "kELDashboardActionAnswer" = "回答";
 "kELDashboardActionResults" = "结果";
@@ -305,7 +306,7 @@
 /* Team Tab Titles */
 
 "kELTabTitleIndividual" = "Individual";
-"kELTabTitleTeam" = "Team Progress";
+"kELTabTitleTeam" = "Team";
 
 /* Team Dev Plan */
 

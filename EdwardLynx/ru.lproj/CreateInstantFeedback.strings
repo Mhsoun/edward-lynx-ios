@@ -15,10 +15,10 @@
 "ZYd-Wg-Okj.title" = "Создать Мгновенную обратную связь";
 
 /* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
-"eM8-uf-ggi.text" = "Дополнительные функции";
+"eM8-uf-ggi.text" = "Варианты";
 
 /* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
-"tgA-52-d0c.text" = "Добавить функцию ответа \"Незнаю\"";
+"tgA-52-d0c.text" = "Добавить ответ \"Не знаю\"";
 
 /* Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ"; */
 "vhu-w3-2iZ.normalTitle" = "Пригласить";

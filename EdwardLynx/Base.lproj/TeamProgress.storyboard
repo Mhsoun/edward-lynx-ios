@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1164" y="815"/>
         </scene>
-        <!--Team Dev Plans-->
+        <!--Manage Plans-->
         <scene sceneID="lSG-kT-bnR">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="SQO-aW-oQV" customClass="ELManagerCategoryViewController" sceneMemberID="viewController">
@@ -165,21 +165,21 @@
                                 </constraints>
                             </view>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-h3-W2L">
-                                <rect key="frame" x="15" y="115" width="345" height="17"/>
+                                <rect key="frame" x="15" y="112.5" width="345" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjt-zA-ww3" userLabel="Radio Group View">
-                                <rect key="frame" x="20" y="142" width="335" height="25"/>
+                                <rect key="frame" x="20" y="139.5" width="335" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="VD3-Wj-3fb"/>
                                 </constraints>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T54-hl-hg7">
-                                <rect key="frame" x="310" y="167" width="45" height="35"/>
+                                <rect key="frame" x="310" y="164.5" width="45" height="35"/>
                                 <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="YZY-Z7-gpQ"/>
@@ -199,7 +199,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-8w-x38" userLabel="Separator View" customClass="RNThemeView">
-                                <rect key="frame" x="15" y="209.5" width="345" height="1"/>
+                                <rect key="frame" x="15" y="207" width="345" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="v1n-fZ-0DE"/>
@@ -208,15 +208,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="devPlanSeparatorColor"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Development Plans" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-iz-KLR">
-                                <rect key="frame" x="15" y="218" width="345" height="17"/>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Development Plans" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-iz-KLR">
+                                <rect key="frame" x="15" y="215.5" width="345" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-og-mJb">
-                                <rect key="frame" x="0.0" y="245" width="375" height="362"/>
+                                <rect key="frame" x="0.0" y="242.5" width="375" height="364.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ManagerCategoryCell" id="luM-tv-Ewl">
@@ -259,7 +259,7 @@
                             <constraint firstItem="WmB-og-mJb" firstAttribute="top" secondItem="DcM-iz-KLR" secondAttribute="bottom" constant="10" id="80o-pk-ESN"/>
                             <constraint firstAttribute="trailing" secondItem="pJR-jZ-NOC" secondAttribute="trailing" constant="15" id="85U-x2-bvC"/>
                             <constraint firstItem="WmB-og-mJb" firstAttribute="leading" secondItem="NAE-Qh-LlD" secondAttribute="leading" id="AGp-9g-c61"/>
-                            <constraint firstItem="fsb-h3-W2L" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="bottom" constant="10" id="CPX-pZ-4ey"/>
+                            <constraint firstItem="fsb-h3-W2L" firstAttribute="top" secondItem="V4q-vR-7zI" secondAttribute="bottom" constant="7.5" id="CPX-pZ-4ey"/>
                             <constraint firstItem="V4q-vR-7zI" firstAttribute="top" secondItem="yzI-Bt-hnN" secondAttribute="bottom" id="Fzl-ct-zWh"/>
                             <constraint firstItem="gvZ-8w-x38" firstAttribute="top" secondItem="T54-hl-hg7" secondAttribute="bottom" constant="7.5" id="IWw-sW-f9D"/>
                             <constraint firstItem="DcM-iz-KLR" firstAttribute="trailing" secondItem="FWe-YD-bP9" secondAttribute="trailing" id="MDo-bk-d4Z"/>
@@ -281,7 +281,7 @@
                             <constraint firstAttribute="trailing" secondItem="WmB-og-mJb" secondAttribute="trailing" id="zwz-dS-Vd8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Team Dev Plans" id="oLH-tN-NUo"/>
+                    <navigationItem key="navigationItem" title="Manage Plans" id="oLH-tN-NUo"/>
                     <connections>
                         <outlet property="nameErrorLabel" destination="Obi-bK-nh1" id="ttI-bB-nXQ"/>
                         <outlet property="nameField" destination="lAO-C4-ICv" id="7VC-W9-HOQ"/>

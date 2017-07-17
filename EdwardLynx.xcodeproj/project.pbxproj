@@ -938,11 +938,6 @@
 		A9654F2D1EF3B174007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		A9654F2F1EF3B176007EC68B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		A9654F301EF3B17A007EC68B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Dashboard.strings"; sourceTree = "<group>"; };
-		A9654F331EF3B218007EC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9654F351EF3B21B007EC68B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9654F371EF3B21E007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9654F391EF3B224007EC68B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9654F3B1EF3B234007EC68B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
 		A9654F3D1EF3B34F007EC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InstantFeedback.strings; sourceTree = "<group>"; };
 		A9654F3F1EF3B352007EC68B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InstantFeedback.strings; sourceTree = "<group>"; };
 		A9654F411EF3B355007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InstantFeedback.strings; sourceTree = "<group>"; };
@@ -1208,6 +1203,26 @@
 		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
 		A9C4035F1E9B8D3F008DD7C8 /* ELDashboardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardData.h; sourceTree = "<group>"; };
 		A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardData.m; sourceTree = "<group>"; };
+		A9D0C56E1F1C671B003140D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A9D0C5701F1C671C003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A9D0C5721F1C671E003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A9D0C5741F1C671F003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A9D0C5761F1C6721003140D6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
+		A9D0C5801F1C6AAC003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
+		A9D0C5821F1C6AAD003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
+		A9D0C5841F1C6AAF003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
+		A9D0C5861F1C6AB1003140D6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TeamTabPage.strings"; sourceTree = "<group>"; };
+		A9D0C5881F1C6C40003140D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
+		A9D0C58C1F1C6CF3003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/IndividualProgress.strings; sourceTree = "<group>"; };
+		A9D0C58E1F1C6CF5003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/IndividualProgress.strings; sourceTree = "<group>"; };
+		A9D0C5901F1C6CF7003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/IndividualProgress.strings; sourceTree = "<group>"; };
+		A9D0C5921F1C6CF8003140D6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/IndividualProgress.strings"; sourceTree = "<group>"; };
+		A9D0C5961F1C6DFE003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TeamProgress.strings; sourceTree = "<group>"; };
+		A9D0C5981F1C6E00003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TeamProgress.strings; sourceTree = "<group>"; };
+		A9D0C59A1F1C6E02003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TeamProgress.strings; sourceTree = "<group>"; };
+		A9D0C59C1F1C6E04003140D6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TeamProgress.strings"; sourceTree = "<group>"; };
+		A9D0C59E1F1C6EB9003140D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TeamProgress.strings; sourceTree = "<group>"; };
+		A9D0C5A01F1C6F55003140D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IndividualProgress.strings; sourceTree = "<group>"; };
 		A9D13DCB1EF3B7A700988DA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Survey.strings; sourceTree = "<group>"; };
 		A9D13DCF1EF3B7AF00988DA9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Survey.strings; sourceTree = "<group>"; };
 		A9D13DD31EF3B7BC00988DA9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Survey.strings; sourceTree = "<group>"; };
@@ -3139,11 +3154,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A91310DD1E8642D20042C91F /* Base */,
-				A9654F331EF3B218007EC68B /* en */,
-				A9654F351EF3B21B007EC68B /* sv */,
-				A9654F371EF3B21E007EC68B /* de */,
-				A9654F391EF3B224007EC68B /* ru */,
-				A9654F3B1EF3B234007EC68B /* zh-Hans */,
+				A9D0C56E1F1C671B003140D6 /* en */,
+				A9D0C5701F1C671C003140D6 /* sv */,
+				A9D0C5721F1C671E003140D6 /* de */,
+				A9D0C5741F1C671F003140D6 /* ru */,
+				A9D0C5761F1C6721003140D6 /* zh-Hans */,
 			);
 			name = DevelopmentPlan.storyboard;
 			sourceTree = "<group>";
@@ -3446,6 +3461,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A958618A1EFCFB0B00BCEE16 /* Base */,
+				A9D0C58C1F1C6CF3003140D6 /* sv */,
+				A9D0C58E1F1C6CF5003140D6 /* de */,
+				A9D0C5901F1C6CF7003140D6 /* ru */,
+				A9D0C5921F1C6CF8003140D6 /* zh-Hans */,
+				A9D0C5A01F1C6F55003140D6 /* en */,
 			);
 			name = IndividualProgress.storyboard;
 			sourceTree = "<group>";
@@ -3454,6 +3474,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A95CECB71EF8C15B0028BDD4 /* Base */,
+				A9D0C5801F1C6AAC003140D6 /* sv */,
+				A9D0C5821F1C6AAD003140D6 /* de */,
+				A9D0C5841F1C6AAF003140D6 /* ru */,
+				A9D0C5861F1C6AB1003140D6 /* zh-Hans */,
+				A9D0C5881F1C6C40003140D6 /* en */,
 			);
 			name = TeamTabPage.storyboard;
 			sourceTree = "<group>";
@@ -3766,6 +3791,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9979EDA1EFA72FA00A5BCA2 /* Base */,
+				A9D0C5961F1C6DFE003140D6 /* sv */,
+				A9D0C5981F1C6E00003140D6 /* de */,
+				A9D0C59A1F1C6E02003140D6 /* ru */,
+				A9D0C59C1F1C6E04003140D6 /* zh-Hans */,
+				A9D0C59E1F1C6EB9003140D6 /* en */,
 			);
 			name = TeamProgress.storyboard;
 			sourceTree = "<group>";

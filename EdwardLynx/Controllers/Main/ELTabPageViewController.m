@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.toHideButton = !(self.initialIndex == 1 && self.type == kELListTypeSurveys);
+    self.toHideButton = (!(self.initialIndex == 1 && self.type == kELListTypeSurveys)) && self.type != kELListTypeDevPlan;
     self.searchBar.delegate = self;
     
     self.skipIntermediateViewControllers = YES;

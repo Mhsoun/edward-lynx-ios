@@ -73,7 +73,7 @@
     
     [self.surveyView addSubview:shortcutView];
     
-    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionTeam", nil),
+    shortcutView = [[ELShortcutView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionManagerView", nil),
                                                              @"color": kELTeamColor,
                                                              @"icon": fa_edit,
                                                              @"segue": kELDashboardActionTypeTeam}];
