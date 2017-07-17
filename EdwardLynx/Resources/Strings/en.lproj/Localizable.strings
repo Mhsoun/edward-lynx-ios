@@ -65,7 +65,7 @@
 "kELDashboardActionDevelopmentPlan" = "Development\nPlans";
 "kELDashboardActionInstantFeedback" = "Instant\nFeedback";
 "kELDashboardActionLynxMeasurement" = "Lynx\nMeasurement";
-"kELDashboardActionTeam" = "Team";
+"kELDashboardActionManagerView" = "Manager\nView";
 "kELDashboardActionAnswer" = "Answer";
 "kELDashboardActionResults" = "Results";
 "kELDashboardActionInvite" = "Invite";
@@ -196,6 +196,7 @@
 
 "kELManagerUsersDisableSuccess" = "Successfully disabled users to Manager View";
 "kELManagerUsersEnableSuccess" = "Successfully enabled users to Manager View";
+"kELManagerUsersUpdateError" = "Failed to update users";
 
 "kELReportEmptyMessage" = "No Results";
 
@@ -305,7 +306,7 @@
 /* Team Tab Titles */
 
 "kELTabTitleIndividual" = "Individual";
-"kELTabTitleTeam" = "Team Progress";
+"kELTabTitleTeam" = "Team";
 
 /* Team Dev Plan */
 

@@ -172,7 +172,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
     [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELPostMethodError", nil)
+                        message:NSLocalizedString(@"kELManagerUsersUpdateError", nil)
                      completion:nil];
 }
 

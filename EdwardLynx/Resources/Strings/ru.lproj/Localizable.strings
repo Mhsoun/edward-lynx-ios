@@ -9,7 +9,7 @@
 /* General */
 
 "kELDefaultAlertMessage" = "%@ Please try again later.";
-"kELLogoutAlertMessage" = "В случае выхода из приложения вам понадобяться данные для входа.";
+"kELLogoutAlertMessage" = "В случае выхода из приложения вам потребуются данные для входа.";
 "kELServerMessage" = "Невозможно связаться с сервером. Пожалуйста, повторите попытку позже ";
 
 "kELCreateInstantFeedbackTitle" = "Создать Мгновенную обратную связь";
@@ -22,7 +22,7 @@
 "kELCompleteButton" = "Завершить";
 "kELDeleteButton" = "Удалить";
 "kELInviteParticipantsButton" = "Пригласить";
-"kELLogoutButton" = "Выход из системы";
+"kELLogoutButton" = "Выход";
 "kELOkButton" = "Ok";
 "kELProfileEditButton" = "Редактировать";
 "kELProfileSaveButton" = "Сохранить";
@@ -44,7 +44,7 @@
 "kELSearchLabel" = "Искать %@";
 "kELSortByLabel" = "Sort By";
 "kELSortLabel" = "Sort";
-"kELTextViewPlaceholderLabel" = "Ввведите здесь...";
+"kELTextViewPlaceholderLabel" = "Ввведите ответ...";
 "kELUpdateLabel" = "Обновить";
 
 "kELDetailsPageLoadError" = "Failed to load details";
@@ -60,11 +60,12 @@
 /* Dashboard/Menu */
 
 "kELDashboardAddNew" = "Answer New";
-"kELDashboardCreateNew" = "Создать новый план";
+"kELDashboardCreateNew" = "Создать";
 
 "kELDashboardActionDevelopmentPlan" = "Планы\nразвития";
 "kELDashboardActionInstantFeedback" = "Мгновенная обратная связь";
 "kELDashboardActionLynxMeasurement" = "Инструменты\nЛинкс";
+"kELDashboardActionManagerView" = "Manager\nView";
 "kELDashboardActionAnswer" = "Ответить";
 "kELDashboardActionResults" = "Результаты";
 "kELDashboardActionInvite" = "Пригласить";
@@ -92,16 +93,16 @@
 "kELMenuItemSettings" = "Настройки";
 "kELMenuItemSurveys" = "Опросники";
 
-"kELReminderEmptyMessage" = "Без напоминаний";
+"kELReminderEmptyMessage" = "Нет напоминаний";
 
 /* Development Plans */
 
 "kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Подтверждение";
-"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Завершить это действие, %@?";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Завершить эту задачу: _?";
 
-"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Удалить эту задачу, %@?";
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Удалить эту задачу: _?";
 
-"kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
+"kELDevelopmentPlanCreateError" = "Ошибка при создании Плана развития";
 "kELDevelopmentPlanCreateSuccess" = "План развития успешно создан!";
 
 "kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
@@ -113,16 +114,16 @@
 
 "kELDevelopmentPlanGoalActionCreateAlertHeader" = "Создать Задачу";
 "kELDevelopmentPlanGoalActionCreateAlertDetail" = "Введите новую задачу";
-"kELDevelopmentPlanGoalActionCreateSuccess" = "Successfully added goal action";
+"kELDevelopmentPlanGoalActionCreateSuccess" = "Задача успешно добавлена";
 "kELDevelopmentPlanGoalActionDeleteSuccess" = "Задача успешно удалена";
 "kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Обновить задачу";
 "kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Ввести новое имя задачи";
 "kELDevelopmentPlanGoalActionUpdateSuccess" = "Действие по выполнению цели успешно обновлено";
 
 "kELDevelopmentPlanGoalCompleteHeader" = "Цель выполнена!";
-"kELDevelopmentPlanGoalCompleteDetail" = "Вы нашли удачный баланс между решительностью и энтузиазмом. Так держать!";
+"kELDevelopmentPlanGoalCompleteDetail" = "Вы проявили оптимальное сочетание решительности и энтузиазма. Так держать!";
 
-"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Удалить эту цель, %@?";
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Удалить эту цель: _?";
 
 "kELDevelopmentPlanGoalButtonAdd" = "Добавить цель";
 "kELDevelopmentPlanGoalButtonDelete" = "Удалить цель";
@@ -153,10 +154,10 @@
 "kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
 "kELFeedbackAnswerTypeYesNoScale" = "Да или Нет";
 "kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
-"kELFeedbackAnswerTypeText" = "Текстовый ответ";
+"kELFeedbackAnswerTypeText" = "Письменный ответ";
 "kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
 "kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
-"kELFeedbackAnswerTypeCustomScale" = "Индивидуальные настройки шкалы";
+"kELFeedbackAnswerTypeCustomScale" = "Индивидуальные настройки шкалы ответов";
 
 "kELFeedbackCellAuthor" = "Создано: %@";
 
@@ -261,7 +262,7 @@
 
 "kELAnswerOptionalMessage" = "%@ (необязательно)";
 
-"kELSurveyEmptyMessage" = "Нет Опросники";
+"kELSurveyEmptyMessage" = "Нет информации для отображения";
 
 "kELSurveyCompleteHeader" = "Опросник заполнен!";
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
@@ -305,7 +306,7 @@
 /* Team Tab Titles */
 
 "kELTabTitleIndividual" = "Individual";
-"kELTabTitleTeam" = "Team Progress";
+"kELTabTitleTeam" = "Team";
 
 /* Team Dev Plan */
 
@@ -325,7 +326,7 @@
 
 "kELAnswerTypeValidationMessage" = "No Answer type selected";
 "kELCustomScaleValidationMessage" = "Введите данные для Индивидуальной шкалы";
-"kELGoalActionsValidationMessage" = "Нет задач для отображения";
+"kELGoalActionsValidationMessage" = "Задачи не добавлены";
 "kELGoalCategoryValidationMessage" = "No Category selected";
 "kELGoalCategoriesValidationMessage" = "Нет доступных категорий";
 "kELGoalDueDateValidationMessage" = "Срок выполнения должен быть не ранее сегодняшнего дня";
