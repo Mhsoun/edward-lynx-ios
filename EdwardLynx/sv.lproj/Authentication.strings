@@ -1,24 +1,24 @@
 
 /* Class = "UITextField"; placeholder = "Username/Email"; ObjectID = "0zg-eg-vpS"; */
-"0zg-eg-vpS.placeholder" = "Username/Email";
+"0zg-eg-vpS.placeholder" = "Användarnamn/Email";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "1hR-H6-4Zt"; */
-"1hR-H6-4Zt.placeholder" = "Password";
+"1hR-H6-4Zt.placeholder" = "Lösenord";
 
 /* Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "95j-rQ-DgJ"; */
-"95j-rQ-DgJ.normalTitle" = "Forgot Password?";
+"95j-rQ-DgJ.normalTitle" = "Glömt ditt lösenord?";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.disabledTitle" = "Processing...";
+"Rls-Cu-J3h.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Recover"; ObjectID = "Rls-Cu-J3h"; */
 "Rls-Cu-J3h.normalTitle" = "Recover";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "T2j-yn-dSI"; */
-"T2j-yn-dSI.disabledTitle" = "Processing...";
+"T2j-yn-dSI.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "T2j-yn-dSI"; */
-"T2j-yn-dSI.normalTitle" = "Login";
+"T2j-yn-dSI.normalTitle" = "Logga in";
 
 /* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "UoZ-DP-lmZ"; */
 "UoZ-DP-lmZ.normalTitle" = "Login Now";
@@ -27,7 +27,7 @@
 "iY9-zi-6oy.text" = "Recover Password";
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm"; */
-"jZj-dI-Wdm.normalTitle" = "Contact Us";
+"jZj-dI-Wdm.normalTitle" = "Kontakta oss";
 
 /* Class = "UITextField"; placeholder = "Username/Email"; ObjectID = "vhw-1P-ZZy"; */
-"vhw-1P-ZZy.placeholder" = "Username/Email";
+"vhw-1P-ZZy.placeholder" = "Användarnamn / Email";

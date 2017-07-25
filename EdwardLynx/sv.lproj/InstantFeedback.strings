@@ -1,12 +1,12 @@
 
 /* Class = "UINavigationItem"; title = "Instant Feedback"; ObjectID = "2ww-PD-LlL"; */
-"2ww-PD-LlL.title" = "Instant Feedback";
+"2ww-PD-LlL.title" = "Snabb återkoppling";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "9V0-Dg-MzZ"; */
 "9V0-Dg-MzZ.disabledTitle" = "Processing...";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "9V0-Dg-MzZ"; */
-"9V0-Dg-MzZ.normalTitle" = "Submit";
+"9V0-Dg-MzZ.normalTitle" = "Förfrågningar om snabb återkoppling";
 
 /* Class = "UINavigationItem"; title = "Instant Feedback Requests"; ObjectID = "abA-ak-a58"; */
-"abA-ak-a58.title" = "Instant Feedback Requests";
+"abA-ak-a58.title" = "Förfrågningar om snabb återkoppling";
