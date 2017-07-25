@@ -263,9 +263,9 @@
         return;
     }
     
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELSurveyPostError", nil)
-                     completion:nil];
+//    [ELUtils presentToastAtView:self.view
+//                        message:NSLocalizedString(@"kELSurveyPostError", nil)
+//                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

@@ -156,9 +156,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELPostMethodError", nil)
-                     completion:nil];
+//    [ELUtils presentToastAtView:self.view
+//                        message:NSLocalizedString(@"kELPostMethodError", nil)
+//                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -194,6 +194,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     NSString *buttonLabel;
     
     iconHeight = 15;
+    
+    self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     if (self.toAddNew) {
         buttonLabel = NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil);

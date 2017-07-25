@@ -93,9 +93,9 @@
     __weak typeof(self) weakSelf = self;
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [ELUtils presentToastAtView:weakSelf.view
-                            message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
-                         completion:nil];
+//        [ELUtils presentToastAtView:weakSelf.view
+//                            message:NSLocalizedString(@"kELFeedbackAnswerError", nil)
+//                         completion:nil];
     }];
 }
 

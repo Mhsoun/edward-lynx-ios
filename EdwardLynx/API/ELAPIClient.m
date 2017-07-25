@@ -84,10 +84,17 @@ static NSString * const kELApplicationJSON = @"application/json";
                                         code:httpResponse.statusCode
                                     userInfo:responseDict];
         } else if (error) {
+//            if (httpResponse.statusCode == kELAPIServerError) {
+//                completion(response, responseDict, error);
+//                
+//                return;
+//            }
+            
             if (httpResponse.statusCode == kELAPIServerError) {
-                completion(response, responseDict, error);
-                
-                return;
+                errorMessage = NSLocalizedString(@"kELServerMessage", nil);
+            } else {
+                errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil),
+                                      error.localizedDescription);
             }
             
             // For handling overlapping UIAlertController instances
@@ -96,7 +103,6 @@ static NSString * const kELApplicationJSON = @"application/json";
                 [visibleViewController dismissViewControllerAnimated:YES completion:nil];
             }
             
-            errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil), error.localizedDescription);
             visibleViewController = [ApplicationDelegate visibleViewController:Application.keyWindow.rootViewController];
             alertController = Alert(NSLocalizedString(@"kELErrorLabel", nil), errorMessage);
           

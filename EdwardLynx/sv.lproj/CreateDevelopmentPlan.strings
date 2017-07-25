@@ -30,7 +30,7 @@
 "ec1-sT-EDz.text" = "Åtgärder";
 
 /* Class = "UILabel"; text = "Due Date"; ObjectID = "k8P-kX-1PH"; */
-"k8P-kX-1PH.text" = "Due Date";
+"k8P-kX-1PH.text" = "Förfallodatum";
 
 /* Class = "UILabel"; text = "Goals"; ObjectID = "y2D-su-Kaj"; */
 "y2D-su-Kaj.text" = "Mål";
