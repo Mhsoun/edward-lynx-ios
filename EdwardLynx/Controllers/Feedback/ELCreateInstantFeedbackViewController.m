@@ -160,8 +160,6 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    NSString *titleLabel = self.instantFeedback ? @"kELInstantFeedbackTitle" : @"kELCreateInstantFeedbackTitle";
-    
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     // Button
@@ -169,7 +167,11 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
                        forState:UIControlStateNormal];
     
     // Title
-    self.title = [NSLocalizedString(titleLabel, nil) uppercaseString];
+    if (self.instantFeedback) {
+        self.title = [NSLocalizedString(@"kELInstantFeedbackTitle", nil) uppercaseString];
+    } else {
+        self.title = [NSLocalizedString(@"kELCreateInstantFeedbackTitle", nil) uppercaseString];
+    }
 }
 
 #pragma mark - Protocol Methods (ELDropdown)

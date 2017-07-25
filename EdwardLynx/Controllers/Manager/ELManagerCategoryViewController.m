@@ -163,9 +163,9 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     self.action = -1;
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [ELUtils presentToastAtView:self.view
-                        message:message
-                     completion:nil];
+//    [ELUtils presentToastAtView:self.view
+//                        message:message
+//                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

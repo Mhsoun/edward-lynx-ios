@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="-58" y="128"/>
         </scene>
-        <!--Title-->
+        <!--Manager Report Details View Controller-->
         <scene sceneID="OAy-Kh-kDg">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="CqJ-Z3-iIc" customClass="ELManagerReportDetailsViewController" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                             <constraint firstItem="qgu-4H-ld8" firstAttribute="centerY" secondItem="2Dr-af-P2N" secondAttribute="centerY" id="ur4-4u-xSx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="glK-Ti-oXx">
+                    <navigationItem key="navigationItem" id="glK-Ti-oXx">
                         <barButtonItem key="rightBarButtonItem" id="FTY-sK-mPp">
                             <connections>
                                 <action selector="onSendEmailBarButtonItemClick:" destination="CqJ-Z3-iIc" id="xgS-aj-6Jv"/>

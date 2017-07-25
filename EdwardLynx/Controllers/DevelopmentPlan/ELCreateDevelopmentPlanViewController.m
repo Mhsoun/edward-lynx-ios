@@ -187,9 +187,9 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
-                     completion:nil];
+//    [ELUtils presentToastAtView:self.view
+//                        message:NSLocalizedString(@"kELDevelopmentPlanCreateError", nil)
+//                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

@@ -38,7 +38,9 @@
 "kELEmailLabel" = "邮箱";
 "kELErrorLabel" = "Error";
 "kELExpiresOnLabel" = "Expires on %@";
+"kELNALabel" = "N/A";
 "kELNameLabel" = "姓名";
+"kELNoLabel" = "No";
 "kELNoDescriptionLabel" = "No description";
 "kELProcessingLabel" = "进行中";
 "kELSearchLabel" = "搜索%@";
@@ -46,6 +48,7 @@
 "kELSortByLabel" = "Sort By";
 "kELTextViewPlaceholderLabel" = "在这里键入…";
 "kELUpdateLabel" = "更新";
+"kELYesLabel" = "Yes";
 
 "kELDetailsPageLoadError" = "Failed to load details";
 "kELPostMethodError" = "Failed to process request";
@@ -197,6 +200,7 @@
 
 "kELManagerUsersDisableSuccess" = "Successfully disabled users to Manager View";
 "kELManagerUsersEnableSuccess" = "Successfully enabled users to Manager View";
+"kELManagerUsersUpdateError" = "Failed to update users";
 
 "kELReportEmptyMessage" = "无结果";
 
@@ -312,6 +316,8 @@
 
 "kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
 "kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
+"kELTeamDevelopmentPlanUpdateError" = "Failed to update Team Development Plan(s)";
+"kELTeamDevelopmentPlanUpdateSuccess" = "Successfully updated Team Development Plan(s)";
 
 /* User Roles */
 

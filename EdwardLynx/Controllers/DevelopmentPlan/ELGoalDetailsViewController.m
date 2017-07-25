@@ -156,9 +156,9 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [ELUtils presentToastAtView:self.view
-                        message:NSLocalizedString(@"kELPostMethodError", nil)
-                     completion:nil];
+//    [ELUtils presentToastAtView:self.view
+//                        message:NSLocalizedString(@"kELPostMethodError", nil)
+//                     completion:nil];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
@@ -190,11 +190,18 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat iconHeight = 15;
-    NSString *buttonLabel = self.toAddNew ? NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil) :
-                                            NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
+    CGFloat iconHeight;
+    NSString *buttonLabel;
+    
+    iconHeight = 15;
     
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    
+    if (self.toAddNew) {
+        buttonLabel = NSLocalizedString(@"kELDevelopmentPlanGoalButtonAdd", nil);
+    } else {
+        buttonLabel = NSLocalizedString(@"kELDevelopmentPlanGoalButtonUpdate", nil);
+    }
     
     // Button
     [self.addGoalButton setTitle:buttonLabel forState:UIControlStateNormal];

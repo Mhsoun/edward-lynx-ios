@@ -1,0 +1,348 @@
+/* 
+  Localizable.strings
+  EdwardLynx
+
+  Created by Jason Jon E. Carreos on 07/02/2017.
+  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
+*/
+
+/* General */
+
+"kELDefaultAlertMessage" = "%@ Please try again later.";
+"kELLogoutAlertMessage" = "Om du loggar ut kommer appen kräva dina uppgifter nästa gång.";
+"kELServerMessage" = "Kan inte ansluta till servern. Försök igen senare.";
+
+"kELCreateInstantFeedbackTitle" = "Skapa snabb återkoppling";
+"kELInstantFeedbackTitle" = "Snabb återkoppling";
+
+"kELAddButton" = "Lägg till";
+"kELAddMoreParticipantsButton" = "Add Participants";
+"kELCancelButton" = "Annullera";
+"kELCloseButton" = "Stänga";
+"kELCompleteButton" = "Komplett";
+"kELDeleteButton" = "Radera";
+"kELInviteParticipantsButton" = "Inbjudan";
+"kELLogoutButton" = "Logga ut";
+"kELOkButton" = "Ok";
+"kELProfileEditButton" = "Redigera";
+"kELProfileSaveButton" = "Spara";
+"kELSaveToDraftButton" = "Spara till Utkast";
+"kELSelectParticipantsButton" = "Select Participants";
+"kELSubmitButton" = "Lämna";
+"kELUpdateButton" = "Uppdatering";
+
+"kELCompletedLabel" = "%@ / %@ Avslutat";
+"kELCreateTextViewPlaceholderLabel" = "Innehåll";
+"kELFilterLabel" = "Filter";
+"kELFilterByLabel" = "Filter By";
+"kELEmailLabel" = "E-post";
+"kELErrorLabel" = "Fel";
+"kELExpiresOnLabel" = "Expires on %@";
+"kELNALabel" = "N/A";
+"kELNameLabel" = "Name";
+"kELNoLabel" = "No";
+"kELNoDescriptionLabel" = "No description";
+"kELProcessingLabel" = "Bearbetning…";
+"kELSearchLabel" = "Sök %@";
+"kELSortLabel" = "Sort";
+"kELSortByLabel" = "Sort By";
+"kELTextViewPlaceholderLabel" = "Skriv här...";
+"kELUpdateLabel" = "Uppdatering";
+"kELYesLabel" = "Yes";
+
+"kELDetailsPageLoadError" = "Failed to load details";
+"kELPostMethodError" = "Failed to process request";
+
+"kELErrorDetailsMessage" = "Please try again later";
+
+/* Authentication */
+
+"kELLoginButtonDisabledText" = "Bearbetning…";
+"kELLoginButtonNormalText" = "Logga in";
+
+/* Dashboard/Menu */
+
+"kELDashboardAddNew" = "Answer New";
+"kELDashboardCreateNew" = "Skapa ny";
+
+"kELDashboardActionDevelopmentPlan" = "Utvecklingsplaner";
+"kELDashboardActionInstantFeedback" = "Snabb\nåterkoppling";
+"kELDashboardActionLynxMeasurement" = "Lynxmätning";
+"kELDashboardActionManagerView" = "Manager\nView";
+"kELDashboardActionAnswer" = "Svar";
+"kELDashboardActionResults" = "Resultat";
+"kELDashboardActionInvite" = "Inbjudan";
+"kELDashboardActionCreate" = "Skapa";
+
+"kELDashboardDueDateMessage" = "Förfaller i";
+
+"kELDashboardDueDateMessageSingular" = "Förfaller i\n%@ dag";
+"kELDashboardDueDateMessagePlural" = "Förfaller i\n%@ dagar";
+"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
+"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
+"kELDashboardDueDateNow" = "Nu";
+
+"kELDashboardReminderFeedback" = "Snabb återkoppling";
+"kELDashboardReminderGoal" = "Mål";
+"kELDashboardReminderSurvey" = "Undersökning";
+
+"kELDashboardSectionDevelopmentPlans" = "Utvecklingsplaner";
+"kELDashboardSectionReminders" = "Påminnelser";
+
+"kELMenuItemDashboard" = "Dashboard";
+"kELMenuItemDevelopmentPlan" = "Utvecklingsplaner";
+"kELMenuItemProfile" = "Profil";
+"kELMenuItemSettings" = "Inställningar";
+"kELMenuItemSurveys" = "Undersökningar";
+
+"kELReminderEmptyMessage" = "Inga påminnelser";
+
+/* Development Plans */
+
+"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "Bekräftelse";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "Slutför den här åtgärden, %@";
+
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "Ta bort den här åtgärden, %@?";
+
+"kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
+"kELDevelopmentPlanCreateSuccess" = "Framgångsrikt skapat utvecklingsplan";
+
+"kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "Development Plan no longer shared to manager";
+
+"kELDevelopmentPlanGoalCreateSuccess" = "Framgångsrikt lagt till mål";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Mål framgångsrikt borttaget";
+"kELDevelopmentPlanGoalUpdateSuccess" = "Framgångsrikt uppdaterat mål ";
+
+"kELDevelopmentPlanGoalActionCreateAlertHeader" = "Skapa åtgärd";
+"kELDevelopmentPlanGoalActionCreateAlertDetail" = "Ange namn för ny åtgärd";
+"kELDevelopmentPlanGoalActionCreateSuccess" = "Har lyckats lägga till målåtgärd";
+"kELDevelopmentPlanGoalActionDeleteSuccess" = "Framgångsrikt tagit bort målåtgärd";
+"kELDevelopmentPlanGoalActionUpdateAlertHeader" = "Uppdatera åtgärd";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "Ange nytt namn för åtgärd";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "Uppdaterad målåtgärd";
+
+"kELDevelopmentPlanGoalCompleteHeader" = "Mål slutfört!";
+"kELDevelopmentPlanGoalCompleteDetail" = "Du har rätt mix av engagemang och entusiasm. Fortsätt så!";
+
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "Ta bort det här målet, %@?";
+
+"kELDevelopmentPlanGoalButtonAdd" = "Lägg till mål";
+"kELDevelopmentPlanGoalButtonDelete" = "Ta bort mål";
+"kELDevelopmentPlanGoalButtonUpdate" = "Uppdateringsmål";
+
+"kELDevelopmentPlanGoalActionButtonAdd" = "Lägg till åtgärd";
+"kELDevelopmentPlanGoalActionButtonDelete" = "Ta bort åtgärd";
+"kELDevelopmentPlanGoalActionButtonUpdate" = "Uppdatera åtgärd";
+
+"kELDevelopmentPlanGoalTimestampDueDate" = "Förfallodatum: %@";
+"kELDevelopmentPlanGoalTimestampToday" = "Today";
+
+"kELDevelopmentPlanCompleted" = "completed";
+"kELDevelopmentPlanEmptyMessage" = "Inga utvecklingsplaner";
+"kELDevelopmentPlanGoalsCompleted" = "%@ Av %@ genomförda mål";
+"kELDevelopmentPlanTitle" = "Utvecklingsplan";
+
+/* Feedback */
+
+"kELFeedbackAnonymousLabel" = "Anonym feedback";
+
+"kELFeedbackAnswerError" = "Failed answering Instant Feedback";
+"kELFeedbackAnswerRequired" = "Vänligen fyll i alla erforderliga frågor";
+"kELFeedbackAnswerSuccess" = "Svarat på snabb återkoppling";
+
+"kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
+"kELFeedbackAnswerTypeOneToTenScale" = "Numerisk 1-10 skala";
+"kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
+"kELFeedbackAnswerTypeYesNoScale" = "Ja eller Nej";
+"kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
+"kELFeedbackAnswerTypeText" = "Fri text";
+"kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
+"kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
+"kELFeedbackAnswerTypeCustomScale" = "Anpassad skala";
+
+"kELFeedbackCellAuthor" = "Skapad av: %@";
+
+"kELFeedbackUnauthorizedLabel" = "Du är inte behörig att svara på denna snabba återkopplingen.";
+
+"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+
+/* Fields */
+
+"kELDefaultField" = "Field";
+"kELEmailField" = "E-post";
+"kELNameField" = "Namn";
+"kELPasswordField" = "Lösenord";
+"kELQuestionField" = "Fråga";
+"kELUsernameField" = "Användarnamn/Email";
+
+/* Invite/Share */
+
+"kELDeselectAllButton" = "Deselect all";
+"kELSelectAllButton" = "Select all";
+
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed";
+"kELInviteUsersNoSelectionMessage" = "Inga användare har valts";
+
+"kELInviteUsersRetrievalError" = "Failed to retrieve users";
+"kELInviteUsersRetrievalEmpty" = "Inga användare";
+
+"kELInviteUsersAddEmailHeaderMessage" = "Lägg till användare";
+"kELInviteUsersAddEmailDetailsMessage" = "Ange namn och e-postadress";
+
+"kELInviteTitleFeedback" = "Bjud in personer";
+"kELInviteTitleReport" = "Dela resultat";
+
+"kELInviteUsersSuccess" = "Framgångsrikt bjudit in deltagare";
+"kELInviteUsersShareSuccess" = "Successfully shared result";
+
+"kELManagerUsersDisableSuccess" = "Har framgångsrikt inaktiverat användarna till Manager View";
+"kELManagerUsersEnableSuccess" = "Har framgångsrikt aktiverat användarna till Manager View";
+"kELManagerUsersUpdateError" = "Har misslyckats med att uppdatera användare";
+
+"kELReportEmptyMessage" = "Inga resultat";
+
+"kELShareButtonFeedback" = "Skicka inbjudningar";
+"kELShareButtonReport" = "Dela";
+
+"kELShareReportsHeaderMessage" = "Share result to users";
+
+"kELUsersNumberSelectedLabel" = "Personer som valts: %@";
+
+/* Profile */
+
+"kELProfileChangePasswordSuccess" = "Uppdaterat lösenord";
+"kELProfileUpdateSuccess" = "Framgångsrikt uppdaterat profilen";
+"kELProfileGenderMale" = "Man";
+"kELProfileGenderFemale" = "Kvinna";
+"kELProfileGenderOther" = "Other";
+
+/* Reports */
+
+"kELReportInfoLabel" = "Inbjudna: %@ | Besvarade: %@";
+"kELReportInfoCandidates" = "Candidates";
+"kELReportInfoOthers" = "Others combined";
+"kELReportInfoManager" = "Manager";
+
+"kELReportMoreDropdownAddMore" = "Lägg till fler deltagare";
+"kELReportMoreDropdownShare" = "Dela resultat";
+
+"kELReportNoData" = "Ingen diagramdata tillgänglig";
+"kELReportRestrictedData" = "Minst %@ personer för att visa detta diagram";
+"kELReportTitleFeedback" = "Resultat av återkoppling";
+
+"kELReportTypeBlindspotOverHeader" = "Blindpunkt (överskattad)";
+"kELReportTypeBlindspotOverDetail" = "Frågor där andra har betygsatt dig lägre än du har betygsatt dig själv. Visar områden där det finns förbättringsområden.";
+
+"kELReportTypeBlindspotUnderHeader" = "Blindpunkt (underskattad)";
+"kELReportTypeBlindspotUnderDetail" = "Frågor där andra har betygsatt dig högre än du har betygsatt dig själv. Visar de attribut du har som andra uppskattar.";
+
+"kELReportTypeBreakdownHeader" = "Uppdelning av svar efter deltagartyp";
+"kELReportTypeBreakdownDetail" = "Diagrammen visar ett genomsnitt av svaren på kompetensområdena för varje deltagarkategori.";
+
+"kELReportTypeCommentsHeader" = "Deltagarens kommentarer";
+
+"kELReportTypeDetailPerCategoryHeader" = "Detaljerad svarsammanfattning per kategori";
+
+"kELReportTypeHighestHeader" = "Fem högsta rankade frågorna (%@)";
+"kELReportTypeHighestDetail" = "";
+
+"kELReportTypeLowestHeader" = "Fem lägsta rankade frågorna (%@)";
+"kELReportTypeLowestDetail" = "";
+
+"kELReportTypeRadarHeader" = "Radar Diagram";
+"kELReportTypeRadarDetail" = "Visar en översikt över resultaten från feedbackundersökningen, jämfört med din egen personliga bedömning. Punkterna där cirkelns radie är störst visar var dina starka punkter är (enligt dig eller återkopplingsgruppen).";
+
+"kELReportTypeResponseRateHeader" = "Svarsfrekvens";
+"kELReportTypeResponseRateDetail" = "Följande diagram anger antalet personer som svarade på din feedback, uppdelad efter kategori av återkopplingsgivare.";
+
+"kELReportTypeYesNoHeader" = "Ja/Nej frågor";
+
+/* Surveys */
+
+"kELAnswerSurveyTitle" = "Undersökning svarsalternativ";
+
+"kELAnswerOptionalMessage" = "%@ (frivillig)";
+
+"kELSurveyEmptyMessage" = "No Surveys";
+
+"kELSurveyCompleteHeader" = "Undersökning slutförd!";
+"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
+"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
+
+"kELSurveySubmissionSuccess" = "Successfully submitted answers";
+"kELSurveySaveToDraftSuccess" = "Framgångsrikt sparat svar på utkast";
+"kELSurveyPostError" = "Failed to post answers";
+
+"kELSurveyRateError" = "Failed to invite others to rate you";
+"kELSurveyRateSuccess" = "Framgångsrikt bjudit in andra att betygsätta dig";
+
+"kELSurveyStatusOpen" = "Öppen";
+"kELSurveyStatusUnfinished" = "Oavslutad";
+"kELSurveyStatusCompleted" = "Avslutad";
+"kELSurveyStatusNotInvited" = "Inte inbjuden";
+
+"kELSurveyType360Individual" = "Lynx 360";
+"kELSurveyTypeLMTT" = " LMTT";
+"kELSurveyTypeProgress" = "Lynx Progress";
+"kELSurveyTypeSurvey" = "Lynx undersökning";
+"kELSurveyTypeLTT" = "LTT";
+
+"kELSurveyUnauthorizedLabel" = "Du är inte behörig att svara på den här undersökningen";
+
+/* Tabs */
+
+"kELListFilterAll" = "Alla";
+"kELListFilterInProgress" = "Pågående";
+"kELListFilterCompleted" = "Avslutad";
+"kELListFilterExpired" = "Utgånget";
+"kELListFilterInstantFeedback" = "Snabb återkoppling";
+"kELListFilterLynxMeasurement" = "Lynxmätning";
+
+/* Tab Titles */
+
+"kELTabTitleDevPlan" = "Utvecklingsplaner";
+"kELTabTitleReports" = "Resultat";
+"kELTabTitleSurveys" = "Undersökningar";
+
+/* Team Tab Titles */
+
+"kELTabTitleIndividual" = "Individuell";
+"kELTabTitleTeam" = "Team";
+
+/* Team Dev Plan */
+
+"kELTeamDevelopmentPlanCreateError" = "Har misslyckats med att skapa teamutvecklingsplaner";
+"kELTeamDevelopmentPlanCreateSuccess" = "Har famgångsrikt skapat teamutvecklingsplaner";
+"kELTeamDevelopmentPlanUpdateError" = "Har misslyckats med att uppdatera teamutvecklingsplan (er)";
+"kELTeamDevelopmentPlanUpdateSuccess" = "Har framgångsrikt uppdaterat teamutvecklingsplan (er)";
+
+/* User Roles */
+
+"kELUserRoleColleague" = "Kollega";
+"kELUserRoleManager" = "Chef";
+"kELUserRoleCustomer" = "Kund";
+"kELUserRoleMatrixManager" = "Matrischef";
+"kELUserRoleOtherStakeholder" = "Andra intressenter";
+"kELUserRoleDirectReport" = "Medarbetare";
+
+/* Validations */
+
+"kELAnswerTypeValidationMessage" = "No Answer type selected";
+"kELCustomScaleValidationMessage" = "Anpassad skala inmatning krävs";
+"kELGoalActionsValidationMessage" = "Inga åtgärder tillagda";
+"kELGoalCategoryValidationMessage" = "No Category selected";
+"kELGoalCategoriesValidationMessage" = "Inga kategorier tillgängliga";
+"kELGoalDueDateValidationMessage" = "Förfallodatum ska vara på eller efter idag";
+"kELGoalsValidationMessage" = "Inga mål har lagts till";
+"kELPasswordValidationMessage" = "Nya lösenordens fält måste vara desamma";
+"kELREValidationEmailMessage" = "%@ is an invalid email";
+"kELREValidationPresenceMessage" = "%@ can't be blank";
+
+"kELEmailValidationMessage" = "E-post kan inte vara tomt";
+"kELFeedbackQuestionValidationMessage" = "Frågan kan inte vara tom";
+"kELFieldValidationMessage" = "Fältet kan inte vara tomt";
+"kELLoginPasswordValidationMessage" = "Lösenordet kan inte vara tomt";
+"kELLoginUsernameValidationMessage" = "Användarnamnet kan inte vara tomt";
+"kELNameValidationMessage" = "Namnet kan inte vara tomt";

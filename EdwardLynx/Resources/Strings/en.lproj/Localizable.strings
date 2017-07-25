@@ -38,7 +38,9 @@
 "kELEmailLabel" = "E-mail";
 "kELErrorLabel" = "Error";
 "kELExpiresOnLabel" = "Expires on %@";
+"kELNALabel" = "N/A";
 "kELNameLabel" = "Name";
+"kELNoLabel" = "No";
 "kELNoDescriptionLabel" = "No description";
 "kELProcessingLabel" = "Processing...";
 "kELSearchLabel" = "Search %@";
@@ -46,6 +48,7 @@
 "kELSortByLabel" = "Sort By";
 "kELTextViewPlaceholderLabel" = "Type here...";
 "kELUpdateLabel" = "Update";
+"kELYesLabel" = "Yes";
 
 "kELDetailsPageLoadError" = "Failed to load details";
 "kELPostMethodError" = "Failed to process request";

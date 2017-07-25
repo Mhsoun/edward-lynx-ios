@@ -100,7 +100,8 @@
     self.mOptions = [NSMutableArray arrayWithArray:_question.answer.options];
     
     if (_question.isNA) {
-        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": @"N/A", @"value": @(-1)}
+        [self.mOptions addObject:[[ELAnswerOption alloc] initWithDictionary:@{@"description": NSLocalizedString(@"kELNALabel", nil),
+                                                                              @"value": @(-1)}
                                                                       error:nil]];
     }
     

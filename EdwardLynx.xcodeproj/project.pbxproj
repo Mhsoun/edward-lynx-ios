@@ -655,6 +655,15 @@
 		A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerSurveyTableViewCell.m; sourceTree = "<group>"; };
 		A90DCB5D1F0E3C0B004F724A /* ELManagerReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportDetailsViewController.h; sourceTree = "<group>"; };
 		A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportDetailsViewController.m; sourceTree = "<group>"; };
+		A91029EB1F26EC140048F733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SectionView.strings; sourceTree = "<group>"; };
+		A91029ED1F26EC160048F733 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
+		A91029EF1F26EC180048F733 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
+		A91029F11F26EC420048F733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
+		A91029F31F26EC440048F733 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
+		A91029F51F26EC460048F733 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ManagerIndividualCell.strings"; sourceTree = "<group>"; };
+		A91029F61F26F9820048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A91029F81F26F9C50048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SectionView.strings; sourceTree = "<group>"; };
+		A91029FA1F26F9D70048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
 		A91310C71E8642D20042C91F /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A91310C81E8642D20042C91F /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 		A91310C91E8642D20042C91F /* ELDevelopmentPlanAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanAPIClient.h; sourceTree = "<group>"; };
@@ -1152,11 +1161,6 @@
 		A98371781ED42BF100C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShortcutView.strings"; sourceTree = "<group>"; };
 		A983717A1ED42BF200C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShortcutView.strings; sourceTree = "<group>"; };
 		A983717C1ED42C1100C05594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SectionView.xib; sourceTree = "<group>"; };
-		A983717F1ED42C1400C05594 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SectionView.strings; sourceTree = "<group>"; };
-		A98371811ED42C1500C05594 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SectionView.strings; sourceTree = "<group>"; };
-		A98371831ED42C1700C05594 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SectionView.strings; sourceTree = "<group>"; };
-		A98371851ED42C1800C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SectionView.strings; sourceTree = "<group>"; };
-		A98371871ED42C1900C05594 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SectionView.strings"; sourceTree = "<group>"; };
 		A988553E1F11EA050017DB87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3453,6 +3457,7 @@
 				A91311981E8642D20042C91F /* en */,
 				A988553E1F11EA050017DB87 /* ru */,
 				A96CE9AB1F13636C00BDAFF6 /* zh-Hans */,
+				A91029F61F26F9820048F733 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3487,6 +3492,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				A95CECBE1EF8C87A0028BDD4 /* Base */,
+				A91029F11F26EC420048F733 /* en */,
+				A91029F31F26EC440048F733 /* ru */,
+				A91029F51F26EC460048F733 /* zh-Hans */,
+				A91029FA1F26F9D70048F733 /* sv */,
 			);
 			name = ManagerIndividualCell.xib;
 			sourceTree = "<group>";
@@ -3778,11 +3787,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				A983717C1ED42C1100C05594 /* Base */,
-				A983717F1ED42C1400C05594 /* en */,
-				A98371811ED42C1500C05594 /* sv */,
-				A98371831ED42C1700C05594 /* de */,
-				A98371851ED42C1800C05594 /* ru */,
-				A98371871ED42C1900C05594 /* zh-Hans */,
+				A91029EB1F26EC140048F733 /* en */,
+				A91029ED1F26EC160048F733 /* ru */,
+				A91029EF1F26EC180048F733 /* zh-Hans */,
+				A91029F81F26F9C50048F733 /* sv */,
 			);
 			name = SectionView.xib;
 			sourceTree = "<group>";

@@ -1,15 +1,15 @@
 
 /* Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu"; */
-"33n-m2-WWu.text" = "Role";
+"33n-m2-WWu.text" = "Tjänst";
 
 /* Class = "UINavigationItem"; title = "Surveys"; ObjectID = "B21-4l-6el"; */
-"B21-4l-6el.title" = "Surveys";
+"B21-4l-6el.title" = "Undersökningar";
 
 /* Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK"; */
-"OUg-ex-YkK.text" = "Users to invite";
+"OUg-ex-YkK.text" = "Användare att bjuda in";
 
 /* Class = "UILabel"; text = "E-mail"; ObjectID = "Ot0-UB-XIx"; */
-"Ot0-UB-XIx.text" = "E-mail";
+"Ot0-UB-XIx.text" = "E-post";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Y7d-Ki-W5I"; */
 "Y7d-Ki-W5I.disabledTitle" = "Processing...";
@@ -18,7 +18,7 @@
 "Y7d-Ki-W5I.normalTitle" = "Submit";
 
 /* Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p"; */
-"Yym-JO-B5p.text" = "Invite people to rate you in a survey";
+"Yym-JO-B5p.text" = "Bjud in människor att betygsätta dig i en undersökning";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "ajk-Vm-b8j"; */
 "ajk-Vm-b8j.disabledTitle" = "Processing...";
@@ -30,10 +30,10 @@
 "bai-qk-Mib.disabledTitle" = "Processing...";
 
 /* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib"; */
-"bai-qk-Mib.normalTitle" = "Send Invites";
+"bai-qk-Mib.normalTitle" = "Skicka inbjudningar";
 
 /* Class = "UIButton"; normalTitle = "Add User"; ObjectID = "ptj-GZ-AdK"; */
-"ptj-GZ-AdK.normalTitle" = "Add User";
+"ptj-GZ-AdK.normalTitle" = "+";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED"; */
-"ya8-nY-aED.text" = "Name";
+"ya8-nY-aED.text" = "Namn";

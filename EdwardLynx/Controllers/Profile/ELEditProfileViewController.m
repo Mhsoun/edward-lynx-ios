@@ -201,7 +201,7 @@
 }
 
 - (void)toggleForm:(BOOL)enable {
-    NSString *labelKey = enable ? @"kELProfileSaveButton" : @"kELProfileEditButton";
+    NSString *title;
     
     self.nameTextField.enabled = enable;
     self.emailTextField.enabled = enable;
@@ -215,7 +215,13 @@
     self.toSave = enable;
     self.cancelButton.hidden = !enable;
     
-    [self.saveButton setTitle:NSLocalizedString(labelKey, nil) forState:UIControlStateNormal];
+    if (enable) {
+        title = NSLocalizedString(@"kELProfileSaveButton", nil);
+    } else {
+        title = NSLocalizedString(@"kELProfileEditButton", nil);
+    }
+    
+    [self.saveButton setTitle:title forState:UIControlStateNormal];
 }
 
 #pragma mark - Interface Builder Actions

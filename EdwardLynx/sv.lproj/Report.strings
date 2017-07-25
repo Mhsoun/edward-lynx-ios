@@ -1,18 +1,18 @@
 
 /* Class = "UILabel"; text = "Index over competencies"; ObjectID = "ClC-9Z-6a5"; */
-"ClC-9Z-6a5.text" = "Index over competencies";
+"ClC-9Z-6a5.text" = "Index över kompetenser";
 
 /* Class = "UILabel"; text = "No chart data available"; ObjectID = "KYZ-hf-c8a"; */
-"KYZ-hf-c8a.text" = "No chart data available";
+"KYZ-hf-c8a.text" = "Ingen diagramdata tillgänglig";
 
 /* Class = "UILabel"; text = "Shows the average for all categories."; ObjectID = "L61-gO-7n1"; */
-"L61-gO-7n1.text" = "Shows the average for all categories.";
+"L61-gO-7n1.text" = "Visar medelvärdet för alla kategorier.";
 
 /* Class = "UILabel"; text = "Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar."; ObjectID = "VzL-Fa-l1a"; */
-"VzL-Fa-l1a.text" = "Shows the overall values for each area of competence (the average of all the answers from those who responded to your feedback request). Your own personal assessment is shown in a separate bar.";
+"VzL-Fa-l1a.text" = "Visar de totala värdena för varje kompetensområde (genomsnittet av alla svar från de personer som svarade på din begäran om återkoppling). Din egen personliga bedömning visas i en separat stapel.";
 
 /* Class = "UILabel"; text = "Average values"; ObjectID = "beJ-dZ-msV"; */
-"beJ-dZ-msV.text" = "Average values";
+"beJ-dZ-msV.text" = "Medelvärden";
 
 /* Class = "UINavigationItem"; title = "Results"; ObjectID = "ecC-sn-zjy"; */
-"ecC-sn-zjy.title" = "Results";
+"ecC-sn-zjy.title" = "Resultat";
