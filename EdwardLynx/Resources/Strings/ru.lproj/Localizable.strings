@@ -38,7 +38,9 @@
 "kELEmailLabel" = "Адрес электронной почты";
 "kELErrorLabel" = "Ошибка";
 "kELExpiresOnLabel" = "Expires on %@";
+"kELNALabel" = "Не знаю";
 "kELNameLabel" = "Имя";
+"kELNoLabel" = "Нет";
 "kELNoDescriptionLabel" = "No description";
 "kELProcessingLabel" = "Идет обработка...";
 "kELSearchLabel" = "Искать %@";
@@ -46,6 +48,7 @@
 "kELSortLabel" = "Sort";
 "kELTextViewPlaceholderLabel" = "Ввведите ответ...";
 "kELUpdateLabel" = "Обновить";
+"kELYesLabel" = "Да";
 
 "kELDetailsPageLoadError" = "Failed to load details";
 "kELPostMethodError" = "Failed to process request";
@@ -195,8 +198,9 @@
 "kELInviteUsersSuccess" = "Приглашения участникам успешно отправлены!";
 "kELInviteUsersShareSuccess" = "Successfully shared result";
 
-"kELManagerUsersDisableSuccess" = "Successfully disabled users to Manager View";
-"kELManagerUsersEnableSuccess" = "Successfully enabled users to Manager View";
+"kELManagerUsersDisableSuccess" = "Обзор пользователей отключен";
+"kELManagerUsersEnableSuccess" = "Обзор пользователей успешно предоставлен менеджеру";
+"kELManagerUsersUpdateError" = "Ошибка при обновлении пользователей";
 
 "kELReportEmptyMessage" = "Нет результатов для отображения";
 
@@ -305,13 +309,15 @@
 
 /* Team Tab Titles */
 
-"kELTabTitleIndividual" = "Individual";
-"kELTabTitleTeam" = "Team";
+"kELTabTitleIndividual" = "Индивидуальные";
+"kELTabTitleTeam" = "Командные";
 
 /* Team Dev Plan */
 
-"kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
-"kELTeamDevelopmentPlanCreateSuccess" = "Successfully created Team Development Plan";
+"kELTeamDevelopmentPlanCreateError" = "Ошибка при создании Плана развития команды (командного плана развития)";
+"kELTeamDevelopmentPlanCreateSuccess" = "План развития команды успешно создан!";
+"kELTeamDevelopmentPlanUpdateError" = "Ошибка при обновлении Плана развития команды";
+"kELTeamDevelopmentPlanUpdateSuccess" = "План развития команды успешно обновлен!";
 
 /* User Roles */
 

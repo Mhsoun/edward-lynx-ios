@@ -539,8 +539,8 @@
                            @"isText": @NO,
                            @"isNumeric": @NO,
                            @"help": @"",
-                           @"options": @[@{@"value": @0, @"description": @"No"},
-                                         @{@"value": @1, @"description": @"Yes"}]};
+                           @"options": @[@{@"value": @0, @"description": NSLocalizedString(@"kELNoLabel", nil)},
+                                         @{@"value": @1, @"description": NSLocalizedString(@"kELYesLabel", nil)}]};
             
             return [[ELQuestion alloc] initWithDictionary:@{@"id": @(-1),
                                                             @"optional": @NO,
