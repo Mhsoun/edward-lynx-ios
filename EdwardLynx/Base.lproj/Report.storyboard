@@ -224,6 +224,58 @@
                                     <constraint firstAttribute="bottom" secondItem="8nQ-7R-h2h" secondAttribute="bottom" id="pUR-ny-9ph"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-E1-lyz">
+                                <rect key="frame" x="-0.5" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average values" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-vo-7pf">
+                                        <rect key="frame" x="15" y="15" width="345" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3TM-0C-XBR">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="533"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-Uf-7e4">
+                                        <rect key="frame" x="-0.5" y="592" width="375" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qRy-jT-UZI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FON-22-KKt">
+                                        <rect key="frame" x="-0.5" y="612" width="375" height="15"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="gJY-WY-Urj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3TM-0C-XBR" secondAttribute="trailing" id="0l4-AK-Om3"/>
+                                    <constraint firstItem="AgF-Uf-7e4" firstAttribute="top" secondItem="3TM-0C-XBR" secondAttribute="bottom" constant="10" id="5gl-cD-KFY"/>
+                                    <constraint firstItem="U4A-vo-7pf" firstAttribute="leading" secondItem="W1g-E1-lyz" secondAttribute="leading" constant="15" id="7W6-Wi-2vN"/>
+                                    <constraint firstAttribute="trailing" secondItem="U4A-vo-7pf" secondAttribute="trailing" constant="15" id="Nch-qH-9c4"/>
+                                    <constraint firstAttribute="bottom" secondItem="FON-22-KKt" secondAttribute="bottom" constant="20" id="Pir-H4-fRX"/>
+                                    <constraint firstItem="U4A-vo-7pf" firstAttribute="top" secondItem="W1g-E1-lyz" secondAttribute="top" constant="15" id="SDL-12-n1S"/>
+                                    <constraint firstAttribute="trailing" secondItem="AgF-Uf-7e4" secondAttribute="trailing" id="SXo-0c-ddf"/>
+                                    <constraint firstItem="FON-22-KKt" firstAttribute="top" secondItem="AgF-Uf-7e4" secondAttribute="bottom" id="XG0-HD-YvU"/>
+                                    <constraint firstItem="3TM-0C-XBR" firstAttribute="leading" secondItem="W1g-E1-lyz" secondAttribute="leading" id="bQD-xu-2v2"/>
+                                    <constraint firstItem="3TM-0C-XBR" firstAttribute="top" secondItem="U4A-vo-7pf" secondAttribute="bottom" constant="10" id="h2n-Li-PrE"/>
+                                    <constraint firstItem="FON-22-KKt" firstAttribute="trailing" secondItem="AgF-Uf-7e4" secondAttribute="trailing" id="i3D-dH-coO"/>
+                                    <constraint firstItem="AgF-Uf-7e4" firstAttribute="leading" secondItem="W1g-E1-lyz" secondAttribute="leading" id="rEC-55-MDX"/>
+                                    <constraint firstItem="FON-22-KKt" firstAttribute="leading" secondItem="AgF-Uf-7e4" secondAttribute="leading" id="sQf-f0-21r"/>
+                                </constraints>
+                            </view>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="YLr-hf-3Cr">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -233,13 +285,17 @@
                             <constraint firstItem="z8o-oh-hUX" firstAttribute="leading" secondItem="4qo-ep-dde" secondAttribute="leading" id="0dm-oy-NR3"/>
                             <constraint firstItem="TEd-JO-o1i" firstAttribute="height" secondItem="4qo-ep-dde" secondAttribute="height" id="1aG-YZ-SNy"/>
                             <constraint firstItem="TEd-JO-o1i" firstAttribute="centerX" secondItem="4qo-ep-dde" secondAttribute="centerX" id="9k4-dh-nFn"/>
+                            <constraint firstItem="W1g-E1-lyz" firstAttribute="width" secondItem="z8o-oh-hUX" secondAttribute="width" id="CWU-1O-n7Z"/>
                             <constraint firstAttribute="trailing" secondItem="z8o-oh-hUX" secondAttribute="trailing" id="Cfh-gq-pMv"/>
                             <constraint firstItem="z8o-oh-hUX" firstAttribute="top" secondItem="Knm-wX-oy2" secondAttribute="bottom" id="H1E-6a-as4"/>
                             <constraint firstItem="R6f-2t-ijF" firstAttribute="top" secondItem="z8o-oh-hUX" secondAttribute="bottom" id="P3N-hL-LDv"/>
                             <constraint firstItem="YLr-hf-3Cr" firstAttribute="centerX" secondItem="4qo-ep-dde" secondAttribute="centerX" id="SPQ-vb-eCb"/>
+                            <constraint firstItem="W1g-E1-lyz" firstAttribute="height" secondItem="z8o-oh-hUX" secondAttribute="height" id="XAD-4d-29V"/>
                             <constraint firstItem="TEd-JO-o1i" firstAttribute="centerY" secondItem="4qo-ep-dde" secondAttribute="centerY" id="b9J-qw-lYD"/>
                             <constraint firstItem="TEd-JO-o1i" firstAttribute="width" secondItem="4qo-ep-dde" secondAttribute="width" id="d6r-hD-4ha"/>
                             <constraint firstItem="YLr-hf-3Cr" firstAttribute="centerY" secondItem="4qo-ep-dde" secondAttribute="centerY" id="ep3-rS-EfR"/>
+                            <constraint firstItem="W1g-E1-lyz" firstAttribute="centerY" secondItem="z8o-oh-hUX" secondAttribute="centerY" id="jvi-LN-SX4"/>
+                            <constraint firstItem="W1g-E1-lyz" firstAttribute="centerX" secondItem="z8o-oh-hUX" secondAttribute="centerX" id="nj3-hI-y79"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yXU-8r-PZH">
@@ -257,6 +313,8 @@
                         <outlet property="bgView" destination="TEd-JO-o1i" id="C2P-W6-m87"/>
                         <outlet property="dateLabel" destination="u88-CK-S5j" id="JRw-Y0-QbI"/>
                         <outlet property="detailLabel" destination="L61-gO-7n1" id="jwg-If-8hy"/>
+                        <outlet property="feedbackDateLabel" destination="AgF-Uf-7e4" id="imc-Te-IFu"/>
+                        <outlet property="feedbackInfoLabel" destination="FON-22-KKt" id="BLb-RN-uan"/>
                         <outlet property="headerLabel" destination="beJ-dZ-msV" id="2xq-cH-KJO"/>
                         <outlet property="indexChartView" destination="KSk-mx-nSW" id="6Zi-8S-cXT"/>
                         <outlet property="indexContainerView" destination="mrn-rD-3PB" id="mAa-2p-O9j"/>
@@ -265,13 +323,15 @@
                         <outlet property="infoLabel" destination="fmn-Wr-JWV" id="h1U-TN-n3A"/>
                         <outlet property="moreBarButton" destination="lT7-AG-ENN" id="r81-0i-NYC"/>
                         <outlet property="scrollView" destination="z8o-oh-hUX" id="euJ-qr-RuZ"/>
+                        <outlet property="tableContainerView" destination="W1g-E1-lyz" id="MPZ-RR-JbH"/>
+                        <outlet property="tableView" destination="3TM-0C-XBR" id="zIT-nA-AHL"/>
                         <segue destination="aHG-bx-ulF" kind="show" identifier="ShareReport" id="Vh9-EP-Xss"/>
                         <segue destination="aHG-bx-ulF" kind="show" identifier="AddMore" id="fUj-eL-fwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-0g-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="872"/>
+            <point key="canvasLocation" x="1933.5999999999999" y="871.21439280359823"/>
         </scene>
         <!--CreateInstantFeedback-->
         <scene sceneID="22D-vE-Ixh">
