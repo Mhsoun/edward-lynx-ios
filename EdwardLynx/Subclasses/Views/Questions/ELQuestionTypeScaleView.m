@@ -56,9 +56,6 @@
     [self.topConstraint setConstant:0];
     [self.scaleChoices updateConstraints];
     
-    // Text View
-    self.textView.hidden = !isOneToTenWithExplanation;
-    
     // Populate question answer
     formValues = [AppSingleton.mSurveyFormDict objectForKey:@(_question.objectId)];
     
@@ -70,6 +67,9 @@
     
     [self.scaleChoices setSelectedSegmentIndex:isYesOrNo ? index : index - 1];
     [self.textView setText:formValues[@"explanation"]];
+    
+    // Text View
+    self.textView.hidden = !isOneToTenWithExplanation && self.scaleChoices.selectedSegmentIndex >= 0;
 }
 
 #pragma mark - Public Methods
@@ -111,6 +111,11 @@
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onScaleChoicesValueChange:(id)sender {
+    BOOL isOneToTenWithExplanation = _question.answer.type == kELAnswerTypeOneToTenWithExplanation;
+    
+    // Text View
+    self.textView.hidden = !isOneToTenWithExplanation;
+    
     [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
 }
 

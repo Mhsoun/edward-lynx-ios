@@ -20,6 +20,7 @@
 #pragma mark - Private Constants
 
 static CGFloat const kELBarHeight = 40;
+static NSString * const kELCellIdentifier = @"ItemCell";
 static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
 static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
@@ -29,6 +30,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 @property (nonatomic) BOOL toDisplayData;
 @property (nonatomic, strong) NSString *typeColorKey;
+@property (nonatomic, strong) NSArray<ELAnswerOption *> *freeTextItems;
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
 @property (nonatomic, strong) ELSurvey *survey;
@@ -96,6 +98,30 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     }
 }
 
+#pragma mark - Protocol Methods (UITableView)
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.freeTextItems.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:kELCellIdentifier];
+    
+    cell.imageView.image = [FontAwesome imageWithIcon:fa_circle
+                                            iconColor:[UIColor whiteColor]
+                                             iconSize:5
+                                            imageSize:CGSizeMake(5, 5)];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
+    cell.textLabel.lineBreakMode = NSLineBreakByClipping;
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.text = (NSString *)[self.freeTextItems[indexPath.row] value];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
+    return cell;
+}
+
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
@@ -125,6 +151,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         self.title = [self.survey.name uppercaseString];
         self.typeColorKey = kELLynxColor;
     }
+    
+    self.detailLabel.hidden = self.instantFeedback;
     
     // Buttons
     [self.moreBarButton setEnabled:!isSurvey];
@@ -411,6 +439,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 - (void)setupReportsWithData:(NSDictionary *)dataDict {
     CGFloat defaultHeight, height;
     NSInteger answered;
+    BOOL showTable = NO;
     BOOL isFeedback = [self.selectedObject isKindOfClass:[ELInstantFeedback class]] && self.instantFeedback;
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     NSMutableArray *mAverage = [[NSMutableArray alloc] init];
@@ -422,8 +451,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     self.toDisplayData = isFeedback && self.instantFeedback.anonymous ? answered >= kELParticipantsMinimumCount : answered > 0;
     
     if (isFeedback) {
-        for (NSDictionary *answerDict in dataDict[@"frequencies"]) {
-            [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:answerDict error:nil]];
+        for (NSDictionary *dict in dataDict[@"frequencies"]) {
+            [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:dict error:nil]];
         }
     } else {
         for (NSDictionary *dict in dataDict[@"average"]) {
@@ -436,6 +465,30 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         [mAnswers addObject:[mAverage copy]];
         [mAnswers addObject:[mIndex copy]];
+    }
+    
+    if (isFeedback) {
+        if (self.instantFeedback.question.answer.type == kELAnswerTypeText) {
+            self.freeTextItems = [mAnswers copy];
+            
+            self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+            self.tableView.dataSource = self;
+            self.tableView.delegate = self;
+            
+            self.feedbackDateLabel.text = self.instantFeedback.dateString;
+            self.feedbackInfoLabel.text = Format(NSLocalizedString(@"kELReportInfoLabel", nil),
+                                                 @(self.instantFeedback.invited),
+                                                 @(self.instantFeedback.answered));
+            
+            [self.indicatorView stopAnimating];
+            [self.tableContainerView setHidden:NO];
+            
+            showTable = YES;
+        }
+    }
+    
+    if (showTable) {
+        return;
     }
     
     height = (kELBarHeight * mAnswers.count) + kELBarHeight;
