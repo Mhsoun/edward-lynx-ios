@@ -661,6 +661,9 @@
 		A91029F11F26EC420048F733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
 		A91029F31F26EC440048F733 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
 		A91029F51F26EC460048F733 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ManagerIndividualCell.strings"; sourceTree = "<group>"; };
+		A91029F61F26F9820048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A91029F81F26F9C50048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SectionView.strings; sourceTree = "<group>"; };
+		A91029FA1F26F9D70048F733 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/ManagerIndividualCell.strings; sourceTree = "<group>"; };
 		A91310C71E8642D20042C91F /* ELAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAPIClient.h; sourceTree = "<group>"; };
 		A91310C81E8642D20042C91F /* ELAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAPIClient.m; sourceTree = "<group>"; };
 		A91310C91E8642D20042C91F /* ELDevelopmentPlanAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDevelopmentPlanAPIClient.h; sourceTree = "<group>"; };
@@ -3454,6 +3457,7 @@
 				A91311981E8642D20042C91F /* en */,
 				A988553E1F11EA050017DB87 /* ru */,
 				A96CE9AB1F13636C00BDAFF6 /* zh-Hans */,
+				A91029F61F26F9820048F733 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3491,6 +3495,7 @@
 				A91029F11F26EC420048F733 /* en */,
 				A91029F31F26EC440048F733 /* ru */,
 				A91029F51F26EC460048F733 /* zh-Hans */,
+				A91029FA1F26F9D70048F733 /* sv */,
 			);
 			name = ManagerIndividualCell.xib;
 			sourceTree = "<group>";
@@ -3785,6 +3790,7 @@
 				A91029EB1F26EC140048F733 /* en */,
 				A91029ED1F26EC160048F733 /* ru */,
 				A91029EF1F26EC180048F733 /* zh-Hans */,
+				A91029F81F26F9C50048F733 /* sv */,
 			);
 			name = SectionView.xib;
 			sourceTree = "<group>";
