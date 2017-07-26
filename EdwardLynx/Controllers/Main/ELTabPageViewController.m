@@ -32,9 +32,10 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.toHideButton = (!(self.initialIndex == 1 && self.type == kELListTypeSurveys)) && self.type != kELListTypeDevPlan;
+    self.toHideButton = ((!(self.initialIndex == 1 && self.type == kELListTypeSurveys)) &&
+                         (self.type != kELListTypeDevPlan)) ||
+                         [AppSingleton.user isNotAdminDevPlan];
     self.searchBar.delegate = self;
-    
     self.skipIntermediateViewControllers = YES;
     
     [self setupButtonBarView];
