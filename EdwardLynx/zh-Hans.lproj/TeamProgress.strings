@@ -3,10 +3,10 @@
 "DcM-iz-KLR.text" = "Team Development Plans";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "FWe-YD-bP9"; */
-"FWe-YD-bP9.text" = "Name";
+"FWe-YD-bP9.text" = "姓名";
 
 /* Class = "UILabel"; text = "Name can't be blank"; ObjectID = "Obi-bK-nh1"; */
-"Obi-bK-nh1.text" = "Name can't be blank";
+"Obi-bK-nh1.text" = "此处必填";
 
 /* Class = "UIButton"; normalTitle = "+"; ObjectID = "T54-hl-hg7"; */
 "T54-hl-hg7.normalTitle" = "+";

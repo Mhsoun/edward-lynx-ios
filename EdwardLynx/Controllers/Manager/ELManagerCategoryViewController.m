@@ -286,6 +286,8 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 - (IBAction)onSubmitButtonClick:(id)sender {
     NSMutableArray *mTeamDevPlans = [[NSMutableArray alloc] init];
     
+    self.action = kELTeamDevPlanActionUpdate;
+    
     for (ELTeamDevelopmentPlan *teamDevPlan in self.mItems) {
         [mTeamDevPlans addObject:[teamDevPlan putDictionary]];
     }
