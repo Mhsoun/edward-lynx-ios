@@ -6,7 +6,7 @@
 "FWe-YD-bP9.text" = "Имя";
 
 /* Class = "UILabel"; text = "Name can't be blank"; ObjectID = "Obi-bK-nh1"; */
-"Obi-bK-nh1.text" = "Name can't be blank";
+"Obi-bK-nh1.text" = "Графа Имя не может быть пустой";
 
 /* Class = "UIButton"; normalTitle = "+"; ObjectID = "T54-hl-hg7"; */
 "T54-hl-hg7.normalTitle" = "+";
