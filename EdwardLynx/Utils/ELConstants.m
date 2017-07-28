@@ -93,6 +93,7 @@ NSString * const kELAPITeamUsersEndpoint = @"%@/dev-plans-manager/users";
 NSString * const kELAPIUserEndpoint = @"%@/user";
 NSString * const kELAPIUserDashboardEndpoint = @"%@/user/dashboard";
 NSString * const kELAPIUserDeviceEndpoint = @"%@/user/devices";
+NSString * const kELAPIUserForgotPasswordEndpoint = @"%@/user/forgotpassword";
 NSString * const kELAPIUsersEndpoint = @"%@/users?type=list";
 
 #pragma mark - HTTP Methods

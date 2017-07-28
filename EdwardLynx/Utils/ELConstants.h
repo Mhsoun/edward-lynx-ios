@@ -212,6 +212,7 @@ extern NSString * const kELAPITeamUsersEndpoint;
 extern NSString * const kELAPIUserEndpoint;
 extern NSString * const kELAPIUserDashboardEndpoint;
 extern NSString * const kELAPIUserDeviceEndpoint;
+extern NSString * const kELAPIUserForgotPasswordEndpoint;
 extern NSString * const kELAPIUsersEndpoint;
 
 #pragma mark - HTTP Methods

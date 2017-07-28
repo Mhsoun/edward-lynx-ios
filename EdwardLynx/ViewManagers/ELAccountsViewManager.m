@@ -82,7 +82,8 @@
 }
 
 - (void)processPasswordRecovery {
-    // TODO Process recovery
+    [self.client recoverPasswordThruEmail:[self.formDict[@"email"] textValue]
+                               completion:self.requestCompletionBlock];
 }
 
 - (BOOL)validateLoginFormValues:(NSDictionary *)formDict {
