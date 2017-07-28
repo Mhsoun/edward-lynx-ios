@@ -66,6 +66,18 @@
     [self authenticateWithBodyParams:[mBodyParams copy] completion:completion];
 }
 
+- (void)recoverPasswordThruEmail:(NSString *)email
+                      completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSString *endpoint = Format(kELAPIUserForgotPasswordEndpoint, kELAPIVersionNamespace);
+    NSMutableURLRequest *request = [self requestFor:endpoint
+                                             method:kELAPIPostHTTPMethod
+                                         bodyParams:@{@"email": email}];
+    
+    [self performAuthenticatedTask:NO
+                       withRequest:request
+                        completion:completion];
+}
+
 - (void)registerFirebaseToken:(NSString *)token
                      deviceId:(NSString *)deviceId
                withCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion {

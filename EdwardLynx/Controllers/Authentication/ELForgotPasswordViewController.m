@@ -31,8 +31,10 @@ static CGFloat const kELCornerRadius = 2.0f;
     
     // Initialization
     self.recoverPasswordLabel.text = [self.recoverPasswordLabel.text uppercaseString];
-    self.viewManager = [[ELAccountsViewManager alloc] init];
     self.usernameEmailTextField.delegate = self;
+    
+    self.viewManager = [[ELAccountsViewManager alloc] init];
+    self.viewManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +52,26 @@ static CGFloat const kELCornerRadius = 2.0f;
     [[IQKeyboardManager sharedManager] resignFirstResponder];
     
     return YES;
+}
+
+#pragma mark - Protocol Methods (ELAccountsViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.recoverButton setEnabled:YES];
+    [ELUtils presentToastAtView:self.view
+                        message:errorDict[@"message"]
+                     completion:^{
+                         [self dismissViewControllerAnimated:YES completion:nil];
+                     }];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [self.recoverButton setEnabled:YES];
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELForgotPasswordSuccessMessage", nil)
+                     completion:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)

@@ -10,7 +10,7 @@
 
 #import "ELBaseViewController.h"
 
-@interface ELForgotPasswordViewController : ELBaseViewController<UITextFieldDelegate>
+@interface ELForgotPasswordViewController : ELBaseViewController<UITextFieldDelegate, ELAPIResponseDelegate>
 
 @property (weak, nonatomic) IBOutlet RNThemeLabel *recoverPasswordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *usernameEmailTextField;

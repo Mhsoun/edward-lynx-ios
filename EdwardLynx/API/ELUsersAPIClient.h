@@ -15,6 +15,8 @@
                  password:(NSString *)password
                completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)reauthenticateWithCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
+- (void)recoverPasswordThruEmail:(NSString *)email
+                      completion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;
 - (void)registerFirebaseToken:(NSString *)token
                      deviceId:(NSString *)deviceId
                withCompletion:(void (^)(NSURLResponse *response, NSDictionary *responseDict, NSError *error))completion;

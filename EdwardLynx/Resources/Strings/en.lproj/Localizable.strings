@@ -57,6 +57,8 @@
 
 /* Authentication */
 
+"kELForgotPasswordSuccessMessage" = "Successfully sent password recovery request";
+
 "kELLoginButtonDisabledText" = "Processing...";
 "kELLoginButtonNormalText" = "Login";
 
