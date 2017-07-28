@@ -57,7 +57,7 @@
 
 /* Authentication */
 
-"kELForgotPasswordSuccessMessage" = "Successfully sent password recovery request";
+"kELForgotPasswordSuccessMessage" = "Framgångsrikt skickad begäran om återställning av lösenord";
 
 "kELLoginButtonDisabledText" = "Bearbetning…";
 "kELLoginButtonNormalText" = "Logga in";
@@ -70,7 +70,7 @@
 "kELDashboardActionDevelopmentPlan" = "Utvecklingsplaner";
 "kELDashboardActionInstantFeedback" = "Snabb\nåterkoppling";
 "kELDashboardActionLynxMeasurement" = "Lynxmätning";
-"kELDashboardActionManagerView" = "Manager\nView";
+"kELDashboardActionManagerView" = "Chefsöverblick";
 "kELDashboardActionAnswer" = "Svar";
 "kELDashboardActionResults" = "Resultat";
 "kELDashboardActionInvite" = "Inbjudan";
@@ -80,8 +80,8 @@
 
 "kELDashboardDueDateMessageSingular" = "Förfaller i\n%@ dag";
 "kELDashboardDueDateMessagePlural" = "Förfaller i\n%@ dagar";
-"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
-"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
+"kELDashboardDueDateMessageHoursSingular" = "Förfaller i\n%@ Timmar";
+"kELDashboardDueDateMessageHoursPlural" = "Förfaller i\n%@ Timmar";
 "kELDashboardDueDateNow" = "Nu";
 
 "kELDashboardReminderFeedback" = "Snabb återkoppling";
@@ -109,8 +109,8 @@
 "kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
 "kELDevelopmentPlanCreateSuccess" = "Framgångsrikt skapat utvecklingsplan";
 
-"kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
-"kELDevelopmentPlanUnshareUpdateSuccess" = "Development Plan no longer shared to manager";
+"kELDevelopmentPlanShareUpdateSuccess" = "Framgångsrikt delat utvecklingsplanen med chefen";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "Utvecklingsplanen delas inte längre med chefen";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Framgångsrikt lagt till mål";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Mål framgångsrikt borttaget";
@@ -273,7 +273,7 @@
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
 "kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
 
-"kELSurveySubmissionSuccess" = "Successfully submitted answers";
+"kELSurveySubmissionSuccess" = "Framgångsrikt lämnat in svaren";
 "kELSurveySaveToDraftSuccess" = "Framgångsrikt sparat svar på utkast";
 "kELSurveyPostError" = "Failed to post answers";
 
@@ -348,3 +348,4 @@
 "kELLoginPasswordValidationMessage" = "Lösenordet kan inte vara tomt";
 "kELLoginUsernameValidationMessage" = "Användarnamnet kan inte vara tomt";
 "kELNameValidationMessage" = "Namnet kan inte vara tomt";
+"kELRecoverEmailValidationMessage" = "Giltigt e-postmeddelande krävs";

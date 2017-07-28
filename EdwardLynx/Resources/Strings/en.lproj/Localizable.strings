@@ -348,3 +348,4 @@
 "kELLoginPasswordValidationMessage" = "Password can't be blank";
 "kELLoginUsernameValidationMessage" = "Username can't be blank";
 "kELNameValidationMessage" = "Name can't be blank";
+"kELRecoverEmailValidationMessage" = "Valid e-mail is required";

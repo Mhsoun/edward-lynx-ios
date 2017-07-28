@@ -57,7 +57,7 @@
 
 /* Authentication */
 
-"kELForgotPasswordSuccessMessage" = "Successfully sent password recovery request";
+"kELForgotPasswordSuccessMessage" = "Успешно отправлено запрос на восстановление пароля";
 
 "kELLoginButtonDisabledText" = "Идет обработка...";
 "kELLoginButtonNormalText" = "Логин";
@@ -70,7 +70,7 @@
 "kELDashboardActionDevelopmentPlan" = "Планы\nразвития";
 "kELDashboardActionInstantFeedback" = "Мгновенная обратная связь";
 "kELDashboardActionLynxMeasurement" = "Инструменты\nЛинкс";
-"kELDashboardActionManagerView" = "Manager\nView";
+"kELDashboardActionManagerView" = "Просмотр для менеджера";
 "kELDashboardActionAnswer" = "Ответить";
 "kELDashboardActionResults" = "Результаты";
 "kELDashboardActionInvite" = "Пригласить";
@@ -81,8 +81,8 @@
 
 "kELDashboardDueDateMessageSingular" = "Срок истекает через\n%@ день";
 "kELDashboardDueDateMessagePlural" = "Срок истекает через\n%@ дня(ей)";
-"kELDashboardDueDateMessageHoursSingular" = "Due in \n%@ Hour";
-"kELDashboardDueDateMessageHoursPlural" = "Due in \n%@ Hours";
+"kELDashboardDueDateMessageHoursSingular" = "Срок истекает через\n%@ Час(ы)";
+"kELDashboardDueDateMessageHoursPlural" = "Срок истекает через\n%@ Час(ы)";
 "kELDashboardDueDateNow" = "Заполнить сейчас";
 
 "kELDashboardReminderFeedback" = "Мгновенная обратная связь";
@@ -110,8 +110,8 @@
 "kELDevelopmentPlanCreateError" = "Ошибка при создании Плана развития";
 "kELDevelopmentPlanCreateSuccess" = "План развития успешно создан!";
 
-"kELDevelopmentPlanShareUpdateSuccess" = "Successfully shared Development Plan to manager";
-"kELDevelopmentPlanUnshareUpdateSuccess" = "Development Plan no longer shared to manager";
+"kELDevelopmentPlanShareUpdateSuccess" = "Доступ к Плану развития успешно предоставлен менеджеру";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "План развития больше не доступен для менеджера";
 
 "kELDevelopmentPlanGoalCreateSuccess" = "Цель успешно добавлена";
 "kELDevelopmentPlanGoalUpdateSuccess" = "Цель успешно удалена";
@@ -274,7 +274,7 @@
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
 "kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
 
-"kELSurveySubmissionSuccess" = "Successfully submitted answers";
+"kELSurveySubmissionSuccess" = "Ответы успешно отправлены";
 "kELSurveySaveToDraftSuccess" = "Ответы сохранены как черновик";
 "kELSurveyPostError" = "Failed to post answers";
 
@@ -349,3 +349,4 @@
 "kELLoginPasswordValidationMessage" = "Введите пароль";
 "kELLoginUsernameValidationMessage" = "Введите логин";
 "kELNameValidationMessage" = "Графа Имя не может быть пустой";
+"kELRecoverEmailValidationMessage" = "Требуется действительная электронная почта";

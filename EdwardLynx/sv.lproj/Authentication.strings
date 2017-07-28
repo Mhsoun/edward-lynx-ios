@@ -12,7 +12,7 @@
 "Rls-Cu-J3h.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Recover"; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.normalTitle" = "Recover";
+"Rls-Cu-J3h.normalTitle" = "Ta igen sig";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "T2j-yn-dSI"; */
 "T2j-yn-dSI.disabledTitle" = "Bearbetning…";
@@ -24,7 +24,7 @@
 "UoZ-DP-lmZ.normalTitle" = "Login Now";
 
 /* Class = "UILabel"; text = "Recover Password"; ObjectID = "iY9-zi-6oy"; */
-"iY9-zi-6oy.text" = "Recover Password";
+"iY9-zi-6oy.text" = "Återställa Lösenord";
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm"; */
 "jZj-dI-Wdm.normalTitle" = "Kontakta oss";
