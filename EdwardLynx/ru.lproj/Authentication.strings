@@ -9,22 +9,22 @@
 "95j-rQ-DgJ.normalTitle" = "Забыли пароль?";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.disabledTitle" = "Processing...";
+"Rls-Cu-J3h.disabledTitle" = "Идет обработка...";
 
 /* Class = "UIButton"; normalTitle = "Recover"; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.normalTitle" = "Recover";
+"Rls-Cu-J3h.normalTitle" = "оправляться";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "T2j-yn-dSI"; */
-"T2j-yn-dSI.disabledTitle" = "Processing...";
+"T2j-yn-dSI.disabledTitle" = "Идет обработка...";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "T2j-yn-dSI"; */
 "T2j-yn-dSI.normalTitle" = "Логин";
 
 /* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "UoZ-DP-lmZ"; */
-"UoZ-DP-lmZ.normalTitle" = "Login Now";
+"UoZ-DP-lmZ.normalTitle" = "Вход в систему";
 
 /* Class = "UILabel"; text = "Recover Password"; ObjectID = "iY9-zi-6oy"; */
-"iY9-zi-6oy.text" = "Recover Password";
+"iY9-zi-6oy.text" = "Восстановить пароль";
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm"; */
 "jZj-dI-Wdm.normalTitle" = "Связаться с нами";

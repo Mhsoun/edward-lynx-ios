@@ -60,9 +60,7 @@ static CGFloat const kELCornerRadius = 2.0f;
     [self.recoverButton setEnabled:YES];
     [ELUtils presentToastAtView:self.view
                         message:errorDict[@"message"]
-                     completion:^{
-                         [self dismissViewControllerAnimated:YES completion:nil];
-                     }];
+                     completion:nil];
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {

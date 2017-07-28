@@ -133,6 +133,7 @@
         emailErrors = [REValidation validateObject:[formFieldGroup textValue]
                                               name:NSLocalizedString(@"kELUsernameField", nil)
                                         validators:@[@"presence", @"email"]];
+        emailErrors = emailErrors.count > 0 ? @[NSLocalizedString(@"kELRecoverEmailValidationMessage", nil)] : nil;
         
         [formFieldGroup toggleValidationIndicatorsBasedOnErrors:emailErrors];
     }

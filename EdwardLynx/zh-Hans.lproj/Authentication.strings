@@ -9,22 +9,22 @@
 "95j-rQ-DgJ.normalTitle" = "忘记密码？";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.disabledTitle" = "Processing...";
+"Rls-Cu-J3h.disabledTitle" = "进行中";
 
 /* Class = "UIButton"; normalTitle = "Recover"; ObjectID = "Rls-Cu-J3h"; */
-"Rls-Cu-J3h.normalTitle" = "Recover";
+"Rls-Cu-J3h.normalTitle" = "恢复";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "T2j-yn-dSI"; */
-"T2j-yn-dSI.disabledTitle" = "Processing...";
+"T2j-yn-dSI.disabledTitle" = "进行中";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "T2j-yn-dSI"; */
 "T2j-yn-dSI.normalTitle" = "登录";
 
 /* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "UoZ-DP-lmZ"; */
-"UoZ-DP-lmZ.normalTitle" = "Login Now";
+"UoZ-DP-lmZ.normalTitle" = "现在登录";
 
 /* Class = "UILabel"; text = "Recover Password"; ObjectID = "iY9-zi-6oy"; */
-"iY9-zi-6oy.text" = "Recover Password";
+"iY9-zi-6oy.text" = "恢复密码";
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "jZj-dI-Wdm"; */
 "jZj-dI-Wdm.normalTitle" = "联系我们";
