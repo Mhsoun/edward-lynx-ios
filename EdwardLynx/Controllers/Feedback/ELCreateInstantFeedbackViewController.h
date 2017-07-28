@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *questionErrorLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *isAnonymousSwitch;
+@property (weak, nonatomic) IBOutlet UIView *isNAView;
 @property (weak, nonatomic) IBOutlet UILabel *isNALabel;
 @property (weak, nonatomic) IBOutlet UISwitch *isNASwitch;
 @property (weak, nonatomic) IBOutlet UIView *questionContainerView;

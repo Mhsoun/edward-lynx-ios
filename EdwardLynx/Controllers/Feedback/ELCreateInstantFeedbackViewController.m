@@ -275,6 +275,8 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
     kELAnswerType answerType = [ELUtils answerTypeByLabel:self.selectedAnswerType];
     ELQuestion *question = [ELUtils questionTemplateForAnswerType:answerType];
     
+    self.isNAView.hidden = answerType == kELAnswerTypeText;
+    
     if (answerType != kELAnswerTypeText) {
         NSMutableArray *mOptions = [[NSMutableArray alloc] initWithArray:question.answer.options];
         

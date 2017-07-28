@@ -57,6 +57,8 @@
 
 /* Authentication */
 
+"kELForgotPasswordSuccessMessage" = "Successfully sent password recovery request";
+
 "kELLoginButtonDisabledText" = "进行中";
 "kELLoginButtonNormalText" = "登录";
 
