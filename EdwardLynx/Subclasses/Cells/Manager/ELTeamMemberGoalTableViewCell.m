@@ -34,13 +34,13 @@ static NSString * const kELCellIdentifier = @"ActionCell";
     
     self.tintColor = ThemeColor(kELWhiteColor);
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
+                                                      total:@100
+                                                    current:@0
                                                   clockwise:YES
                                                      shadow:YES
                                                 shadowColor:ThemeColor(kELHeaderColor)
                                        displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:7]];
+                                          overrideLineWidth:@7];
     
     [self.chartView addSubview:self.circleChart];
     

@@ -33,13 +33,13 @@
     self.pnBarChart = [[PNBarChart alloc] init];
     self.barChart = [[BarChartView alloc] initWithFrame:self.scrollView.bounds];
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
+                                                      total:@100
+                                                    current:@0
                                                   clockwise:YES
                                                      shadow:YES
                                                 shadowColor:ThemeColor(kELHeaderColor)
                                        displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+                                          overrideLineWidth:@12];
     
     [self.barChartView addSubview:self.barChart];
     [self.circleChartView addSubview:self.circleChart];

@@ -49,13 +49,17 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    self.detailsDict = nil;
+    self.mDevPlans = [[NSMutableArray alloc] init];
+    self.nameLabel.text = @"";
+}
+
 #pragma mark - Public Methods
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    if (self.detailsDict.count && self.detailsDict.count > 0) {
-        return;
-    }
-    
     self.detailsDict = (NSDictionary *)object;
     self.nameLabel.text = self.detailsDict[@"name"];
     

@@ -30,6 +30,7 @@
     // Initialization
     self.devPlan = nil;
     self.teamDevPlan = nil;
+    self.circleChart = nil;
 }
 
 - (void)layoutSubviews {
@@ -45,6 +46,10 @@
     
     self.devPlan = nil;
     self.teamDevPlan = nil;
+    self.circleChart = nil;
+    self.nameLabel.text = @"";
+    
+    [self.chartView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
 #pragma mark - Public Methods
@@ -70,25 +75,18 @@
 }
 
 - (void)setupContent {
-    CGFloat progress = self.devPlan ? self.devPlan.progress : self.teamDevPlan.progress;
-    NSString *name = self.devPlan ? self.devPlan.name : self.teamDevPlan.name;
-    
-    // Check if subview has already been added
-    if ([self hasQuestionViewAsSubview:[self.circleChart class]]) {
-        return;
-    }
-    
-    self.nameLabel.text = name;
+    self.nameLabel.text = self.devPlan ? self.devPlan.name : self.teamDevPlan.name;
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
+                                                      total:@100
+                                                    current:@0
                                                   clockwise:YES
                                                      shadow:YES
                                                 shadowColor:ThemeColor(kELHeaderColor)
                                        displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:8]];
+                                          overrideLineWidth:@8];
     
-    [ELUtils circleChart:self.circleChart progress:progress];
+    [ELUtils circleChart:self.circleChart
+                progress:self.devPlan ? self.devPlan.progress : self.teamDevPlan.progress];
     
     [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
     [self.circleChart setDisplayAnimated:NO];
