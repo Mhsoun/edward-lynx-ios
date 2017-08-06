@@ -506,7 +506,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     [self.scrollView setHidden:NO];
     [self setupAverageBarChart:self.averageBarChart answers:[mAnswers copy]];
     
-    if (!isFeedback) {
+    if (!isFeedback && mIndex.count > 0) {
+        [self.indexContainerView setHidden:NO];
         [self setupIndexBarChart:self.indexBarChart answers:[mAnswers copy]];
     }
 }

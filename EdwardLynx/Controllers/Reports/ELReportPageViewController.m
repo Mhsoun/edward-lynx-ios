@@ -170,12 +170,20 @@
         }
         
         if ([key isEqualToString:@"highestLowestIndividual"]) {
-            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.highest"] allKeys]) {
-                [mReportKeys addObject:Format(@"highestLowestIndividual.highest.%@", key)];
+            id value = [responseDict valueForKeyPath:@"highestLowestIndividual.highest"];
+            
+            if ([value isKindOfClass:[NSDictionary class]]) {
+                for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.highest"] allKeys]) {
+                    [mReportKeys addObject:Format(@"highestLowestIndividual.highest.%@", key)];
+                }
             }
             
-            for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.lowest"] allKeys]) {
-                [mReportKeys addObject:Format(@"highestLowestIndividual.lowest.%@", key)];
+            value = [responseDict valueForKeyPath:@"highestLowestIndividual.lowest"];
+            
+            if ([value isKindOfClass:[NSDictionary class]]) {
+                for (NSString *key in [[responseDict valueForKeyPath:@"highestLowestIndividual.lowest"] allKeys]) {
+                    [mReportKeys addObject:Format(@"highestLowestIndividual.lowest.%@", key)];
+                }
             }
             
             continue;
@@ -268,8 +276,11 @@
             detailController.index = i;
             
             if ([self.selectedObject isKindOfClass:[ELSurvey class]]) {
-                [mDict setObject:self.responseDict[@"average"] forKey:@"average"];
-                [mDict setObject:self.responseDict[@"ioc"] forKey:@"ioc"];
+                for (NSString *key in [mDict allKeys]) {
+                    if ([@[@"average", @"ioc"] containsObject:key]) {
+                        [mDict setObject:self.responseDict[key] forKey:key];
+                    }
+                }
             }
             
             detailController.infoDict = [mDict copy];

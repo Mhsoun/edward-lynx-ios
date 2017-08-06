@@ -22,6 +22,16 @@
 
 @implementation ELCircleChartCollectionViewCell
 
+#pragma mark - Lifecycle
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    // Initialization
+    self.devPlan = nil;
+    self.teamDevPlan = nil;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -30,40 +40,21 @@
     [self setupContent];
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    self.devPlan = nil;
+    self.teamDevPlan = nil;
+}
+
+#pragma mark - Public Methods
+
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     if ([object isKindOfClass:[ELDevelopmentPlan class]]) {
         self.devPlan = (ELDevelopmentPlan *)object;
     } else {
         self.teamDevPlan = (ELTeamDevelopmentPlan *)object;
     }
-}
-
-- (void)setupContent {
-    CGFloat progress = self.devPlan ? self.devPlan.progress : self.teamDevPlan.progress;
-    NSString *name = self.devPlan ? self.devPlan.name : self.teamDevPlan.name;
-    
-    self.nameLabel.text = name;
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
-                                                  clockwise:YES
-                                                     shadow:YES
-                                                shadowColor:ThemeColor(kELHeaderColor)
-                                       displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:8]];
-    
-    // Check if subview has already been added
-    if ([self hasQuestionViewAsSubview:[self.circleChart class]]) {
-        return;
-    }
-    
-    [ELUtils circleChart:self.circleChart progress:progress];
-    
-    [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
-    [self.circleChart setDisplayAnimated:NO];
-    [self.circleChart strokeChart];
-    
-    [self.chartView addSubview:self.circleChart];
 }
 
 #pragma mark - Private Methods
@@ -76,6 +67,34 @@
     }
     
     return NO;
+}
+
+- (void)setupContent {
+    CGFloat progress = self.devPlan ? self.devPlan.progress : self.teamDevPlan.progress;
+    NSString *name = self.devPlan ? self.devPlan.name : self.teamDevPlan.name;
+    
+    // Check if subview has already been added
+    if ([self hasQuestionViewAsSubview:[self.circleChart class]]) {
+        return;
+    }
+    
+    self.nameLabel.text = name;
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.chartView.bounds
+                                                      total:[NSNumber numberWithInt:100]
+                                                    current:[NSNumber numberWithInt:0]
+                                                  clockwise:YES
+                                                     shadow:YES
+                                                shadowColor:ThemeColor(kELHeaderColor)
+                                       displayCountingLabel:YES
+                                          overrideLineWidth:[NSNumber numberWithInteger:8]];
+    
+    [ELUtils circleChart:self.circleChart progress:progress];
+    
+    [self.circleChart.countingLabel setFont:Font(@"Lato-Bold", 12.0f)];
+    [self.circleChart setDisplayAnimated:NO];
+    [self.circleChart strokeChart];
+    
+    [self.chartView addSubview:self.circleChart];
 }
 
 @end

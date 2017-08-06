@@ -33,6 +33,7 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     [super awakeFromNib];
     
     // Initialization
+    self.detailsDict = nil;
     self.mDevPlans = [[NSMutableArray alloc] init];
     
     self.collectionView.alwaysBounceVertical = NO;
@@ -42,19 +43,19 @@ static NSString * const kELCellIdentifier = @"CircleChartCell";
     RegisterCollectionNib(self.collectionView, kELCellIdentifier);
 }
 
-- (void)prepareForReuse {
-    [super prepareForReuse];
-    
-    [self.mDevPlans removeAllObjects];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
+#pragma mark - Public Methods
+
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    if (self.detailsDict.count && self.detailsDict.count > 0) {
+        return;
+    }
+    
     self.detailsDict = (NSDictionary *)object;
     self.nameLabel.text = self.detailsDict[@"name"];
     
