@@ -131,13 +131,13 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.circleChart removeFromSuperview];
     
     self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
-                                                      total:[NSNumber numberWithInt:100]
-                                                    current:[NSNumber numberWithInt:0]
+                                                      total:@100
+                                                    current:@0
                                                   clockwise:YES
                                                      shadow:YES
                                                 shadowColor:[UIColor blackColor]
                                        displayCountingLabel:YES
-                                          overrideLineWidth:[NSNumber numberWithInteger:12]];
+                                          overrideLineWidth:@12];
     
     [self.circleChartView addSubview:self.circleChart];
     
