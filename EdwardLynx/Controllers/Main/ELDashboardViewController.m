@@ -22,7 +22,7 @@
 
 #pragma mark - Private Constants
 
-static CGFloat const kELAdsViewHeight = 100;
+//static CGFloat const kELAdsViewHeight = 100;
 static NSString * const kELEmptyDataCell = @"EmptyCell";
 static NSString * const kELHeaderCellIdentifier = @"DashboardHeaderCell";
 static NSString * const kELDevPlanCellIdentifier = @"DevelopmentPlanCell";
@@ -151,6 +151,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         cell.textLabel.text = message;
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.userInteractionEnabled = NO;
         
         return cell;
     }
