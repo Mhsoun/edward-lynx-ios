@@ -49,11 +49,16 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self insertSubview:self.countLabel aboveSubview:self.bgView];
+}
+
 #pragma mark - Private Methods
 
 - (void)registerTapGesture {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(onViewTap:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
     
     [self addGestureRecognizer:tap];
 }
@@ -71,7 +76,7 @@
     self.countLabel.backgroundColor = ThemeColor(kELRedColor);
     self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
     
-    [self bringSubviewToFront:self.countLabel];
+    [self insertSubview:self.countLabel aboveSubview:self.bgView];
     
     if (countString.length > 2) {
         [self.widthConstraint setConstant:10 * countString.length];
