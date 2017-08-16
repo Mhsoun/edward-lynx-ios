@@ -391,7 +391,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
-//        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height - 1) animated:YES];
+        
+        if (switchButton.isOn) {
+            [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y + 200) animated:NO];
+        }
     } else if ([switchButton isEqual:self.categorySwitch]) {
         NSArray *filteredArray;
         NSPredicate *predicate;
@@ -414,6 +417,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         // Store current dropdown value
         self.selectedCategory = filteredArray.count == 0 ? nil : filteredArray[0];
+        
+        if (switchButton.isOn) {
+            [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y + 200) animated:NO];
+        }
     }
 }
 
