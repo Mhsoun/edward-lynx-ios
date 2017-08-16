@@ -53,7 +53,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.allCellsAction = NO;
     self.searchBar.delegate = self;
     self.mParticipants = [[NSMutableArray alloc] init];
-    self.mInitialParticipants = [AppSingleton.participants mutableCopy];
+    self.mInitialParticipants = [[AppSingleton participantsWithoutUser] mutableCopy];
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
     
     // To display only the not yet invited participants
@@ -62,7 +62,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
         NSArray *descriptors = @[[[NSSortDescriptor alloc] initWithKey:@"isSelected" ascending:NO],
                                  [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
         
-        [mergedSet unionSet:[NSSet setWithArray:AppSingleton.participants]];
+        [mergedSet unionSet:[NSSet setWithArray:[AppSingleton participantsWithoutUser]]];
         
         self.mInitialParticipants = [[[mergedSet allObjects] sortedArrayUsingDescriptors:descriptors] mutableCopy];
     }
@@ -527,17 +527,22 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    BOOL enabled;
+    NSString *email;
     NSArray *emailErrors, *nameErrors;
     NSArray<UITextField *> *textFields = self.alertController.textFields;
     
-    emailErrors = [REValidation validateObject:textFields.lastObject.text
+    email = textFields.lastObject.text;
+    emailErrors = [REValidation validateObject:email
                                           name:@"Email"
                                     validators:@[@"presence", @"email"]];
     nameErrors = [REValidation validateObject:textFields.firstObject.text
                                          name:@"Name"
                                    validators:@[@"presence"]];
+    enabled = ((emailErrors.count == 0 && nameErrors.count == 0) &&
+               ![email isEqualToString:AppSingleton.user.email]);
     
-    [self.inviteAction setEnabled:(emailErrors.count == 0 && nameErrors.count == 0)];
+    [self.inviteAction setEnabled:enabled];
 }
 
 @end
