@@ -527,17 +527,22 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 }
 
 - (void)onAlertControllerTextsChanged:(UITextField *)sender {
+    BOOL enabled;
+    NSString *email;
     NSArray *emailErrors, *nameErrors;
     NSArray<UITextField *> *textFields = self.alertController.textFields;
     
-    emailErrors = [REValidation validateObject:textFields.lastObject.text
+    email = textFields.lastObject.text;
+    emailErrors = [REValidation validateObject:email
                                           name:@"Email"
                                     validators:@[@"presence", @"email"]];
     nameErrors = [REValidation validateObject:textFields.firstObject.text
                                          name:@"Name"
                                    validators:@[@"presence"]];
+    enabled = ((emailErrors.count == 0 && nameErrors.count == 0) &&
+               ![email isEqualToString:AppSingleton.user.email]);
     
-    [self.inviteAction setEnabled:(emailErrors.count == 0 && nameErrors.count == 0)];
+    [self.inviteAction setEnabled:enabled];
 }
 
 @end

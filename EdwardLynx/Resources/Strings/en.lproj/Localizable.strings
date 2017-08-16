@@ -191,7 +191,7 @@
 "kELInviteUsersRetrievalEmpty" = "No users";
 
 "kELInviteUsersAddEmailHeaderMessage" = "Add User";
-"kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address";
+"kELInviteUsersAddEmailDetailsMessage" = "Enter Name and E-mail address\n(Cannot add your own e-mail)";
 
 "kELInviteTitleFeedback" = "Invite People";
 "kELInviteTitleReport" = "Share Result";
