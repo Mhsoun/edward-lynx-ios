@@ -26,11 +26,15 @@
 }
 
 - (id)init {
+    NSURLSessionConfiguration *config;
+    
     self = [super init];
     
     if (!self) {
         return nil;
     }
+    
+    config = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     self.devPlanUserId = -1;
     self.user = nil;
@@ -50,9 +54,15 @@
     self.printDateFormatter.dateFormat = kELPrintDateFormat;
     
     self.loadingAlert = Alert(NSLocalizedString(@"kELProcessingLabel", nil), nil);
-    self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     
     return self;
+}
+
+- (NSArray *)participantsWithoutUser {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.email != %@", self.user.email];
+    
+    return [self.participants filteredArrayUsingPredicate:predicate];
 }
 
 @end

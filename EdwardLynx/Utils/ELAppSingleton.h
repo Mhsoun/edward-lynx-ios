@@ -25,5 +25,6 @@
 @property (nonatomic, strong) AFURLSessionManager *manager;
 
 + (instancetype)sharedInstance;
+- (NSArray *)participantsWithoutUser;
 
 @end
