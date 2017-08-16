@@ -391,9 +391,10 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
         
         [self.datePickerViewHeightConstraint setConstant:switchButton.isOn ? kELDatePickerViewInitialHeight : 0];
         [self.datePickerView updateConstraints];
+        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height - 1) animated:YES];
     } else if ([switchButton isEqual:self.categorySwitch]) {
-        NSPredicate *predicate;
         NSArray *filteredArray;
+        NSPredicate *predicate;
         
         if (switchButton.isOn && (!AppSingleton.categories.count || AppSingleton.categories.count == 0)) {
             [ELUtils presentToastAtView:self.view
