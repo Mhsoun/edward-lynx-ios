@@ -90,12 +90,14 @@ static NSString * const kELApplicationJSON = @"application/json";
 //                return;
 //            }
             
-            if (httpResponse.statusCode == kELAPIServerError) {
-                errorMessage = NSLocalizedString(@"kELServerMessage", nil);
-            } else {
-                errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil),
-                                      error.localizedDescription);
-            }
+//            if (httpResponse.statusCode == kELAPIServerError) {
+//                errorMessage = NSLocalizedString(@"kELServerMessage", nil);
+//            } else {
+//                errorMessage = Format(NSLocalizedString(@"kELDefaultAlertMessage", nil),
+//                                      error.localizedDescription);
+//            }
+            
+            errorMessage = NSLocalizedString(@"kELServerMessage", nil);
             
             // For handling overlapping UIAlertController instances
             if (visibleViewController.presentedViewController &&
