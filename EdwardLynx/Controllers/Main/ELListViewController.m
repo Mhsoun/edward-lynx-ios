@@ -142,13 +142,14 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     atBottom = (scrollView.contentOffset.y >= scrollView.contentSize.height - viewableHeight + CGRectGetHeight(self.tableIndicatorView.frame));
     
 //    if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView] && !(self.page > self.pages)) {
-    if (atBottom && ![self.tableView.tableFooterView isEqual:self.tableIndicatorView]) {
+    if (atBottom &&
+        ![self.tableView.tableFooterView isEqual:self.tableIndicatorView] &&
+        !self.isPaginated) {
         self.page++;
         
         self.isPaginated = YES;
         self.tableView.tableFooterView = self.tableIndicatorView;
         
-        [scrollView setScrollEnabled:NO];
         [self.tableIndicatorView startAnimating];
         [self.viewManager processRetrievalOfPaginatedListAtLink:self.paginationLink page:self.page];
     }
