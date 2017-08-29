@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>APIClient</key>
-	<dict>
-		<key>ID</key>
-		<string>10</string>
-		<key>Secret</key>
-		<string>fDqjgu9pJe5PggYuKJTYCgRIYUt4mHQ8eHgvcJOt</string>
-	</dict>
+    <dict>
+        <key>ID</key>
+        <string>12</string>
+        <key>Secret</key>
+        <string>5fdCA47OE30ZCHTDceENXSumjhZiVzB6cbDKMiXv</string>
+    </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

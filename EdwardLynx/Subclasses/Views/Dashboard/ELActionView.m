@@ -64,6 +64,7 @@
 }
 
 - (void)setupWithDetails:(NSDictionary *)contentDict {
+    int count = [contentDict[@"count"] intValue];
     NSString *countString = [contentDict[@"count"] stringValue];
     
     // Content
@@ -74,7 +75,7 @@
     self.bgView.layer.cornerRadius = 5.0f;
     self.countLabel.layer.cornerRadius = 10.0f;
     self.countLabel.backgroundColor = ThemeColor(kELRedColor);
-    self.countLabel.hidden = [contentDict[@"count"] intValue] == 0;
+    self.countLabel.hidden = (!count || count <= 0);
     
     [self insertSubview:self.countLabel aboveSubview:self.bgView];
     

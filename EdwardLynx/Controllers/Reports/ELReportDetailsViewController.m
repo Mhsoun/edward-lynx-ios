@@ -152,7 +152,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         self.typeColorKey = kELLynxColor;
     }
     
-    self.detailLabel.hidden = self.instantFeedback;
+    self.detailLabel.hidden = self.instantFeedback ? YES : NO;
     
     // Buttons
     [self.moreBarButton setEnabled:!isSurvey];
