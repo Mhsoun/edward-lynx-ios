@@ -82,7 +82,6 @@
     
     [self.teamView addSubview:shortcutView];
     [self.teamView setHidden:![AppSingleton.user isAdmin]];
-//    [self.teamView setHidden:YES];
     
     actionView = [[ELActionView alloc] initWithDetails:@{@"title": NSLocalizedString(@"kELDashboardActionAnswer", nil),
                                                          @"count": contents[0],

@@ -90,7 +90,7 @@
 #pragma mark - Protocol Methods (ELFeedbackViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     
     [self dismissViewControllerAnimated:YES completion:^{
 //        [ELUtils presentToastAtView:weakSelf.view
