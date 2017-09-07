@@ -32,4 +32,24 @@
     DLog(@"%@", [self class]);
 }
 
+#pragma mark - Private Methods
+
+- (void)enablePanning:(BOOL)enable {
+    for (UIScrollView *view in self.pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            view.scrollEnabled = enable;
+        }
+    }
+}
+
+#pragma mark - Protocol Methods (UITextView)
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self enablePanning:YES];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self enablePanning:NO];
+}
+
 @end
