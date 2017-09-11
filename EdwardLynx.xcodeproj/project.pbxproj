@@ -926,6 +926,10 @@
 		A91312B21E8644380042C91F /* ELSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSectionView.m; sourceTree = "<group>"; };
 		A91312B61E8659BD0042C91F /* ELDashboardReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardReminderTableViewCell.h; sourceTree = "<group>"; };
 		A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardReminderTableViewCell.m; sourceTree = "<group>"; };
+		A921A0991F6669FE00B76871 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A921A09B1F666A9400B76871 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
+		A921A09D1F666AB700B76871 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
+		A921A09F1F666AE400B76871 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A923C8BA1ECD9D6400FBAB05 /* ELSurveyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyInfoViewController.h; sourceTree = "<group>"; };
 		A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyInfoViewController.m; sourceTree = "<group>"; };
 		A92B26751EEFA033007858B6 /* EdwardLynxIngenuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxIngenuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1244,11 +1248,7 @@
 		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
 		A9C4035F1E9B8D3F008DD7C8 /* ELDashboardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardData.h; sourceTree = "<group>"; };
 		A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardData.m; sourceTree = "<group>"; };
-		A9D0C56E1F1C671B003140D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9D0C5701F1C671C003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A9D0C5721F1C671E003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9D0C5741F1C671F003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
-		A9D0C5761F1C6721003140D6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
 		A9D0C5801F1C6AAC003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
 		A9D0C5821F1C6AAD003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
 		A9D0C5841F1C6AAF003140D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
@@ -3232,11 +3232,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A91310DD1E8642D20042C91F /* Base */,
-				A9D0C56E1F1C671B003140D6 /* en */,
-				A9D0C5701F1C671C003140D6 /* sv */,
 				A9D0C5721F1C671E003140D6 /* de */,
-				A9D0C5741F1C671F003140D6 /* ru */,
-				A9D0C5761F1C6721003140D6 /* zh-Hans */,
+				A921A0991F6669FE00B76871 /* ru */,
+				A921A09B1F666A9400B76871 /* en */,
+				A921A09D1F666AB700B76871 /* zh-Hans */,
+				A921A09F1F666AE400B76871 /* sv */,
 			);
 			name = DevelopmentPlan.storyboard;
 			sourceTree = "<group>";

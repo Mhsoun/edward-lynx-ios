@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OKY-to-Fl0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OKY-to-Fl0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -127,14 +130,14 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="160"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-a4-Fh4">
-                                        <rect key="frame" x="140.5" y="0.0" width="95" height="95"/>
+                                        <rect key="frame" x="142.5" y="0.0" width="91" height="91"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vI8-a4-Fh4" secondAttribute="height" multiplier="1:1" id="ejV-sv-mQy"/>
                                         </constraints>
                                     </view>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dZ1-3s-hUS">
-                                        <rect key="frame" x="10" y="100" width="355" height="20"/>
+                                        <rect key="frame" x="10" y="96" width="355" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="lgQ-VQ-BwV"/>
@@ -143,51 +146,31 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsS-3m-Q7R" userLabel="Share View">
-                                        <rect key="frame" x="112.5" y="125" width="150" height="30"/>
-                                        <subviews>
-                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share to manager" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-4M-3Ne">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-Wv-5xt">
-                                                <rect key="frame" x="120" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="yFc-Wv-5xt" secondAttribute="height" multiplier="1:1" id="6dV-HB-1qP"/>
-                                                </constraints>
-                                                <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="onShareButtonClick:" destination="fHP-1B-U5H" eventType="touchUpInside" id="Vkd-rx-Pvf"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <button hidden="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="io8-1j-xvd">
+                                        <rect key="frame" x="112" y="121" width="150" height="29"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="2dn-4M-3Ne" firstAttribute="leading" secondItem="PsS-3m-Q7R" secondAttribute="leading" id="FWT-OL-PsR"/>
-                                            <constraint firstAttribute="width" constant="150" id="HnO-GW-Vkd"/>
-                                            <constraint firstAttribute="bottom" secondItem="2dn-4M-3Ne" secondAttribute="bottom" id="IPI-16-ji3"/>
-                                            <constraint firstAttribute="trailing" secondItem="yFc-Wv-5xt" secondAttribute="trailing" id="Ogm-vp-9BB"/>
-                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="leading" secondItem="2dn-4M-3Ne" secondAttribute="trailing" id="bSt-ss-kuT"/>
-                                            <constraint firstItem="2dn-4M-3Ne" firstAttribute="top" secondItem="PsS-3m-Q7R" secondAttribute="top" id="m8F-yf-0tm"/>
-                                            <constraint firstItem="yFc-Wv-5xt" firstAttribute="top" secondItem="PsS-3m-Q7R" secondAttribute="top" id="qSb-4o-Jm9"/>
-                                            <constraint firstAttribute="bottom" secondItem="yFc-Wv-5xt" secondAttribute="bottom" id="sgv-Rw-gDY"/>
+                                            <constraint firstAttribute="width" priority="750" constant="150" id="O6M-2q-gb5"/>
                                         </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Share to manager"/>
+                                        <connections>
+                                            <action selector="onShareButtonClick:" destination="fHP-1B-U5H" eventType="touchUpInside" id="jgh-hA-Xwc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dZ1-3s-hUS" secondAttribute="trailing" constant="10" id="8z0-o2-MoU"/>
-                                    <constraint firstAttribute="bottom" secondItem="PsS-3m-Q7R" secondAttribute="bottom" constant="5" id="D3X-Rf-lXT"/>
+                                    <constraint firstAttribute="bottom" secondItem="io8-1j-xvd" secondAttribute="bottom" constant="10" id="KBM-8y-nUT"/>
                                     <constraint firstItem="vI8-a4-Fh4" firstAttribute="centerX" secondItem="mde-e0-Zaa" secondAttribute="centerX" id="KJx-2y-74C"/>
                                     <constraint firstItem="dZ1-3s-hUS" firstAttribute="top" secondItem="vI8-a4-Fh4" secondAttribute="bottom" constant="5" id="Od4-Eu-zKz"/>
                                     <constraint firstAttribute="height" constant="160" id="Qhf-mX-Oap"/>
                                     <constraint firstItem="dZ1-3s-hUS" firstAttribute="leading" secondItem="mde-e0-Zaa" secondAttribute="leading" constant="10" id="Td4-0O-LAu"/>
-                                    <constraint firstItem="PsS-3m-Q7R" firstAttribute="centerX" secondItem="mde-e0-Zaa" secondAttribute="centerX" id="ZGf-9s-8Yf"/>
+                                    <constraint firstItem="io8-1j-xvd" firstAttribute="centerX" secondItem="mde-e0-Zaa" secondAttribute="centerX" id="UwF-h2-aDl"/>
                                     <constraint firstItem="vI8-a4-Fh4" firstAttribute="top" secondItem="mde-e0-Zaa" secondAttribute="top" id="bzp-Zw-w6K"/>
-                                    <constraint firstItem="PsS-3m-Q7R" firstAttribute="top" secondItem="dZ1-3s-hUS" secondAttribute="bottom" constant="5" id="wVG-cd-G7k"/>
+                                    <constraint firstItem="io8-1j-xvd" firstAttribute="top" secondItem="dZ1-3s-hUS" secondAttribute="bottom" constant="5" id="vSu-Yj-f7S"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorKey" value="headerColor"/>
@@ -249,8 +232,7 @@
                         <outlet property="chartLabel" destination="dZ1-3s-hUS" id="Goz-Zd-dDV"/>
                         <outlet property="circleChartView" destination="vI8-a4-Fh4" id="JCV-sR-7sQ"/>
                         <outlet property="indicatorView" destination="J3W-07-KT4" id="Ajj-zo-YZh"/>
-                        <outlet property="shareButton" destination="yFc-Wv-5xt" id="yT5-sr-dxr"/>
-                        <outlet property="shareView" destination="PsS-3m-Q7R" id="iYu-Qn-lFE"/>
+                        <outlet property="shareButton" destination="io8-1j-xvd" id="3gM-eR-Ipe"/>
                         <outlet property="tableView" destination="p5v-jx-qA0" id="yz0-o2-tHg"/>
                         <segue destination="29G-Ie-uzu" kind="show" identifier="UpdateDevPlan" id="Tad-H7-tmM"/>
                     </connections>
