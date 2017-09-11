@@ -130,7 +130,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     // Render circle chart
     [self.circleChart removeFromSuperview];
     
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 105, 105)
                                                       total:@100
                                                     current:@0
                                                   clockwise:YES
@@ -150,7 +150,6 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         
         // Share View
         [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
-//        [self.shareView setHidden:YES];
     }
 }
 
