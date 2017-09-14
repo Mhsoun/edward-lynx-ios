@@ -128,6 +128,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
     self.items = responseDict[@"items"];
     
+    [self.displayUsersButton setEnabled:YES];
     [self.indicatorView stopAnimating];
     [self.tableView setHidden:NO];
     [self.tableView reloadData];

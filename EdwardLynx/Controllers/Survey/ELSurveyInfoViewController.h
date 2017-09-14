@@ -8,9 +8,10 @@
 
 #import "ELBaseDetailViewController.h"
 
-@interface ELSurveyInfoViewController : ELBaseDetailViewController
+@interface ELSurveyInfoViewController : ELBaseDetailViewController<UITextViewDelegate>
 
 @property (strong, nonatomic) NSDictionary *infoDict;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *evaluationLabel;

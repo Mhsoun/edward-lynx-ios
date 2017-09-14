@@ -130,7 +130,7 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     // Render circle chart
     [self.circleChart removeFromSuperview];
     
-    self.circleChart = [[PNCircleChart alloc] initWithFrame:self.circleChartView.bounds
+    self.circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 100, 100)
                                                       total:@100
                                                     current:@0
                                                   clockwise:YES
@@ -148,9 +148,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
         [self.tableView setHidden:NO];
         [self.tableView reloadData];
         
-        // Share View
-        [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
-//        [self.shareView setHidden:YES];
+        // Share Button
+        [self.shareButton setHidden:AppSingleton.devPlanUserId > -1];
     }
 }
 
@@ -263,9 +262,8 @@ static NSString * const kELSegueIdentifier = @"UpdateDevPlan";
     [self.tableView setHidden:NO];
     [self.tableView reloadData];
     
-    // Share View
-    [self.shareView setHidden:AppSingleton.devPlanUserId > -1];
-//    [self.shareView setHidden:YES];
+    // Share Button
+    [self.shareButton setHidden:AppSingleton.devPlanUserId > -1];
     
     // Decrement badge count
     Application.applicationIconBadgeNumber--;

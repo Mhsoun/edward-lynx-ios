@@ -40,6 +40,19 @@
     // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    [self.devPlanView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.feedbackView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.surveyView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.teamView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.answerActionView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.resultsActionView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.inviteActionView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.createActionView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
 - (void)setupHeaderContent:(NSArray *)contents controller:(__kindof ELBaseViewController *)controller {
     ELActionView *actionView;
     ELShortcutView *shortcutView;

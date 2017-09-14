@@ -372,6 +372,7 @@
                                                          self.survey.name),
                                         @"description": self.survey.shortDescription,
                                         @"evaluation": self.survey.evaluationText};
+            infoController.pageViewController = pageController;
             
             [self.mControllers addObject:infoController];
             

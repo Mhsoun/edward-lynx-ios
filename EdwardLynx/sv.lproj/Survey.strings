@@ -12,22 +12,22 @@
 "Ot0-UB-XIx.text" = "E-post";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Y7d-Ki-W5I"; */
-"Y7d-Ki-W5I.disabledTitle" = "Processing...";
+"Y7d-Ki-W5I.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Y7d-Ki-W5I"; */
-"Y7d-Ki-W5I.normalTitle" = "Submit";
+"Y7d-Ki-W5I.normalTitle" = "Lämna";
 
 /* Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p"; */
 "Yym-JO-B5p.text" = "Bjud in människor att betygsätta dig i en undersökning";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "ajk-Vm-b8j"; */
-"ajk-Vm-b8j.disabledTitle" = "Processing...";
+"ajk-Vm-b8j.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Save to Drafts"; ObjectID = "ajk-Vm-b8j"; */
-"ajk-Vm-b8j.normalTitle" = "Save to Drafts";
+"ajk-Vm-b8j.normalTitle" = "Spara till Utkast";
 
 /* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "bai-qk-Mib"; */
-"bai-qk-Mib.disabledTitle" = "Processing...";
+"bai-qk-Mib.disabledTitle" = "Bearbetning…";
 
 /* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib"; */
 "bai-qk-Mib.normalTitle" = "Skicka inbjudningar";

@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "Share to manager"; ObjectID = "2dn-4M-3Ne"; */
-"2dn-4M-3Ne.text" = "分享给经理";
-
 /* Class = "UINavigationItem"; title = "Development Plans"; ObjectID = "AZJ-jF-NaL"; */
 "AZJ-jF-NaL.title" = "发展计划";
+
+/* Class = "UIButton"; normalTitle = "Share to manager"; ObjectID = "io8-1j-xvd"; */
+"io8-1j-xvd.normalTitle" = "分享给经理";
