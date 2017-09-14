@@ -143,6 +143,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
     
     self.visibleItems = [self.mItems filteredArrayUsingPredicate:predicate];
     
+    [self.addCategoryButton setEnabled:YES];
     [self.indicatorView stopAnimating];
     [self.collectionView setHidden:NO];
     [self.collectionView reloadData];

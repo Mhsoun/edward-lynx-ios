@@ -169,22 +169,34 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {
+    NSMutableArray *mItems;
     NSString *message;
+    ELCategory *category;
     ELTeamDevelopmentPlan *teamDevPlan;
     
     switch (self.action) {
         case kELTeamDevPlanActionCreate:
-            
             self.nameField.text = @"";
             self.radioGroup.selectedRadioButton = self.radioGroup.radioButtons[0];
             
             message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateSuccess", nil);
             teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:responseDict error:nil];
-            teamDevPlan.position = self.mItems.count;
+            teamDevPlan.position = 0;
             
             // Add new Team Dev Plan to current list
-            [self.mItems addObject:teamDevPlan];
-            [self sortArrayByPosition:self.mItems];
+            if (!self.mItems.count || self.mItems.count == 0) {
+                [self.mItems addObject:teamDevPlan];
+            } else {
+                [self.mItems insertObject:teamDevPlan atIndex:0];
+            }
+            
+            // Add as category for Developmemt Plan creation
+            category = [[ELCategory alloc] initWithDictionary:@{@"id": @-1, @"title": teamDevPlan.name} error:nil];
+            mItems = [AppSingleton.categories mutableCopy];
+            
+            [mItems addObject:category];
+            
+            AppSingleton.categories = [mItems copy];
             
             break;
         case kELTeamDevPlanActionUpdate:
@@ -196,17 +208,18 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [ELUtils presentToastAtView:self.view
-                        message:message
-                     completion:^{
+    
+    if (self.action == kELTeamDevPlanActionCreate) {
+        self.action = -1;
+        
+        [self.tableView reloadData];
+    }
+    
+    [ELUtils presentToastAtView:self.view message:message completion:^{
         if (self.action == kELTeamDevPlanActionUpdate) {
             AppSingleton.needsPageReload = YES;
             
             [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            self.action = -1;
-            
-            [self.tableView reloadData];
         }
     }];
 }

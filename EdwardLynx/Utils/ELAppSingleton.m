@@ -12,6 +12,8 @@
 
 @implementation ELAppSingleton
 
+@synthesize categories = _categories;
+
 #pragma mark - Singleton Methods
 
 + (instancetype)sharedInstance {
@@ -63,6 +65,20 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.email != %@", self.user.email];
     
     return [self.participants filteredArrayUsingPredicate:predicate];
+}
+
+- (NSArray *)categories {
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                           ascending:YES
+                                                            selector:@selector(caseInsensitiveCompare:)];
+    
+    _categories = [_categories sortedArrayUsingDescriptors:@[sort]];
+    
+    return _categories;
+}
+
+- (void)setCategories:(NSArray *)categories {
+    _categories = categories;
 }
 
 @end
