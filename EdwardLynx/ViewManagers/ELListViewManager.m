@@ -111,7 +111,7 @@
 }
 
 - (void)processRetrievalOfSurveys {
-    [self.surveyClient currentUserSurveysWithQueryParams:@{@"filter": @"answerable"}
+    [self.surveyClient currentUserSurveysWithQueryParams:@{@"filter": @"answerable", @"page": @1}
                                               completion:self.requestCompletionBlock];
 }
 
