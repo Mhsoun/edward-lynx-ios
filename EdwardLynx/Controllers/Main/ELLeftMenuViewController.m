@@ -72,7 +72,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
-    CGFloat imageWidth = CGRectGetWidth(self.tableView.frame) / 1.5;
+    CGFloat imageWidth = CGRectGetWidth(self.tableView.frame) / (IDIOM == IPAD ? 3 : 1.5);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 40, imageWidth, 60)];
     
     imageView.backgroundColor = [UIColor clearColor];
