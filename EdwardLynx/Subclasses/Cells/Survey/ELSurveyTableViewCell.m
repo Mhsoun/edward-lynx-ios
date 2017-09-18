@@ -76,7 +76,7 @@
     
     // UI
     self.monthLabel.text = [[NSDate mt_shortMonthlySymbols][date.mt_monthOfYear - 1] uppercaseString];
-    self.dayLabel.text =  dayString;
+    self.dayLabel.text = dayString;
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
     self.reactivateLabel.hidden = [detailsDict.allKeys containsObject:@"isExpired"] ? [detailsDict[@"isExpired"] boolValue] : YES;
