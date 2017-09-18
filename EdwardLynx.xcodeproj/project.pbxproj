@@ -2182,7 +2182,7 @@
 					A9308BCD1DED74B5007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = KGZFZP3DEA;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -4073,16 +4073,17 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KGZFZP3DEA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "1c09dafb-9fae-46c5-ac7c-6221cd6e36fc";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -4096,16 +4097,17 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KGZFZP3DEA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
 				PRODUCT_NAME = "Edward Lynx";
-				PROVISIONING_PROFILE = "1c09dafb-9fae-46c5-ac7c-6221cd6e36fc";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
