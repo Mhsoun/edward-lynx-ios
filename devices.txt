@@ -14,6 +14,7 @@ e9ffca1163fb589bd1a8d375358397877a3c792b	Edward Lynx - Lina Vettegard
 FFFFFFFF845A095447FD44BC96E251BC8456BE74	Edward Lynx - soderlund@edwardlynx.com
 67cc935d788126d68d6aef32f399609da9b0d140	Edward Lynx - ericsson@edwardlynx.com
 70c6fff204963b2b4747c5edaf99d0f0aa2f8cd6	Edward Lynx - alexandr@edwardlynx.com
+5014bdaffb72fa96000d5937e6d2fb201b88ca47	Edward Lynx - mhsoun@edwardlynx.com
 aff81102b4f19a98a3f82bb51eb5086794993ae4	Ingenuity - iPhone 6
 03cbf682745ee751b724250378bde13b508093ff	Ingenuity - iPod Touch
 aa48996dab281ccaccc68620aa0cb52622fa744d	Ingenuity - iPhone 7
