@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
 //
 
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
+
 #import "ELQuestionTypeScaleView.h"
 
 #pragma mark - Class Extension
@@ -28,6 +30,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.textView.delegate = self;
+    self.textView.placeholder = NSLocalizedString(@"kELTextViewPlaceholderLabel", nil);
 }
 
 #pragma mark - Private Methods
@@ -87,6 +92,12 @@
              @"type": @(_question.answer.type),
              @"value": (NSNumber *)option.value,
              @"explanation": self.textView.text};
+}
+
+#pragma mark - Protocol Methods (UITextView)
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [AppSingleton.mSurveyFormDict setObject:[self formValues] forKey:@(_question.objectId)];
 }
 
 #pragma mark - Getter/Setter Methods
