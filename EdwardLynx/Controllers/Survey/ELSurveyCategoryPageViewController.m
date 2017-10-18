@@ -263,6 +263,12 @@
         return;
     }
     
+    if (errorDict[@"message"]) {
+        [ELUtils presentToastAtView:self.view
+                            message:errorDict[@"message"]
+                         completion:nil];
+    }
+    
 //    [ELUtils presentToastAtView:self.view
 //                        message:NSLocalizedString(@"kELSurveyPostError", nil)
 //                     completion:nil];
