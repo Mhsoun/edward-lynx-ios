@@ -126,6 +126,12 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ELManagerSurveyTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.reportCount == 0) {
+        return;
+    }
+    
     if (self.selectedIndex == indexPath.row && self.selectedSection == indexPath.section) {  // User taps expanded row
         self.selectedIndex = -1;
         self.selectedSection = -1;
