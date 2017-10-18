@@ -51,6 +51,12 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
     [self.tableView reloadData];
 }
 
+- (NSInteger)reportCount {
+    return self.reports.count;
+}
+
+// MARK: - Protocol Methods (UITableView)
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.reports.count;
 }

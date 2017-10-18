@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A99359181F04FF92003EC659"
-               BuildableName = "EdwardLynxAppStore.app"
-               BlueprintName = "EdwardLynxAppStore"
+               BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
+               BuildableName = "Edward Lynx.app"
+               BlueprintName = "EdwardLynx"
                ReferencedContainer = "container:EdwardLynx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A99359181F04FF92003EC659"
-            BuildableName = "EdwardLynxAppStore.app"
-            BlueprintName = "EdwardLynxAppStore"
+            BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
+            BuildableName = "Edward Lynx.app"
+            BlueprintName = "EdwardLynx"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -57,9 +57,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A99359181F04FF92003EC659"
-            BuildableName = "EdwardLynxAppStore.app"
-            BlueprintName = "EdwardLynxAppStore"
+            BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
+            BuildableName = "Edward Lynx.app"
+            BlueprintName = "EdwardLynx"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -76,9 +76,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A99359181F04FF92003EC659"
-            BuildableName = "EdwardLynxAppStore.app"
-            BlueprintName = "EdwardLynxAppStore"
+            BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
+            BuildableName = "Edward Lynx.app"
+            BlueprintName = "EdwardLynx"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

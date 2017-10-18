@@ -80,7 +80,7 @@ platform :ios do
   desc "Generates an .ipa file"
   lane :ipabuild do
     gym(
-      scheme: "EdwardLynxAppStore",
+      scheme: "EdwardLynx",
       export_method: "development",
       include_bitcode: false,
       include_symbols: true
