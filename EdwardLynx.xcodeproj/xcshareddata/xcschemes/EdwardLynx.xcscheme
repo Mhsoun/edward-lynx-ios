@@ -29,6 +29,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9308BE91DED74B6007B4F9F"
+               BuildableName = "EdwardLynxTests.xctest"
+               BlueprintName = "EdwardLynxTests"
+               ReferencedContainer = "container:EdwardLynx.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9308BF41DED74B6007B4F9F"
+               BuildableName = "EdwardLynxUITests.xctest"
+               BlueprintName = "EdwardLynxUITests"
+               ReferencedContainer = "container:EdwardLynx.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -63,6 +83,13 @@
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

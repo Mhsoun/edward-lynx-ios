@@ -83,7 +83,8 @@ platform :ios do
       scheme: "EdwardLynx",
       export_method: "development",
       include_bitcode: false,
-      include_symbols: true
+      include_symbols: true,
+      export_options: "ExportOptions.plist"
     )
   end
 
@@ -201,7 +202,10 @@ platform :ios do
   
   desc "Method to upload to HockeyApp"
   def build_for_hockeyapp()
-    # increment_build_number
+    increment_build_number
+    increment_version_number(
+      bump_type: "patch"
+    )
     ipabuild
     hockey(
       api_token: ENV["HOCKEYAPP_API_TOKEN"],
