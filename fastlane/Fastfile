@@ -26,7 +26,7 @@ platform :ios do
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     ENV["EL_APP_IDENTIFIER"] = "com.mobileapp.edwardlynx"
     ENV["EL_ITUNES_TEAM_ID"] = "118663671"
-    ENV["HOCKEYAPP_API_TOKEN"] = "f8b92a273b984c619c19962405076faa"
+    ENV["HOCKEYAPP_API_TOKEN"] = "04f3ad6e503149849733102b270e827e"
     ENV["CRASHLYTICS_API_TOKEN"] = "7c67a5365060930052205dfdf95102678ef19047"
     ENV["CRASHLYTICS_BUILD_SECRET"] = "5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672"
 
@@ -224,7 +224,7 @@ platform :ios do
     clean_build_artifacts
 
     # Push version changes to repository
-    # push_version_bump_to_repo(version_string(version, build))
+    push_version_bump_to_repo(version_string(version, build))
   end
 
   desc "Method to generate Changelogs based on Git commits"

@@ -2,13 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>APIClient</key>
-    <dict>
-        <key>ID</key>
-        <string>12</string>
-        <key>Secret</key>
-        <string>5fdCA47OE30ZCHTDceENXSumjhZiVzB6cbDKMiXv</string>
-    </dict>
+	<key>APIClient</key>
+	<dict>
+		<key>ID</key>
+		<string>12</string>
+		<key>Secret</key>
+		<string>5fdCA47OE30ZCHTDceENXSumjhZiVzB6cbDKMiXv</string>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -22,7 +22,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -37,7 +37,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>FIRMessagingAutoRegisterEnabledflag</key>
 	<false/>
 	<key>Fabric</key>
