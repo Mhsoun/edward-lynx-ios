@@ -138,7 +138,7 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
         
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (self.selectedIndex != -1) {  // User taps different row
-        NSIndexPath *prevPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
+        NSIndexPath *prevPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:self.selectedSection];
         
         self.selectedIndex = indexPath.row;
         self.selectedSection = indexPath.section;
