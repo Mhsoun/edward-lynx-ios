@@ -214,8 +214,8 @@ platform :ios do
       notes: File.exist?("../Notes.md") ? File.read("../Notes.md") : change_log_since_last_tag
     )
 
-    # version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
-    # build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
 
     # Notify thru Slack
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
