@@ -43,7 +43,7 @@
 + (void)setUserDefaultsValue:(id)value
                          key:(NSString *)key;
 
-+ (void)processReauthenticationWithCompletion:(void (^)(NSError *error))completion;
++ (void)processReauthenticationWithCompletion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 + (void)fabricForceCrash;
 + (void)fabricLogUserInformation:(NSDictionary *)infoDict;
