@@ -60,10 +60,18 @@ static NSString * const kELApplicationJSON = @"application/json";
 //            (responseDict[@"error"] && ![responseDict[@"error"] isEqualToString:kELInvalidCredentials])) {
             // Check if task requires user to be authenticated to invoke refreshing of credentials
         if ((error && httpResponse.statusCode == kELAPIUnauthorizedStatusCode) && isAuthenticated) {
-            [ELUtils processReauthenticationWithCompletion:^(NSError *error) {
+            [ELUtils processReauthenticationWithCompletion:^(NSURLResponse *response,
+                                                             NSDictionary *responseDict,
+                                                             NSError *error) {
                 ELOAuthInstance *oauthInstance;
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                 
                 if (error) {
+                    if (httpResponse.statusCode == kELAPIUnauthorizedStatusCode) {
+                        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kELAuthInstanceUserDefaultsKey];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                    }
+                    
                     completion(response, responseDict, error);
                     
                     return;
