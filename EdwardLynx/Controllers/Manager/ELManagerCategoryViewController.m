@@ -174,6 +174,8 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     ELCategory *category;
     ELTeamDevelopmentPlan *teamDevPlan;
     
+    AppSingleton.needsPageReload = YES;
+    
     switch (self.action) {
         case kELTeamDevPlanActionCreate:
             self.nameField.text = @"";
@@ -217,8 +219,6 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
     
     [ELUtils presentToastAtView:self.view message:message completion:^{
         if (self.action == kELTeamDevPlanActionUpdate) {
-            AppSingleton.needsPageReload = YES;
-            
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
