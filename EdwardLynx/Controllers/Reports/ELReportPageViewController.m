@@ -261,7 +261,7 @@
 - (void)setupPageController:(UIPageViewController *)pageController atView:(UIView *)view {
     ELReportChildPageViewController *controller;
     ELReportDetailsViewController *detailController;
-    NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:@{@"frequencies": self.responseDict[@"frequencies"]}];
+    NSMutableDictionary *mDict = [[NSMutableDictionary alloc] init];
         
     for (int i = 0; i < self.pageCount; i++) {
         int index;
@@ -275,11 +275,13 @@
             detailController = StoryboardController(@"Report", @"ReportDetails");
             detailController.index = i;
             
-            if ([self.selectedObject isKindOfClass:[ELSurvey class]]) {
-                for (NSString *key in [mDict allKeys]) {
-                    if ([@[@"average", @"ioc"] containsObject:key]) {
-                        [mDict setObject:self.responseDict[key] forKey:key];
-                    }
+            for (NSString *key in [self.responseDict allKeys]) {
+                BOOL hasKey = ([self.selectedObject isKindOfClass:[ELSurvey class]] ?
+                               [@[@"average", @"ioc"] containsObject:key] :
+                               [key isEqualToString:@"frequencies"]);
+                
+                if (hasKey) {
+                    [mDict setObject:self.responseDict[key] forKey:key];
                 }
             }
             
