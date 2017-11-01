@@ -22,7 +22,7 @@ platform :ios do
     ENV["DEV_TEAM_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
     ENV["EL_DEV_TEAM_ID"] = "KGZFZP3DEA"
     ENV["GIT_CERTS_URL"] = "<your repository URL for certificates>"
-    ENV["XCODE_PROJECT"] = "EdwardLynx.xcworkspace"    
+    ENV["XCODE_PROJECT"] = "EdwardLynx.xcodeproj"    
     ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     ENV["EL_APP_IDENTIFIER"] = "com.mobileapp.edwardlynx"
     ENV["EL_ITUNES_TEAM_ID"] = "118663671"
