@@ -241,11 +241,12 @@ platform :ios do
   def push_version_bump_to_repo(version_string)
     # https://developer.apple.com/library/content/qa/qa1827/_index.html
     commit_version_bump(
-      message: "Version bump to #{version_string}"
+      message: "Version bump to #{version_string}",
+      xcodeproj: ENV["XCODE_PROJECT"]
     )
     # Pushes "master" branch to remote
     # Options: https://docs.fastlane.tools/actions/#push_to_git_remote
-    push_to_git_remote
+    # push_to_git_remote
   end
 
   desc "Method to update version number upon call"
