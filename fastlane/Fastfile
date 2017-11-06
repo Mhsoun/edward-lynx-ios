@@ -206,6 +206,13 @@ platform :ios do
     increment_version_number(
       bump_type: "patch"
     )
+
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+
+    # Push version changes to repository
+    push_version_bump_to_repo(version_string(version, build))
+
     ipabuild
     hockey(
       api_token: ENV["HOCKEYAPP_API_TOKEN"],
@@ -214,17 +221,11 @@ platform :ios do
       notes: File.exist?("../Notes.md") ? File.read("../Notes.md") : change_log_since_last_tag
     )
 
-    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
-    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
-
     # Notify thru Slack
     # post_to_slack(scheme: scheme, destination: "HockeyApp")
 
     # Clean directory
     clean_build_artifacts
-
-    # Push version changes to repository
-    push_version_bump_to_repo(version_string(version, build))
   end
 
   desc "Method to generate Changelogs based on Git commits"
