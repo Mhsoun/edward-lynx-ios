@@ -19,7 +19,9 @@
 @interface ELSurveyCategoryPageViewController ()
 
 @property (nonatomic) BOOL isSurveyFinal, saved;
-@property (nonatomic) NSInteger pageCount, pageIndex;
+@property (nonatomic) NSInteger pageCount,
+                                pageIndex,
+                                nextPageIndex;
 @property (nonatomic) kELSurveyResponseType responseType;
 @property (nonatomic, strong) NSIndexPath *prevIndexPath;
 @property (nonatomic, strong) NSArray<ELQuestionCategory *> *items;
@@ -39,7 +41,7 @@
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.pageCount = 0, self.pageIndex = 0;
+    self.pageCount = 0, self.pageIndex = 0, self.nextPageIndex = 0;
     self.isSurveyFinal = NO, self.saved = NO;
     self.mControllers = [[NSMutableArray alloc] init];
     self.title = [NSLocalizedString(@"kELAnswerSurveyTitle", nil) uppercaseString];
@@ -103,15 +105,21 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
     __kindof ELBaseDetailViewController *controller = (__kindof ELBaseDetailViewController *)[pendingViewControllers lastObject];
     
-    self.pageIndex = [controller index];
+    self.nextPageIndex = [controller index];
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
-    BOOL isLastPage = self.pageIndex == self.pageCount - 1;
+    BOOL isLastPage;
     BOOL isCompleted = self.survey.status == kELSurveyStatusCompleted;
+    
+    if (completed) {
+        self.pageIndex = self.nextPageIndex;
+    }
+    
+    isLastPage = self.pageIndex == self.pageCount - 1;
     
     self.pageControl.currentPage = self.pageIndex;
     self.prevButton.hidden = self.pageIndex == 0;
@@ -131,8 +139,6 @@
         return nil;
     }
     
-    self.pageIndex = index;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -146,8 +152,6 @@
     }
     
     index--;
-    
-    self.pageIndex = index;
     
     return [self viewControllerAtIndex:index];
 }
