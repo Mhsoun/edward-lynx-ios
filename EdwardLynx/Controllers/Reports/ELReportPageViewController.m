@@ -17,7 +17,9 @@
 
 @interface ELReportPageViewController ()
 
-@property (nonatomic) NSInteger pageCount, pageIndex;
+@property (nonatomic) NSInteger pageCount,
+                                pageIndex,
+                                nextPageIndex;
 @property (nonatomic, strong) NSDictionary *responseDict;
 @property (nonatomic, strong) NSArray *reportKeys;
 @property (nonatomic, strong) NSMutableArray *mControllers;
@@ -35,7 +37,7 @@
     // Do any additional setup after loading the view.
     
     // Intialization
-    self.pageCount = 0, self.pageIndex = 0;
+    self.pageCount = 0, self.pageIndex = 0, self.nextPageIndex = 0;
     self.mControllers = [[NSMutableArray alloc] init];
     
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
@@ -58,14 +60,20 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
     __kindof ELBasePageChildViewController *controller = (__kindof ELBasePageChildViewController *)[pendingViewControllers lastObject];
     
-    self.pageIndex = [controller index];
+    self.nextPageIndex = [controller index];
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
-    BOOL isLastPage = self.pageIndex == self.pageCount - 1;
+    BOOL isLastPage;
+    
+    if (completed) {
+        self.pageIndex = self.nextPageIndex;
+    }
+    
+    isLastPage = self.pageIndex == self.pageCount - 1;
     
     self.pageControl.currentPage = self.pageIndex;
     self.prevButton.hidden = self.pageIndex == 0;
@@ -82,8 +90,6 @@
         return nil;
     }
     
-    self.pageIndex = index;
-    
     return self.mControllers[index];
 }
 
@@ -96,8 +102,6 @@
     }
     
     index--;
-    
-    self.pageIndex = index;
     
     return self.mControllers[index];
 }
