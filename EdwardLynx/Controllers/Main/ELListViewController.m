@@ -57,6 +57,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0,
                                                                                         CGRectGetWidth(self.tableView.frame),
@@ -327,7 +328,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = YES;
-    self.tableView.alwaysBounceVertical = NO;
     
     [self.tableView reloadData];
     

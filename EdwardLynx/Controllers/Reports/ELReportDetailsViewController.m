@@ -49,6 +49,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     // Initialization
     self.toDisplayData = YES;
     
+    self.tableView.alwaysBounceVertical = NO;
+    
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
     

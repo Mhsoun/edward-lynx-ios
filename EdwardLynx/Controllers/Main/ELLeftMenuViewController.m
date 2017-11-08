@@ -44,6 +44,7 @@ static NSString * const kELCellIdentifier = @"MenuItemCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
