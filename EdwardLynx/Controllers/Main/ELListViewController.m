@@ -68,7 +68,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     
-    [self reloadPage];
+//    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,13 +77,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (AppSingleton.needsPageReload) {
-        self.isUpdated = AppSingleton.needsPageReload;
-        
-        [self reloadPage];
-    }
+//    if (AppSingleton.needsPageReload) {
+//        self.isUpdated = AppSingleton.needsPageReload;
+//
+//        [self reloadPage];
+//    }
     
     [super viewWillAppear:animated];
+    
+    [self reloadPage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -484,7 +486,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Load list type's corresponding data set
     [self loadListByType];
     
-    AppSingleton.needsPageReload = NO;
+//    AppSingleton.needsPageReload = NO;
 }
 
 @end
