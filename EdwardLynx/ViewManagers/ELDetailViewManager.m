@@ -110,8 +110,9 @@
     }
 }
 
-- (void)processRetrievalOfSurveyDetails {
+- (void)processRetrievalOfSurveyDetailsForKey:(NSString *)key {
     [self.surveyClient userSurveyWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                                    key:key
                              completion:self.requestCompletionBlock];
 }
 

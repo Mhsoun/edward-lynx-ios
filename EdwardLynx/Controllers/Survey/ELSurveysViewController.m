@@ -11,7 +11,7 @@
 #import "ELInstantFeedback.h"
 #import "ELListViewController.h"
 #import "ELSurvey.h"
-#import "ELSurveyDetailsViewController.h"
+#import "ELSurveyCategoryPageViewController.h"
 #import "ELSurveyRateOthersViewController.h"
 
 #pragma mark - Private Constants
@@ -54,9 +54,10 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kELSurveySegueIdentifier]) {
-        ELSurveyDetailsViewController *controller = (ELSurveyDetailsViewController *)[segue destinationViewController];
+        ELSurveyCategoryPageViewController *controller = (ELSurveyCategoryPageViewController *)[segue destinationViewController];
         
         controller.objectId = self.selectedSurvey.objectId;
+        controller.key = self.selectedSurvey.key;
     } else if ([segue.identifier isEqualToString:kELListSegueIdentifier]) {
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         

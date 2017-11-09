@@ -41,6 +41,7 @@
 - (void)updateUserSurveyWithParams:(NSDictionary *)params
                         completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)userSurveyWithId:(int64_t)surveyId
+                     key:(NSString *)key
               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 - (void)userSurveyQuestionsWithId:(int64_t)surveyId
                        completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion;

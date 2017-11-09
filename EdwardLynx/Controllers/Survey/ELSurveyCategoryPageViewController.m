@@ -52,7 +52,7 @@
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
         
         // Retrieve survey details
-        [self.detailViewManager processRetrievalOfSurveyDetails];
+        [self.detailViewManager processRetrievalOfSurveyDetailsForKey:self.key];
     } else {
         self.responseType = kELSurveyResponseTypeQuestions;
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];

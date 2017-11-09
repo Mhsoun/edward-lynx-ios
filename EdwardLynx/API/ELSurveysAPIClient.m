@@ -172,12 +172,14 @@
 }
 
 - (void)userSurveyWithId:(int64_t)surveyId
+                     key:(NSString *)key
               completion:(void (^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSString *endpoint = Format(kELAPISurveyEndpoint,
                                 kELAPIVersionNamespace,
                                 @(surveyId));
     NSMutableURLRequest *request = [self requestFor:endpoint
-                                             method:kELAPIGetHTTPMethod];
+                                             method:kELAPIGetHTTPMethod
+                                        queryParams:@{@"key": key}];
     
     [self performAuthenticatedTask:YES
                        withRequest:request
