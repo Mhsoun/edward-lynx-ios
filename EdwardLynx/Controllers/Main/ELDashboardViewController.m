@@ -220,6 +220,10 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
         controller = StoryboardController(storyboard, identifier);
         controller.objectId = reminder.objectId;
         
+        if (reminder.type == kELReminderTypeSurvey) {
+            controller.key = reminder.key;
+        }
+        
         [self.navigationController pushViewController:controller animated:YES];
     } else if ([value isKindOfClass:[ELDevelopmentPlan class]]) {
         controller = StoryboardController(@"DevelopmentPlan", @"DevelopmentPlanDetails");
