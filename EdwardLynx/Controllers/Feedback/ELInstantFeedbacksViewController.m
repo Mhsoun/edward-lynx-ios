@@ -71,12 +71,12 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     [super viewWillAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    // To handle updating of Dashboard
-    AppSingleton.needsPageReload = self.isUpdated;
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//
+//    // To handle updating of Dashboard
+//    AppSingleton.needsPageReload = self.isUpdated;
+//}
 
 - (void)dealloc {
     DLog(@"%@", [self class]);

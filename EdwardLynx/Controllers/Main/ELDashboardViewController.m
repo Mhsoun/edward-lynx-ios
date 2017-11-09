@@ -72,11 +72,13 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (AppSingleton.needsPageReload) {
-        [self reloadPage];
-    }
+//    if (AppSingleton.needsPageReload) {
+//        [self reloadPage];
+//    }
     
     [super viewWillAppear:animated];
+    
+    [self reloadPage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -395,7 +397,7 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
     // Load Dashboard details
     [self loadDashboardData];
     
-    AppSingleton.needsPageReload = NO;
+//    AppSingleton.needsPageReload = NO;
 }
 
 - (void)triggerRegisterForNotifications {
