@@ -50,6 +50,14 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self.chartContainerView setNeedsLayout];
+}
+
+#pragma mark - Public Methods
+
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     CGRect frame;
     kELReportChartType type;
