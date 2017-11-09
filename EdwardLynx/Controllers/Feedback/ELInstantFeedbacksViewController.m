@@ -47,6 +47,7 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.rowHeight = 105;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -72,7 +73,7 @@ static NSString * const kELSegueIdentifier = @"AnswerInstantFeedback";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+
     // To handle updating of Dashboard
     AppSingleton.needsPageReload = self.isUpdated;
 }

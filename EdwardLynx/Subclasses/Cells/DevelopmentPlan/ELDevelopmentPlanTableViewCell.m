@@ -50,6 +50,8 @@
                                                         iconSize:20]
                              forState:UIControlStateNormal];
     
+    self.tableView.alwaysBounceVertical = NO;
+    
     // Scroll View
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScrollViewTap:)];
     tap.numberOfTapsRequired = 1;

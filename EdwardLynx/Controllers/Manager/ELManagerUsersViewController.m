@@ -57,6 +57,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.viewManager.delegate = self;
     self.viewManager.postDelegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.hidden = YES;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -228,7 +229,6 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                       dataProvider:self.provider
                                                     cellIdentifier:kELCellIdentifier];
     
-    self.tableView.alwaysBounceVertical = NO;
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

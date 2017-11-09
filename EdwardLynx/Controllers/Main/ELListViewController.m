@@ -57,6 +57,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.viewManager = [[ELListViewManager alloc] init];
     self.viewManager.delegate = self;
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0,
                                                                                         CGRectGetWidth(self.tableView.frame),
@@ -67,7 +68,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     
-    [self reloadPage];
+//    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,13 +77,15 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (AppSingleton.needsPageReload) {
-        self.isUpdated = AppSingleton.needsPageReload;
-        
-        [self reloadPage];
-    }
+//    if (AppSingleton.needsPageReload) {
+//        self.isUpdated = AppSingleton.needsPageReload;
+//
+//        [self reloadPage];
+//    }
     
     [super viewWillAppear:animated];
+    
+    [self reloadPage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -327,7 +330,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = YES;
-    self.tableView.alwaysBounceVertical = NO;
     
     [self.tableView reloadData];
     
@@ -484,7 +486,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Load list type's corresponding data set
     [self loadListByType];
     
-    AppSingleton.needsPageReload = NO;
+//    AppSingleton.needsPageReload = NO;
 }
 
 @end

@@ -41,11 +41,12 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
                        CGFLOAT_MIN);
     
     self.tableView.alwaysBounceVertical = NO;
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.scrollEnabled = !(self.type == kELReportChartTypeBarResponseRate || self.type == kELReportChartTypeRadar);
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:frame];
         
     RegisterNib(self.tableView, kELCellIdentifier);
 }
@@ -135,7 +136,7 @@ static NSString * const kELCommentCellIdentifier = @"ReportCommentCell";
         case kELReportChartTypePie:
             return 250;
         default:
-            return 330;
+            return CGRectGetHeight(tableView.frame);
     }
 }
 

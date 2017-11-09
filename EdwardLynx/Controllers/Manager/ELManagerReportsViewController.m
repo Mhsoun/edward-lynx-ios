@@ -42,7 +42,8 @@ static NSString * const kELSegueIdentifier = @"ReportDetails";
     frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);
     
     self.selectedIndex = -1, self.selectedSection = -1;
-        
+    
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.emptyDataSetSource = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

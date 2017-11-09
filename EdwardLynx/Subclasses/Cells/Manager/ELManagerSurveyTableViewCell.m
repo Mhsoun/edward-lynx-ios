@@ -28,6 +28,7 @@ static NSString * const kELCellIdentifier = @"ManagerReportCell";
     [super awakeFromNib];
     // Initialization code
     
+    self.tableView.alwaysBounceVertical = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
