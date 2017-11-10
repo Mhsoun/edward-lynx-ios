@@ -52,14 +52,14 @@
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
         
         // Retrieve survey details
-        [self.detailViewManager processRetrievalOfSurveyDetails];
+        [self.detailViewManager processRetrievalOfSurveyDetailsForKey:self.key];
     } else {
         self.responseType = kELSurveyResponseTypeQuestions;
         self.detailViewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.survey];
         self.surveyViewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
         
         // Retrieve surveys questions
-        [self.detailViewManager processRetrievalOfSurveyQuestions];
+        [self.detailViewManager processRetrievalOfSurveyQuestionsForKey:self.key];
     }
     
     self.detailViewManager.delegate = self;
@@ -205,7 +205,7 @@
             self.surveyViewManager.delegate = self;
             
             // Retrieve surveys questions
-            [self.detailViewManager processRetrievalOfSurveyQuestions];
+            [self.detailViewManager processRetrievalOfSurveyQuestionsForKey:self.key];
             
             break;
         case kELSurveyResponseTypeQuestions:

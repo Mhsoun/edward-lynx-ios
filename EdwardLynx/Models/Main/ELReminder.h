@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, kELReminderType) {
 @property (nonatomic) kELReminderType type;
 @property (nonatomic) NSString<Optional> *name;
 @property (nonatomic) NSString<Optional> *shortDescription;
+@property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSDate<Optional> *dueDate;
 
 @property (nonatomic) NSMutableAttributedString<Ignore> *attributedDueDateInfo;

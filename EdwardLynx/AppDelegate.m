@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "ELBaseDetailViewController.h"
 #import "ELNotificationView.h"
+#import "ELSurveyCategoryPageViewController.h"
 #import "ELUsersAPIClient.h"
 
 #pragma mark - Class Extension
@@ -343,7 +344,7 @@
 
 - (void)displayViewControllerByData:(id)object {
     int64_t objectId;
-    NSString *identifier,
+    NSString *key,
              *storyboardName,
              *type;
     __kindof ELBaseDetailViewController *controller;
@@ -351,6 +352,7 @@
     if ([object isKindOfClass:[ELNotification class]]) {
         objectId = [(ELNotification *)object objectId];
         type = [(ELNotification *)object type];
+        key = [(ELNotification *)object key];
         
         self.notification = nil;
     } else {
@@ -358,6 +360,7 @@
         
         objectId = [objectDict[@"id"] integerValue];
         type = objectDict[@"type"];
+        key = objectDict[@"key"];
         
         self.emailInfoDict = nil;
     }
@@ -370,9 +373,9 @@
         storyboardName = @"Survey";
     }
     
-    identifier = Format(@"%@Details", storyboardName);
-    controller = StoryboardController(storyboardName, identifier);
+    controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
     controller.objectId = objectId;
+    controller.key = key;
     
     [self.notificationRootNavController pushViewController:controller animated:YES];
 }
@@ -456,7 +459,9 @@
             NSString *type = isFeedback ? kELNotificationTypeInstantFeedbackRequest : kELNotificationTypeSurvey;
             
             objectId = [responseDict[isFeedback ? @"instant_feedback_id" : @"survey_id"] intValue];
-            self.emailInfoDict = @{@"id": @(objectId), @"type": type};
+            self.emailInfoDict = @{@"id": @(objectId),
+                                   @"type": type,
+                                   @"key": key};
             
             [self displayViewControllerByData:self.emailInfoDict];
         }

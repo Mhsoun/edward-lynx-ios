@@ -13,6 +13,8 @@
 
 @interface ELSurveyDetailsViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSString *key;
+
 @property (strong, nonatomic) ELQuestionCategory *category;
 @property (strong, nonatomic) ELSurvey *survey;
 

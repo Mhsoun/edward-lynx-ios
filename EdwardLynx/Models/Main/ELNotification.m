@@ -25,6 +25,10 @@
     _body = dict[@"aps"][@"alert"][@"body"];
     _type = dict[@"type"];
     
+    if (dict[@"key"]) {
+        _key = dict[@"key"];
+    }
+    
     _objectId = [dict[@"id"] intValue];
     _badge = !dict[@"badge"] ? 0 : [dict[@"badge"] intValue];
     

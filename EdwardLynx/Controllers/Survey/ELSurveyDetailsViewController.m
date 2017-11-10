@@ -42,7 +42,7 @@ static NSString * const kELCellIdentifier = @"QuestionCell";
     if (!self.survey) {
         self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
         
-        [self.detailViewManager processRetrievalOfSurveyDetails];
+        [self.detailViewManager processRetrievalOfSurveyDetailsForKey:self.key];
     }
     
     frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);

@@ -19,5 +19,6 @@ static NSString * const kELNotificationTypeSurvey = @"survey";
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *body;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString<Optional> *key;
 
 @end

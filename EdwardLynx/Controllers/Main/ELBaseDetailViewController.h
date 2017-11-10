@@ -13,4 +13,6 @@
 @property (nonatomic) int64_t objectId;
 @property (nonatomic) NSInteger index;
 
+@property (nonatomic) NSString *key;
+
 @end
