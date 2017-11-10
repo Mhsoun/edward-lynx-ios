@@ -3931,7 +3931,7 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
@@ -3954,7 +3954,7 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4XE8MVRXHY;
@@ -4074,7 +4074,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KGZFZP3DEA;
@@ -4098,7 +4098,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KGZFZP3DEA;
@@ -4173,7 +4173,7 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KGZFZP3DEA;
@@ -4196,7 +4196,7 @@
 				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KGZFZP3DEA;
