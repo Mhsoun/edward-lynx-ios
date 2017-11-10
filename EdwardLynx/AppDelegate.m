@@ -344,8 +344,7 @@
 
 - (void)displayViewControllerByData:(id)object {
     int64_t objectId;
-    NSString *identifier,
-             *key,
+    NSString *key,
              *storyboardName,
              *type;
     __kindof ELBaseDetailViewController *controller;
@@ -374,13 +373,9 @@
         storyboardName = @"Survey";
     }
     
-    identifier = Format(@"%@Details", storyboardName);
-    controller = StoryboardController(storyboardName, identifier);
+    controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
     controller.objectId = objectId;
-    
-    if ([controller isKindOfClass:[ELSurveyCategoryPageViewController class]]) {
-        controller.key = key;
-    }
+    controller.key = key;
     
     [self.notificationRootNavController pushViewController:controller animated:YES];
 }
