@@ -19,6 +19,6 @@
 - (void)processRetrievalOfInstantFeedbackDetails;
 - (void)processRetrievalOfReportDetails;
 - (void)processRetrievalOfSurveyDetailsForKey:(NSString *)key;
-- (void)processRetrievalOfSurveyQuestions;
+- (void)processRetrievalOfSurveyQuestionsForKey:(NSString *)key;
 
 @end

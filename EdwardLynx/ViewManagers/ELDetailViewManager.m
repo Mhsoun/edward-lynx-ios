@@ -112,12 +112,13 @@
 
 - (void)processRetrievalOfSurveyDetailsForKey:(NSString *)key {
     [self.surveyClient userSurveyWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
-                                    key:key
+                                 params:@{@"key": key}
                              completion:self.requestCompletionBlock];
 }
 
-- (void)processRetrievalOfSurveyQuestions {
+- (void)processRetrievalOfSurveyQuestionsForKey:(NSString *)key {
     [self.surveyClient userSurveyQuestionsWithId:!self.detailObject ? self.objectId : self.detailObject.objectId
+                                          params:@{@"key": key}
                                       completion:self.requestCompletionBlock];
 }
 
