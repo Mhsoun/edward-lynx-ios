@@ -27,17 +27,21 @@
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
     if ([object isKindOfClass:[ELSurvey class]]) {
+        BOOL toReactivate;
         ELSurvey *survey = (ELSurvey *)object;
         NSString *colorKey = survey.status == kELSurveyStatusCompleted ? kELGreenColor : kELDarkGrayColor;
+        
+        toReactivate = (survey.isExpired &&
+                        survey.status != kELSurveyStatusCompleted &&
+                        survey.status != kELSurveyStatusNotInvited);
         
         [self configureWithDetails:@{@"title": survey.name,
                                      @"type": [ELUtils labelBySurveyType:survey.type],
                                      @"description": survey.evaluationText,
                                      @"status": @(survey.status),
-                                     @"isExpired": @([survey.endDate mt_isAfter:[NSDate date]]),
+                                     @"toReactivate": @(toReactivate),
                                      @"date": survey.endDate}];
         
-        self.reactivateLabel.hidden = ![[NSDate date] mt_isAfter:survey.endDate];
         self.statusLabel.backgroundColor = ThemeColor(colorKey);
     } else {
         kELSurveyStatus status;
@@ -79,7 +83,7 @@
     self.dayLabel.text = dayString;
     self.yearLabel.text = [[NSNumber numberWithInteger:date.mt_year] stringValue];
     
-    self.reactivateLabel.hidden = [detailsDict.allKeys containsObject:@"isExpired"] ? [detailsDict[@"isExpired"] boolValue] : YES;
+    self.reactivateLabel.hidden = [detailsDict.allKeys containsObject:@"toReactivate"] ? ![detailsDict[@"toReactivate"] boolValue] : YES;
     self.statusLabel.backgroundColor = ThemeColor(kELDarkGrayColor);
     self.statusLabel.layer.cornerRadius = 2.0f;
     

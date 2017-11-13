@@ -24,6 +24,8 @@
 @property (nonatomic) NSString<Optional> *evaluationText;
 @property (nonatomic) NSString<Optional> *shortDescription;
 
+@property (nonatomic) BOOL isExpired;
+
 @property (nonatomic) NSString<Ignore> *endDateString;
 @property (nonatomic) NSString<Ignore> *startDateString;
 

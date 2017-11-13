@@ -55,7 +55,8 @@
     expectation = [self expectationWithDescription:@"Asynchronous API request"];
     
     // When
-    [self.client currentUserSurveysWithCompletion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
+    [self.client currentUserSurveysWithQueryParams:@{@"filter": @"answerable", @"page": @1}
+                                        completion:^(NSURLResponse *response, NSDictionary *responseDict, NSError *error) {
         // Then
         XCTAssert(!error && !responseDict[@"error"]);
         
