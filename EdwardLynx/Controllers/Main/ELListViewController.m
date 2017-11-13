@@ -50,8 +50,6 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     // Do any additional setup after loading the view.
     
     // Initialization
-    self.page = 1;
-    self.isPaginated = NO;
     self.isUpdated = NO;
     
     self.viewManager = [[ELListViewManager alloc] init];
@@ -90,6 +88,9 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    self.page = 1;
+    self.isPaginated = NO;
     
     // Search Notification
     [NotificationCenter addObserver:self
