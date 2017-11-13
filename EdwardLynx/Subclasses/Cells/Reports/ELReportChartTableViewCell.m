@@ -126,6 +126,10 @@
                 return;
             }
             
+            frame = self.bounds;
+            frame.size.height = CGRectGetHeight(frame) - 10;
+            frame.size.width = CGRectGetWidth(frame) - 10;
+            
             self.radarChart = [[RadarChartView alloc] initWithFrame:frame];
             
             [self.chartContainerView addSubview:self.radarChart];
@@ -744,7 +748,7 @@
     self.radarChart.legend.xOffset = 0.0f;
     self.radarChart.legend.yEntrySpace = 0.0f;
     self.radarChart.legend.yOffset = 0.0f;
-
+    
     self.radarChart.noDataFont = labelFont;
     self.radarChart.noDataText = NSLocalizedString(@"kELReportNoData", nil);
     self.radarChart.noDataTextColor = ThemeColor(kELOrangeColor);
