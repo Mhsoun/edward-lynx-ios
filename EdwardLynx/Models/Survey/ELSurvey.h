@@ -20,9 +20,11 @@
 @property (nonatomic) NSString *lang;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-@property (nonatomic) NSString *key;
+@property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSString<Optional> *evaluationText;
 @property (nonatomic) NSString<Optional> *shortDescription;
+
+@property (nonatomic) BOOL isExpired;
 
 @property (nonatomic) NSString<Ignore> *endDateString;
 @property (nonatomic) NSString<Ignore> *startDateString;

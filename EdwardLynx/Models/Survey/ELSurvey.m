@@ -8,6 +8,8 @@
 
 #import "ELSurvey.h"
 
+#import <MTDates/NSDate+MTDates.h>
+
 @implementation ELSurvey
 
 @synthesize endDateString = _endDateString;
@@ -23,7 +25,12 @@
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"searchTitle"];
+    return ([propertyName isEqualToString:@"searchTitle"] ||
+            [propertyName isEqualToString:@"isExpired"]);
+}
+
+- (BOOL)isExpired {
+    return [[NSDate date] mt_isAfter:self.endDate];
 }
 
 - (NSString *)searchTitle {
