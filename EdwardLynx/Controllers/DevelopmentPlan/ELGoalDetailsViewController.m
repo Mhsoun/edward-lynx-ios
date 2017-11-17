@@ -59,6 +59,7 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
     self.viewManager.delegate = self;
+    self.viewManager.postDelegate = self;
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -72,6 +73,8 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     
     // Goal details
     [self populatePage];
+    
+    [self.viewManager fetchQuestionCategories];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,6 +182,16 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
                      completion:^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
+}
+
+#pragma mark - Protocol Methods (ELAPIResponse)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    // NOTE Do nothing
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    [self setupDropdown];
 }
 
 #pragma mark - Protocol Methods (ELAddItem)
@@ -337,15 +350,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
 }
 
 - (void)populatePage {
-    NSString *defaultValue;
-    NSMutableArray *mCategories = [[NSMutableArray alloc] init];
-    
-    for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
-    
-    self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
-                                           baseController:self
-                                         defaultSelection:nil];
-    
     self.selectedCategory = self.goal ? self.goal.category : nil;
     self.nameTextField.text = self.goal ? self.goal.title : @"";
     self.descriptionTextView.text = self.goal.shortDescription;
@@ -354,15 +358,6 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self.remindSwitch setOn:self.goal.dueDateChecked];
     [self.datePicker setDate:self.goal && self.goal.dueDate ? self.goal.dueDate : [NSDate date]];
     [self toggleBasedOnSwitchValue:self.remindSwitch];
-    
-    // Category
-    defaultValue = self.selectedCategory ? self.selectedCategory.title : (mCategories.count > 0 ? mCategories[0] : @"");
-    
-    [self.categorySwitch setOn:self.goal.categoryChecked];
-    [self.dropdown setFrame:self.dropdownView.bounds];
-    [self.dropdown setDefaultValue:defaultValue];
-    [self.dropdownView addSubview:self.dropdown];
-    [self toggleBasedOnSwitchValue:self.categorySwitch];
     
     // Action section
     [self.bottomSeparatorView setHidden:self.hideActionSection];
@@ -383,6 +378,26 @@ static NSString * const kELAddActionCellIdentifier = @"AddOptionCell";
     [self.mActions addObjectsFromArray:self.goal.actions];
     [self.tableView reloadData];
     [self adjustTableViewSize];
+}
+
+- (void)setupDropdown {
+    NSString *defaultValue;
+    NSMutableArray *mCategories = [[NSMutableArray alloc] init];
+    
+    
+    for (ELCategory *category in AppSingleton.categories) [mCategories addObject:category.title];
+    
+    self.dropdown = [[ELDropdownView alloc] initWithItems:mCategories
+                                           baseController:self
+                                         defaultSelection:nil];
+    
+    defaultValue = self.selectedCategory ? self.selectedCategory.title : (mCategories.count > 0 ? mCategories[0] : @"");
+    
+    [self.categorySwitch setOn:self.goal.categoryChecked];
+    [self.dropdown setFrame:self.dropdownView.bounds];
+    [self.dropdown setDefaultValue:defaultValue];
+    [self.dropdownView addSubview:self.dropdown];
+    [self toggleBasedOnSwitchValue:self.categorySwitch];
 }
 
 - (void)toggleBasedOnSwitchValue:(UISwitch *)switchButton {
