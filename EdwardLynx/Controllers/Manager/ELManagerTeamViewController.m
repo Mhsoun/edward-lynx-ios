@@ -135,13 +135,21 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    ELTeamDevelopmentPlan *teamDevPlan;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.visible == 1"];
+    NSMutableArray *mCategories = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dict in responseDict[@"items"]) {
-        [self.mItems addObject:[[ELTeamDevelopmentPlan alloc] initWithDictionary:dict error:nil]];
+        teamDevPlan = [[ELTeamDevelopmentPlan alloc] initWithDictionary:dict error:nil];
+        
+        [self.mItems addObject:teamDevPlan];
+        [mCategories addObject:[[ELCategory alloc] initWithDictionary:@{@"id": @-1, @"title": teamDevPlan.name}
+                                                                error:nil]];
     }
     
     self.visibleItems = [self.mItems filteredArrayUsingPredicate:predicate];
+    
+    AppSingleton.categories = [mCategories copy];
     
     [self.addCategoryButton setEnabled:YES];
     [self.indicatorView stopAnimating];

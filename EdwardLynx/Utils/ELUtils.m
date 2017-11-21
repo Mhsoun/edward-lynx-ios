@@ -183,7 +183,7 @@
     NSString *appId = [[[NSBundle mainBundle] objectForInfoDictionaryKey:kELHockeyAppPlistKey] objectForKey:kELAppIdPlistKey];
     
     [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:appId];
-    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
+    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAlwaysAsk];
     [[BITHockeyManager sharedHockeyManager] startManager];
 }
 

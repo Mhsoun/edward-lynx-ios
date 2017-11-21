@@ -8,8 +8,10 @@
 
 #import <REValidation/REValidation.h>
 
+#import "ELCategory.h"
 #import "ELDevelopmentPlanViewManager.h"
 #import "ELDevelopmentPlanAPIClient.h"
+#import "ELQuestionsAPIClient.h"
 
 #pragma mark - Class Extension
 
@@ -42,12 +44,12 @@
                                     NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
+                [weakSelf.postDelegate onAPIPostResponseError:error.userInfo];
                 
                 return;
             }
             
-            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
+            [weakSelf.postDelegate onAPIPostResponseSuccess:responseDict];
         });
     };
     
@@ -73,12 +75,12 @@
                                     NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
+                [weakSelf.postDelegate onAPIPostResponseError:error.userInfo];
                 
                 return;
             }
             
-            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
+            [weakSelf.postDelegate onAPIPostResponseSuccess:responseDict];
         });
     };
     
@@ -104,12 +106,12 @@
                                     NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                [weakSelf.delegate onAPIPostResponseError:error.userInfo];
+                [weakSelf.postDelegate onAPIPostResponseError:error.userInfo];
                 
                 return;
             }
             
-            [weakSelf.delegate onAPIPostResponseSuccess:responseDict];
+            [weakSelf.postDelegate onAPIPostResponseSuccess:responseDict];
         });
     };
     
@@ -119,6 +121,36 @@
 }
 
 #pragma mark - Public Methods
+
+- (void)fetchQuestionCategories {
+    __weak typeof(self) weakSelf = self;
+    
+    [[[ELQuestionCategoriesAPIClient alloc] init] categoriesOfUserWithCompletion:^(NSURLResponse *response,
+                                                                                   NSDictionary *responseDict,
+                                                                                   NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *mCategories;
+            
+            if (error) {
+                [weakSelf.delegate onAPIResponseError:error.userInfo];
+                
+                return;
+            }
+            
+            mCategories = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *categoryDict in responseDict[@"items"]) {
+                [mCategories addObject:[[ELCategory alloc] initWithDictionary:categoryDict error:nil]];
+            }
+            
+            AppSingleton.categories = [mCategories copy];
+            
+            DLog(@"%@: Question categories fetch successful", [self class]);
+            
+            [weakSelf.delegate onAPIResponseSuccess:nil];
+        });
+    }];
+}
 
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict {
     [self.client createDevelopmentPlansWithParams:formDict completion:self.requestCompletionBlock];

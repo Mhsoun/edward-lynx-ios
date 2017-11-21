@@ -48,7 +48,7 @@ static NSString * const kELGoalSegueIdentifier = @"GoalDetail";
     self.nameTextField.delegate = self;
     
     self.viewManager = [[ELDevelopmentPlanViewManager alloc] init];
-    self.viewManager.delegate = self;
+    self.viewManager.postDelegate = self;
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

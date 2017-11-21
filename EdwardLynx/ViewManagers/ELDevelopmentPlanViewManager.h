@@ -8,10 +8,13 @@
 
 @interface ELDevelopmentPlanViewManager : NSObject
 
-@property (nonatomic, weak) id<ELAPIPostResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIResponseDelegate> delegate;
+@property (nonatomic, weak) id<ELAPIPostResponseDelegate> postDelegate;
 
 - (instancetype)initWithDetailObject:(__kindof ELModel *)detailObject;
 - (instancetype)initWithObjectId:(int64_t)objectId;
+
+- (void)fetchQuestionCategories;
 
 - (void)processCreateDevelopmentPlan:(NSDictionary *)formDict;
 - (void)processUpdateDevelopmentPlan:(NSDictionary *)formDict;
