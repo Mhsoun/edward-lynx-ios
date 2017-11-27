@@ -369,8 +369,10 @@
         storyboardName = @"DevelopmentPlan";
     } else if ([type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
         storyboardName = @"InstantFeedback";
-    } else {
+    } else if ([type isEqualToString:kELNotificationTypeSurveyAnswer]) {
         storyboardName = @"Survey";
+    } else {
+        storyboardName = @"SurveyInvite";
     }
     
     controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
@@ -409,10 +411,11 @@
 }
 
 - (void)parseURLString:(NSString *)emailUrlString {
-    BOOL isFeedback;
     __block int64_t objectId;
     NSArray *urlParts;
-    NSString *key, *url;
+    NSString *endpoint,
+             *key,
+             *url;
     __weak typeof(self) weakSelf = self;
     
     urlParts = [emailUrlString componentsSeparatedByString:@"//"];
@@ -427,9 +430,19 @@
     }
     
     // Handle Instant Feedback/Surveys
-    isFeedback = [emailUrlString containsString:kELAPIEmailLinkFeedback];
     key = [urlParts[1] componentsSeparatedByString:@"/"][3];
-    url = Format(isFeedback ? kELAPIExchangeInstantFeedbackEndpoint : kELAPIExchangeSurveyEndpoint,
+    
+    if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
+        endpoint = kELAPIExchangeInstantFeedbackEndpoint;
+    } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+        endpoint = kELAPIExchangeSurveyAnswerEndpoint;
+    } else {
+        // TODO Localized text for unauthorized user to invite to rate a survey
+        
+        endpoint = kELAPIExchangeSurveyInviteEndpoint;
+    }
+    
+    url = Format(endpoint,
                  [ELAPIClient hostURL],
                  kELAPIVersionNamespace,
                  key);
@@ -440,10 +453,19 @@
                                                    NSDictionary *responseDict,
                                                    NSError *error) {
         if (error.code == kELAPINotFoundStatusCode) {
+            NSString *message;
             UIAlertController *alertController;
             NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
-            NSString *message = isFeedback ? NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil) :
-                                             NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+            
+            if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
+                message = NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil);
+            } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+                message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+            } else {
+                // TODO Localized text for unauthorized user to invite to rate a survey
+                
+                message = @"";
+            }
             
             alertController = Alert(title, message);
             
@@ -456,9 +478,23 @@
             
             self.emailInfoDict = nil;
         } else {
-            NSString *type = isFeedback ? kELNotificationTypeInstantFeedbackRequest : kELNotificationTypeSurvey;
+            NSString *idKey, *type;
             
-            objectId = [responseDict[isFeedback ? @"instant_feedback_id" : @"survey_id"] intValue];
+            if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
+                idKey = @"instant_feedback_id";
+                type = kELNotificationTypeInstantFeedbackRequest;
+            } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+                idKey = @"survey_id";
+                type = kELNotificationTypeSurveyAnswer;
+            } else {
+                // TODO Localized text for unauthorized user to invite to rate a survey
+                
+                idKey = @"";
+                type = @"";
+            }
+            
+            objectId = [responseDict[idKey] intValue];
+            
             self.emailInfoDict = @{@"id": @(objectId),
                                    @"type": type,
                                    @"key": key};

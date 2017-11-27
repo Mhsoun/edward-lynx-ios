@@ -10,7 +10,8 @@
 
 static NSString * const kELNotificationTypeDevPlan = @"dev-plan";
 static NSString * const kELNotificationTypeInstantFeedbackRequest = @"instant-request";
-static NSString * const kELNotificationTypeSurvey = @"survey";
+static NSString * const kELNotificationTypeSurveyAnswer = @"survey-answer";
+static NSString * const kELNotificationTypeSurveyInvite = @"survey-invite";
 
 @interface ELNotification : JSONModel
 
