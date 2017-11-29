@@ -413,7 +413,8 @@
 - (void)parseURLString:(NSString *)emailUrlString {
     __block int64_t objectId;
     NSArray *urlParts;
-    NSString *endpoint,
+    NSString *actionKey,
+             *endpoint,
              *key,
              *url;
     __weak typeof(self) weakSelf = self;
@@ -435,20 +436,17 @@
     if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
         endpoint = kELAPIExchangeInstantFeedbackEndpoint;
     } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+        actionKey = @"answer";
         endpoint = kELAPIExchangeSurveyAnswerEndpoint;
     } else {
-        // TODO Localized text for unauthorized user to invite to rate a survey
-        
-        endpoint = kELAPIExchangeSurveyInviteEndpoint;
+        actionKey = @"invite";
+        endpoint = kELAPIExchangeSurveyAnswerEndpoint;
     }
     
-    url = Format(endpoint,
-                 [ELAPIClient hostURL],
-                 kELAPIVersionNamespace,
-                 key);
+    url = Format(endpoint, [ELAPIClient hostURL], kELAPIVersionNamespace, key);
     
     [[[ELAPIClient alloc] init] getRequestAtLink:url
-                                     queryParams:nil
+                                     queryParams:@{@"action": actionKey}
                                       completion:^(NSURLResponse *response,
                                                    NSDictionary *responseDict,
                                                    NSError *error) {
@@ -487,10 +485,8 @@
                 idKey = @"survey_id";
                 type = kELNotificationTypeSurveyAnswer;
             } else {
-                // TODO Localized text for unauthorized user to invite to rate a survey
-                
-                idKey = @"";
-                type = @"";
+                idKey = @"survey_id";
+                type = kELNotificationTypeSurveyInvite;
             }
             
             objectId = [responseDict[idKey] intValue];

@@ -185,7 +185,6 @@ extern NSString * const kELAPIDevelopmentPlanEndpoint;
 
 extern NSString * const kELAPIExchangeInstantFeedbackEndpoint;
 extern NSString * const kELAPIExchangeSurveyAnswerEndpoint;
-extern NSString * const kELAPIExchangeSurveyInviteEndpoint;
 
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;
