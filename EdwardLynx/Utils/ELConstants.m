@@ -52,7 +52,7 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 #pragma mark - Email Link Paths
 
 NSString * const kELAPIEmailLinkFeedback = @"/instant-feedbacks/answer/";
-NSString * const kELAPIEmailLinkSurveyAnswer = @"/surveys/answer/";
+NSString * const kELAPIEmailLinkSurveyAnswer = @"/survey/answer/";
 
 #pragma mark - Endpoints
 

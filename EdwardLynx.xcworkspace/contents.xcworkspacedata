@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:EdwardLynx/Base.lproj/SurveyInvite.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:EdwardLynx.xcodeproj">
    </FileRef>
    <FileRef

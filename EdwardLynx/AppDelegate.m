@@ -431,14 +431,15 @@
     }
     
     // Handle Instant Feedback/Surveys
-    key = [urlParts[1] componentsSeparatedByString:@"/"][3];
-    
     if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
+        key = [urlParts[1] componentsSeparatedByString:@"/"][3];
         endpoint = kELAPIExchangeInstantFeedbackEndpoint;
     } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+        key = [urlParts[1] componentsSeparatedByString:@"/"][3];
         actionKey = @"answer";
         endpoint = kELAPIExchangeSurveyAnswerEndpoint;
     } else {
+        key = [urlParts[1] componentsSeparatedByString:@"/"][2];
         actionKey = @"invite";
         endpoint = kELAPIExchangeSurveyAnswerEndpoint;
     }

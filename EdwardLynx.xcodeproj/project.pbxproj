@@ -569,6 +569,7 @@
 		A9A25BF71EFB979D00A1972D /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF61EFB979D00A1972D /* ELTeamViewManager.m */; };
 		A9A25BFA1EFB981800A1972D /* ELTeamAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */; };
 		A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
+		A9A7A03D1FCEB1A300CE37A6 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9B6589B1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
 		A9B6589E1EE7DE7A00621EFB /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
@@ -1238,6 +1239,7 @@
 		A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamAPIClient.m; sourceTree = "<group>"; };
 		A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearcheableModel.h; sourceTree = "<group>"; };
 		A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearcheableModel.m; sourceTree = "<group>"; };
+		A9A7A03C1FCEB1A200CE37A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SurveyInvite.storyboard; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9B658991EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddGoalActionTableViewCell.h; sourceTree = "<group>"; };
 		A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAddGoalActionTableViewCell.m; sourceTree = "<group>"; };
@@ -1846,6 +1848,7 @@
 				A91310EA1E8642D20042C91F /* Report.storyboard */,
 				A91310EC1E8642D20042C91F /* Settings.storyboard */,
 				A91310EE1E8642D20042C91F /* Survey.storyboard */,
+				A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */,
 				A91310F01E8642D20042C91F /* TabPage.storyboard */,
 				A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */,
 				A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */,
@@ -2380,6 +2383,7 @@
 				A983703D1ED4239A00C05594 /* ActionCell.xib in Resources */,
 				A91312261E8642D30042C91F /* Invite.storyboard in Resources */,
 				A90DCB531F0DEE15004F724A /* ManagerSurveyCell.xib in Resources */,
+				A9A7A03D1FCEB1A300CE37A6 /* SurveyInvite.storyboard in Resources */,
 				A91312661E8642D30042C91F /* LeftMenu.strings in Resources */,
 				A913125E1E8642D30042C91F /* Authentication.strings in Resources */,
 				A98370AC1ED4265E00C05594 /* OptionCell.xib in Resources */,
@@ -3904,6 +3908,14 @@
 				A9A25BF31EFB848300A1972D /* Base */,
 			);
 			name = TeamMemberGoalCell.xib;
+			sourceTree = "<group>";
+		};
+		A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9A7A03C1FCEB1A200CE37A6 /* Base */,
+			);
+			name = SurveyInvite.storyboard;
 			sourceTree = "<group>";
 		};
 		A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */ = {
