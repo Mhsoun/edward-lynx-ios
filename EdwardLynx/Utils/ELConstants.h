@@ -171,7 +171,7 @@ extern NSString * const kELUserRoleSupervisor;
 #pragma mark - Email Link Paths
 
 extern NSString * const kELAPIEmailLinkFeedback;
-extern NSString * const kELAPIEmailLinkSurvey;
+extern NSString * const kELAPIEmailLinkSurveyAnswer;
 
 #pragma mark - Endpoints
 
@@ -183,8 +183,8 @@ extern NSString * const kELAPILoginEndpoint;
 extern NSString * const kELAPIDevelopmentPlansEndpoint;
 extern NSString * const kELAPIDevelopmentPlanEndpoint;
 
-extern NSString * const kELAPIExchangeSurveyEndpoint;
 extern NSString * const kELAPIExchangeInstantFeedbackEndpoint;
+extern NSString * const kELAPIExchangeSurveyAnswerEndpoint;
 
 extern NSString * const kELAPIInstantFeedbacksEndpoint;
 extern NSString * const kELAPIInstantFeedbackEndpoint;

@@ -52,7 +52,7 @@ NSString * const kELUserRoleSupervisor = @"supervisor";
 #pragma mark - Email Link Paths
 
 NSString * const kELAPIEmailLinkFeedback = @"/instant-feedbacks/answer/";
-NSString * const kELAPIEmailLinkSurvey = @"/surveys/answer/";
+NSString * const kELAPIEmailLinkSurveyAnswer = @"/survey/answer/";
 
 #pragma mark - Endpoints
 
@@ -65,8 +65,8 @@ NSString * const kELAPILoginEndpoint = @"oauth/token";
 NSString * const kELAPIDevelopmentPlansEndpoint = @"%@/dev-plans";
 NSString * const kELAPIDevelopmentPlanEndpoint = @"%@/dev-plans/%@";
 
-NSString * const kELAPIExchangeSurveyEndpoint = @"%@/%@/surveys/exchange/%@";
 NSString * const kELAPIExchangeInstantFeedbackEndpoint = @"%@/%@/instant-feedbacks/exchange/%@";
+NSString * const kELAPIExchangeSurveyAnswerEndpoint = @"%@/%@/surveys/exchange/%@";
 
 NSString * const kELAPIInstantFeedbacksEndpoint = @"%@/instant-feedbacks";
 NSString * const kELAPIInstantFeedbackEndpoint = @"%@/instant-feedbacks/%@";

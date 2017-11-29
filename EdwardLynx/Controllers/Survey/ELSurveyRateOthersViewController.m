@@ -7,6 +7,7 @@
 //
 
 #import "ELSurveyRateOthersViewController.h"
+#import "ELDetailViewManager.h"
 #import "ELDropdownView.h"
 #import "ELParticipant.h"
 #import "ELParticipantTableViewCell.h"
@@ -24,6 +25,7 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 
 @property (nonatomic) kELUserRole selectedRole;
 @property (nonatomic, strong) NSMutableArray *mRoles, *mUsers;
+@property (nonatomic, strong) ELDetailViewManager *detailViewManager;
 @property (nonatomic, strong) ELDropdownView *dropdown;
 @property (nonatomic, strong) ELSurveyViewManager *viewManager;
 
@@ -47,8 +49,18 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                           [ELUtils labelByUserRole:kELUserRoleDirectReport]]];
     self.selectedRole = [ELUtils userRoleByLabel:self.mRoles[0]];
     
-    self.viewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
-    self.viewManager.delegate = self;
+    if (self.survey) {
+        self.viewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
+        self.viewManager.delegate = self;
+        
+        [self.indicatorView stopAnimating];
+        [self toggleForm:YES];
+    } else {
+        self.detailViewManager = [[ELDetailViewManager alloc] initWithObjectId:self.objectId];
+        self.detailViewManager.delegate = self;
+        
+        [self.detailViewManager processRetrievalOfSurveyDetailsForKey:self.key];
+    }
     
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -121,6 +133,26 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     self.descriptionLabel.text = self.survey.evaluationText;
 }
 
+#pragma mark - Protocol Methods (ELDetailViewManager)
+
+- (void)onAPIResponseError:(NSDictionary *)errorDict {
+    [self.indicatorView stopAnimating];
+    
+    [ELUtils presentToastAtView:self.view
+                        message:NSLocalizedString(@"kELDetailsPageLoadError", nil)
+                     completion:nil];
+}
+
+- (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    self.survey = [[ELSurvey alloc] initWithDictionary:responseDict error:nil];
+    self.viewManager = [[ELSurveyViewManager alloc] initWithSurvey:self.survey];
+    self.viewManager.delegate = self;
+    
+    [self.indicatorView stopAnimating];
+    [self layoutPage];
+    [self toggleForm:YES];
+}
+
 #pragma mark - Protocol Methods (ELDropdown)
 
 - (void)onDropdownSelectionValueChange:(NSString *)value index:(NSInteger)index {
@@ -168,6 +200,11 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
     
     [self.heightConstraint setConstant:tableViewContentSizeHeight];
     [self.tableView updateConstraints];
+}
+
+- (void)toggleForm:(BOOL)toShow {
+    self.scrollView.hidden = !toShow;
+    self.inviteButton.hidden = !toShow;
 }
 
 #pragma mark - Interface Builder Actions

@@ -8,14 +8,15 @@
 
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-#import "ELBaseViewController.h"
+#import "ELBaseDetailViewController.h"
 
 @class ELSurvey;
 
-@interface ELSurveyRateOthersViewController : ELBaseViewController<UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate, ELDropdownDelegate, DZNEmptyDataSetSource>
+@interface ELSurveyRateOthersViewController : ELBaseDetailViewController<UITableViewDataSource, UITableViewDelegate, ELAPIPostResponseDelegate, ELAPIResponseDelegate, ELDropdownDelegate, DZNEmptyDataSetSource>
 
 @property (strong, nonatomic) ELSurvey *survey;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameErrorLabel;
@@ -25,6 +26,8 @@
 - (IBAction)onAddUserButtonClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 - (IBAction)onInviteButtonClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end
