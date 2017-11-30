@@ -48,7 +48,7 @@
  
  @param endpoint API endpoint where the request will be called.
  @param method HTTP method type of the desired request.
- @param bodyParams Body to be added to the request. Used for POST/PUT reqeusts
+ @param params Body to be added to the request. Used for POST/PUT reqeusts
  @return NSMutableRequest instance.
  */
 - (NSMutableURLRequest *)requestFor:(NSString *)endpoint
@@ -59,7 +59,7 @@
  
  @param endpoint API endpoint where the request will be called.
  @param method HTTP method type of the desired request.
- @param queryParams NSDictionary wherein it is constructed to a querystring based on its key-value pairs. Used for GET/DELETE
+ @param params NSDictionary wherein it is constructed to a querystring based on its key-value pairs. Used for GET/DELETE
  @return NSMutableRequest instance.
  */
 - (NSMutableURLRequest *)requestFor:(NSString *)endpoint
