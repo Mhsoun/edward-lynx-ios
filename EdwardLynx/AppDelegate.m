@@ -381,7 +381,7 @@
 /**
  Receives URL string opened from external sources and processes it for its corresponding action.
 
- @param urlString A NSString corresponding to the external URL.
+ @param urlString The external URL accessed outside of the app.
  @param application UIApplication instance.
  @return A BOOL value corresponding to its status.
  */
@@ -416,7 +416,7 @@
 /**
  Method which parses a given URL to its corresponding key and type.
 
- @param emailUrlString A NSString containing the URL to be parsed.
+ @param emailUrlString URL string to be parsed.
  */
 - (void)parseURLString:(NSString *)emailUrlString {
     __block int64_t objectId;
@@ -514,7 +514,7 @@
  Handles received payload from a Push Notification and parses it to be able to perform certain actions based on its type.
  Only triggered for iOS 9 and earlier versions.
 
- @param userInfo A NSDictionary instance taken from the Push Notification payload
+ @param userInfo The Push Notification payload received
  @param application UIApplication instance
  */
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
