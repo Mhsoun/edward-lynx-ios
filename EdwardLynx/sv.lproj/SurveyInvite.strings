@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu"; */
+"33n-m2-WWu.text" = "Tjänst";
+
+/* Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK"; */
+"OUg-ex-YkK.text" = "Användare att bjuda in";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "Ot0-UB-XIx"; */
+"Ot0-UB-XIx.text" = "E-post";
+
+/* Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p"; */
+"Yym-JO-B5p.text" = "Bjud in människor att betygsätta dig i en undersökning";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.disabledTitle" = "Bearbetning…";
+
+/* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.normalTitle" = "Skicka inbjudningar";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "ptj-GZ-AdK"; */
+"ptj-GZ-AdK.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED"; */
+"ya8-nY-aED.text" = "Namn";

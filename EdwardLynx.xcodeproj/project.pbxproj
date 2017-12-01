@@ -1236,6 +1236,11 @@
 		A9BF28331E94FA6F00BE54BC /* ELLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLabel.m; sourceTree = "<group>"; };
 		A9C4035F1E9B8D3F008DD7C8 /* ELDashboardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardData.h; sourceTree = "<group>"; };
 		A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardData.m; sourceTree = "<group>"; };
+		A9CBC1B31FD104ED000A3418 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SurveyInvite.strings; sourceTree = "<group>"; };
+		A9CBC1B51FD104EF000A3418 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SurveyInvite.strings; sourceTree = "<group>"; };
+		A9CBC1B71FD104F1000A3418 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SurveyInvite.strings; sourceTree = "<group>"; };
+		A9CBC1B91FD104F4000A3418 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SurveyInvite.strings; sourceTree = "<group>"; };
+		A9CBC1BB1FD104F7000A3418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SurveyInvite.strings"; sourceTree = "<group>"; };
 		A9D0C5721F1C671E003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A9D0C5801F1C6AAC003140D6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
 		A9D0C5821F1C6AAD003140D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TeamTabPage.strings; sourceTree = "<group>"; };
@@ -3886,6 +3891,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9A7A03C1FCEB1A200CE37A6 /* Base */,
+				A9CBC1B31FD104ED000A3418 /* en */,
+				A9CBC1B51FD104EF000A3418 /* sv */,
+				A9CBC1B71FD104F1000A3418 /* de */,
+				A9CBC1B91FD104F4000A3418 /* ru */,
+				A9CBC1BB1FD104F7000A3418 /* zh-Hans */,
 			);
 			name = SurveyInvite.storyboard;
 			sourceTree = "<group>";
