@@ -17,6 +17,11 @@
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"colorKey": @"role_style"}];
 }
 
+/**
+ Returns a color string based on role.
+
+ @return A color string.
+ */
 - (NSString *)colorKey {
     if ([_colorKey isEqualToString:@"selfColor"]) {
         return kELLynxColor;
@@ -27,6 +32,11 @@
     }
 }
 
+/**
+ Cleans title by removing occurences of "\".
+
+ @return A cleaned title string.
+ */
 - (NSString *)title {
     return [_title stringByReplacingOccurrencesOfString:@"\"" withString:@""];
 }

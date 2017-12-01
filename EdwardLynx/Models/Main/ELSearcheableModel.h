@@ -10,6 +10,9 @@
 
 @interface ELSearcheableModel : ELModel
 
+/**
+ Returns the attribute to be based on when searching an instance of its subclass.
+ */
 @property (nonatomic) NSString *searchTitle;
 
 @end

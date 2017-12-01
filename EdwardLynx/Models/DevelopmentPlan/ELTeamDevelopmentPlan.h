@@ -22,7 +22,17 @@
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) NSString *name;
 
+/**
+ Used for returning goal action details same with its GET request payload.
+ 
+ @return A dictionary formatted based on its GET request.
+ */
 - (NSDictionary *)apiDictionary;
+/**
+ Used for submitting goal action to a PUT request.
+ 
+ @return A dictionary containing details required for PUT request.
+ */
 - (NSDictionary *)putDictionary;
 
 @end
@@ -40,6 +50,11 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSArray<ELTeamDevelopmentPlanAction> *actions;
 
+/**
+ Provides the value and text details of team development plan's progress.
+ 
+ @return A dictionary containing team development plan's progress details.
+ */
 - (NSDictionary *)progressDetails;
 
 @end

@@ -24,9 +24,18 @@
 @property (nonatomic) NSString<Optional> *evaluationText;
 @property (nonatomic) NSString<Optional> *shortDescription;
 
+/**
+ Checks if the current date is already past survey's designated end time.
+ */
 @property (nonatomic) BOOL isExpired;
 
+/**
+ Format survey's end time as a readable string.
+ */
 @property (nonatomic) NSString<Ignore> *endDateString;
+/**
+ Format survey's start time as a readable string.
+ */
 @property (nonatomic) NSString<Ignore> *startDateString;
 
 @end

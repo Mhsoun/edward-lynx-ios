@@ -22,7 +22,13 @@ typedef NS_ENUM(NSInteger, kELReminderType) {
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSDate<Optional> *dueDate;
 
+/**
+ Returns dueDateInfo with additional styling.
+ */
 @property (nonatomic) NSMutableAttributedString<Ignore> *attributedDueDateInfo;
+/**
+ Returns a humanized due date information in terms of days (hours if time is less that a day before due date).
+ */
 @property (nonatomic) NSString<Ignore> *dueDateInfo;
 
 @end

@@ -22,7 +22,13 @@
 @property (nonatomic) NSString<Optional> *explanation;
 @property (nonatomic) NSString<Optional> *value;
 
+/**
+ Returns the question text with added logic for checking if it is optional, thus adding an "Optional" string if necessary.
+ */
 @property (nonatomic) NSString *text;
+/**
+ Returns the desired height for a given question type to be used on its question view.
+ */
 @property (nonatomic) CGFloat heightForQuestionView;
 
 @end

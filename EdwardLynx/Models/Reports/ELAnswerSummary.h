@@ -17,6 +17,11 @@
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSArray<ELDataPointSummary> *dataPoints;
 
+/**
+ Returns a list of questions to be used for rendering chart.
+
+ @return A list of questions.
+ */
 - (NSArray *)pointKeys;
 
 @end
