@@ -21,6 +21,9 @@
 @property (nonatomic) NSString<Optional> *shortDescription;
 @property (nonatomic) NSArray<Optional, ELAnswerOption> *options;
 
+/**
+ Returns the keys (description) for answer's options.
+ */
 @property (nonatomic) NSArray<Ignore> *optionKeys;
 
 @end

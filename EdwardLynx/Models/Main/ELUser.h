@@ -24,8 +24,23 @@
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSDate *registeredOn;
 
+/**
+ Determines if user is an administrator.
+
+ @return BOOL value regarding if user is an administrator.
+ */
 - (BOOL)isAdmin;
+/**
+ Determines if user is eligible to do actions on a development plan.
+
+ @return BOOL value regarding its eligibility.
+ */
 - (BOOL)isNotAdminDevPlan;
+/**
+ List the permissions the user currently has.
+
+ @return A set of kELRolePermission instances based on role.
+ */
 - (NSSet *)permissionsByRole;
 
 @end

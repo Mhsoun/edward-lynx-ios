@@ -28,21 +28,6 @@
 }
 
 - (NSArray *)sections {
-    NSMutableArray *mSections = [[NSMutableArray alloc] init];
-    
-    [mSections addObject:@""];
-    
-    if (self.reminders && self.reminders.count > 0) {
-        [mSections addObject:NSLocalizedString(@"kELDashboardSectionReminders", nil)];
-    }
-    
-    if (self.developmentPlans && self.developmentPlans.count > 0) {
-        [mSections addObject:NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)];
-    }
-    
-    // NOTE To display only the section with data
-//    return [mSections copy];
-    
     return @[@"",
              NSLocalizedString(@"kELDashboardSectionReminders", nil),
              NSLocalizedString(@"kELDashboardSectionDevelopmentPlans", nil)];

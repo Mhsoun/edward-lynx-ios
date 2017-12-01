@@ -20,8 +20,23 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 
+/**
+ Used for returning participant details added thru email.
+
+ @return A dictionary formatted based on requirements.
+ */
 - (NSDictionary *)addedByEmailDictionary;
+/**
+ Used for submitting goal action to a POST request.
+
+ @return A dictionary formatted based on its POST request.
+ */
 - (NSDictionary *)apiPostDictionary;
+/**
+ Used for submitting a user for Survey Invitation
+
+ @return A dictionary formatted based on its request.
+ */
 - (NSDictionary *)othersRateDictionary;
 
 @end

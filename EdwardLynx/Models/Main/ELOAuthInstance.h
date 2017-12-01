@@ -14,8 +14,10 @@
 @property (nonatomic) NSString *tokenType;
 @property (nonatomic) NSString *accessToken;
 @property (nonatomic) NSString *refreshToken;
-@property (nonatomic) NSString<Ignore> *authHeader;
 
-- (NSString *)authHeader;
+/**
+ Formats the Authorization header value based on stored tokenType and accessToken.
+ */
+@property (nonatomic) NSString<Ignore> *authHeader;
 
 @end
