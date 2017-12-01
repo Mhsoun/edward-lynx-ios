@@ -293,6 +293,7 @@
 "kELSurveyTypeLTT" = "Линкс Инструмент Эффективности Команды";
 
 "kELSurveyUnauthorizedLabel" = "У вас нет доступа к данной опроснику";
+"kELSurveyInviteUnauthorizedLabel" = "У вас нет права приглашать пользователей на этот опрос";
 
 /* Tabs */
 
