@@ -214,6 +214,45 @@
     self.notificationRootNavController = controller;
 }
 
+- (void)displayViewControllerByData:(id)object {
+    int64_t objectId;
+    NSString *key,
+    *storyboardName,
+    *type;
+    __kindof ELBaseDetailViewController *controller;
+    
+    if ([object isKindOfClass:[ELNotification class]]) {
+        objectId = [(ELNotification *)object objectId];
+        type = [(ELNotification *)object type];
+        key = [(ELNotification *)object key];
+        
+        self.notification = nil;
+    } else {
+        NSDictionary *objectDict = (NSDictionary *)object;
+        
+        objectId = [objectDict[@"id"] integerValue];
+        type = objectDict[@"type"];
+        key = objectDict[@"key"];
+        
+        self.emailInfoDict = nil;
+    }
+    
+    
+    if ([type isEqualToString:kELNotificationTypeDevPlan]) {
+        storyboardName = @"DevelopmentPlan";
+    } else if ([type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
+        storyboardName = @"InstantFeedback";
+    } else {
+        storyboardName = @"Survey";
+    }
+    
+    controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
+    controller.objectId = objectId;
+    controller.key = key;
+    
+    [self.notificationRootNavController pushViewController:controller animated:YES];
+}
+
 - (void)registerDeviceToFirebaseAndAPI {
     NSString *deviceToken = [ELUtils getUserDefaultsValueForKey:kELDeviceTokenUserDefaultsKey];
     NSString *deviceId = Format(@"%@-%@-%@-%@-%lld-%@",
@@ -235,6 +274,7 @@
             } else {
                 DLog(@"Firebase token: %@", self.firebaseToken);
                 
+                // Submit Firebase token to API
                 [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                               deviceId:deviceId
                                                         withCompletion:^(NSURLResponse *response,
@@ -249,6 +289,7 @@
             }
         }];
     } else {
+        // Submit Firebase token to API
         [[[ELUsersAPIClient alloc] init] registerFirebaseToken:self.firebaseToken
                                                       deviceId:deviceId
                                                 withCompletion:^(NSURLResponse *response,
@@ -290,14 +331,6 @@
     }
 }
 
-- (void)triggerRegisterForNotifications {
-    if ([Application isRegisteredForRemoteNotifications]) {
-        [ApplicationDelegate registerDeviceToFirebaseAndAPI];
-    } else {
-        [ApplicationDelegate registerForRemoteNotifications];
-    }
-}
-
 - (__kindof UIViewController *)visibleViewController:(UIViewController *)rootViewController {
     UIViewController *presentedViewController;
     
@@ -326,6 +359,9 @@
 
 #pragma mark - Private Methods
 
+/**
+ Triggers enabling of Firebase service for Cloud Messaging.
+ */
 - (void)connectToFCM {
     if (!self.firebaseToken && ![[FIRInstanceID instanceID] token]) {
         return;
@@ -342,46 +378,13 @@
     }];
 }
 
-- (void)displayViewControllerByData:(id)object {
-    int64_t objectId;
-    NSString *key,
-             *storyboardName,
-             *type;
-    __kindof ELBaseDetailViewController *controller;
-    
-    if ([object isKindOfClass:[ELNotification class]]) {
-        objectId = [(ELNotification *)object objectId];
-        type = [(ELNotification *)object type];
-        key = [(ELNotification *)object key];
-        
-        self.notification = nil;
-    } else {
-        NSDictionary *objectDict = (NSDictionary *)object;
-        
-        objectId = [objectDict[@"id"] integerValue];
-        type = objectDict[@"type"];
-        key = objectDict[@"key"];
-        
-        self.emailInfoDict = nil;
-    }
-    
-    if ([type isEqualToString:kELNotificationTypeDevPlan]) {
-        storyboardName = @"DevelopmentPlan";
-    } else if ([type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
-        storyboardName = @"InstantFeedback";
-    } else if ([type isEqualToString:kELNotificationTypeSurveyAnswer]) {
-        storyboardName = @"Survey";
-    } else {
-        storyboardName = @"SurveyInvite";
-    }
-    
-    controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
-    controller.objectId = objectId;
-    controller.key = key;
-    
-    [self.notificationRootNavController pushViewController:controller animated:YES];
-}
+/**
+ Receives URL string opened from external sources and processes it for its corresponding action.
 
+ @param urlString The external URL accessed outside of the app.
+ @param application UIApplication instance.
+ @return A BOOL value corresponding to its status.
+ */
 - (BOOL)isDeepLinkProcessSuccessfulForURL:(NSString *)urlString application:(UIApplication *)application {
     if (application.applicationState == UIApplicationStateActive ||
         application.applicationState == UIApplicationStateBackground ||
@@ -410,6 +413,11 @@
     return YES;
 }
 
+/**
+ Method which parses a given URL to its corresponding key and type.
+
+ @param emailUrlString URL string to be parsed.
+ */
 - (void)parseURLString:(NSString *)emailUrlString {
     __block int64_t objectId;
     NSArray *urlParts;
@@ -446,6 +454,7 @@
     
     url = Format(endpoint, [ELAPIClient hostURL], kELAPIVersionNamespace, key);
     
+    // Exchange key to corresponding type's endpoint to retrieve object id
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:@{@"action": actionKey}
                                       completion:^(NSURLResponse *response,
@@ -501,6 +510,13 @@
     }];
 }
 
+/**
+ Handles received payload from a Push Notification and parses it to be able to perform certain actions based on its type.
+ Only triggered for iOS 9 and earlier versions.
+
+ @param userInfo The Push Notification payload received
+ @param application UIApplication instance
+ */
 - (void)processReceivedNotification:(NSDictionary *)userInfo forApplication:(UIApplication *)application {
     ELNotification *notification;
     
@@ -545,6 +561,9 @@
     }
 }
 
+/**
+ Performs preliminary setup for Firebase Cloud Messaging service
+ */
 - (void)setupFirebase {
     [FIRApp configure];
     
@@ -561,6 +580,11 @@
                              object:nil];
 }
 
+/**
+ A NSNotification target which is triggered when Firebase token refreshes
+
+ @param notification NSNotification instance
+ */
 - (void)tokenRefreshNotification:(NSNotification *)notification {
     if ([FIRInstanceID instanceID].token && !self.firebaseToken) {
         self.firebaseToken = [FIRInstanceID instanceID].token;

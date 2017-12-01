@@ -30,6 +30,7 @@
 #import "ELQuestionTypeTextView.h"
 #import "ELUsersAPIClient.h"
 
+
 @interface ELFormItemGroup ()
 
 @property (nonatomic, strong) __kindof UITextField *textField;
@@ -245,8 +246,7 @@
     chart.countingLabel.textColor = [UIColor whiteColor];
 }
 
-+ (void)composeMailForController:(__kindof UIViewController *)controller
-                         details:(NSDictionary *)detailsDict {
++ (void)composeMailForController:(__kindof UIViewController *)controller details:(NSDictionary *)detailsDict {
     MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
     
     [mailController setMailComposeDelegate:controller];
@@ -712,6 +712,13 @@
 
 #pragma mark - Private Methods
 
+/**
+ Returns either a string or a ELBaseQuestionTypeView instance based on provided kELAnswerType instance.
+ 
+ @param objectType Determines either "string" or "view".
+ @param type Where the string to be returned is based.
+ @return NSString instance of the corresponding type.
+ */
 + (id)object:(NSString *)objectType byAnswerType:(kELAnswerType)type {
     switch (type) {
         case kELAnswerTypeOneToFiveScale:
