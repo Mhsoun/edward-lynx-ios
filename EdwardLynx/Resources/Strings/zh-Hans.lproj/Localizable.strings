@@ -293,6 +293,7 @@
 "kELSurveyTypeLTT" = "Lynx团队测评问卷";
 
 "kELSurveyUnauthorizedLabel" = "您无权回答此调查";
+"kELSurveyInviteUnauthorizedLabel" = "您无权邀请用户参加此调查";
 
 /* Tabs */
 

@@ -470,9 +470,7 @@
             } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
                 message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
             } else {
-                // TODO Localized text for unauthorized user to invite to rate a survey
-                
-                message = @"";
+                message = NSLocalizedString(@"kELSurveyInviteUnauthorizedLabel", nil);;
             }
             
             alertController = Alert(title, message);

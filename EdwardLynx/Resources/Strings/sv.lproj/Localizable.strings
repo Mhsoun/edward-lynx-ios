@@ -292,6 +292,7 @@
 "kELSurveyTypeLTT" = "LTT";
 
 "kELSurveyUnauthorizedLabel" = "Du är inte behörig att svara på den här undersökningen";
+"kELSurveyInviteUnauthorizedLabel" = "Du är inte behörig att bjuda in användare till denna undersökning";
 
 /* Tabs */
 

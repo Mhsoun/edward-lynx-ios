@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu"; */
+"33n-m2-WWu.text" = "工作关系";
+
+/* Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK"; */
+"OUg-ex-YkK.text" = "邀请其他人员";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "Ot0-UB-XIx"; */
+"Ot0-UB-XIx.text" = "邮箱";
+
+/* Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p"; */
+"Yym-JO-B5p.text" = "向他人发出反馈邀请";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.disabledTitle" = "进行中";
+
+/* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.normalTitle" = "发出邀请";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "ptj-GZ-AdK"; */
+"ptj-GZ-AdK.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED"; */
+"ya8-nY-aED.text" = "姓名";
