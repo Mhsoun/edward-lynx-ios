@@ -421,10 +421,14 @@
 - (void)parseURLString:(NSString *)emailUrlString {
     __block int64_t objectId;
     NSArray *urlParts;
+    NSDictionary *credsDict;
     NSString *actionKey,
              *endpoint,
              *key,
+             *message,
              *url;
+    UIAlertController *alertController;
+    
     __weak typeof(self) weakSelf = self;
     
     urlParts = [emailUrlString componentsSeparatedByString:@"//"];
@@ -454,6 +458,30 @@
     
     url = Format(endpoint, [ELAPIClient hostURL], kELAPIVersionNamespace, key);
     
+    if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
+        message = NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil);
+    } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
+        message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
+    } else {
+        message = NSLocalizedString(@"kELSurveyInviteUnauthorizedLabel", nil);;
+    }
+    
+    // Check if credentials are stored
+    credsDict = [ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey];
+    alertController = Alert(NSLocalizedString(@"kELErrorLabel", nil), message);
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:nil]];
+    
+    if (!credsDict) {
+        [[self visibleViewController:self.window.rootViewController] presentViewController:alertController
+                                                                                  animated:YES
+                                                                                completion:nil];
+        
+        return;
+    }
+    
     // Exchange key to corresponding type's endpoint to retrieve object id
     [[[ELAPIClient alloc] init] getRequestAtLink:url
                                      queryParams:@{@"action": actionKey}
@@ -461,23 +489,6 @@
                                                    NSDictionary *responseDict,
                                                    NSError *error) {
         if (error.code == kELAPINotFoundStatusCode) {
-            NSString *message;
-            UIAlertController *alertController;
-            NSString *title = NSLocalizedString(@"kELErrorLabel", nil);
-            
-            if ([emailUrlString containsString:kELAPIEmailLinkFeedback]) {
-                message = NSLocalizedString(@"kELFeedbackUnauthorizedLabel", nil);
-            } else if ([emailUrlString containsString:kELAPIEmailLinkSurveyAnswer]) {
-                message = NSLocalizedString(@"kELSurveyUnauthorizedLabel", nil);
-            } else {
-                message = NSLocalizedString(@"kELSurveyInviteUnauthorizedLabel", nil);;
-            }
-            
-            alertController = Alert(title, message);
-            
-            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:nil]];
             [[weakSelf visibleViewController:weakSelf.window.rootViewController] presentViewController:alertController
                                                                                               animated:YES
                                                                                             completion:nil];
