@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "ELBaseDetailViewController.h"
 #import "ELNotificationView.h"
+#import "ELOAuthInstance.h"
 #import "ELSurveyCategoryPageViewController.h"
 #import "ELUsersAPIClient.h"
 
@@ -421,13 +422,13 @@
 - (void)parseURLString:(NSString *)emailUrlString {
     __block int64_t objectId;
     NSArray *urlParts;
-    NSDictionary *credsDict;
     NSString *actionKey,
              *endpoint,
              *key,
              *message,
              *url;
     UIAlertController *alertController;
+    ELOAuthInstance *authInstance;
     
     __weak typeof(self) weakSelf = self;
     
@@ -466,15 +467,15 @@
         message = NSLocalizedString(@"kELSurveyInviteUnauthorizedLabel", nil);;
     }
     
-    // Check if credentials are stored
-    credsDict = [ELUtils getUserDefaultsObjectForKey:kELAuthCredentialsUserDefaultsKey];
+    // Check if session is stored
+    authInstance = [ELUtils getUserDefaultsCustomObjectForKey:kELAuthInstanceUserDefaultsKey];
     alertController = Alert(NSLocalizedString(@"kELErrorLabel", nil), message);
     
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"kELOkButton", nil)
                                                         style:UIAlertActionStyleDefault
                                                       handler:nil]];
     
-    if (!credsDict) {
+    if (!authInstance) {
         [[self visibleViewController:self.window.rootViewController] presentViewController:alertController
                                                                                   animated:YES
                                                                                 completion:nil];
