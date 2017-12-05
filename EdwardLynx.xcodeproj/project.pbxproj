@@ -222,7 +222,6 @@
 		A92B26271EEFA033007858B6 /* ELSurveyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311451E8642D20042C91F /* ELSurveyDetailsViewController.m */; };
 		A92B26281EEFA033007858B6 /* ELDevelopmentPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311161E8642D20042C91F /* ELDevelopmentPlanDetailsViewController.m */; };
 		A92B262A1EEFA033007858B6 /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
-		A92B262B1EEFA033007858B6 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A92B262D1EEFA033007858B6 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983714F1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib */; };
 		A92B262E1EEFA033007858B6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311941E8642D20042C91F /* Lato-Medium.ttf */; };
 		A92B262F1EEFA033007858B6 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EE1E8642D20042C91F /* Survey.storyboard */; };
@@ -287,9 +286,9 @@
 		A92B266A1EEFA033007858B6 /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370731ED423E900C05594 /* DevelopmentPlanCell.xib */; };
 		A92B266B1EEFA033007858B6 /* CreateDevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114A1E8642D20042C91F /* CreateDevelopmentPlan.strings */; };
 		A92B266C1EEFA033007858B6 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
-		A92B26711EEFA033007858B6 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A92B26791EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
 		A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
+		A92EF1E01FD514F000B51152 /* ELTeamDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A92EF1DF1FD514F000B51152 /* ELTeamDevelopmentPlanTests.m */; };
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
 		A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
@@ -351,8 +350,6 @@
 		A98371611ED42BD200C05594 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371631ED42BD200C05594 /* QuestionTypeTextView.xib */; };
 		A983716E1ED42BEC00C05594 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371701ED42BEC00C05594 /* ShortcutView.xib */; };
 		A983717B1ED42C1100C05594 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
-		A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
-		A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A993591B1F04FF92003EC659 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913113B1E8642D20042C91F /* ELChangePassViewController.m */; };
 		A993591C1F04FF92003EC659 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
 		A993591D1F04FF92003EC659 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
@@ -467,7 +464,6 @@
 		A99359911F04FF92003EC659 /* ELSurveyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311451E8642D20042C91F /* ELSurveyDetailsViewController.m */; };
 		A99359921F04FF92003EC659 /* ELDevelopmentPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311161E8642D20042C91F /* ELDevelopmentPlanDetailsViewController.m */; };
 		A99359941F04FF92003EC659 /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
-		A99359951F04FF92003EC659 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; };
 		A99359971F04FF92003EC659 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983714F1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib */; };
 		A99359981F04FF92003EC659 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311941E8642D20042C91F /* Lato-Medium.ttf */; };
 		A99359991F04FF92003EC659 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EE1E8642D20042C91F /* Survey.storyboard */; };
@@ -538,7 +534,6 @@
 		A99359DA1F04FF92003EC659 /* CreateDevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114A1E8642D20042C91F /* CreateDevelopmentPlan.strings */; };
 		A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
-		A99359E11F04FF92003EC659 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A98C027D1E93668F0067B046 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
 		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
@@ -632,7 +627,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A92B26711EEFA033007858B6 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,7 +637,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A99359E11F04FF92003EC659 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,7 +647,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A98C027F1E93668F0067B046 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,6 +905,7 @@
 		A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+CustomNSDate.m"; sourceTree = "<group>"; };
 		A92B267A1EEFB1F1007858B6 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		A92EF1DF1FD514F000B51152 /* ELTeamDevelopmentPlanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF01DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1192,7 +1185,6 @@
 		A983717A1ED42BF200C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShortcutView.strings; sourceTree = "<group>"; };
 		A983717C1ED42C1100C05594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SectionView.xib; sourceTree = "<group>"; };
 		A988553E1F11EA050017DB87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A98C027D1E93668F0067B046 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
 		A9955E431F0644C0008FE4C2 /* ELTeamDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevelopmentPlan.h; sourceTree = "<group>"; };
@@ -1279,7 +1271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92B262A1EEFA033007858B6 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
-				A92B262B1EEFA033007858B6 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,7 +1279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */,
-				A98C027E1E93668F0067B046 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1312,7 +1302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99359941F04FF92003EC659 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
-				A99359951F04FF92003EC659 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1830,7 +1819,6 @@
 		A9308BC51DED74B5007B4F9F = {
 			isa = PBXGroup;
 			children = (
-				A98C027D1E93668F0067B046 /* Charts.framework */,
 				A91310C51E8642D20042C91F /* EdwardLynx */,
 				A9308BED1DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF81DED74B6007B4F9F /* EdwardLynxUITests */,
@@ -1859,6 +1847,7 @@
 				A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */,
 				A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */,
 				A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */,
+				A92EF1DF1FD514F000B51152 /* ELTeamDevelopmentPlanTests.m */,
 				A9308BF01DED74B6007B4F9F /* Info.plist */,
 			);
 			path = EdwardLynxTests;
@@ -2979,6 +2968,7 @@
 				A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */,
 				A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */,
 				A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */,
+				A92EF1E01FD514F000B51152 /* ELTeamDevelopmentPlanTests.m in Sources */,
 				A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
