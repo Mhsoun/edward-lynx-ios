@@ -654,6 +654,9 @@
 + (void)setupGlobalUIChanges {
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     
+    // Alert Controller
+    [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UIAlertController class]]] setTintColor:ThemeColor(kELVioletColor)];
+    
     // Toast
     style.messageFont = [UIFont fontWithName:@"Lato-Regular" size:14.0f];
     style.messageColor = [UIColor whiteColor];
