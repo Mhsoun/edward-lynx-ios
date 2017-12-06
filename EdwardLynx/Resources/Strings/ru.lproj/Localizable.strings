@@ -277,6 +277,7 @@
 "kELSurveySubmissionSuccess" = "Ответы успешно отправлены";
 "kELSurveySaveToDraftSuccess" = "Ответы сохранены как черновик";
 "kELSurveyPostError" = "Failed to post answers";
+"kELSurveyPostRequiredError" = "Необходимо ответить на все вопросы";
 
 "kELSurveyRateError" = "Failed to invite others to rate you";
 "kELSurveyRateSuccess" = "Приглашения для опроса успешно отправлены!";

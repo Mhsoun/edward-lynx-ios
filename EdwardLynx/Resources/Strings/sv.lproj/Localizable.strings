@@ -276,6 +276,7 @@
 "kELSurveySubmissionSuccess" = "Framgångsrikt lämnat in svaren";
 "kELSurveySaveToDraftSuccess" = "Framgångsrikt sparat svar på utkast";
 "kELSurveyPostError" = "Failed to post answers";
+"kELSurveyPostRequiredError" = "Vänligen fyll i alla erforderliga frågor";
 
 "kELSurveyRateError" = "Failed to invite others to rate you";
 "kELSurveyRateSuccess" = "Framgångsrikt bjudit in andra att betygsätta dig";

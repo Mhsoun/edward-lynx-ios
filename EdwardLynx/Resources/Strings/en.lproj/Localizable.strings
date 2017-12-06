@@ -276,6 +276,7 @@
 "kELSurveySubmissionSuccess" = "Successfully submitted answers";
 "kELSurveySaveToDraftSuccess" = "Successfully saved answers to drafts";
 "kELSurveyPostError" = "Failed to post answers";
+"kELSurveyPostRequiredError" = "Please fill up all required questions";
 
 "kELSurveyRateError" = "Failed to invite others to rate you";
 "kELSurveyRateSuccess" = "Successfully invited others to rate you";
