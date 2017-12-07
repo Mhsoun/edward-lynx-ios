@@ -61,7 +61,7 @@ static NSString * const kELSegueIdentifier = @"ManagerCategory";
         [self reloadPage];
     }
     
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
 }
 
 - (void)dealloc {

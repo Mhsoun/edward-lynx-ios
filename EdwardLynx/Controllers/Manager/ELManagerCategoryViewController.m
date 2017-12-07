@@ -145,20 +145,20 @@ static NSString * const kELCellIdentifier = @"ManagerCategoryCell";
 #pragma mark - Protocol Methods (ELAPIPostResponse)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    NSString *message;
-    
-    switch (self.action) {
-        case kELTeamDevPlanActionCreate:
-            message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateError", nil);
-            
-            break;
-        case kELTeamDevPlanActionUpdate:
-            message = NSLocalizedString(@"kELTeamDevelopmentPlanUpdateError", nil);
-            
-            break;
-        default:
-            break;
-    }
+//    NSString *message;
+//    
+//    switch (self.action) {
+//        case kELTeamDevPlanActionCreate:
+//            message = NSLocalizedString(@"kELTeamDevelopmentPlanCreateError", nil);
+//            
+//            break;
+//        case kELTeamDevPlanActionUpdate:
+//            message = NSLocalizedString(@"kELTeamDevelopmentPlanUpdateError", nil);
+//            
+//            break;
+//        default:
+//            break;
+//    }
     
     self.action = -1;
     

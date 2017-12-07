@@ -61,7 +61,7 @@ static NSString * const kELSegueIdentifier = @"DisplayUsers";
         [self reloadPage];
     }
     
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     // Observers
     [NotificationCenter addObserver:self

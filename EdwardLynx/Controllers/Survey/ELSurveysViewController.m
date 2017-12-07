@@ -67,7 +67,8 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
     } else if ([segue.identifier isEqualToString:kELInviteSegueIdentifier]) {
         ELSurveyRateOthersViewController *controller = (ELSurveyRateOthersViewController *)[segue destinationViewController];
         
-        controller.survey = self.selectedSurvey;
+        controller.objectId = self.selectedSurvey.objectId;
+        controller.key = self.selectedSurvey.key;
     }
 }
 

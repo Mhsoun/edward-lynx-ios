@@ -273,7 +273,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [mEntries addObject:mGroup];
             [mEntries addObject:mGroup2];
         } else {
-            count = self.survey.invited;
+//            count = self.survey.invited;
             
             for (int i = 0; i < answers.count; i++) {
                 ELAverageIndex *averageIndex = answers[i];
