@@ -210,7 +210,9 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
 #pragma mark - Interface Builder Actions
 
 - (IBAction)onAddUserButtonClick:(id)sender {
-    BOOL isValid;
+    BOOL isCandidate,
+         isValid,
+         hasAlreadyInvited;
     ELFormItemGroup *emailGroup = [[ELFormItemGroup alloc] initWithInput:self.emailTextField
                                                                     icon:nil
                                                               errorLabel:self.emailErrorLabel];
@@ -218,10 +220,20 @@ static NSString * const kELCellIdentifier = @"ParticipantCell";
                                                                     icon:nil
                                                               errorLabel:self.nameErrorLabel];
     
-    isValid = [self.viewManager validateAddInviteUserFormValues:@{@"name": nameGroup,
-                                                                  @"email": emailGroup}];
+    isCandidate = [emailGroup.textValue isEqualToString:AppSingleton.user.email];
+    isValid = [self.viewManager validateAddInviteUserFormValues:@{@"name": nameGroup, @"email": emailGroup}];
+    hasAlreadyInvited = [self.survey.disallowedRecipients containsObject:emailGroup.textValue];
     
-    if (!isValid) {
+    if (!isValid || hasAlreadyInvited || isCandidate) {
+        if (hasAlreadyInvited || isCandidate) {
+            NSString *message = isCandidate ? NSLocalizedString(@"kELSurveyCandidateInviteMessage" , nil) :
+                                              NSLocalizedString(@"kELSurveyAlreadyInvitedMessage" , nil);
+            
+            [ELUtils presentToastAtView:self.view
+                                message:message
+                             completion:nil];
+        }
+        
         return;
     }
     

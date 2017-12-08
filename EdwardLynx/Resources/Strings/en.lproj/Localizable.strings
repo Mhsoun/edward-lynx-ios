@@ -267,6 +267,9 @@
 
 "kELAnswerOptionalMessage" = "%@ (Optional)";
 
+"kELSurveyAlreadyInvitedMessage" = "User has already been invited";
+"kELSurveyCandidateInviteMessage" = "Cannot invite candidate";
+
 "kELSurveyEmptyMessage" = "No Surveys";
 
 "kELSurveyCompleteHeader" = "Survey Completed!";

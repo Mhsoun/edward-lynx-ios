@@ -21,7 +21,9 @@
                                                                   @"shortDescription": @"description",
                                                                   @"evaluationText": @"personsEvaluatedText",
                                                                   @"answered": @"stats.answered",
-                                                                  @"invited": @"stats.invited"}];
+                                                                  @"invited": @"stats.invited",
+                                                                  @"disallowedRecipients": @"disallowed_recipients"
+                                                                  }];
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {

@@ -23,6 +23,7 @@
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSString<Optional> *evaluationText;
 @property (nonatomic) NSString<Optional> *shortDescription;
+@property (nonatomic) NSArray<Optional> *disallowedRecipients;
 
 /**
  Checks if the current date is already past survey's designated end time.

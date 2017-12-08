@@ -551,6 +551,8 @@
 		A9A25BF41EFB848300A1972D /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */; };
 		A9A25BFA1EFB981800A1972D /* ELTeamAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */; };
 		A9A673F31E9631AB0093EE0A /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
+		A9A6DF011FDA7C6C00D5EF81 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; };
+		A9A6DF021FDA7C6C00D5EF81 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9A7A03D1FCEB1A300CE37A6 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
 		A9AAB6121E4AC35A00E1D398 /* ELAccountsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */; };
 		A9B6589B1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
@@ -647,6 +649,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A9A6DF021FDA7C6C00D5EF81 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1217,6 +1220,7 @@
 		A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamAPIClient.m; sourceTree = "<group>"; };
 		A9A673F11E9631AB0093EE0A /* ELSearcheableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSearcheableModel.h; sourceTree = "<group>"; };
 		A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSearcheableModel.m; sourceTree = "<group>"; };
+		A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A7A03C1FCEB1A200CE37A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SurveyInvite.storyboard; sourceTree = "<group>"; };
 		A9AAB6111E4AC35A00E1D398 /* ELAccountsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAccountsTests.m; sourceTree = "<group>"; };
 		A9B658991EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAddGoalActionTableViewCell.h; sourceTree = "<group>"; };
@@ -1279,6 +1283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+				A9A6DF011FDA7C6C00D5EF81 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1819,6 +1824,7 @@
 		A9308BC51DED74B5007B4F9F = {
 			isa = PBXGroup;
 			children = (
+				A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */,
 				A91310C51E8642D20042C91F /* EdwardLynx */,
 				A9308BED1DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF81DED74B6007B4F9F /* EdwardLynxUITests */,

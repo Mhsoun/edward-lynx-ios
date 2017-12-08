@@ -267,7 +267,10 @@
 
 "kELAnswerOptionalMessage" = "%@ (frivillig)";
 
-"kELSurveyEmptyMessage" = "No Surveys";
+"kELSurveyAlreadyInvitedMessage" = "Användaren har redan blivit inbjuden";
+"kELSurveyCandidateInviteMessage" = "Kan inte bjuda in kandidat";
+
+"kELSurveyEmptyMessage" = "Inga undersökningar";
 
 "kELSurveyCompleteHeader" = "Undersökning slutförd!";
 "kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
