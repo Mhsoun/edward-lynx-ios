@@ -22,13 +22,26 @@
                                                                   @"evaluationText": @"personsEvaluatedText",
                                                                   @"answered": @"stats.answered",
                                                                   @"invited": @"stats.invited",
-                                                                  @"disallowedRecipients": @"disallowed_recipients"
+                                                                  @"disallowedRecipients": @"disallowed_recipients",
                                                                   }];
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
-    return ([propertyName isEqualToString:@"searchTitle"] ||
-            [propertyName isEqualToString:@"isExpired"]);
+    return ([propertyName isEqualToString:@"canInvite"] ||
+            [propertyName isEqualToString:@"isExpired"] ||
+            [propertyName isEqualToString:@"searchTitle"]);
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict error:(NSError *__autoreleasing *)err {
+    self = [super initWithDictionary:dict error:err];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _canInvite = [dict[@"permissions"][@"can_invite"] boolValue];
+    
+    return self;
 }
 
 - (BOOL)isExpired {

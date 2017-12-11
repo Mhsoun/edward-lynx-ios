@@ -62,7 +62,7 @@ static NSString * const kELSurveySegueIdentifier = @"SurveyDetails";
         ELListViewController *controller = (ELListViewController *)[segue destinationViewController];
         
         controller.delegate = self;
-        controller.listType = kELListTypeSurveys;
+        controller.listType = self.toInvite ? kELListTypeSurveysInvite : kELListTypeSurveys;
         controller.listFilter = !self.tabs ? kELListFilterLynxMeasurement : [self.tabs[self.index] integerValue];
     } else if ([segue.identifier isEqualToString:kELInviteSegueIdentifier]) {
         ELSurveyRateOthersViewController *controller = (ELSurveyRateOthersViewController *)[segue destinationViewController];
