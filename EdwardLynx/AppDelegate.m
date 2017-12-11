@@ -427,6 +427,7 @@
              *key,
              *message,
              *url;
+    NSDictionary *queryParams;
     UIAlertController *alertController;
     ELOAuthInstance *authInstance;
     
@@ -483,9 +484,11 @@
         return;
     }
     
+    queryParams = actionKey ? @{@"action": actionKey} : nil;
+    
     // Exchange key to corresponding type's endpoint to retrieve object id
     [[[ELAPIClient alloc] init] getRequestAtLink:url
-                                     queryParams:@{@"action": actionKey}
+                                     queryParams:queryParams
                                       completion:^(NSURLResponse *response,
                                                    NSDictionary *responseDict,
                                                    NSError *error) {

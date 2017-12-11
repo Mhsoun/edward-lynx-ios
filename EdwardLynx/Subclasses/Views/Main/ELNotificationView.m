@@ -141,16 +141,16 @@ static ELNotificationView *currentNotificationView = nil;
 }
 
 - (void)setupContent:(ELNotification *)notification {
-    NSString *imageName;
+//    NSString *imageName;
     CGFloat dimension = 15;
     
-    if ([notification.type isEqualToString:kELNotificationTypeDevPlan]) {
-        imageName = @"DevelopmentPlan";
-    } else if ([notification.type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
-        imageName = @"InstantFeedback";
-    } else {
-        imageName = @"Survey";
-    }
+//    if ([notification.type isEqualToString:kELNotificationTypeDevPlan]) {
+//        imageName = @"DevelopmentPlan";
+//    } else if ([notification.type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
+//        imageName = @"InstantFeedback";
+//    } else {
+//        imageName = @"Survey";
+//    }
     
     self.iconImageView.image = [UIImage imageNamed:@"AppIcon40x40"];
     self.titleLabel.text = notification.title;

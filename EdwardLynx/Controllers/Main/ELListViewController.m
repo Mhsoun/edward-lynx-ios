@@ -227,6 +227,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
     
     switch (self.listType) {
         case kELListTypeSurveys:
+        case kELListTypeSurveysInvite:
             surveyDict = responseDict[@"surveys"];
             emptyMessage = NSLocalizedString(@"kELSurveyEmptyMessage", nil);
             
@@ -237,7 +238,17 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
                     if (self.listFilter == kELListFilterInstantFeedback) {
                         [mItems addObject:[[ELInstantFeedback alloc] initWithDictionary:detailDict error:nil]];
                     } else {
-                        [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                        ELSurvey *survey = [[ELSurvey alloc] initWithDictionary:detailDict error:nil];
+                        
+                        if (self.listType == kELListTypeSurveysInvite) {
+                            if (survey.canInvite) {
+                                [mItems addObject:survey];
+                            }
+                            
+                            continue;
+                        }
+                        
+                        [mItems addObject:survey];
                     }
                 }
                 
@@ -251,7 +262,17 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             }
             
             for (NSDictionary *detailDict in surveyDict[@"items"]) {
-                [mItems addObject:[[ELSurvey alloc] initWithDictionary:detailDict error:nil]];
+                ELSurvey *survey = [[ELSurvey alloc] initWithDictionary:detailDict error:nil];
+                
+                if (self.listType == kELListTypeSurveysInvite) {
+                    if (survey.canInvite) {
+                        [mItems addObject:survey];
+                    }
+                    
+                    continue;
+                }
+                
+                [mItems addObject:survey];
             }
             
             for (NSDictionary *detailDict in responseDict[@"feedbacks"][@"items"]) {
@@ -384,6 +405,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
             break;
         case kELListTypeReports:
         case kELListTypeSurveys:
+        case kELListTypeSurveysInvite:
             switch (filterType) {
                 case kELListFilterAll:
                     return items;
@@ -436,6 +458,7 @@ static NSString * const kELSurveyCellIdentifier = @"SurveyCell";
 - (void)loadListByType {
     switch (self.listType) {
         case kELListTypeSurveys:
+        case kELListTypeSurveysInvite:
             self.cellIdentifier = kELSurveyCellIdentifier;
             
             RegisterNib(self.tableView, self.cellIdentifier);

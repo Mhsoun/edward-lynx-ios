@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQv-J5-SIN">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -31,11 +31,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lhi-zv-YOp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WfS-sv-2yd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="oaj-fc-P69">
-                                <rect key="frame" x="128" y="146" width="120" height="120"/>
+                                <rect key="frame" x="128" y="218.66666666666663" width="120" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oaj-fc-P69" secondAttribute="height" multiplier="1:1" id="DU0-nl-HNG"/>
@@ -43,7 +43,7 @@
                                 </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-1E-GBO" userLabel="Username View">
-                                <rect key="frame" x="26" y="296" width="323" height="35"/>
+                                <rect key="frame" x="26" y="368.66666666666669" width="323" height="35"/>
                                 <subviews>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-1P-ZZy" customClass="RNThemeTextField">
                                         <rect key="frame" x="10" y="5" width="273" height="25"/>
@@ -78,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n9-mH-Dxz">
-                                <rect key="frame" x="26" y="336" width="323" height="15"/>
+                                <rect key="frame" x="26" y="408.66666666666669" width="323" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="06u-bC-uK2"/>
@@ -88,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-UQ-IPT" userLabel="Password View">
-                                <rect key="frame" x="26" y="356" width="323" height="35"/>
+                                <rect key="frame" x="26" y="428.66666666666669" width="323" height="35"/>
                                 <subviews>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-H6-4Zt" customClass="RNThemeTextField">
                                         <rect key="frame" x="10" y="5" width="273" height="25"/>
@@ -122,7 +122,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-AU-OMo">
-                                <rect key="frame" x="26" y="396" width="323" height="15"/>
+                                <rect key="frame" x="26" y="468.66666666666669" width="323" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="YGY-KV-r6S"/>
@@ -132,7 +132,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2j-yn-dSI">
-                                <rect key="frame" x="26" y="416" width="323" height="40"/>
+                                <rect key="frame" x="26" y="488.66666666666669" width="323" height="40.000000000000057"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.58823529411764708" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hSC-gh-Xqf"/>
@@ -150,7 +150,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95j-rQ-DgJ">
-                                <rect key="frame" x="113" y="582" width="150" height="30"/>
+                                <rect key="frame" x="113" y="693" width="150" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="16x-Ep-ZdM"/>
@@ -165,7 +165,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-dI-Wdm">
-                                <rect key="frame" x="113" y="617" width="150" height="30"/>
+                                <rect key="frame" x="113" y="728" width="150" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="836-Pc-h4o"/>
@@ -234,11 +234,11 @@
                         <viewControllerLayoutGuide type="bottom" id="FqL-dk-CiH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h31-nN-T9z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="djq-Le-6iy">
-                                <rect key="frame" x="128" y="146" width="120" height="120"/>
+                                <rect key="frame" x="128" y="218.66666666666663" width="120" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Piy-da-jwc"/>
@@ -246,7 +246,7 @@
                                 </constraints>
                             </imageView>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recover Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-zi-6oy" customClass="RNThemeLabel">
-                                <rect key="frame" x="26" y="296" width="323" height="25"/>
+                                <rect key="frame" x="26" y="368.66666666666669" width="323" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="MC0-VV-Yc3"/>
@@ -259,7 +259,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x73-SC-pOc" userLabel="Username View">
-                                <rect key="frame" x="26" y="336" width="323" height="35"/>
+                                <rect key="frame" x="26" y="408.66666666666669" width="323" height="35"/>
                                 <subviews>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username/Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zg-eg-vpS" customClass="RNThemeTextField">
                                         <rect key="frame" x="10" y="5" width="273" height="25"/>
@@ -294,7 +294,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfX-mI-BPb">
-                                <rect key="frame" x="26" y="376" width="323" height="15"/>
+                                <rect key="frame" x="26" y="448.66666666666669" width="323" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="ais-jv-Kgn"/>
@@ -304,7 +304,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-Cu-J3h">
-                                <rect key="frame" x="26" y="396" width="323" height="35"/>
+                                <rect key="frame" x="26" y="468.66666666666669" width="323" height="35"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                 <state key="normal" title="Recover">
@@ -319,7 +319,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoZ-DP-lmZ" userLabel="Back Button">
-                                <rect key="frame" x="113" y="617" width="150" height="30"/>
+                                <rect key="frame" x="113" y="728" width="150" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Qz3-iz-bja"/>
@@ -380,15 +380,15 @@
                         <viewControllerLayoutGuide type="bottom" id="5dl-sm-1Ta"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="idg-YN-WxD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="QPa-b7-fUh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-HS-575">
-                                <rect key="frame" x="178" y="324" width="20" height="20"/>
+                                <rect key="frame" x="178" y="396" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -412,9 +412,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="247" height="512"/>
+        <image name="Background" width="164" height="341"/>
         <image name="Lock" width="74" height="88"/>
-        <image name="Logo" width="95" height="118"/>
+        <image name="Logo" width="63" height="79"/>
         <image name="Person" width="68" height="63"/>
     </resources>
 </document>

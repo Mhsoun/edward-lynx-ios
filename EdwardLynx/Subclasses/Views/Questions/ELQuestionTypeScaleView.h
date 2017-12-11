@@ -8,7 +8,7 @@
 
 #import "ELBaseQuestionTypeView.h"
 
-@interface ELQuestionTypeScaleView : ELBaseQuestionTypeView<ELQuestionTypeDelegate>
+@interface ELQuestionTypeScaleView : ELBaseQuestionTypeView<UITextViewDelegate, ELQuestionTypeDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scaleChoices;

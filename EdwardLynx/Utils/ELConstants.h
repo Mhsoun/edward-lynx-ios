@@ -83,7 +83,8 @@ typedef NS_ENUM(NSInteger, kELListFilter) {
 typedef NS_ENUM(NSInteger, kELListType) {
     kELListTypeDevPlan,
     kELListTypeReports,
-    kELListTypeSurveys
+    kELListTypeSurveys,
+    kELListTypeSurveysInvite,
 };
 
 typedef NS_ENUM(NSInteger, kELPopupType) {

@@ -255,27 +255,21 @@
 #pragma mark - Protocol Methods (ELSurveyViewManager)
 
 - (void)onAPIPostResponseError:(NSDictionary *)errorDict {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSString *message = NSLocalizedString(@"kELSurveyPostRequiredError", nil);
     
     if ([[errorDict allKeys] containsObject:@"validation_errors"] &&
         [[errorDict[@"validation_errors"] allKeys] containsObject:@"answers"]) {
         
-        [ELUtils presentToastAtView:self.view
-                            message:errorDict[@"validation_errors"][@"answers"][0]
-                         completion:nil];
-        
-        return;
+        message = errorDict[@"validation_errors"][@"answers"][0];
+    } else if (errorDict[@"message"]) {
+        message = errorDict[@"message"];
     }
     
-    if (errorDict[@"message"]) {
+    [self dismissViewControllerAnimated:YES completion:^{
         [ELUtils presentToastAtView:self.view
-                            message:errorDict[@"message"]
+                            message:message
                          completion:nil];
-    }
-    
-//    [ELUtils presentToastAtView:self.view
-//                        message:NSLocalizedString(@"kELSurveyPostError", nil)
-//                     completion:nil];
+    }];
 }
 
 - (void)onAPIPostResponseSuccess:(NSDictionary *)responseDict {

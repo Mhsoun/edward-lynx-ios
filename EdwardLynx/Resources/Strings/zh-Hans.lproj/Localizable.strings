@@ -268,6 +268,9 @@
 
 "kELAnswerOptionalMessage" = "%@ （可选）";
 
+"kELSurveyAlreadyInvitedMessage" = "用户已被邀请";
+"kELSurveyCandidateInviteMessage" = "不能邀请候选人";
+
 "kELSurveyEmptyMessage" = "无调查问卷";
 
 "kELSurveyCompleteHeader" = "调查问卷完成！";
@@ -277,6 +280,7 @@
 "kELSurveySubmissionSuccess" = "成功提交答案";
 "kELSurveySaveToDraftSuccess" = "成功保存至草稿";
 "kELSurveyPostError" = "Failed to post answers";
+"kELSurveyPostRequiredError" = "请填写所有需回答的问题";
 
 "kELSurveyRateError" = "Failed to invite others to rate you";
 "kELSurveyRateSuccess" = "成功发出反馈邀请";
