@@ -535,12 +535,30 @@
 		A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
 		A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
+		A9971B4B200C6D8500AED789 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
+		A9971B4C200C6D8500AED789 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
+		A9971B4D200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */; };
+		A9971B4E200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */; };
+		A9971B4F200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */; };
+		A9971B50200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */; };
+		A9971B51200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */; };
+		A9971B52200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */; };
+		A9971B53200C6D9E00AED789 /* ELDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE981FCFF53300C97394 /* ELDetailViewManager.m */; };
+		A9971B54200C6D9F00AED789 /* ELDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE981FCFF53300C97394 /* ELDetailViewManager.m */; };
+		A9971B55200C6DA300AED789 /* ELFeedbackViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9A1FCFF53300C97394 /* ELFeedbackViewManager.m */; };
+		A9971B56200C6DA400AED789 /* ELFeedbackViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9A1FCFF53300C97394 /* ELFeedbackViewManager.m */; };
+		A9971B57200C6DA700AED789 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE951FCFF53300C97394 /* ELListViewManager.m */; };
+		A9971B58200C6DA700AED789 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE951FCFF53300C97394 /* ELListViewManager.m */; };
+		A9971B59200C6DD400AED789 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
+		A9971B5A200C6DD500AED789 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
 		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
 		A9979ED51EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
 		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
 		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
 		A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
+		A99B498D200C6CEA00334334 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; };
+		A99B498E200C6CEB00334334 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
 		A99B51191ED6CE00000690FD /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
@@ -559,6 +577,7 @@
 		A9B6589E1EE7DE7A00621EFB /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
 		A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */; };
 		A9BF28341E94FA6F00BE54BC /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
+		A9C04088200F2797009D0838 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C403611E9B8D3F008DD7C8 /* ELDashboardData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */; };
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9DB71041EDEC897006BA0AE /* ELResponseRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71031EDEC897006BA0AE /* ELResponseRate.m */; };
@@ -639,6 +658,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A9C04088200F2797009D0838 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1275,6 +1295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92B262A1EEFA033007858B6 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+				A99B498D200C6CEA00334334 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99359941F04FF92003EC659 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
+				A99B498E200C6CEB00334334 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1934,20 +1956,20 @@
 		A977DE8D1FCFF53300C97394 /* ViewManagers */ = {
 			isa = PBXGroup;
 			children = (
-				A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */,
-				A977DE8F1FCFF53300C97394 /* ELListViewManager.h */,
-				A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */,
-				A977DE911FCFF53300C97394 /* ELFeedbackViewManager.h */,
-				A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */,
-				A977DE931FCFF53300C97394 /* ELDetailViewManager.h */,
 				A977DE941FCFF53300C97394 /* ELAccountsViewManager.h */,
-				A977DE951FCFF53300C97394 /* ELListViewManager.m */,
-				A977DE961FCFF53300C97394 /* ELTeamViewManager.h */,
-				A977DE971FCFF53300C97394 /* ELSurveyViewManager.h */,
+				A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */,
+				A977DE931FCFF53300C97394 /* ELDetailViewManager.h */,
 				A977DE981FCFF53300C97394 /* ELDetailViewManager.m */,
 				A977DE991FCFF53300C97394 /* ELDevelopmentPlanViewManager.h */,
+				A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */,
+				A977DE911FCFF53300C97394 /* ELFeedbackViewManager.h */,
 				A977DE9A1FCFF53300C97394 /* ELFeedbackViewManager.m */,
-				A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */,
+				A977DE8F1FCFF53300C97394 /* ELListViewManager.h */,
+				A977DE951FCFF53300C97394 /* ELListViewManager.m */,
+				A977DE971FCFF53300C97394 /* ELSurveyViewManager.h */,
+				A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */,
+				A977DE961FCFF53300C97394 /* ELTeamViewManager.h */,
+				A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */,
 			);
 			path = ViewManagers;
 			sourceTree = "<group>";
@@ -2289,6 +2311,7 @@
 				A92B265C1EEFA033007858B6 /* ReportCell.xib in Resources */,
 				A92B265D1EEFA033007858B6 /* DevelopmentPlan.strings in Resources */,
 				A9FE75E21F550D8500C9F2B3 /* ManagerSurveyCell.xib in Resources */,
+				A9971B59200C6DD400AED789 /* SurveyInvite.storyboard in Resources */,
 				A92B265E1EEFA033007858B6 /* ActionCell.xib in Resources */,
 				A92B265F1EEFA033007858B6 /* Invite.storyboard in Resources */,
 				A92B26601EEFA033007858B6 /* LeftMenu.strings in Resources */,
@@ -2464,6 +2487,7 @@
 				A99359CB1F04FF92003EC659 /* ActionCell.xib in Resources */,
 				A99359CC1F04FF92003EC659 /* Invite.storyboard in Resources */,
 				A99359CD1F04FF92003EC659 /* LeftMenu.strings in Resources */,
+				A9971B5A200C6DD500AED789 /* SurveyInvite.storyboard in Resources */,
 				A99359CE1F04FF92003EC659 /* Authentication.strings in Resources */,
 				A99359CF1F04FF92003EC659 /* OptionCell.xib in Resources */,
 				A99359D01F04FF92003EC659 /* DashboardReminderCell.xib in Resources */,
@@ -2717,6 +2741,7 @@
 				A92B25BF1EEFA033007858B6 /* EdwardLynx.xcdatamodeld in Sources */,
 				A92B25C01EEFA033007858B6 /* ELSectionView.m in Sources */,
 				A9FE75D51F550CDD00C9F2B3 /* NSDate+Utils.m in Sources */,
+				A9971B57200C6DA700AED789 /* ELListViewManager.m in Sources */,
 				A92B25C11EEFA033007858B6 /* ELReportChildPageViewController.m in Sources */,
 				A92B25C21EEFA033007858B6 /* ELQuestionTableViewCell.m in Sources */,
 				A92B25C31EEFA033007858B6 /* ELListViewController.m in Sources */,
@@ -2730,6 +2755,7 @@
 				A92B25CA1EEFA033007858B6 /* ELGoalDetailsViewController.m in Sources */,
 				A92B25CB1EEFA033007858B6 /* ELCreateInstantFeedbackViewController.m in Sources */,
 				A92B25CC1EEFA033007858B6 /* ELEditProfileViewController.m in Sources */,
+				A9971B51200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */,
 				A92B25CD1EEFA033007858B6 /* ELSurveyCategoryPageViewController.m in Sources */,
 				A92B25CE1EEFA033007858B6 /* ELDevelopmentPlan.m in Sources */,
 				A9FE75DC1F550D0900C9F2B3 /* ELTeamMemberGoalTableViewCell.m in Sources */,
@@ -2737,9 +2763,11 @@
 				A92B25D01EEFA033007858B6 /* ELDropdownView.m in Sources */,
 				A92B25D11EEFA033007858B6 /* ELBlindspot.m in Sources */,
 				A9FE75CB1F550C5100C9F2B3 /* ELManagerReportsViewController.m in Sources */,
+				A9971B53200C6D9E00AED789 /* ELDetailViewManager.m in Sources */,
 				A92B25D21EEFA033007858B6 /* ELMenuItem.m in Sources */,
 				A92B25D31EEFA033007858B6 /* ELBaseDetailViewController.m in Sources */,
 				A92B25D41EEFA033007858B6 /* ELUtils.m in Sources */,
+				A9971B4F200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */,
 				A92B25D51EEFA033007858B6 /* ELSurveyInfoViewController.m in Sources */,
 				A92B25D61EEFA033007858B6 /* ELGoalTableViewCell.m in Sources */,
 				A92B25D71EEFA033007858B6 /* ELReportTableViewCell.m in Sources */,
@@ -2756,6 +2784,7 @@
 				A92B25E31EEFA033007858B6 /* ELCategory.m in Sources */,
 				A92B25E41EEFA033007858B6 /* ELLoginViewController.m in Sources */,
 				A9FE75C51F550BE800C9F2B3 /* ELManagerCategoryViewController.m in Sources */,
+				A9971B4B200C6D8500AED789 /* ELTeamViewManager.m in Sources */,
 				A92B25E51EEFA033007858B6 /* ELDataProvider.m in Sources */,
 				A92B25E61EEFA033007858B6 /* ELQuestionTypeRadioGroupView.m in Sources */,
 				A9FE75C81F550C4A00C9F2B3 /* ELManagerIndividualViewController.m in Sources */,
@@ -2763,6 +2792,7 @@
 				A92B25E81EEFA033007858B6 /* ELDevelopmentPlanTableViewCell.m in Sources */,
 				A9FE75C91F550C4E00C9F2B3 /* ELManagerReportDetailsViewController.m in Sources */,
 				A92B25E91EEFA033007858B6 /* ELModel.m in Sources */,
+				A9971B55200C6DA300AED789 /* ELFeedbackViewManager.m in Sources */,
 				A9FE75C61F550BF400C9F2B3 /* ELTeamAPIClient.m in Sources */,
 				A92B25EB1EEFA033007858B6 /* ELSurveysViewController.m in Sources */,
 				A9FE75DA1F550D0600C9F2B3 /* ELManagerSurveyTableViewCell.m in Sources */,
@@ -2796,6 +2826,7 @@
 				A92B26021EEFA033007858B6 /* ELBaseQuestionTypeView.m in Sources */,
 				A92B26031EEFA033007858B6 /* ELShortcutView.m in Sources */,
 				A92B26041EEFA033007858B6 /* ELActionView.m in Sources */,
+				A9971B4D200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */,
 				A92B26051EEFA033007858B6 /* ELBaseViewController.m in Sources */,
 				A92B26061EEFA033007858B6 /* ELListTableViewCell.m in Sources */,
 				A9FE75D71F550CFF00C9F2B3 /* ELManagerIndividualTableViewCell.m in Sources */,
@@ -2996,6 +3027,7 @@
 				A993591D1F04FF92003EC659 /* JSONValueTransformer+CustomNSDate.m in Sources */,
 				A993591E1F04FF92003EC659 /* EdwardLynx.xcdatamodeld in Sources */,
 				A993591F1F04FF92003EC659 /* ELSectionView.m in Sources */,
+				A9971B58200C6DA700AED789 /* ELListViewManager.m in Sources */,
 				A99359201F04FF92003EC659 /* ELReportChildPageViewController.m in Sources */,
 				A99359211F04FF92003EC659 /* ELQuestionTableViewCell.m in Sources */,
 				A99359221F04FF92003EC659 /* ELListViewController.m in Sources */,
@@ -3009,6 +3041,7 @@
 				A99359291F04FF92003EC659 /* ELGoalDetailsViewController.m in Sources */,
 				A993592A1F04FF92003EC659 /* ELCreateInstantFeedbackViewController.m in Sources */,
 				A993592B1F04FF92003EC659 /* ELEditProfileViewController.m in Sources */,
+				A9971B52200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */,
 				A993592C1F04FF92003EC659 /* ELSurveyCategoryPageViewController.m in Sources */,
 				A993592D1F04FF92003EC659 /* ELDevelopmentPlan.m in Sources */,
 				A993592E1F04FF92003EC659 /* ELParticipant.m in Sources */,
@@ -3016,9 +3049,11 @@
 				A993592F1F04FF92003EC659 /* ELDropdownView.m in Sources */,
 				A9FE75D11F550C8E00C9F2B3 /* ELTeamDevelopmentPlan.m in Sources */,
 				A99359301F04FF92003EC659 /* ELBlindspot.m in Sources */,
+				A9971B54200C6D9F00AED789 /* ELDetailViewManager.m in Sources */,
 				A99359311F04FF92003EC659 /* ELMenuItem.m in Sources */,
 				A99359321F04FF92003EC659 /* ELBaseDetailViewController.m in Sources */,
 				A99359331F04FF92003EC659 /* ELUtils.m in Sources */,
+				A9971B50200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */,
 				A99359341F04FF92003EC659 /* ELManagerIndividualTableViewCell.m in Sources */,
 				A99359351F04FF92003EC659 /* ELSurveyInfoViewController.m in Sources */,
 				A99359361F04FF92003EC659 /* ELGoalTableViewCell.m in Sources */,
@@ -3035,6 +3070,7 @@
 				A9FE75CA1F550C4E00C9F2B3 /* ELManagerReportDetailsViewController.m in Sources */,
 				A99359411F04FF92003EC659 /* ELBasePageChildViewController.m in Sources */,
 				A99359431F04FF92003EC659 /* ELCategory.m in Sources */,
+				A9971B4C200C6D8500AED789 /* ELTeamViewManager.m in Sources */,
 				A99359441F04FF92003EC659 /* ELLoginViewController.m in Sources */,
 				A99359451F04FF92003EC659 /* ELDataProvider.m in Sources */,
 				A99359461F04FF92003EC659 /* ELQuestionTypeRadioGroupView.m in Sources */,
@@ -3042,6 +3078,7 @@
 				A99359481F04FF92003EC659 /* AppDelegate.m in Sources */,
 				A99359491F04FF92003EC659 /* ELDevelopmentPlanTableViewCell.m in Sources */,
 				A993594A1F04FF92003EC659 /* ELModel.m in Sources */,
+				A9971B56200C6DA400AED789 /* ELFeedbackViewManager.m in Sources */,
 				A993594C1F04FF92003EC659 /* ELSurveysViewController.m in Sources */,
 				A993594D1F04FF92003EC659 /* ELSurvey.m in Sources */,
 				A993594E1F04FF92003EC659 /* ELAddGoalActionTableViewCell.m in Sources */,
@@ -3075,6 +3112,7 @@
 				A993596C1F04FF92003EC659 /* ELForgotPasswordViewController.m in Sources */,
 				A993596D1F04FF92003EC659 /* ELAverage.m in Sources */,
 				A993596E1F04FF92003EC659 /* ELCircleChartCollectionViewCell.m in Sources */,
+				A9971B4E200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */,
 				A993596F1F04FF92003EC659 /* ELYesNoData.m in Sources */,
 				A99359711F04FF92003EC659 /* ELAnswerSummary.m in Sources */,
 				A9FE75D31F550CAB00C9F2B3 /* ELIndexOverCompetenciesData.m in Sources */,
@@ -3961,6 +3999,7 @@
 		A9308BFC1DED74B6007B4F9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4012,6 +4051,7 @@
 		A9308BFD1DED74B6007B4F9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;

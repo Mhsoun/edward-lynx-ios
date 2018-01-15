@@ -132,6 +132,7 @@ platform :ios do
       force: true,
       username: ENV["APPLE_ID"],
       dev_portal_team_id: ENV["EL_DEV_TEAM_ID"],
+      itc_team_id: "118663671",
       app_identifier: ENV["EL_APP_IDENTIFIER"],
       skip_screenshots: true,
       skip_metadata: true
