@@ -238,13 +238,14 @@
         self.emailInfoDict = nil;
     }
     
-    
     if ([type isEqualToString:kELNotificationTypeDevPlan]) {
         storyboardName = @"DevelopmentPlan";
     } else if ([type isEqualToString:kELNotificationTypeInstantFeedbackRequest]) {
         storyboardName = @"InstantFeedback";
-    } else {
+    } else if ([type isEqualToString:kELNotificationTypeSurveyAnswer]) {
         storyboardName = @"Survey";
+    } else {
+        storyboardName = @"SurveyInvite";
     }
     
     controller = StoryboardController(storyboardName, Format(@"%@Details", storyboardName));
