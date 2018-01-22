@@ -120,172 +120,6 @@
 		A91312B31E8644380042C91F /* ELSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B21E8644380042C91F /* ELSectionView.m */; };
 		A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
 		A923C8BC1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
-		A92B25BE1EEFA033007858B6 /* ELChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913113B1E8642D20042C91F /* ELChangePassViewController.m */; };
-		A92B25BF1EEFA033007858B6 /* EdwardLynx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A91311651E8642D20042C91F /* EdwardLynx.xcdatamodeld */; };
-		A92B25C01EEFA033007858B6 /* ELSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B21E8644380042C91F /* ELSectionView.m */; };
-		A92B25C11EEFA033007858B6 /* ELReportChildPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51181ED6CE00000690FD /* ELReportChildPageViewController.m */; };
-		A92B25C21EEFA033007858B6 /* ELQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C01E8642D30042C91F /* ELQuestionTableViewCell.m */; };
-		A92B25C31EEFA033007858B6 /* ELListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311341E8642D20042C91F /* ELListViewController.m */; };
-		A92B25C41EEFA033007858B6 /* ELItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B71E8642D30042C91F /* ELItemTableViewCell.m */; };
-		A92B25C51EEFA033007858B6 /* ELDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112E1E8642D20042C91F /* ELDashboardViewController.m */; };
-		A92B25C61EEFA033007858B6 /* ELInviteUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311231E8642D20042C91F /* ELInviteUsersViewController.m */; };
-		A92B25C71EEFA033007858B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311691E8642D20042C91F /* main.m */; };
-		A92B25C81EEFA033007858B6 /* ELConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F61E8642D30042C91F /* ELConstants.m */; };
-		A92B25C91EEFA033007858B6 /* ELDashboardHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311AB1E8642D30042C91F /* ELDashboardHeaderTableViewCell.m */; };
-		A92B25CA1EEFA033007858B6 /* ELGoalDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111A1E8642D20042C91F /* ELGoalDetailsViewController.m */; };
-		A92B25CB1EEFA033007858B6 /* ELCreateInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111F1E8642D20042C91F /* ELCreateInstantFeedbackViewController.m */; };
-		A92B25CC1EEFA033007858B6 /* ELEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913113D1E8642D20042C91F /* ELEditProfileViewController.m */; };
-		A92B25CD1EEFA033007858B6 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
-		A92B25CE1EEFA033007858B6 /* ELDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295C1E8B8CC300EBC5CE /* ELDevelopmentPlan.m */; };
-		A92B25CF1EEFA033007858B6 /* ELParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296F1E8B8CC300EBC5CE /* ELParticipant.m */; };
-		A92B25D01EEFA033007858B6 /* ELDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D41E8642D30042C91F /* ELDropdownView.m */; };
-		A92B25D11EEFA033007858B6 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
-		A92B25D21EEFA033007858B6 /* ELMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29671E8B8CC300EBC5CE /* ELMenuItem.m */; };
-		A92B25D31EEFA033007858B6 /* ELBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311261E8642D20042C91F /* ELBaseDetailViewController.m */; };
-		A92B25D41EEFA033007858B6 /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FD1E8642D30042C91F /* ELUtils.m */; };
-		A92B25D51EEFA033007858B6 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
-		A92B25D61EEFA033007858B6 /* ELGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B21E8642D30042C91F /* ELGoalTableViewCell.m */; };
-		A92B25D71EEFA033007858B6 /* ELReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C21E8642D30042C91F /* ELReportTableViewCell.m */; };
-		A92B25D81EEFA033007858B6 /* ELAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310C81E8642D20042C91F /* ELAPIClient.m */; };
-		A92B25D91EEFA033007858B6 /* ELSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C41E8642D30042C91F /* ELSurveyTableViewCell.m */; };
-		A92B25DA1EEFA033007858B6 /* ELGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B01E8642D30042C91F /* ELGoalActionTableViewCell.m */; };
-		A92B25DB1EEFA033007858B6 /* ELSearcheableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A673F21E9631AB0093EE0A /* ELSearcheableModel.m */; };
-		A92B25DC1EEFA033007858B6 /* ELAnswerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29781E8B8CC300EBC5CE /* ELAnswerOption.m */; };
-		A92B25DD1EEFA033007858B6 /* ELConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110D1E8642D20042C91F /* ELConfigurationViewController.m */; };
-		A92B25DE1EEFA033007858B6 /* ELUsersAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310D01E8642D20042C91F /* ELUsersAPIClient.m */; };
-		A92B25DF1EEFA033007858B6 /* ELSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C91E8642D30042C91F /* ELSearchBar.m */; };
-		A92B25E01EEFA033007858B6 /* ELQuestionTypeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311E11E8642D30042C91F /* ELQuestionTypeTextView.m */; };
-		A92B25E11EEFA033007858B6 /* ELBasePageChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311281E8642D20042C91F /* ELBasePageChildViewController.m */; };
-		A92B25E31EEFA033007858B6 /* ELCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29631E8B8CC300EBC5CE /* ELCategory.m */; };
-		A92B25E41EEFA033007858B6 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311111E8642D20042C91F /* ELLoginViewController.m */; };
-		A92B25E51EEFA033007858B6 /* ELDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F81E8642D30042C91F /* ELDataProvider.m */; };
-		A92B25E61EEFA033007858B6 /* ELQuestionTypeRadioGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DD1E8642D30042C91F /* ELQuestionTypeRadioGroupView.m */; };
-		A92B25E71EEFA033007858B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310D21E8642D20042C91F /* AppDelegate.m */; };
-		A92B25E81EEFA033007858B6 /* ELDevelopmentPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311AE1E8642D30042C91F /* ELDevelopmentPlanTableViewCell.m */; };
-		A92B25E91EEFA033007858B6 /* ELModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29691E8B8CC300EBC5CE /* ELModel.m */; };
-		A92B25EB1EEFA033007858B6 /* ELSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311471E8642D20042C91F /* ELSurveysViewController.m */; };
-		A92B25EC1EEFA033007858B6 /* ELSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29801E8B8CC300EBC5CE /* ELSurvey.m */; };
-		A92B25ED1EEFA033007858B6 /* ELAddGoalActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6589A1EE7DE5B00621EFB /* ELAddGoalActionTableViewCell.m */; };
-		A92B25EE1EEFA033007858B6 /* ELReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29711E8B8CC300EBC5CE /* ELReminder.m */; };
-		A92B25EF1EEFA033007858B6 /* ELQuestionsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CC1E8642D20042C91F /* ELQuestionsAPIClient.m */; };
-		A92B25F01EEFA033007858B6 /* ELUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29731E8B8CC300EBC5CE /* ELUser.m */; };
-		A92B25F11EEFA033007858B6 /* ELQuestionTypeScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DF1E8642D30042C91F /* ELQuestionTypeScaleView.m */; };
-		A92B25F21EEFA033007858B6 /* ELEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311C71E8642D30042C91F /* ELEmailValidator.m */; };
-		A92B25F31EEFA033007858B6 /* ELDevelopmentPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311181E8642D20042C91F /* ELDevelopmentPlansViewController.m */; };
-		A92B25F41EEFA033007858B6 /* ELDashboardData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C403601E9B8D3F008DD7C8 /* ELDashboardData.m */; };
-		A92B25F51EEFA033007858B6 /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
-		A92B25F61EEFA033007858B6 /* ELResponseRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71031EDEC897006BA0AE /* ELResponseRate.m */; };
-		A92B25F71EEFA033007858B6 /* ELQuestionTypeAgreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311DB1E8642D30042C91F /* ELQuestionTypeAgreementView.m */; };
-		A92B25F81EEFA033007858B6 /* ELAnswerInstantFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913111D1E8642D20042C91F /* ELAnswerInstantFeedbackViewController.m */; };
-		A92B25F91EEFA033007858B6 /* ELSurveysAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CE1E8642D20042C91F /* ELSurveysAPIClient.m */; };
-		A92B25FA1EEFA033007858B6 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
-		A92B25FB1EEFA033007858B6 /* ELLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BF28331E94FA6F00BE54BC /* ELLabel.m */; };
-		A92B25FC1EEFA033007858B6 /* ELAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311F41E8642D30042C91F /* ELAppSingleton.m */; };
-		A92B25FD1EEFA033007858B6 /* ELReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311421E8642D20042C91F /* ELReportsViewController.m */; };
-		A92B25FE1EEFA033007858B6 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */; };
-		A92B25FF1EEFA033007858B6 /* ELMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311BB1E8642D30042C91F /* ELMenuTableViewCell.m */; };
-		A92B26001EEFA033007858B6 /* ELParticipantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311BE1E8642D30042C91F /* ELParticipantTableViewCell.m */; };
-		A92B26011EEFA033007858B6 /* ELQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297E1E8B8CC300EBC5CE /* ELQuestionCategory.m */; };
-		A92B26021EEFA033007858B6 /* ELBaseQuestionTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D91E8642D30042C91F /* ELBaseQuestionTypeView.m */; };
-		A92B26031EEFA033007858B6 /* ELShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CF1E8642D30042C91F /* ELShortcutView.m */; };
-		A92B26041EEFA033007858B6 /* ELActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311CD1E8642D30042C91F /* ELActionView.m */; };
-		A92B26051EEFA033007858B6 /* ELBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112C1E8642D20042C91F /* ELBaseViewController.m */; };
-		A92B26061EEFA033007858B6 /* ELListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B91E8642D30042C91F /* ELListTableViewCell.m */; };
-		A92B26091EEFA033007858B6 /* ELForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913110F1E8642D20042C91F /* ELForgotPasswordViewController.m */; };
-		A92B260A1EEFA033007858B6 /* ELAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CE1EDD13D3001FD570 /* ELAverage.m */; };
-		A92B260B1EEFA033007858B6 /* ELYesNoData.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4371EDEA11B001A99F6 /* ELYesNoData.m */; };
-		A92B260D1EEFA033007858B6 /* ELAnswerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EC4341EDE9B0D001A99F6 /* ELAnswerSummary.m */; };
-		A92B260E1EEFA033007858B6 /* ELGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C295E1E8B8CC300EBC5CE /* ELGoal.m */; };
-		A92B260F1EEFA033007858B6 /* ELCreateDevelopmentPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311141E8642D20042C91F /* ELCreateDevelopmentPlanViewController.m */; };
-		A92B26101EEFA033007858B6 /* ELGoalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29601E8B8CC300EBC5CE /* ELGoalAction.m */; };
-		A92B26111EEFA033007858B6 /* ELDevelopmentPlanAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A91310CA1E8642D20042C91F /* ELDevelopmentPlanAPIClient.m */; };
-		A92B26121EEFA033007858B6 /* ELAddObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311B51E8642D30042C91F /* ELAddObjectTableViewCell.m */; };
-		A92B26131EEFA033007858B6 /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
-		A92B26141EEFA033007858B6 /* ELReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311401E8642D20042C91F /* ELReportDetailsViewController.m */; };
-		A92B26151EEFA033007858B6 /* ELTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FB1E8642D30042C91F /* ELTableDataSource.m */; };
-		A92B26161EEFA033007858B6 /* ELLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311301E8642D20042C91F /* ELLeftMenuViewController.m */; };
-		A92B26171EEFA033007858B6 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
-		A92B26181EEFA033007858B6 /* ELTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311381E8642D20042C91F /* ELTabPageViewController.m */; };
-		A92B26191EEFA033007858B6 /* ELQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297C1E8B8CC300EBC5CE /* ELQuestion.m */; };
-		A92B261A1EEFA033007858B6 /* ELNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311D61E8642D30042C91F /* ELNotificationView.m */; };
-		A92B261B1EEFA033007858B6 /* ELNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296B1E8B8CC300EBC5CE /* ELNotification.m */; };
-		A92B261C1EEFA033007858B6 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
-		A92B261E1EEFA033007858B6 /* ELBasePopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A913112A1E8642D20042C91F /* ELBasePopupViewController.m */; };
-		A92B261F1EEFA033007858B6 /* ELQuestionRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96125191EDFBA11004F2119 /* ELQuestionRate.m */; };
-		A92B26201EEFA033007858B6 /* ELInstantFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311211E8642D20042C91F /* ELInstantFeedbacksViewController.m */; };
-		A92B26211EEFA033007858B6 /* ELListPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311321E8642D20042C91F /* ELListPopupViewController.m */; };
-		A92B26221EEFA033007858B6 /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
-		A92B26231EEFA033007858B6 /* ELAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C29761E8B8CC300EBC5CE /* ELAnswer.m */; };
-		A92B26241EEFA033007858B6 /* ELOAuthInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C296D1E8B8CC300EBC5CE /* ELOAuthInstance.m */; };
-		A92B26251EEFA033007858B6 /* ELPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311361E8642D20042C91F /* ELPopupViewController.m */; };
-		A92B26261EEFA033007858B6 /* ELInstantFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C297A1E8B8CC300EBC5CE /* ELInstantFeedback.m */; };
-		A92B26271EEFA033007858B6 /* ELSurveyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311451E8642D20042C91F /* ELSurveyDetailsViewController.m */; };
-		A92B26281EEFA033007858B6 /* ELDevelopmentPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311161E8642D20042C91F /* ELDevelopmentPlanDetailsViewController.m */; };
-		A92B262A1EEFA033007858B6 /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
-		A92B262D1EEFA033007858B6 /* QuestionTypeRadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983714F1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib */; };
-		A92B262E1EEFA033007858B6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311941E8642D20042C91F /* Lato-Medium.ttf */; };
-		A92B262F1EEFA033007858B6 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EE1E8642D20042C91F /* Survey.storyboard */; };
-		A92B26301EEFA033007858B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E21E8642D20042C91F /* LaunchScreen.storyboard */; };
-		A92B26311EEFA033007858B6 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D41E8642D20042C91F /* Authentication.storyboard */; };
-		A92B26321EEFA033007858B6 /* DevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DC1E8642D20042C91F /* DevelopmentPlan.storyboard */; };
-		A92B26331EEFA033007858B6 /* AddOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983704C1ED423B600C05594 /* AddOptionCell.xib */; };
-		A92B26341EEFA033007858B6 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370941ED425EE00C05594 /* GoalCell.xib */; };
-		A92B26351EEFA033007858B6 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311911E8642D20042C91F /* Lato-Heavy.ttf */; };
-		A92B26361EEFA033007858B6 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DA1E8642D20042C91F /* Dashboard.storyboard */; };
-		A92B26371EEFA033007858B6 /* Invite.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311541E8642D20042C91F /* Invite.strings */; };
-		A92B26381EEFA033007858B6 /* InstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310DE1E8642D20042C91F /* InstantFeedback.storyboard */; };
-		A92B26391EEFA033007858B6 /* CreateDevelopmentPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D61E8642D20042C91F /* CreateDevelopmentPlan.storyboard */; };
-		A92B263A1EEFA033007858B6 /* ReportChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */; };
-		A92B263B1EEFA033007858B6 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311601E8642D20042C91F /* Settings.strings */; };
-		A92B263C1EEFA033007858B6 /* Dashboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114E1E8642D20042C91F /* Dashboard.strings */; };
-		A92B263D1EEFA033007858B6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311971E8642D20042C91F /* Localizable.strings */; };
-		A92B263E1EEFA033007858B6 /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371011ED42A1700C05594 /* ActionView.xib */; };
-		A92B263F1EEFA033007858B6 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311921E8642D20042C91F /* Lato-Italic.ttf */; };
-		A92B26401EEFA033007858B6 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E81E8642D20042C91F /* Profile.storyboard */; };
-		A92B26411EEFA033007858B6 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EA1E8642D20042C91F /* Report.storyboard */; };
-		A92B26421EEFA033007858B6 /* InstantFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311521E8642D20042C91F /* InstantFeedback.strings */; };
-		A92B26431EEFA033007858B6 /* CreateInstantFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114C1E8642D20042C91F /* CreateInstantFeedback.strings */; };
-		A92B26441EEFA033007858B6 /* CreateInstantFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310D81E8642D20042C91F /* CreateInstantFeedback.storyboard */; };
-		A92B26451EEFA033007858B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91310D31E8642D20042C91F /* Assets.xcassets */; };
-		A92B26461EEFA033007858B6 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983717D1ED42C1100C05594 /* SectionView.xib */; };
-		A92B26471EEFA033007858B6 /* Report.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115E1E8642D20042C91F /* Report.strings */; };
-		A92B26481EEFA033007858B6 /* Survey.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311621E8642D20042C91F /* Survey.strings */; };
-		A92B26491EEFA033007858B6 /* Profile.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115C1E8642D20042C91F /* Profile.strings */; };
-		A92B264A1EEFA033007858B6 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E61E8642D20042C91F /* List.storyboard */; };
-		A92B264B1EEFA033007858B6 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370BB1ED4268400C05594 /* ParticipantCell.xib */; };
-		A92B264C1EEFA033007858B6 /* SurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370E21ED4288200C05594 /* SurveyCell.xib */; };
-		A92B264D1EEFA033007858B6 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370A11ED4263D00C05594 /* ListCell.xib */; };
-		A92B264E1EEFA033007858B6 /* ListPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983711B1ED42A9300C05594 /* ListPopupView.xib */; };
-		A92B264F1EEFA033007858B6 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311561E8642D20042C91F /* LaunchScreen.strings */; };
-		A92B26501EEFA033007858B6 /* QuestionTypeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371421ED42B2B00C05594 /* QuestionTypeAgreementView.xib */; };
-		A92B26511EEFA033007858B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311671E8642D20042C91F /* GoogleService-Info.plist */; };
-		A92B26521EEFA033007858B6 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E41E8642D20042C91F /* LeftMenu.storyboard */; };
-		A92B26531EEFA033007858B6 /* DashboardHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370591ED423C800C05594 /* DashboardHeaderCell.xib */; };
-		A92B26541EEFA033007858B6 /* TabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310F01E8642D20042C91F /* TabPage.storyboard */; };
-		A92B26551EEFA033007858B6 /* QuestionTypeTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371631ED42BD200C05594 /* QuestionTypeTextView.xib */; };
-		A92B26561EEFA033007858B6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311901E8642D20042C91F /* Lato-Bold.ttf */; };
-		A92B26571EEFA033007858B6 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983710E1ED42A3000C05594 /* DropdownView.xib */; };
-		A92B26581EEFA033007858B6 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371281ED42AD600C05594 /* NotificationView.xib */; };
-		A92B26591EEFA033007858B6 /* AddGoalActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B6589C1EE7DE7A00621EFB /* AddGoalActionCell.xib */; };
-		A92B265A1EEFA033007858B6 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370C81ED426CB00C05594 /* QuestionCell.xib */; };
-		A92B265B1EEFA033007858B6 /* List.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913115A1E8642D20042C91F /* List.strings */; };
-		A92B265C1EEFA033007858B6 /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370D51ED427B900C05594 /* ReportCell.xib */; };
-		A92B265D1EEFA033007858B6 /* DevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311501E8642D20042C91F /* DevelopmentPlan.strings */; };
-		A92B265E1EEFA033007858B6 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983703F1ED4239A00C05594 /* ActionCell.xib */; };
-		A92B265F1EEFA033007858B6 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310E01E8642D20042C91F /* Invite.storyboard */; };
-		A92B26601EEFA033007858B6 /* LeftMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311581E8642D20042C91F /* LeftMenu.strings */; };
-		A92B26611EEFA033007858B6 /* Authentication.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91311481E8642D20042C91F /* Authentication.strings */; };
-		A92B26621EEFA033007858B6 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370AE1ED4265E00C05594 /* OptionCell.xib */; };
-		A92B26631EEFA033007858B6 /* DashboardReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370661ED423DB00C05594 /* DashboardReminderCell.xib */; };
-		A92B26641EEFA033007858B6 /* ShortcutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371701ED42BEC00C05594 /* ShortcutView.xib */; };
-		A92B26651EEFA033007858B6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311951E8642D20042C91F /* Lato-Regular.ttf */; };
-		A92B26661EEFA033007858B6 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98371351ED42B1000C05594 /* PopupView.xib */; };
-		A92B26671EEFA033007858B6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91310EC1E8642D20042C91F /* Settings.storyboard */; };
-		A92B26681EEFA033007858B6 /* QuestionTypeScaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A983715C1ED42BAA00C05594 /* QuestionTypeScaleView.xib */; };
-		A92B26691EEFA033007858B6 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91311F11E8642D30042C91F /* default.plist */; };
-		A92B266A1EEFA033007858B6 /* DevelopmentPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98370731ED423E900C05594 /* DevelopmentPlanCell.xib */; };
-		A92B266B1EEFA033007858B6 /* CreateDevelopmentPlan.strings in Resources */ = {isa = PBXBuildFile; fileRef = A913114A1E8642D20042C91F /* CreateDevelopmentPlan.strings */; };
-		A92B266C1EEFA033007858B6 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A92B26791EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
 		A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
 		A92EF1E01FD514F000B51152 /* ELTeamDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A92EF1DF1FD514F000B51152 /* ELTeamDevelopmentPlanTests.m */; };
@@ -535,21 +369,13 @@
 		A99359DB1F04FF92003EC659 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91311931E8642D20042C91F /* Lato-Light.ttf */; };
 		A99359DC1F04FF92003EC659 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
 		A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
-		A9971B4B200C6D8500AED789 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
 		A9971B4C200C6D8500AED789 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
-		A9971B4D200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */; };
 		A9971B4E200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE901FCFF53300C97394 /* ELSurveyViewManager.m */; };
-		A9971B4F200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */; };
 		A9971B50200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE921FCFF53300C97394 /* ELDevelopmentPlanViewManager.m */; };
-		A9971B51200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */; };
 		A9971B52200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9B1FCFF53300C97394 /* ELAccountsViewManager.m */; };
-		A9971B53200C6D9E00AED789 /* ELDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE981FCFF53300C97394 /* ELDetailViewManager.m */; };
 		A9971B54200C6D9F00AED789 /* ELDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE981FCFF53300C97394 /* ELDetailViewManager.m */; };
-		A9971B55200C6DA300AED789 /* ELFeedbackViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9A1FCFF53300C97394 /* ELFeedbackViewManager.m */; };
 		A9971B56200C6DA400AED789 /* ELFeedbackViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE9A1FCFF53300C97394 /* ELFeedbackViewManager.m */; };
-		A9971B57200C6DA700AED789 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE951FCFF53300C97394 /* ELListViewManager.m */; };
 		A9971B58200C6DA700AED789 /* ELListViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE951FCFF53300C97394 /* ELListViewManager.m */; };
-		A9971B59200C6DD400AED789 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
 		A9971B5A200C6DD500AED789 /* SurveyInvite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7A03B1FCEB1A200CE37A6 /* SurveyInvite.storyboard */; };
 		A9979ECD1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
 		A9979ED01EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
@@ -557,7 +383,6 @@
 		A9979ED81EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
 		A9979EDB1EFA72FA00A5BCA2 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
 		A997B41F1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
-		A99B498D200C6CEA00334334 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; };
 		A99B498E200C6CEB00334334 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6DF001FDA7C6C00D5EF81 /* Charts.framework */; };
 		A99B51031ED6B007000690FD /* ELReportPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51021ED6B007000690FD /* ELReportPageViewController.m */; };
 		A99B51161ED6B990000690FD /* ELReportChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */; };
@@ -585,42 +410,15 @@
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
-		A9FE75C01F550B8100C9F2B3 /* IndividualProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */; };
-		A9FE75C11F550B9600C9F2B3 /* TeamProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9979ED91EFA72FA00A5BCA2 /* TeamProgress.storyboard */; };
-		A9FE75C21F550B9B00C9F2B3 /* TeamReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */; };
 		A9FE75C31F550B9C00C9F2B3 /* TeamReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */; };
-		A9FE75C41F550B9F00C9F2B3 /* TeamTabPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95CECB61EF8C15B0028BDD4 /* TeamTabPage.storyboard */; };
-		A9FE75C51F550BE800C9F2B3 /* ELManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED71EFA71DF00A5BCA2 /* ELManagerCategoryViewController.m */; };
-		A9FE75C61F550BF400C9F2B3 /* ELTeamAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A25BF91EFB981800A1972D /* ELTeamAPIClient.m */; };
-		A9FE75C71F550C4400C9F2B3 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
-		A9FE75C81F550C4A00C9F2B3 /* ELManagerIndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECBB1EF8C8020028BDD4 /* ELManagerIndividualViewController.m */; };
-		A9FE75C91F550C4E00C9F2B3 /* ELManagerReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */; };
 		A9FE75CA1F550C4E00C9F2B3 /* ELManagerReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5E1F0E3C0B004F724A /* ELManagerReportDetailsViewController.m */; };
-		A9FE75CB1F550C5100C9F2B3 /* ELManagerReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */; };
 		A9FE75CC1F550C5200C9F2B3 /* ELManagerReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */; };
-		A9FE75CD1F550C5500C9F2B3 /* ELManagerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDC79F1EF917D200D4E5E2 /* ELManagerTeamViewController.m */; };
-		A9FE75CE1F550C5800C9F2B3 /* ELManagerUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */; };
-		A9FE75CF1F550C5B00C9F2B3 /* ELTeamDevPlanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECF1EFA5C7300A5BCA2 /* ELTeamDevPlanDetailsViewController.m */; };
-		A9FE75D01F550C8D00C9F2B3 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
 		A9FE75D11F550C8E00C9F2B3 /* ELTeamDevelopmentPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */; };
-		A9FE75D21F550CAB00C9F2B3 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
 		A9FE75D31F550CAB00C9F2B3 /* ELIndexOverCompetenciesData.m in Sources */ = {isa = PBXBuildFile; fileRef = A997B41E1F1476CE00AA0C46 /* ELIndexOverCompetenciesData.m */; };
-		A9FE75D41F550CDA00C9F2B3 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
-		A9FE75D51F550CDD00C9F2B3 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
-		A9FE75D61F550CFC00C9F2B3 /* ELCircleChartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ECC1EFA267600A5BCA2 /* ELCircleChartCollectionViewCell.m */; };
-		A9FE75D71F550CFF00C9F2B3 /* ELManagerIndividualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */; };
-		A9FE75D81F550D0200C9F2B3 /* ELManagerReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */; };
 		A9FE75D91F550D0300C9F2B3 /* ELManagerReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB581F0DEFF5004F724A /* ELManagerReportTableViewCell.m */; };
-		A9FE75DA1F550D0600C9F2B3 /* ELManagerSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */; };
 		A9FE75DB1F550D0600C9F2B3 /* ELManagerSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB5B1F0DF115004F724A /* ELManagerSurveyTableViewCell.m */; };
-		A9FE75DC1F550D0900C9F2B3 /* ELTeamMemberGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9979ED41EFA5FB900A5BCA2 /* ELTeamMemberGoalTableViewCell.m */; };
-		A9FE75DE1F550D7100C9F2B3 /* CircleChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BEF1EFB844A00A1972D /* CircleChartCell.xib */; };
-		A9FE75DF1F550D7B00C9F2B3 /* ManagerIndividualCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95CECBD1EF8C87A0028BDD4 /* ManagerIndividualCell.xib */; };
-		A9FE75E01F550D8000C9F2B3 /* ManagerReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */; };
 		A9FE75E11F550D8100C9F2B3 /* ManagerReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB541F0DEE23004F724A /* ManagerReportCell.xib */; };
-		A9FE75E21F550D8500C9F2B3 /* ManagerSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */; };
 		A9FE75E31F550D8500C9F2B3 /* ManagerSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */; };
-		A9FE75E41F550D9400C9F2B3 /* TeamMemberGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */; };
 		D552B95158F491346791F448 /* libPods-BasePods-EdwardLynxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B829913683F656316F9C3 /* libPods-BasePods-EdwardLynxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -642,16 +440,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A92B26701EEFA033007858B6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A99359E01F04FF92003EC659 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -922,14 +710,13 @@
 		A921A09F1F666AE400B76871 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A923C8BA1ECD9D6400FBAB05 /* ELSurveyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSurveyInfoViewController.h; sourceTree = "<group>"; };
 		A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyInfoViewController.m; sourceTree = "<group>"; };
-		A92B26751EEFA033007858B6 /* EdwardLynxIngenuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxIngenuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92B26761EEFA033007858B6 /* EdwardLynxIngenuity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxIngenuity-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxIngenuity-Info.plist"; sourceTree = "<absolute>"; };
 		A92B26771EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+CustomNSDate.h"; sourceTree = "<group>"; };
 		A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+CustomNSDate.m"; sourceTree = "<group>"; };
 		A92B267A1EEFB1F1007858B6 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		A92EF1DF1FD514F000B51152 /* ELTeamDevelopmentPlanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevelopmentPlanTests.m; sourceTree = "<group>"; };
-		A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9308BCE1DED74B6007B4F9F /* EdwardLynxStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9308BF01DED74B6007B4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdwardLynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1208,7 +995,7 @@
 		A983717A1ED42BF200C05594 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShortcutView.strings; sourceTree = "<group>"; };
 		A983717C1ED42C1100C05594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SectionView.xib; sourceTree = "<group>"; };
 		A988553E1F11EA050017DB87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdwardLynxAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99359E51F04FF92003EC659 /* Edward Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edward Lynx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99359E61F04FF93003EC659 /* EdwardLynxRelease-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EdwardLynxRelease-Info.plist"; path = "/Users/jasonjonecarreos/Documents/Projects/Mobile/iOS/Objective-C/Ingenuity/Client/EdwardLynx/EdwardLynxRelease-Info.plist"; sourceTree = "<absolute>"; };
 		A9955E431F0644C0008FE4C2 /* ELTeamDevelopmentPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTeamDevelopmentPlan.h; sourceTree = "<group>"; };
 		A9955E441F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELTeamDevelopmentPlan.m; sourceTree = "<group>"; };
@@ -1290,15 +1077,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A92B26291EEFA033007858B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A92B262A1EEFA033007858B6 /* libPods-BasePods-EdwardLynx.a in Frameworks */,
-				A99B498D200C6CEA00334334 /* Charts.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A9308BCB1DED74B5007B4F9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1859,11 +1637,10 @@
 		A9308BCF1DED74B6007B4F9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */,
+				A9308BCE1DED74B6007B4F9F /* EdwardLynxStaging.app */,
 				A9308BEA1DED74B6007B4F9F /* EdwardLynxTests.xctest */,
 				A9308BF51DED74B6007B4F9F /* EdwardLynxUITests.xctest */,
-				A92B26751EEFA033007858B6 /* EdwardLynxIngenuity.app */,
-				A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */,
+				A99359E51F04FF92003EC659 /* Edward Lynx.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2071,31 +1848,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A92B25BB1EEFA033007858B6 /* EdwardLynxIngenuity */ = {
+		A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A92B26721EEFA033007858B6 /* Build configuration list for PBXNativeTarget "EdwardLynxIngenuity" */;
-			buildPhases = (
-				A92B25BC1EEFA033007858B6 /* [CP] Check Pods Manifest.lock */,
-				A92B25BD1EEFA033007858B6 /* Sources */,
-				A92B26291EEFA033007858B6 /* Frameworks */,
-				A92B262C1EEFA033007858B6 /* Resources */,
-				A92B266D1EEFA033007858B6 /* [CP] Embed Pods Frameworks */,
-				A92B266E1EEFA033007858B6 /* [CP] Copy Pods Resources */,
-				A92B266F1EEFA033007858B6 /* ShellScript */,
-				A92B26701EEFA033007858B6 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = EdwardLynxIngenuity;
-			productName = EdwardLynx;
-			productReference = A92B26751EEFA033007858B6 /* EdwardLynxIngenuity.app */;
-			productType = "com.apple.product-type.application";
-		};
-		A9308BCD1DED74B5007B4F9F /* EdwardLynx */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynx" */;
+			buildConfigurationList = A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxStaging" */;
 			buildPhases = (
 				59BB75771B83A01AB03C7CA2 /* [CP] Check Pods Manifest.lock */,
 				A9308BCA1DED74B5007B4F9F /* Sources */,
@@ -2110,9 +1865,9 @@
 			);
 			dependencies = (
 			);
-			name = EdwardLynx;
+			name = EdwardLynxStaging;
 			productName = EdwardLynx;
-			productReference = A9308BCE1DED74B6007B4F9F /* Edward Lynx.app */;
+			productReference = A9308BCE1DED74B6007B4F9F /* EdwardLynxStaging.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A9308BE91DED74B6007B4F9F /* EdwardLynxTests */ = {
@@ -2173,7 +1928,7 @@
 			);
 			name = EdwardLynxAppStore;
 			productName = EdwardLynx;
-			productReference = A99359E51F04FF92003EC659 /* EdwardLynxAppStore.app */;
+			productReference = A99359E51F04FF92003EC659 /* Edward Lynx.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2186,10 +1941,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Ingenuity Global Consulting";
 				TargetAttributes = {
-					A92B25BB1EEFA033007858B6 = {
-						DevelopmentTeam = 4XE8MVRXHY;
-						ProvisioningStyle = Manual;
-					};
 					A9308BCD1DED74B5007B4F9F = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = KGZFZP3DEA;
@@ -2240,8 +1991,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9308BCD1DED74B5007B4F9F /* EdwardLynx */,
-				A92B25BB1EEFA033007858B6 /* EdwardLynxIngenuity */,
+				A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */,
 				A99359181F04FF92003EC659 /* EdwardLynxAppStore */,
 				A9308BE91DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF41DED74B6007B4F9F /* EdwardLynxUITests */,
@@ -2250,87 +2000,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A92B262C1EEFA033007858B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A92B262D1EEFA033007858B6 /* QuestionTypeRadioGroupView.xib in Resources */,
-				A92B262E1EEFA033007858B6 /* Lato-Medium.ttf in Resources */,
-				A92B262F1EEFA033007858B6 /* Survey.storyboard in Resources */,
-				A92B26301EEFA033007858B6 /* LaunchScreen.storyboard in Resources */,
-				A92B26311EEFA033007858B6 /* Authentication.storyboard in Resources */,
-				A92B26321EEFA033007858B6 /* DevelopmentPlan.storyboard in Resources */,
-				A92B26331EEFA033007858B6 /* AddOptionCell.xib in Resources */,
-				A9FE75DE1F550D7100C9F2B3 /* CircleChartCell.xib in Resources */,
-				A92B26341EEFA033007858B6 /* GoalCell.xib in Resources */,
-				A92B26351EEFA033007858B6 /* Lato-Heavy.ttf in Resources */,
-				A92B26361EEFA033007858B6 /* Dashboard.storyboard in Resources */,
-				A92B26371EEFA033007858B6 /* Invite.strings in Resources */,
-				A92B26381EEFA033007858B6 /* InstantFeedback.storyboard in Resources */,
-				A92B26391EEFA033007858B6 /* CreateDevelopmentPlan.storyboard in Resources */,
-				A92B263A1EEFA033007858B6 /* ReportChartCell.xib in Resources */,
-				A92B263B1EEFA033007858B6 /* Settings.strings in Resources */,
-				A92B263C1EEFA033007858B6 /* Dashboard.strings in Resources */,
-				A9FE75E41F550D9400C9F2B3 /* TeamMemberGoalCell.xib in Resources */,
-				A92B263D1EEFA033007858B6 /* Localizable.strings in Resources */,
-				A92B263E1EEFA033007858B6 /* ActionView.xib in Resources */,
-				A92B263F1EEFA033007858B6 /* Lato-Italic.ttf in Resources */,
-				A92B26401EEFA033007858B6 /* Profile.storyboard in Resources */,
-				A9FE75C11F550B9600C9F2B3 /* TeamProgress.storyboard in Resources */,
-				A92B26411EEFA033007858B6 /* Report.storyboard in Resources */,
-				A92B26421EEFA033007858B6 /* InstantFeedback.strings in Resources */,
-				A92B26431EEFA033007858B6 /* CreateInstantFeedback.strings in Resources */,
-				A92B26441EEFA033007858B6 /* CreateInstantFeedback.storyboard in Resources */,
-				A92B26451EEFA033007858B6 /* Assets.xcassets in Resources */,
-				A92B26461EEFA033007858B6 /* SectionView.xib in Resources */,
-				A92B26471EEFA033007858B6 /* Report.strings in Resources */,
-				A92B26481EEFA033007858B6 /* Survey.strings in Resources */,
-				A92B26491EEFA033007858B6 /* Profile.strings in Resources */,
-				A92B264A1EEFA033007858B6 /* List.storyboard in Resources */,
-				A92B264B1EEFA033007858B6 /* ParticipantCell.xib in Resources */,
-				A92B264C1EEFA033007858B6 /* SurveyCell.xib in Resources */,
-				A92B264D1EEFA033007858B6 /* ListCell.xib in Resources */,
-				A92B264E1EEFA033007858B6 /* ListPopupView.xib in Resources */,
-				A9FE75DF1F550D7B00C9F2B3 /* ManagerIndividualCell.xib in Resources */,
-				A92B264F1EEFA033007858B6 /* LaunchScreen.strings in Resources */,
-				A92B26501EEFA033007858B6 /* QuestionTypeAgreementView.xib in Resources */,
-				A92B26511EEFA033007858B6 /* GoogleService-Info.plist in Resources */,
-				A92B26521EEFA033007858B6 /* LeftMenu.storyboard in Resources */,
-				A92B26531EEFA033007858B6 /* DashboardHeaderCell.xib in Resources */,
-				A92B26541EEFA033007858B6 /* TabPage.storyboard in Resources */,
-				A92B26551EEFA033007858B6 /* QuestionTypeTextView.xib in Resources */,
-				A92B26561EEFA033007858B6 /* Lato-Bold.ttf in Resources */,
-				A92B26571EEFA033007858B6 /* DropdownView.xib in Resources */,
-				A9FE75C41F550B9F00C9F2B3 /* TeamTabPage.storyboard in Resources */,
-				A9FE75C21F550B9B00C9F2B3 /* TeamReports.storyboard in Resources */,
-				A9FE75C01F550B8100C9F2B3 /* IndividualProgress.storyboard in Resources */,
-				A92B26581EEFA033007858B6 /* NotificationView.xib in Resources */,
-				A92B26591EEFA033007858B6 /* AddGoalActionCell.xib in Resources */,
-				A92B265A1EEFA033007858B6 /* QuestionCell.xib in Resources */,
-				A92B265B1EEFA033007858B6 /* List.strings in Resources */,
-				A92B265C1EEFA033007858B6 /* ReportCell.xib in Resources */,
-				A92B265D1EEFA033007858B6 /* DevelopmentPlan.strings in Resources */,
-				A9FE75E21F550D8500C9F2B3 /* ManagerSurveyCell.xib in Resources */,
-				A9971B59200C6DD400AED789 /* SurveyInvite.storyboard in Resources */,
-				A92B265E1EEFA033007858B6 /* ActionCell.xib in Resources */,
-				A92B265F1EEFA033007858B6 /* Invite.storyboard in Resources */,
-				A92B26601EEFA033007858B6 /* LeftMenu.strings in Resources */,
-				A92B26611EEFA033007858B6 /* Authentication.strings in Resources */,
-				A92B26621EEFA033007858B6 /* OptionCell.xib in Resources */,
-				A92B26631EEFA033007858B6 /* DashboardReminderCell.xib in Resources */,
-				A92B26641EEFA033007858B6 /* ShortcutView.xib in Resources */,
-				A92B26651EEFA033007858B6 /* Lato-Regular.ttf in Resources */,
-				A92B26661EEFA033007858B6 /* PopupView.xib in Resources */,
-				A92B26671EEFA033007858B6 /* Settings.storyboard in Resources */,
-				A92B26681EEFA033007858B6 /* QuestionTypeScaleView.xib in Resources */,
-				A92B26691EEFA033007858B6 /* default.plist in Resources */,
-				A9FE75E01F550D8000C9F2B3 /* ManagerReportCell.xib in Resources */,
-				A92B266A1EEFA033007858B6 /* DevelopmentPlanCell.xib in Resources */,
-				A92B266B1EEFA033007858B6 /* CreateDevelopmentPlan.strings in Resources */,
-				A92B266C1EEFA033007858B6 /* Lato-Light.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A9308BCC1DED74B5007B4F9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2585,64 +2254,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A92B25BC1EEFA033007858B6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A92B266D1EEFA033007858B6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A92B266E1EEFA033007858B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A92B266F1EEFA033007858B6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 7c67a5365060930052205dfdf95102678ef19047 5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672";
-		};
 		A968F1871DF7A4FF0091997D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -2732,139 +2343,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A92B25BD1EEFA033007858B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A92B25BE1EEFA033007858B6 /* ELChangePassViewController.m in Sources */,
-				A9FE75C71F550C4400C9F2B3 /* ELTeamTabPageViewController.m in Sources */,
-				A92B25BF1EEFA033007858B6 /* EdwardLynx.xcdatamodeld in Sources */,
-				A92B25C01EEFA033007858B6 /* ELSectionView.m in Sources */,
-				A9FE75D51F550CDD00C9F2B3 /* NSDate+Utils.m in Sources */,
-				A9971B57200C6DA700AED789 /* ELListViewManager.m in Sources */,
-				A92B25C11EEFA033007858B6 /* ELReportChildPageViewController.m in Sources */,
-				A92B25C21EEFA033007858B6 /* ELQuestionTableViewCell.m in Sources */,
-				A92B25C31EEFA033007858B6 /* ELListViewController.m in Sources */,
-				A92B25C41EEFA033007858B6 /* ELItemTableViewCell.m in Sources */,
-				A92B25C51EEFA033007858B6 /* ELDashboardViewController.m in Sources */,
-				A92B25C61EEFA033007858B6 /* ELInviteUsersViewController.m in Sources */,
-				A92B25C71EEFA033007858B6 /* main.m in Sources */,
-				A92B25C81EEFA033007858B6 /* ELConstants.m in Sources */,
-				A9FE75D21F550CAB00C9F2B3 /* ELIndexOverCompetenciesData.m in Sources */,
-				A92B25C91EEFA033007858B6 /* ELDashboardHeaderTableViewCell.m in Sources */,
-				A92B25CA1EEFA033007858B6 /* ELGoalDetailsViewController.m in Sources */,
-				A92B25CB1EEFA033007858B6 /* ELCreateInstantFeedbackViewController.m in Sources */,
-				A92B25CC1EEFA033007858B6 /* ELEditProfileViewController.m in Sources */,
-				A9971B51200C6D9C00AED789 /* ELAccountsViewManager.m in Sources */,
-				A92B25CD1EEFA033007858B6 /* ELSurveyCategoryPageViewController.m in Sources */,
-				A92B25CE1EEFA033007858B6 /* ELDevelopmentPlan.m in Sources */,
-				A9FE75DC1F550D0900C9F2B3 /* ELTeamMemberGoalTableViewCell.m in Sources */,
-				A92B25CF1EEFA033007858B6 /* ELParticipant.m in Sources */,
-				A92B25D01EEFA033007858B6 /* ELDropdownView.m in Sources */,
-				A92B25D11EEFA033007858B6 /* ELBlindspot.m in Sources */,
-				A9FE75CB1F550C5100C9F2B3 /* ELManagerReportsViewController.m in Sources */,
-				A9971B53200C6D9E00AED789 /* ELDetailViewManager.m in Sources */,
-				A92B25D21EEFA033007858B6 /* ELMenuItem.m in Sources */,
-				A92B25D31EEFA033007858B6 /* ELBaseDetailViewController.m in Sources */,
-				A92B25D41EEFA033007858B6 /* ELUtils.m in Sources */,
-				A9971B4F200C6D8E00AED789 /* ELDevelopmentPlanViewManager.m in Sources */,
-				A92B25D51EEFA033007858B6 /* ELSurveyInfoViewController.m in Sources */,
-				A92B25D61EEFA033007858B6 /* ELGoalTableViewCell.m in Sources */,
-				A92B25D71EEFA033007858B6 /* ELReportTableViewCell.m in Sources */,
-				A92B25D81EEFA033007858B6 /* ELAPIClient.m in Sources */,
-				A92B25D91EEFA033007858B6 /* ELSurveyTableViewCell.m in Sources */,
-				A92B25DA1EEFA033007858B6 /* ELGoalActionTableViewCell.m in Sources */,
-				A92B25DB1EEFA033007858B6 /* ELSearcheableModel.m in Sources */,
-				A92B25DC1EEFA033007858B6 /* ELAnswerOption.m in Sources */,
-				A92B25DD1EEFA033007858B6 /* ELConfigurationViewController.m in Sources */,
-				A92B25DE1EEFA033007858B6 /* ELUsersAPIClient.m in Sources */,
-				A92B25DF1EEFA033007858B6 /* ELSearchBar.m in Sources */,
-				A92B25E01EEFA033007858B6 /* ELQuestionTypeTextView.m in Sources */,
-				A92B25E11EEFA033007858B6 /* ELBasePageChildViewController.m in Sources */,
-				A92B25E31EEFA033007858B6 /* ELCategory.m in Sources */,
-				A92B25E41EEFA033007858B6 /* ELLoginViewController.m in Sources */,
-				A9FE75C51F550BE800C9F2B3 /* ELManagerCategoryViewController.m in Sources */,
-				A9971B4B200C6D8500AED789 /* ELTeamViewManager.m in Sources */,
-				A92B25E51EEFA033007858B6 /* ELDataProvider.m in Sources */,
-				A92B25E61EEFA033007858B6 /* ELQuestionTypeRadioGroupView.m in Sources */,
-				A9FE75C81F550C4A00C9F2B3 /* ELManagerIndividualViewController.m in Sources */,
-				A92B25E71EEFA033007858B6 /* AppDelegate.m in Sources */,
-				A92B25E81EEFA033007858B6 /* ELDevelopmentPlanTableViewCell.m in Sources */,
-				A9FE75C91F550C4E00C9F2B3 /* ELManagerReportDetailsViewController.m in Sources */,
-				A92B25E91EEFA033007858B6 /* ELModel.m in Sources */,
-				A9971B55200C6DA300AED789 /* ELFeedbackViewManager.m in Sources */,
-				A9FE75C61F550BF400C9F2B3 /* ELTeamAPIClient.m in Sources */,
-				A92B25EB1EEFA033007858B6 /* ELSurveysViewController.m in Sources */,
-				A9FE75DA1F550D0600C9F2B3 /* ELManagerSurveyTableViewCell.m in Sources */,
-				A92B25EC1EEFA033007858B6 /* ELSurvey.m in Sources */,
-				A9FE75D41F550CDA00C9F2B3 /* JSONValueTransformer+CustomNSDate.m in Sources */,
-				A92B25ED1EEFA033007858B6 /* ELAddGoalActionTableViewCell.m in Sources */,
-				A92B25EE1EEFA033007858B6 /* ELReminder.m in Sources */,
-				A9FE75D81F550D0200C9F2B3 /* ELManagerReportTableViewCell.m in Sources */,
-				A92B25EF1EEFA033007858B6 /* ELQuestionsAPIClient.m in Sources */,
-				A92B25F01EEFA033007858B6 /* ELUser.m in Sources */,
-				A92B25F11EEFA033007858B6 /* ELQuestionTypeScaleView.m in Sources */,
-				A92B25F21EEFA033007858B6 /* ELEmailValidator.m in Sources */,
-				A92B25F31EEFA033007858B6 /* ELDevelopmentPlansViewController.m in Sources */,
-				A92B25F41EEFA033007858B6 /* ELDashboardData.m in Sources */,
-				A9FE75D01F550C8D00C9F2B3 /* ELTeamDevelopmentPlan.m in Sources */,
-				A92B25F51EEFA033007858B6 /* ELReportPageViewController.m in Sources */,
-				A9FE75D61F550CFC00C9F2B3 /* ELCircleChartCollectionViewCell.m in Sources */,
-				A92B25F61EEFA033007858B6 /* ELResponseRate.m in Sources */,
-				A92B25F71EEFA033007858B6 /* ELQuestionTypeAgreementView.m in Sources */,
-				A92B25F81EEFA033007858B6 /* ELAnswerInstantFeedbackViewController.m in Sources */,
-				A92B25F91EEFA033007858B6 /* ELSurveysAPIClient.m in Sources */,
-				A92B25FA1EEFA033007858B6 /* ELDataPoint.m in Sources */,
-				A92B25FB1EEFA033007858B6 /* ELLabel.m in Sources */,
-				A92B25FC1EEFA033007858B6 /* ELAppSingleton.m in Sources */,
-				A92B25FD1EEFA033007858B6 /* ELReportsViewController.m in Sources */,
-				A92B25FE1EEFA033007858B6 /* NSString+HTML.m in Sources */,
-				A92B25FF1EEFA033007858B6 /* ELMenuTableViewCell.m in Sources */,
-				A92B26001EEFA033007858B6 /* ELParticipantTableViewCell.m in Sources */,
-				A9FE75CE1F550C5800C9F2B3 /* ELManagerUsersViewController.m in Sources */,
-				A92B26011EEFA033007858B6 /* ELQuestionCategory.m in Sources */,
-				A92B26021EEFA033007858B6 /* ELBaseQuestionTypeView.m in Sources */,
-				A92B26031EEFA033007858B6 /* ELShortcutView.m in Sources */,
-				A92B26041EEFA033007858B6 /* ELActionView.m in Sources */,
-				A9971B4D200C6D8A00AED789 /* ELSurveyViewManager.m in Sources */,
-				A92B26051EEFA033007858B6 /* ELBaseViewController.m in Sources */,
-				A92B26061EEFA033007858B6 /* ELListTableViewCell.m in Sources */,
-				A9FE75D71F550CFF00C9F2B3 /* ELManagerIndividualTableViewCell.m in Sources */,
-				A92B26091EEFA033007858B6 /* ELForgotPasswordViewController.m in Sources */,
-				A92B260A1EEFA033007858B6 /* ELAverage.m in Sources */,
-				A92B260B1EEFA033007858B6 /* ELYesNoData.m in Sources */,
-				A92B260D1EEFA033007858B6 /* ELAnswerSummary.m in Sources */,
-				A92B260E1EEFA033007858B6 /* ELGoal.m in Sources */,
-				A92B260F1EEFA033007858B6 /* ELCreateDevelopmentPlanViewController.m in Sources */,
-				A92B26101EEFA033007858B6 /* ELGoalAction.m in Sources */,
-				A92B26111EEFA033007858B6 /* ELDevelopmentPlanAPIClient.m in Sources */,
-				A92B26121EEFA033007858B6 /* ELAddObjectTableViewCell.m in Sources */,
-				A92B26131EEFA033007858B6 /* ELReportChartTableViewCell.m in Sources */,
-				A92B26141EEFA033007858B6 /* ELReportDetailsViewController.m in Sources */,
-				A92B26151EEFA033007858B6 /* ELTableDataSource.m in Sources */,
-				A92B26161EEFA033007858B6 /* ELLeftMenuViewController.m in Sources */,
-				A92B26171EEFA033007858B6 /* ELRadarDiagram.m in Sources */,
-				A92B26181EEFA033007858B6 /* ELTabPageViewController.m in Sources */,
-				A9FE75CF1F550C5B00C9F2B3 /* ELTeamDevPlanDetailsViewController.m in Sources */,
-				A92B26191EEFA033007858B6 /* ELQuestion.m in Sources */,
-				A92B261A1EEFA033007858B6 /* ELNotificationView.m in Sources */,
-				A92B261B1EEFA033007858B6 /* ELNotification.m in Sources */,
-				A92B261C1EEFA033007858B6 /* ELSurveyRateOthersViewController.m in Sources */,
-				A9FE75CD1F550C5500C9F2B3 /* ELManagerTeamViewController.m in Sources */,
-				A92B261E1EEFA033007858B6 /* ELBasePopupViewController.m in Sources */,
-				A92B261F1EEFA033007858B6 /* ELQuestionRate.m in Sources */,
-				A92B26201EEFA033007858B6 /* ELInstantFeedbacksViewController.m in Sources */,
-				A92B26211EEFA033007858B6 /* ELListPopupViewController.m in Sources */,
-				A92B26221EEFA033007858B6 /* ELDashboardReminderTableViewCell.m in Sources */,
-				A92B26231EEFA033007858B6 /* ELAnswer.m in Sources */,
-				A92B26241EEFA033007858B6 /* ELOAuthInstance.m in Sources */,
-				A92B26251EEFA033007858B6 /* ELPopupViewController.m in Sources */,
-				A92B26261EEFA033007858B6 /* ELInstantFeedback.m in Sources */,
-				A92B26271EEFA033007858B6 /* ELSurveyDetailsViewController.m in Sources */,
-				A92B26281EEFA033007858B6 /* ELDevelopmentPlanDetailsViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A9308BCA1DED74B5007B4F9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3156,12 +2634,12 @@
 /* Begin PBXTargetDependency section */
 		A9308BEC1DED74B6007B4F9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A9308BCD1DED74B5007B4F9F /* EdwardLynx */;
+			target = A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */;
 			targetProxy = A9308BEB1DED74B6007B4F9F /* PBXContainerItemProxy */;
 		};
 		A9308BF71DED74B6007B4F9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A9308BCD1DED74B5007B4F9F /* EdwardLynx */;
+			target = A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */;
 			targetProxy = A9308BF61DED74B6007B4F9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3950,52 +3428,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A92B26731EEFA033007858B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 18;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4XE8MVRXHY;
-				INFOPLIST_FILE = "EdwardLynxIngenuity-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96e4d097-d6d9-462b-b619-b7aa85a3317d";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Debug;
-		};
-		A92B26741EEFA033007858B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "EdwardLynx/Edward Lynx.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vernon Labayog (UNV5746VN4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 18;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4XE8MVRXHY;
-				INFOPLIST_FILE = "EdwardLynxIngenuity-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingenuitymobile.EdwardLynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96e4d097-d6d9-462b-b619-b7aa85a3317d";
-				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
 		A9308BFC1DED74B6007B4F9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4111,7 +3543,7 @@
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
-				PRODUCT_NAME = "Edward Lynx";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6e21e7cb-6901-4cca-9507-f323dbd1e4ea";
 				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4135,7 +3567,7 @@
 				INFOPLIST_FILE = EdwardLynx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
-				PRODUCT_NAME = "Edward Lynx";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6e21e7cb-6901-4cca-9507-f323dbd1e4ea";
 				PROVISIONING_PROFILE_SPECIFIER = "Edward Lynx";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4210,7 +3642,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EdwardLynxRelease-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Edward Lynx";
 				PROVISIONING_PROFILE = "71432368-8874-4176-95f9-1780b1a68b79";
 				PROVISIONING_PROFILE_SPECIFIER = "com.mobileapp.edwardlynx AppStore";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4233,7 +3665,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EdwardLynxRelease-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobileapp.edwardlynx;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Edward Lynx";
 				PROVISIONING_PROFILE = "71432368-8874-4176-95f9-1780b1a68b79";
 				PROVISIONING_PROFILE_SPECIFIER = "com.mobileapp.edwardlynx AppStore";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4243,15 +3675,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A92B26721EEFA033007858B6 /* Build configuration list for PBXNativeTarget "EdwardLynxIngenuity" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A92B26731EEFA033007858B6 /* Debug */,
-				A92B26741EEFA033007858B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A9308BC91DED74B5007B4F9F /* Build configuration list for PBXProject "EdwardLynx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -4261,7 +3684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynx" */ = {
+		A9308BFE1DED74B6007B4F9F /* Build configuration list for PBXNativeTarget "EdwardLynxStaging" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9308BFF1DED74B6007B4F9F /* Debug */,

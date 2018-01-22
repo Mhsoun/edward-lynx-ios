@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
-               BuildableName = "Edward Lynx.app"
-               BlueprintName = "EdwardLynx"
+               BuildableName = "EdwardLynxStaging.app"
+               BlueprintName = "EdwardLynxStaging"
                ReferencedContainer = "container:EdwardLynx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
-            BuildableName = "Edward Lynx.app"
-            BlueprintName = "EdwardLynx"
+            BuildableName = "EdwardLynxStaging.app"
+            BlueprintName = "EdwardLynxStaging"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
-            BuildableName = "Edward Lynx.app"
-            BlueprintName = "EdwardLynx"
+            BuildableName = "EdwardLynxStaging.app"
+            BlueprintName = "EdwardLynxStaging"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -104,8 +104,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9308BCD1DED74B5007B4F9F"
-            BuildableName = "Edward Lynx.app"
-            BlueprintName = "EdwardLynx"
+            BuildableName = "EdwardLynxStaging.app"
+            BlueprintName = "EdwardLynxStaging"
             ReferencedContainer = "container:EdwardLynx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
