@@ -57,7 +57,8 @@ NSString * const kELAPIEmailLinkSurveyAnswer = @"/survey/answer/";
 #pragma mark - Endpoints
 
 //NSString * const kELAPIRootEndpoint = @"https://edwardlynx.ingenuity.ph";
-NSString * const kELAPIRootEndpoint = @"https://stage.lynxtool.edwardlynx.com";
+//NSString * const kELAPIRootEndpoint = @"https://stage.lynxtool.edwardlynx.com";
+NSString * const kELAPIRootEndpoint = @"https://lynxtool.edwardlynx.com";
 NSString * const kELAPIVersionNamespace = @"api/v1";
 
 NSString * const kELAPILoginEndpoint = @"oauth/token";

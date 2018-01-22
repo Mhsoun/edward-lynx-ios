@@ -86,6 +86,12 @@
     ELFormItemGroup *formFieldGroup;
     
     isEmpty = NO;
+    key = @"type";
+    
+    if (!formDict[key]) {
+        return NO;
+    }
+    
     key = @"question";
     
     if (formDict[key]) {
@@ -104,9 +110,11 @@
     if (formDict[key]) {
         options = formDict[key];
         isEmpty = options.count == 0;
+        
+        return errors.count == 0 && !isEmpty;
     }
     
-    return errors.count == 0 && !isEmpty;
+    return errors.count == 0;
 }
 
 @end

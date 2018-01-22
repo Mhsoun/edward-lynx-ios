@@ -38,7 +38,7 @@
     ELFormItemGroup *group1, *group2;
     
     // Given
-    group1 = [[ELFormItemGroup alloc] initWithText:@"No type selected" icon:nil errorLabel:nil];
+    group1 = [[ELFormItemGroup alloc] initWithText:@"" icon:nil errorLabel:nil];
     group2 = [[ELFormItemGroup alloc] initWithText:@"Is this a question from iOS Unit test?" icon:nil errorLabel:nil];
     
     // When

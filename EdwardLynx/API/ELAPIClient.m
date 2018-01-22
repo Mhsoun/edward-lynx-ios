@@ -51,6 +51,8 @@ static NSString * const kELApplicationJSON = @"application/json";
         __kindof UIViewController *visibleViewController;
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+        DLog(@"Request URL: %@", request.URL.absoluteString);
                                                                  
         if (error) {
             DLog(@"%@", error.localizedDescription);
