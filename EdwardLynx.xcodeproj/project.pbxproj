@@ -1991,8 +1991,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */,
 				A99359181F04FF92003EC659 /* EdwardLynxAppStore */,
+				A9308BCD1DED74B5007B4F9F /* EdwardLynxStaging */,
 				A9308BE91DED74B6007B4F9F /* EdwardLynxTests */,
 				A9308BF41DED74B6007B4F9F /* EdwardLynxUITests */,
 			);

@@ -8,6 +8,8 @@
 		<string>6</string>
 		<key>Secret</key>
 		<string>C2o9x70fFHjq99M0OvXAfXdZTJTSjbuiRlfbNoEx</string>
+		<key>URL</key>
+		<string>https://lynxtool.edwardlynx.com</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

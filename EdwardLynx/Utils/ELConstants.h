@@ -177,7 +177,6 @@ extern NSString * const kELAPIEmailLinkSurveyAnswer;
 #pragma mark - Endpoints
 
 extern NSString * const kELAPIVersionNamespace;
-extern NSString * const kELAPIRootEndpoint;
 
 extern NSString * const kELAPILoginEndpoint;
 
