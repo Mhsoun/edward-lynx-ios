@@ -122,7 +122,7 @@
     ELQuestion *question = self.instantFeedback.question;
     __kindof ELBaseQuestionTypeView *questionView = [ELUtils viewByAnswerType:question.answer.type];
     
-    toExpand = question.answer.type != kELAnswerTypeText;
+    toExpand = question.answer.type == kELAnswerTypeCustomScale;
     height = toExpand ? (question.answer.options.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight : 135;
     
     // Content
