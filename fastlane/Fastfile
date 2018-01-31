@@ -1,0 +1,290 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.111.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    ENV["APPLE_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:apple_id)
+    ENV["SLACK_URL"] = "<your Slack Hook URL here>"
+    ENV["DEV_TEAM_ID"] = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    ENV["EL_DEV_TEAM_ID"] = "KGZFZP3DEA"
+    ENV["GIT_CERTS_URL"] = "<your repository URL for certificates>"
+    ENV["XCODE_PROJECT"] = "EdwardLynx.xcodeproj"    
+    ENV["APP_IDENTIFIER"] = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    ENV["EL_APP_IDENTIFIER"] = "com.mobileapp.edwardlynx"
+    ENV["EL_ITUNES_TEAM_ID"] = "118663671"
+    ENV["HOCKEYAPP_API_TOKEN"] = "04f3ad6e503149849733102b270e827e"
+    ENV["CRASHLYTICS_API_TOKEN"] = "7c67a5365060930052205dfdf95102678ef19047"
+    ENV["CRASHLYTICS_BUILD_SECRET"] = "5bf528d13c4ba0103042cb10b009ec54ad1accb01a4cd7e552bd62dc63713672"
+
+    ensure_git_status_clean
+  end
+
+  # Lanes
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Create needed certificates and upload to Bitbucket"
+  lane :certs do
+    match(
+      app_identifier: ENV["APP_IDENTIFIER"],
+      team_id: ENV["DEV_TEAM_ID"],
+      type: "development",
+      git_url: ENV["GIT_CERTS_URL"]
+    )
+  end
+
+  desc "Submit a new Beta Build to CrashLytics"
+  lane :crashlytics do |options|
+    build_for_crashlytics()
+  end
+
+  desc "Registers devices to Apple Developer Account"
+  lane :devices do
+    register_devices(
+      devices_file: "devices.txt",
+      team_id: ENV["EL_DEV_TEAM_ID"],
+    )
+    # match(
+      # type: "development",
+      # force_for_new_devices: true
+    # )
+  end
+
+  desc "Create Development Portal app"
+  lane :devportal do
+    build_for_devportal()
+  end
+
+  desc "Submit a new Beta Build to HockeyApp"
+  lane :hockeyapp do
+    build_for_hockeyapp()
+  end
+
+  desc "Generates an .ipa file"
+  lane :ipabuild do
+    increment_build_number
+    increment_version_number(
+      bump_type: "patch"
+    )
+    gym(
+      scheme: "EdwardLynx",
+      export_method: "development",
+      include_bitcode: false,
+      include_symbols: true,
+      export_options: "ExportOptions.plist"
+    )
+  end
+
+  desc "Updates .p12 file to be used for Push Notifications"
+  lane :p12 do
+    pem(
+      development: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
+    )
+  end       
+
+  desc "Updates project's Provisioning Profile"
+  lane :provisioningprofile do
+    sigh(
+      development: true,
+      username: ENV["APPLE_ID"],
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
+    )
+  end
+
+  lane :provisioningprofileappstore do
+    sigh(
+      username: ENV["APPLE_ID"],
+      team_id: ENV["EL_DEV_TEAM_ID"],
+      app_identifier: ENV["EL_APP_IDENTIFIER"]
+    )
+  end
+
+  desc "Deploys a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym(
+      scheme: "EdwardLynxAppStore",
+      export_method: "app-store"
+    )
+    deliver(
+      force: true,
+      username: ENV["APPLE_ID"],
+      dev_portal_team_id: ENV["EL_DEV_TEAM_ID"],
+      itc_team_id: "118663671",
+      app_identifier: ENV["EL_APP_IDENTIFIER"],
+      skip_screenshots: true,
+      skip_metadata: true
+    )
+    # frameit
+  end
+
+  # Private Lanes
+
+  desc "Format Slack message for notification"
+  private_lane :post_to_slack do |options|
+    scheme = options[:scheme]
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+    destination = options[:destination]
+    version_string = version_string(version, build)
+
+    slack(
+      message: "<!here|here>: New :ios: *#{version_string}* for `#{scheme}` has been submitted to *#{destination}* :rocket:",
+    )
+  end
+
+  # Methods
+
+  desc "Method to upload to Crashlytics"
+  def build_for_crashlytics()
+    # Fabric generated this lane for deployment to Crashlytics Beta
+    # set 'export_method' to 'ad-hoc' if your Crashlytics Beta distribution uses ad-hoc provisioning
+    gym(
+      scheme: "EdwardLynx", 
+      export_method: "development"
+    )
+
+    emails = ["mobile@ingenuity.ph"] # You can list more emails here
+    groups = nil # You can define groups on the web and reference them here
+
+    crashlytics(
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+      build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
+      emails: emails,
+      groups: groups,
+      notes: "Distributed with fastlane", # Check out the changelog_from_git_commits action
+      notifications: true
+    ) # Should this distribution notify your testers via email?
+
+    # Clean directory
+    clean_build_artifacts
+
+    # for all available options run `fastlane action crashlytics`
+
+    # You can notify your team in chat that a beta build has been uploaded
+    # slack(
+    #   slack_url: "https://hooks.slack.com/services/YOUR/TEAM/INFO"
+    #   channel: "beta-releases",
+    #   message: "Successfully uploaded a beta release - see it at https://fabric.io/_/beta"
+    # )
+  end
+
+  desc "Method to create/upload app entry to Apple Developer Portal"
+  def build_for_devportal()
+    produce(
+      username: ENV["APPLE_ID"],
+      team_id: "KGZFZP3DEA",
+      itc_team_id: "118663671",
+      app_identifier: "com.mobileapp.edwardlynx",
+      app_name: "Edward Lynx",
+      company_name: "Edward Lynx",
+      language: "English",
+      sku: "SampleSKU"
+    )
+  end
+  
+  desc "Method to upload to HockeyApp"
+  def build_for_hockeyapp()
+    ipabuild
+
+    version = get_version_number(xcodeproj: ENV["XCODE_PROJECT"])
+    build = get_build_number(xcodeproj: ENV["XCODE_PROJECT"])
+
+    # Push version changes to repository
+    push_version_bump_to_repo(version_string(version, build))
+
+    hockey(
+      api_token: ENV["HOCKEYAPP_API_TOKEN"],
+      notify: "1",
+      status: "2",
+      notes: File.exist?("../Notes.md") ? File.read("../Notes.md") : change_log_since_last_tag
+    )
+
+    # Notify thru Slack
+    # post_to_slack(scheme: scheme, destination: "HockeyApp")
+
+    # Clean directory
+    clean_build_artifacts
+  end
+
+  desc "Method to generate Changelogs based on Git commits"
+  def change_log_since_last_tag
+    # http://git-scm.com/docs/pretty-formats
+    # <commit title>
+    return changelog_from_git_commits(
+      pretty: "%s",
+      include_merges: false
+    )
+  end
+
+  desc "Push changes to project's version to remote repository"
+  def push_version_bump_to_repo(version_string)
+    # https://developer.apple.com/library/content/qa/qa1827/_index.html
+    commit_version_bump(
+      message: "Version bump to #{version_string}",
+      xcodeproj: ENV["XCODE_PROJECT"]
+    )
+    # Pushes "master" branch to remote
+    # Options: https://docs.fastlane.tools/actions/#push_to_git_remote
+    # push_to_git_remote
+  end
+
+  desc "Method to update version number upon call"
+  def update_version_number(bump_type)
+    increment_version_number(
+      bump_type: "<either `patch`, `minor`, or `major`>"
+    )
+  end
+
+  desc "Method to return project's version and build number as a formatted string"
+  def version_string(version_number, build_number)
+    "#{version_number} (#{build_number})"
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # Mac OS X Notification
+    notification(
+      subtitle: "Fastlane", 
+      message: "Finished '#{lane}' successfully"
+    )
+  end
+
+  error do |lane, exception|
+    # Mac OS X Notification
+    notification(
+      subtitle: "Fastlane", 
+      message: "Encountered errors executing '#{lane}': #{exception.message}"
+    )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

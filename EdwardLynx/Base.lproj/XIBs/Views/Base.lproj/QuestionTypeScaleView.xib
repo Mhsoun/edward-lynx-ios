@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ELQuestionTypeScaleView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7gl-gU-V1B">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="l9q-LG-RFS"/>
+                    </constraints>
+                    <segments>
+                        <segment title="1"/>
+                        <segment title="2"/>
+                        <segment title="3"/>
+                        <segment title="4"/>
+                        <segment title="5"/>
+                    </segments>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="onScaleChoicesValueChange:" destination="iN0-l3-epB" eventType="valueChanged" id="kIf-Fm-HXU"/>
+                    </connections>
+                </segmentedControl>
+                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ihh-VR-yln">
+                    <rect key="frame" x="0.0" y="40" width="375" height="85"/>
+                    <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                    </userDefinedRuntimeAttributes>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7gl-gU-V1B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2dC-QT-b86"/>
+                <constraint firstItem="ihh-VR-yln" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="75i-Nn-XjA"/>
+                <constraint firstAttribute="trailing" secondItem="7gl-gU-V1B" secondAttribute="trailing" id="7Gp-kq-NGF"/>
+                <constraint firstItem="7gl-gU-V1B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xac-8q-yOC"/>
+                <constraint firstItem="ihh-VR-yln" firstAttribute="top" secondItem="7gl-gU-V1B" secondAttribute="bottom" constant="10" id="aWd-i9-EsH"/>
+                <constraint firstAttribute="bottom" secondItem="ihh-VR-yln" secondAttribute="bottom" id="tL3-7y-F6z"/>
+                <constraint firstAttribute="trailing" secondItem="ihh-VR-yln" secondAttribute="trailing" id="xdP-TA-lMS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="scaleChoices" destination="7gl-gU-V1B" id="CHb-IH-0nZ"/>
+                <outlet property="textView" destination="ihh-VR-yln" id="w0r-jX-gNL"/>
+                <outlet property="topConstraint" destination="Xac-8q-yOC" id="1AC-3h-ael"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

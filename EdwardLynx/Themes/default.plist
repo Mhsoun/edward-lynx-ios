@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>devPlanColor</key>
+	<string>18b3c9</string>
+	<key>feedbackColor</key>
+	<string>009688</string>
+	<key>lynxColor</key>
+	<string>c845dc</string>
+	<key>teamColor</key>
+	<string>dfb65d</string>
+	<key>otherColor</key>
+	<string>f44336</string>
+	<key>containerColor</key>
+	<string>462063</string>
+	<key>devPlanSeparatorColor</key>
+	<string>7d648f</string>
+	<key>headerColor</key>
+	<string>331548</string>
+	<key>inactiveColor</key>
+	<string>675078</string>
+	<key>subtextColor</key>
+	<string>9786a6</string>
+	<key>surveySeparatorColor</key>
+	<string>2f1344</string>
+	<key>textFieldBGColor</key>
+	<string>72508a</string>
+	<key>textFieldInputColor</key>
+	<string>401d5a</string>
+	<key>blackColor</key>
+	<string>3c3c3c</string>
+	<key>blueColor</key>
+	<string>1995db</string>
+	<key>darkGrayColor</key>
+	<string>636363</string>
+	<key>darkVioletColor</key>
+	<string>442060</string>
+	<key>grayColor</key>
+	<string>e3e3e3</string>
+	<key>greenColor</key>
+	<string>00c853</string>
+	<key>lightGrayColor</key>
+	<string>f3f3f3</string>
+	<key>lightVioletColor</key>
+	<string>9a6bc9</string>
+	<key>pinkColor</key>
+	<string>c845dc</string>
+	<key>orangeColor</key>
+	<string>f79646</string>
+	<key>redColor</key>
+	<string>dd0024</string>
+	<key>violetColor</key>
+	<string>663593</string>
+	<key>whiteColor</key>
+	<string>ffffff</string>
+</dict>
+</plist>

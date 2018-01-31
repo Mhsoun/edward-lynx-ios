@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41"; */
+"BvV-Tr-b41.text" = "Answer Type";
+
+/* Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3"; */
+"LqK-pq-nP3.text" = "Question";
+
+/* Class = "UILabel"; text = "Question Type Preview"; ObjectID = "Tex-aE-SUX"; */
+"Tex-aE-SUX.text" = "Question Type Preview";
+
+/* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
+"WO5-DV-VLL.text" = "Is Anonymous";
+
+/* Class = "UINavigationItem"; title = "Create Instant Feedback"; ObjectID = "ZYd-Wg-Okj"; */
+"ZYd-Wg-Okj.title" = "Create Instant Feedback";
+
+/* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
+"eM8-uf-ggi.text" = "Options";
+
+/* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
+"tgA-52-d0c.text" = "Add a N/A option";
+
+/* Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ"; */
+"vhu-w3-2iZ.normalTitle" = "Invite";

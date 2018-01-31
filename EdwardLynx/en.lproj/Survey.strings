@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Role"; ObjectID = "33n-m2-WWu"; */
+"33n-m2-WWu.text" = "Role";
+
+/* Class = "UINavigationItem"; title = "Surveys"; ObjectID = "B21-4l-6el"; */
+"B21-4l-6el.title" = "Surveys";
+
+/* Class = "UILabel"; text = "Users to invite"; ObjectID = "OUg-ex-YkK"; */
+"OUg-ex-YkK.text" = "Users to invite";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "Ot0-UB-XIx"; */
+"Ot0-UB-XIx.text" = "E-mail";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "Y7d-Ki-W5I"; */
+"Y7d-Ki-W5I.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Y7d-Ki-W5I"; */
+"Y7d-Ki-W5I.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "Invite people to rate you in a survey"; ObjectID = "Yym-JO-B5p"; */
+"Yym-JO-B5p.text" = "Invite people to rate you in a survey";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "ajk-Vm-b8j"; */
+"ajk-Vm-b8j.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "Save to Drafts"; ObjectID = "ajk-Vm-b8j"; */
+"ajk-Vm-b8j.normalTitle" = "Save to Drafts";
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "Send Invites"; ObjectID = "bai-qk-Mib"; */
+"bai-qk-Mib.normalTitle" = "Send Invites";
+
+/* Class = "UIButton"; normalTitle = "Add User"; ObjectID = "ptj-GZ-AdK"; */
+"ptj-GZ-AdK.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ya8-nY-aED"; */
+"ya8-nY-aED.text" = "Name";

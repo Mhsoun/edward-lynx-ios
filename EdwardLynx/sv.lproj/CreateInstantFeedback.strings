@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Answer Type"; ObjectID = "BvV-Tr-b41"; */
+"BvV-Tr-b41.text" = "Svarstyp";
+
+/* Class = "UILabel"; text = "Question"; ObjectID = "LqK-pq-nP3"; */
+"LqK-pq-nP3.text" = "Fråga";
+
+/* Class = "UILabel"; text = "Question Type Preview"; ObjectID = "Tex-aE-SUX"; */
+"Tex-aE-SUX.text" = "Frågetyp förhandsgranskning";
+
+/* Class = "UILabel"; text = "Is Anonymous"; ObjectID = "WO5-DV-VLL"; */
+"WO5-DV-VLL.text" = "Är anonym";
+
+/* Class = "UINavigationItem"; title = "Create Instant Feedback"; ObjectID = "ZYd-Wg-Okj"; */
+"ZYd-Wg-Okj.title" = "Skapa snabb återkoppling";
+
+/* Class = "UILabel"; text = "Options"; ObjectID = "eM8-uf-ggi"; */
+"eM8-uf-ggi.text" = "Alternativ";
+
+/* Class = "UILabel"; text = "Add a N/A option"; ObjectID = "tgA-52-d0c"; */
+"tgA-52-d0c.text" = "Lägg till ett N / A-alternativ";
+
+/* Class = "UIButton"; normalTitle = "Invite"; ObjectID = "vhu-w3-2iZ"; */
+"vhu-w3-2iZ.normalTitle" = "Invite";

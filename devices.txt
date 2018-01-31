@@ -1,0 +1,24 @@
+Device ID	Device Name
+0dc40441f90e2ecb55bd3dff72e69806783d1647	Edward Lynx - Aileen Chen
+3be9fc3acfd707fe9e5627bf425603449f257e51	Edward Lynx - Yury Kazhura
+F8BC8189D105381453715053E7FC673641892B56	Edward Lynx - Eva Korn
+E32426097A774976853C91697AB4751852B02CE7	Edward Lynx - Larisa Turculet
+07C27683B28EFB30735A986AE8C0DC05F48E767B	Edward Lynx - Mats Rudal
+3eca0f028f2aca40e9d7d2f2c46bef1b1db76d1b	Edward Lynx - Noxy Midonzi
+7752aa5b65736a3e2fe19ae5a59aeceacf37c2b1	Edward Lynx - Ola Wretling
+3564849fa318f1f22ca85a03b4adf3f9089a4033	Edward Lynx - Lorena Mandi
+FFFFFFFF937490A624644A379F07C54A4BBB9ECF	Edward Lynx - Marianne Taflin
+e9ffca1163fb589bd1a8d375358397877a3c792b	Edward Lynx - Lina Vettegard
+7e1069bee98956b9631310aede1150fdee8d8cd6	Edward Lynx - Olivia Mroz
+6481c1e588c0a4a218a3e00e31eabdea9aeb697e	Edward Lynx - Mohammad Mahsoun
+FFFFFFFF845A095447FD44BC96E251BC8456BE74	Edward Lynx - soderlund@edwardlynx.com
+67cc935d788126d68d6aef32f399609da9b0d140	Edward Lynx - ericsson@edwardlynx.com
+70c6fff204963b2b4747c5edaf99d0f0aa2f8cd6	Edward Lynx - alexandr@edwardlynx.com
+5014bdaffb72fa96000d5937e6d2fb201b88ca47	Edward Lynx - mhsoun@edwardlynx.com
+646de5868ba011ccc4e3c9d2491e20607d862474	Edward Lynx - edwpublic89@gmail.com
+4066676e30e9378fd0934dff805ab557d14b0ad3	Edward Lynx - massabo@edwardlynx.com
+063081f89a9167b4cf22a15c2f91bca0f6d52440	Edward Lynx - shabnam@edwardlynx.com
+aff81102b4f19a98a3f82bb51eb5086794993ae4	Ingenuity - iPhone 6
+03cbf682745ee751b724250378bde13b508093ff	Ingenuity - iPod Touch
+aa48996dab281ccaccc68620aa0cb52622fa744d	Ingenuity - iPhone 7
+f264c89cce260a62465b47dd81f3e4ec17293ead	Ingenuity - iPad

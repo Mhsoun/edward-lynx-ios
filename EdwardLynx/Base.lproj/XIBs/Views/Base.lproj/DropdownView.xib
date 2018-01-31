@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ELDropdownView">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHD-JY-qBG" userLabel="Category View">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="130"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBJ-iM-5p8">
+                            <rect key="frame" x="0.0" y="0.0" width="365" height="130"/>
+                            <subviews>
+                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-Ge-4uh">
+                                    <rect key="frame" x="5" y="0.0" width="355" height="130"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                    <color key="textColor" red="0.16862745100000001" green="0.074509803920000006" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Wjc-Ge-4uh" secondAttribute="trailing" constant="5" id="0Gh-f9-dNw"/>
+                                <constraint firstAttribute="bottom" secondItem="Wjc-Ge-4uh" secondAttribute="bottom" id="DM4-Cx-PM8"/>
+                                <constraint firstItem="Wjc-Ge-4uh" firstAttribute="leading" secondItem="DBJ-iM-5p8" secondAttribute="leading" constant="5" id="df2-rP-qmS"/>
+                                <constraint firstItem="Wjc-Ge-4uh" firstAttribute="top" secondItem="DBJ-iM-5p8" secondAttribute="top" id="kGN-lq-LVs"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COp-PF-7XS" userLabel="Category Button">
+                            <rect key="frame" x="370" y="0.0" width="130" height="130"/>
+                            <color key="backgroundColor" red="0.44705882349999998" green="0.31372549020000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="COp-PF-7XS" secondAttribute="height" multiplier="1:1" id="P4z-Zf-zqm"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onDropdownButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5zc-1T-K3e"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="COp-PF-7XS" secondAttribute="bottom" id="3DO-4t-nQF"/>
+                        <constraint firstAttribute="trailing" secondItem="COp-PF-7XS" secondAttribute="trailing" id="MFQ-Kv-0CH"/>
+                        <constraint firstItem="DBJ-iM-5p8" firstAttribute="top" secondItem="CHD-JY-qBG" secondAttribute="top" id="MYd-f0-sGL"/>
+                        <constraint firstAttribute="bottom" secondItem="DBJ-iM-5p8" secondAttribute="bottom" id="RRa-Fl-J73"/>
+                        <constraint firstItem="DBJ-iM-5p8" firstAttribute="leading" secondItem="CHD-JY-qBG" secondAttribute="leading" id="WhS-Ck-QbB"/>
+                        <constraint firstItem="COp-PF-7XS" firstAttribute="leading" secondItem="DBJ-iM-5p8" secondAttribute="trailing" constant="5" id="gGL-sI-86s"/>
+                        <constraint firstItem="COp-PF-7XS" firstAttribute="top" secondItem="CHD-JY-qBG" secondAttribute="top" id="oRC-T1-J9S"/>
+                    </constraints>
+                </view>
+                <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-BF-4I6">
+                    <rect key="frame" x="0.0" y="132.5" width="500" height="15"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="15S-u1-pxJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b6l-BF-4I6" secondAttribute="trailing" id="2VF-kL-e17"/>
+                <constraint firstItem="CHD-JY-qBG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Psw-zb-6TX"/>
+                <constraint firstItem="CHD-JY-qBG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QAv-Te-6VI"/>
+                <constraint firstItem="b6l-BF-4I6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j8G-Lt-z24"/>
+                <constraint firstItem="b6l-BF-4I6" firstAttribute="top" secondItem="CHD-JY-qBG" secondAttribute="bottom" constant="2.5" id="qbB-fc-4ac"/>
+                <constraint firstAttribute="bottom" secondItem="b6l-BF-4I6" secondAttribute="bottom" constant="2.5" id="vcK-ei-lmz"/>
+                <constraint firstAttribute="trailing" secondItem="CHD-JY-qBG" secondAttribute="trailing" id="xzj-fu-nVH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="COp-PF-7XS" id="2Vu-Bw-3tC"/>
+                <outlet property="errorLabel" destination="b6l-BF-4I6" id="Dv0-eN-jhu"/>
+                <outlet property="titleLabel" destination="Wjc-Ge-4uh" id="IgL-fV-j4X"/>
+            </connections>
+        </view>
+    </objects>
+</document>

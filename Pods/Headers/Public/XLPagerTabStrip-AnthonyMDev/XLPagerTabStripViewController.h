@@ -1,0 +1,1 @@
+../../../XLPagerTabStrip-AnthonyMDev/XLPagerTabStrip/XL/Controllers/XLPagerTabStripViewController.h

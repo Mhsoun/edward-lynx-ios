@@ -1,0 +1,36 @@
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "0mI-Vz-p3Z"; */
+"0mI-Vz-p3Z.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Enter Description"; ObjectID = "1sF-5k-Txc"; */
+"1sF-5k-Txc.text" = "Ange beskrivning";
+
+/* Class = "UILabel"; text = "Enter Goal Name"; ObjectID = "6j0-UM-6if"; */
+"6j0-UM-6if.text" = "Ange målnamn";
+
+/* Class = "UILabel"; text = "Enter Development Plan Name"; ObjectID = "76e-JE-FPl"; */
+"76e-JE-FPl.text" = "Ange utvecklingsplanens namn";
+
+/* Class = "UIButton"; normalTitle = "Create"; ObjectID = "9wj-up-hY1"; */
+"9wj-up-hY1.normalTitle" = "Skapa";
+
+/* Class = "UILabel"; text = "Link to a category"; ObjectID = "Ei9-aC-MO4"; */
+"Ei9-aC-MO4.text" = "Länk till en kategori";
+
+/* Class = "UINavigationItem"; title = "Goal Details"; ObjectID = "O5J-gr-nQK"; */
+"O5J-gr-nQK.title" = "Måldetaljer";
+
+/* Class = "UINavigationItem"; title = "Create Development Plan"; ObjectID = "Vv2-Q3-oR2"; */
+"Vv2-Q3-oR2.title" = "Skapa utvecklingsplan";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "aRW-0g-O3z"; */
+"aRW-0g-O3z.text" = "Title";
+
+/* Class = "UILabel"; text = "Actions"; ObjectID = "ec1-sT-EDz"; */
+"ec1-sT-EDz.text" = "Åtgärder";
+
+/* Class = "UILabel"; text = "Due Date"; ObjectID = "k8P-kX-1PH"; */
+"k8P-kX-1PH.text" = "Förfallodatum";
+
+/* Class = "UILabel"; text = "Goals"; ObjectID = "y2D-su-Kaj"; */
+"y2D-su-Kaj.text" = "Mål";

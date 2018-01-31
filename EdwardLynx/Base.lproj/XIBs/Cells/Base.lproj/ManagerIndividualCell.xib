@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ManagerIndividualCell" id="GAX-zq-dbT" customClass="ELManagerIndividualTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAX-zq-dbT" id="TCN-li-V81">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIn-j5-5TV">
+                        <rect key="frame" x="15" y="5" width="265" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEa-rt-rfF">
+                        <rect key="frame" x="285" y="5" width="75" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="7bb-Iv-hbx"/>
+                            <constraint firstAttribute="width" constant="75" id="zQj-J0-uaS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <state key="normal" title="See More">
+                            <color key="titleColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onSeeMoreButtonClick:" destination="GAX-zq-dbT" eventType="touchUpInside" id="uD5-Aj-SBB"/>
+                        </connections>
+                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l9O-vV-GX3">
+                        <rect key="frame" x="5" y="45" width="365" height="99.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCF-fC-CkS">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="xIn-j5-5TV" firstAttribute="top" secondItem="TCN-li-V81" secondAttribute="top" constant="5" id="BzC-FP-fKP"/>
+                    <constraint firstItem="xIn-j5-5TV" firstAttribute="leading" secondItem="TCN-li-V81" secondAttribute="leading" constant="15" id="DC4-fx-E0r"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="height" secondItem="xIn-j5-5TV" secondAttribute="height" id="GNV-4q-zun"/>
+                    <constraint firstItem="l9O-vV-GX3" firstAttribute="leading" secondItem="TCN-li-V81" secondAttribute="leading" constant="5" id="I5K-QQ-E4r"/>
+                    <constraint firstAttribute="bottom" secondItem="l9O-vV-GX3" secondAttribute="bottom" constant="5" id="L3b-6D-gJA"/>
+                    <constraint firstAttribute="trailing" secondItem="aEa-rt-rfF" secondAttribute="trailing" constant="15" id="NKC-WE-swB"/>
+                    <constraint firstItem="l9O-vV-GX3" firstAttribute="top" secondItem="xIn-j5-5TV" secondAttribute="bottom" constant="5" id="YCX-Xf-CXh"/>
+                    <constraint firstAttribute="trailing" secondItem="l9O-vV-GX3" secondAttribute="trailing" constant="5" id="f7w-7B-4vw"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="leading" secondItem="xIn-j5-5TV" secondAttribute="trailing" constant="5" id="g6q-ay-zft"/>
+                    <constraint firstItem="aEa-rt-rfF" firstAttribute="top" secondItem="TCN-li-V81" secondAttribute="top" constant="5" id="tR8-rX-6Q5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="collectionView" destination="l9O-vV-GX3" id="HJt-qW-Ahq"/>
+                <outlet property="nameLabel" destination="xIn-j5-5TV" id="zYj-eS-ZMi"/>
+                <outlet property="seeMoreButton" destination="aEa-rt-rfF" id="oAY-6g-nw2"/>
+            </connections>
+            <point key="canvasLocation" x="-93.5" y="-45"/>
+        </tableViewCell>
+    </objects>
+</document>

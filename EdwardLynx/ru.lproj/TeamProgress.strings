@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Team Development Plans"; ObjectID = "DcM-iz-KLR"; */
+"DcM-iz-KLR.text" = "Планы развития команды";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "FWe-YD-bP9"; */
+"FWe-YD-bP9.text" = "Имя";
+
+/* Class = "UILabel"; text = "Name can't be blank"; ObjectID = "Obi-bK-nh1"; */
+"Obi-bK-nh1.text" = "Графа Имя не может быть пустой";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "T54-hl-hg7"; */
+"T54-hl-hg7.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "fsb-h3-W2L"; */
+"fsb-h3-W2L.text" = "Язык";
+
+/* Class = "UINavigationItem"; title = "Manage Plans"; ObjectID = "oLH-tN-NUo"; */
+"oLH-tN-NUo.title" = "Управление планами";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "pJR-jZ-NOC"; */
+"pJR-jZ-NOC.normalTitle" = "Обновить";

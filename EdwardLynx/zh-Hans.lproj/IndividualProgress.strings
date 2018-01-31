@@ -1,0 +1,12 @@
+
+/* Class = "UINavigationItem"; title = "Users"; ObjectID = "1K6-IE-BTG"; */
+"1K6-IE-BTG.title" = "用户";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "Ryu-zM-Q46"; */
+"Ryu-zM-Q46.normalTitle" = "更新";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "fsr-Qo-2xt"; */
+"fsr-Qo-2xt.placeholder" = "搜索";
+
+/* Class = "UILabel"; text = "People selected: 0"; ObjectID = "yRW-VT-5Sj"; */
+"yRW-VT-5Sj.text" = "选择用户: 0";

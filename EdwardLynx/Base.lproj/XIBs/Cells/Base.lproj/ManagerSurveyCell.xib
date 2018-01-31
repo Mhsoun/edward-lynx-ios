@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ManagerSurveyCell" rowHeight="55" id="EhF-6F-HdE" customClass="ELManagerSurveyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="779" height="55"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EhF-6F-HdE" id="i3w-gS-16P">
+                <rect key="frame" x="0.0" y="0.0" width="779" height="54.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-DR-2nU">
+                        <rect key="frame" x="25" y="0.0" width="754" height="55"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="0TB-xC-KEb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-R4-Npu">
+                        <rect key="frame" x="0.0" y="54.5" width="779" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3o2-yU-V0z">
+                        <rect key="frame" x="0.0" y="53.5" width="779" height="1"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.074509803920000006" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="7gI-Xy-YEO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="kiF-R4-Npu" secondAttribute="bottom" id="5z9-Y7-zHi"/>
+                    <constraint firstAttribute="trailing" secondItem="kiF-R4-Npu" secondAttribute="trailing" id="7JG-G0-NxG"/>
+                    <constraint firstAttribute="bottom" secondItem="3o2-yU-V0z" secondAttribute="bottom" id="IEU-Bw-7id"/>
+                    <constraint firstItem="kiF-R4-Npu" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" id="INq-zJ-s9X"/>
+                    <constraint firstItem="kiF-R4-Npu" firstAttribute="top" secondItem="iLT-DR-2nU" secondAttribute="bottom" id="Kzq-GO-E6B"/>
+                    <constraint firstAttribute="trailing" secondItem="iLT-DR-2nU" secondAttribute="trailing" id="PMs-hs-h35"/>
+                    <constraint firstAttribute="trailing" secondItem="3o2-yU-V0z" secondAttribute="trailing" id="PeP-Rj-wi5"/>
+                    <constraint firstItem="3o2-yU-V0z" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" id="Pqd-dy-Qs4"/>
+                    <constraint firstItem="iLT-DR-2nU" firstAttribute="leading" secondItem="i3w-gS-16P" secondAttribute="leading" constant="25" id="jZX-72-mdG"/>
+                    <constraint firstItem="iLT-DR-2nU" firstAttribute="top" secondItem="i3w-gS-16P" secondAttribute="top" id="yMA-Xp-eZb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="nameLabel" destination="iLT-DR-2nU" id="hqc-pc-aHJ"/>
+                <outlet property="tableView" destination="kiF-R4-Npu" id="4tz-66-Iab"/>
+            </connections>
+            <point key="canvasLocation" x="89.5" y="132.5"/>
+        </tableViewCell>
+    </objects>
+</document>

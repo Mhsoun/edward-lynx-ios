@@ -14,28 +14,103 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - CWPopup (1.2.6)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
+  - Firebase (3.17.0):
+    - Firebase/Core (= 3.17.0)
+  - Firebase/Core (3.17.0):
+    - FirebaseAnalytics (= 3.9.0)
+    - FirebaseCore (= 3.6.0)
+  - FirebaseAnalytics (3.9.0):
+    - FirebaseCore (~> 3.6)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.6.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
+  - FirebaseMessaging (1.2.3):
+    - FirebaseAnalytics (~> 3.8)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - FontAwesomeTools (1.2)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - HockeySDK (4.1.5):
+    - HockeySDK/DefaultLib (= 4.1.5)
+  - HockeySDK/DefaultLib (4.1.5)
+  - IQKeyboardManager (4.0.9)
+  - JSONModel (1.7.0)
   - MTDates (1.0.3)
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
+  - Protobuf (3.3.0)
+  - REValidation (0.1.4)
+  - RNThemeManager (0.1.0)
   - SASlideMenu (2.0.3)
-  - XLForm (3.3.0)
+  - TNRadioButtonGroup (0.4)
+  - Toast (3.1.0)
+  - UICountingLabel (1.2.0)
+  - UITextView+Placeholder (1.2.0)
+  - XLPagerTabStrip-AnthonyMDev (2.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
+  - Crashlytics
+  - CWPopup (~> 1.2)
   - DZNEmptyDataSet (~> 1.8)
-  - Fabric (~> 1.6)
+  - Fabric
+  - Firebase
+  - FirebaseMessaging
+  - FontAwesomeTools (~> 1.2)
+  - HockeySDK
+  - IQKeyboardManager
+  - JSONModel
   - MTDates (~> 1.0)
+  - PNChart (~> 0.8)
+  - REValidation (~> 0.1)
+  - RNThemeManager (~> 0.1)
   - SASlideMenu (~> 2.0)
-  - XLForm (~> 3.0)
+  - TNRadioButtonGroup (~> 0.4)
+  - Toast (~> 3.1)
+  - UITextView+Placeholder (~> 1.2)
+  - XLPagerTabStrip-AnthonyMDev (~> 2.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  CWPopup: 3f8b0704a9914813d90372d66525d31f24b27d49
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
+  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
+  FirebaseMessaging: 753d05a925e9eb8eadd09a0ffc9b808578b72fac
+  FontAwesomeTools: bd6e4882eed916ed07f8d0ff0fc2972c77640d27
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  HockeySDK: 606b537bbfbe454ee440e92cc93bc634b3c77151
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  RNThemeManager: 7734a5619abe15e21556c9c3ff2df8f3ab20a538
   SASlideMenu: 15bd9e7752cd43ba30dac136a60b7e73483c35b3
-  XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
+  TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
+  XLPagerTabStrip-AnthonyMDev: 2f204328c32ce91e59b1af802868dbdd42a6721b
 
-PODFILE CHECKSUM: aca5fcff345d1f7f5bd1d90ad721507b4b419e24
+PODFILE CHECKSUM: ee4ba16a6c0b231da79759ca032a32e6ea68b052
 
 COCOAPODS: 1.0.1

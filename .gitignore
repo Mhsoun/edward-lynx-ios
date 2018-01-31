@@ -17,6 +17,10 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.DS_Store 
+*.dSYM.zip
+Notes.md
+apple-app-site-association
+*.mov
 
 # CocoaPods
 #
@@ -26,3 +30,6 @@ DerivedData
 #
 #Pods/
 
+# Fastlane
+fastlane/report.xml
+fastlane/README.md

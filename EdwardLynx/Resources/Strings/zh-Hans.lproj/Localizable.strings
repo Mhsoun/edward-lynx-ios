@@ -1,0 +1,357 @@
+/* 
+  Localizable.strings
+  EdwardLynx
+
+  Created by Jason Jon E. Carreos on 07/02/2017.
+  Copyright © 2017 Ingenuity Global Consulting. All rights reserved.
+*/
+
+/* General */
+
+"kELDefaultAlertMessage" = "%@ Please try again later.";
+"kELLogoutAlertMessage" = "下一次登录，应用程序将需要再次认证";
+"kELServerMessage" = "无法与服务器连接，请稍后再试.";
+
+"kELCreateInstantFeedbackTitle" = "新建即时反馈";
+"kELInstantFeedbackTitle" = "即时反馈";
+
+"kELAddButton" = "添加";
+"kELAddMoreParticipantsButton" = "Add Participants";
+"kELCancelButton" = "取消";
+"kELCloseButton" = "关闭";
+"kELCompleteButton" = "完成";
+"kELDeleteButton" = "删除";
+"kELInviteParticipantsButton" = "邀请";
+"kELLogoutButton" = "退出";
+"kELOkButton" = "Ok";
+"kELProfileEditButton" = "编辑";
+"kELProfileSaveButton" = "保存";
+"kELSaveToDraftButton" = "保存至草稿";
+"kELSelectParticipantsButton" = "Select Participants";
+"kELSubmitButton" = "提交";
+"kELUpdateButton" = "更新";
+
+"kELCompletedLabel" = "%@ / %@ 已完成";
+"kELCreateTextViewPlaceholderLabel" = "内容";
+"kELFilterLabel" = "Filter";
+"kELFilterByLabel" = "Filter By";
+"kELEmailLabel" = "邮箱";
+"kELErrorLabel" = "Error";
+"kELExpiresOnLabel" = "Expires on %@";
+"kELNALabel" = "N/A";
+"kELNameLabel" = "姓名";
+"kELNoLabel" = "No";
+"kELNoDescriptionLabel" = "No description";
+"kELProcessingLabel" = "进行中";
+"kELSearchLabel" = "搜索%@";
+"kELSortLabel" = "Sort";
+"kELSortByLabel" = "Sort By";
+"kELTextViewPlaceholderLabel" = "在这里键入…";
+"kELUpdateLabel" = "更新";
+"kELYesLabel" = "Yes";
+
+"kELDetailsPageLoadError" = "Failed to load details";
+"kELPostMethodError" = "Failed to process request";
+
+"kELErrorDetailsMessage" = "Please try again later";
+
+/* Authentication */
+
+"kELForgotPasswordSuccessMessage" = "成功发送密码恢复请求";
+
+"kELLoginButtonDisabledText" = "进行中";
+"kELLoginButtonNormalText" = "登录";
+
+/* Dashboard/Menu */
+
+"kELDashboardAddNew" = "Answer New";
+"kELDashboardCreateNew" = "新建";
+
+"kELDashboardActionDevelopmentPlan" = "发展计划";
+"kELDashboardActionInstantFeedback" = "即时反馈";
+"kELDashboardActionLynxMeasurement" = "Lynx测评工具";
+"kELDashboardActionManagerView" = "经理人界面";
+"kELDashboardActionTeam" = "Team";
+"kELDashboardActionAnswer" = "回答";
+"kELDashboardActionResults" = "结果";
+"kELDashboardActionInvite" = "邀请";
+"kELDashboardActionCreate" = "创建";
+
+"kELDashboardDueDateMessage" = "Due in";
+
+"kELDashboardDueDateMessageSingular" = "%@ 天到期";
+"kELDashboardDueDateMessagePlural" = "%@ 天到期";
+"kELDashboardDueDateMessageHoursSingular" = "%@ 小时";
+"kELDashboardDueDateMessageHoursPlural" = "%@ 小时";
+"kELDashboardDueDateNow" = "现在";
+
+"kELDashboardReminderFeedback" = "即时反馈";
+"kELDashboardReminderGoal" = "发展目标";
+"kELDashboardReminderSurvey" = "调查问卷";
+
+"kELDashboardSectionDevelopmentPlans" = "发展计划";
+"kELDashboardSectionReminders" = "提醒";
+
+"kELMenuItemDashboard" = "主界面";
+"kELMenuItemDevelopmentPlan" = "发展计划";
+"kELMenuItemProfile" = "个人资料";
+"kELMenuItemSettings" = "设置";
+"kELMenuItemSurveys" = "调查问卷";
+
+"kELReminderEmptyMessage" = "无提醒";
+
+/* Development Plans */
+
+"kELDevelopmentPlanGoalActionCompleteHeaderMessage" = "确认";
+"kELDevelopmentPlanGoalActionCompleteDetailsMessage" = "完成此任务, %@?";
+
+"kELDevelopmentPlanGoalActionDeleteDetailsMessage" = "删除此任务, %@?";
+
+"kELDevelopmentPlanCreateError" = "Failed to create Development Plan";
+"kELDevelopmentPlanCreateSuccess" = "成功创建发展计划";
+
+"kELDevelopmentPlanShareUpdateSuccess" = "成功与经理贡献个人发展计划";
+"kELDevelopmentPlanUnshareUpdateSuccess" = "个人发展计划不再与经理共享";
+
+"kELDevelopmentPlanGoalCreateSuccess" = "成功添加发展目标";
+"kELDevelopmentPlanGoalUpdateSuccess" = "成功删除此发展目标";
+"kELDevelopmentPlanGoalUpdateSuccess" = "成功更新发展目标";
+
+"kELDevelopmentPlanGoalActionCreateAlertHeader" = "创建任务";
+"kELDevelopmentPlanGoalActionCreateAlertDetail" = "输入新的任务名称";
+"kELDevelopmentPlanGoalActionCreateSuccess" = "成功添加目标任务";
+"kELDevelopmentPlanGoalActionDeleteSuccess" = "成功删除此目标任务";
+"kELDevelopmentPlanGoalActionUpdateAlertHeader" = "更新任务";
+"kELDevelopmentPlanGoalActionUpdateAlertDetail" = "输入新的任务名称";
+"kELDevelopmentPlanGoalActionUpdateSuccess" = "成功更新目标任务";
+
+"kELDevelopmentPlanGoalCompleteHeader" = "发展目标已完成!";
+"kELDevelopmentPlanGoalCompleteDetail" = "您即尽职尽责有充满热情。加油保持下去!";
+
+"kELDevelopmentPlanGoalDeleteDetailsMessage" = "删除此发展目标, %@?";
+
+"kELDevelopmentPlanGoalButtonAdd" = "添加目标";
+"kELDevelopmentPlanGoalButtonDelete" = "删除发展目标";
+"kELDevelopmentPlanGoalButtonUpdate" = "更新发展目标";
+
+"kELDevelopmentPlanGoalActionButtonAdd" = "添加任务";
+"kELDevelopmentPlanGoalActionButtonDelete" = "删除任务";
+"kELDevelopmentPlanGoalActionButtonUpdate" = "更新任务";
+
+"kELDevelopmentPlanGoalTimestampDueDate" = "完成日期: %@";
+"kELDevelopmentPlanGoalTimestampToday" = "Today";
+
+"kELDevelopmentPlanCompleted" = "已完成";
+"kELDevelopmentPlanEmptyMessage" = "无发展计划";
+"kELDevelopmentPlanGoalsCompleted" = "%@ / %@ 发展目标已完成";
+"kELDevelopmentPlanTitle" = "发展计划";
+
+/* Feedback */
+
+"kELFeedbackAnonymousLabel" = "匿名反馈";
+
+"kELFeedbackAnswerError" = "Failed answering Instant Feedback";
+"kELFeedbackAnswerRequired" = "请填写所有需回答的问题";
+"kELFeedbackAnswerSuccess" = "成功提交即时反馈";
+
+"kELFeedbackAnswerTypeOneToFiveScale" = "Numeric 1-5 Scale";
+"kELFeedbackAnswerTypeOneToTenScale" = "1-10打分";
+"kELFeedbackAnswerTypeAgreementScale" = "Agreement Scale";
+"kELFeedbackAnswerTypeYesNoScale" = "是／否";
+"kELFeedbackAnswerTypeStrongAgreementScale" = "Strong Agreement Scale";
+"kELFeedbackAnswerTypeText" = "文本描述";
+"kELFeedbackAnswerTypeInvertedAgreementScale" = "Inverted Agreement Scale";
+"kELFeedbackAnswerTypeOneToTenWithExplanation" = "1-1 with Explanation";
+"kELFeedbackAnswerTypeCustomScale" = "定制打分";
+
+"kELFeedbackCellAuthor" = "创建人：%@";
+
+"kELFeedbackUnauthorizedLabel" = "您无权回答此意见反馈";
+
+"kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
+"kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+
+/* Fields */
+
+"kELDefaultField" = "Field";
+"kELEmailField" = "邮箱";
+"kELNameField" = "姓名";
+"kELPasswordField" = "密码";
+"kELQuestionField" = "问题";
+"kELUsernameField" = "用户名/邮箱";
+
+/* Invite/Share */
+
+"kELDeselectAllButton" = "取消所有选择";
+"kELSelectAllButton" = "选择所有";
+
+"kELInviteUsersInfoMessage" = "You have to invite at least 3 people and at least 3 people have to answer before result can be viewed";
+"kELInviteUsersNoSelectionMessage" = "无可选用户";
+
+"kELInviteUsersRetrievalError" = "Failed to retrieve users";
+"kELInviteUsersRetrievalEmpty" = "无可选用户";
+
+"kELInviteUsersAddEmailHeaderMessage" = "添加用户";
+"kELInviteUsersAddEmailDetailsMessage" = "输入姓名和邮箱地址";
+
+"kELInviteTitleFeedback" = "邀请他人";
+"kELInviteTitleReport" = "分享结果";
+
+"kELInviteUsersSuccess" = "成功邀请他人";
+"kELInviteUsersShareSuccess" = "Successfully shared result";
+
+"kELManagerUsersDisableSuccess" = "成功禁用用户到管理器视图";
+"kELManagerUsersEnableSuccess" = "成功启用用户到管理器视图";
+"kELManagerUsersUpdateError" = "Failed to update users";
+
+"kELReportEmptyMessage" = "无结果";
+
+"kELShareButtonFeedback" = "发出邀请";
+"kELShareButtonReport" = "分享";
+
+"kELShareReportsHeaderMessage" = "Share result to users";
+
+"kELUsersNumberSelectedLabel" = "选择用户: %@";
+
+/* Profile */
+
+"kELProfileChangePasswordSuccess" = "成功更改密码";
+"kELProfileUpdateSuccess" = "成功更新个人资料";
+"kELProfileGenderMale" = "男";
+"kELProfileGenderFemale" = "女";
+"kELProfileGenderOther" = "Other";
+
+/* Reports */
+
+"kELReportInfoLabel" = "邀请: %@ | 答复: %@";
+"kELReportInfoCandidates" = "Candidates";
+"kELReportInfoOthers" = "Others combined";
+"kELReportInfoManager" = "Manager";
+
+"kELReportMoreDropdownAddMore" = "添加更多评分者";
+"kELReportMoreDropdownShare" = "分享结果";
+
+"kELReportNoData" = "无可用图表数据";
+"kELReportRestrictedData" = "最少需要%@人数据，可查看此图表";
+"kELReportTitleFeedback" = "反馈结果";
+
+"kELReportTypeBlindspotOverHeader" = "盲点（高估项）";
+"kELReportTypeBlindspotOverDetail" = "他人给您的打分低于您的自评，此项常为您需要改进的领域。";
+
+"kELReportTypeBlindspotUnderHeader" = "盲点（低估项）";
+"kELReportTypeBlindspotUnderDetail" = "他人给您的打分高于您的自评，此项常为他人对你欣赏的特质。";
+
+"kELReportTypeBreakdownHeader" = "按评分者类别的分值图";
+"kELReportTypeBreakdownDetail" = "图表显示各胜任力下，各评分者类别的平均分值。";
+
+"kELReportTypeCommentsHeader" = "评分者留言";
+
+"kELReportTypeDetailPerCategoryHeader" = "各类别的评分总结";
+
+"kELReportTypeHighestHeader" = "评分最高的五项(%@)";
+"kELReportTypeHighestDetail" = "";
+
+"kELReportTypeLowestHeader" = "评分最低的五项(%@)";
+"kELReportTypeLowestDetail" = "";
+
+"kELReportTypeRadarHeader" = "雷达分析图";
+"kELReportTypeRadarDetail" = "显示反馈调查的结果，并相比于您自己的自评分值。距离圆心最远的点表示您的强项(基于您的自评或反馈组的打分)。";
+
+"kELReportTypeResponseRateHeader" = "答复率";
+"kELReportTypeResponseRateDetail" = "以下图表显示了对您的问卷邀请有答复的人数，并按照工作关系进行分类";
+
+"kELReportTypeYesNoHeader" = "是/否问题";
+
+/* Surveys */
+
+"kELAnswerSurveyTitle" = "回答调查问卷";
+
+"kELAnswerOptionalMessage" = "%@ （可选）";
+
+"kELSurveyAlreadyInvitedMessage" = "用户已被邀请";
+"kELSurveyCandidateInviteMessage" = "不能邀请候选人";
+
+"kELSurveyEmptyMessage" = "无调查问卷";
+
+"kELSurveyCompleteHeader" = "调查问卷完成！";
+"kELSurveyDetailsRetrievalError" = "Failed to retrieve survey details";
+"kELSurveyQuestionsRetrievalError" = "Failed to retrieve survey questions";
+
+"kELSurveySubmissionSuccess" = "成功提交答案";
+"kELSurveySaveToDraftSuccess" = "成功保存至草稿";
+"kELSurveyPostError" = "Failed to post answers";
+"kELSurveyPostRequiredError" = "请填写所有需回答的问题";
+
+"kELSurveyRateError" = "Failed to invite others to rate you";
+"kELSurveyRateSuccess" = "成功发出反馈邀请";
+
+"kELSurveyStatusOpen" = "打开";
+"kELSurveyStatusUnfinished" = "未完成";
+"kELSurveyStatusCompleted" = "已完成";
+"kELSurveyStatusNotInvited" = "未邀请";
+
+"kELSurveyType360Individual" = "Lynx360测评问卷";
+"kELSurveyTypeLMTT" = "Lynx管理团队测评问卷";
+"kELSurveyTypeProgress" = "Lynx进展测评问卷";
+"kELSurveyTypeSurvey" = "Lynx调查问卷";
+"kELSurveyTypeLTT" = "Lynx团队测评问卷";
+
+"kELSurveyUnauthorizedLabel" = "您无权回答此调查";
+"kELSurveyInviteUnauthorizedLabel" = "您无权邀请用户参加此调查";
+
+/* Tabs */
+
+"kELListFilterAll" = "全部";
+"kELListFilterInProgress" = "进行中";
+"kELListFilterCompleted" = "已完成";
+"kELListFilterExpired" = "已过期";
+"kELListFilterInstantFeedback" = "即时反馈";
+"kELListFilterLynxMeasurement" = "Lynx测评工具";
+
+/* Tab Titles */
+
+"kELTabTitleDevPlan" = "发展计划";
+"kELTabTitleReports" = "结果";
+"kELTabTitleSurveys" = "调查问卷";
+
+/* Team Tab Titles */
+
+"kELTabTitleIndividual" = "个别";
+"kELTabTitleTeam" = "球队";
+
+/* Team Dev Plan */
+
+"kELTeamDevelopmentPlanCreateError" = "Failed to create Team Development Plan";
+"kELTeamDevelopmentPlanCreateSuccess" = "成功创建团队发展规划";
+"kELTeamDevelopmentPlanUpdateError" = "Failed to update Team Development Plan(s)";
+"kELTeamDevelopmentPlanUpdateSuccess" = "成功更新团队发展计划";
+
+/* User Roles */
+
+"kELUserRoleColleague" = "同事";
+"kELUserRoleManager" = "直接汇报经理";
+"kELUserRoleCustomer" = "客户";
+"kELUserRoleMatrixManager" = "非直接汇报经理";
+"kELUserRoleOtherStakeholder" = "其他相关人员";
+"kELUserRoleDirectReport" = "直属下属";
+
+/* Validations */
+
+"kELAnswerTypeValidationMessage" = "No Answer type selected";
+"kELCustomScaleValidationMessage" = "此处必填";
+"kELGoalActionsValidationMessage" = "无添加具体任务";
+"kELGoalCategoryValidationMessage" = "No Category selected";
+"kELGoalCategoriesValidationMessage" = "无可用发展领域";
+"kELGoalDueDateValidationMessage" = "完成日期应在今天之后";
+"kELGoalsValidationMessage" = "无添加目标";
+"kELPasswordValidationMessage" = "新密码字段必须相同";
+"kELREValidationEmailMessage" = "%@ is an invalid email";
+"kELREValidationPresenceMessage" = "%@ can't be blank";
+
+"kELEmailValidationMessage" = "此处必填";
+"kELFeedbackQuestionValidationMessage" = "此处必填";
+"kELFieldValidationMessage" = "字段不能为空";
+"kELLoginPasswordValidationMessage" = "密码不能为空";
+"kELLoginUsernameValidationMessage" = "用户名不能为空";
+"kELNameValidationMessage" = "此处必填";
+"kELRecoverEmailValidationMessage" = "有效的电子邮件是必需的";

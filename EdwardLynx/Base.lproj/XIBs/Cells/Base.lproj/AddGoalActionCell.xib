@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddGoalActionCell" id="Zqy-g8-Bb5" customClass="ELAddGoalActionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zqy-g8-Bb5" id="saj-Hi-DjA">
+                <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWa-R6-tfz">
+                        <rect key="frame" x="0.0" y="0.0" width="10" height="43.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="Gdd-hs-bkq"/>
+                        </constraints>
+                    </view>
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSy-rb-ona">
+                        <rect key="frame" x="15" y="5" width="290" height="33.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                        <state key="normal" title="Add Action"/>
+                        <connections>
+                            <action selector="onAddActionButtonClick:" destination="Zqy-g8-Bb5" eventType="touchUpInside" id="SzZ-ca-rJF"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wSy-rb-ona" firstAttribute="leading" secondItem="CWa-R6-tfz" secondAttribute="trailing" constant="5" id="4am-AI-6D0"/>
+                    <constraint firstItem="CWa-R6-tfz" firstAttribute="top" secondItem="saj-Hi-DjA" secondAttribute="top" id="Dmh-jx-0gd"/>
+                    <constraint firstAttribute="trailing" secondItem="wSy-rb-ona" secondAttribute="trailing" constant="5" id="Mth-Zp-6cZ"/>
+                    <constraint firstAttribute="bottom" secondItem="wSy-rb-ona" secondAttribute="bottom" constant="5" id="atT-8Q-RQZ"/>
+                    <constraint firstAttribute="bottom" secondItem="CWa-R6-tfz" secondAttribute="bottom" id="bbC-aZ-ibg"/>
+                    <constraint firstItem="CWa-R6-tfz" firstAttribute="leading" secondItem="saj-Hi-DjA" secondAttribute="leading" id="kYh-Gb-gr0"/>
+                    <constraint firstItem="wSy-rb-ona" firstAttribute="top" secondItem="saj-Hi-DjA" secondAttribute="top" constant="5" id="kgo-At-eGZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="addActionButton" destination="wSy-rb-ona" id="ts3-2Y-g4X"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

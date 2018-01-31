@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; disabledTitle = "Processing..."; ObjectID = "BjN-OE-GdF"; */
+"BjN-OE-GdF.disabledTitle" = "Processing...";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "BjN-OE-GdF"; */
+"BjN-OE-GdF.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "Current Password"; ObjectID = "UV4-Hn-sih"; */
+"UV4-Hn-sih.text" = "现有密码";
+
+/* Class = "UINavigationItem"; title = "Change Password"; ObjectID = "nWU-44-xh5"; */
+"nWU-44-xh5.title" = "更改密码";
+
+/* Class = "UILabel"; text = "New Password (Again)"; ObjectID = "ogE-JI-TFm"; */
+"ogE-JI-TFm.text" = "再次输入新密码";
+
+/* Class = "UILabel"; text = "New Password"; ObjectID = "onu-cs-HCb"; */
+"onu-cs-HCb.text" = "新密码";
