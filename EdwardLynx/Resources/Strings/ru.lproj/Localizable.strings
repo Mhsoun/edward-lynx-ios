@@ -171,6 +171,8 @@
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
 
+"kELFeedbacksSendAsAnonymousLabel" = "Отправить отзыв как анонимный";
+
 /* Fields */
 
 "kELDefaultField" = "Field";

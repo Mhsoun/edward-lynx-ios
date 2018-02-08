@@ -170,6 +170,8 @@
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
 
+"kELFeedbacksSendAsAnonymousLabel" = "Skicka feedback som anonym";
+
 /* Fields */
 
 "kELDefaultField" = "Field";

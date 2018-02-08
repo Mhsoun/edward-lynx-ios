@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *anonymousLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionTypeView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *sendAnonymousLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *anonymousSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 - (IBAction)onSubmitButtonClick:(id)sender;
 

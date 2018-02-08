@@ -171,6 +171,8 @@
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
 
+"kELFeedbacksSendAsAnonymousLabel" = "以匿名发送反馈";
+
 /* Fields */
 
 "kELDefaultField" = "Field";
