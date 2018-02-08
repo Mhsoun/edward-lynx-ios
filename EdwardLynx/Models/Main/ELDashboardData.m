@@ -14,12 +14,13 @@
     NSMutableArray *mDevPlans = [[NSMutableArray alloc] init];
     
     for (NSDictionary *devPlanDict in developmentPlans) {
+        NSString *rootURL = [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"URL"];
         ELDevelopmentPlan *devPlan = [[ELDevelopmentPlan alloc] initWithDictionary:devPlanDict error:nil];
         NSString *endpoint = Format(kELAPIDevelopmentPlanEndpoint,
                                     kELAPIVersionNamespace,
                                     @(devPlan.objectId));
         
-        devPlan.urlLink = Format(@"%@/%@", kELAPIRootEndpoint, endpoint);
+        devPlan.urlLink = Format(@"%@/%@", rootURL, endpoint);
         
         [mDevPlans addObject:devPlan];
     }

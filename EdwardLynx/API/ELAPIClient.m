@@ -22,7 +22,7 @@ static NSString * const kELApplicationJSON = @"application/json";
 #pragma mark - Class Methods
 
 + (NSString *)hostURL {
-    return kELAPIRootEndpoint;
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:kELAPIClientPlistKey][@"URL"];
 }
 
 #pragma mark - Public Methods
