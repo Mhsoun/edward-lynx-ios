@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feedbackDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feedbackInfoLabel;
+@property (weak, nonatomic) IBOutlet UIButton *respondentsButton;
 - (IBAction)onMoreBarButtonClick:(UIBarButtonItem *)sender;
+- (IBAction)onRespondentsButtonClick:(id)sender;
 
 @end

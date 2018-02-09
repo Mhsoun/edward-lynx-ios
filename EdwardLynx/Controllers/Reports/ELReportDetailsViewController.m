@@ -22,6 +22,7 @@
 static CGFloat const kELBarHeight = 40;
 static NSString * const kELCellIdentifier = @"ItemCell";
 static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
+static NSString * const kELRespondentsIdentifier = @"Respondents";
 static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 #pragma mark - Class Extension
@@ -157,6 +158,11 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     self.detailLabel.hidden = self.instantFeedback ? YES : NO;
     
     // Buttons
+    self.respondentsButton.hidden = !self.instantFeedback;
+    
+    [self.respondentsButton setTitle:NSLocalizedString(@"kELReportRespondents", nil)
+                            forState:UIControlStateNormal];
+    
     [self.moreBarButton setEnabled:!isSurvey];
     [self.moreBarButton setImage:!isSurvey ? image : nil];
     [self.moreBarButton setTintColor:[UIColor whiteColor]];
@@ -548,6 +554,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     [self presentViewController:controller
                        animated:YES
                      completion:nil];
+}
+
+- (IBAction)onRespondentsButtonClick:(id)sender {
+    [self performSegueWithIdentifier:kELRespondentsIdentifier sender:self];
 }
 
 @end

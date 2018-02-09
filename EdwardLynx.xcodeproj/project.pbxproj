@@ -135,6 +135,7 @@
 		A95CECC31EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */; };
 		A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
 		A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96125191EDFBA11004F2119 /* ELQuestionRate.m */; };
+		A962566A202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */; };
 		A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
 		A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CE1EDD13D3001FD570 /* ELAverage.m */; };
 		A977DE9C1FCFF53300C97394 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
@@ -746,6 +747,8 @@
 		A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyRateOthersViewController.m; sourceTree = "<group>"; };
 		A96125181EDFBA11004F2119 /* ELQuestionRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionRate.h; sourceTree = "<group>"; };
 		A96125191EDFBA11004F2119 /* ELQuestionRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionRate.m; sourceTree = "<group>"; };
+		A9625668202D7C6200FBCFF1 /* ELDirectFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDirectFeedbackViewController.h; sourceTree = "<group>"; };
+		A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELDirectFeedbackViewController.m; sourceTree = "<group>"; };
 		A9654F0A1EF3ABD4007EC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Authentication.strings; sourceTree = "<group>"; };
 		A9654F0C1EF3ABD7007EC68B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Authentication.strings; sourceTree = "<group>"; };
 		A9654F0E1EF3ABD9007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Authentication.strings; sourceTree = "<group>"; };
@@ -1278,6 +1281,8 @@
 				A913111D1E8642D20042C91F /* ELAnswerInstantFeedbackViewController.m */,
 				A913111E1E8642D20042C91F /* ELCreateInstantFeedbackViewController.h */,
 				A913111F1E8642D20042C91F /* ELCreateInstantFeedbackViewController.m */,
+				A9625668202D7C6200FBCFF1 /* ELDirectFeedbackViewController.h */,
+				A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */,
 				A91311201E8642D20042C91F /* ELInstantFeedbacksViewController.h */,
 				A91311211E8642D20042C91F /* ELInstantFeedbacksViewController.m */,
 				A91311221E8642D20042C91F /* ELInviteUsersViewController.h */,
@@ -2584,6 +2589,7 @@
 				A99359641F04FF92003EC659 /* ELBaseQuestionTypeView.m in Sources */,
 				A99359651F04FF92003EC659 /* ELShortcutView.m in Sources */,
 				A99359661F04FF92003EC659 /* ELActionView.m in Sources */,
+				A962566A202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m in Sources */,
 				A99359671F04FF92003EC659 /* ELBaseViewController.m in Sources */,
 				A99359681F04FF92003EC659 /* ELListTableViewCell.m in Sources */,
 				A99359691F04FF92003EC659 /* ELManagerUsersViewController.m in Sources */,

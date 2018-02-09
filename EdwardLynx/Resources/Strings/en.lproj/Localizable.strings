@@ -236,6 +236,8 @@
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Result";
 
+"kELReportRespondents" = "Respondents";
+
 "kELReportTypeBlindspotOverHeader" = "Blindspot (Overestimated)";
 "kELReportTypeBlindspotOverDetail" = "Questions where others have rated you lower than you rated yourself. Shows areas where there are areas for improvement.";
 
