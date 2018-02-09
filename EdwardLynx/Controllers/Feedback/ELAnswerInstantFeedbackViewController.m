@@ -126,6 +126,7 @@
     height = toExpand ? (question.answer.options.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight : 135;
     
     // Content
+    self.senderLabel.text = [NSString stringWithFormat:@"%@ wants you to provide your feedback", self.instantFeedback.senderName];
     self.questionLabel.text = question.text;
     self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
     

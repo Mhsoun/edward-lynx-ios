@@ -26,6 +26,7 @@
 @property (nonatomic) NSString<Optional> *key;
 @property (nonatomic) NSArray<Optional> *shares;
 @property (nonatomic) NSArray<Optional, ELParticipant> *participants;
+@property (nonatomic) NSString *senderName;
 
 /**
  Formats the createdAt date as a readable string.

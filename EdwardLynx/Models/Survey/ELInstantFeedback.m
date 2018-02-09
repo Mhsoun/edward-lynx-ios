@@ -20,7 +20,8 @@
                                                                   @"participants": @"recipients",
                                                                   @"question": @"questions",
                                                                   @"answered": @"stats.answered",
-                                                                  @"invited": @"stats.invited"}];
+                                                                  @"invited": @"stats.invited",
+                                                                  @"senderName": @"author.name"}];
 }
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName {
