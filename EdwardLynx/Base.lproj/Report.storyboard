@@ -69,7 +69,7 @@
         <!--DIRECT FEEDBACK-->
         <scene sceneID="KlJ-TC-f3J">
             <objects>
-                <viewController title="DIRECT FEEDBACK" automaticallyAdjustsScrollViewInsets="NO" id="Ooa-ih-99e" customClass="ELDirectFeedbackViewController" sceneMemberID="viewController">
+                <viewController title="DIRECT FEEDBACK" automaticallyAdjustsScrollViewInsets="NO" id="Ooa-ih-99e" customClass="ELInstantFeedbackRespondentsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sV7-8b-5xd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,24 +78,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-GA-r5U">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mDU-xK-UYY">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ooa-ih-99e" id="HAo-va-4QF"/>
+                                    <outlet property="delegate" destination="Ooa-ih-99e" id="08c-Ym-TC3"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eGe-Ff-RoX" firstAttribute="top" secondItem="sV7-8b-5xd" secondAttribute="top" id="E5D-E7-zK3"/>
-                            <constraint firstItem="zPZ-GA-r5U" firstAttribute="top" secondItem="xKv-dk-ags" secondAttribute="top" id="J7r-JW-D8V"/>
+                            <constraint firstItem="mDU-xK-UYY" firstAttribute="top" secondItem="xKv-dk-ags" secondAttribute="top" id="F57-5Z-6Ta"/>
+                            <constraint firstItem="mDU-xK-UYY" firstAttribute="leading" secondItem="xKv-dk-ags" secondAttribute="leading" id="GHE-2r-2kC"/>
                             <constraint firstItem="xKv-dk-ags" firstAttribute="trailing" secondItem="eGe-Ff-RoX" secondAttribute="trailing" id="K2a-jm-GVi"/>
-                            <constraint firstItem="xKv-dk-ags" firstAttribute="bottom" secondItem="zPZ-GA-r5U" secondAttribute="bottom" id="L6N-Vy-ioJ"/>
+                            <constraint firstItem="xKv-dk-ags" firstAttribute="bottom" secondItem="mDU-xK-UYY" secondAttribute="bottom" id="V7f-Ev-uh1"/>
                             <constraint firstItem="eGe-Ff-RoX" firstAttribute="leading" secondItem="xKv-dk-ags" secondAttribute="leading" id="bes-1p-Fgh"/>
-                            <constraint firstItem="xKv-dk-ags" firstAttribute="trailing" secondItem="zPZ-GA-r5U" secondAttribute="trailing" id="oGW-hP-FRd"/>
+                            <constraint firstItem="xKv-dk-ags" firstAttribute="trailing" secondItem="mDU-xK-UYY" secondAttribute="trailing" id="sxK-Yl-BlM"/>
                             <constraint firstItem="xKv-dk-ags" firstAttribute="bottom" secondItem="eGe-Ff-RoX" secondAttribute="bottom" id="u6r-NG-a5Q"/>
-                            <constraint firstItem="zPZ-GA-r5U" firstAttribute="leading" secondItem="xKv-dk-ags" secondAttribute="leading" id="wK4-cX-r75"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xKv-dk-ags"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="mDU-xK-UYY" id="8zg-8P-I8T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqL-iK-6B2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

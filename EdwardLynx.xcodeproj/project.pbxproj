@@ -119,6 +119,8 @@
 		A91312A51E8642D30042C91F /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FD1E8642D30042C91F /* ELUtils.m */; };
 		A91312B31E8644380042C91F /* ELSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B21E8644380042C91F /* ELSectionView.m */; };
 		A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
+		A915D0B8202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */; };
+		A918640B202D9C3200B0F1CB /* ELInstantFeedbackRespondentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */; };
 		A923C8BC1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
 		A92B26791EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
 		A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
@@ -135,7 +137,6 @@
 		A95CECC31EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECC21EF8CA3A0028BDD4 /* ELManagerIndividualTableViewCell.m */; };
 		A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */; };
 		A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96125191EDFBA11004F2119 /* ELQuestionRate.m */; };
-		A962566A202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */; };
 		A96EA2CC1EDD13B8001FD570 /* ELRadarDiagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CB1EDD13B8001FD570 /* ELRadarDiagram.m */; };
 		A96EA2CF1EDD13D3001FD570 /* ELAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = A96EA2CE1EDD13D3001FD570 /* ELAverage.m */; };
 		A977DE9C1FCFF53300C97394 /* ELTeamViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A977DE8E1FCFF53300C97394 /* ELTeamViewManager.m */; };
@@ -705,6 +706,8 @@
 		A91312B21E8644380042C91F /* ELSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSectionView.m; sourceTree = "<group>"; };
 		A91312B61E8659BD0042C91F /* ELDashboardReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardReminderTableViewCell.h; sourceTree = "<group>"; };
 		A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardReminderTableViewCell.m; sourceTree = "<group>"; };
+		A915D0B6202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbackRespondentsViewController.h; sourceTree = "<group>"; };
+		A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackRespondentsViewController.m; sourceTree = "<group>"; };
 		A921A0991F6669FE00B76871 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A921A09B1F666A9400B76871 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A921A09D1F666AB700B76871 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
@@ -747,8 +750,6 @@
 		A960BB851ED55E2B00242346 /* ELSurveyRateOthersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyRateOthersViewController.m; sourceTree = "<group>"; };
 		A96125181EDFBA11004F2119 /* ELQuestionRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuestionRate.h; sourceTree = "<group>"; };
 		A96125191EDFBA11004F2119 /* ELQuestionRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELQuestionRate.m; sourceTree = "<group>"; };
-		A9625668202D7C6200FBCFF1 /* ELDirectFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDirectFeedbackViewController.h; sourceTree = "<group>"; };
-		A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELDirectFeedbackViewController.m; sourceTree = "<group>"; };
 		A9654F0A1EF3ABD4007EC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Authentication.strings; sourceTree = "<group>"; };
 		A9654F0C1EF3ABD7007EC68B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Authentication.strings; sourceTree = "<group>"; };
 		A9654F0E1EF3ABD9007EC68B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Authentication.strings; sourceTree = "<group>"; };
@@ -1281,8 +1282,8 @@
 				A913111D1E8642D20042C91F /* ELAnswerInstantFeedbackViewController.m */,
 				A913111E1E8642D20042C91F /* ELCreateInstantFeedbackViewController.h */,
 				A913111F1E8642D20042C91F /* ELCreateInstantFeedbackViewController.m */,
-				A9625668202D7C6200FBCFF1 /* ELDirectFeedbackViewController.h */,
-				A9625669202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m */,
+				A915D0B6202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.h */,
+				A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */,
 				A91311201E8642D20042C91F /* ELInstantFeedbacksViewController.h */,
 				A91311211E8642D20042C91F /* ELInstantFeedbacksViewController.m */,
 				A91311221E8642D20042C91F /* ELInviteUsersViewController.h */,
@@ -2436,6 +2437,7 @@
 				A913129B1E8642D30042C91F /* ELBaseQuestionTypeView.m in Sources */,
 				A91312971E8642D30042C91F /* ELShortcutView.m in Sources */,
 				A91312961E8642D30042C91F /* ELActionView.m in Sources */,
+				A918640B202D9C3200B0F1CB /* ELInstantFeedbackRespondentsViewController.m in Sources */,
 				A91312511E8642D30042C91F /* ELBaseViewController.m in Sources */,
 				A913128E1E8642D30042C91F /* ELListTableViewCell.m in Sources */,
 				A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */,
@@ -2589,7 +2591,7 @@
 				A99359641F04FF92003EC659 /* ELBaseQuestionTypeView.m in Sources */,
 				A99359651F04FF92003EC659 /* ELShortcutView.m in Sources */,
 				A99359661F04FF92003EC659 /* ELActionView.m in Sources */,
-				A962566A202D7C6200FBCFF1 /* ELDirectFeedbackViewController.m in Sources */,
+				A915D0B8202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m in Sources */,
 				A99359671F04FF92003EC659 /* ELBaseViewController.m in Sources */,
 				A99359681F04FF92003EC659 /* ELListTableViewCell.m in Sources */,
 				A99359691F04FF92003EC659 /* ELManagerUsersViewController.m in Sources */,
