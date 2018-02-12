@@ -12,6 +12,7 @@
 #pragma mark - Private Constants
 
 static NSString * const kELCellIdentifier = @"ItemCell";
+static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
 
 #pragma mark - Class Implementation
 
@@ -31,6 +32,16 @@ static NSString * const kELCellIdentifier = @"ItemCell";
     // Do any additional setup after loading the view.
     
     self.isFreeText = YES;  // TEMP
+    
+    if (self.isFreeText) {
+        [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
+             forCellReuseIdentifier:kELFreeTextCellIdentifier];
+    } else {
+        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kELCellIdentifier];
+    }
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     [self layoutPage];
 }
@@ -52,7 +63,7 @@ static NSString * const kELCellIdentifier = @"ItemCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.isFreeText) {
-        ELRespondentFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+        ELRespondentFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELFreeTextCellIdentifier
                                                                                   forIndexPath:indexPath];
         
         [cell configure:@{@"response": @"By the way, it is bad practice to have names like \"string\" in Objective-C. It invites a runtime naming collision. Avoid them even in once off practice apps. Naming collisions can be very hard to track down and you don't want to waste the time.",
@@ -63,6 +74,7 @@ static NSString * const kELCellIdentifier = @"ItemCell";
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
         cell.textLabel.text = @"Test";
         cell.textLabel.textColor = [UIColor whiteColor];
@@ -109,6 +121,11 @@ static NSString * const kELCellIdentifier = @"ItemCell";
 - (void)layoutPage {
     // Table View
     self.tableView.estimatedRowHeight = 45;
+    
+    if (!self.isFreeText) {
+        self.tableView.separatorColor = [UIColor clearColor];
+    }
+    
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     // Title

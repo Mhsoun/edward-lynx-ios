@@ -411,6 +411,8 @@
 		A9DB71121EDEDC11006BA0AE /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */; };
 		A9E05683203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
 		A9E05684203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
+		A9E056872031881800A978DD /* RespondentFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E056852031881800A978DD /* RespondentFreeTextCell.xib */; };
+		A9E056882031881800A978DD /* RespondentFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E056852031881800A978DD /* RespondentFreeTextCell.xib */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
@@ -1079,6 +1081,7 @@
 		A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		A9E05681203142B000A978DD /* ELRespondentFreeTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELRespondentFreeTextTableViewCell.h; sourceTree = "<group>"; };
 		A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRespondentFreeTextTableViewCell.m; sourceTree = "<group>"; };
+		A9E056862031881800A978DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RespondentFreeTextCell.xib; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
@@ -1212,6 +1215,7 @@
 				A98370C81ED426CB00C05594 /* QuestionCell.xib */,
 				A98370D51ED427B900C05594 /* ReportCell.xib */,
 				A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */,
+				A9E056852031881800A978DD /* RespondentFreeTextCell.xib */,
 				A98370E21ED4288200C05594 /* SurveyCell.xib */,
 				A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */,
 			);
@@ -2017,6 +2021,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A983714D1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib in Resources */,
+				A9E056882031881800A978DD /* RespondentFreeTextCell.xib in Resources */,
 				A91312851E8642D30042C91F /* Lato-Medium.ttf in Resources */,
 				A913122D1E8642D30042C91F /* Survey.storyboard in Resources */,
 				A91312271E8642D30042C91F /* LaunchScreen.storyboard in Resources */,
@@ -2112,6 +2117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99359971F04FF92003EC659 /* QuestionTypeRadioGroupView.xib in Resources */,
+				A9E056872031881800A978DD /* RespondentFreeTextCell.xib in Resources */,
 				A99359981F04FF92003EC659 /* Lato-Medium.ttf in Resources */,
 				A99359991F04FF92003EC659 /* Survey.storyboard in Resources */,
 				A993599A1F04FF92003EC659 /* LaunchScreen.storyboard in Resources */,
@@ -3439,6 +3445,14 @@
 				A937862C1F1238E500C8C22A /* zh-Hans */,
 			);
 			name = AddGoalActionCell.xib;
+			sourceTree = "<group>";
+		};
+		A9E056852031881800A978DD /* RespondentFreeTextCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E056862031881800A978DD /* Base */,
+			);
+			name = RespondentFreeTextCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
