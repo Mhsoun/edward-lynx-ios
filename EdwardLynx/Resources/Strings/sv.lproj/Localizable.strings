@@ -165,6 +165,8 @@
 
 "kELFeedbackCellAuthor" = "Skapad av: %@";
 
+"kELFeedbackSenderLabel" = "Den här personen ber om din feedback: %@";
+
 "kELFeedbackUnauthorizedLabel" = "Du är inte behörig att svara på denna snabba återkopplingen.";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
@@ -235,6 +237,8 @@
 "kELReportNoData" = "Ingen diagramdata tillgänglig";
 "kELReportRestrictedData" = "Minst %@ personer för att visa detta diagram";
 "kELReportTitleFeedback" = "Resultat av återkoppling";
+
+"kELReportRespondents" = "Respondenterna";
 
 "kELReportTypeBlindspotOverHeader" = "Blindpunkt (överskattad)";
 "kELReportTypeBlindspotOverDetail" = "Frågor där andra har betygsatt dig lägre än du har betygsatt dig själv. Visar områden där det finns förbättringsområden.";

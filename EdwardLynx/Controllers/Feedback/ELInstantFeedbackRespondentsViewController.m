@@ -7,15 +7,17 @@
 //
 
 #import "ELInstantFeedbackRespondentsViewController.h"
+#import "ELRespondentFreeTextTableViewCell.h"
 
 #pragma mark - Private Constants
 
-static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
+static NSString * const kELCellIdentifier = @"ItemCell";
 
 #pragma mark - Class Implementation
 
 @interface ELInstantFeedbackRespondentsViewController ()
 
+@property (nonatomic) BOOL isFreeText;
 @property (nonatomic, strong) NSArray *items;
 
 @end
@@ -28,8 +30,9 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Table View
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kELCellIdentifier];
+    self.isFreeText = YES;  // TEMP
+    
+    [self layoutPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,32 +43,51 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.isFreeText ? 1 : 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
-    
-    cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.text = @"Test";
-    cell.textLabel.textColor = [UIColor whiteColor];
-    
-    return cell;
+    if (self.isFreeText) {
+        ELRespondentFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier
+                                                                                  forIndexPath:indexPath];
+        
+        [cell configure:@{@"response": @"By the way, it is bad practice to have names like \"string\" in Objective-C. It invites a runtime naming collision. Avoid them even in once off practice apps. Naming collisions can be very hard to track down and you don't want to waste the time.",
+                          @"respondent": @"Test User"}
+            atIndexPath:indexPath];
+        
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
+        
+        cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
+        cell.textLabel.text = @"Test";
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return self.isFreeText ? CGFLOAT_MIN : 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.isFreeText ? UITableViewAutomaticDimension : 45;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.isFreeText) {
+        return [[UIView alloc] init];
+    }
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 25)];
     
@@ -85,8 +107,12 @@ static NSString * const kELCellIdentifier = @"ManagerSurveyCell";
 #pragma mark - Protocol Methods (ELBaseViewController)
 
 - (void)layoutPage {
+    // Table View
+    self.tableView.estimatedRowHeight = 45;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    // Title
+    self.navigationItem.title = [NSLocalizedString(@"kELReportRespondents", nil) uppercaseString];
 }
-
 
 @end

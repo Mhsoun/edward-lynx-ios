@@ -409,6 +409,8 @@
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9DB71041EDEC897006BA0AE /* ELResponseRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71031EDEC897006BA0AE /* ELResponseRate.m */; };
 		A9DB71121EDEDC11006BA0AE /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */; };
+		A9E05683203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
+		A9E05684203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
@@ -1075,6 +1077,8 @@
 		A9DB71031EDEC897006BA0AE /* ELResponseRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELResponseRate.m; sourceTree = "<group>"; };
 		A9DB71101EDEDC11006BA0AE /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		A9E05681203142B000A978DD /* ELRespondentFreeTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELRespondentFreeTextTableViewCell.h; sourceTree = "<group>"; };
+		A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRespondentFreeTextTableViewCell.m; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
@@ -1834,6 +1838,8 @@
 			children = (
 				A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */,
 				A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */,
+				A9E05681203142B000A978DD /* ELRespondentFreeTextTableViewCell.h */,
+				A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -2468,6 +2474,7 @@
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,
 				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,
 				A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */,
+				A9E05684203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */,
 				A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */,
 				A91312501E8642D30042C91F /* ELBasePopupViewController.m in Sources */,
 				A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */,
@@ -2622,6 +2629,7 @@
 				A99359831F04FF92003EC659 /* ELNotificationView.m in Sources */,
 				A99359841F04FF92003EC659 /* ELNotification.m in Sources */,
 				A99359851F04FF92003EC659 /* ELSurveyRateOthersViewController.m in Sources */,
+				A9E05683203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */,
 				A99359871F04FF92003EC659 /* ELManagerTeamViewController.m in Sources */,
 				A99359881F04FF92003EC659 /* ELBasePopupViewController.m in Sources */,
 				A99359891F04FF92003EC659 /* ELQuestionRate.m in Sources */,

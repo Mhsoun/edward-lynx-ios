@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="818" y="993"/>
         </scene>
-        <!--DIRECT FEEDBACK-->
+        <!--Instant Feedback Respondents View Controller-->
         <scene sceneID="KlJ-TC-f3J">
             <objects>
-                <viewController title="DIRECT FEEDBACK" automaticallyAdjustsScrollViewInsets="NO" id="Ooa-ih-99e" customClass="ELInstantFeedbackRespondentsViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ooa-ih-99e" customClass="ELInstantFeedbackRespondentsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sV7-8b-5xd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,10 +78,55 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mDU-xK-UYY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mDU-xK-UYY">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.2666666667" green="0.12549019610000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="71" id="sd7-dR-MmR" customClass="ELRespondentFreeTextTableViewCell">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sd7-dR-MmR" id="PGc-3e-QBt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-mo-AZd">
+                                                    <rect key="frame" x="15" y="11" width="345" height="19"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Italic" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNr-Z3-yHM">
+                                                    <rect key="frame" x="15" y="40" width="345" height="20"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="IAy-sQ-rZC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hhr-mo-AZd" secondAttribute="trailing" id="7c6-2h-6md"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PNr-Z3-yHM" secondAttribute="bottom" id="WJX-Es-J1m"/>
+                                                <constraint firstItem="PNr-Z3-yHM" firstAttribute="leading" secondItem="PGc-3e-QBt" secondAttribute="leadingMargin" id="Wd1-VW-vd4"/>
+                                                <constraint firstItem="PNr-Z3-yHM" firstAttribute="top" secondItem="hhr-mo-AZd" secondAttribute="bottom" constant="10" id="Y3o-T4-RIj"/>
+                                                <constraint firstItem="hhr-mo-AZd" firstAttribute="leading" secondItem="PGc-3e-QBt" secondAttribute="leadingMargin" id="oTc-ka-3qn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PNr-Z3-yHM" secondAttribute="trailing" id="pN2-es-beh"/>
+                                                <constraint firstItem="hhr-mo-AZd" firstAttribute="top" secondItem="PGc-3e-QBt" secondAttribute="topMargin" id="sHb-f2-bzb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="respondentLabel" destination="PNr-Z3-yHM" id="zeT-eR-ScN"/>
+                                            <outlet property="responseLabel" destination="hhr-mo-AZd" id="oOL-26-bBa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Ooa-ih-99e" id="HAo-va-4QF"/>
                                     <outlet property="delegate" destination="Ooa-ih-99e" id="08c-Ym-TC3"/>
@@ -101,13 +146,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xKv-dk-ags"/>
                     </view>
+                    <navigationItem key="navigationItem" id="W3q-rD-q3h">
+                        <barButtonItem key="backBarButtonItem" title=" " id="iFY-he-lGk"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mDU-xK-UYY" id="8zg-8P-I8T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqL-iK-6B2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3169" y="942"/>
+            <point key="canvasLocation" x="3168.8000000000002" y="941.37931034482767"/>
         </scene>
         <!--Report Details View Controller-->
         <scene sceneID="Jti-rr-qaS">
@@ -476,7 +524,7 @@
                                 <rect key="frame" x="-0.5" y="20" width="375" height="542"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No chart data available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-hf-c8a">
-                                        <rect key="frame" x="128" y="264" width="120.5" height="14"/>
+                                        <rect key="frame" x="127.5" y="264" width="120.5" height="14"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                         <color key="textColor" red="0.96862745100000003" green="0.58823529409999997" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

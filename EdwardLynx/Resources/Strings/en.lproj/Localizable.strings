@@ -165,6 +165,8 @@
 
 "kELFeedbackCellAuthor" = "Created by: %@";
 
+"kELFeedbackSenderLabel" = "This person requests for your feedback: %@";
+
 "kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";

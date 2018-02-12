@@ -157,9 +157,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     
     self.detailLabel.hidden = self.instantFeedback ? YES : NO;
     
-    // Buttons
-    self.respondentsButton.hidden = !self.instantFeedback;
-    
     [self.respondentsButton setTitle:NSLocalizedString(@"kELReportRespondents", nil)
                             forState:UIControlStateNormal];
     
@@ -178,6 +175,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
+    // Buttons
+    self.respondentsButton.hidden = !self.instantFeedback;
+    
     [self setupReportsWithData:responseDict];
 }
 

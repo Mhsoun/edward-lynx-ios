@@ -166,6 +166,8 @@
 
 "kELFeedbackCellAuthor" = "Создано: %@";
 
+"kELFeedbackSenderLabel" = "Этот человек запрашивает ваши отзывы: %@";
+
 "kELFeedbackUnauthorizedLabel" = "У вас нет доступа к данной обратной связи";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
@@ -236,6 +238,8 @@
 "kELReportNoData" = "График данных отсутствует";
 "kELReportRestrictedData" = "Чтобы посмотреть график необходимо не менее %@-х человек";
 "kELReportTitleFeedback" = "Результат обратной связи";
+
+"kELReportRespondents" = "Респонденты";
 
 "kELReportTypeBlindspotOverHeader" = "\"Слепые пятна\" (Переоцененные качества)";
 "kELReportTypeBlindspotOverDetail" = "Вопросы, где вы получили оценки ниже ваших собственных. Ваши области для развития.";
