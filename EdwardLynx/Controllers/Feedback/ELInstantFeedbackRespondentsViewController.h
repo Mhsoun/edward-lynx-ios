@@ -10,6 +10,10 @@
 
 @interface ELInstantFeedbackRespondentsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ELBaseViewControllerDelegate>
 
+@property (nonatomic) BOOL isFreeText;
+
+@property (strong, nonatomic) NSArray<ELAnswerOption *> *items;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

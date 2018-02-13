@@ -128,6 +128,8 @@
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
 		A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
+		A952AAFB2032C2CB00620EAB /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A952AAFA2032C2CB00620EAB /* sample.json */; };
+		A952AAFC2032C2CB00620EAB /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A952AAFA2032C2CB00620EAB /* sample.json */; };
 		A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */; };
 		A958618B1EFCFB0B00BCEE16 /* IndividualProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */; };
 		A95CECB51EF8C0560028BDD4 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
@@ -739,6 +741,7 @@
 		A94227FB1EDD4CE200730F00 /* ELDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataPoint.m; sourceTree = "<group>"; };
 		A94227FD1EDD5ED100730F00 /* ELBlindspot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBlindspot.h; sourceTree = "<group>"; };
 		A94227FE1EDD5ED100730F00 /* ELBlindspot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBlindspot.m; sourceTree = "<group>"; };
+		A952AAFA2032C2CB00620EAB /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		A95861861EFCFADF00BCEE16 /* ELManagerUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerUsersViewController.h; sourceTree = "<group>"; };
 		A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerUsersViewController.m; sourceTree = "<group>"; };
 		A958618A1EFCFB0B00BCEE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IndividualProgress.storyboard; sourceTree = "<group>"; };
@@ -1162,6 +1165,7 @@
 				A91311F21E8642D30042C91F /* Utils */,
 				A977DE8D1FCFF53300C97394 /* ViewManagers */,
 				A91310F21E8642D20042C91F /* XIBs */,
+				A952AAFA2032C2CB00620EAB /* sample.json */,
 			);
 			path = EdwardLynx;
 			sourceTree = "<group>";
@@ -2065,6 +2069,7 @@
 				A98370571ED423C800C05594 /* DashboardHeaderCell.xib in Resources */,
 				A913122E1E8642D30042C91F /* TabPage.storyboard in Resources */,
 				A98371611ED42BD200C05594 /* QuestionTypeTextView.xib in Resources */,
+				A952AAFC2032C2CB00620EAB /* sample.json in Resources */,
 				A91312811E8642D30042C91F /* Lato-Bold.ttf in Resources */,
 				A983710C1ED42A3000C05594 /* DropdownView.xib in Resources */,
 				A98371261ED42AD600C05594 /* NotificationView.xib in Resources */,
@@ -2161,6 +2166,7 @@
 				A99359BE1F04FF92003EC659 /* DashboardHeaderCell.xib in Resources */,
 				A99359BF1F04FF92003EC659 /* TabPage.storyboard in Resources */,
 				A99359C01F04FF92003EC659 /* QuestionTypeTextView.xib in Resources */,
+				A952AAFB2032C2CB00620EAB /* sample.json in Resources */,
 				A99359C11F04FF92003EC659 /* Lato-Bold.ttf in Resources */,
 				A99359C21F04FF92003EC659 /* DropdownView.xib in Resources */,
 				A99359C31F04FF92003EC659 /* NotificationView.xib in Resources */,

@@ -14,6 +14,7 @@
 #import "ELDetailViewManager.h"
 #import "ELIndexOverCompetenciesData.h"
 #import "ELInstantFeedback.h"
+#import "ELInstantFeedbackRespondentsViewController.h"
 #import "ELInviteUsersViewController.h"
 #import "ELSurvey.h"
 
@@ -31,6 +32,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 @property (nonatomic) BOOL toDisplayData;
 @property (nonatomic, strong) NSString *typeColorKey;
+@property (nonatomic, strong) NSArray *items;
 @property (nonatomic, strong) NSArray<ELAnswerOption *> *freeTextItems;
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
@@ -98,6 +100,11 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         controller.inviteType = kELInviteUsersReports;
         controller.instantFeedback = self.selectedObject;
+    } else {
+        ELInstantFeedbackRespondentsViewController *controller = (ELInstantFeedbackRespondentsViewController *)[segue destinationViewController];
+        
+        controller.isFreeText = self.instantFeedback.question.answer.type == kELAnswerTypeText;
+        controller.items = self.items;
     }
 }
 
@@ -279,8 +286,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [mEntries addObject:mGroup];
             [mEntries addObject:mGroup2];
         } else {
-//            count = self.survey.invited;
-            
             for (int i = 0; i < answers.count; i++) {
                 ELAverageIndex *averageIndex = answers[i];
                 
@@ -492,6 +497,8 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [self.tableContainerView setHidden:NO];
             
             showTable = YES;
+        } else {
+            self.items = [mAnswers copy];
         }
     }
     

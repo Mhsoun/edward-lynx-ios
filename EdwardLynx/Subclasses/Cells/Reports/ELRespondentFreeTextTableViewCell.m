@@ -7,6 +7,7 @@
 //
 
 #import "ELRespondentFreeTextTableViewCell.h"
+#import "ELAnswerOption.h"
 
 @implementation ELRespondentFreeTextTableViewCell
 
@@ -22,10 +23,11 @@
 }
 
 - (void)configure:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *infoDict = (NSDictionary *)object;
+    ELAnswerOption *option = (ELAnswerOption *)object;
+    ELAnswerOptionRespondent *respondent = [option.submissions firstObject];
     
-    self.responseLabel.text = infoDict[@"response"];
-    self.respondentLabel.text = infoDict[@"respondent"];
+    self.responseLabel.text = (NSString *)option.value;
+    self.respondentLabel.text = respondent.name;
 }
 
 @end

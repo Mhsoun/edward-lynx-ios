@@ -19,3 +19,11 @@
 }
 
 @end
+
+@implementation ELAnswerOptionRespondent
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"objectId": @"id"}];
+}
+
+@end

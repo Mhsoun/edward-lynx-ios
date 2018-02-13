@@ -14,15 +14,6 @@
 static NSString * const kELCellIdentifier = @"ItemCell";
 static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
 
-#pragma mark - Class Implementation
-
-@interface ELInstantFeedbackRespondentsViewController ()
-
-@property (nonatomic) BOOL isFreeText;
-@property (nonatomic, strong) NSArray *items;
-
-@end
-
 @implementation ELInstantFeedbackRespondentsViewController
 
 #pragma mark - Lifecycle
@@ -31,7 +22,20 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.isFreeText = YES;  // TEMP
+    self.isFreeText = NO;
+    
+    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+    
+    for (ELAnswerOption *option in self.items) {
+        // Not include options without any respondents
+        if (option.submissions.count == 0) {
+            continue;
+        }
+        
+        [mAnswers addObject:option];
+    }
+    
+    self.items = [mAnswers copy];
     
     if (self.isFreeText) {
         [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
@@ -54,11 +58,12 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
 #pragma mark - Protocol Methods (UITableView)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.isFreeText ? 1 : 2;
+    return self.isFreeText ? 1 : self.items.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    
+    return self.isFreeText ? self.items.count : self.items[section].submissions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,17 +71,16 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
         ELRespondentFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELFreeTextCellIdentifier
                                                                                   forIndexPath:indexPath];
         
-        [cell configure:@{@"response": @"By the way, it is bad practice to have names like \"string\" in Objective-C. It invites a runtime naming collision. Avoid them even in once off practice apps. Naming collisions can be very hard to track down and you don't want to waste the time.",
-                          @"respondent": @"Test User"}
-            atIndexPath:indexPath];
+        [cell configure:self.items[indexPath.row] atIndexPath:indexPath];
         
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
+        ELAnswerOptionRespondent *respondent = self.items[indexPath.section].submissions[indexPath.row];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-        cell.textLabel.text = @"Test";
+        cell.textLabel.text = respondent.name;
         cell.textLabel.textColor = [UIColor whiteColor];
         
         return cell;
@@ -102,9 +106,10 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 25)];
+    ELAnswerOption *option = self.items[section];
     
     label.font = Font(@"Lato-Medium", 16.0f);
-    label.text = @"1";
+    label.text = option.shortDescription;
     label.textColor = ThemeColor(kELOrangeColor);
     label.lineBreakMode = NSLineBreakByClipping;
     label.numberOfLines = 1;
