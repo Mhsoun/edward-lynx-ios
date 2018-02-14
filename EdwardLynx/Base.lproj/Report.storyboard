@@ -370,6 +370,7 @@
                         <outlet property="averageChartView" destination="RgW-Ob-JQ7" id="GIe-2n-Jor"/>
                         <outlet property="averageContainerView" destination="gzC-S5-oZd" id="BcQ-xu-8ei"/>
                         <outlet property="averageHeightConstraint" destination="KmL-Id-uDx" id="Jts-UH-bAx"/>
+                        <outlet property="averageValuesLabel" destination="U4A-vo-7pf" id="ugc-ZL-pLW"/>
                         <outlet property="bgView" destination="TEd-JO-o1i" id="C2P-W6-m87"/>
                         <outlet property="dateLabel" destination="u88-CK-S5j" id="JRw-Y0-QbI"/>
                         <outlet property="detailLabel" destination="L61-gO-7n1" id="jwg-If-8hy"/>

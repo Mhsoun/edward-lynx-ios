@@ -22,34 +22,10 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.isFreeText = NO;
-    
-    NSDictionary *jsonDict = [ELUtils dictionaryFromJSONAtFile:@"sample"];
-    NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
-    
-    for (NSDictionary *dict in jsonDict[@"frequencies"]) {
-        [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:dict error:nil]];
-    }
-    
-    self.items = [mAnswers copy];
-        
     if (self.isFreeText) {
         [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
              forCellReuseIdentifier:kELFreeTextCellIdentifier];
     } else {
-//        NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
-//
-//        for (ELAnswerOption *option in self.items) {
-//            // Not include options without any respondents
-//            if (option.submissions.count == 0) {
-//                continue;
-//            }
-//
-//            [mAnswers addObject:option];
-//        }
-//
-//        self.items = [mAnswers copy];
-        
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kELCellIdentifier];
     }
     

@@ -104,7 +104,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         ELInstantFeedbackRespondentsViewController *controller = (ELInstantFeedbackRespondentsViewController *)[segue destinationViewController];
         
         controller.isFreeText = self.instantFeedback.question.answer.type == kELAnswerTypeText;
-        controller.items = self.items;
+        controller.items = controller.isFreeText ? self.freeTextItems : self.items;
     }
 }
 
@@ -149,6 +149,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
+        self.averageValuesLabel.text = self.instantFeedback.question.text;
         self.headerLabel.text = self.instantFeedback.question.text;
         self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
         self.dateLabel.text = self.instantFeedback.dateString;
