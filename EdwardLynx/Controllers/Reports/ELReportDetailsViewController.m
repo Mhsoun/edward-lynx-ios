@@ -16,12 +16,14 @@
 #import "ELInstantFeedback.h"
 #import "ELInstantFeedbackRespondentsViewController.h"
 #import "ELInviteUsersViewController.h"
+#import "ELReportFreeTextTableViewCell.h"
 #import "ELSurvey.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kELBarHeight = 40;
 static NSString * const kELCellIdentifier = @"ItemCell";
+static NSString * const kELFreeTextCellIdentifier = @"ReportFreeTextCell";
 static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
 static NSString * const kELRespondentsIdentifier = @"Respondents";
 static NSString * const kELShareSegueIdentifier = @"ShareReport";
@@ -53,6 +55,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     self.toDisplayData = YES;
     
     self.tableView.alwaysBounceVertical = NO;
+    self.tableView.estimatedRowHeight = 45;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELFreeTextCellIdentifier];
     
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
@@ -115,21 +121,16 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:kELCellIdentifier];
+    ELReportFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELFreeTextCellIdentifier
+                                                                          forIndexPath:indexPath];
     
-    cell.imageView.image = [FontAwesome imageWithIcon:fa_circle
-                                            iconColor:[UIColor whiteColor]
-                                             iconSize:5
-                                            imageSize:CGSizeMake(5, 5)];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.lineBreakMode = NSLineBreakByClipping;
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.text = (NSString *)[self.freeTextItems[indexPath.row] value];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.label.text = (NSString *)[self.freeTextItems[indexPath.row] value];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
