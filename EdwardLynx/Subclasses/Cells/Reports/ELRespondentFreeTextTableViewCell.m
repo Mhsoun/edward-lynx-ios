@@ -27,7 +27,7 @@
     ELAnswerOptionRespondent *respondent = [option.submissions firstObject];
     
     self.responseLabel.text = (NSString *)option.value;
-    self.respondentLabel.text = respondent.name;
+    self.respondentLabel.text = respondent ? respondent.name : @"Anonymous";
 }
 
 @end

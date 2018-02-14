@@ -239,6 +239,7 @@
 "kELReportTitleFeedback" = "Feedback Result";
 
 "kELReportRespondents" = "Respondents";
+"kELReportRespondentsNone" = "(none)";
 
 "kELReportTypeBlindspotOverHeader" = "Blindspot (Overestimated)";
 "kELReportTypeBlindspotOverDetail" = "Questions where others have rated you lower than you rated yourself. Shows areas where there are areas for improvement.";

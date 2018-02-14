@@ -240,6 +240,7 @@
 "kELReportTitleFeedback" = "反馈结果";
 
 "kELReportRespondents" = "受访者";
+"kELReportRespondentsNone" = "（没有）";
 
 "kELReportTypeBlindspotOverHeader" = "盲点（高估项）";
 "kELReportTypeBlindspotOverDetail" = "他人给您的打分低于您的自评，此项常为您需要改进的领域。";

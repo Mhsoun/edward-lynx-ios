@@ -240,6 +240,7 @@
 "kELReportTitleFeedback" = "Результат обратной связи";
 
 "kELReportRespondents" = "Респонденты";
+"kELReportRespondentsNone" = "(никто)";
 
 "kELReportTypeBlindspotOverHeader" = "\"Слепые пятна\" (Переоцененные качества)";
 "kELReportTypeBlindspotOverDetail" = "Вопросы, где вы получили оценки ниже ваших собственных. Ваши области для развития.";

@@ -24,23 +24,32 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
     
     self.isFreeText = NO;
     
+    NSDictionary *jsonDict = [ELUtils dictionaryFromJSONAtFile:@"sample"];
     NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
     
-    for (ELAnswerOption *option in self.items) {
-        // Not include options without any respondents
-        if (option.submissions.count == 0) {
-            continue;
-        }
-        
-        [mAnswers addObject:option];
+    for (NSDictionary *dict in jsonDict[@"frequencies"]) {
+        [mAnswers addObject:[[ELAnswerOption alloc] initWithDictionary:dict error:nil]];
     }
     
     self.items = [mAnswers copy];
-    
+        
     if (self.isFreeText) {
         [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
              forCellReuseIdentifier:kELFreeTextCellIdentifier];
     } else {
+//        NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+//
+//        for (ELAnswerOption *option in self.items) {
+//            // Not include options without any respondents
+//            if (option.submissions.count == 0) {
+//                continue;
+//            }
+//
+//            [mAnswers addObject:option];
+//        }
+//
+//        self.items = [mAnswers copy];
+        
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kELCellIdentifier];
     }
     
@@ -62,8 +71,9 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger count = self.items[section].submissions.count > 0 ? self.items[section].submissions.count : 1;
     
-    return self.isFreeText ? self.items.count : self.items[section].submissions.count;
+    return self.isFreeText ? self.items.count : count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -76,8 +86,17 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELCellIdentifier forIndexPath:indexPath];
-        ELAnswerOptionRespondent *respondent = self.items[indexPath.section].submissions[indexPath.row];
+        ELAnswerOptionRespondent *respondent = [[ELAnswerOptionRespondent alloc] initWithDictionary:@{@"id": @(-1),
+                                                                                                      @"name": NSLocalizedString(@"kELReportRespondentsNone", nil),
+                                                                                                      @"email": @"a@a.com"}
+                                                                                              error:nil];
         
+        if (self.items[indexPath.section].submissions.count > 0) {
+            respondent = self.items[indexPath.section].submissions[indexPath.row];
+        }
+        
+        cell.indentationLevel = 3;
+        cell.indentationWidth = 10;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
         cell.textLabel.text = respondent.name;
@@ -96,7 +115,7 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.isFreeText ? UITableViewAutomaticDimension : 45;
+    return self.isFreeText ? UITableViewAutomaticDimension : 50;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

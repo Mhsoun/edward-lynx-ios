@@ -239,6 +239,7 @@
 "kELReportTitleFeedback" = "Resultat av återkoppling";
 
 "kELReportRespondents" = "Respondenterna";
+"kELReportRespondentsNone" = "(ingen)";
 
 "kELReportTypeBlindspotOverHeader" = "Blindpunkt (överskattad)";
 "kELReportTypeBlindspotOverDetail" = "Frågor där andra har betygsatt dig lägre än du har betygsatt dig själv. Visar områden där det finns förbättringsområden.";
