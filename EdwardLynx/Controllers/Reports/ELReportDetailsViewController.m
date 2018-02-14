@@ -183,9 +183,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (void)onAPIResponseSuccess:(NSDictionary *)responseDict {
-    // Buttons
-    self.respondentsButton.hidden = !self.instantFeedback;
-    
     [self setupReportsWithData:responseDict];
 }
 
@@ -501,6 +498,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         } else {
             self.items = [mAnswers copy];
         }
+        
+        // Buttons
+        self.respondentsButton.hidden = [dataDict[@"totalAnswers"] intValue] == 0;
     }
     
     if (showTable) {
