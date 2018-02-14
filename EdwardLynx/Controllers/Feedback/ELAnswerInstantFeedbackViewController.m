@@ -172,9 +172,13 @@
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
                      completion:nil];
+    
+    NSDictionary *params = @{@"key": self.instantFeedback.key,
+                             @"anonymous": @(self.anonymousSwitch.isOn),
+                             @"answers": @[formDict]};
+    
     [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
-                                                                  formData:@{@"key": self.instantFeedback.key,
-                                                                             @"answers": @[formDict]}];
+                                                                  formData:params];
 }
 
 @end
