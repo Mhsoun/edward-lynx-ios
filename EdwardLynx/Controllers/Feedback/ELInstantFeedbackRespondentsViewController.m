@@ -26,6 +26,18 @@ static NSString * const kELFreeTextCellIdentifier = @"RespondentFreeTextCell";
         [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
              forCellReuseIdentifier:kELFreeTextCellIdentifier];
     } else {
+        NSMutableArray *mAnswers = [[NSMutableArray alloc] init];
+        
+        for (ELAnswerOption *option in self.items) {
+            if (!option.submissions || (option.submissions && option.submissions.count == 0)) {
+                continue;
+            }
+
+            [mAnswers addObject:option];
+        }
+        
+        self.items = [mAnswers copy];
+        
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kELCellIdentifier];
     }
     
