@@ -126,7 +126,14 @@
     height = toExpand ? (question.answer.options.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight : 135;
     
     // Content
-    self.senderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"kELFeedbackSenderLabel", nil), self.instantFeedback.senderName];
+    NSString *senderText = [NSString stringWithFormat:NSLocalizedString(@"kELFeedbackSenderLabel", nil), self.instantFeedback.senderName];
+    NSMutableAttributedString *mString = [[NSMutableAttributedString alloc] initWithString:senderText];
+    
+    [mString addAttribute:NSFontAttributeName
+                    value:[UIFont fontWithName:@"Lato-Bold" size:18]
+                    range:[senderText rangeOfString:self.instantFeedback.senderName]];
+    
+    self.senderLabel.attributedText = [mString copy];
     self.questionLabel.text = question.text;
     self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
     

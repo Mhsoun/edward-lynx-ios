@@ -29,6 +29,10 @@
             [propertyName isEqualToString:@"searchTitle"]);
 }
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"anonymous"];
+}
+
 - (void)setParticipantsWithNSArray:(NSArray<Optional,ELParticipant> *)participants {
     NSMutableArray *mParticipants = [[NSMutableArray alloc] init];
     
