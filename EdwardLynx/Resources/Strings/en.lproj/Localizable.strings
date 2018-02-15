@@ -165,10 +165,14 @@
 
 "kELFeedbackCellAuthor" = "Created by: %@";
 
+"kELFeedbackSenderLabel" = "This person requests for your feedback: %@";
+
 "kELFeedbackUnauthorizedLabel" = "You are not authorized to answer this instant feedback";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+
+"kELFeedbacksSendAsAnonymousLabel" = "Send feedback as anonymous";
 
 /* Fields */
 
@@ -233,6 +237,9 @@
 "kELReportNoData" = "No chart data available";
 "kELReportRestrictedData" = "Minimum of %@ people to view this chart";
 "kELReportTitleFeedback" = "Feedback Result";
+
+"kELReportRespondents" = "Respondents";
+"kELReportRespondentsNone" = "(none)";
 
 "kELReportTypeBlindspotOverHeader" = "Blindspot (Overestimated)";
 "kELReportTypeBlindspotOverDetail" = "Questions where others have rated you lower than you rated yourself. Shows areas where there are areas for improvement.";

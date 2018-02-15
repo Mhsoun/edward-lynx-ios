@@ -126,10 +126,22 @@
     height = toExpand ? (question.answer.options.count * kELCustomScaleItemHeight) + kELCustomScaleItemHeight : 135;
     
     // Content
+    NSString *senderText = [NSString stringWithFormat:NSLocalizedString(@"kELFeedbackSenderLabel", nil), self.instantFeedback.senderName];
+    NSMutableAttributedString *mString = [[NSMutableAttributedString alloc] initWithString:senderText];
+    
+    [mString addAttribute:NSFontAttributeName
+                    value:[UIFont fontWithName:@"Lato-Bold" size:18]
+                    range:[senderText rangeOfString:self.instantFeedback.senderName]];
+    
+    self.senderLabel.attributedText = [mString copy];
     self.questionLabel.text = question.text;
     self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
     
     // UI
+    self.anonymousSwitch.hidden = NO;
+    self.sendAnonymousLabel.hidden = NO;
+    self.sendAnonymousLabel.text = NSLocalizedString(@"kELFeedbacksSendAsAnonymousLabel", nil);
+    
     if (!questionView) {
         return;
     }
@@ -167,9 +179,13 @@
     [self presentViewController:[ELUtils loadingAlert]
                        animated:YES
                      completion:nil];
+    
+    NSDictionary *params = @{@"key": self.instantFeedback.key,
+                             @"anonymous": @(self.anonymousSwitch.isOn),
+                             @"answers": @[formDict]};
+    
     [self.feedbackViewManager processInstantFeedbackAnswerSubmissionWithId:self.instantFeedback.objectId
-                                                                  formData:@{@"key": self.instantFeedback.key,
-                                                                             @"answers": @[formDict]}];
+                                                                  formData:params];
 }
 
 @end

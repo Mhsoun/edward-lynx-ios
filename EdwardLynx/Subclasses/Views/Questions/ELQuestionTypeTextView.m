@@ -25,6 +25,7 @@
     
     self.textView.delegate = self;
     self.textView.placeholder = NSLocalizedString(@"kELTextViewPlaceholderLabel", nil);
+    self.textView.tintColor = ThemeColor(kELOrangeColor);
 }
 
 #pragma mark - Protocol Methods (UITextView)

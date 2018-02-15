@@ -149,6 +149,13 @@
  */
 + (void)composeMailForController:(__kindof UIViewController *)controller details:(NSDictionary *)detailsDict;
 /**
+ Reads a JSON file.
+ 
+ @param filename Name of the file (excluding its extension).
+ @return A dictionary representation of the JSON file.
+ */
++ (NSDictionary *)dictionaryFromJSONAtFile:(NSString *)filename;
+/**
  Presents a ELPopupViewController instance.
  
  @param controller Where the popup controller is presented.

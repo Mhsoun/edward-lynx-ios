@@ -263,6 +263,17 @@
                            completion:nil];
 }
 
++ (NSDictionary *)dictionaryFromJSONAtFile:(NSString *)filename {
+    NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
+    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:path
+                                                           encoding:NSUTF8StringEncoding
+                                                              error:nil];
+    
+    return [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
+                                           options:NSJSONReadingAllowFragments
+                                             error:nil];
+}
+
 + (void)displayPopupForViewController:(__kindof UIViewController *)controller
                                  type:(kELPopupType)type
                               details:(NSDictionary *)detailsDict {

@@ -14,14 +14,18 @@
 #import "ELDetailViewManager.h"
 #import "ELIndexOverCompetenciesData.h"
 #import "ELInstantFeedback.h"
+#import "ELInstantFeedbackRespondentsViewController.h"
 #import "ELInviteUsersViewController.h"
+#import "ELReportFreeTextTableViewCell.h"
 #import "ELSurvey.h"
 
 #pragma mark - Private Constants
 
 static CGFloat const kELBarHeight = 40;
 static NSString * const kELCellIdentifier = @"ItemCell";
+static NSString * const kELFreeTextCellIdentifier = @"ReportFreeTextCell";
 static NSString * const kELAddMoreSegueIdentifier = @"AddMore";
+static NSString * const kELRespondentsIdentifier = @"Respondents";
 static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 #pragma mark - Class Extension
@@ -30,6 +34,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 
 @property (nonatomic) BOOL toDisplayData;
 @property (nonatomic, strong) NSString *typeColorKey;
+@property (nonatomic, strong) NSArray *items;
 @property (nonatomic, strong) NSArray<ELAnswerOption *> *freeTextItems;
 @property (nonatomic, strong) ELDetailViewManager *viewManager;
 @property (nonatomic, strong) ELInstantFeedback *instantFeedback;
@@ -50,6 +55,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     self.toDisplayData = YES;
     
     self.tableView.alwaysBounceVertical = NO;
+    self.tableView.estimatedRowHeight = 45;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:kELFreeTextCellIdentifier bundle:nil]
+         forCellReuseIdentifier:kELFreeTextCellIdentifier];
     
     self.viewManager = [[ELDetailViewManager alloc] initWithDetailObject:self.selectedObject];
     self.viewManager.delegate = self;
@@ -97,6 +106,11 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         controller.inviteType = kELInviteUsersReports;
         controller.instantFeedback = self.selectedObject;
+    } else {
+        ELInstantFeedbackRespondentsViewController *controller = (ELInstantFeedbackRespondentsViewController *)[segue destinationViewController];
+        
+        controller.isFreeText = self.instantFeedback.question.answer.type == kELAnswerTypeText;
+        controller.items = controller.isFreeText ? self.freeTextItems : self.items;
     }
 }
 
@@ -107,21 +121,16 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:kELCellIdentifier];
+    ELReportFreeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kELFreeTextCellIdentifier
+                                                                          forIndexPath:indexPath];
     
-    cell.imageView.image = [FontAwesome imageWithIcon:fa_circle
-                                            iconColor:[UIColor whiteColor]
-                                             iconSize:5
-                                            imageSize:CGSizeMake(5, 5)];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = Font(@"Lato-Regular", 14.0f);
-    cell.textLabel.lineBreakMode = NSLineBreakByClipping;
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.text = (NSString *)[self.freeTextItems[indexPath.row] value];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.label.text = (NSString *)[self.freeTextItems[indexPath.row] value];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - Protocol Methods (ELBaseViewController)
@@ -141,6 +150,7 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
         
         self.title = [NSLocalizedString(@"kELReportTitleFeedback", nil) uppercaseString];
         self.typeColorKey = kELFeedbackColor;
+        self.averageValuesLabel.text = self.instantFeedback.question.text;
         self.headerLabel.text = self.instantFeedback.question.text;
         self.anonymousLabel.text = self.instantFeedback.anonymous ? NSLocalizedString(@"kELFeedbackAnonymousLabel", nil) : @"";
         self.dateLabel.text = self.instantFeedback.dateString;
@@ -156,7 +166,9 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     
     self.detailLabel.hidden = self.instantFeedback ? YES : NO;
     
-    // Buttons
+    [self.respondentsButton setTitle:NSLocalizedString(@"kELReportRespondents", nil)
+                            forState:UIControlStateNormal];
+    
     [self.moreBarButton setEnabled:!isSurvey];
     [self.moreBarButton setImage:!isSurvey ? image : nil];
     [self.moreBarButton setTintColor:[UIColor whiteColor]];
@@ -273,8 +285,6 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [mEntries addObject:mGroup];
             [mEntries addObject:mGroup2];
         } else {
-//            count = self.survey.invited;
-            
             for (int i = 0; i < answers.count; i++) {
                 ELAverageIndex *averageIndex = answers[i];
                 
@@ -486,7 +496,12 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
             [self.tableContainerView setHidden:NO];
             
             showTable = YES;
+        } else {
+            self.items = [mAnswers copy];
         }
+        
+        // Buttons
+        self.respondentsButton.hidden = [dataDict[@"totalAnswers"] intValue] == 0;
     }
     
     if (showTable) {
@@ -548,6 +563,10 @@ static NSString * const kELShareSegueIdentifier = @"ShareReport";
     [self presentViewController:controller
                        animated:YES
                      completion:nil];
+}
+
+- (IBAction)onRespondentsButtonClick:(id)sender {
+    [self performSegueWithIdentifier:kELRespondentsIdentifier sender:self];
 }
 
 @end

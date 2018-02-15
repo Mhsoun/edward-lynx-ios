@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1C5B60C226D54E64E084CE8A /* libPods-BasePods-EdwardLynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B3733927049B4F696323B /* libPods-BasePods-EdwardLynx.a */; };
+		A9065BD920342997007A6964 /* ReportFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9065BD720342997007A6964 /* ReportFreeTextCell.xib */; };
+		A9065BDA20342997007A6964 /* ReportFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9065BD720342997007A6964 /* ReportFreeTextCell.xib */; };
+		A9065BDD203429BD007A6964 /* ELReportFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9065BDC203429BD007A6964 /* ELReportFreeTextTableViewCell.m */; };
+		A9065BDE203429BD007A6964 /* ELReportFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9065BDC203429BD007A6964 /* ELReportFreeTextTableViewCell.m */; };
 		A90DCB4D1F0DE817004F724A /* ELManagerReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */; };
 		A90DCB501F0DE879004F724A /* TeamReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */; };
 		A90DCB531F0DEE15004F724A /* ManagerSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90DCB511F0DEE15004F724A /* ManagerSurveyCell.xib */; };
@@ -119,6 +123,8 @@
 		A91312A51E8642D30042C91F /* ELUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A91311FD1E8642D30042C91F /* ELUtils.m */; };
 		A91312B31E8644380042C91F /* ELSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B21E8644380042C91F /* ELSectionView.m */; };
 		A91312B81E8659BD0042C91F /* ELDashboardReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */; };
+		A915D0B8202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */; };
+		A918640B202D9C3200B0F1CB /* ELInstantFeedbackRespondentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */; };
 		A923C8BC1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A923C8BB1ECD9D6400FBAB05 /* ELSurveyInfoViewController.m */; };
 		A92B26791EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B26781EEFA6B5007858B6 /* JSONValueTransformer+CustomNSDate.m */; };
 		A92B267C1EEFB1F1007858B6 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A92B267B1EEFB1F1007858B6 /* NSDate+Utils.m */; };
@@ -126,6 +132,8 @@
 		A9308BFA1DED74B6007B4F9F /* EdwardLynxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9308BF91DED74B6007B4F9F /* EdwardLynxUITests.m */; };
 		A94227FC1EDD4CE200730F00 /* ELDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FB1EDD4CE200730F00 /* ELDataPoint.m */; };
 		A94227FF1EDD5ED100730F00 /* ELBlindspot.m in Sources */ = {isa = PBXBuildFile; fileRef = A94227FE1EDD5ED100730F00 /* ELBlindspot.m */; };
+		A952AAFB2032C2CB00620EAB /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A952AAFA2032C2CB00620EAB /* sample.json */; };
+		A952AAFC2032C2CB00620EAB /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A952AAFA2032C2CB00620EAB /* sample.json */; };
 		A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */; };
 		A958618B1EFCFB0B00BCEE16 /* IndividualProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95861891EFCFB0B00BCEE16 /* IndividualProgress.storyboard */; };
 		A95CECB51EF8C0560028BDD4 /* ELTeamTabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CECB41EF8C0560028BDD4 /* ELTeamTabPageViewController.m */; };
@@ -407,6 +415,10 @@
 		A9D4C15F1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D4C15E1E891D5F0055FC40 /* ELSurveyCategoryPageViewController.m */; };
 		A9DB71041EDEC897006BA0AE /* ELResponseRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71031EDEC897006BA0AE /* ELResponseRate.m */; };
 		A9DB71121EDEDC11006BA0AE /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */; };
+		A9E05683203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
+		A9E05684203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */; };
+		A9E056872031881800A978DD /* RespondentFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E056852031881800A978DD /* RespondentFreeTextCell.xib */; };
+		A9E056882031881800A978DD /* RespondentFreeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E056852031881800A978DD /* RespondentFreeTextCell.xib */; };
 		A9F00FA61E4AE6E500411BA9 /* ELInstantFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */; };
 		A9F00FA81E4AF1A500411BA9 /* ELDevelopmentPlanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */; };
 		A9F00FAC1E4B04FC00411BA9 /* ELSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */; };
@@ -471,6 +483,9 @@
 		2F1A9362EECDC5F830451766 /* Pods-BasePods-EdwardLynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.release.xcconfig"; sourceTree = "<group>"; };
 		720811F952ED9F446FC0A57D /* Pods-BasePods-EdwardLynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynx/Pods-BasePods-EdwardLynx.debug.xcconfig"; sourceTree = "<group>"; };
 		820937B7E0183218BBD34E71 /* Pods-BasePods-EdwardLynxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-EdwardLynxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-EdwardLynxTests/Pods-BasePods-EdwardLynxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9065BD820342997007A6964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReportFreeTextCell.xib; sourceTree = "<group>"; };
+		A9065BDB203429BD007A6964 /* ELReportFreeTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELReportFreeTextTableViewCell.h; sourceTree = "<group>"; };
+		A9065BDC203429BD007A6964 /* ELReportFreeTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELReportFreeTextTableViewCell.m; sourceTree = "<group>"; };
 		A90DCB4B1F0DE817004F724A /* ELManagerReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerReportsViewController.h; sourceTree = "<group>"; };
 		A90DCB4C1F0DE817004F724A /* ELManagerReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerReportsViewController.m; sourceTree = "<group>"; };
 		A90DCB4F1F0DE879004F724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamReports.storyboard; sourceTree = "<group>"; };
@@ -704,6 +719,8 @@
 		A91312B21E8644380042C91F /* ELSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSectionView.m; sourceTree = "<group>"; };
 		A91312B61E8659BD0042C91F /* ELDashboardReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDashboardReminderTableViewCell.h; sourceTree = "<group>"; };
 		A91312B71E8659BD0042C91F /* ELDashboardReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDashboardReminderTableViewCell.m; sourceTree = "<group>"; };
+		A915D0B6202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELInstantFeedbackRespondentsViewController.h; sourceTree = "<group>"; };
+		A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackRespondentsViewController.m; sourceTree = "<group>"; };
 		A921A0991F6669FE00B76871 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A921A09B1F666A9400B76871 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DevelopmentPlan.strings; sourceTree = "<group>"; };
 		A921A09D1F666AB700B76871 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DevelopmentPlan.strings"; sourceTree = "<group>"; };
@@ -731,6 +748,7 @@
 		A94227FB1EDD4CE200730F00 /* ELDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDataPoint.m; sourceTree = "<group>"; };
 		A94227FD1EDD5ED100730F00 /* ELBlindspot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELBlindspot.h; sourceTree = "<group>"; };
 		A94227FE1EDD5ED100730F00 /* ELBlindspot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELBlindspot.m; sourceTree = "<group>"; };
+		A952AAFA2032C2CB00620EAB /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		A95861861EFCFADF00BCEE16 /* ELManagerUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELManagerUsersViewController.h; sourceTree = "<group>"; };
 		A95861871EFCFADF00BCEE16 /* ELManagerUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELManagerUsersViewController.m; sourceTree = "<group>"; };
 		A958618A1EFCFB0B00BCEE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IndividualProgress.storyboard; sourceTree = "<group>"; };
@@ -1071,6 +1089,9 @@
 		A9DB71031EDEC897006BA0AE /* ELResponseRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELResponseRate.m; sourceTree = "<group>"; };
 		A9DB71101EDEDC11006BA0AE /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		A9DB71111EDEDC11006BA0AE /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		A9E05681203142B000A978DD /* ELRespondentFreeTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELRespondentFreeTextTableViewCell.h; sourceTree = "<group>"; };
+		A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRespondentFreeTextTableViewCell.m; sourceTree = "<group>"; };
+		A9E056862031881800A978DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RespondentFreeTextCell.xib; sourceTree = "<group>"; };
 		A9F00FA51E4AE6E500411BA9 /* ELInstantFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELInstantFeedbackTests.m; sourceTree = "<group>"; };
 		A9F00FA71E4AF1A500411BA9 /* ELDevelopmentPlanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDevelopmentPlanTests.m; sourceTree = "<group>"; };
 		A9F00FAB1E4B04FC00411BA9 /* ELSurveyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSurveyTests.m; sourceTree = "<group>"; };
@@ -1151,6 +1172,7 @@
 				A91311F21E8642D30042C91F /* Utils */,
 				A977DE8D1FCFF53300C97394 /* ViewManagers */,
 				A91310F21E8642D20042C91F /* XIBs */,
+				A952AAFA2032C2CB00620EAB /* sample.json */,
 			);
 			path = EdwardLynx;
 			sourceTree = "<group>";
@@ -1204,6 +1226,8 @@
 				A98370C81ED426CB00C05594 /* QuestionCell.xib */,
 				A98370D51ED427B900C05594 /* ReportCell.xib */,
 				A99B511D1ED6CEBF000690FD /* ReportChartCell.xib */,
+				A9065BD720342997007A6964 /* ReportFreeTextCell.xib */,
+				A9E056852031881800A978DD /* RespondentFreeTextCell.xib */,
 				A98370E21ED4288200C05594 /* SurveyCell.xib */,
 				A9A25BF21EFB848300A1972D /* TeamMemberGoalCell.xib */,
 			);
@@ -1278,6 +1302,8 @@
 				A913111D1E8642D20042C91F /* ELAnswerInstantFeedbackViewController.m */,
 				A913111E1E8642D20042C91F /* ELCreateInstantFeedbackViewController.h */,
 				A913111F1E8642D20042C91F /* ELCreateInstantFeedbackViewController.m */,
+				A915D0B6202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.h */,
+				A915D0B7202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m */,
 				A91311201E8642D20042C91F /* ELInstantFeedbacksViewController.h */,
 				A91311211E8642D20042C91F /* ELInstantFeedbacksViewController.m */,
 				A91311221E8642D20042C91F /* ELInviteUsersViewController.h */,
@@ -1828,6 +1854,10 @@
 			children = (
 				A99B51141ED6B990000690FD /* ELReportChartTableViewCell.h */,
 				A99B51151ED6B990000690FD /* ELReportChartTableViewCell.m */,
+				A9065BDB203429BD007A6964 /* ELReportFreeTextTableViewCell.h */,
+				A9065BDC203429BD007A6964 /* ELReportFreeTextTableViewCell.m */,
+				A9E05681203142B000A978DD /* ELRespondentFreeTextTableViewCell.h */,
+				A9E05682203142B000A978DD /* ELRespondentFreeTextTableViewCell.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -2005,6 +2035,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A983714D1ED42B8100C05594 /* QuestionTypeRadioGroupView.xib in Resources */,
+				A9E056882031881800A978DD /* RespondentFreeTextCell.xib in Resources */,
 				A91312851E8642D30042C91F /* Lato-Medium.ttf in Resources */,
 				A913122D1E8642D30042C91F /* Survey.storyboard in Resources */,
 				A91312271E8642D30042C91F /* LaunchScreen.storyboard in Resources */,
@@ -2014,6 +2045,7 @@
 				A983704A1ED423B600C05594 /* AddOptionCell.xib in Resources */,
 				A98370921ED425EE00C05594 /* GoalCell.xib in Resources */,
 				A91312821E8642D30042C91F /* Lato-Heavy.ttf in Resources */,
+				A9065BDA20342997007A6964 /* ReportFreeTextCell.xib in Resources */,
 				A91312231E8642D30042C91F /* Dashboard.storyboard in Resources */,
 				A91312641E8642D30042C91F /* Invite.strings in Resources */,
 				A91312251E8642D30042C91F /* InstantFeedback.storyboard in Resources */,
@@ -2048,6 +2080,7 @@
 				A98370571ED423C800C05594 /* DashboardHeaderCell.xib in Resources */,
 				A913122E1E8642D30042C91F /* TabPage.storyboard in Resources */,
 				A98371611ED42BD200C05594 /* QuestionTypeTextView.xib in Resources */,
+				A952AAFC2032C2CB00620EAB /* sample.json in Resources */,
 				A91312811E8642D30042C91F /* Lato-Bold.ttf in Resources */,
 				A983710C1ED42A3000C05594 /* DropdownView.xib in Resources */,
 				A98371261ED42AD600C05594 /* NotificationView.xib in Resources */,
@@ -2100,6 +2133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99359971F04FF92003EC659 /* QuestionTypeRadioGroupView.xib in Resources */,
+				A9E056872031881800A978DD /* RespondentFreeTextCell.xib in Resources */,
 				A99359981F04FF92003EC659 /* Lato-Medium.ttf in Resources */,
 				A99359991F04FF92003EC659 /* Survey.storyboard in Resources */,
 				A993599A1F04FF92003EC659 /* LaunchScreen.storyboard in Resources */,
@@ -2109,6 +2143,7 @@
 				A993599E1F04FF92003EC659 /* AddOptionCell.xib in Resources */,
 				A993599F1F04FF92003EC659 /* GoalCell.xib in Resources */,
 				A99359A01F04FF92003EC659 /* Lato-Heavy.ttf in Resources */,
+				A9065BD920342997007A6964 /* ReportFreeTextCell.xib in Resources */,
 				A99359A11F04FF92003EC659 /* Dashboard.storyboard in Resources */,
 				A99359A21F04FF92003EC659 /* Invite.strings in Resources */,
 				A99359A31F04FF92003EC659 /* InstantFeedback.storyboard in Resources */,
@@ -2143,6 +2178,7 @@
 				A99359BE1F04FF92003EC659 /* DashboardHeaderCell.xib in Resources */,
 				A99359BF1F04FF92003EC659 /* TabPage.storyboard in Resources */,
 				A99359C01F04FF92003EC659 /* QuestionTypeTextView.xib in Resources */,
+				A952AAFB2032C2CB00620EAB /* sample.json in Resources */,
 				A99359C11F04FF92003EC659 /* Lato-Bold.ttf in Resources */,
 				A99359C21F04FF92003EC659 /* DropdownView.xib in Resources */,
 				A99359C31F04FF92003EC659 /* NotificationView.xib in Resources */,
@@ -2389,6 +2425,7 @@
 				A91312431E8642D30042C91F /* ELConfigurationViewController.m in Sources */,
 				A913121D1E8642D30042C91F /* ELUsersAPIClient.m in Sources */,
 				A91312951E8642D30042C91F /* ELSearchBar.m in Sources */,
+				A9065BDE203429BD007A6964 /* ELReportFreeTextTableViewCell.m in Sources */,
 				A913129F1E8642D30042C91F /* ELQuestionTypeTextView.m in Sources */,
 				A9955E451F0644C0008FE4C2 /* ELTeamDevelopmentPlan.m in Sources */,
 				A913124F1E8642D30042C91F /* ELBasePageChildViewController.m in Sources */,
@@ -2431,6 +2468,7 @@
 				A913129B1E8642D30042C91F /* ELBaseQuestionTypeView.m in Sources */,
 				A91312971E8642D30042C91F /* ELShortcutView.m in Sources */,
 				A91312961E8642D30042C91F /* ELActionView.m in Sources */,
+				A918640B202D9C3200B0F1CB /* ELInstantFeedbackRespondentsViewController.m in Sources */,
 				A91312511E8642D30042C91F /* ELBaseViewController.m in Sources */,
 				A913128E1E8642D30042C91F /* ELListTableViewCell.m in Sources */,
 				A95861881EFCFADF00BCEE16 /* ELManagerUsersViewController.m in Sources */,
@@ -2461,6 +2499,7 @@
 				A913129A1E8642D30042C91F /* ELNotificationView.m in Sources */,
 				A97C29881E8B8CC300EBC5CE /* ELNotification.m in Sources */,
 				A960BB861ED55E2B00242346 /* ELSurveyRateOthersViewController.m in Sources */,
+				A9E05684203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */,
 				A9BDC7A01EF917D200D4E5E2 /* ELManagerTeamViewController.m in Sources */,
 				A91312501E8642D30042C91F /* ELBasePopupViewController.m in Sources */,
 				A961251A1EDFBA11004F2119 /* ELQuestionRate.m in Sources */,
@@ -2542,6 +2581,7 @@
 				A993593B1F04FF92003EC659 /* ELSearcheableModel.m in Sources */,
 				A993593C1F04FF92003EC659 /* ELAnswerOption.m in Sources */,
 				A993593D1F04FF92003EC659 /* ELConfigurationViewController.m in Sources */,
+				A9065BDD203429BD007A6964 /* ELReportFreeTextTableViewCell.m in Sources */,
 				A993593E1F04FF92003EC659 /* ELUsersAPIClient.m in Sources */,
 				A993593F1F04FF92003EC659 /* ELSearchBar.m in Sources */,
 				A99359401F04FF92003EC659 /* ELQuestionTypeTextView.m in Sources */,
@@ -2584,6 +2624,7 @@
 				A99359641F04FF92003EC659 /* ELBaseQuestionTypeView.m in Sources */,
 				A99359651F04FF92003EC659 /* ELShortcutView.m in Sources */,
 				A99359661F04FF92003EC659 /* ELActionView.m in Sources */,
+				A915D0B8202D947800B66E7F /* ELInstantFeedbackRespondentsViewController.m in Sources */,
 				A99359671F04FF92003EC659 /* ELBaseViewController.m in Sources */,
 				A99359681F04FF92003EC659 /* ELListTableViewCell.m in Sources */,
 				A99359691F04FF92003EC659 /* ELManagerUsersViewController.m in Sources */,
@@ -2614,6 +2655,7 @@
 				A99359831F04FF92003EC659 /* ELNotificationView.m in Sources */,
 				A99359841F04FF92003EC659 /* ELNotification.m in Sources */,
 				A99359851F04FF92003EC659 /* ELSurveyRateOthersViewController.m in Sources */,
+				A9E05683203142B000A978DD /* ELRespondentFreeTextTableViewCell.m in Sources */,
 				A99359871F04FF92003EC659 /* ELManagerTeamViewController.m in Sources */,
 				A99359881F04FF92003EC659 /* ELBasePopupViewController.m in Sources */,
 				A99359891F04FF92003EC659 /* ELQuestionRate.m in Sources */,
@@ -2645,6 +2687,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A9065BD720342997007A6964 /* ReportFreeTextCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9065BD820342997007A6964 /* Base */,
+			);
+			name = ReportFreeTextCell.xib;
+			sourceTree = "<group>";
+		};
 		A90DCB4E1F0DE879004F724A /* TeamReports.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3423,6 +3473,14 @@
 				A937862C1F1238E500C8C22A /* zh-Hans */,
 			);
 			name = AddGoalActionCell.xib;
+			sourceTree = "<group>";
+		};
+		A9E056852031881800A978DD /* RespondentFreeTextCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E056862031881800A978DD /* Base */,
+			);
+			name = RespondentFreeTextCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
