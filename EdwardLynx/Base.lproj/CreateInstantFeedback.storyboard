@@ -154,7 +154,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wDv-e7-VtE">
-                                                                        <rect key="frame" x="295" y="0.5" width="52" height="30"/>
+                                                                        <rect key="frame" x="295" y="0.0" width="52" height="30"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50" id="HGF-Pz-ghe"/>
@@ -179,6 +179,11 @@
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <variation key="default">
+                                                            <mask key="subviews">
+                                                                <exclude reference="rlp-43-SC5"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
