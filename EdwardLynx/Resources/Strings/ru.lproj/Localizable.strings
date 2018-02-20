@@ -166,10 +166,14 @@
 
 "kELFeedbackCellAuthor" = "Создано: %@";
 
+"kELFeedbackSenderLabel" = "Этот человек запрашивает ваши отзывы: %@";
+
 "kELFeedbackUnauthorizedLabel" = "У вас нет доступа к данной обратной связи";
 
 "kELFeedbacksRetrievalError" = "Failed to retrieve Instant Feedbacks";
 "kELFeedbacksRetrievalEmpty" = "No Instant Feedbacks";
+
+"kELFeedbacksSendAsAnonymousLabel" = "Отправить отзыв как анонимный";
 
 /* Fields */
 
@@ -234,6 +238,9 @@
 "kELReportNoData" = "График данных отсутствует";
 "kELReportRestrictedData" = "Чтобы посмотреть график необходимо не менее %@-х человек";
 "kELReportTitleFeedback" = "Результат обратной связи";
+
+"kELReportRespondents" = "Респонденты";
+"kELReportRespondentsNone" = "(никто)";
 
 "kELReportTypeBlindspotOverHeader" = "\"Слепые пятна\" (Переоцененные качества)";
 "kELReportTypeBlindspotOverDetail" = "Вопросы, где вы получили оценки ниже ваших собственных. Ваши области для развития.";

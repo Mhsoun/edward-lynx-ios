@@ -62,8 +62,6 @@ static NSString * const kELReminderCellIdentifier = @"DashboardReminderCell";
 #if !(TARGET_OS_SIMULATOR)
     [self triggerRegisterForNotifications];
 #endif
-    
-    [self reloadPage];
 }
 
 - (void)didReceiveMemoryWarning {

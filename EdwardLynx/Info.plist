@@ -5,9 +5,11 @@
 	<key>APIClient</key>
 	<dict>
 		<key>ID</key>
-		<string>6</string>
+		<string>12</string>
 		<key>Secret</key>
-		<string>C2o9x70fFHjq99M0OvXAfXdZTJTSjbuiRlfbNoEx</string>
+		<string>5fdCA47OE30ZCHTDceENXSumjhZiVzB6cbDKMiXv</string>
+		<key>URL</key>
+		<string>https://stage.lynxtool.edwardlynx.com</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -22,7 +24,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.17</string>
+	<string>1.0.18</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -37,7 +39,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>18</string>
+	<string>19</string>
 	<key>FIRMessagingAutoRegisterEnabledflag</key>
 	<false/>
 	<key>Fabric</key>

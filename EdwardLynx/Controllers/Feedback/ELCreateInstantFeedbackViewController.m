@@ -161,6 +161,7 @@ static NSString * const kELSegueIdentifier = @"InviteFeedbackParticipants";
 
 - (void)layoutPage {
     self.navigationItem.title = [self.navigationItem.title uppercaseString];
+    self.questionTextView.tintColor = ThemeColor(kELOrangeColor);
     
     // Button
     [self.inviteButton setTitle:NSLocalizedString(@"kELInviteParticipantsButton", nil)
